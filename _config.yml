@@ -1,9 +1,9 @@
 # Site settings
-title:
+title: SwapAVote - Organizing Apathy
 email:
-description: > # this means to ignore newlines until "baseurl:"
+description: I won't vote if you won't vote.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+url: "SwapAVote.com" # the base hostname & protocol for your site
 
 twitter_username:
 github_username:
