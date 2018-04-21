@@ -1,5 +1,5 @@
 # Site settings
-language: en
+locale: en
 title: Creative - Start Bootstrap Theme
 email:
 description: > # this means to ignore newlines until "baseurl:"
