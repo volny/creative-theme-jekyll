@@ -1,15 +1,15 @@
 - name: Twitter
   icon: fa fa-twitter fa-3x
-  url: https://twitter.com/
-  text: lsolesen
+  url: https://twitter.com/ # http://twitter.com/username
+  text: ""
   offset: 2
 - name: Email
   icon: fa fa-envelope-o fa-3x
-  url: "mailto:"
-  text: email-address
+  url: "" # mailto:mail@address.com
+  text: ""
   offset: 1
 - name: Github
   icon: fa fa-github fa-3x
   url: https://github.com/lsolesen/creative-theme-jekyll
-  text: Github
+  text: creative-theme
   offset: 1
