@@ -9,8 +9,13 @@
     </div>
     <div class="container">
         <div class="row">
+            {% if site.data.services == 2 %}
+                {% assign cols = 6 %}
+            {% else %}
+                {% assign cols = 3 %}
+            {% endif %}
             {% for service in site.data.services %}
-            <div class="col-lg-3 col-md-6 text-center">
+            <div class="col-lg-{{ cols }} col-md-6 text-center">
                 <div class="service-box">
                     <i class="{{ service.icon }} wow bounceIn text-primary" data-wow-delay="{{ service.delay | default .0s }}"></i>
                     <h3><a href="{{ service.url | relative_url }}">{{ service.name }}</a></h3>
