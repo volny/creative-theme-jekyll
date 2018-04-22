@@ -3,7 +3,7 @@
         <div class="call-to-action">
             <h2>{{ include.heading | default: page.aside.heading }}</h2>
             <p>{{ include.text | default: page.aside.text }}</p>
-            <a href="{{ include.url | default: page.aside.url }}" class="btn btn-default btn-xl wow tada">{{ include.cta | default: page.aside.cta }}</a>
+            <a href="{{ include.cta_url | default: page.aside.cta_url }}" class="btn btn-default btn-xl wow tada">{{ include.cta_text | default: page.aside.cta_text }}</a>
         </div>
     </div>
 </aside>
