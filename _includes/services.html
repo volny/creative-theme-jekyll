@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             {% assign services = include.services | default: page.services %}
-            {% if site.data.services.size == 2 %}
+            {% if services.size == 2 %}
                 {% assign cols = 6 %}
             {% else %}
                 {% assign cols = 3 %}
