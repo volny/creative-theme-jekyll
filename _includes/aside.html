@@ -1,8 +1,9 @@
-  <aside class="bg-dark">
-      <div class="container text-center">
-          <div class="call-to-action">
-              <h2>Free Download at Start Bootstrap!</h2>
-              <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
-          </div>
-      </div>
-  </aside>
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>{{ include.heading | default: page.aside.heading }}</h2>
+            <p>{{ include.text | default: page.aside.text }}</p>
+            <a href="{{ include.url | default: page.aside.url }}" class="btn btn-default btn-xl wow tada">{{ include.cta | default: page.aside.cta }}</a>
+        </div>
+    </div>
+</aside>
