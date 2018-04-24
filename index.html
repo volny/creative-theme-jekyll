@@ -1,3 +1,69 @@
 ---
-layout: front
+layout: default
+portfolio:
+    - name: Project Name
+      picture: img/portfolio/1.jpg
+      category: Category
+      url: #
+    - name: Project Name
+      picture: img/portfolio/2.jpg
+      category: Category
+      url: #
+    - name: Project Name
+      picture: img/portfolio/3.jpg
+      category: Category
+      url: #
+    - name: Project Name
+      picture: img/portfolio/4.jpg
+      category: Category
+      url: #
+    - name: Project Name
+      picture: img/portfolio/5.jpg
+      category: Category
+      url: #
+    - name: Project Name
+      picture: img/portfolio/6.jpg
+      category: Category
+      url: #
+services_heading: "At your service"
+services:
+  - name: "Sturdy Templates"
+    icon: fa fa-4x fa-diamond
+    description: "Our templates are updated regularly so they don't break."
+    delay: .0s
+  - name: "Ready to Ship"
+    icon: fa fa-4x fa-paper-plane
+    description: "You can use this theme as is, or you can make changes!"
+    delay: .1s
+  - name: "Up to Date"
+    icon: fa fa-4x fa-newspaper-o
+    description: "We update dependencies to keep things fresh."
+    delay: .2s
+  - name: "Made with Love"
+    icon: fa fa-4x fa-heart
+    description: "You have to make your websites with love these days!"
+    delay: .3s
+aside:
+  heading: "Free Download at Start Bootstrap!"
+  cta_url: "#contact"
+  cta_text: "Download Now!"
+cta:
+  heading: "We've got what you need!"
+  text: "Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!"
+  url: "#contact"
+  button: "Get Started!"
+header:
+  image: "/img/header.jpg"
+  # logo:
+  heading: "Your favorite source of free bootstrap themes"
+  text: "Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!"
+  cta_url: "#about"
+  cta_button: "Find out more"
 ---
+
+{% include header.html %}
+{% include call-to-action.html %}
+{% include services.html %}
+{% include portfolio.html %}
+{% include aside.html %}
+{% include contact.html %}

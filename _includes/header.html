@@ -1,10 +1,14 @@
-<header>
+<header style="background-image: url('{{ page.header.image }}');">
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Your Favorite Source of Free Bootstrap Themes</h1>
-            <hr>
-            <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            {% if page.header.logo %}
+              <img src="{{ page.header.logo }}" alt="{{ site.title }}" title="{{ page.title | default: site.title }}" />
+            {% else %}
+              <h1>{{ page.header.heading | default: page.title | default: site.title }}</h1>
+              <hr>
+            {% endif %}
+            <p>{{ page.header.text }}</p>
+            <a href="{{ page.header.cta_url }}" class="btn btn-primary btn-xl page-scroll">{{ page.header.cta_button }}</a>
         </div>
     </div>
 </header>

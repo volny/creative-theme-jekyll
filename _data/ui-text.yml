@@ -1,0 +1,23 @@
+# User interface text and labels
+
+# English (default)
+# -----------------
+en: &DEFAULT_EN
+  toggle_navigation          : "Toggle navigation"
+  contact_heading            : "Let's Get In Touch!"
+  contact_text               : "Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!"
+en-US:
+  <<: *DEFAULT_EN
+en-CA:
+  <<: *DEFAULT_EN
+en-GB:
+  <<: *DEFAULT_EN
+en-AU:
+  <<: *DEFAULT_EN
+
+# Danish
+# ------
+da: &DEFAULT_DA
+  toggle_navigation          : "Vis/skjul navigationen"
+da-DK:
+  <<: *DEFAULT_DA
