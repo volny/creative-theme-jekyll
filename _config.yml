@@ -1,12 +1,16 @@
 # Site settings
-title:
-email:
+title: Creative
 description: > # this means to ignore newlines until "baseurl:"
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
-twitter_username:
-github_username:
+# Author Info
+name: #First-Name Last-Name
+email: theme@viennalabs.com
+twitter_username: volnyio
+github_username: volny
 
 # Build settings
 markdown: kramdown
