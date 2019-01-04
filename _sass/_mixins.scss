@@ -57,10 +57,11 @@
 
 @mixin sans-serif-font()
 {
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
 }
 
 @mixin serif-font()
 {
-	font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+	font-family: 'Merriweather', serif;
 }
