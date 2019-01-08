@@ -1,29 +1,31 @@
 <section id="contact">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
                 <h2 class="section-heading">Let's Get In Touch!</h2>
                 <hr class="primary">
                 <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
             </div>
-        <div class="col-lg-2 col-lg-offset-2 text-center">
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-                <i class="fab fa-twitter fa-4x wow bounceIn" data-wow-delay=".1s"></i>
-                <p class="author-info">{{ site.twitter_username }}</p>
-            </a>
+        </div>    
+        <div class="row justify-content-center">
+            <div class="col-lg-2 text-center">
+                <a href="https://twitter.com/{{ site.twitter_username }}">
+                    <i class="fab fa-twitter fa-4x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p class="author-info">{{ site.twitter_username }}</p>
+                </a>
+            </div>
+            <div class="col-lg-2 text-center">
+                <a href="mailto:{{ site.email }}">
+                <i class="fas fa-envelope fa-4x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p class="author-info">{{ site.email }}</p>
+                </a>
+            </div>
+            <div class="col-lg-2 text-center">
+                <a href="https://github.com/{{ site.github_username }}">
+                <i class="fab fa-github fa-4x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p class="author-info">{{ site.github_username }}</p>
+                </a>
+            </div>
         </div>
-        <div class="col-lg-2 col-lg-offset-1 text-center">
-            <a href="mailto:{{ site.email }}">
-            <i class="fas fa-envelope fa-4x wow bounceIn" data-wow-delay=".1s"></i>
-                <p class="author-info">{{ site.email }}</p>
-            </a>
-        </div>
-        <div class="col-lg-2 col-lg-offset-1 text-center">
-            <a href="https://github.com/{{ site.github_username }}">
-            <i class="fab fa-github fa-4x wow bounceIn" data-wow-delay=".1s"></i>
-                <p class="author-info">{{ site.github_username }}</p>
-            </a>
-        </div>
-
     </div>
 </section>
