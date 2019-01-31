@@ -5,7 +5,7 @@
             {% for picture in portfolio %}
             <div class="col-lg-4 col-sm-6">
                 <a href="{{ picture.url }}" class="portfolio-box">
-                    <img src="{{ picture.picture }}" class="img-responsive" alt="{{ picture.category }}">
+                    <img src="{{ picture.picture | relative_url }}" class="img-responsive" alt="{{ picture.category }}">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">

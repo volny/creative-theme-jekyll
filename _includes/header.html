@@ -1,8 +1,8 @@
-<header style="background-image: url('{{ page.header.image }}');">
+<header style="background-image: url('{{ page.header.image | relative_url }}');">
     <div class="header-content">
         <div class="header-content-inner">
             {% if page.header.logo %}
-              <img src="{{ page.header.logo }}" alt="{{ site.title }}" title="{{ page.title | default: site.title }}" />
+              <img src="{{ page.header.logo | relative_url }}" alt="{{ site.title }}" title="{{ page.title | default: site.title }}" />
             {% else %}
               <h1>{{ page.header.heading | default: page.title | default: site.title }}</h1>
               <hr>
