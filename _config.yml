@@ -4,8 +4,11 @@ email: kpabhiram@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
-github_username:Abhiramkadiri
+
 twitter_username:@thotarmudu_6
+
+github_username:Abhiramkadiri
+
 
 
 # Build settings
