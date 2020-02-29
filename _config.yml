@@ -1,15 +1,25 @@
 # Site settings
 title: Le Penon Surf House
-email:
+email: delord.kevin@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "lepenon-surfhouse.fr" # the base hostname & protocol for your site
 
-twitter_username:
-github_username:
+twitter_username: DKLogs
+github_username: kevindelord
 
 # Build settings
 markdown: kramdown
 
 sass:
   compressed: true
+
+
+include: ['_activities']
+
+collections:
+  activities:
+    output: true
+    permalink: /:path
+
+permalink: pretty
