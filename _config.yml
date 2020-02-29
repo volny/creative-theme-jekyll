@@ -14,11 +14,13 @@ markdown: kramdown
 sass:
   compressed: true
 
-
-include: ['_activities']
+include: ['_activities', '_services']
 
 collections:
   activities:
+    output: true
+    permalink: /:path
+  services:
     output: true
     permalink: /:path
 
