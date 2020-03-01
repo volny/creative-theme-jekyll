@@ -4,7 +4,7 @@
             {% assign images=site.images | where:"lang", page.lang %}
             {% for image in images %}
             <div class="col-lg-4 col-sm-6">
-                <a href="#gallery" class="portfolio-box">
+                <a href="javascript:void(0)" class="portfolio-box" onclick="openSlideshow()">
                     <img src="/img/gallery/{{ image.image }}" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
