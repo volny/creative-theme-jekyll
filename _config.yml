@@ -14,14 +14,33 @@ markdown: kramdown
 sass:
   compressed: true
 
-include: ['_activities', '_services']
+include: ['_activities', '_services', '_languages']
+exclude: ['reboot.sh', 'README.md', 'LICENSE']
 
 collections:
   activities:
-    output: true
-    permalink: /:path
+    output: false
   services:
-    output: true
-    permalink: /:path
+    output: false
+  languages:
+    output: false
 
 permalink: pretty
+
+#
+# Translations
+
+t:
+  nav:
+    gallery:
+      en: "Gallery"
+      fr: "Gallerie"
+    services:
+      en: "Amenities"
+      fr: "Aménagement"
+    activities:
+      en: "Activities"
+      fr: "Activités"
+    contact:
+      en: "Contact"
+      fr: "Contact"
