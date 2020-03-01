@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Activities</h2>
-                <h3 class="section-subheading text-muted">Stuff to do around the house...</h3>
+                <h2 class="section-heading">{{ site.t.sections.activities.title[page.lang] }}</h2>
+                <h3 class="section-subheading text-muted">{{ site.t.sections.activities.subtitle[page.lang] }}</h3>
             </div>
         </div>
         <div class="row">
@@ -29,9 +29,7 @@
                     {% endfor %}
                     <li class="wow fadeIn delay">
                         <div class="timeline-image">
-                            <h4>Be Part
-                                <br>Of Our
-                                <br>Story!</h4>
+                            <h4>{{ site.t.sections.activities.footer[page.lang] }}</h4>
                         </div>
                     </li>
                 </ul>
