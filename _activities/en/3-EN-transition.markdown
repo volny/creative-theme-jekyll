@@ -1,4 +1,5 @@
 ---
+lang: en
 image: 3.jpg
 title: December 2012
 subtitle: Transition to Full Service

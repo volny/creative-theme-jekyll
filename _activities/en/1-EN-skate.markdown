@@ -1,4 +1,5 @@
 ---
+lang: en
 image: 1.jpg
 title: 2009-2011
 subtitle: Our Humble Beginnings

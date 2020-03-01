@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang }}">
+	<!-- Meta information, links and imports -->
 	{% include meta.html %}
-
 	<body id="page-top">
-	  {% include navigation.html %}
-	  {% include header.html %}
-	  {% include activities.html %}
-	  {% include call-to-action.html %}
-	  {% include services.html %}
-	  {% include gallery.html %}
-	  {% include aside.html %}
-	  {% include contact.html %}
-	  {% include scripts.html %}
+		<!-- navigation and header -->
+		{% include navigation.html %}
+		{% include header.html %}
+
+		<!-- Sections -->
+		{% include services.html %}
+		{% include about.html %}
+		{% include activities.html %}
+		{% include booking.html %}
+		{% include gallery.html %}
+
+		<!-- Footer + Scripts -->
+		{% include contact.html %}
+		{% include scripts.html %}
 	</body>
 </html>

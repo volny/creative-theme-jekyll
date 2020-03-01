@@ -1,4 +1,5 @@
 ---
+lang: fr
 image: 3.jpg
 location_text: One World Trade Center, USA
 title: One World Trade Center
