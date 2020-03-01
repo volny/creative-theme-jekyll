@@ -7,6 +7,8 @@
 ### CSS
 
 - Animate: https://daneden.github.io/animate.css/
+- [ ] TODO: review and update bootstrap (css+js)
+- [ ] TODO: review and update JS libraries
 
 ## Localization
 
@@ -25,3 +27,20 @@ To add a new language support:
 ## Deployment
 
 Netlify has been configured to deploy the website at every git commit/push on the `master` branch.
+
+## TODO
+
+### General
+- [ ] Activities: style should be calculater, not imported from markdown
+- [ ] Generate a sitemap.xml for better indexing:
+	- https://support.google.com/webmasters/answer/189077?hl=en
+	- https://www.sylvaindurand.org/making-jekyll-multilingual/
+- [ ] Navigation bar: not so wide, current index not visible enough
+
+### Map
+- [ ] Add a new section to show a map location
+- [ ] Add POI to google maps
+- [ ] Mobile: Add link to map application
+
+### Slideshow
+- [ ] Add slideshow that feels good on a mobile device.
