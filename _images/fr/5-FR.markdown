@@ -1,5 +1,5 @@
 ---
-date: 2019-05-30
+lang: fr
 image: 5.jpg
 location_text: Subway path, World Trade Center, USA
 title: Architecture

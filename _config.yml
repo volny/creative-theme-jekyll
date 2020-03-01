@@ -14,7 +14,7 @@ markdown: kramdown
 sass:
   compressed: true
 
-include: ['_activities', '_services', '_languages']
+include: ['_activities', '_services', '_languages', '_images']
 exclude: ['reboot.sh', 'README.md', 'LICENSE']
 
 collections:
@@ -23,6 +23,8 @@ collections:
   services:
     output: false
   languages:
+    output: false
+  images:
     output: false
 
 permalink: pretty

@@ -1,4 +1,5 @@
 ---
+lang: en
 image: 1.jpg
 location_text: Spotify, NYC, USA
 title: Lunch with a view
