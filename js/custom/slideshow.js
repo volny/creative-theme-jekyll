@@ -6,10 +6,11 @@
 function openSlideshow() {
 	document.getElementById("slideshow").style.height = "100%";
 
-	// keyboard event
-	document.addEventListener( 'keydown', function( ev ) {
+	// keyboard events
+	// Left and Right arrows already work but only they "slides" have already been presented.
+	document.addEventListener('keydown', function( ev ) {
 		var keyCode = ev.keyCode || ev.which;
-		if (keyCode == 0 || keyCode == 27 || keyCode == 32) { // esc, space (chrome+firefox)
+		if (keyCode == 27 || keyCode == 0 || keyCode == 32) { // esc touch, space bar (chrome, firefox),
 			closeSlideshow();
 		}
 	});
@@ -19,3 +20,4 @@ function openSlideshow() {
 function closeSlideshow() {
   document.getElementById("slideshow").style.height = "0%";
 }
+
