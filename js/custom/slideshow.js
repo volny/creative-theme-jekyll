@@ -2,22 +2,24 @@
  * Custom Javascript for the Image Slideshow
  */
 
-/* Open */
+/* Open slide show in full screen */
 function openSlideshow() {
-	document.getElementById("slideshow").style.height = "100%";
-
-	// keyboard events
-	// Left and Right arrows already work but only they "slides" have already been presented.
-	document.addEventListener('keydown', function( ev ) {
-		var keyCode = ev.keyCode || ev.which;
-		if (keyCode == 27 || keyCode == 0 || keyCode == 32) { // esc touch, space bar (chrome, firefox),
-			closeSlideshow();
-		}
+	var elem = document.querySelector('.carousel');
+	var flkty = new Flickity(elem, {
+		watchCSS: true,
+		fullscreen: true // Display the 'close full screen' button.
 	});
-}
 
-/* Close */
+	// if (window.innerWidth > 1000) {
+		// Trigger the full screen
+		flkty.viewFullscreen();
+	// } else {
+		// magic needed
+	// }
+};
+
+/* Close the slideshow on small devices */
 function closeSlideshow() {
-  document.getElementById("slideshow").style.height = "0%";
+  // maybe magic needed
 }
 

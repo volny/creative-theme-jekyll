@@ -1,61 +1,26 @@
-/* The Overlay (background) */
+/* The background overlay */
 .overlay {
-  height: 0%;
-  width: 100%;
-  position: fixed; /* Stay in place */
   z-index: 1031; /* Sit on top of thge nav bar which is 1030 by default as defined in the bootstrap.min.css */
+  height: 0%;
+  width: 0%;
+  position: fixed;
   left: 0;
   top: 0;
-  background-color: rgb(0,0,0); /* Black fallback color */
-  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
-/* The navigation links inside the overlay */
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
-}
-
-/* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  z-index: 2; /* Sit on top */
-}
-
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
-}
-
-/* external css: flickity.css */
-
-.carousel {
-  top: 50%;
-  transform: translateY(-50%);
-}
+/* Horizontal Carousel */
 
 .carousel-cell {
-  width: 55%;
+  width: 60%;
   margin-right: 10px;
+  margin-left: 10px;
+
+  /* Center the cell vertically */
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* Add a padding-top the same size of the dots (to perfectly verticaly center the images) */
+  padding-top: 35px;
 }
 
 .carousel-cell-image {
@@ -63,18 +28,40 @@
   max-height: 100%;
   margin: 0 auto;
   max-width: 100%;
-  opacity: 0;
-  -webkit-transition: opacity 0.4s;
-          transition: opacity 0.4s;
+  opacity: 1;
 }
 
 .flickity-page-dots .dot {
   /* Change the color of the active dots to hover color of the navigation elements */
-  background: hsla(0,0%,100%,.75);
+  background: hsla(0, 0%, 100%, .75);
 }
 
-/* fade in lazy loaded image */
-.carousel-cell-image.flickity-lazyloaded,
-.carousel-cell-image.flickity-lazyerror {
-  opacity: 1;
+/* You can enable and disable Flickity with CSS.
+  The `watchCSS` option watches the content of :after of the carousel element.
+  Flickity is enabled if :after content is 'flickity'.*/
+.carousel:after {
+  /* Enable flickity by default */
+  content: 'flickity';
+  display: none;
+}
+
+/* Disable Flickity for large devices and configure CSS for vertical carousel */
+@media screen and ( max-width: 1000px ) {
+
+  .carousel:after {
+    content: '';
+  }
+
+  .overlay {
+    /* Magic needed */
+  }
+
+  .carousel-cell {
+    top: 0%;
+    transform: translateY(0%);
+
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 }

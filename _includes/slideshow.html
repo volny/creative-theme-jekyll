@@ -1,16 +1,12 @@
-<!-- The overlay -->
-<div id="slideshow" class="overlay">
-
-	<!-- Button to close the overlay navigation -->
-	<a href="javascript:void(0)" class="closebtn" onclick="closeSlideshow()">&times;</a>
-
-	<!-- Overlay content -->
-	<div class="carousel" data-flickity='{ "lazyLoad": true }'>
-		{% assign images=site.images | where:"lang", page.lang %}
-		{% for image in images %}
-			<div class="carousel-cell">
-				<img class="carousel-cell-image" data-flickity-lazyload="/img/gallery/{{ image.image }}" alt="">
-			</div>
-		{% endfor %}
+<section class="no-padding">
+	<div class="overlay" id="overlay">
+		<div class="carousel">
+			{% assign images=site.images | where:"lang", page.lang %}
+			{% for image in images %}
+				<div class="carousel-cell">
+					<img class="carousel-cell-image" src="/img/gallery/{{ image.image }}" alt="">
+				</div>
+			{% endfor %}
+		</div>
 	</div>
 </div>
