@@ -3,12 +3,16 @@
  */
 
 /* Open the overlay in full screen */
-function openSlideshow() {
+function openSlideshow(index) {
 	var elem = document.querySelector('.carousel');
 	var flkty = new Flickity(elem, {
 		watchCSS: true
 	});
 
+	// Documentation: https://flickity.metafizzy.co/api.html#select
+	flkty.select(index - 1, false, true)
+
+	// Change visibility of the overlay.
 	document.getElementById("overlay").style.visibility = "visible";
 };
 
@@ -16,4 +20,3 @@ function openSlideshow() {
 function closeSlideshow() {
 	document.getElementById("overlay").style.visibility = "hidden";
 }
-

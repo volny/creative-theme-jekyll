@@ -44,6 +44,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [ ] Mobile: Add link to map application
 
 ### Slideshow
+- [x] Responsive design for mobile devices
 - [ ] Add lazy loading of all images using dedicated library
-- [ ] Start slideshow at index
+- [x] Start slideshow at index
 
