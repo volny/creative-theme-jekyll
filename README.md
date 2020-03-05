@@ -41,8 +41,11 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-- [ ] Navigation bar: not so wide, current index not visible enough (improved with new creative?)
+- [ ] Navigation bar: too wide, current index not visible enough (improved with new creative?)
 - [ ] Update Bootstrap / Creative
+
+### Booking
+- [ ] Prepare booking area with a coming soon.
 
 ### Map
 - [ ] Add a new section to show a map location
