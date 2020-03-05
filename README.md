@@ -36,6 +36,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
 - [ ] Navigation bar: not so wide, current index not visible enough
+- [ ] CSS / JS: use cdn instead of imported packages
 
 ### Map
 - [ ] Add a new section to show a map location
@@ -43,4 +44,6 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [ ] Mobile: Add link to map application
 
 ### Slideshow
-- [ ] Add slideshow that feels good on a mobile device.
+- [ ] Add lazy loading of all images using dedicated library
+- [ ] Start slideshow at index
+

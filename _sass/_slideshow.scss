@@ -1,26 +1,51 @@
 /* The background overlay */
 .overlay {
   z-index: 1031; /* Sit on top of thge nav bar which is 1030 by default as defined in the bootstrap.min.css */
-  height: 0%;
-  width: 0%;
+  height: 100%;
+  width: 100%;
   position: fixed;
   left: 0;
   top: 0;
+  visibility: hidden;
+
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+#overlay-navbar {
+  /* Tweak to enforce the overlay-navbar to instantly disappear */
+  transition: 0s;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  right: 20px;
+  font-size: 40px;
+  text-decoration: none;
+  /* Center the button vertically in div */
+  top: 50%;
+  transform: translateY(-50%);
+  /* Tweak the close button design to be perfectly verticaly aligned with the title */
+  padding-bottom: 5px;
+
+  /* Tweak to enforce the close button to instantly disappear */
+  transition: 0s;
 }
 
 /* Horizontal Carousel */
+
+.carousel {
+  /* Center the carousel vertically */
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .carousel-cell {
   width: 60%;
   margin-right: 10px;
   margin-left: 10px;
-
-  /* Center the cell vertically */
-  top: 50%;
-  transform: translateY(-50%);
-
-  /* Add a padding-top the same size of the dots (to perfectly verticaly center the images) */
-  padding-top: 35px;
 }
 
 .carousel-cell-image {
@@ -52,16 +77,17 @@
     content: '';
   }
 
-  .overlay {
-    /* Magic needed */
+  .carousel {
+    top: 0%;
+    transform: translateY(0%);
+    /* Top margin corresponding to the navbar height + cell top margin */
+    margin-top: 60px;
   }
 
   .carousel-cell {
-    top: 0%;
-    transform: translateY(0%);
-
     width: 100%;
     margin-right: 0px;
     margin-left: 0px;
+    margin-top: 10px;
   }
 }
