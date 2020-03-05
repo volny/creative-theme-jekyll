@@ -14,7 +14,7 @@
                     {% for activity in activities %}
                     <li class="{{ activity.style }} wow fadeIn delay">
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="/img/activities/{{ activity.image }}" alt="">
+                            <img class="img-lazy img-circle img-responsive" data-src="/img/activities/{{ activity.image }}" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">

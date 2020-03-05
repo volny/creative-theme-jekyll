@@ -10,7 +10,7 @@
 <script src="/js/wow.min.js"></script>
 
 <script src="/js/flickity.pkgd.min.js"></script>
-<script src="/js/flickity.fullscreen.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@13.0.1/dist/lazyload.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="/js/creative.js"></script>
@@ -18,3 +18,9 @@
 <!-- Custom Website JavaScript -->
 <script src="/js/custom/redirectSelect.js"></script>
 <script src="/js/custom/slideshow.js"></script>
+
+<script type="text/javascript">
+	var lazyLoadInstance = new LazyLoad({
+		elements_selector: ".img-lazy"
+	});
+</script>

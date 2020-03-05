@@ -5,7 +5,7 @@
             {% for image in images %}
             <div class="col-lg-4 col-sm-6">
                 <a href="javascript:void(0)" id="{{ forloop.index }}" class="portfolio-box" onclick="openSlideshow(this.id)">
-                    <img src="/img/gallery/{{ image.image }}" class="img-responsive" alt="">
+                    <img data-src="/img/gallery/{{ image.image }}" class="img-lazy img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">

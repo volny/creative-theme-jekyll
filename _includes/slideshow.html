@@ -18,7 +18,9 @@
 			{% assign images=site.images | where:"lang", page.lang %}
 			{% for image in images %}
 				<div class="carousel-cell">
-					<img class="carousel-cell-image" src="/img/gallery/{{ image.image }}" alt="">
+					<!-- A placeholder is required to initialize the Flickity carousel -->
+					<!-- TODO: replace src with a placeholder of the same size -->
+					<img src="/img/gallery/1.jpg" data-src="/img/gallery/{{ image.image }}" class="carousel-cell-image" alt="">
 				</div>
 			{% endfor %}
 		</div>
