@@ -15,9 +15,6 @@
 - jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
 - creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
 
-TODO:
-- Bootstrap
-
 ## Localization
 
 The entire website is localized and translated into few languages.
@@ -39,13 +36,13 @@ Netlify has been configured to deploy the website at every git commit/push on th
 ## TODO
 
 ### General
-- [ ] Activities: style should be calculater, not imported from markdown
+- [x] Update old/deprecated packages.
+- [x] Activities: style should be calculated, not imported from markdown
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-- [ ] Navigation bar: not so wide, current index not visible enough
-- [ ] CSS / JS: use cdn instead of imported packages
-- [ ] Update old/deprecate packages.
+- [ ] Navigation bar: not so wide, current index not visible enough (improved with new creative?)
+- [ ] Update Bootstrap / Creative
 
 ### Map
 - [ ] Add a new section to show a map location

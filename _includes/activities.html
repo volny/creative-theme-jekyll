@@ -12,7 +12,12 @@
                 <ul class="timeline wow fadeIn delay">
                     {% assign activities=site.activities | where:"lang", page.lang %}
                     {% for activity in activities %}
-                    <li class="{{ activity.style }} wow fadeIn delay">
+                    {% assign loopindex = forloop.index | modulo: 2 %}
+                    {% if loopindex == 0 %}
+                    <li class="timeline-inverted wow fadeIn delay">
+                    {% else %}
+                    <li class="wow fadeIn delay">
+                    {% endif %}
                         <div class="timeline-image">
                             <img class="img-lazy img-circle img-responsive" data-src="/img/activities/{{ activity.image }}" alt="">
                         </div>
