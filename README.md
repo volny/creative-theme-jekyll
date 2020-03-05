@@ -4,11 +4,19 @@
 
 ## Dependencies
 
-### CSS
+### CSS / JS
 
-- Animate: https://daneden.github.io/animate.css/
-- [ ] TODO: review and update bootstrap (css+js)
-- [ ] TODO: review and update JS libraries
+- Animate (3.7.2): https://daneden.github.io/animate.css/
+- WOW (1.1.3): https://wowjs.uk/
+- Flickity (2.2.1): https://flickity.metafizzy.co/
+- FontAwesome (5.12.1): https://fontawesome.com/
+
+TODO:
+- Bootstrap
+- jquery
+- jquery.easing
+- jquery.fittext
+- creative.js (lib?)
 
 ## Localization
 
