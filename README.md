@@ -48,5 +48,3 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Responsive design for mobile devices
 - [x] Add lazy loading of all images using dedicated library
 - [x] Start slideshow at index
-- [ ] Create and integrate placeholder for gallery.
-

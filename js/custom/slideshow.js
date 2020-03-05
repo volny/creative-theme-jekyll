@@ -2,23 +2,37 @@
  * Custom Javascript for the Image Slideshow
  */
 
-/* Open the overlay in full screen */
-function openSlideshow(index) {
-	var elem = document.querySelector('.carousel');
-	var flkty = new Flickity(elem, {
+function setupSlideshow(index) {
+	// Create new Flickity carousel
+	// Documentation: https://flickity.metafizzy.co/api.html#select
+	var flkty = new Flickity(document.querySelector('.carousel'), {
 		watchCSS: true
 	});
-
-	// Documentation: https://flickity.metafizzy.co/api.html#select
 	flkty.select(index - 1, false, true);
 
-	// Change visibility of the overlay.
-	document.getElementById("overlay").style.visibility = "visible";
+	// A resize of the Flickity carousel is required to properly initialize image cells -->
+	// Use a singleton to improve the performances by resizing the carousel only once.
+	var initalCarouselResize = 0;
+	function resizeAfterFirstLazyLoad(element) {
+		if (initalCarouselResize == 0) {
+			initalCarouselResize = 1;
+			flkty.resize();
+		}
+	}
 
 	// Lazy load the gallery images as they appear.
 	var lazyLoadInstance = new LazyLoad({
-		elements_selector: ".carousel-cell-image"
+		elements_selector: ".carousel-cell-image",
+		callback_loaded: resizeAfterFirstLazyLoad
 	});
+}
+
+/* Open the overlay in full screen */
+function openSlideshow(index) {
+	setupSlideshow(index);
+
+	// Change visibility of the overlay.
+	document.getElementById("overlay").style.visibility = "visible";
 };
 
 /* Close the overlay on small devices */
