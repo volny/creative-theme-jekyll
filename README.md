@@ -10,13 +10,13 @@
 - WOW (1.1.3): https://wowjs.uk/
 - Flickity (2.2.1): https://flickity.metafizzy.co/
 - FontAwesome (5.12.1): https://fontawesome.com/
+- Fittext (1.2.0): http://fittextjs.com/
+- jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
+- creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
 
 TODO:
 - Bootstrap
 - jquery
-- jquery.easing
-- jquery.fittext
-- creative.js (lib?)
 
 ## Localization
 

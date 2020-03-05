@@ -45,4 +45,9 @@
     // Initialize WOW.js Scrolling Animations
     new WOW().init();
 
+    // initialize LazyLoad
+    var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".img-lazy"
+    });
+
 })(jQuery); // End of use strict
