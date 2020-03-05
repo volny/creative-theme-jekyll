@@ -4,11 +4,16 @@
 
 ## Dependencies
 
-### CSS
+### CSS / JS
 
-- Animate: https://daneden.github.io/animate.css/
-- [ ] TODO: review and update bootstrap (css+js)
-- [ ] TODO: review and update JS libraries
+- Animate (3.7.2): https://daneden.github.io/animate.css/
+- WOW (1.1.3): https://wowjs.uk/
+- Flickity (2.2.1): https://flickity.metafizzy.co/
+- FontAwesome (5.12.1): https://fontawesome.com/
+- jQuery (3.4.1): https://jquery.com/
+- Fittext (1.2.0): http://fittextjs.com/
+- jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
+- creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
 
 ## Localization
 
@@ -31,11 +36,13 @@ Netlify has been configured to deploy the website at every git commit/push on th
 ## TODO
 
 ### General
-- [ ] Activities: style should be calculater, not imported from markdown
+- [x] Update old/deprecated packages.
+- [x] Activities: style should be calculated, not imported from markdown
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-- [ ] Navigation bar: not so wide, current index not visible enough
+- [ ] Navigation bar: not so wide, current index not visible enough (improved with new creative?)
+- [ ] Update Bootstrap / Creative
 
 ### Map
 - [ ] Add a new section to show a map location
@@ -43,4 +50,6 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [ ] Mobile: Add link to map application
 
 ### Slideshow
-- [ ] Add slideshow that feels good on a mobile device.
+- [x] Responsive design for mobile devices
+- [x] Add lazy loading of all images using dedicated library
+- [x] Start slideshow at index

@@ -1,0 +1,26 @@
+<section class="no-padding">
+	<div class="overlay" id="overlay">
+
+		<!-- Overlay Navigation Bar -->
+		<nav id="overlay-navbar" class="navbar navbar-default navbar-fixed-top affix">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<!-- Website name -->
+					<a class="navbar-brand page-scroll" href="#page-top" onclick="closeSlideshow()">{{ site.title }}</a>
+					<!-- Button to close the overlay navigation -->
+					<a href="javascript:void(0)" class="closebtn" onclick="closeSlideshow()">&times;</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Carousel -->
+		<div class="carousel">
+			{% assign images=site.images | where:"lang", page.lang %}
+			{% for image in images %}
+				<div class="carousel-cell">
+					<img data-src="/img/gallery/{{ image.image }}" class="carousel-cell-image" alt="">
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

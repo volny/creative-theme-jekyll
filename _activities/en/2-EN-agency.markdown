@@ -3,6 +3,5 @@ lang: en
 image: 2.jpg
 title: March 2011
 subtitle: An Agency is Born
-style: timeline-inverted
 text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
 ---

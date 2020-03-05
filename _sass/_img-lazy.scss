@@ -1,0 +1,43 @@
+/* Fade in lazy laoded images */
+
+/* Gallery Images (smaller size) */
+
+.img-lazy {
+  display: block;
+  opacity: 0;
+}
+
+.img-lazy:not(.initial) {
+  transition: opacity 1s;
+}
+
+.img-lazy.initial,
+.img-lazy.loaded,
+.img-lazy.error {
+  opacity: 1;
+}
+
+.img-lazy:not([src]) {
+  visibility: hidden;
+}
+
+/* Carousel Images (larger size) */
+
+.carousel-cell-image {
+  display: block;
+  opacity: 0;
+}
+
+.carousel-cell-image:not(.initial) {
+  transition: opacity 1s;
+}
+
+.carousel-cell-image.initial,
+.carousel-cell-image.loaded,
+.carousel-cell-image.error {
+  opacity: 1;
+}
+
+.carousel-cell-image:not([src]) {
+  visibility: hidden;
+}
