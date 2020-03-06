@@ -92,6 +92,11 @@ section h3.section-subheading {
     background-color: $theme-primary;
 }
 
+.timeline-image>img, .img-circle {
+    border-radius: 50%;
+    max-width: 100%;
+}
+
 .timeline>li .timeline-image h4 {
     margin-top: 12px;
     font-size: 10px;

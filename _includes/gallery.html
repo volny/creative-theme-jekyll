@@ -1,9 +1,9 @@
-<section class="no-padding" id="gallery">
+<section class="no-padding bg-dark" id="gallery">
     <div class="container-fluid">
         <div class="row no-gutter">
             {% assign images=site.images | where:"lang", page.lang %}
             {% for image in images %}
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-4 col-sm-6 gallery-box">
                 <a href="javascript:void(0)" id="{{ forloop.index }}" class="portfolio-box" onclick="openSlideshow(this.id)">
                     <img data-src="/img/gallery/{{ image.image }}" class="img-lazy img-responsive" alt="">
                     <div class="portfolio-box-caption">

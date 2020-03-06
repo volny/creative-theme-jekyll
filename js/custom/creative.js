@@ -35,12 +35,12 @@
         }
     );
 
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
+    // // Offset for Main Navigation
+    // $('#mainNav').affix({
+    //     offset: {
+    //         top: 100
+    //     }
+    // })
 
     // Initialize WOW.js Scrolling Animations
     new WOW().init();
