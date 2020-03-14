@@ -13,8 +13,8 @@
 - jQuery (3.4.1): https://jquery.com/
 - Fittext (1.2.0): http://fittextjs.com/
 - jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
-- creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
 - Bootstrap (4.4.1): https://getbootstrap.com/
+- creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
 
 ## Localization
 
