@@ -14,6 +14,7 @@
 - Fittext (1.2.0): http://fittextjs.com/
 - jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
 - creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
+- Bootstrap (4.4.1): https://getbootstrap.com/
 
 ## Localization
 
@@ -38,11 +39,15 @@ Netlify has been configured to deploy the website at every git commit/push on th
 ### General
 - [x] Update old/deprecated packages.
 - [x] Activities: style should be calculated, not imported from markdown
+- [x] Update Bootstrap / Creative
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-- [ ] Navigation bar: too wide, current index not visible enough (improved with new creative?)
-- [ ] Update Bootstrap / Creative
+
+### Navigation Bar
+- [x] Navigation bar: too wide
+- [ ] Navigation bar: Animation glitch when clicking nav-link
+- [ ] Navigation bar: current index not visible enough (active index bug + before_css?)
 
 ### Booking
 - [ ] Prepare booking area with a coming soon.
