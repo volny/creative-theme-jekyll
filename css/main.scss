@@ -7,8 +7,9 @@ $theme-primary: #F05F40;
 $theme-dark: #222;
 $white: #fff;
 $min-screen-width: 992px;
+$xs-screen-width: 400px; /* Very small devices (~iPhone 5). */
 
-// Import partials from `sass_dir` (defaults to `_sass`)
+/* Import partials from `sass_dir` (defaults to `_sass`) */
 @import
         "mixins",
         "services",
@@ -17,5 +18,7 @@ $min-screen-width: 992px;
         "slideshow",
         "img-lazy",
         "navbar",
+        "header",
+        "sections",
         "base"
 ;

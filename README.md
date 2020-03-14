@@ -51,6 +51,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 
 ### Booking
 - [ ] Prepare booking area with a coming soon.
+- [ ] Find out how to integrate booking to a gmaps POI.
 
 ### Map
 - [ ] Add a new section to show a map location
@@ -61,3 +62,9 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Responsive design for mobile devices
 - [x] Add lazy loading of all images using dedicated library
 - [x] Start slideshow at index
+
+### Gallery
+- [x] Disable overlay for mobile devices
+- [ ] Fix images with weird ratio
+- [ ] Add floating button 'show all pictures'
+

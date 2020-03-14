@@ -10,7 +10,7 @@
     font-weight: $font-weight-bold;
     text-transform: uppercase;
     color: $theme-primary;
-    @media (max-width: 400px) {
+    @media (max-width: $xs-screen-width) {
       font-size: 1em;
     }
   }
