@@ -16,7 +16,7 @@ sass:
   compressed: true
 
 include: ['_activities', '_services', '_languages', '_images']
-exclude: ['reboot.sh', 'README.md', 'LICENSE']
+exclude: ['scripts', 'README.md', 'LICENSE']
 
 collections:
   activities:
