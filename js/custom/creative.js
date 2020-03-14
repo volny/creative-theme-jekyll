@@ -16,12 +16,6 @@
         event.preventDefault();
     });
 
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggler').click();
-    });
-
     // Fit Text Plugin for Main Header
     $("h1").fitText(
         1.2, {
@@ -29,6 +23,11 @@
             maxFontSize: '65px'
         }
     );
+
+    // Closes responsive menu when a scroll trigger link is clicked
+    $('.js-scroll-trigger').click(function() {
+        $('.navbar-collapse').collapse('hide');
+    });
 
     // Function to toggle the navigation bar design
     var toggleAffix = function(affixElement) {
@@ -39,7 +38,7 @@
         }
     };
 
-    // Init tge nav bar design toggle
+    // Init the nav bar design toggle
     $('[data-toggle="affix"]').each(function() {
         var element = $(this)
         // element.before(wrapper);

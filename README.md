@@ -46,7 +46,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 
 ### Navigation Bar
 - [x] Navigation bar: too wide
-- [ ] Navigation bar: Animation glitch when clicking nav-link
+- [x] Navigation bar: Animation glitch when clicking nav-link
 - [ ] Navigation bar: current index not visible enough (active index bug + before_css?)
 
 ### Booking
