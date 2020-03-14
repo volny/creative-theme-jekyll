@@ -13,11 +13,6 @@
   overflow-x: hidden; /* Disable horizontal scroll */
 }
 
-#overlay-navbar {
-  /* Tweak to enforce the overlay-navbar to instantly disappear */
-  transition: 0s;
-}
-
 /* Position the close button (top right corner) */
 .overlay .closebtn {
   position: absolute;

@@ -34,6 +34,11 @@
       }
     }
   }
+  .reduced-padding {
+    /* Ugly tweak to make sure the slideshow's navbar has the same size than the normal navbar on all screensize */
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
 
   @media (min-width: $min-screen-width) {
     /* Base styling for the navbar - screen sizes larger than $min-screen-width */
@@ -62,6 +67,12 @@
         }
       }
     }
+    .reduced-padding {
+      /* Ugly tweak to make sure the slideshow's navbar has the same size than the normal navbar on all screensize */
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
     /* Navbar styling applied when the page is scrolled and on large screens only */
     &.navbar-scrolled {
       box-shadow: 0 1px 0px rgba($theme-primary, .9);

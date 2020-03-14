@@ -1,15 +1,14 @@
 <section class="no-padding">
 	<div class="overlay" id="overlay">
-
 		<!-- Overlay Navigation Bar -->
-		<nav id="overlay-navbar" class="navbar navbar-default navbar-fixed-top affix">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<!-- Website name -->
-					<a class="navbar-brand page-scroll" href="#page-top" onclick="closeSlideshow()">{{ site.title }}</a>
-					<!-- Button to close the overlay navigation -->
-					<a href="javascript:void(0)" class="closebtn" onclick="closeSlideshow()">&times;</a>
-				</div>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" data-toggle="affix">
+			<div class="container">
+				<a class="navbar-brand page-scroll" href="#page-top" onclick="closeSlideshow()">{{ site.title }}</a>
+				<ul class="navbar-nav">
+					<li>
+						<a href="javascript:void(0)" class="closebtn" onclick="closeSlideshow()">&times;</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
