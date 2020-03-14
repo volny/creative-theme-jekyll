@@ -18,6 +18,8 @@
     .nav-item {
       padding-top: 0px;
       .nav-link {
+        /* Tweak to enforce the menu buttons to instantly disappear */
+        transition: 0s;
         color: $theme-dark;
         font-family: $font-family-sans-serif;
         font-weight: $font-weight-bold;
@@ -85,4 +87,21 @@
       }
     }
   }
+}
+
+/* Position of the close button (top right corner). Hidden by default*/
+#closeSlideshowButton {
+  visibility: hidden;
+  position: absolute;
+  right: 20px;
+  font-size: 40px;
+  text-decoration: none;
+  /* Center the button vertically in div */
+  top: 50%;
+  transform: translateY(-50%);
+  /* Tweak the close button design to be perfectly verticaly aligned with the title */
+  padding-bottom: 5px;
+
+  /* Tweak to enforce the close button to instantly disappear */
+  transition: 0s;
 }

@@ -1,6 +1,6 @@
 /* The background overlay */
 .overlay {
-  z-index: 1031; /* Sit on top of thge nav bar which is 1030 by default as defined in the bootstrap.min.css */
+  z-index: 1029; /* Sit right behind the nav bar which is 1030 by default as defined in the bootstrap.min.css */
   height: 100%;
   width: 100%;
   position: fixed;
@@ -11,48 +11,6 @@
   background-color: rgb(0,0,0); /* Black fallback color */
   background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  right: 20px;
-  font-size: 40px;
-  text-decoration: none;
-  /* Center the button vertically in div */
-  top: 50%;
-  transform: translateY(-50%);
-  /* Tweak the close button design to be perfectly verticaly aligned with the title */
-  padding-bottom: 5px;
-
-  /* Tweak to enforce the close button to instantly disappear */
-  transition: 0s;
-}
-
-/* Navigation Bar */
-
-#slideshowNavbar {
-  /* Small screen styling - screen sizes smaller than $min-screen-width */
-  box-shadow: 0 1px 0px rgba($theme-primary, .9);
-  background-color: $white;
-  /* Minor tweak to keep the nav bar to the same size */
-  padding-top: 8px;
-  padding-bottom: 8px;
-  .navbar-brand {
-    font-family: $font-family-sans-serif;
-    font-weight: $font-weight-bold;
-    text-transform: uppercase;
-    color: $theme-primary;
-    @media (max-width: 400px) {
-      font-size: 1em;
-    }
-  }
-
-  /* Base styling for the navbar - screen sizes larger than $min-screen-width */
-  @media (min-width: $min-screen-width) {
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
 }
 
 /* Horizontal Carousel */

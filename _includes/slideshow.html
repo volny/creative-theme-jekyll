@@ -1,14 +1,5 @@
 <section class="no-padding">
 	<div class="overlay" id="overlay">
-		<!-- Overlay Navigation Bar -->
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="slideshowNavbar" data-toggle="affix">
-			<div class="container">
-				<a class="navbar-brand page-scroll" href="#page-top" onclick="closeSlideshow()">{{ site.title }}</a>
-				<a href="javascript:void(0)" class="closebtn" onclick="closeSlideshow()">&times;</a>
-			</div>
-		</nav>
-
-		<!-- Carousel -->
 		<div class="carousel">
 			{% assign images=site.images | where:"lang", page.lang %}
 			{% for image in images %}
