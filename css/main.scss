@@ -3,6 +3,11 @@
 
 @charset "utf-8";
 
+/* Initial variables and override of default bootstrap static values
+ *
+ * Because SASS cannot load and compile online resources but only local files
+ * we need to hard-code some pre-compiled values.
+ */
 $theme-primary: #F05F40;
 $theme-dark: #222;
 $white: #fff;
