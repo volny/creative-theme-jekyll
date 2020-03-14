@@ -1,6 +1,6 @@
-/* The background overlay */
+/* Slideshow with background overlay */
 .overlay {
-  z-index: 1031; /* Sit on top of thge nav bar which is 1030 by default as defined in the bootstrap.min.css */
+  z-index: 1029; /* Sit right behind the nav bar which is 1030 by default as defined in the bootstrap.min.css */
   height: 100%;
   width: 100%;
   position: fixed;
@@ -11,27 +11,6 @@
   background-color: rgb(0,0,0); /* Black fallback color */
   background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
-}
-
-#overlay-navbar {
-  /* Tweak to enforce the overlay-navbar to instantly disappear */
-  transition: 0s;
-}
-
-/* Position the close button (top right corner) */
-.overlay .closebtn {
-  position: absolute;
-  right: 20px;
-  font-size: 40px;
-  text-decoration: none;
-  /* Center the button vertically in div */
-  top: 50%;
-  transform: translateY(-50%);
-  /* Tweak the close button design to be perfectly verticaly aligned with the title */
-  padding-bottom: 5px;
-
-  /* Tweak to enforce the close button to instantly disappear */
-  transition: 0s;
 }
 
 /* Horizontal Carousel */

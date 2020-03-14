@@ -13,6 +13,7 @@
 - jQuery (3.4.1): https://jquery.com/
 - Fittext (1.2.0): http://fittextjs.com/
 - jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
+- Bootstrap (4.4.1): https://getbootstrap.com/
 - creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
 
 ## Localization
@@ -38,11 +39,19 @@ Netlify has been configured to deploy the website at every git commit/push on th
 ### General
 - [x] Update old/deprecated packages.
 - [x] Activities: style should be calculated, not imported from markdown
+- [x] Update Bootstrap / Creative
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-- [ ] Navigation bar: not so wide, current index not visible enough (improved with new creative?)
-- [ ] Update Bootstrap / Creative
+
+### Navigation Bar
+- [x] Navigation bar: too wide
+- [x] Navigation bar: Animation glitch when clicking nav-link
+- [x] Navigation bar: current index not visible
+
+### Booking
+- [ ] Prepare booking area with a coming soon.
+- [ ] Find out how to integrate booking to a gmaps POI.
 
 ### Map
 - [ ] Add a new section to show a map location
@@ -53,3 +62,9 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Responsive design for mobile devices
 - [x] Add lazy loading of all images using dedicated library
 - [x] Start slideshow at index
+
+### Gallery
+- [x] Disable overlay for mobile devices
+- [ ] Fix images with weird ratio
+- [ ] Add floating button 'show all pictures'
+

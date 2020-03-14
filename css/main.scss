@@ -3,41 +3,18 @@
 
 @charset "utf-8";
 
-// Example Defaults
-// $base-font-family: Helvetica, Arial, sans-serif;
-// $base-font-size:   16px;
-// $small-font-size:  $base-font-size * 0.875;
-// $base-line-height: 1.5;
-
-// $spacing-unit:     30px;
-
-// $text-color:       #111;
-// $background-color: #fdfdfd;
-// $brand-color:      #2a7ae2;
-
-// $grey-color:       #828282;
-// $grey-color-light: lighten($grey-color, 40%);
-// $grey-color-dark:  darken($grey-color, 25%);
-
-// // Width of the content area
-// $content-width:    800px;
-
-// $on-palm:          600px;
-// $on-laptop:        800px;
-
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-
-// variables.less
+/* Initial variables and override of default bootstrap static values
+ *
+ * Because SASS cannot load and compile online resources but only local files
+ * we need to hard-code some pre-compiled values.
+ */
 $theme-primary: #F05F40;
 $theme-dark: #222;
+$white: #fff;
+$min-screen-width: 992px;
+$xs-screen-width: 400px; /* Very small devices (~iPhone 5). */
 
-// Import partials from `sass_dir` (defaults to `_sass`)
+/* Import partials from `sass_dir` (defaults to `_sass`) */
 @import
         "mixins",
         "services",
@@ -45,5 +22,8 @@ $theme-dark: #222;
         "switcher",
         "slideshow",
         "img-lazy",
+        "navbar",
+        "header",
+        "sections",
         "base"
 ;

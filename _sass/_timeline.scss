@@ -1,3 +1,5 @@
+/* Vertical Timeline */
+
 section {
     padding: 100px 0;
 }
@@ -11,7 +13,6 @@ section h2.section-heading {
 section h3.section-subheading {
     margin-bottom: 75px;
     text-transform: none;
-    /*font-family: {{ site.data.template.font.secondary }};*/
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
@@ -90,6 +91,11 @@ section h3.section-subheading {
     text-align: center;
     color: #fff;
     background-color: $theme-primary;
+}
+
+.timeline-image>img, .img-circle {
+    border-radius: 50%;
+    max-width: 100%;
 }
 
 .timeline>li .timeline-image h4 {

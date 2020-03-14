@@ -28,14 +28,21 @@ function setupSlideshow(index) {
 }
 
 /* Open the overlay in full screen */
+/* Change visibility of the overlay and the close button, hide the menu. */
 function openSlideshow(index) {
 	setupSlideshow(index);
 
-	// Change visibility of the overlay.
 	document.getElementById("overlay").style.visibility = "visible";
+	document.getElementById("closeSlideshowButton").style.visibility = "visible";
+	document.getElementById("navbarResponsive").style.visibility = "hidden";
+	document.getElementById("collapsedMenu").style.visibility = "hidden";
 };
 
 /* Close the overlay on small devices */
+/* hide the slideshow overlay and the close button, show the menu. */
 function closeSlideshow() {
 	document.getElementById("overlay").style.visibility = "hidden";
+	document.getElementById("closeSlideshowButton").style.visibility = "hidden";
+	document.getElementById("navbarResponsive").style.visibility = "visible";
+	document.getElementById("collapsedMenu").style.visibility = "visible";
 }
