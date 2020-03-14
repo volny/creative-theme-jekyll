@@ -56,7 +56,7 @@ def getIndex(args):
 def createThumbnail(index, filepath, image_extension):
 	root = os.path.dirname(os.path.realpath(__file__))
 	thumbnail_path = (root + "/../img/gallery/thumb/" + index + "." + image_extension)
-	os.system("convert -thumbnail 300x200 %s %s" % (filepath, thumbnail_path))
+	os.system("convert -gravity center -crop 3:2 -thumbnail 500 %s %s" % (filepath, thumbnail_path))
 
 # Create a smaller version than the original picture within the img/gallery/large/ folder.
 def createBigImage(index, filepath, image_extension):

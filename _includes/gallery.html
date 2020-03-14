@@ -1,6 +1,6 @@
 <section class="no-padding bg-dark" id="gallery">
     <div class="container-fluid">
-        <div class="row no-gutter">
+        <div class="row no-gutter gallery-container">
             {% for image in site.images limit:6 %}
             <div class="col-lg-4 col-sm-6 gallery-box">
                 <a href="javascript:void(0)" id="{{ forloop.index }}" class="portfolio-box" onclick="openSlideshow(this.id)">

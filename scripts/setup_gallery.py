@@ -41,5 +41,6 @@ path, dirs, files = next(os.walk(root))
 print("Cleaning existing files...")
 deletePreviousFiles()
 print("Importing images from: %s" % (path))
+files.sort()
 for file in files:
 	os.system("python create_slideshow_image.py -p %s" % (path + file))
