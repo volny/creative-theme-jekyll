@@ -16,15 +16,10 @@
         event.preventDefault();
     });
 
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-    })
 
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
+        $('.navbar-toggler').click();
     });
 
     // Fit Text Plugin for Main Header
@@ -35,12 +30,26 @@
         }
     );
 
-    // // Offset for Main Navigation
-    // $('#mainNav').affix({
-    //     offset: {
-    //         top: 100
-    //     }
-    // })
+    // Function to toggle the navigation bar design
+    var toggleAffix = function(affixElement) {
+        if (document.documentElement.scrollTop >= 100){
+            affixElement.addClass("navbar-scrolled");
+        } else {
+            affixElement.removeClass("navbar-scrolled");
+        }
+    };
+
+    // Init tge nav bar design toggle
+    $('[data-toggle="affix"]').each(function() {
+        var element = $(this)
+        // element.before(wrapper);
+        $(window).on('scroll resize', function() {
+            toggleAffix(element, $(this));
+        });
+
+        // init
+        toggleAffix(element, $(window));
+    });
 
     // Initialize WOW.js Scrolling Animations
     new WOW().init();

@@ -3,9 +3,10 @@
 
 @charset "utf-8";
 
-// variables.less
 $theme-primary: #F05F40;
 $theme-dark: #222;
+$white: #fff;
+$min-screen-width: 992px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
@@ -15,5 +16,6 @@ $theme-dark: #222;
         "switcher",
         "slideshow",
         "img-lazy",
+        "navbar",
         "base"
 ;

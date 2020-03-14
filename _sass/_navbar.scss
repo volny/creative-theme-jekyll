@@ -1,0 +1,88 @@
+/* Base styling for the navbar */
+
+#mainNav {
+  /* Small screen styling - screen sizes smaller than $min-screen-width */
+  box-shadow: 0 1px 0px rgba($theme-primary, .9);
+  background-color: $white;
+  @include transition-all;
+  .navbar-brand {
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $theme-primary;
+    @media (max-width: 400px) {
+      font-size: 1em;
+    }
+  }
+  .navbar-nav {
+    .nav-item {
+      padding-top: 0px;
+      .nav-link {
+        color: $theme-dark;
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-bold;
+        font-size: 0.9rem;
+        padding: 0.75rem 0;
+        text-transform: uppercase;
+        &:hover,
+        &:active {
+          color: $theme-primary;
+        }
+        &.active {
+          color: $theme-primary !important;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $min-screen-width) {
+    /* Base styling for the navbar - screen sizes larger than $min-screen-width */
+    box-shadow: none;
+    background-color: transparent;
+    .navbar-brand {
+      color: rgba($white, .7);
+      &:hover {
+        color: $white;
+      }
+    }
+    .navbar-nav {
+      .nav-item {
+        padding-top: 8px;
+        .nav-link {
+          color: rgba($white, .7);
+          padding: 0 1rem;
+          &:hover {
+            color: $white;
+          }
+        }
+        &:last-child {
+          .nav-link {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+    /* Navbar styling applied when the page is scrolled and on large screens only */
+    &.navbar-scrolled {
+      box-shadow: 0 1px 0px rgba($theme-primary, .9);
+      background-color: $white;
+      .navbar-brand {
+        color: $theme-primary;
+        &:hover {
+          color: darken($theme-primary, 10%);
+        }
+      }
+      .navbar-nav {
+        .nav-item {
+          padding-top: 8px;
+          .nav-link {
+            color: $theme-dark;
+            &:hover {
+              color: $theme-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

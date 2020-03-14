@@ -1,28 +1,33 @@
-// Language Switcher
+/* Language Switcher */
 
 select {
-  width: 50px;
-  padding: 5px 5px 5px 10px;
-  font-size: 30px;
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: none;
+	/* Base styling for small screens */
+	width: 30px;
+	font-size: 1.5em;
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: none;
+
+	@media (min-width: $min-screen-width) {
+		/* Base styling for large screens */
+		margin-left: 15px;
+	}
 }
 
 
-// CAUTION: Internet Explorer hackery ahead
+/* CAUTION: Internet Explorer hackery ahead */
 
 select::-ms-expand {
-	// Remove default arrow in Internet Explorer 10 and 11
-    display: none;
+	/* Remove default arrow in Internet Explorer 10 and 11 */
+	display: none;
 }
 
-// Target Internet Explorer 9 to undo the custom arrow
+/* Target Internet Explorer 9 to undo the custom arrow */
 @media screen and (min-width:0\0) {
-    select {
-        background: none\9;
-        padding: 5px\9;
-    }
+	select {
+		background: none\9;
+		padding: 5px\9;
+	}
 }
