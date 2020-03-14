@@ -2,6 +2,9 @@
  * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Modified by Kevin Delord to fit the current/new website and the plugin updates (css and JS).
+ *
  */
 
 (function($) {
@@ -27,6 +30,12 @@
     // Closes responsive menu when a scroll trigger link is clicked
     $('.js-scroll-trigger').click(function() {
         $('.navbar-collapse').collapse('hide');
+    });
+
+    // Activate scrollspy to add active class to navbar items on scroll
+    $('body').scrollspy({
+        target: '#mainNav',
+        offset: 100
     });
 
     // Function to toggle the navigation bar design
@@ -57,5 +66,11 @@
     var lazyLoadInstance = new LazyLoad({
         elements_selector: ".img-lazy"
     });
+
+    // Reload the complete website when selecting a new language from the Language Switcher.
+    document.getElementById('redirectSelect').onchange = function() {
+        var destination = this.value;
+        window.location = destination;
+    };
 
 })(jQuery); // End of use strict
