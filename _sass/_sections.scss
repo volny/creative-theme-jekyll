@@ -13,10 +13,6 @@
     margin: 0 auto;
 }
 
-.gallery-box {
-    width: 33%;
-}
-
 .portfolio-box {
     position: relative;
     display: block;
@@ -27,8 +23,6 @@
         max-width: 100%;
     }
     .portfolio-box-caption {
-    	/* Hidden by default for small screens */
-    	visibility: hidden;
         color: white;
         opacity: 0;
         display: block;
@@ -69,7 +63,6 @@
 	/* Base style for large screen. Override style set for small screen */
     @media (min-width: $min-screen-width) {
         .portfolio-box-caption {
-        	visibility: visible;
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 16px;

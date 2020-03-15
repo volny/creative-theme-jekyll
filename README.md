@@ -41,6 +41,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Update old/deprecated packages.
 - [x] Activities: style should be calculated, not imported from markdown
 - [x] Update Bootstrap / Creative
+- [ ] Create favicon
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
@@ -66,6 +67,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 
 ### Gallery
 - [x] Disable overlay for mobile devices
-- [ ] Fix images with weird ratio
+- [x] Fix images with weird ratio
+- [x] Grid: enforce 2 columns on xs devices
+- [x] Disable overlay also for ipad (large screen but not mousepad and no hover)
 - [ ] Add floating button 'show all pictures'
-
