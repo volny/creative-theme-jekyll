@@ -16,7 +16,7 @@ sass:
   compressed: true
 
 include: ['_activities', '_services', '_languages', '_images']
-exclude: ['reboot.sh', 'README.md', 'LICENSE']
+exclude: ['scripts', 'README.md', 'LICENSE']
 
 collections:
   activities:
@@ -85,6 +85,49 @@ t:
       title:
         en: "At Your Service"
         fr: "A votre service"
+    gallery:
+      1:
+        title:
+          en: "TEXT 1 EN"
+          fr: "TEXT 1 FR"
+        caption:
+          en: "Caption 1 EN"
+          fr: "Caption 1 FR"
+      2:
+        title:
+          en: "TEXT 2 EN"
+          fr: "TEXT 2 FR"
+        caption:
+          en: "Caption 2 EN"
+          fr: "Caption 2 FR"
+      3:
+        title:
+          en: "TEXT 3 EN"
+          fr: "TEXT 3 FR"
+        caption:
+          en: "Caption 3 EN"
+          fr: "Caption 3 FR"
+      4:
+        title:
+          en: "TEXT 4 EN"
+          fr: "TEXT 4 FR"
+        caption:
+          en: "Caption 4 EN"
+          fr: "Caption 4 FR"
+      5:
+        title:
+          en: "TEXT 5 EN"
+          fr: "TEXT 5 FR"
+        caption:
+          en: "Caption 5 EN"
+          fr: "Caption 5 FR"
+      6:
+        title:
+          en: "TEXT 6 EN"
+          fr: "TEXT 6 FR"
+        caption:
+          en: "Caption 6 EN"
+          fr: "Caption 6 FR"
     contact:
       title:
         en: "Let's Get In Touch!"

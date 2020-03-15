@@ -20,7 +20,7 @@
     });
 
     // Fit Text Plugin for Main Header
-    $("h1").fitText(
+    $('h1').fitText(
         1.2, {
             minFontSize: '35px',
             maxFontSize: '65px'
@@ -72,5 +72,12 @@
         var destination = this.value;
         window.location = destination;
     };
+
+    // Check if the device has a touch screen, if not disable the hover caption on the gallery.
+    // Thread StackOverflow: https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
+    var isTouchDevice = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+    $('.portfolio-box-caption').each(function() {
+        $(this).css('visibility', (isTouchDevice == true ? 'hidden' : 'visible'));
+    });
 
 })(jQuery); // End of use strict
