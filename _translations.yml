@@ -1,0 +1,143 @@
+#
+# Translations
+
+t:
+  nav:
+    gallery:
+      en: "Gallery"
+      fr: "Gallerie"
+      de: ""
+    services:
+      en: "Amenities"
+      fr: "Aménagement"
+      de: ""
+    activities:
+      en: "Activities"
+      fr: "Activités"
+      de: ""
+    contact:
+      en: "Contact"
+      fr: "Contact"
+      de: ""
+    about:
+      en: "About"
+      fr: "A-propos"
+      de: ""
+  sections:
+    header:
+      title:
+        en: "Your favorite surf house"
+        fr: "Votre Surf House préférée"
+        de: ""
+      subtitle:
+        en: "Next to all great famous surf spots, really great stuff"
+        fr: "Près de tous les spots de ouf! c'est génial ici"
+        de: ""
+      action:
+        en: "Book now!"
+        fr: "Réserver dès maintenant!"
+        de: ""
+    about:
+      title:
+        en: "All you need and more"
+        fr: "Tout ce dont vous avez besoin et plus!"
+        de: ""
+      subtitle:
+        en: "150 meters away to a direct access to the ocean, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
+        fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
+        de: ""
+      action:
+        en: "Get Started!"
+        fr: "Allez c'est parti"
+        de: ""
+    activities:
+      title:
+        en: "Activities"
+        fr: "Activités"
+        de: ""
+      subtitle:
+        en: "Stuff to do around the house..."
+        fr: "Chose à faire aux alentours..."
+        de: ""
+      footer:
+        en: "Join the fun!"
+        fr: "Tout est là!"
+        de: ""
+    services:
+      title:
+        en: "At Your Service"
+        fr: "A votre service"
+        de: ""
+    gallery:
+      1:
+        title:
+          en: "TEXT 1 EN"
+          fr: "TEXT 1 FR"
+          de: ""
+        caption:
+          en: "Caption 1 EN"
+          fr: "Caption 1 FR"
+          de: ""
+      2:
+        title:
+          en: "TEXT 2 EN"
+          fr: "TEXT 2 FR"
+          de: ""
+        caption:
+          en: "Caption 2 EN"
+          fr: "Caption 2 FR"
+          de: ""
+      3:
+        title:
+          en: "TEXT 3 EN"
+          fr: "TEXT 3 FR"
+          de: ""
+        caption:
+          en: "Caption 3 EN"
+          fr: "Caption 3 FR"
+          de: ""
+      4:
+        title:
+          en: "TEXT 4 EN"
+          fr: "TEXT 4 FR"
+          de: ""
+        caption:
+          en: "Caption 4 EN"
+          fr: "Caption 4 FR"
+          de: ""
+      5:
+        title:
+          en: "TEXT 5 EN"
+          fr: "TEXT 5 FR"
+          de: ""
+        caption:
+          en: "Caption 5 EN"
+          fr: "Caption 5 FR"
+          de: ""
+      6:
+        title:
+          en: "TEXT 6 EN"
+          fr: "TEXT 6 FR"
+          de: ""
+        caption:
+          en: "Caption 6 EN"
+          fr: "Caption 6 FR"
+          de: ""
+    contact:
+      title:
+        en: "Let's Get In Touch!"
+        fr: "Allez on se parle!"
+        de: ""
+      subtitle:
+        en: "Ready to come? Have you already packed your surfboard? But you don't want to book through booking? Then just call us!"
+        fr: "Prêt à venir? Vous avez déjà préparer votre sac et vos planches de surf? Mais vous ne voulez pas réserver par internet? Dans ce cas là appelez nous!"
+        de: ""
+    booking:
+      title:
+        en: "Book as soon as possible!"
+        fr: "Réservez dès que posisble!"
+        de: ""
+      action:
+        en: "Booking"
+        fr: "Réservation"
+        de: ""

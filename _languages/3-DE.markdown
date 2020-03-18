@@ -1,5 +1,5 @@
 ---
 lang: de
-link: /
+link: /de/
 text: 🇩🇪 Deutsch
 ---
