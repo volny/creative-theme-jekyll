@@ -1,5 +1,6 @@
 <section class="no-padding bg-dark" id="gallery">
-    <div class="">
+    <div class="gallery-wrapper">
+        <!-- Default 6 images gallery -->
         <div class="row no-gutter gallery-container">
             {% for image in site.images limit:6 %}
             <div class="col-6 col-md-4">
@@ -19,5 +20,11 @@
             </div>
             {% endfor %}
         </div>
+
+        <!-- Open Gallery Button -->
+        <a href="javascript:void(0)" onclick="openSlideshow()" class="btn btn-default btn-sm open-gallery-action">
+            <i class="far fa-images"></i>
+            {{ site.t.sections.gallery.slideshow[page.lang] }}
+        </a>
     </div>
 </section>

@@ -1,0 +1,92 @@
+/* Gallery */
+
+.gallery-container {
+    max-width: 1500px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.gallery-wrapper {
+	position: relative;
+	text-align: center;
+}
+
+.open-gallery-action {
+	/* Position: bottom, horizontal center */
+	position: absolute;
+	bottom: 20px;
+	display: inline-block;
+	transform: translateX(-50%);
+	/* Fixed width to enforce one line text on small devices */
+	width: 235px;
+	/* Add more spacing within the button*/
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: auto;
+	i {
+		margin-right: 5px;
+	}
+}
+
+.portfolio-box {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    img {
+        max-width: 100%;
+    }
+    .portfolio-box-caption {
+        color: white;
+        opacity: 0;
+        display: block;
+        background: rgba( $theme-primary, .9 );
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        @include transition-all;
+        .portfolio-box-caption-content {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            .project-category,
+            .project-name {
+                @include sans-serif-font;
+                padding: 0 15px;
+            }
+            .project-category {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 14px;
+            }
+            .project-name {
+                font-size: 18px;
+            }
+        }
+    }
+    &:hover {
+        .portfolio-box-caption {
+            opacity: 1;
+        }
+    }
+
+	/* Base style for large screen. Override style set for small screen */
+    @media (min-width: $min-screen-width) {
+        .portfolio-box-caption {
+            .portfolio-box-caption-content {
+                .project-category {
+                    font-size: 16px;
+                }
+                .project-name {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
