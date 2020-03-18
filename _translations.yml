@@ -123,6 +123,10 @@ t:
           en: "Caption 6 EN"
           fr: "Caption 6 FR"
           de: ""
+      slideshow:
+        en: "Open photo gallery"
+        fr: "Voir toutes les photos"
+        de: "Fotogalerie öffnen"
     contact:
       title:
         en: "Let's Get In Touch!"

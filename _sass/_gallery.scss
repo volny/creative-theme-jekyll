@@ -1,9 +1,3 @@
-/* Sections */
-
-.section-heading {
-    margin-top: 0;
-}
-
 /* Gallery */
 
 .gallery-container {
@@ -11,6 +5,28 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
+}
+
+.gallery-wrapper {
+	position: relative;
+	text-align: center;
+}
+
+.open-gallery-action {
+	/* Position: bottom, horizontal center */
+	position: absolute;
+	bottom: 20px;
+	display: inline-block;
+	transform: translateX(-50%);
+	/* Fixed width to enforce one line text on small devices */
+	width: 235px;
+	/* Add more spacing within the button*/
+	padding-right: 15px;
+	padding-left: 15px;
+	max-width: auto;
+	i {
+		margin-right: 5px;
+	}
 }
 
 .portfolio-box {
@@ -72,13 +88,5 @@
                 }
             }
         }
-    }
-}
-
-/* Booking */
-
-.call-to-action {
-    h2 {
-        margin: 0 auto 20px;
     }
 }

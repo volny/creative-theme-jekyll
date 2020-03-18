@@ -46,6 +46,9 @@ Netlify has been configured to deploy the website at every git commit/push on th
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
 
+### Referencing
+- [ ] Make sure all images have a verbose file name and the alt tag is used.
+
 ### Navigation Bar
 - [x] Navigation bar: too wide
 - [x] Navigation bar: Animation glitch when clicking nav-link
@@ -70,4 +73,4 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Fix images with weird ratio
 - [x] Grid: enforce 2 columns on xs devices
 - [x] Disable overlay also for ipad (large screen but not mousepad and no hover)
-- [ ] Add floating button 'show all pictures'
+- [x] Add floating button 'show all pictures'
