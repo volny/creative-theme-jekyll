@@ -9,13 +9,13 @@
     </div>
     <div class="container">
         <div class="row">
-            {% assign services=site.services | where:"lang", page.lang %}
-            {% for service in services %}
+            {% for index in (1..site.t.sections.services.items.size) %}
+            {% assign item = site.t.sections.services.items[index] %}
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-3x {{ service.icon }} wow bounceIn icon-theme-primary"></i>
-                    <h3>{{ service.title }}</h3>
-                    <p class="text-muted">{{ service.text }}</p>
+                    <i class="fa fa-3x {{ item.icon }} wow bounceIn icon-theme-primary"></i>
+                    <h3>{{ item.title[page.lang] }}</h3>
+                    <p class="text-muted">{{ item.text[page.lang] }}</p>
                 </div>
             </div>
             {% endfor %}

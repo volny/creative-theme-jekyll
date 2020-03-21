@@ -1,6 +1,21 @@
-#
-# Translations
+# Available Languages
+# In the language switcher, they are automatically sorted following the index.
+# The default langague is defined in the main `index.html` file.
+available_languages:
+  1:
+    lang: "fr"
+    link: "/"
+    text: "🇫🇷 Français"
+  2:
+    lang: en
+    link: "/en/"
+    text: "🇬🇧 English"
+  3:
+    lang: "de"
+    link: "/de/"
+    text: "🇩🇪 Deutsch"
 
+# Translations
 t:
   nav:
     gallery:
@@ -63,66 +78,169 @@ t:
         en: "Join the fun!"
         fr: "Tout est là!"
         de: ""
+      items:
+        1:
+          image: "1.jpg"
+          distance: "150m"
+          title:
+            en: "Our Humble Beginnings"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
+        2:
+          image: "2.jpg"
+          distance: "500m"
+          title:
+            en: "An Agency is Born"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
+        3:
+          image: "3.jpg"
+          distance: "5km"
+          title:
+            en: "Transition to Full Service"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
+        4:
+          image: "4.jpg"
+          distance: "20km"
+          title:
+            en: "Phase Two Expansion"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
     services:
       title:
         en: "At Your Service"
         fr: "A votre service"
         de: ""
+      items:
+        1:
+          icon: "fa-dungeon"
+          title:
+            en: "This is just a test"
+            fr: "This is just a test"
+            de: ""
+          text:
+            en: "test test test test test test test test test"
+            fr: "test test test test test test test test test"
+            de: ""
+        2:
+          icon: "fa-heart"
+          title:
+            en: "Made with Love"
+            fr: "Made with Love"
+            de: ""
+          text:
+            en: "You have to make your websites with love these days!"
+            fr: "You have to make your websites with love these days!"
+            de: ""
+        3:
+          icon: "fa-newspaper"
+          title:
+            en: "Up to Date"
+            fr: "Up to Date"
+            de: ""
+          text:
+            en: "We update dependencies to keep things fresh."
+            fr: "We update dependencies to keep things fresh."
+            de: ""
+        4:
+          icon: "fa-paper-plane"
+          title:
+            en: "Ready to Ship"
+            fr: "Ready to Ship"
+            de: ""
+          text:
+            en: "You can use this theme as is, or you can make changes!"
+            fr: "You can use this theme as is, or you can make changes!"
+            de: ""
+        5:
+          icon: "fa-gem"
+          title:
+            en: "Sturdy Templates"
+            fr: "Sturdy Templates"
+            de: ""
+          text:
+            en: "Our templates are updated regularly so they don't break."
+            fr: "Our templates are updated regularly so they don't break."
+            de: ""
     gallery:
-      1:
-        title:
-          en: "TEXT 1 EN"
-          fr: "TEXT 1 FR"
-          de: ""
-        caption:
-          en: "Caption 1 EN"
-          fr: "Caption 1 FR"
-          de: ""
-      2:
-        title:
-          en: "TEXT 2 EN"
-          fr: "TEXT 2 FR"
-          de: ""
-        caption:
-          en: "Caption 2 EN"
-          fr: "Caption 2 FR"
-          de: ""
-      3:
-        title:
-          en: "TEXT 3 EN"
-          fr: "TEXT 3 FR"
-          de: ""
-        caption:
-          en: "Caption 3 EN"
-          fr: "Caption 3 FR"
-          de: ""
-      4:
-        title:
-          en: "TEXT 4 EN"
-          fr: "TEXT 4 FR"
-          de: ""
-        caption:
-          en: "Caption 4 EN"
-          fr: "Caption 4 FR"
-          de: ""
-      5:
-        title:
-          en: "TEXT 5 EN"
-          fr: "TEXT 5 FR"
-          de: ""
-        caption:
-          en: "Caption 5 EN"
-          fr: "Caption 5 FR"
-          de: ""
-      6:
-        title:
-          en: "TEXT 6 EN"
-          fr: "TEXT 6 FR"
-          de: ""
-        caption:
-          en: "Caption 6 EN"
-          fr: "Caption 6 FR"
-          de: ""
+      thumbnails:
+        1:
+          image: "1.jpeg"
+          title:
+            en: "TEXT 1 EN"
+            fr: "TEXT 1 FR"
+            de: ""
+          caption:
+            en: "Caption 1 EN"
+            fr: "Caption 1 FR"
+            de: ""
+        2:
+          image: "2.jpeg"
+          title:
+            en: "TEXT 2 EN"
+            fr: "TEXT 2 FR"
+            de: ""
+          caption:
+            en: "Caption 2 EN"
+            fr: "Caption 2 FR"
+            de: ""
+        3:
+          image: "3.jpeg"
+          title:
+            en: "TEXT 3 EN"
+            fr: "TEXT 3 FR"
+            de: ""
+          caption:
+            en: "Caption 3 EN"
+            fr: "Caption 3 FR"
+            de: ""
+        4:
+          image: "4.jpg"
+          title:
+            en: "TEXT 4 EN"
+            fr: "TEXT 4 FR"
+            de: ""
+          caption:
+            en: "Caption 4 EN"
+            fr: "Caption 4 FR"
+            de: ""
+        5:
+          image: "5.jpeg"
+          title:
+            en: "TEXT 5 EN"
+            fr: "TEXT 5 FR"
+            de: ""
+          caption:
+            en: "Caption 5 EN"
+            fr: "Caption 5 FR"
+            de: ""
+        6:
+          image: "6.jpg"
+          title:
+            en: "TEXT 6 EN"
+            fr: "TEXT 6 FR"
+            de: ""
+          caption:
+            en: "Caption 6 EN"
+            fr: "Caption 6 FR"
+            de: ""
       slideshow:
         en: "Open photo gallery"
         fr: "Voir toutes les photos"

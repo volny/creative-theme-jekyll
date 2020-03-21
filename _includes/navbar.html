@@ -29,7 +29,8 @@
 					<a class="nav-link page-scroll js-scroll-trigger" href="#contact">{{ site.t.nav.contact[page.lang] }}</a>
 				</li>
 				<select font-size="large" id="redirectSelect">
-					{% for config in site.languages %}
+					{% for index in (1..site.available_languages.size) %}
+					{% assign config = site.available_languages[index] %}
 						<option lang="{{ config.lang }}" value="{{ config.link }}" {% if config.lang == page.lang %}selected{% endif %}>{{ config.text }}</option>
 					{% endfor %}
 				</select>

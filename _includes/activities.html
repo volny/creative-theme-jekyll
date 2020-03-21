@@ -10,10 +10,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="timeline wow fadeIn delay">
-                    {% assign activities=site.activities | where:"lang", page.lang %}
-                    {% for activity in activities %}
-                    {% assign loopindex = forloop.index | modulo: 2 %}
-                    {% if loopindex == 0 %}
+                    {% for index in (1..site.t.sections.activities.items.size) %}
+                    {% assign activity = site.t.sections.activities.items[index] %}
+                    {% assign odd_index = index | modulo: 2 %}
+                    {% if odd_index == 0 %}
                     <li class="timeline-inverted wow fadeIn delay">
                     {% else %}
                     <li class="wow fadeIn delay">
@@ -24,10 +24,10 @@
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h6 class="text-muted">{{ activity.distance }}</h6>
-                                <h4 class="subheading">{{ activity.title }}</h4>
+                                <h4 class="subheading">{{ activity.title[page.lang] }}</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">{{ activity.text }}</p>
+                                <p class="text-muted">{{ activity.text[page.lang] }}</p>
                             </div>
                         </div>
                     </li>
