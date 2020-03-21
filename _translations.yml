@@ -43,7 +43,7 @@ t:
       title:
         en: "Your favorite surf house"
         fr: "Votre Surf House préférée"
-        de: "Dein Lieblingssurfhouse"
+        de: "Dein Surfhouse in Frankreich"
       subtitle:
         en: "Next to all great famous surf spots, really great stuff"
         fr: "Près de tous les spots de ouf! c'est génial ici"
@@ -192,7 +192,7 @@ t:
           text:
             en: "placeholder"
             fr: "placeholder"
-            de: "Kostenlser und privater Internetzugang"
+            de: "Kostenloser und privater Internetzugang"
         8:
           icon: "fa-dice"
           title:
