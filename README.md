@@ -61,7 +61,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [ ] Find out how to integrate booking to a gmaps POI.
 
 ### Map
-- [ ] Add a new section to show a map location
+- [x] Add a new section to show a map location
 - [ ] Add POI to google maps
 - [ ] Mobile: Add link to map application
 
