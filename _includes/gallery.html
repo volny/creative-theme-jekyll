@@ -2,17 +2,17 @@
     <div class="gallery-wrapper">
         <!-- Default 6 images gallery -->
         <div class="row no-gutter gallery-container">
-            {% for image in site.images limit:6 %}
+            {% for image in site.images limit: site.t.sections.gallery.thumbnails.size %}
             <div class="col-6 col-md-4">
                 <a href="javascript:void(0)" id="{{ forloop.index }}" class="portfolio-box" onclick="openSlideshow(this.id)">
                     <img data-src="/img/gallery/thumb/{{ image.image }}" class="img-lazy img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
-                                {{ site.t.sections.gallery[forloop.index].title[page.lang] }}
+                                {{ site.t.sections.gallery.thumbnails[forloop.index].title[page.lang] }}
                             </div>
                             <div class="project-name">
-                                {{ site.t.sections.gallery[forloop.index].caption[page.lang] }}
+                                {{ site.t.sections.gallery.thumbnails[forloop.index].caption[page.lang] }}
                             </div>
                         </div>
                     </div>
