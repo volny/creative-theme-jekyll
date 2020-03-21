@@ -70,10 +70,6 @@ t:
         en: "Stuff to do around the house..."
         fr: "Chose à faire aux alentours..."
         de: ""
-      footer:
-        en: "Join the fun!"
-        fr: "Tout est là!"
-        de: ""
       items:
         1:
           image: "1.jpg"
@@ -119,6 +115,8 @@ t:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
             fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
             de: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+        5:
+          image: "5.jpg"
     services:
       title:
         en: "At Your Service"
