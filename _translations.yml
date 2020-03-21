@@ -61,10 +61,6 @@ t:
         en: "150 meters away to a direct access to the ocean, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
         fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
         de: ""
-      action:
-        en: "Get Started!"
-        fr: "Allez c'est parti"
-        de: ""
     activities:
       title:
         en: "Activities"
@@ -84,45 +80,45 @@ t:
           distance: "150m"
           title:
             en: "Our Humble Beginnings"
-            fr: ""
-            de: ""
+            fr: "Our Humble Beginnings"
+            de: "Our Humble Beginnings"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
         2:
           image: "2.jpg"
           distance: "500m"
           title:
             en: "An Agency is Born"
-            fr: ""
-            de: ""
+            fr: "An Agency is Born"
+            de: "An Agency is Born"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
         3:
           image: "3.jpg"
           distance: "5km"
           title:
             en: "Transition to Full Service"
-            fr: ""
-            de: ""
+            fr: "Transition to Full Service"
+            de: "Transition to Full Service"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
         4:
           image: "4.jpg"
           distance: "20km"
           title:
             en: "Phase Two Expansion"
-            fr: ""
-            de: ""
+            fr: "Phase Two Expansion"
+            de: "Phase Two Expansion"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
     services:
       title:
         en: "At Your Service"
@@ -253,13 +249,4 @@ t:
       subtitle:
         en: "Ready to come? Have you already packed your surfboard? But you don't want to book through booking? Then just call us!"
         fr: "Prêt à venir? Vous avez déjà préparer votre sac et vos planches de surf? Mais vous ne voulez pas réserver par internet? Dans ce cas là appelez nous!"
-        de: ""
-    booking:
-      title:
-        en: "Book as soon as possible!"
-        fr: "Réservez dès que posisble!"
-        de: ""
-      action:
-        en: "Booking"
-        fr: "Réservation"
         de: ""
