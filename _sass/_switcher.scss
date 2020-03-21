@@ -2,25 +2,30 @@
 
 select {
 	/* Base styling for small screens */
-	width: 40px;
-	font-size: 1.5em;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	font-size: 0.9em;
 	border: none;
+	text-transform: uppercase;
+	color: $theme-dark;
+	font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+
+    /* Hide/Remove the default arrows of the select element */
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	background: none;
 
 	@media (min-width: $min-screen-width) {
-		/* Base styling for large screens */
+		/* Base styling for large screens - overwrite style for small screens */
 		margin-left: 15px;
-	}
-
-	/* Base styling for the navbar - screen sizes larger than $min-screen-width */
-	@media (min-width: $min-screen-width) {
 		width: 30px;
+		font-size: 1.5em;
+		padding: 0;
+		text-transform: none;
 	}
 }
-
 
 /* CAUTION: Internet Explorer hackery ahead */
 
