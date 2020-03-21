@@ -63,6 +63,51 @@ t:
         en: "Join the fun!"
         fr: "Tout est là!"
         de: ""
+      items:
+        1:
+          image: "1.jpg"
+          distance: "150m"
+          title:
+            en: "Our Humble Beginnings"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
+        2:
+          image: "2.jpg"
+          distance: "500m"
+          title:
+            en: "An Agency is Born"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
+        3:
+          image: "3.jpg"
+          distance: "5km"
+          title:
+            en: "Transition to Full Service"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
+        4:
+          image: "4.jpg"
+          distance: "20km"
+          title:
+            en: "Phase Two Expansion"
+            fr: ""
+            de: ""
+          text:
+            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            fr: ""
+            de: ""
     services:
       title:
         en: "At Your Service"
