@@ -76,3 +76,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Grid: enforce 2 columns on xs devices
 - [x] Disable overlay also for ipad (large screen but not mousepad and no hover)
 - [x] Add floating button 'show all pictures'
+
+### Contact
+- [ ] Fix design with vertical aligned elements, smaller call/email icons.
+- [ ] Add GitHub link
