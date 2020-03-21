@@ -19,10 +19,6 @@ include: ['_languages', '_images']
 exclude: ['scripts', 'README.md', 'LICENSE']
 
 collections:
-  activities:
-    output: false
-  services:
-    output: false
   languages:
     output: false
   images:
