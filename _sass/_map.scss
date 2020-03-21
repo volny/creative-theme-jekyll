@@ -2,10 +2,11 @@
 
 #map {
 	padding: 10px;
+	padding-bottom: 30px;
 }
 
 .col-sm {
-	margin: 20px auto;
+	margin-top: 20px;
 	padding: 0px;
 
 	display: flex;
@@ -25,7 +26,7 @@
 
 .maps-info {
 	display: inline;
-
+	width: 100%;
 	padding-right: 20px;
 	padding-left: 20px;
 }

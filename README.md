@@ -62,8 +62,8 @@ Netlify has been configured to deploy the website at every git commit/push on th
 
 ### Map
 - [x] Add a new section to show a map location
+- [x] Mobile: Add link to map application
 - [ ] Add POI to google maps
-- [ ] Mobile: Add link to map application
 
 ### Slideshow
 - [x] Responsive design for mobile devices
