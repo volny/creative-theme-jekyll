@@ -15,7 +15,7 @@ markdown: kramdown
 sass:
   compressed: true
 
-include: ['_languages', '_images']
+include: ['_images']
 exclude: ['scripts', 'README.md', 'LICENSE']
 
 collections:

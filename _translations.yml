@@ -1,6 +1,21 @@
-#
-# Translations
+# Available Languages
+# In the language switcher, they are automatically sorted following the index.
+# The default langague is defined in the main `index.html` file.
+available_languages:
+  1:
+    lang: "fr"
+    link: "/"
+    text: "🇫🇷 Français"
+  2:
+    lang: en
+    link: "/en/"
+    text: "🇬🇧 English"
+  3:
+    lang: "de"
+    link: "/de/"
+    text: "🇩🇪 Deutsch"
 
+# Translations
 t:
   nav:
     gallery:
