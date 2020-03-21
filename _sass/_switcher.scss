@@ -2,7 +2,7 @@
 
 select {
 	/* Base styling for small screens */
-	width: 30px;
+	width: 40px;
 	font-size: 1.5em;
 	border: none;
 	-webkit-appearance: none;
@@ -14,6 +14,11 @@ select {
 		/* Base styling for large screens */
 		margin-left: 15px;
 	}
+
+	/* Base styling for the navbar - screen sizes larger than $min-screen-width */
+	@media (min-width: $min-screen-width) {
+		width: 30px;
+	}
 }
 
 
@@ -22,12 +27,4 @@ select {
 select::-ms-expand {
 	/* Remove default arrow in Internet Explorer 10 and 11 */
 	display: none;
-}
-
-/* Target Internet Explorer 9 to undo the custom arrow */
-@media screen and (min-width:0\0) {
-	select {
-		background: none\9;
-		padding: 5px\9;
-	}
 }
