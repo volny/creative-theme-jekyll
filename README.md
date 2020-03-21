@@ -21,15 +21,12 @@
 The entire website is localized and translated into few languages.
 The default language is French.
 
-The languages enabled are listed in the folder `_languages`. The static texts are translated in the `_config.yml` and the dynamic elements in their dedicated markdown files.
+The languages enabled are listed in the folder `_languages`. The static texts are translated in the `_translations.yml`.
 
 To add a new language support:
 1. Create a new markdown file in the `_languages` folder and fill it based on the other languages format.
-2. Create new subfolders in the collection folders: `_activities`, `_services`
-3. Copy the content of the .markdown files from another language into those new folders.
-4. Edit and translate the content of the .markdown files to the new supported language.
-5. Add a new language-short-name.html file at the root of the repository (ex: `en.html`), within set the correct `lang` variable.
-6. Finally, translate all entries in the `_config.yml`.
+2. Add a new language-short-name.html file at the root of the repository (ex: `en.html`), within set the correct `lang` variable.
+4. Finally add andtranslate all entries in the `_translations.yml` file.
 
 ## Deployment
 
