@@ -1,0 +1,31 @@
+/* Maps */
+
+#map {
+	padding: 10px;
+}
+
+.col-sm {
+	margin: 20px auto;
+	padding: 0px;
+
+	display: flex;
+    align-items: center;
+}
+
+.google-maps {
+    position: relative;
+    min-height: 40vh;
+    overflow: hidden;
+}
+
+.google-maps iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.maps-info {
+	display: inline;
+
+	padding-right: 20px;
+	padding-left: 20px;
+}

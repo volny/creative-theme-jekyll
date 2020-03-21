@@ -21,164 +21,188 @@ t:
     gallery:
       en: "Gallery"
       fr: "Gallerie"
-      de: ""
+      de: "Galerie"
     services:
       en: "Amenities"
       fr: "Aménagement"
-      de: ""
+      de: "Ausstattung"
     activities:
       en: "Activities"
       fr: "Activités"
-      de: ""
+      de: "Aktivitäten"
     contact:
       en: "Contact"
       fr: "Contact"
-      de: ""
+      de: "Kontakt"
     about:
       en: "About"
       fr: "A-propos"
-      de: ""
+      de: "Beschreibung"
   sections:
     header:
       title:
         en: "Your favorite surf house"
         fr: "Votre Surf House préférée"
-        de: ""
+        de: "Dein Lieblingssurfhouse"
       subtitle:
         en: "Next to all great famous surf spots, really great stuff"
         fr: "Près de tous les spots de ouf! c'est génial ici"
-        de: ""
+        de: "In der Nähe zu den berühmtesten Surfspots mit den besten Wellen"
       action:
         en: "Book now!"
         fr: "Réserver dès maintenant!"
-        de: ""
+        de: "Jetzt buchen!"
     about:
       title:
         en: "All you need and more"
         fr: "Tout ce dont vous avez besoin et plus!"
-        de: ""
+        de: "Alles was du brauchst und mehr"
       subtitle:
         en: "150 meters away to a direct access to the ocean, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
         fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
-        de: ""
-      action:
-        en: "Get Started!"
-        fr: "Allez c'est parti"
-        de: ""
+        de: "Direkter Zugang zum Strand, nur 150 m entfernt, Parkplatz, dreimal Markt pro Woche, 200 m zu einem neuen Skatepark"
     activities:
       title:
         en: "Activities"
         fr: "Activités"
-        de: ""
+        de: "Aktivitäten"
       subtitle:
         en: "Stuff to do around the house..."
         fr: "Chose à faire aux alentours..."
-        de: ""
-      footer:
-        en: "Join the fun!"
-        fr: "Tout est là!"
-        de: ""
+        de: "Was man noch so in der Nähe machen kann..."
       items:
         1:
           image: "1.jpg"
           distance: "150m"
           title:
             en: "Our Humble Beginnings"
-            fr: ""
-            de: ""
+            fr: "Our Humble Beginnings"
+            de: "Strand und Wald"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine Runde Joggen willst, bist du genauso schnell im ruhigen Pinienwald."
         2:
           image: "2.jpg"
-          distance: "500m"
+          distance: "500m - 1km"
           title:
-            en: "An Agency is Born"
-            fr: ""
-            de: ""
+            en: "Le Penon"
+            fr: "Le Penon"
+            de: "Le Penon"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum Platz \"Place de Castille/Place Victor Gentille\" mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags (?) ist Markt in Seignosse, und du findest viele frische Angebote!<br />Natürlich gibt es auch eine Touristeninformation sowie eine Bäckerei, wo du dir jeden Morgen deine Croissants holen kannst. (wo?)<br />Zwischen dem Platz/der Straße und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen (Windsurfen?), ein Fahrradverleih und der Wasserpark Atlantic Park kannst du innerhalb von einem Kilometer erreichen."
         3:
           image: "3.jpg"
           distance: "5km"
           title:
             en: "Transition to Full Service"
-            fr: ""
-            de: ""
+            fr: "Transition to Full Service"
+            de: "Surfcity"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "Auf zum berühmten Surfspot La Gravière! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League und weitere Wettbewerbe ausgetragen! Andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen sind zum Beispiel Plage des Bourdaines, Plage des Estagnots, Plage Centrale oder Plage de Casernes."
         4:
           image: "4.jpg"
-          distance: "20km"
+          distance: "ab 7 km"
           title:
             en: "Phase Two Expansion"
-            fr: ""
-            de: ""
+            fr: "Phase Two Expansion"
+            de: "Städte und Flughäfen in der Nähe"
           text:
             en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: ""
-            de: ""
+            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            de: "Hossegor und Cabreton sind weitere Kleinstädte am Strand, die etwas größeren Städte Dax und Bayonne ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau Pyrénées (110 km) und Bordeaux (166 km)."
+        5:
+          image: "5.jpg"
     services:
       title:
-        en: "At Your Service"
-        fr: "A votre service"
-        de: ""
+        en: "Amenities"
+        fr: "Aménagement"
+        de: "Ausstattung"
       items:
         1:
-          icon: "fa-dungeon"
+          icon: "fa-utensils"
           title:
-            en: "This is just a test"
-            fr: "This is just a test"
-            de: ""
+            en: "New kitchen"
+            fr: "Nouvelle cuisine"
+            de: "Neue Küche "
           text:
             en: "test test test test test test test test test"
             fr: "test test test test test test test test test"
-            de: ""
+            de: "Komplett ausgestattet mit Backofen, Mikrowelle, Kühlschrank, Kaffeemaschine, Spülmaschine, ..."
         2:
-          icon: "fa-heart"
+          icon: "fa-umbrella-beach"
           title:
             en: "Made with Love"
             fr: "Made with Love"
-            de: ""
+            de: "Große Terasse"
           text:
             en: "You have to make your websites with love these days!"
             fr: "You have to make your websites with love these days!"
-            de: ""
+            de: "Mit Grill, Sonnenschirm, Liegestühlen, Tisch und Stühlen, komplett blickgeschützt"
         3:
-          icon: "fa-newspaper"
+          icon: "fa-car"
           title:
             en: "Up to Date"
             fr: "Up to Date"
-            de: ""
+            de: "Parkplatz"
           text:
             en: "We update dependencies to keep things fresh."
             fr: "We update dependencies to keep things fresh."
-            de: ""
+            de: "Ein kostenloser Parkplatz"
         4:
           icon: "fa-paper-plane"
           title:
             en: "Ready to Ship"
             fr: "Ready to Ship"
-            de: ""
+            de: "Surfbrettständer"
           text:
             en: "You can use this theme as is, or you can make changes!"
             fr: "You can use this theme as is, or you can make changes!"
-            de: ""
+            de: "Mit Platz für 4 Surfbretter"
         5:
-          icon: "fa-gem"
+          icon: "fa-couch"
           title:
             en: "Sturdy Templates"
             fr: "Sturdy Templates"
-            de: ""
+            de: "Schlafcouch"
           text:
             en: "Our templates are updated regularly so they don't break."
             fr: "Our templates are updated regularly so they don't break."
-            de: ""
+            de: "Schlafplatz für bis zu 2 weitere Personen"
+        6:
+          icon: "fa-swimmer"
+          title:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Pool"
+          text:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Pool zu freien Benutzung auf dem Gelände der Résidence Atlantique"
+        7:
+          icon: "fa-wifi"
+          title:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Wlan"
+          text:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Kostenlser und privater Internetzugang"
+        8:
+          icon: "fa-dice"
+          title:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Brettspiele"
+          text:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Verschiedene internationale Gesellschaftsspiele"
     gallery:
       thumbnails:
         1:
@@ -186,80 +210,80 @@ t:
           title:
             en: "TEXT 1 EN"
             fr: "TEXT 1 FR"
-            de: ""
+            de: "TEXT 1 DE"
           caption:
             en: "Caption 1 EN"
             fr: "Caption 1 FR"
-            de: ""
+            de: "Caption 1 DE"
         2:
           image: "2.jpeg"
           title:
             en: "TEXT 2 EN"
             fr: "TEXT 2 FR"
-            de: ""
+            de: "TEXT 2 DE"
           caption:
             en: "Caption 2 EN"
             fr: "Caption 2 FR"
-            de: ""
+            de: "Caption 2 DE"
         3:
           image: "3.jpeg"
           title:
             en: "TEXT 3 EN"
             fr: "TEXT 3 FR"
-            de: ""
+            de: "TEXT 3 DE"
           caption:
             en: "Caption 3 EN"
             fr: "Caption 3 FR"
-            de: ""
+            de: "Caption 3 DE"
         4:
           image: "4.jpg"
           title:
             en: "TEXT 4 EN"
             fr: "TEXT 4 FR"
-            de: ""
+            de: "TEXT 4 DE"
           caption:
             en: "Caption 4 EN"
             fr: "Caption 4 FR"
-            de: ""
+            de: "Caption 4 DE"
         5:
           image: "5.jpeg"
           title:
             en: "TEXT 5 EN"
             fr: "TEXT 5 FR"
-            de: ""
+            de: "TEXT 5 DE"
           caption:
             en: "Caption 5 EN"
             fr: "Caption 5 FR"
-            de: ""
+            de: "Caption 5 DE"
         6:
           image: "6.jpg"
           title:
             en: "TEXT 6 EN"
             fr: "TEXT 6 FR"
-            de: ""
+            de: "TEXT 6 DE"
           caption:
             en: "Caption 6 EN"
             fr: "Caption 6 FR"
-            de: ""
+            de: "Caption 6 DE"
       slideshow:
         en: "Open photo gallery"
         fr: "Voir toutes les photos"
         de: "Fotogalerie öffnen"
+    map:
+      title:
+        en: "placeholder"
+        fr: "placeholder"
+        de: "placeholder"
+      subtitle:
+        en: "placeholder"
+        fr: "placeholder"
+        de: "placeholder"
     contact:
       title:
         en: "Let's Get In Touch!"
         fr: "Allez on se parle!"
-        de: ""
+        de: "placeholder"
       subtitle:
         en: "Ready to come? Have you already packed your surfboard? But you don't want to book through booking? Then just call us!"
         fr: "Prêt à venir? Vous avez déjà préparer votre sac et vos planches de surf? Mais vous ne voulez pas réserver par internet? Dans ce cas là appelez nous!"
-        de: ""
-    booking:
-      title:
-        en: "Book as soon as possible!"
-        fr: "Réservez dès que posisble!"
-        de: ""
-      action:
-        en: "Booking"
-        fr: "Réservation"
-        de: ""
+        de: "Bist du bereit? Sind die Koffer gepackt? Aber du willst nicht online buchen? Dann ruf uns an!"
