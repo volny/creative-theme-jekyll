@@ -8,6 +8,7 @@ url: "lepenon-surfhouse.fr" # the base hostname & protocol for your site
 email: delord.kevin@gmail.com
 phone_number: 0033558123456
 phone_display: "+33 (0)5 58 12 34 56"
+github_link: "kevindelord/lepenon-surfhouse"
 
 # Build settings
 markdown: kramdown
