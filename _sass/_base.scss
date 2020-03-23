@@ -59,15 +59,26 @@ section {
     padding: 100px 0;
 }
 
-aside {
-    padding: 50px 0;
+section h2.section-heading {
+}
+
+section h3.section-subheading {
+    margin-bottom: 75px;
+    text-transform: none;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+footer {
+    padding: 10px;
 }
 
 .no-padding {
     padding: 0;
 }
 
-// Bootstrap Overrides
+/* Bootstrap Overrides */
 .icon-theme-primary {
     color: $theme-primary;
 }
@@ -77,7 +88,7 @@ aside {
     padding-left:0;
 }
 
-// Button Styles
+/* Button Styles */
 .btn-default {
     @include button-variant($theme-dark, white, white);
 }
@@ -98,14 +109,23 @@ aside {
     padding: 15px 30px;
 }
 
-// Contact
-#contact .fa {
-    color: $theme-dark;
-    font-size: 4em;
+.btn-sm {
+    /* Make sure the design fits perfectly with an icon within */
+    padding-right: 10px;
+    padding-left: 10px;
+    i {
+        margin-right: 8px;
+    }
+
+    /* Base style for small screen. */
+    /* Fixed minimum width to enforce one line text on small devices */
+    @media (max-width: $min-screen-width) {
+        min-width: 230px;
+    }
 }
 
-// Extras
-// -- Highlight Color Customization
+/* Extras */
+/* -- Highlight Color Customization */
 ::-moz-selection {
     color: white;
     text-shadow: none;

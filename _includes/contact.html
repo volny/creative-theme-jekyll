@@ -1,22 +1,27 @@
 <section class="bg-theme-primary" id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">{{ site.t.sections.contact.title[page.lang] }}</h2>
-                <hr class="light">
-                <p>{{ site.t.sections.contact.subtitle[page.lang] }}</p>
-        </div>
-        <div class="col-lg-2 col-lg-offset-2 text-center">
-            <a href="tel:{{ site.phone }}">
-                <i class="fa fa-phone wow bounceIn" data-wow-delay=".1s"></i>
-                <p>{{ site.phone_display }}</p>
-            </a>
-        </div>
-        <div class="col-lg-2 col-lg-offset-1 text-center">
-            <a href="mailto:{{ site.email }}">
-                <i class="fa fa-envelope wow bounceIn" data-wow-delay=".1s"></i>
-                <p>{{ site.email }}</p>
-            </a>
-        </div>
+	<div class="container text-center">
+		<div class="row">
+			<!-- Description Text -->
+			<div class="col">
+				<h2 class="section-heading">{{ site.t.sections.contact.title[page.lang] }}</h2>
+				<hr class="light">
+				<p>{{ site.t.sections.contact.subtitle[page.lang] }}</p>
+			</div>
+			<!-- New line -->
+			<div class="w-100"></div>
+			<!-- Call-to-actions -->
+			<div class="col-lg-3 offset-lg-3 contact-col-element">
+				<a href="tel:{{ site.phone_number }}" class="btn btn-default btn-sm">
+					<i class="fa fa-phone"></i>
+					{{ site.phone_display }}
+				</a>
+			</div>
+			<div class="col-lg-3 offset-lg-0 contact-col-element">
+				<a href="mailto:{{ site.email }}" class="btn btn-default btn-sm" id="email-no-uppercase">
+					<i class="fa fa-envelope"></i>
+					{{ site.email }}
+				</a>
+			</div>
+		</div>
     </div>
 </section>
