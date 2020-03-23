@@ -7,3 +7,12 @@
 #email-no-uppercase {
 	text-transform: none;
 }
+
+#contact {
+	/* Overwrite base style with #id */
+	padding: 50px 0;
+
+	h2, p {
+		color: white;
+	}
+}
