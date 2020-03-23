@@ -98,10 +98,19 @@ aside {
     padding: 15px 30px;
 }
 
-// Contact
-#contact .fa {
-    color: $theme-dark;
-    font-size: 4em;
+.btn-sm {
+    /* Make sure the design fits perfectly with an icon within */
+    padding-right: 10px;
+    padding-left: 10px;
+    i {
+        margin-right: 8px;
+    }
+
+    /* Base style for small screen. */
+    /* Fixed minimum width to enforce one line text on small devices */
+    @media (max-width: $min-screen-width) {
+        min-width: 230px;
+    }
 }
 
 // Extras

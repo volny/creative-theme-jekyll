@@ -18,15 +18,6 @@
 	bottom: 20px;
 	display: inline-block;
 	transform: translateX(-50%);
-	/* Fixed width to enforce one line text on small devices */
-	width: 235px;
-	/* Add more spacing within the button*/
-	padding-right: 15px;
-	padding-left: 15px;
-	max-width: auto;
-	i {
-		margin-right: 5px;
-	}
 }
 
 .portfolio-box {
