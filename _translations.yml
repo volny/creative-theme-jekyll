@@ -211,59 +211,35 @@ t:
             en: "TEXT 1 EN"
             fr: "TEXT 1 FR"
             de: "Die blickgeschützte Sonnenterrasse"
-          caption:
-            en: "Caption 1 EN"
-            fr: "Caption 1 FR"
-            de: ""
         2:
           image: "2.jpeg"
           title:
             en: "TEXT 2 EN"
             fr: "TEXT 2 FR"
             de: "Das Schlafzimmer"
-          caption:
-            en: "Caption 2 EN"
-            fr: "Caption 2 FR"
-            de: ""
         3:
           image: "3.jpeg"
           title:
             en: "TEXT 3 EN"
             fr: "TEXT 3 FR"
             de: "Die neue Küche"
-          caption:
-            en: "Caption 3 EN"
-            fr: "Caption 3 FR"
-            de: ""
         4:
           image: "4.jpg"
           title:
             en: "TEXT 4 EN"
             fr: "TEXT 4 FR"
-            de: ""
-          caption:
-            en: "Caption 4 EN"
-            fr: "Caption 4 FR"
             de: "Die gemütliche Sofaecke"
         5:
           image: "5.jpeg"
           title:
             en: "TEXT 5 EN"
             fr: "TEXT 5 FR"
-            de: ""
-          caption:
-            en: "Caption 5 EN"
-            fr: "Caption 5 FR"
             de: "Direkt am Strand"
         6:
           image: "6.jpg"
           title:
             en: "TEXT 6 EN"
             fr: "TEXT 6 FR"
-            de: ""
-          caption:
-            en: "Caption 6 EN"
-            fr: "Caption 6 FR"
             de: "Blick auf den Wald"
       slideshow:
         en: "Open photo gallery"

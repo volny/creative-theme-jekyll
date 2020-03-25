@@ -46,18 +46,12 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            .project-category,
-            .project-name {
+            .project-category {
                 @include sans-serif-font;
                 padding: 0 15px;
-            }
-            .project-category {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 14px;
-            }
-            .project-name {
-                font-size: 18px;
+                font-size: 16px;
             }
         }
     }
@@ -72,10 +66,7 @@
         .portfolio-box-caption {
             .portfolio-box-caption-content {
                 .project-category {
-                    font-size: 16px;
-                }
-                .project-name {
-                    font-size: 22px;
+                    font-size: 18px;
                 }
             }
         }
