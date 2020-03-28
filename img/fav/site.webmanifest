@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Le Penon Surf House",
+    "short_name": "lepenonsurfhouse",
+    "start_url": "https://lepenon-surfhouse.fr",
     "icons": [
         {
             "src": "/img/fav/android-chrome-192x192.png",
