@@ -1,0 +1,28 @@
+/* Booking */
+
+/* Overwrite base style with #id */
+#booking {
+
+	h5 {
+		/*margin-top: 40px;*/
+		margin-bottom: 20px;
+	}
+
+	img {
+		/*max-width: 80%;*/
+		max-height: 60%;
+
+		/* Gray out the images */
+		-webkit-filter: grayscale(100%);
+		filter: grayscale(100%);
+	}
+}
+
+.col-partner {
+	height: 80px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
