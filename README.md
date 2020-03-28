@@ -57,8 +57,8 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Navigation bar: current index not visible
 
 ### Booking
-- [ ] Rename About section into Booking with lower part with a calendar (or 'coming soon').
-- [ ] Prepare booking area with a coming soon.
+- [x] Rename About section into Booking with lower part with a calendar (or 'coming soon').
+- [x] Prepare booking area with a coming soon.
 - [ ] Find out how to integrate booking to a gmaps POI.
 
 ### Map

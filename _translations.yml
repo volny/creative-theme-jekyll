@@ -34,10 +34,10 @@ t:
       en: "Contact"
       fr: "Contact"
       de: "Kontakt"
-    about:
-      en: "About"
-      fr: "A-propos"
-      de: "Beschreibung"
+    booking:
+      en: "Booking"
+      fr: "Réservations"
+      de: "Buchung"
   sections:
     header:
       title:
@@ -52,15 +52,26 @@ t:
         en: "Book now!"
         fr: "Réserver dès maintenant!"
         de: "Jetzt buchen!"
-    about:
+    booking:
       title:
-        en: "All you need and more"
-        fr: "Tout ce dont vous avez besoin et plus!"
-        de: "Alles was du brauchst und mehr"
+        en: "Booking"
+        fr: "Réservations"
+        de: "Buchung"
       subtitle:
         en: "150 meters away to a direct access to the ocean, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
         fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
         de: "Direkter Zugang zum Strand, nur 150 m entfernt, Parkplatz, dreimal Markt pro Woche, 200 m zu einem neuen Skatepark"
+      coming_soon:
+        en: "Coming soon via our partners"
+        fr: "Bientôt disponible avec nos partenaires"
+        de: "Demnächst verfügbar über unsere Partner"
+      partners:
+        1:
+          image: "airbnb.png"
+        2:
+          image: "booking.com.png"
+        3:
+          image: "homeaway.png"
     activities:
       title:
         en: "Activities"
@@ -72,7 +83,7 @@ t:
         de: "Was man noch so in der Nähe machen kann..."
       items:
         1:
-          image: "1.jpg"
+          image: "beach.jpg"
           distance: "150m"
           title:
             en: "Our Humble Beginnings"
@@ -83,7 +94,7 @@ t:
             fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
             de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine Runde Joggen willst, bist du genauso schnell im ruhigen Pinienwald."
         2:
-          image: "2.jpg"
+          image: "food.jpg"
           distance: "500m - 1km"
           title:
             en: "Le Penon"
@@ -94,7 +105,7 @@ t:
             fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
             de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum Platz \"Place de Castille/Place Victor Gentille\" mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags (?) ist Markt in Seignosse, und du findest viele frische Angebote!<br />Natürlich gibt es auch eine Touristeninformation sowie eine Bäckerei, wo du dir jeden Morgen deine Croissants holen kannst. (wo?)<br />Zwischen dem Platz/der Straße und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen (Windsurfen?), ein Fahrradverleih und der Wasserpark Atlantic Park kannst du innerhalb von einem Kilometer erreichen."
         3:
-          image: "3.jpg"
+          image: "wave.jpg"
           distance: "5km"
           title:
             en: "Transition to Full Service"
@@ -105,7 +116,7 @@ t:
             fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
             de: "Auf zum berühmten Surfspot La Gravière! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League und weitere Wettbewerbe ausgetragen! Andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen sind zum Beispiel Plage des Bourdaines, Plage des Estagnots, Plage Centrale oder Plage de Casernes."
         4:
-          image: "4.jpg"
+          image: "plane.jpg"
           distance: "ab 7 km"
           title:
             en: "Phase Two Expansion"
@@ -116,7 +127,7 @@ t:
             fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
             de: "Hossegor und Cabreton sind weitere Kleinstädte am Strand, die etwas größeren Städte Dax und Bayonne ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau Pyrénées (110 km) und Bordeaux (166 km)."
         5:
-          image: "5.jpg"
+          image: "shaka.jpg"
     services:
       title:
         en: "Amenities"
@@ -210,61 +221,37 @@ t:
           title:
             en: "TEXT 1 EN"
             fr: "TEXT 1 FR"
-            de: "TEXT 1 DE"
-          caption:
-            en: "Caption 1 EN"
-            fr: "Caption 1 FR"
-            de: "Caption 1 DE"
+            de: "Die blickgeschützte Sonnenterrasse"
         2:
           image: "2.jpeg"
           title:
             en: "TEXT 2 EN"
             fr: "TEXT 2 FR"
-            de: "TEXT 2 DE"
-          caption:
-            en: "Caption 2 EN"
-            fr: "Caption 2 FR"
-            de: "Caption 2 DE"
+            de: "Das Schlafzimmer"
         3:
           image: "3.jpeg"
           title:
             en: "TEXT 3 EN"
             fr: "TEXT 3 FR"
-            de: "TEXT 3 DE"
-          caption:
-            en: "Caption 3 EN"
-            fr: "Caption 3 FR"
-            de: "Caption 3 DE"
+            de: "Die neue Küche"
         4:
           image: "4.jpg"
           title:
             en: "TEXT 4 EN"
             fr: "TEXT 4 FR"
-            de: "TEXT 4 DE"
-          caption:
-            en: "Caption 4 EN"
-            fr: "Caption 4 FR"
-            de: "Caption 4 DE"
+            de: "Die gemütliche Sofaecke"
         5:
           image: "5.jpeg"
           title:
             en: "TEXT 5 EN"
             fr: "TEXT 5 FR"
-            de: "TEXT 5 DE"
-          caption:
-            en: "Caption 5 EN"
-            fr: "Caption 5 FR"
-            de: "Caption 5 DE"
+            de: "Direkt am Strand"
         6:
           image: "6.jpg"
           title:
             en: "TEXT 6 EN"
             fr: "TEXT 6 FR"
-            de: "TEXT 6 DE"
-          caption:
-            en: "Caption 6 EN"
-            fr: "Caption 6 FR"
-            de: "Caption 6 DE"
+            de: "Blick auf den Wald"
       slideshow:
         en: "Open photo gallery"
         fr: "Voir toutes les photos"
@@ -282,7 +269,7 @@ t:
       title:
         en: "Let's Get In Touch!"
         fr: "Allez on se parle!"
-        de: "placeholder"
+        de: "Ruf uns an!"
       subtitle:
         en: "Ready to come? Have you already packed your surfboard? But you don't want to book through booking? Then just call us!"
         fr: "Prêt à venir? Vous avez déjà préparer votre sac et vos planches de surf? Mais vous ne voulez pas réserver par internet? Dans ce cas là appelez nous!"
