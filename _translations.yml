@@ -61,6 +61,17 @@ t:
         en: "150 meters away to a direct access to the ocean, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
         fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
         de: "Direkter Zugang zum Strand, nur 150 m entfernt, Parkplatz, dreimal Markt pro Woche, 200 m zu einem neuen Skatepark"
+      coming_soon:
+        en: "Coming soon via our partners"
+        fr: "Bientôt disponible avec nos partenaires"
+        de: "Demnächst verfügbar über unsere Partner"
+      partners:
+        1:
+          image: "airbnb.png"
+        2:
+          image: "booking.com.png"
+        3:
+          image: "homeaway.png"
     activities:
       title:
         en: "Activities"
