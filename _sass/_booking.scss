@@ -1,0 +1,24 @@
+/* Booking */
+
+/* Overwrite base style with #id */
+#booking {
+
+	h5 {
+		/* Margin around the coming soon*/
+		margin-top: 35px;
+		margin-bottom: 20px;
+	}
+}
+
+.booking-partner {
+	height: 80px;
+
+	/* Vertically and horizontally align the content*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	img {
+		max-height: 60%;
+	}
+}

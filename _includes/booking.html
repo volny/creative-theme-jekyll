@@ -1,0 +1,23 @@
+<section id="booking">
+	<div class="container">
+		<div class="text-center">
+			<h2 class="section-heading">{{ site.t.sections.booking.title[page.lang] }}</h2>
+			<hr class="primary">
+			<div class="row justify-content-center">
+				<p class="primary col-8">{{ site.t.sections.booking.subtitle[page.lang] }}</p>
+			</div>
+		</div>
+		<hr class="primary">
+		<div class="text-center">
+			<h5>{{ site.t.sections.booking.coming_soon[page.lang] }}</h5>
+			<div class="row">
+				{% for index in (1..site.t.sections.booking.partners.size) %}
+				{% assign partner = site.t.sections.booking.partners[index] %}
+				<div class="booking-partner col-sm">
+					<img class="img-lazy img-responsive" data-src="/img/partners/{{ partner.image }}" alt="">
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
