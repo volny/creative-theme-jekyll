@@ -43,7 +43,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Update old/deprecated packages.
 - [x] Activities: style should be calculated, not imported from markdown
 - [x] Update Bootstrap / Creative
-- [ ] Create favicon
+- [x] Create favicon
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
