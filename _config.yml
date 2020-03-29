@@ -1,6 +1,5 @@
 # Site settings
 title: Le Penon Surf House
-description: surf house beach> # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "lepenon-surfhouse.fr" # the base hostname & protocol for your site
 
