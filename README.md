@@ -44,11 +44,11 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Activities: style should be calculated, not imported from markdown
 - [x] Update Bootstrap / Creative
 - [x] Create favicon
+
+### Referencing
 - [ ] Generate a sitemap.xml for better indexing:
 	- https://support.google.com/webmasters/answer/189077?hl=en
 	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-
-### Referencing
 - [ ] Make sure all images have a verbose file name and the alt tag is used.
 
 ### Navigation Bar
