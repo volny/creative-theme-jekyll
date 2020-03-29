@@ -4,6 +4,7 @@
     position: relative;
     padding: 0;
     list-style: none;
+    margin-top: 50px;
 }
 
 .timeline:before {
@@ -82,7 +83,7 @@
 
 .timeline>li.timeline-inverted>.timeline-panel {
     float: right;
-    padding: 0 20px 0 100px;
+    padding: 0 0 0 100px;
     text-align: left;
 }
 
@@ -131,7 +132,7 @@
     .timeline>li .timeline-panel {
         float: left;
         width: 41%;
-        padding: 0 20px 20px 30px;
+        padding: 0 20px 20px 0;
         text-align: right;
     }
 
@@ -150,7 +151,7 @@
 
     .timeline>li.timeline-inverted>.timeline-panel {
         float: right;
-        padding: 0 30px 20px 20px;
+        padding: 0 0 20px 20px;
         text-align: left;
     }
 }
@@ -161,7 +162,7 @@
     }
 
     .timeline>li .timeline-panel {
-        padding: 0 20px 20px;
+        padding: 0 20px 20px 0;
     }
 
     .timeline>li .timeline-image {
@@ -177,7 +178,7 @@
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
-        padding: 0 20px 20px;
+        padding: 0 0 20px 20px;
     }
 }
 
@@ -187,7 +188,7 @@
     }
 
     .timeline>li .timeline-panel {
-        padding: 0 20px 20px 100px;
+        padding: 0 20px 20px 0;
     }
 
     .timeline>li .timeline-image {
@@ -201,6 +202,6 @@
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
-        padding: 0 100px 20px 20px;
+        padding: 0 0 20px 20px;
     }
 }
