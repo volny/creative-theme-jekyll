@@ -17,6 +17,10 @@ available_languages:
 
 # Translations
 t:
+  description:
+    en: "placehoder EN"
+    fr: "placehoder FR"
+    de: "placehoder DE"
   nav:
     gallery:
       en: "Gallery"
@@ -37,7 +41,7 @@ t:
     booking:
       en: "Booking"
       fr: "Réservations"
-      de: "Buchung"
+      de: "Reservierung"
   sections:
     header:
       title:
@@ -45,8 +49,8 @@ t:
         fr: "Votre Surf House préférée"
         de: "Dein Surfhouse in Frankreich"
       subtitle:
-        en: "Next to all great famous surf spots, really great stuff"
-        fr: "Près de tous les spots de ouf! c'est génial ici"
+        en: "Close to the greatest surf spots in France"
+        fr: "Près de tous les spots de surf les plus réputés des Landes"
         de: "In der Nähe zu den berühmtesten Surfspots mit den besten Wellen"
       action:
         en: "Book now!"
@@ -56,9 +60,9 @@ t:
       title:
         en: "Booking"
         fr: "Réservations"
-        de: "Buchung"
+        de: "Reservierung"
       subtitle:
-        en: "150 meters away to a direct access to the ocean, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
+        en: "With a direct access to the beach at only 150 meters away, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
         fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
         de: "Direkter Zugang zum Strand, nur 150 m entfernt, Parkplatz, dreimal Markt pro Woche, 200 m zu einem neuen Skatepark"
       coming_soon:
@@ -77,56 +81,63 @@ t:
         en: "Activities"
         fr: "Activités"
         de: "Aktivitäten"
-      subtitle:
-        en: "Stuff to do around the house..."
-        fr: "Chose à faire aux alentours..."
-        de: "Was man noch so in der Nähe machen kann..."
       items:
         1:
           image: "beach.jpg"
           distance: "150m"
           title:
-            en: "Our Humble Beginnings"
-            fr: "Our Humble Beginnings"
+            en: "Beach and forest"
+            fr: "Plage et forêt"
             de: "Strand und Wald"
           text:
-            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+            en: "Only few steps away of the beautiful beach of Le Penon! And if you want to cool down or go jogging, you'll be just as fast in the quiet pine forest right in front of the house."
+            fr: "A seulement quelques pas se trouve la belle plage du Penon! Et s'il fait trop chaud ou si vous voulez faire du jogging, vous pouvez aller dans la forêt de pins juste en face de la maison."
             de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine Runde Joggen willst, bist du genauso schnell im ruhigen Pinienwald."
         2:
           image: "food.jpg"
-          distance: "500m - 1km"
+          distance: "300m"
           title:
             en: "Le Penon"
             fr: "Le Penon"
             de: "Le Penon"
           text:
-            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum Platz \"Place de Castille/Place Victor Gentille\" mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags (?) ist Markt in Seignosse, und du findest viele frische Angebote!<br />Natürlich gibt es auch eine Touristeninformation sowie eine Bäckerei, wo du dir jeden Morgen deine Croissants holen kannst. (wo?)<br />Zwischen dem Platz/der Straße und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen (Windsurfen?), ein Fahrradverleih und der Wasserpark Atlantic Park kannst du innerhalb von einem Kilometer erreichen."
+            en: "There is everything you need in Le Penon. Very close by are lots of restaurants, shops, supermarket, surf shops, a pharmacy and the Beach Club L'Escargot!<br/ >Tuesday, Thursday and Sunday are market days to stock up on a wide variety of fresh produce."
+            fr: "Il est impossible de s'ennuyer sur la place du Penon où se trouve beaucoup de restaurants, magasins, supermarchés, magasins de surf, une pharmacie et surtout le Beach Club de l'Escargot!<br/ >Les mardi, jeudi et dimanche sont les jours de marché pour faire le plein de produit frais."
+            de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum nächsten Platz mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags ist Markt in Seignosse Le Penon, und du findest viele frische Angebote!"
         3:
+          image: "skate.jpg"
+          distance: "800m"
+          title:
+            en: "Skatepark & Surf schools"
+            fr: "Skatepark & école de surf"
+            de: "Skatepark & Surfschulen"
+          text:
+            en: "placehoder"
+            fr: "Entre la place principale et la plage se trouve un tout nouveau Skatepark, mais aussi des écoles de surf et de kitesurf, des locations de vélo et un park aquatique pour amuser les plus jeunes."
+            de: "Zwischen dem Platz und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen, ein Fahrradverleih und den Wasserpark Atlantic Park kannst du schnell erreichen."
+        4:
           image: "wave.jpg"
           distance: "5km"
           title:
-            en: "Transition to Full Service"
-            fr: "Transition to Full Service"
-            de: "Surfcity"
+            en: "Hossegor"
+            fr: "Hossegor"
+            de: "Hossegor"
           text:
-            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            de: "Auf zum berühmten Surfspot La Gravière! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League und weitere Wettbewerbe ausgetragen! Andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen sind zum Beispiel Plage des Bourdaines, Plage des Estagnots, Plage Centrale oder Plage de Casernes."
-        4:
-          image: "plane.jpg"
-          distance: "ab 7 km"
-          title:
-            en: "Phase Two Expansion"
-            fr: "Phase Two Expansion"
-            de: "Städte und Flughäfen in der Nähe"
-          text:
-            en: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            fr: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-            de: "Hossegor und Cabreton sind weitere Kleinstädte am Strand, die etwas größeren Städte Dax und Bayonne ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau Pyrénées (110 km) und Bordeaux (166 km)."
+            en: "placehoder"
+            fr: "placehoder"
+            de: "Auf zu den berühmten Surfspots von Capbreton und Hossegor La Gravière & Les Culs Nuls! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League und weitere Wettbewerbe ausgetragen!<br />Andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen sind zum Beispiel Plage des Bourdaines, Plage des Estagnots oder Plage des Casernes."
         5:
+          image: "plane.jpg"
+          distance: "10km+"
+          title:
+            en: "placeholder"
+            fr: "placeholder"
+            de: "Städte und Flughäfen"
+          text:
+            en: "placehoder"
+            fr: "placehoder"
+            de: "Hossegor und Cabreton sind weitere Kleinstädte am Strand, die etwas größeren Städte Dax und Bayonne ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau (110 km) und Bordeaux (166 km)."
+        6:
           image: "shaka.jpg"
     services:
       title:
@@ -141,49 +152,49 @@ t:
             fr: "Nouvelle cuisine"
             de: "Neue Küche "
           text:
-            en: "test test test test test test test test test"
-            fr: "test test test test test test test test test"
-            de: "Komplett ausgestattet mit Backofen, Mikrowelle, Kühlschrank, Kaffeemaschine, Spülmaschine, ..."
+            en: "placehoder"
+            fr: "placehoder"
+            de: "Komplett ausgestattet mit Backofen, Kaffeemaschine, Spülmaschine und alles was man braucht"
         2:
           icon: "fa-umbrella-beach"
           title:
-            en: "Made with Love"
-            fr: "Made with Love"
-            de: "Große Terasse"
+            en: "placehoder"
+            fr: "placehoder"
+            de: "Große Terrasse"
           text:
-            en: "You have to make your websites with love these days!"
-            fr: "You have to make your websites with love these days!"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Mit Grill, Sonnenschirm, Liegestühlen, Tisch und Stühlen, komplett blickgeschützt"
         3:
           icon: "fa-car"
           title:
-            en: "Up to Date"
-            fr: "Up to Date"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Parkplatz"
           text:
-            en: "We update dependencies to keep things fresh."
-            fr: "We update dependencies to keep things fresh."
+            en: "placehoder"
+            fr: "placehoder"
             de: "Ein kostenloser Parkplatz"
         4:
           icon: "fa-paper-plane"
           title:
-            en: "Ready to Ship"
-            fr: "Ready to Ship"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Surfbrettständer"
           text:
-            en: "You can use this theme as is, or you can make changes!"
-            fr: "You can use this theme as is, or you can make changes!"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Mit Platz für 4 Surfbretter"
         5:
-          icon: "fa-couch"
+          icon: "fa-bed"
           title:
-            en: "Sturdy Templates"
-            fr: "Sturdy Templates"
-            de: "Schlafcouch"
+            en: "Space for 4"
+            fr: "Place pour 4"
+            de: "Platz für 4"
           text:
-            en: "Our templates are updated regularly so they don't break."
-            fr: "Our templates are updated regularly so they don't break."
-            de: "Schlafplatz für bis zu 2 weitere Personen"
+            en: "One large bed (160x200cm) and a sofa bed"
+            fr: "Un grand lit (160x200cm) et un canapé convertible"
+            de: "Ein großes Bett (160x200cm) und ein Schlafsofa"
         6:
           icon: "fa-swimmer"
           title:
@@ -219,38 +230,38 @@ t:
         1:
           image: "1.jpeg"
           title:
-            en: "TEXT 1 EN"
-            fr: "TEXT 1 FR"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Die blickgeschützte Sonnenterrasse"
         2:
           image: "2.jpeg"
           title:
-            en: "TEXT 2 EN"
-            fr: "TEXT 2 FR"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Das Schlafzimmer"
         3:
           image: "3.jpeg"
           title:
-            en: "TEXT 3 EN"
-            fr: "TEXT 3 FR"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Die neue Küche"
         4:
           image: "4.jpg"
           title:
-            en: "TEXT 4 EN"
-            fr: "TEXT 4 FR"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Die gemütliche Sofaecke"
         5:
           image: "5.jpeg"
           title:
-            en: "TEXT 5 EN"
-            fr: "TEXT 5 FR"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Direkt am Strand"
         6:
           image: "6.jpg"
           title:
-            en: "TEXT 6 EN"
-            fr: "TEXT 6 FR"
+            en: "placehoder"
+            fr: "placehoder"
             de: "Blick auf den Wald"
       slideshow:
         en: "Open photo gallery"
@@ -258,19 +269,19 @@ t:
         de: "Fotogalerie öffnen"
     map:
       title:
-        en: "placeholder"
-        fr: "placeholder"
-        de: "placeholder"
+        en: "Location"
+        fr: "Adresse"
+        de: "Anschrift"
       subtitle:
-        en: "placeholder"
-        fr: "placeholder"
-        de: "placeholder"
+        en: "Résidence Atlantique<br />9 Avenue Chambrelent<br />40510 Seignosse"
+        fr: "Résidence Atlantique<br />9 Avenue Chambrelent<br />40510 Seignosse"
+        de: "Résidence Atlantique<br />9 Avenue Chambrelent<br />40510 Seignosse"
     contact:
       title:
         en: "Let's Get In Touch!"
         fr: "Allez on se parle!"
         de: "Ruf uns an!"
       subtitle:
-        en: "Ready to come? Have you already packed your surfboard? But you don't want to book through booking? Then just call us!"
+        en: "Ready to come? Have you already packed your surfboard? But you don't want to book online? Then just give as a call!"
         fr: "Prêt à venir? Vous avez déjà préparer votre sac et vos planches de surf? Mais vous ne voulez pas réserver par internet? Dans ce cas là appelez nous!"
         de: "Bist du bereit? Sind die Koffer gepackt? Aber du willst nicht online buchen? Dann ruf uns an!"
