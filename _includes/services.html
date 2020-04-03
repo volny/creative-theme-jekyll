@@ -8,10 +8,10 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
+        <div class="row service-box-row">
             {% for index in (1..site.t.sections.services.items.size) %}
             {% assign item = site.t.sections.services.items[index] %}
-            <div class="col-lg-3 col-md-6 text-center">
+            <div class="col-lg-3 col-md-6 text-center service-box-container">
                 <div class="service-box">
                     <i class="fa fa-3x {{ item.icon }} wow bounceIn icon-theme-primary"></i>
                     <h3>{{ item.title[page.lang] }}</h3>

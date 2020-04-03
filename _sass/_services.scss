@@ -1,7 +1,12 @@
 /* Services */
 
-#services .col-lg-3.col-md-6.text-center {
-    padding: 25px 0 25px 0;
+.service-box-row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-box-container {
+    padding: 25px 10px 25px 10px;
 
     @media (max-width: $min-screen-width) {
         padding: 0;
