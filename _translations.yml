@@ -17,6 +17,10 @@ available_languages:
 
 # Translations
 t:
+  error:
+    title: "404"
+    description: "This page cannot be found."
+    redirect: "Get back to safety"
   description:
     en: "placehoder EN"
     fr: "placehoder FR"

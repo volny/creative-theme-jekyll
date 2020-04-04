@@ -51,7 +51,7 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Only one h1 element
 - [ ] Make sure all images have a verbose file name.
 - [ ] Add an alt-tag to all pictures
-- [ ] Create a 404 page
+- [x] Create a 404 page
 - [ ] Meta description
 
 ### Navigation Bar
