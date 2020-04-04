@@ -298,7 +298,7 @@ t:
             fr: ""
             de: ""
         4:
-          image: "4.jpg"
+          image: "4.jpeg"
           title:
             en: "The cosy sofa corner"
             fr: "Le coin canapé"
@@ -308,7 +308,7 @@ t:
             fr: ""
             de: ""
         5:
-          image: "6.jpg"
+          image: "6.jpeg"
           title:
             en: "Directly at the beach"
             fr: "Direct à la plage"
