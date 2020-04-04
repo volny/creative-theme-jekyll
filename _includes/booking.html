@@ -14,7 +14,7 @@
 				{% for index in (1..site.t.sections.booking.partners.size) %}
 				{% assign partner = site.t.sections.booking.partners[index] %}
 				<div class="booking-partner col-sm">
-					<img class="img-lazy img-responsive" data-src="/img/partners/{{ partner.image }}" alt="">
+					<img class="img-lazy img-responsive" data-src="/img/partners/{{ partner.image }}" alt="{{ partner.alt[page.lang] }}">
 				</div>
 				{% endfor %}
 			</div>
