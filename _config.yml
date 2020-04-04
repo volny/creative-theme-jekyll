@@ -12,6 +12,9 @@ github_link: "kevindelord/lepenon-surfhouse"
 # Build settings
 markdown: kramdown
 
+plugins:
+  - jekyll-sitemap
+
 sass:
   compressed: true
 

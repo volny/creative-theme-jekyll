@@ -17,6 +17,10 @@ available_languages:
 
 # Translations
 t:
+  error:
+    title: "404"
+    description: "This page cannot be found."
+    redirect: "Get back to safety"
   description:
     en: "placehoder EN"
     fr: "placehoder FR"
@@ -86,9 +90,9 @@ t:
           image: "beach.jpg"
           distance: "150m"
           title:
-            en: "Beach and forest"
-            fr: "Plage et forêt"
-            de: "Strand und Wald"
+            en: "Beach and Surf"
+            fr: "Plage et Surf"
+            de: "Strand und Surf"
           text:
             en: "Only few steps away of the beautiful beach of Le Penon! And if you want to cool down or go jogging, a quiet pine forest is right in front of the house."
             fr: "A seulement quelques pas se trouve la belle plage du Penon! Et s'il fait trop chaud ou si vous voulez faire du jogging, la forêt de pins est juste en face de la maison."
@@ -97,9 +101,9 @@ t:
           image: "food.jpg"
           distance: "300m"
           title:
-            en: "Le Penon"
-            fr: "Le Penon"
-            de: "Le Penon"
+            en: "Bars and restaurants"
+            fr: "Bars et restaurants"
+            de: "Bars und Restaurants"
           text:
             en: "There is everything you need in Le Penon. Very close by are lots of restaurants, shops, supermarket, surf shops, a pharmacy and the Beach Club L'Escargot!<br/ >Tuesday, Thursday and Sunday are market days in Le Penon, Seignosse. Perfect to stock up on a wide variety of fresh produce."
             fr: "Il est impossible de s'ennuyer sur la place du Penon où se trouve beaucoup de restaurants, magasins, supermarchés, magasins de surf, une pharmacie et surtout le Beach Club de l'Escargot!<br/ >Les mardi, jeudi et dimanche sont les jours de marché au Penon, Seignosse. Parfait pour faire le plein de produit frais!"

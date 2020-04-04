@@ -89,11 +89,11 @@ footer {
 }
 
 /* Button Styles */
-.btn-default {
+.btn-secondary-action {
     @include button-variant($theme-dark, white, white);
 }
 
-.btn-primary {
+.btn-primary-action {
     @include button-variant(white, $theme-primary, $theme-primary);
 }
 

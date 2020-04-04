@@ -45,11 +45,14 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Update Bootstrap / Creative
 - [x] Create favicon
 
-### Referencing
-- [ ] Generate a sitemap.xml for better indexing:
-	- https://support.google.com/webmasters/answer/189077?hl=en
-	- https://www.sylvaindurand.org/making-jekyll-multilingual/
-- [ ] Make sure all images have a verbose file name and the alt tag is used.
+### SEO
+- [x] Generate a sitemap.xml for better indexing
+- [x] Add google analytics
+- [x] Only one h1 element
+- [ ] Make sure all images have a verbose file name.
+- [ ] Add an alt-tag to all pictures
+- [x] Create a 404 page
+- [ ] Meta description
 
 ### Navigation Bar
 - [x] Navigation bar: too wide
