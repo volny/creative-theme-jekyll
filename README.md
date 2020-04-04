@@ -49,10 +49,16 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Generate a sitemap.xml for better indexing
 - [x] Add google analytics
 - [x] Only one h1 element
-- [ ] Make sure all images have a verbose file name.
-- [ ] Add an alt-tag to all pictures
 - [x] Create a 404 page
-- [ ] Meta description
+- [ ] Add localized meta description
+- [ ] Make sure all images have a verbose file name.
+	- [ ] Booking (x3)
+	- [ ] Activities (x6)
+	- [ ] Gallery (x9?)
+- [ ] Add an alt-tag to all pictures
+	- [ ] Booking (x3)
+	- [ ] Activities (x6)
+	- [ ] Gallery (x9?)
 
 ### Navigation Bar
 - [x] Navigation bar: too wide

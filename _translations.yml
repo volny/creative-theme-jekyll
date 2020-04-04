@@ -76,10 +76,22 @@ t:
       partners:
         1:
           image: "airbnb.png"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         2:
           image: "booking.com.png"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         3:
           image: "homeaway.png"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
     activities:
       title:
         en: "Activities"
@@ -88,6 +100,10 @@ t:
       items:
         1:
           image: "beach.jpg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
           distance: "150m"
           title:
             en: "Beach and Surf"
@@ -99,6 +115,10 @@ t:
             de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine Runde Joggen willst, bist du genauso schnell im ruhigen Pinienwald."
         2:
           image: "food.jpg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
           distance: "300m"
           title:
             en: "Bars and restaurants"
@@ -110,6 +130,10 @@ t:
             de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum nächsten Platz mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags ist Markt in Seignosse Le Penon, und du findest viele frische Angebote!"
         3:
           image: "skate.jpg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
           distance: "800m"
           title:
             en: "Skatepark & Surf schools"
@@ -121,6 +145,10 @@ t:
             de: "Zwischen dem Platz und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen, ein Fahrradverleih und den Wasserpark Atlantic Park kannst du schnell erreichen."
         4:
           image: "wave.jpg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
           distance: "5km"
           title:
             en: "Hossegor"
@@ -132,6 +160,10 @@ t:
             de: "Auf zu den berühmten Surfspots von Capbreton oder Hossegor La Gravière & Les Culs Nuls! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League ausgetragen!<br />Oder kannst du leicht andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen erreichen wie z.b. Plage des Bourdaines, Plage des Estagnots oder Plage des Casernes."
         5:
           image: "plane.jpg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
           distance: "35km+"
           title:
             en: "Cities and airports"
@@ -143,6 +175,10 @@ t:
             de: "Größere Städte wie Dax und Bayonne sind ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau (110 km) und Bordeaux (166 km)."
         6:
           image: "shaka.jpg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
     services:
       title:
         en: "Amenities"
@@ -230,43 +266,85 @@ t:
             fr: "Divers jeux de société internationaux"
             de: "Verschiedene internationale Gesellschaftsspiele"
     gallery:
-      thumbnails:
+      images:
         1:
           image: "5.jpeg"
           title:
             en: "The sunny terrace"
             fr: "La terrasse ensoleillée"
             de: "Die Sonnenterrasse"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         2:
           image: "2.jpeg"
           title:
             en: "The bedroom"
             fr: "La chambre"
             de: "Das Schlafzimmer"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         3:
           image: "3.jpeg"
           title:
             en: "The new kitchen"
             fr: "La nouvelle cuisine"
             de: "Die neue Küche"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         4:
           image: "4.jpg"
           title:
             en: "The cosy sofa corner"
             fr: "Le coin canapé"
             de: "Die gemütliche Sofaecke"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         5:
           image: "6.jpg"
           title:
             en: "Directly at the beach"
             fr: "Direct à la plage"
             de: "Direkt am Strand"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
         6:
           image: "1.jpeg"
           title:
             en: "The swimming pool"
             fr: "La piscine"
             de: "Das Schwimmbad"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        7:
+          image: "7.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        8:
+          image: "8.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        9:
+          image: "9.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
       slideshow:
         en: "Open photo gallery"
         fr: "Voir toutes les photos"
