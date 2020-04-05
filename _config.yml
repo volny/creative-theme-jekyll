@@ -18,7 +18,6 @@ plugins:
 sass:
   compressed: true
 
-include: ['_images']
 exclude: ['scripts', 'README.md', 'LICENSE']
 
 collections:

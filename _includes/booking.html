@@ -4,7 +4,7 @@
 			<h2 class="section-heading">{{ site.t.sections.booking.title[page.lang] }}</h2>
 			<hr class="primary">
 			<div class="row justify-content-center">
-				<p class="primary col-10">{{ site.t.sections.booking.subtitle[page.lang] }}</p>
+				<p class="primary col-10 about">{{ site.t.sections.booking.subtitle[page.lang] }}</p>
 			</div>
 		</div>
 		<hr class="primary">
@@ -14,7 +14,7 @@
 				{% for index in (1..site.t.sections.booking.partners.size) %}
 				{% assign partner = site.t.sections.booking.partners[index] %}
 				<div class="booking-partner col-sm">
-					<img class="img-lazy img-responsive" data-src="/img/partners/{{ partner.image }}" alt="">
+					<img class="img-lazy img-responsive" data-src="/img/partners/{{ partner.image }}" alt="{{ partner.alt[page.lang] }}">
 				</div>
 				{% endfor %}
 			</div>

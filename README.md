@@ -49,10 +49,17 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Generate a sitemap.xml for better indexing
 - [x] Add google analytics
 - [x] Only one h1 element
-- [ ] Make sure all images have a verbose file name.
-- [ ] Add an alt-tag to all pictures
 - [x] Create a 404 page
-- [ ] Meta description
+- [ ] Google Search Console: secure domain name
+- [x] Add localized meta description
+- [ ] Make sure all images have a verbose file name.
+	- [x] Booking (x3)
+	- [x] Activities (x6)
+	- [ ] Gallery (x9?)
+- [ ] Add an alt-tag to all pictures
+	- [x] Booking (x3)
+	- [x] Activities (x6)
+	- [ ] Gallery (x9?)
 
 ### Navigation Bar
 - [x] Navigation bar: too wide
@@ -81,6 +88,17 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Disable overlay also for ipad (large screen but not mousepad and no hover)
 - [x] Add floating button 'show all pictures'
 
+### User Review
+- [ ] Add entry in Trip Advisor
+
 ### Contact
 - [x] Fix design with vertical aligned elements, smaller call/email icons.
 - [x] Add GitHub link
+
+### Description on Partner's websites.
+- [ ] Check for those information:
+	- Non-smoker property
+	- Smoke detector
+	- Bedsheets handling
+	- First Aid Kit
+	- Heating

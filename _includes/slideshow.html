@@ -1,9 +1,10 @@
 <section class="no-padding">
 	<div class="overlay" id="overlay">
 		<div class="carousel">
-			{% for image in site.images %}
+			{% for index in (1..site.t.sections.gallery.images.size) %}
+			{% assign image = site.t.sections.gallery.images[index] %}
 				<div class="carousel-cell">
-					<img data-src="/img/gallery/large/{{ image.image }}" class="carousel-cell-image" alt="">
+					<img data-src="/img/gallery/large/{{ image.image }}" class="carousel-cell-image" alt="{{ image.alt[page.lang] }}">
 				</div>
 			{% endfor %}
 		</div>
