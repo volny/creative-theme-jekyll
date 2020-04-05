@@ -56,8 +56,8 @@ Netlify has been configured to deploy the website at every git commit/push on th
 	- [ ] Activities (x6)
 	- [ ] Gallery (x9?)
 - [ ] Add an alt-tag to all pictures
-	- [ ] Booking (x3)
-	- [ ] Activities (x6)
+	- [x] Booking (x3)
+	- [x] Activities (x6)
 	- [ ] Gallery (x9?)
 
 ### Navigation Bar

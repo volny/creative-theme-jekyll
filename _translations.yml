@@ -77,21 +77,21 @@ t:
         1:
           image: "airbnb.png"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Book now your Surf House close to the beach in Seignosse directly on Airbnb"
+            fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse directement sur Airbnb"
+            de: "Buchen Sie jetzt Ihr Surf-Haus in Strandnähe in Seignosse direkt auf Airbnb"
         2:
           image: "booking.com.png"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Book now your Surf House close to the beach in Seignosse directly on Booking.com"
+            fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Booking.com"
+            de: "Buchen Sie jetzt Ihr Surf-Haus in Strandnähe in Seignosse direkt auf Booking.com"
         3:
           image: "homeaway.png"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Book now your Surf House close to the beach in Seignosse directly on Homeaway"
+            fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Homeaway"
+            de: "Buchen Sie jetzt Ihr Surf-Haus in Strandnähe in Seignosse direkt auf Homeaway"
     activities:
       title:
         en: "Activities"
@@ -101,9 +101,9 @@ t:
         1:
           image: "beach.jpg"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Surf at the beach of Le Penon in Seignosse, France. Be close to nature, sand dunes and an exceptional pine forest."
+            fr: "Surf à la plage du Penon à Seignosse, France. Soyez près de la nature, dunes de sable et une fôret de pins exceptionelle."
+            de: "Surfen am Strand von Le Penon in Seignosse, Frankreich; an der nahe von Natur, den Sanddünen und einem außergewöhnlichen Kiefernwald."
           distance: "150m"
           title:
             en: "Beach and Surf"
@@ -116,9 +116,9 @@ t:
         2:
           image: "food.jpg"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Dozens of bars, restaurants, shops and a Beach Club are only a few steps away from your Surf House in Seignosse Le Penon, France."
+            fr: "Des dizaines de bars, restaurants, magasins et une boîte de nuit sont à quelques pas de votre Surf House à Seignosse Le Penon, France."
+            de: "Dutzende von Bars, Restaurants, Geschäften und ein Nachtclub sind von Ihrem Surf-Haus in Seignosse Le Penon, Frankreich, zu Fuß erreichbar."
           distance: "300m"
           title:
             en: "Bars and restaurants"
@@ -131,9 +131,9 @@ t:
         3:
           image: "skate.jpg"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "There is everything for sports in Seignosse Le Penon, France, with a new Skatepark and lots of surf and kitesurf schools."
+            fr: "Tout pour le sport avec un nouveau Skatepark et plein d'écoles de surf et de kitesurf sont disponible à Seignosse Le Penon, France"
+            de: "Es gibt alles für den Sport mit einem neuen Skatepark und vielen Surf- und Kitesurfschulen in Seignosse Le Penon, Frankreich."
           distance: "800m"
           title:
             en: "Skatepark & Surf schools"
@@ -146,9 +146,9 @@ t:
         4:
           image: "wave.jpg"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "All the legendary surfing spots in the South West of France are only a few kilometres away."
+            fr: "Tous les spots de surf légendaires du Sud-Ouest de France sont à seulement quelques kilomètres."
+            de: "Alle legendären Surfspots im Südwesten Frankreichs sind nur wenige Kilometer entfernt."
           distance: "5km"
           title:
             en: "Hossegor"
@@ -161,9 +161,9 @@ t:
         5:
           image: "plane.jpg"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Easy access from airports, train stations and other big cities."
+            fr: "Facile d'accès depuis les aéroports, gares de train et autres grandes villes."
+            de: "Leichter Entfernung zum Flughäfen, Bahnhöfen und anderen großen Städten."
           distance: "35km+"
           title:
             en: "Cities and airports"
@@ -176,9 +176,9 @@ t:
         6:
           image: "shaka.jpg"
           alt:
-            en: ""
-            fr: ""
-            de: ""
+            en: "Good vibes only in Le Penon Surf House in Seignosse, France"
+            fr: "Uniquement des bonnes vibes au Surf House du Penon à Seignosse, France"
+            de: "Nur gute Stimmung im Le Penon Surf House in Seignosse, Frankreich"
     services:
       title:
         en: "Amenities"
