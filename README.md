@@ -88,6 +88,17 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Disable overlay also for ipad (large screen but not mousepad and no hover)
 - [x] Add floating button 'show all pictures'
 
+### User Review
+- [ ] Add entry in Trip Advisor
+
 ### Contact
 - [x] Fix design with vertical aligned elements, smaller call/email icons.
 - [x] Add GitHub link
+
+### Description on Partner's websites.
+- [ ] Check for those information:
+	- Non-smoker property
+	- Smoke detector
+	- Bedsheets handling
+	- First Aid Kit
+	- Heating

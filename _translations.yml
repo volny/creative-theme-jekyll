@@ -22,9 +22,9 @@ t:
     description: "This page cannot be found."
     redirect: "Get back to safety"
   description:
-    en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. It is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe. Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
-    fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Elle est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe. Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
-    de: "Das Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Es ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
+    en: "Le Penon Surf House is situated in Seignosse on the French Atlantic coast and offers all you need for your vacation at the beach."
+    fr: "Le Penon Surf House est situé à Seignosse sur la côte atlantique française et vous offre tout ce dont vous avez besoin pour vos vacances à la plage."
+    de: "Le Penon Surf House befindet sich in Seignosse an der französischen Atlantikküste und bietet dir alles für deinen Strandurlaub."
   nav:
     gallery:
       en: "Gallery"
@@ -49,9 +49,9 @@ t:
   sections:
     header:
       title:
-        en: "Your favorite surf house"
-        fr: "Votre Surf House préférée"
-        de: "Dein Surfhouse in Frankreich"
+        en: "Your favourite surf house"
+        fr: "Votre surf house préférée"
+        de: "Dein surf house in Frankreich"
       subtitle:
         en: "Located in Seignosse and close to the greatest surf spots in France"
         fr: "Situé à Seignosse et près de tous les spots de surf les plus réputés des Landes"
@@ -66,9 +66,9 @@ t:
         fr: "Réservations"
         de: "Reservierung"
       subtitle:
-        en: "With a direct access to the beach at only 150 meters away, parking slot, 50 meters from the market 3 times a week, 200 meters from an amazing skate park."
-        fr: "A seulement 150 mètres de l'ocean via un accès direct, 1 place de parking, à 50 mètres du marché 3 fois par semaine, à seulement 200 mètres d'un tout nouveau Skate Park."
-        de: "Direkter Zugang zum Strand, nur 150 m entfernt, Parkplatz, dreimal Markt pro Woche, 200 m zu einem neuen Skatepark"
+        en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. The South West is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe. The accomodation has a fast access to the beach only 150 meters away, a parking lot and a swimming pool on the property of the Résidence Atlantique! Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
+        fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Le Sud-Ouest est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe. Le logement dispose d'un accès rapide à la plage à seulement 150 mètres, d'une place de parking et d'une piscine sur la propriété de la Résidence Atlantique! Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
+        de: "Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Der Südwesten Frankreichs ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas. Die Unterkunft verfügt über einen schnellen Strandzugang (nur 150 m entfernt), einen Parkplatz und ein Schwimmbad auf dem Grundstück der Résidence Atlantique. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
       coming_soon:
         en: "Coming soon via our partners"
         fr: "Bientôt disponible avec nos partenaires"
@@ -79,19 +79,19 @@ t:
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Airbnb"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse directement sur Airbnb"
-            de: "Buchen Sie jetzt Ihr Surf-Haus in Strandnähe in Seignosse direkt auf Airbnb"
+            de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf Airbnb"
         2:
           image: "booking-reservation-buchen-partner-booking.com.png"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Booking.com"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Booking.com"
-            de: "Buchen Sie jetzt Ihr Surf-Haus in Strandnähe in Seignosse direkt auf Booking.com"
+            de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf Booking.com"
         3:
           image: "booking-reservation-buchen-partner-homeaway.png"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Homeaway"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Homeaway"
-            de: "Buchen Sie jetzt Ihr Surf-Haus in Strandnähe in Seignosse direkt auf Homeaway"
+            de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf Homeaway"
     activities:
       title:
         en: "Activities"
@@ -101,14 +101,14 @@ t:
         1:
           image: "surf-beach-nature-plage-strand-sand-sable-dune-wald.jpg"
           alt:
-            en: "Surf at the beach of Le Penon in Seignosse, France. Be close to nature, sand dunes and an exceptional pine forest."
-            fr: "Surf à la plage du Penon à Seignosse, France. Soyez près de la nature, dunes de sable et une fôret de pins exceptionelle."
-            de: "Surfen am Strand von Le Penon in Seignosse, Frankreich; an der nahe von Natur, den Sanddünen und einem außergewöhnlichen Kiefernwald."
+            en: "Surf at the beach of Le Penon in Seignosse, France. Be close to nature, sand dunes and a pine forest."
+            fr: "Surf à la plage du Penon à Seignosse, France. Soyez près de la nature, dunes de sable et une fôret de pins."
+            de: "Surfen am Strand von Le Penon in Seignosse, Frankreich; in der Natur, Nahe den Sanddünen und einem Kiefernwald."
           distance: "150m"
           title:
             en: "Beach and Surf"
             fr: "Plage et Surf"
-            de: "Strand und Surf"
+            de: "Strand und Surfen"
           text:
             en: "Only few steps away of the beautiful beach of Le Penon! And if you want to cool down or go jogging, a quiet pine forest is right in front of the house."
             fr: "A seulement quelques pas se trouve la belle plage du Penon! Et s'il fait trop chaud ou si vous voulez faire du jogging, la forêt de pins est juste en face de la maison."
@@ -118,7 +118,7 @@ t:
           alt:
             en: "Dozens of bars, restaurants, shops and a Beach Club are only a few steps away from your Surf House in Seignosse Le Penon, France."
             fr: "Des dizaines de bars, restaurants, magasins et une boîte de nuit sont à quelques pas de votre Surf House à Seignosse Le Penon, France."
-            de: "Dutzende von Bars, Restaurants, Geschäften und ein Nachtclub sind von Ihrem Surf-Haus in Seignosse Le Penon, Frankreich, zu Fuß erreichbar."
+            de: "Dutzende von Bars, Restaurants, Geschäften und ein Nachtclub sind von Ihrem Surf Haus in Seignosse Le Penon, Frankreich, zu Fuß erreichbar."
           distance: "300m"
           title:
             en: "Bars and restaurants"
@@ -142,7 +142,7 @@ t:
           text:
             en: "Between the main square and the beach you can find a new Skatepark as well as surf and kitesurf schools, bike rentals and an Aquatic Park for the younger ones."
             fr: "Entre la place principale et la plage se trouve un tout nouveau Skatepark mais aussi des écoles de surf et de kitesurf, des locations de vélo et un park aquatique pour amuser les plus jeunes."
-            de: "Zwischen dem Platz und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen, ein Fahrradverleih und den Wasserpark Atlantic Park kannst du schnell erreichen."
+            de: "Zwischen dem Stadtkern und dem Strand befindet sich ein cooler, ganz neu gestalteter Skatepark. Verschiedene Surfschulen fürs Wellenreiten und Kitesurfen, ein Fahrradverleih und den Wasserpark Atlantic Park kannst du schnell erreichen."
         4:
           image: "wave-vague-welle-surf-hossegor-spot-surfen.jpg"
           alt:
@@ -161,9 +161,9 @@ t:
         5:
           image: "plane-avion-flugzeug-train-access-zugang-cities-villes-städte.jpg"
           alt:
-            en: "Easy access from airports, train stations and other big cities."
-            fr: "Facile d'accès depuis les aéroports, gares de train et autres grandes villes."
-            de: "Leichter Entfernung zum Flughäfen, Bahnhöfen und anderen großen Städten."
+            en: "Easy access to airports, train stations and other big cities."
+            fr: "Facile d'accès vers les aéroports, gares de train et autres grandes villes."
+            de: "Kurz Entfernung zum Flughäfen, Bahnhöfen und anderen großen Städten."
           distance: "35km+"
           title:
             en: "Cities and airports"
