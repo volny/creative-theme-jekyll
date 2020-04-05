@@ -52,8 +52,8 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Create a 404 page
 - [ ] Add localized meta description
 - [ ] Make sure all images have a verbose file name.
-	- [ ] Booking (x3)
-	- [ ] Activities (x6)
+	- [x] Booking (x3)
+	- [x] Activities (x6)
 	- [ ] Gallery (x9?)
 - [ ] Add an alt-tag to all pictures
 	- [x] Booking (x3)
