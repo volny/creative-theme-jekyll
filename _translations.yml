@@ -22,9 +22,9 @@ t:
     description: "This page cannot be found."
     redirect: "Get back to safety"
   description:
-    en: "placehoder EN"
-    fr: "placehoder FR"
-    de: "placehoder DE"
+    en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. It is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe. Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
+    fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Elle est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe. Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
+    de: "Das Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Es ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
   nav:
     gallery:
       en: "Gallery"

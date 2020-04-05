@@ -50,7 +50,8 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Add google analytics
 - [x] Only one h1 element
 - [x] Create a 404 page
-- [ ] Add localized meta description
+- [ ] Google Search Console: secure domain name
+- [x] Add localized meta description
 - [ ] Make sure all images have a verbose file name.
 	- [x] Booking (x3)
 	- [x] Activities (x6)
