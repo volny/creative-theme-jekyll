@@ -7,9 +7,7 @@
   left: 0;
   top: 0;
   visibility: hidden;
-
-  background-color: rgb(0,0,0); /* Black fallback color */
-  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  background-color: black;
   overflow-x: hidden; /* Disable horizontal scroll */
 }
 
@@ -68,5 +66,19 @@
     margin-right: 0px;
     margin-left: 0px;
     margin-top: 10px;
+
+    height: 0;
+    position: relative;
+    /* Required padding hack to force the lazyload plugin to load the images only when they enter the viewport. */
+    /* https://www.andyshora.com/css-image-container-padding-hack.html */
+    /* https://github.com/verlok/lazyload#vertical-padding-trick */
+    /* Padding Bottom = (Image Height / Image Width) * 100 */
+    padding-bottom: 75%;
+  }
+
+  .carousel-cell-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
   }
 }

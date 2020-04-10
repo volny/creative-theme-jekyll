@@ -2,20 +2,6 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b82dcde1-3fc8-471f-8352-227a06973b05/deploy-status)](https://app.netlify.com/sites/lepenon-surfhouse/deploys)
 
-## Dependencies
-
-### CSS / JS
-
-- Animate (3.7.2): https://daneden.github.io/animate.css/
-- WOW (1.1.3): https://wowjs.uk/
-- Flickity (2.2.1): https://flickity.metafizzy.co/
-- FontAwesome (5.12.1): https://fontawesome.com/
-- jQuery (3.4.1): https://jquery.com/
-- Fittext (1.2.0): http://fittextjs.com/
-- jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
-- Bootstrap (4.4.1): https://getbootstrap.com/
-- creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
-
 ## Localization
 
 The entire website is localized and translated into few languages.
@@ -36,6 +22,21 @@ Cons
 ## Deployment
 
 Netlify has been configured to deploy the website at every git commit/push on the `master` branch.
+
+## Dependencies
+
+| Plugin | Version | URL |
+|-|-|-|
+| Animate | 3.7.2 | https://daneden.github.io/animate.css/ |
+| WOW | 1.1.3 | https://wowjs.uk/ |
+| Flickity | 2.2.1 | https://flickity.metafizzy.co/ |
+| FontAwesome | 5.12.1 | https://fontawesome.com/ |
+| Fittext | 1.2.0 | http://fittextjs.com/ |
+| Vanilla Lazyload | 15.1.1 | https://github.com/verlok/lazyload |
+| jQuery | 3.4.1 | https://jquery.com/ |
+| jQuery-Easing | 1.4.1 | https://github.com/gdsmith/jquery.easing |
+| Bootstrap | 4.4.1 | https://getbootstrap.com/ |
+| creative | n/a | https://github.com/BlackrockDigital/startbootstrap-creative |
 
 ## TODO
 
@@ -106,10 +107,11 @@ Netlify has been configured to deploy the website at every git commit/push on th
 ## Feedbacks
 Jannis (06.04.2020)
 
-gallerie
+Gallery
 - [x] Title was missing
 - [x] Slideshow: navigation with the keyboard was expected
-- [?] Slideshow not clicked: "had the feeling all the pictures were already shown - that there was only 6 pictures available"
+- [x] Slideshow not clicked: "had the feeling all the pictures were already shown - that there was only 6 pictures available"
+- [x] Prefetch images in Slideshow
 
 Language Switcher
 - [x] Text is too big (won't do - too complex)
