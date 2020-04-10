@@ -1,5 +1,11 @@
-<section class="no-padding bg-theme-primary" id="gallery">
-    <div class="gallery-wrapper">
+<section class="no-padding" id="gallery">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading">{{ site.t.sections.gallery.title[page.lang] }}</h2>
+            <hr class="primary">
+        </div>
+    </div>
+    <div class="gallery-wrapper bg-theme-primary">
         <!-- Default 6 images gallery -->
         <div class="row no-gutter gallery-container">
             {% for index in (1..site.t.sections.gallery.images.size) limit:6 %}
@@ -20,7 +26,7 @@
         </div>
 
         <!-- Open Gallery Button -->
-        <a href="javascript:void(0)" onclick="openSlideshow()" class="btn btn-secondary-action btn-sm open-gallery-action">
+        <a href="javascript:void(0)" onclick="openSlideshow()" class="btn btn-secondary-action btn-xl open-gallery-action">
             <i class="far fa-images"></i>
             {{ site.t.sections.gallery.slideshow[page.lang] }}
         </a>

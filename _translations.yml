@@ -266,6 +266,10 @@ t:
             fr: "Divers jeux de société internationaux"
             de: "Verschiedene internationale Gesellschaftsspiele"
     gallery:
+      title:
+        en: "Gallery"
+        fr: "Gallerie"
+        de: "Galerie"
       images:
         1:
           image: "5.jpeg"
