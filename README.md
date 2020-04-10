@@ -10,8 +10,9 @@
 - WOW (1.1.3): https://wowjs.uk/
 - Flickity (2.2.1): https://flickity.metafizzy.co/
 - FontAwesome (5.12.1): https://fontawesome.com/
-- jQuery (3.4.1): https://jquery.com/
 - Fittext (1.2.0): http://fittextjs.com/
+- Vanilla Lazyload (15.1.1): https://github.com/verlok/lazyload
+- jQuery (3.4.1): https://jquery.com/
 - jQuery-Easing (1.4.1): https://github.com/gdsmith/jquery.easing
 - Bootstrap (4.4.1): https://getbootstrap.com/
 - creative (n/a): https://github.com/BlackrockDigital/startbootstrap-creative
