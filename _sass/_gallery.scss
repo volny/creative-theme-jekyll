@@ -1,5 +1,11 @@
 /* Gallery */
 
+.gallery-wrapper {
+    position: relative;
+    text-align: center;
+    margin-top: 25px;
+}
+
 .gallery-container {
     max-width: 1500px;
     display: flex;
@@ -7,13 +13,8 @@
     margin: 0 auto;
 }
 
-.gallery-wrapper {
-	position: relative;
-	text-align: center;
-}
-
 .open-gallery-action {
-	/* Position: bottom, horizontal center */
+	/* Position: bottom & horizontal center */
 	position: absolute;
 	bottom: 20px;
 	display: inline-block;

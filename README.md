@@ -102,3 +102,14 @@ Netlify has been configured to deploy the website at every git commit/push on th
 	- Bedsheets handling
 	- First Aid Kit
 	- Heating
+
+## Feedbacks
+Jannis (06.04.2020)
+
+gallerie
+- [x] Title was missing
+- [x] Slideshow: navigation with the keyboard was expected
+- [?] Slideshow not clicked: "had the feeling all the pictures were already shown - that there was only 6 pictures available"
+
+Language Switcher
+- [x] Text is too big (won't do - too complex)

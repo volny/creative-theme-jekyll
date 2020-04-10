@@ -16,7 +16,6 @@
   }
   .navbar-nav {
     .nav-item {
-      padding-top: 0px;
       .nav-link {
         /* Tweak to enforce the menu buttons to instantly disappear */
         transition: 0s;
@@ -41,15 +40,17 @@
   @media (min-width: $min-screen-width) {
     box-shadow: none;
     background-color: transparent;
+
+    select,
     .navbar-brand {
       color: rgba($white, .7);
       &:hover {
         color: $white;
       }
     }
+
     .navbar-nav {
       .nav-item {
-        padding-top: 8px;
         .nav-link {
           color: rgba($white, .7);
           padding: 0 1rem;
@@ -68,15 +69,23 @@
     &.navbar-scrolled {
       box-shadow: 0 1px 0px rgba($theme-primary, .9);
       background-color: $white;
+
+      select {
+        color: $theme-dark;
+        &:hover {
+          color: $theme-primary;
+        }
+      }
+
       .navbar-brand {
         color: $theme-primary;
         &:hover {
           color: darken($theme-primary, 10%);
         }
       }
+
       .navbar-nav {
         .nav-item {
-          padding-top: 8px;
           .nav-link {
             color: $theme-dark;
             &:hover {
@@ -100,7 +109,7 @@
   top: 50%;
   transform: translateY(-50%);
   /* Tweak the close button design to be perfectly verticaly aligned with the title */
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 
   /* Tweak to enforce the close button to instantly disappear */
   transition: 0s;

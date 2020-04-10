@@ -1,8 +1,15 @@
-<section class="no-padding bg-theme-primary" id="gallery">
-    <div class="gallery-wrapper">
+<section class="no-padding" id="gallery">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading">{{ site.t.sections.gallery.title[page.lang] }}</h2>
+            <hr class="primary">
+        </div>
+    </div>
+    <div class="gallery-wrapper bg-theme-primary">
         <!-- Default 6 images gallery -->
         <div class="row no-gutter gallery-container">
-            {% for index in (1..site.t.sections.gallery.images.size) limit:6 %}
+            <!-- First 5 large thumbnails -->
+            {% for index in (1..site.t.sections.gallery.images.size) limit:5 %}
             {% assign thumbnail = site.t.sections.gallery.images[index] %}
             <div class="col-6 col-md-4">
                 <a href="javascript:void(0)" id="{{ index }}" class="portfolio-box" onclick="openSlideshow(this.id)">
@@ -17,10 +24,30 @@
                 </a>
             </div>
             {% endfor %}
+            <!-- Last item : smaller grid -->
+            <div class="col-6 col-md-4">
+                <a href="javascript:void(0)" id="6" class="portfolio-box" onclick="openSlideshow(this.id)">
+                    <div class="row no-gutter gallery-container">
+                    {% for index in (1..site.t.sections.gallery.images.size) limit:9 %}
+                    {% assign thumbnail = site.t.sections.gallery.images[index] %}
+                        <div class="col-4">
+                            <img data-src="/img/gallery/thumb/{{ thumbnail.image }}" class="img-lazy img-responsive" alt="{{ thumbnail.alt[ page.lang] }}">
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                    {{ site.t.sections.gallery.slideshow[page.lang] }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <!-- Open Gallery Button -->
-        <a href="javascript:void(0)" onclick="openSlideshow()" class="btn btn-secondary-action btn-sm open-gallery-action">
+        <a href="javascript:void(0)" onclick="openSlideshow()" class="btn btn-secondary-action btn-xl open-gallery-action">
             <i class="far fa-images"></i>
             {{ site.t.sections.gallery.slideshow[page.lang] }}
         </a>
