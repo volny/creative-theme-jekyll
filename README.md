@@ -108,7 +108,7 @@ Jannis (06.04.2020)
 
 gallerie
 - [x] Title was missing
-- [ ] Slideshow: navigation with the keyboard was expected
+- [x] Slideshow: navigation with the keyboard was expected
 - [?] Slideshow not clicked: "had the feeling all the pictures were already shown - that there was only 6 pictures available"
 
 Language Switcher
