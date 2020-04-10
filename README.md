@@ -112,4 +112,4 @@ gallerie
 - [?] Slideshow not clicked: "had the feeling all the pictures were already shown - that there was only 6 pictures available"
 
 Language Switcher
-- [ ] Text is too big (won't do - too complex)
+- [x] Text is too big (won't do - too complex)
