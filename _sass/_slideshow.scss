@@ -68,5 +68,17 @@
     margin-right: 0px;
     margin-left: 0px;
     margin-top: 10px;
+
+    height: 0;
+    position: relative;
+    /* Padding Hack: https://www.andyshora.com/css-image-container-padding-hack.html */
+    /* Padding Bottom = (Image Height / Image Width) * 100 */
+    padding-bottom: 75%;
+  }
+
+  .carousel-cell-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
   }
 }
