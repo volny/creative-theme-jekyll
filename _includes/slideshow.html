@@ -4,7 +4,7 @@
 			{% for index in (1..site.t.sections.gallery.images.size) %}
 			{% assign image = site.t.sections.gallery.images[index] %}
 				<div class="carousel-cell">
-					<img data-src="/img/gallery/large/{{ image.image }}" class="carousel-cell-image" alt="{{ image.alt[page.lang] }}">
+					<img data-src="/img/gallery/large/{{ image.image }}" class="carousel-cell-image" id="lazy-img-{{index}}" alt="{{ image.alt[page.lang] }}">
 				</div>
 			{% endfor %}
 		</div>
