@@ -23,7 +23,7 @@ t:
     redirect: "Get back to safety"
   description:
     en: "Le Penon Surf House is situated in Seignosse on the French Atlantic coast and offers all you need for your vacation at the beach."
-    fr: "Le Penon Surf House est situé à Seignosse sur la côte atlantique française et vous offre tout ce dont vous avez besoin pour vos vacances à la plage."
+    fr: "Le Penon Surf House est située à Seignosse sur la côte atlantique française et vous offre tout ce dont vous avez besoin pour vos vacances à la plage."
     de: "Le Penon Surf House befindet sich in Seignosse an der französischen Atlantikküste und bietet dir alles für deinen Strandurlaub."
   nav:
     gallery:
@@ -54,7 +54,7 @@ t:
         de: "Dein surf house in Frankreich"
       subtitle:
         en: "Located in Seignosse and close to the greatest surf spots in France"
-        fr: "Situé à Seignosse et près de tous les spots de surf les plus réputés des Landes"
+        fr: "Située à Seignosse et près de tous les spots de surf les plus réputés des Landes"
         de: "In Seignosse und in der Nähe zu den berühmtesten Surfspots mit den besten Wellen"
       action:
         en: "Book now!"
@@ -66,9 +66,9 @@ t:
         fr: "Réservations"
         de: "Reservierung"
       subtitle:
-        en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. The South West is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe. The accomodation has a fast access to the beach only 150 meters away, a parking lot and a swimming pool on the property of the Résidence Atlantique! Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
-        fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Le Sud-Ouest est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe. Le logement dispose d'un accès rapide à la plage à seulement 150 mètres, d'une place de parking et d'une piscine sur la propriété de la Résidence Atlantique! Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
-        de: "Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Der Südwesten Frankreichs ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas. Die Unterkunft verfügt über einen schnellen Strandzugang (nur 150 m entfernt), einen Parkplatz und ein Schwimmbad auf dem Grundstück der Résidence Atlantique. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
+        en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. The South West is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe.<br />The accomodation has a fast access to the beach only 150 meters away, a parking lot and a swimming pool on the property of the Résidence Atlantique! Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
+        fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Le Sud-Ouest est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe.<br />Le logement dispose d'un accès rapide à la plage à seulement 150 mètres, d'une place de parking et d'une piscine sur la propriété de la Résidence Atlantique! Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
+        de: "Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Der Südwesten Frankreichs ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas.<br />Die Unterkunft verfügt über einen schnellen Strandzugang (nur 150 m entfernt), einen Parkplatz und ein Schwimmbad auf dem Grundstück der Résidence Atlantique. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
       coming_soon:
         en: "Coming soon via our partners"
         fr: "Bientôt disponible avec nos partenaires"
@@ -156,7 +156,7 @@ t:
             de: "Hossegor"
           text:
             en: "Off you go to the famous surf spots of Capbreton oder Hossegor La Gravière & Les Culs Nuls! Where the Quicksilver Pro France and Roxy Pro France competitions of the World Surf League are held every year! <br />Or you can easily reach other great beaches for sunbathing, swimming and surfing such as Plage des Bourdaines, Plage des Estagnots or Plage des Casernes."
-            fr: "Partez pour les célèbres spots de surf de Capbreton ou Hossegor La Gravière & Les Culs Nuls où se déroulent chaque année les compétitions Quicksilver Pro France et Roxy Pro France de la World Surf League! <br />Ou alors vous pouvez facilement rejoindre d'autres grandes plages pour prendre le soleil, nager et surfer comme par example les plages des Bourdaines, des Estagnots ou des Casernes."
+            fr: "Partez pour les célèbres spots de surf de Capbreton ou Hossegor La Gravière & Les Culs Nuls où se déroulent chaque année les compétitions Quicksilver Pro France et Roxy Pro France de la World Surf League! <br />Ou alors vous pouvez facilement rejoindre d'autres grandes plages pour prendre le soleil, nager et surfer comme par exemple les plages des Bourdaines, des Estagnots ou des Casernes."
             de: "Auf zu den berühmten Surfspots von Capbreton oder Hossegor La Gravière & Les Culs Nuls! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League ausgetragen!<br />Oder kannst du leicht andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen erreichen wie z.b. Plage des Bourdaines, Plage des Estagnots oder Plage des Casernes."
         5:
           image: "plane-avion-flugzeug-train-access-zugang-cities-villes-staedte.jpg"
@@ -193,7 +193,7 @@ t:
             de: "Neue Küche "
           text:
             en: "Fully equipped with oven, coffee machine, dishwasher and everything else you need"
-            fr: "Entièrement équipée dont un four, une machine à caffé, un lave-vaiseille et tout ce dont vous avez besoin"
+            fr: "Entièrement équipée dont un four, une machine à café, un lave-vaisselle et tout ce dont vous avez besoin"
             de: "Komplett ausgestattet mit Backofen, Kaffeemaschine, Spülmaschine und alles was man braucht"
         2:
           icon: "fa-umbrella-beach"
@@ -243,7 +243,7 @@ t:
             de: "Schwimmbad"
           text:
             en: "Pool for free usage on the ground of the Résidence Atlantique"
-            fr: "Piscine a usage libre dans la résidence Atlantique"
+            fr: "Piscine à usage libre dans la résidence Atlantique"
             de: "Schwimmbad zur freien Benutzung auf dem Gelände der Résidence Atlantique"
         7:
           icon: "fa-wifi"
