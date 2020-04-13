@@ -28,7 +28,7 @@ t:
   nav:
     gallery:
       en: "Gallery"
-      fr: "Gallerie"
+      fr: "Galerie"
       de: "Galerie"
     services:
       en: "Amenities"
@@ -268,7 +268,7 @@ t:
     gallery:
       title:
         en: "Gallery"
-        fr: "Gallerie"
+        fr: "Galerie"
         de: "Galerie"
       images:
         1:
