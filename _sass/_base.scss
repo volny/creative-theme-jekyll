@@ -107,6 +107,12 @@ footer {
 
 .btn-xl {
     padding: 15px 30px;
+
+    /* Enforce a minimal width for btn-xl on small devices */
+    /* This makes sure the text will stay on 1 line only */
+    @media (max-width: $min-screen-width) {
+        min-width: 290px;
+    }
 }
 
 .btn-sm {
