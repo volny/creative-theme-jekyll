@@ -104,7 +104,7 @@ t:
             en: "Surf at the beach of Le Penon in Seignosse, France. Be close to nature, sand dunes and a pine forest."
             fr: "Surf à la plage du Penon à Seignosse, France. Soyez près de la nature, dunes de sable et une fôret de pins."
             de: "Surfen am Strand von Le Penon in Seignosse, Frankreich; in der Natur, Nahe den Sanddünen und einem Kiefernwald."
-          distance: "150m"
+          distance: "150 m"
           title:
             en: "Beach and Surf"
             fr: "Plage et Surf"
@@ -119,7 +119,7 @@ t:
             en: "Dozens of bars, restaurants, shops and a Beach Club are only a few steps away from your Surf House in Seignosse Le Penon, France."
             fr: "Des dizaines de bars, restaurants, magasins et une boîte de nuit sont à quelques pas de votre Surf House à Seignosse Le Penon, France."
             de: "Dutzende von Bars, Restaurants, Geschäften und ein Nachtclub sind von Ihrem Surf Haus in Seignosse Le Penon, Frankreich, zu Fuß erreichbar."
-          distance: "300m"
+          distance: "300 m"
           title:
             en: "Bars and restaurants"
             fr: "Bars et restaurants"
@@ -134,7 +134,7 @@ t:
             en: "There is everything for sports in Seignosse Le Penon, France, with a new Skatepark and lots of surf and kitesurf schools."
             fr: "Tout pour le sport avec un nouveau Skatepark et plein d'écoles de surf et de kitesurf sont disponible à Seignosse Le Penon, France"
             de: "Es gibt alles für den Sport mit einem neuen Skatepark und vielen Surf- und Kitesurfschulen in Seignosse Le Penon, Frankreich."
-          distance: "800m"
+          distance: "800 m"
           title:
             en: "Skatepark & Surf schools"
             fr: "Skatepark & école de surf"
@@ -149,7 +149,7 @@ t:
             en: "All the legendary surfing spots in the South West of France are only a few kilometres away."
             fr: "Tous les spots de surf légendaires du Sud-Ouest de France sont à seulement quelques kilomètres."
             de: "Alle legendären Surfspots im Südwesten Frankreichs sind nur wenige Kilometer entfernt."
-          distance: "5km"
+          distance: "5 km"
           title:
             en: "Hossegor"
             fr: "Hossegor"
@@ -164,14 +164,14 @@ t:
             en: "Easy access to airports, train stations and other big cities."
             fr: "Facile d'accès vers les aéroports, gares de train et autres grandes villes."
             de: "Kurz Entfernung zum Flughäfen, Bahnhöfen und anderen großen Städten."
-          distance: "35km+"
+          distance: "35 km+"
           title:
             en: "Cities and airports"
             fr: "Villes et aéroports"
             de: "Städte und Flughäfen"
           text:
-            en: "Bigger cities such as Dax and Bayonne are about 35km away. <br />The nearest airports are in Biarritz (44km), San Sebastián (69km), Pau (110km) and Bordeaux (166km)."
-            fr: "De plus grandes villes comme Dax ou Bayonne sont à environt 35km. <br />Les aéroports les plus proches sont à Biarritz (44km), San Sebastián (69km), Pau (110km) et Bordeaux (166km)"
+            en: "Bigger cities such as Dax and Bayonne are about 35 km away. <br />The nearest airports are in Biarritz (44 km), San Sebastián (69 km), Pau (110 km) and Bordeaux (166 km)."
+            fr: "De plus grandes villes comme Dax ou Bayonne sont à environt 35 km. <br />Les aéroports les plus proches sont à Biarritz (44 km), San Sebastián (69 km), Pau (110 km) et Bordeaux (166 km)"
             de: "Größere Städte wie Dax und Bayonne sind ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau (110 km) und Bordeaux (166 km)."
         6:
           image: "shaka-good-vibes-only-bonheur-happy-stimmung.jpg"
