@@ -55,7 +55,7 @@ t:
       subtitle:
         en: "Located in Seignosse and close to the greatest surf spots in France"
         fr: "Située à Seignosse et près de tous les spots de surf les plus réputés des Landes"
-        de: "In Seignosse und in der Nähe zu den berühmtesten Surfspots mit den besten Wellen"
+        de: "In Seignosse und in der Nähe der berühmtesten Surfspots mit den besten Wellen"
       action:
         en: "Book now!"
         fr: "Réserver dès maintenant!"
@@ -66,7 +66,7 @@ t:
         fr: "Réservations"
         de: "Reservierung"
       subtitle:
-        en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. The South West is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe.<br />The accomodation has a fast access to the beach only 150 meters away, a parking lot and a swimming pool on the property of the Résidence Atlantique! Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
+        en: "Le Penon Surf House is situated in Seignosse Le Penon on the French Atlantic coast. The South West is famous for its perfect beach-breaks, beautiful beaches and some of the best surf spots in Europe.<br />The accomodation has a fast access to the beach only 150 meters away, a parking lot and a swimming pool on the premises of the Résidence Atlantique! Just around the corner there is all you need for an amazing vacation with surf schools, bars, restaurants, shops, a skatepark and even a beach club to hype the night life."
         fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Le Sud-Ouest est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe.<br />Le logement dispose d'un accès rapide à la plage à seulement 150 mètres, d'une place de parking et d'une piscine sur la propriété de la Résidence Atlantique! Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
         de: "Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Der Südwesten Frankreichs ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas.<br />Die Unterkunft verfügt über einen schnellen Strandzugang (nur 150 m entfernt), einen Parkplatz und ein Schwimmbad auf dem Grundstück der Résidence Atlantique. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
       coming_soon:
@@ -110,7 +110,7 @@ t:
             fr: "Plage et Surf"
             de: "Strand und Surfen"
           text:
-            en: "Only few steps away of the beautiful beach of Le Penon! And if you want to cool down or go jogging, a quiet pine forest is right in front of the house."
+            en: "Only few steps away from the beautiful beach of Le Penon! And if you want to cool down or go jogging, a quiet pine forest is right in front of the house."
             fr: "A seulement quelques pas se trouve la belle plage du Penon! Et s'il fait trop chaud ou si vous voulez faire du jogging, la forêt de pins est juste en face de la maison."
             de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine runde Joggen willst, bist du genauso schnell im ruhigen Pinienwald."
         2:
@@ -155,7 +155,7 @@ t:
             fr: "Hossegor"
             de: "Hossegor"
           text:
-            en: "Off you go to the famous surf spots of Capbreton oder Hossegor La Gravière & Les Culs Nuls! Where the Quicksilver Pro France and Roxy Pro France competitions of the World Surf League are held every year! <br />Or you can easily reach other great beaches for sunbathing, swimming and surfing such as Plage des Bourdaines, Plage des Estagnots or Plage des Casernes."
+            en: "Off you go to the famous surf spots of Capbreton or Hossegor La Gravière & Les Culs Nuls! Where the Quicksilver Pro France and Roxy Pro France competitions of the World Surf League are held every year! <br />Or you can easily reach other great beaches for sunbathing, swimming and surfing such as Plage des Bourdaines, Plage des Estagnots or Plage des Casernes."
             fr: "Partez pour les célèbres spots de surf de Capbreton ou Hossegor La Gravière & Les Culs Nuls où se déroulent chaque année les compétitions Quicksilver Pro France et Roxy Pro France de la World Surf League! <br />Ou alors vous pouvez facilement rejoindre d'autres grandes plages pour prendre le soleil, nager et surfer comme par exemple les plages des Bourdaines, des Estagnots ou des Casernes."
             de: "Auf zu den berühmten Surfspots von Capbreton oder Hossegor La Gravière & Les Culs Nuls! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League ausgetragen!<br />Oder kannst du leicht andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen erreichen wie z.b. Plage des Bourdaines, Plage des Estagnots oder Plage des Casernes."
         5:
@@ -170,7 +170,7 @@ t:
             fr: "Villes et aéroports"
             de: "Städte und Flughäfen"
           text:
-            en: "Bigger cities such as Dax and Bayonne are about 35km away. <br />The next airports are in Biarritz (44km), San Sebastián (69km), Pau (110km) and Bordeaux (166km)."
+            en: "Bigger cities such as Dax and Bayonne are about 35km away. <br />The nearest airports are in Biarritz (44km), San Sebastián (69km), Pau (110km) and Bordeaux (166km)."
             fr: "De plus grandes villes comme Dax ou Bayonne sont à environt 35km. <br />Les aéroports les plus proches sont à Biarritz (44km), San Sebastián (69km), Pau (110km) et Bordeaux (166km)"
             de: "Größere Städte wie Dax und Bayonne sind ca. 35 km entfernt.<br />Die nächsten Flughäfen findest du in Biarritz (44 km), San Sebastián (69 km), Pau (110 km) und Bordeaux (166 km)."
         6:
