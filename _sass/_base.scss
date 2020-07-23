@@ -71,7 +71,7 @@ aside {
 
 .navbar-default {
     background-color: white;
-    border-color: rgba($theme-dark, .5);
+    border-color: rgba($theme-light, .5);
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
@@ -91,7 +91,7 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-dark;
+                color: $theme-light;
                 &:hover {
                     color: $theme-primary;
                 }
@@ -127,7 +127,7 @@ aside {
         }
         &.affix {
             background-color: white;
-            border-color: rgba($theme-dark, .5);
+            border-color: rgba($theme-light, .5);
             .navbar-header .navbar-brand {
                 color: $theme-primary;
                 font-size: 14px;
@@ -138,7 +138,7 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-dark;
+                color: $theme-light;
                 &:hover {
                     color: $theme-primary;
                 }
@@ -296,7 +296,7 @@ header {
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+    @include button-variant($theme-light, white, white);
 }
 
 .btn-primary {
@@ -317,7 +317,7 @@ header {
 
 // Contact
 #contact .fa {
-    color: $theme-dark;
+    color: $theme-light;
     font-size: 4em;
 }
 
@@ -326,13 +326,13 @@ header {
 ::-moz-selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: $theme-light;
 }
 
 ::selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: $theme-light;
 }
 
 img::selection {
@@ -346,6 +346,6 @@ img::-moz-selection {
 }
 
 body {
-    -webkit-tap-highlight-color: $theme-dark;
+    -webkit-tap-highlight-color: $theme-light;
 }
 
