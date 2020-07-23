@@ -155,7 +155,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header.jpeg');
+    background-image: url('../img/portfolio/placeholder.png');
     text-align: center;
     color: white;
     .header-content {
@@ -175,7 +175,7 @@ header {
             }
             p {
                 font-weight: 300;
-                color: rgba(white, .7);
+                color: rgba(rgb(56, 56, 56), .7);
                 font-size: 16px;
                 margin-bottom: 50px;
             }
