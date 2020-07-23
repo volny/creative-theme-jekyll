@@ -44,7 +44,7 @@ p {
 
 .bg-primary {
     background-color: $theme-primary;
-    $text-color: #fff;
+    $text-color: #222;
 }
 
 .bg-light {
@@ -156,7 +156,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header.jpg');
+    background-image: url('..');
     text-align: center;
     color: white;
     .header-content {
