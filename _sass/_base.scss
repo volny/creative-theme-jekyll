@@ -156,7 +156,7 @@ header {
     @include background-cover;
     background-position: center;
     // background-image: url('');
-    background-color: $primary;
+    background-color: $theme-primary;
     text-align: center;
     color: #222;
     .header-content {
