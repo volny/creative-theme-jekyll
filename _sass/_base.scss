@@ -157,7 +157,7 @@ header {
     @include background-cover;
     background-position: center;
     text-align: center;
-    color: white;
+    color: red;
     .header-content {
         position: relative;
         text-align: center;
@@ -165,7 +165,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                background-color: $primary;
+                background-color: green;
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-top: 0;
@@ -176,7 +176,7 @@ header {
             }
             p {
                 font-weight: 300;
-                color: rgba(white, .7);
+                color: rgba(rgb(146, 0, 146), .7);
                 font-size: 16px;
                 margin-bottom: 50px;
             }
