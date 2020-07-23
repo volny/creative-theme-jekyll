@@ -156,7 +156,6 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('..');
     text-align: center;
     color: white;
     .header-content {
@@ -166,6 +165,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
+                background-color: $primary;
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-top: 0;
