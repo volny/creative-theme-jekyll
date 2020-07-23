@@ -155,9 +155,9 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/portfolio/placeholder.png');
+    background-image: url('');
     text-align: center;
-    color: white;
+    color: #222;
     .header-content {
         position: relative;
         text-align: center;
