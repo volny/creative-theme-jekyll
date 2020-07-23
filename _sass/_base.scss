@@ -44,7 +44,7 @@ p {
 
 .bg-primary {
     background-color: $theme-primary;
-    $text-color:       #fff;
+    $text-color: #fff;
 }
 
 .bg-light {
@@ -229,7 +229,7 @@ header {
     max-width: 650px;
     margin: 0 auto;
     .portfolio-box-caption {
-        color: white;
+        color: #222;
         opacity: 0;
         display: block;
         background: rgba( $theme-primary, .9 );
