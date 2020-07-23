@@ -155,7 +155,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    // background-image: url('');
+    background-image: url('../img/portfolio/header.png');
     background-color: $theme-primary;
     text-align: center;
     color: #222;
