@@ -16,7 +16,7 @@
 @mixin button-variant($color, $background, $border)
 {
 	color: $color;
-	background-color: $primary;
+	background-color: $background;
 	border-color: $border;
 	@include transition-all;
 
