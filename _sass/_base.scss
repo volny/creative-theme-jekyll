@@ -112,35 +112,35 @@ aside {
         background-color: transparent;
         border-color: rgba(white, .3);
         .navbar-header .navbar-brand {
-            color: rgba(white, .7);
+            color: rgba(rgb(255, 255, 255), .7);
             &:hover,
             &:focus {
-                color: white;
+                color: rgb(17, 13, 207);
             }
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: rgba(white, .7);
+            color: rgba(rgb(17, 13, 207);
             &:hover {
-                color: white;
+                color: rgb(17, 13, 207);
             }
         }
         &.affix {
             background-color: white;
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
-                color: $theme-primary;
+                color: $theme-dark;
                 font-size: 14px;
                 &:hover,
                 &:focus {
-                    color: darken($theme-primary, 10%);
+                    color: rgb(17, 13, 207);
                 }
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-dark;
+                color: rgb(17, 13, 207);
                 &:hover {
-                    color: $theme-primary;
+                    color: rgb(17, 13, 207);
                 }
             }
         }
