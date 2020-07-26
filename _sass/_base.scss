@@ -5,17 +5,17 @@ body {
 }
 
 body {
-    @include serif-font;
+    @include san-serif-font;
 }
 
 hr {
-    border-color: $theme-primary;
+    border-color: $theme-dark;
     border-width: 3px;
     max-width: 50px;
 }
 
-hr.light {
-    border-color: white;
+hr.dark {
+    border-color: $theme-dark;
 }
 
 a {
@@ -23,7 +23,7 @@ a {
     color: $theme-primary;
     &:hover,
     &:focus {
-        color: darken($theme-primary, 10%);
+        color: darken($theme-focus, 10%);
     }
 }
 
@@ -48,11 +48,11 @@ p {
 
 .bg-dark {
     background-color: $theme-dark;
-    color: #000;
+    color: $theme-primary;
 }
 
 .text-faded {
-    color: rgba(white, .7);
+    color: rgba($theme-dark, .7);
 }
 
 section {
@@ -75,13 +75,13 @@ aside {
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: $theme-primary;
+        color: $theme-dark;
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: darken($theme-focus, 10%);
         }
     }
     .nav {
@@ -91,15 +91,15 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-dark;
+                color: $theme-focus;
                 &:hover {
-                    color: $theme-primary;
+                    color: $theme-hover;
                 }
             }
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-primary !important;
+                    color: $theme-focus !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;
@@ -110,9 +110,9 @@ aside {
     }
     @media (min-width: 768px) {
         background-color: transparent;
-        border-color: rgba(white, .3);
+        //border-color: rgba(white, .3);
         .navbar-header .navbar-brand {
-            color: rgba(rgb(255, 255, 255), .7);
+            color:#222,.7);
             &:hover,
             &:focus {
                 color: rgb(17, 13, 207);
@@ -167,7 +167,7 @@ header {
         .header-content-inner {
             h1 {
                 font-weight: 450;
-                // text-transform: uppercase;
+                text-transform: uppercase;
                 margin-top: 10%;
                 margin-bottom: 10%;
             }
@@ -178,6 +178,7 @@ header {
                 font-weight: 300;
                 color: rgba(rgb(27, 27, 27), .7);
                 font-size: 18px;
+                text-align: leftt;
                 margin-top: 20%;
                 margin-bottom: 20%;
             }
@@ -230,8 +231,8 @@ header {
     max-width: 650px;
     margin: 0 auto;
     .portfolio-box-caption {
-        color: white;
-        opacity: 0;
+        color: $theme-hover;
+        opacity: 80;
         display: block;
         background: rgba( $theme-primary, .9 );
         position: absolute;
@@ -288,7 +289,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-primary;
+    color: $theme-dark;
 }
 
 .no-gutter > [class*='col-'] {
@@ -302,7 +303,7 @@ header {
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    @include button-variant($theme-dark, $theme-primary, $theme-primary);
 }
 
 .btn {
