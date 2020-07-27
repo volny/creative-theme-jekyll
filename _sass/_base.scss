@@ -155,7 +155,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../image/porfolio/placeholder.png');
+    background-image: url('../img/header-img/header.jpg');
     // background-color: $theme-dark;
     text-align: center;
     color: white;
@@ -166,6 +166,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
+                background-color: $primary;
                 font-weight: 450;
                 text-transform: uppercase;
                 margin-top:0;
