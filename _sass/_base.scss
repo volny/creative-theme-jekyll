@@ -155,8 +155,8 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('https://tedideas.files.wordpress.com/2019/12/featured_ask_help_istock-1.jpg');
-    // background-color: $theme-primary;
+    background-image: url('../image/porfolio/placeholder.png');
+    // background-color: $theme-dark;
     text-align: center;
     color: white;
     .header-content {
@@ -168,7 +168,7 @@ header {
             h1 {
                 font-weight: 450;
                 text-transform: uppercase;
-                margin-top: 10%;
+                margin-top:0;
                 margin-bottom: 10%;
             }
             hr {
@@ -178,7 +178,7 @@ header {
                 font-weight: 300;
                 color: rgba(rgb(27, 27, 27), .7);
                 font-size: 18px;
-                text-align: leftt;
+                text-align: center;
                 margin-top: 20%;
                 margin-bottom: 20%;
             }
