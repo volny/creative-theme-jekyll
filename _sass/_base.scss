@@ -126,7 +126,7 @@ aside {
             }
         }
         &.affix {
-            background-color: white;
+            background-color: orange;
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
                 color: $theme-dark;
@@ -155,7 +155,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/render/100212089_63dfc29b79_o.jpg');
+    background-image: url('/img/portfolio/render/100212089_63dfc29b79_o.jpg');
     background-color: $theme-primary;
     text-align: right;
     color: #222;
