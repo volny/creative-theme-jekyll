@@ -112,7 +112,7 @@ aside {
         background-color: transparent;
         //border-color: rgba(white, .3);
         .navbar-header .navbar-brand {
-            color:#222,.7);
+            color:#222;.7);
             &:hover,
             &:focus {
                 color: rgb(17, 13, 207);
@@ -155,7 +155,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('/img/portfolio/render/100212089_63dfc29b79_o.jpg');
+    background-image: url('img/portfolio/render/100212089_63dfc29b79_o.jpg');
     background-color: $theme-primary;
     text-align: right;
     color: #222;
