@@ -12,7 +12,7 @@
 // $spacing-unit:     30px;
 
 // $text-color:       #111;
-// $background-color: #222;
+// $background-color: #fdfdfd;
 // $brand-color:      #2a7ae2;
 
 // $grey-color:       #828282;
@@ -34,11 +34,8 @@
 // }
 
 // variables.less
-$theme-primary: rgb(255, 255, 255);
-$background-color: #222;
+$theme-primary: #F05F40;
 $theme-dark: #222;
-$theme-hover: rgb(17, 13, 207);
-$theme-focus: rgb(17, 13, 207);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
