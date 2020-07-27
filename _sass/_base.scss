@@ -5,17 +5,17 @@ body {
 }
 
 body {
-    @include san-serif-font;
+    @include serif-font;
 }
 
 hr {
-    border-color: $theme-dark;
+    border-color: $theme-primary;
     border-width: 3px;
     max-width: 50px;
 }
 
-hr.dark {
-    border-color: $theme-dark;
+hr.light {
+    border-color: white;
 }
 
 a {
@@ -23,7 +23,7 @@ a {
     color: $theme-primary;
     &:hover,
     &:focus {
-        color: darken($theme-focus, 10%);
+        color: darken($theme-primary, 10%);
     }
 }
 
@@ -48,11 +48,11 @@ p {
 
 .bg-dark {
     background-color: $theme-dark;
-    color: $theme-primary;
+    color: white;
 }
 
 .text-faded {
-    color: rgba($theme-dark, .7);
+    color: rgba(white, .7);
 }
 
 section {
@@ -75,13 +75,13 @@ aside {
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: $theme-dark;
+        color: $theme-primary;
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: darken($theme-focus, 10%);
+            color: darken($theme-primary, 10%);
         }
     }
     .nav {
@@ -91,15 +91,15 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-focus;
+                color: $theme-dark;
                 &:hover {
-                    color: $theme-hover;
+                    color: $theme-primary;
                 }
             }
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-focus !important;
+                    color: $theme-primary !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;
@@ -110,37 +110,37 @@ aside {
     }
     @media (min-width: 768px) {
         background-color: transparent;
-        //border-color: rgba(white, .3);
+        border-color: rgba(white, .3);
         .navbar-header .navbar-brand {
-            color: #222;
+            color: rgba(white, .7);
             &:hover,
             &:focus {
-                color: rgb(17, 13, 207);
+                color: white;
             }
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: rgb(17, 13, 207);
+            color: rgba(white, .7);
             &:hover {
-                color: rgb(17, 13, 207);
+                color: white;
             }
         }
         &.affix {
-            background-color: orange;
+            background-color: white;
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
-                color: $theme-dark;
+                color: $theme-primary;
                 font-size: 14px;
                 &:hover,
                 &:focus {
-                    color: rgb(17, 13, 207);
+                    color: darken($theme-primary, 10%);
                 }
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: rgb(17, 13, 207);
+                color: $theme-dark;
                 &:hover {
-                    color: rgb(17, 13, 207);
+                    color: $theme-primary;
                 }
             }
         }
@@ -155,10 +155,9 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url("../img/header.jpeg");
-    background-color: $theme-dark;
+    background-image: url('../img/header.jpeg');
     text-align: center;
-    color: transparent;
+    color: white;
     .header-content {
         position: relative;
         text-align: center;
@@ -166,22 +165,19 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                background-color: $primary;
-                font-weight: 450;
+                font-weight: 700;
                 text-transform: uppercase;
-                margin-top:0;
-                margin-bottom: 10%;
+                margin-top: 0;
+                margin-bottom: 0;
             }
             hr {
                 margin: 30px auto;
             }
             p {
                 font-weight: 300;
-                color: rgba(rgb(27, 27, 27), .7);
-                font-size: 18px;
-                text-align: center;
-                margin-top: 20%;
-                margin-bottom: 20%;
+                color: rgba(white, .7);
+                font-size: 16px;
+                margin-bottom: 50px;
             }
         }
     }
@@ -232,8 +228,8 @@ header {
     max-width: 650px;
     margin: 0 auto;
     .portfolio-box-caption {
-        color: $theme-hover;
-        opacity: 80;
+        color: white;
+        opacity: 0;
         display: block;
         background: rgba( $theme-primary, .9 );
         position: absolute;
@@ -290,7 +286,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-dark;
+    color: $theme-primary;
 }
 
 .no-gutter > [class*='col-'] {
@@ -304,7 +300,7 @@ header {
 }
 
 .btn-primary {
-    @include button-variant($theme-dark, $theme-primary, $theme-primary);
+    @include button-variant(white, $theme-primary, $theme-primary);
 }
 
 .btn {
