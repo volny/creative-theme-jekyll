@@ -155,10 +155,10 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url("/img/portfolio/placeholder.png");
+    background-image: url('https://tedideas.files.wordpress.com/2019/12/featured_ask_help_istock-1.jpg');
     // background-color: $theme-primary;
     text-align: center;
-    color: #222;
+    color: white;
     .header-content {
         position: relative;
         text-align: center;
