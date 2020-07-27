@@ -155,10 +155,10 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header-img/header.jpg');
+    background-image: url("img/header.jpg");
     // background-color: $theme-dark;
     text-align: center;
-    color: white;
+    color: transparent;
     .header-content {
         position: relative;
         text-align: center;
