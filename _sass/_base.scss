@@ -166,8 +166,10 @@ header {
         .header-content-inner {
             h1 {
                 font-weight: 700;
-                text-transform: uppercase;
-                margin-top: 0;
+                text-transform: none;
+                text-align: center;
+                color: #fff;
+                margin-top: 20%;
                 margin-bottom: 0;
             }
             hr {
@@ -175,7 +177,7 @@ header {
             }
             p {
                 font-weight: 300;
-                color: rgba(white, .7);
+                color: rgba( #222, .7);
                 font-size: 16px;
                 margin-bottom: 50px;
             }
