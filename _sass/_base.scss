@@ -42,6 +42,12 @@ p {
     margin-bottom: 20px;
 }
 
+.p-tagline {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
 .bg-primary {
     background-color: $theme-primary;
 }
@@ -165,7 +171,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 450;
+                font-weight: 200;
                 text-transform: none;
                 text-align: center;
                 color: #fff;
