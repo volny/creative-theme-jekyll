@@ -43,9 +43,13 @@ p {
 }
 
 .p-tagline {
-    font-size: 13px;
+    @include sans-serif-font;
+    font-size: 15px;
+    font-weight: 200;
+    text-transform: none;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 20%;
+
 }
 
 .bg-primary {
