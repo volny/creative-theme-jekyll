@@ -53,16 +53,16 @@ p {
 }
 
 .bg-primary {
-    background-color: $theme-primary;
+    background-color: purple; //body
 }
 
 .bg-dark {
-    background-color: $theme-dark;
+    background-color: green; //color
     color: white;
 }
 
 .text-faded {
-    color: rgba(white, .7);
+    color: rgba(orange, .7); //color
 }
 
 section {
@@ -80,18 +80,18 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: white;
+    background-color: pink; //color
     border-color: rgba($theme-dark, .5);
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: $theme-primary;
+        color: yellow; //color
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: darken($theme-link, 10%); //changed link color from primary
         }
     }
     .nav {
@@ -103,13 +103,13 @@ aside {
                 font-size: 13px;
                 color: $theme-dark;
                 &:hover {
-                    color: $theme-primary;
+                    color: $theme-link; //changed link color
                 }
             }
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-primary !important;
+                    color: $theme-link !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;
@@ -125,32 +125,32 @@ aside {
             color: rgba(white, .7);
             &:hover,
             &:focus {
-                color: white;
+                color: $theme-link;
             }
         }
         .nav > li > a,
         .nav > li > a:focus {
             color: rgba(white, .7);
             &:hover {
-                color: white;
+                color: $theme-link;
             }
         }
         &.affix {
             background-color: white;
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
-                color: $theme-primary;
+                color: $theme-dark;
                 font-size: 14px;
                 &:hover,
                 &:focus {
-                    color: darken($theme-primary, 10%);
+                    color: darken($theme-link, 10%);
                 }
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-dark;
+                color: $theme-link;
                 &:hover {
-                    color: $theme-primary;
+                    color: $theme-link;
                 }
             }
         }
@@ -167,6 +167,7 @@ header {
     background-position: center;
     background-image: url('../img/header.jpg');
     text-align: center;
+    background-attachment: fixed; //changed to fixed
     color: white;
     .header-content {
         position: relative;
@@ -177,10 +178,18 @@ header {
             h1 {
                 font-weight: 200;
                 text-transform: none;
-                text-align: center;
+                text-align: left; //center
                 color: #fff;
                 margin-top: 20%;
-                margin-bottom: 0;
+                margin-bottom: 10%;
+            }
+            h2 {
+                font-weight: 200;
+                text-transform: none;
+                text-align: right; //center
+                color: red; //color
+                margin-top: 20%;
+                margin-bottom: 10%;
             }
             hr {
                 margin: 30px auto;
@@ -243,7 +252,7 @@ header {
         color: white;
         opacity: 0;
         display: block;
-        background: rgba( $theme-primary, .9 );
+        background: rgba( brown, .9 ); //color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -298,7 +307,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-primary;
+    color: red; //body text
 }
 
 .no-gutter > [class*='col-'] {
