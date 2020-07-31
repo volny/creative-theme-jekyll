@@ -82,7 +82,7 @@ aside {
 
 .navbar-default {
     background-color: #222; //mobile translucent
-    opacity: 0.9;
+    opacity: 0.4;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
@@ -114,7 +114,7 @@ aside {
                 > a,
                 > a:focus {
                     color:  #fff !important; //section highlight
-                    background-color: $theme-link ; //changed
+                    background-color: $theme-dark; //changed
                     &:hover {
                         background-color: $theme-link; //changed
                     }
@@ -143,7 +143,7 @@ aside {
         }
         &.affix {
             background-color: #222;
-            opacity: 1; //scrolling fixed nav bar desktop transparency
+            opacity: 0.5; //scrolling fixed nav bar desktop transparency
             border-color: #fff;
             .navbar-header .navbar-brand {
                 color: #fff;
@@ -155,7 +155,7 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-link; //default nav link color
+                color: #fff; //default nav link color
                 &:hover {
                     color: $theme-link;
                 }
@@ -260,7 +260,7 @@ header {
         color: white;
         opacity: 0; //text on top
         display: block;
-        background:  blue; //port color
+        background: $theme-main-link; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
