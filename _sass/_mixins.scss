@@ -27,7 +27,7 @@
 	&.active,
 	.open > .dropdown-toggle & {
 		color: $color;
-		background-color: darken($background, 5%);
+		background-color: darken($background);
     // border-color: darken($border);
 	}
 	&:active,
@@ -45,7 +45,7 @@
 		&.focus,
 		&:active,
 		&.active {
-			background-color: bisque; //change
+			background-color: orange; //change
 			border-color: $border;
 		}
 	}
