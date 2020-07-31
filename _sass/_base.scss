@@ -21,10 +21,10 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; //regular links
-    text-decoration-line: none;
     &:hover,
     &:focus {
         color: $theme-link;
+        text-decoration-line: none;
     }
 }
 
@@ -45,8 +45,8 @@ p {
 
 .p-tagline {
     @include sans-serif-font; 
-    font-size: 300px; //header tagline
-    font-weight: 300;
+    font-size: 80px; //header tagline
+    font-weight: 600;
     text-transform: none;
     line-height: 1.0;
     margin-bottom: 20%;
@@ -81,13 +81,13 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: #fff; //mobbile
-    opacity: 0.9;
+    background-color: #222; //mobile translucent
+    opacity: 0.3;
     border-color: $theme-dark;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: #222; //color to dark
+        color: #fff; //color to dark
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
@@ -116,14 +116,14 @@ aside {
                     color:  #fff  !important;
                     background-color: #222 ; //changed
                     &:hover {
-                        background-color: #fff; //changed
+                        background-color: $theme-link; //changed
                     }
                 }
             }
         }
     }
 
-    // logo settings
+    // logo settings / big transparent
     @media (min-width: 768px) {
         background-color: transparent;
         border-color: transparent;
@@ -136,17 +136,17 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: pink;
+            color: #fff;
             &:hover {
                 color: $theme-link;
             }
         }
         &.affix {
-            background-color: white;
+            background-color: #222;
             opacity: 0.5; //scrolling nav bar desktop transparency
             border-color: $theme-dark; // , .5 ?
             .navbar-header .navbar-brand {
-                color: $theme-dark;
+                color: #222;
                 font-size: 14px;
                 &:hover,
                 &:focus {
@@ -155,7 +155,7 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: purple; //default nav link color
+                color: #fff; //default nav link color
                 &:hover {
                     color: $theme-link;
                 }
@@ -260,7 +260,7 @@ header {
         color: white;
         opacity: 0; //text on top
         display: block;
-        background:  $theme-dark; //port color
+        background:  blue; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
