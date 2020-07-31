@@ -23,7 +23,7 @@ a {
     color: $theme-primary;
     &:hover,
     &:focus {
-        color: darken($theme-primary, 10%);
+        color: red; //added
     }
 }
 
@@ -53,7 +53,7 @@ p {
 }
 
 .bg-primary {
-    background-color: #222; //bio body
+    background-color: teal; //bio body
 }
 
 .bg-dark {
@@ -62,7 +62,7 @@ p {
 }
 
 .text-faded {
-    color: (yellowgreen, .7); //category tcxt color?
+    color: (yellowgreen); //category tcxt color?
 }
 
 section {
@@ -80,8 +80,9 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: transparent; //color
-    border-color: rgba($theme-dark, .5);
+    background-color: wheat; //color
+    opacity: 0.3; //added
+    border-color: $theme-dark;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
@@ -112,9 +113,9 @@ aside {
                 > a,
                 > a:focus {
                     color: $theme-link !important;
-                    background-color: transparent;
+                    background-color: olivedrab; //changed
                     &:hover {
-                        background-color: transparent;
+                        background-color: powderblue; //changged
                     }
                 }
             }
@@ -183,40 +184,40 @@ header {
             h1 {
                 font-weight: 1200;
                 text-transform: none;
-                text-align: right; //title, center
+                text-align: left; //title
                 color: #fff;
-                margin-top: 20%;
-                margin-bottom: 10%;
+                margin-top: 22%;
+                margin-bottom:1%;
             }
             h2 {
-                font-weight: 200;
+                font-weight: 300;
                 text-transform: none;
                 text-align: left; //center
-                color: aqua; //color
-                margin-top: 20%;
+                color: #fff; //color
+                margin-top: 1%;
                 margin-bottom: 10%;
-                font-size:70px; //size
+                font-size:18px; //size
             }
             hr {
                 margin: 30px auto;
             }
             p {
                 font-weight: 300;
-                color: rgba( #222, .7);
+                color: rgba( #222);
                 font-size: 16px;
-                margin-bottom: 50px;
+                margin-bottom: 5px;
             }
         }
     }
     @media (min-width: 768px) {
         min-height: 100%;
         .header-content {
-            position: relative; // changed from absolute
+            position: absolute; // changed abs
             top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 0 50px;
+            padding: 10 50px; //was 0
             .header-content-inner {
                 max-width: 1000px;
                 margin-left: auto;
@@ -256,9 +257,9 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: white;
-        opacity: 0;
+        opacity:.8; //was 0
         display: block;
-        background: rgba( blue, .9 ); //color
+        background: rgba( blue); //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -344,8 +345,8 @@ header {
 
 // Contact
 #contact .fa {
-    color: $theme-dark;
-    font-size: 4em;
+    color: orange;
+    font-size: 14em; //was 4
 }
 
 // Extras
@@ -353,13 +354,13 @@ header {
 ::-moz-selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: greenyellow; //changed 
 }
 
 ::selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: pink; //changed
 }
 
 img::selection {

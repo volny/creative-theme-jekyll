@@ -7,7 +7,7 @@
 
 @mixin background-cover()
 {
-    -webkit-background-size: cover;
+    -webkit-background-size: contain; //was cover
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
@@ -28,12 +28,13 @@
 	.open > .dropdown-toggle & {
 		color: $color;
 		background-color: darken($background, 5%);
-    border-color: darken($border, 7%);
+    border-color: darken($border);
 	}
 	&:active,
 	&.active,
 	.open > .dropdown-toggle & {
 		background-image: none;
+		color: fuchsia;
 	}
 	&.disabled,
 	&[disabled],
@@ -44,7 +45,7 @@
 		&.focus,
 		&:active,
 		&.active {
-			background-color: $background;
+			background-color: bisque; //change
 			border-color: $border;
 		}
 	}
