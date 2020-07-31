@@ -86,7 +86,7 @@ aside {
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: rgb(255, 0, 221); //color to violet
+        color: violet; //color to violet
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
@@ -104,7 +104,7 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-dark;
+                color: brown;
                 &:hover {
                     color: $theme-link; //changed link color
                 }
@@ -125,9 +125,9 @@ aside {
     // logo settings
     @media (min-width: 768px) {
         background-color: transparent;
-        border-color: rgba(white, .3);
+        border-color: white;
         .navbar-header .navbar-brand {
-            color: rgba(white, .7);
+            color: white;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -259,7 +259,7 @@ header {
         color: white;
         opacity:.8; //was 0
         display: block;
-        background: rgba( blue); //port color
+        background:  blue; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -369,7 +369,7 @@ img::selection {
 }
 
 img::-moz-selection {
-    color: white;
+    color: blueviolet; //white
     background: transparent;
 }
 
