@@ -59,7 +59,7 @@ p {
 
 .bg-dark {
     background-color: #222; //color
-    color: white;
+    color: #fff;
 }
 
 .text-faded {
@@ -87,7 +87,7 @@ aside {
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: #fff; //color to dark
+        color: #fff;
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
@@ -102,7 +102,7 @@ aside {
         > li {
             > a,
             > a:focus {
-                text-transform: lowercase;
+                text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
                 color: #fff;
@@ -113,8 +113,8 @@ aside {
             &.active {
                 > a,
                 > a:focus {
-                    color:  pink  !important;
-                    background-color: #222 ; //changed
+                    color:  #fff !important; //section highlight
+                    background-color: $theme-link ; //changed
                     &:hover {
                         background-color: $theme-link; //changed
                     }
@@ -143,11 +143,11 @@ aside {
         }
         &.affix {
             background-color: #222;
-            opacity: 1.0; //scrolling fixed nav bar desktop transparency
-            border-color:transparent;
+            opacity: 1; //scrolling fixed nav bar desktop transparency
+            border-color: #fff;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 14px;
+                font-size: 18px;
                 &:hover,
                 &:focus {
                     color: $theme-link;
