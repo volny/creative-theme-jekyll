@@ -21,6 +21,7 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; //regular links
+    text-decoration-line: none;
     &:hover,
     &:focus {
         color: $theme-link;
@@ -80,8 +81,8 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: orange; //main translucent? color
-    opacity: 0.5 ;
+    background-color: #fff; //mobbile
+    opacity: 0.9;
     border-color: $theme-dark;
     @include sans-serif-font;
     @include transition-all;
@@ -112,10 +113,10 @@ aside {
             &.active {
                 > a,
                 > a:focus {
-                    color: #222  !important;
-                    background-color: #fff ; //changed
+                    color:  #fff  !important;
+                    background-color: #222 ; //changed
                     &:hover {
-                        background-color: orange; //changged
+                        background-color: #fff; //changed
                     }
                 }
             }
@@ -257,7 +258,7 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: white;
-        opacity: 0.5; //was 0
+        opacity: 0; //text on top
         display: block;
         background:  $theme-dark; //port color
         position: absolute;
@@ -345,7 +346,7 @@ header {
 
 // Contact
 #contact .fa {
-    color: #fff;
+    color: rgb(223, 223, 223);
     font-size: 3em; //was 4
 }
 
@@ -365,11 +366,11 @@ header {
 
 img::selection {
     color: white;
-    background: transparent;
+    background: #000;
 }
 
 img::-moz-selection {
-    color: blueviolet; //white
+    color: #fff; //white
     background: transparent;
 }
 
