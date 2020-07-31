@@ -98,7 +98,7 @@ aside {
     }
 
     // transparent navigation mobile
-    .nav {
+    .nav { opacity: 1};
         > li {
             > a,
             > a:focus {
@@ -143,7 +143,7 @@ aside {
         }
         &.affix {
             background-color: #222;
-            opacity: 0.5; //scrolling fixed nav bar desktop transparency
+           // opacity: 0.5; //scrolling fixed nav bar desktop transparency
             border-color: #fff;
             .navbar-header .navbar-brand {
                 color: #fff;
