@@ -48,8 +48,8 @@ p {
     font-size: 80px; //header tagline
     font-weight: 600;
     text-transform: none;
-    line-height: 1.0;
-    margin-bottom: 20%;
+    line-height: 0.5;
+    margin-bottom: 30%;
 
 }
 
@@ -82,8 +82,8 @@ aside {
 
 .navbar-default {
     background-color: #222; //mobile translucent
-    opacity: 1;
-    border-color: $theme-dark;
+    opacity: 0.9;
+    border-color: #fff;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
@@ -93,11 +93,11 @@ aside {
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: $theme-link; //changed link color
+            color: $theme-link;
         }
     }
 
-    // transparent navigation
+    // transparent navigation mobile
     .nav {
         > li {
             > a,
@@ -105,7 +105,7 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: #222 ;
+                color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
                 }
@@ -136,17 +136,17 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: #fff;
+            color: red;
             &:hover {
                 color: $theme-link;
             }
         }
         &.affix {
             background-color: #222;
-            opacity: 0.8; //scrolling nav bar desktop transparency
-            border-color: $theme-dark; // , .5 ?
+            opacity: 0; //scrolling fixed nav bar desktop transparency
+            border-color: $theme-dark;
             .navbar-header .navbar-brand {
-                color: #222;
+                color: #fff;
                 font-size: 14px;
                 &:hover,
                 &:focus {
@@ -157,7 +157,7 @@ aside {
             .nav > li > a:focus {
                 color: $theme-link; //default nav link color
                 &:hover {
-                    color: #fff;
+                    color: $theme-link;
                 }
             }
         }
