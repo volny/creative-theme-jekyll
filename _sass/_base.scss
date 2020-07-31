@@ -43,8 +43,8 @@ p {
 }
 
 .p-tagline {
-    @include sans-serif-font;
-    font-size: 15px;
+    @include sans-serif-font; 
+    font-size: 300px; //header tagline
     font-weight: 200;
     text-transform: none;
     line-height: 1.5;
@@ -53,7 +53,7 @@ p {
 }
 
 .bg-primary {
-    background-color: purple; //body
+    background-color: #222; //bio body
 }
 
 .bg-dark {
@@ -62,7 +62,7 @@ p {
 }
 
 .text-faded {
-    color: rgba(orange, .7); //color
+    color: (yellowgreen, .7); //category tcxt color?
 }
 
 section {
@@ -80,12 +80,12 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: pink; //color
+    background-color: transparent; //color
     border-color: rgba($theme-dark, .5);
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: yellow; //color
+        color: rgb(255, 0, 221); //color to violet
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
@@ -94,6 +94,8 @@ aside {
             color: darken($theme-link, 10%); //changed link color from primary
         }
     }
+
+    // transparent navigation
     .nav {
         > li {
             > a,
@@ -118,6 +120,8 @@ aside {
             }
         }
     }
+
+    // logo settings
     @media (min-width: 768px) {
         background-color: transparent;
         border-color: rgba(white, .3);
@@ -130,14 +134,15 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: rgba(white, .7);
+            color: pink;
             &:hover {
                 color: $theme-link;
             }
         }
         &.affix {
             background-color: white;
-            border-color: rgba($theme-dark, .5);
+            opacity: 0.1; //scrolling nav bar desktop transparency
+            border-color: rgba($theme-dark); // , .5 ?
             .navbar-header .navbar-brand {
                 color: $theme-dark;
                 font-size: 14px;
@@ -148,7 +153,7 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-link;
+                color: $theme-dark; //default nav link color
                 &:hover {
                     color: $theme-link;
                 }
@@ -167,18 +172,18 @@ header {
     background-position: center;
     background-image: url('../img/header.jpg');
     text-align: center;
-    background-attachment: fixed; //changed to fixed
+    background-attachment: scroll; //change to fixed for mobile
     color: white;
     .header-content {
         position: relative;
-        text-align: center;
+        text-align: left; //center
         padding: 100px 15px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 200;
+                font-weight: 1200;
                 text-transform: none;
-                text-align: left; //center
+                text-align: right; //title, center
                 color: #fff;
                 margin-top: 20%;
                 margin-bottom: 10%;
@@ -186,10 +191,11 @@ header {
             h2 {
                 font-weight: 200;
                 text-transform: none;
-                text-align: right; //center
-                color: red; //color
+                text-align: left; //center
+                color: aqua; //color
                 margin-top: 20%;
                 margin-bottom: 10%;
+                font-size:70px; //size
             }
             hr {
                 margin: 30px auto;
@@ -205,7 +211,7 @@ header {
     @media (min-width: 768px) {
         min-height: 100%;
         .header-content {
-            position: absolute;
+            position: relative; // changed from absolute
             top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
@@ -252,7 +258,7 @@ header {
         color: white;
         opacity: 0;
         display: block;
-        background: rgba( brown, .9 ); //color
+        background: rgba( blue, .9 ); //color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -307,7 +313,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: red; //body text
+    color: black; //body text
 }
 
 .no-gutter > [class*='col-'] {
