@@ -80,8 +80,8 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: #fff; //main translucent? color
-    opacity: 0.1; //added
+    background-color: orange; //main translucent? color
+    opacity: 0.5 ;
     border-color: $theme-dark;
     @include sans-serif-font;
     @include transition-all;
@@ -99,10 +99,7 @@ aside {
     // transparent navigation
     .nav {
         > li {
-            > a, {
-                background-color: #fff;
-                opacity: 0.1;
-            }
+            > a,
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 700;
@@ -157,7 +154,7 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: orchid; //default nav link color
+                color: purple; //default nav link color
                 &:hover {
                     color: $theme-link;
                 }
@@ -260,7 +257,7 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: white;
-        opacity: 0.1; //was 0
+        opacity: 0.5; //was 0
         display: block;
         background:  $theme-dark; //port color
         position: absolute;
@@ -317,7 +314,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: black; //body text
+    color: #fff; //body text
 }
 
 .no-gutter > [class*='col-'] {
@@ -355,15 +352,15 @@ header {
 // Extras
 // -- Highlight Color Customization
 ::-moz-selection {
-    color: white;
+    color: #222;
     text-shadow: none;
-    background: greenyellow; //changed 
+    background: #fff; //changed 
 }
 
 ::selection {
-    color: white;
+    color: #222;
     text-shadow: none;
-    background: pink; //changed
+    background: #fff; //highlight
 }
 
 img::selection {
