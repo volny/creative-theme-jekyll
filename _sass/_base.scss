@@ -5,7 +5,7 @@ body {
 }
 
 body {
-    @include serif-font;
+    @include sans-serif-font;
 }
 
 hr {
@@ -58,7 +58,7 @@ p {
 }
 
 .bg-dark {
-    background-color: red; //color
+    background-color: #222; //color
     color: white;
 }
 
@@ -82,7 +82,7 @@ aside {
 
 .navbar-default {
     background-color: #222; //mobile translucent
-    opacity: 0.3;
+    opacity: 1;
     border-color: $theme-dark;
     @include sans-serif-font;
     @include transition-all;
@@ -143,7 +143,7 @@ aside {
         }
         &.affix {
             background-color: #222;
-            opacity: 0.5; //scrolling nav bar desktop transparency
+            opacity: 0.8; //scrolling nav bar desktop transparency
             border-color: $theme-dark; // , .5 ?
             .navbar-header .navbar-brand {
                 color: #222;
@@ -155,9 +155,9 @@ aside {
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: #fff; //default nav link color
+                color: $theme-link; //default nav link color
                 &:hover {
-                    color: $theme-link;
+                    color: #fff;
                 }
             }
         }
@@ -290,7 +290,7 @@ header {
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 1;
+            opacity: 0.8;
         }
     }
     @media (min-width: 768px) {
