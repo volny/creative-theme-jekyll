@@ -27,7 +27,7 @@
 	&.active,
 	.open > .dropdown-toggle & {
 		color: $color;
-		background-color: darken($background);
+		background-color: $background;
     // border-color: darken($border);
 	}
 	&:active,
