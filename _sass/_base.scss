@@ -82,7 +82,7 @@ aside {
 
 .navbar-default {
     background-color: #222; //mobile translucent
-    opacity: 0.4;
+    opacity: 0.9;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
@@ -98,7 +98,7 @@ aside {
     }
 
     // transparent navigation mobile
-    .nav { opacity: 1};
+    .nav {
         > li {
             > a,
             > a:focus {
