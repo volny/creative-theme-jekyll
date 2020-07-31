@@ -20,10 +20,10 @@ hr.light {
 
 a {
     @include transition-all;
-    color: $theme-primary;
+    color: $theme-main-link; //regular links
     &:hover,
     &:focus {
-        color: red; //added
+        color: $theme-link;
     }
 }
 
@@ -45,24 +45,24 @@ p {
 .p-tagline {
     @include sans-serif-font; 
     font-size: 300px; //header tagline
-    font-weight: 200;
+    font-weight: 300;
     text-transform: none;
-    line-height: 1.5;
+    line-height: 1.0;
     margin-bottom: 20%;
 
 }
 
 .bg-primary {
-    background-color: #222; //bio body
+    background-color: #222; // body
 }
 
 .bg-dark {
-    background-color: black; //color
+    background-color: red; //color
     color: white;
 }
 
 .text-faded {
-    color: (aqua);
+    color: #fff; //portfolio category
 }
 
 section {
@@ -80,31 +80,34 @@ aside {
 // Navigation
 
 .navbar-default {
-    background-color: blue; //color
-    opacity: 0.9; //added
+    background-color: #fff; //main translucent? color
+    opacity: 0.1; //added
     border-color: $theme-dark;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
-        color: violet; //color to violet
+        color: #222; //color to dark
         @include sans-serif-font;
         font-weight: 700;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: $theme-link; //changed link color from primary
+            color: $theme-link; //changed link color
         }
     }
 
     // transparent navigation
     .nav {
         > li {
-            > a,
+            > a, {
+                background-color: #fff;
+                opacity: 0.1;
+            }
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: brown;
+                color: #222 ;
                 &:hover {
                     color: $theme-link; //changed link color
                 }
@@ -112,10 +115,10 @@ aside {
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-link !important;
-                    background-color: olivedrab; //changed
+                    color: #222  !important;
+                    background-color: #fff ; //changed
                     &:hover {
-                        background-color: powderblue; //changged
+                        background-color: orange; //changged
                     }
                 }
             }
@@ -125,9 +128,9 @@ aside {
     // logo settings
     @media (min-width: 768px) {
         background-color: transparent;
-        border-color: white;
+        border-color: transparent;
         .navbar-header .navbar-brand {
-            color: gold;
+            color: #fff;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -259,7 +262,7 @@ header {
         color: white;
         opacity: 0.1; //was 0
         display: block;
-        background:  aquamarine; //port color
+        background:  $theme-dark; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -346,7 +349,7 @@ header {
 // Contact
 #contact .fa {
     color: #fff;
-    font-size: 2em; //was 4
+    font-size: 3em; //was 4
 }
 
 // Extras
