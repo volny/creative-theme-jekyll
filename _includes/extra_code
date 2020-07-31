@@ -1,0 +1,18 @@
+.step .action {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    border-radius: 50px;
+    padding: 15px 30px;
+    margin: 20px 0 0;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    will-change: box-shadow, opacity;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}

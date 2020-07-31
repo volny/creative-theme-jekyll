@@ -142,7 +142,7 @@ aside {
         &.affix {
             background-color: white;
             opacity: 0.1; //scrolling nav bar desktop transparency
-            border-color: rgba($theme-dark); // , .5 ?
+            border-color: $theme-dark; // , .5 ?
             .navbar-header .navbar-brand {
                 color: $theme-dark;
                 font-size: 14px;
