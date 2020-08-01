@@ -112,7 +112,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 20px; //size?
+                font-size: 12px; //size?
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: #414141; //behind nav section on bg
+                        background-color: #141414; //behind nav section on bg
                     }
                 }
             }
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 25px; //logo?
+                font-size: 45px; //logo?
                 font-weight: 800;
                 &:hover,
                 &:focus {
@@ -267,10 +267,10 @@ header {
     max-width: 650px;
     margin: 0 auto;
     .portfolio-box-caption {
-        color: $theme-main-link; //pn-color
-        opacity: 0; //text on top
+        color: $theme-main-link; //projectname color
+        opacity: 0.9; //text on top
         display: block;
-        background: #fff; //port-white color
+        background: $theme-dark; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -310,7 +310,7 @@ header {
                 .project-category {
                     font-size: 16px;
                     font-weight: 500;
-                    color: #222; // c-color
+                    color: #fff; // category-color
                 }
                 .project-name {
                     font-size: 20px;
