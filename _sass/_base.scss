@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    background-color: $theme-dark;
 }
 
 body {
@@ -158,8 +159,8 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 40px; //logo?
-                font-weight: 700;
+                font-size: 30px; //logo?
+                font-weight: 400;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -179,12 +180,12 @@ aside {
 // Homepage Header
 
 header {
-    position: relative;
+    position: absolute;
     width: 100%;
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header3.jpg');
+    background-image: url('../img/header4.jpg');
     text-align: center;
     background-attachment: fixed; //change to fixed for mobile
     color: #222;
@@ -199,14 +200,17 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 70%;
+                background-color: #222;
+                margin-top: 50%;
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 400 italic;
+                font-weight: 400;
                 text-transform: none;
+                text-decoration-style: double;
                 text-align: left;
                 color: #fff;
+                background-color: #222;
                 margin-top: 0px;
                 margin-bottom:20%;
                 //font-size: 20px; //size
