@@ -25,12 +25,12 @@ a {
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 500;
+        font-weight: 400;
     }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
-        font-weight: 500;
+        font-weight: 400;
     }
 }
 
@@ -97,7 +97,7 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -111,8 +111,8 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                font-weight: 300;
-                font-size: 13px;
+                font-weight: 400;
+                font-size: 14px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: #fff; //behind nav section on bg
+                        background-color: rgb(0, 0, 0); //behind nav section on bg
                     }
                 }
             }
@@ -140,7 +140,7 @@ aside {
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 500;
+                font-weight: 500; //logo?
             }
         }
         .nav > li > a,
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 20px ;
+                font-size: 30px ;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -200,13 +200,13 @@ header {
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 400;
+                font-weight: 550;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
                 margin-top: 1px;
                 margin-bottom: 10%;
-                font-size: 20px; //size
+                font-size: 50px; //size
             }
             hr {
                 margin: 30px auto;
