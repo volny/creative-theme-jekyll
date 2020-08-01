@@ -289,7 +289,7 @@ header {
             }
             .project-category {
                 text-transform: uppercase;
-                font-weight: 200;
+                font-weight:500;
                 font-size: 14px;
             }
             .project-name {
@@ -307,9 +307,11 @@ header {
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 16px;
+                    font-weight: 300;
                 }
                 .project-name {
                     font-size: 20px;
+                    font-weight: 400;
                 }
             }
         }
