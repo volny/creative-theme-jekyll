@@ -25,12 +25,12 @@ a {
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 600;
+        font-weight: 500;
     }
     &:focus {
         color: $theme-link;
-        text-decoration-line: underline;
-        font-weight: 600;
+        text-decoration-line: none;
+        font-weight: 500;
     }
 }
 
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: #202020; //behind nav section on bg
+                        background-color: #020202; //behind nav section on bg
                     }
                 }
             }
@@ -137,6 +137,8 @@ aside {
         border-color: transparent;
         .navbar-header .navbar-brand {
             color: #fff;
+            font-size: 20px;
+            font-weight: 600;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -156,8 +158,8 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 45px; //logo?
-                font-weight:400;
+                font-size: 40px; //logo?
+                font-weight: 700;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -182,7 +184,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header.jpg');
+    background-image: url('../img/header2.jpg');
     text-align: center;
     background-attachment: fixed; //change to fixed for mobile
     color: #222;
@@ -197,7 +199,7 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 30%;
+                margin-top:50%;
                // margin-bottom:1%;
             }
             h2 {
@@ -206,7 +208,7 @@ header {
                 text-align: left;
                 color: #fff;
                 margin-top: 0px;
-                margin-bottom: 40%;
+                margin-bottom: 30%;
                 //font-size: 20px; //size
             }
             hr {
