@@ -2,6 +2,9 @@ html,
 body {
     height: 100%;
     width: 100%;
+}
+
+body { 
     background-color: $theme-dark;
 }
 
@@ -200,7 +203,6 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                background-color: #222;
                 margin-top: 50%;
                // margin-bottom:1%;
             }
@@ -210,7 +212,6 @@ header {
                 text-decoration-style: double;
                 text-align: left;
                 color: #fff;
-                background-color: #222;
                 margin-top: 0px;
                 margin-bottom:20%;
                 //font-size: 20px; //size
