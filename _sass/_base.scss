@@ -21,16 +21,16 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; 
-    font-weight: 300; //regular links
+    font-weight: 700; //regular links
     &:hover {
         color: $theme-link;
-        text-decoration-line: overline underline;
-        font-weight: 100;
+        text-decoration-line: overline;
+        font-weight: 1200;
     }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
-        font-weight: 600;
+        font-weight: 80;
     }
 }
 
@@ -46,16 +46,16 @@ h6 {
 p {
     font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 15%; //ch
+    margin-bottom: 5%; //ch
 }
 
 .p-tagline {
     @include sans-serif-font; 
-    font-size: 30px; //header tagline
-    font-weight: 700;
+    font-size: relative; //header tagline
+    font-weight: 1700;
     text-transform: none;
     line-height: 0.5;
-    margin-bottom: 30%;
+    margin-bottom: 40%;
 
 }
 
@@ -189,21 +189,21 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 1200;
+                font-weight: 2100;
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
                 margin-top: 22%;
-                margin-bottom:1%;
+               // margin-bottom:1%;
             }
             h2 {
-                font-weight: 300;
+                font-weight: 500;
                 text-transform: none;
-                text-align: left; //center
+                text-align: left;
                 color: #fff; //color
-                margin-top: 1%;
+                margin-top: 10px;
                 margin-bottom: 10%;
-                font-size:40px; //size
+               // font-size: 40px; //size
             }
             hr {
                 margin: 30px auto;
