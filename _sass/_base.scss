@@ -44,7 +44,7 @@ h6 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
     margin-bottom: 5px; //ch
 }
@@ -89,7 +89,7 @@ aside {
 // Navigation Mobile
 
 .navbar-default {
-    background-color: #222; //mobile translucent
+    background-color: #222;
     opacity: 1;
     border-color: transparent;
     @include sans-serif-font;
@@ -105,14 +105,14 @@ aside {
         }
     }
 
-    // transparent navigation mobile
+    //  navigation bar sm-lg
     .nav {
         > li {
             > a,
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 12px; //size?
+                font-size: 12px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -193,7 +193,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 760;
+                font-weight: 530;
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
@@ -205,9 +205,9 @@ header {
                 text-transform: none;
                 text-align: left;
                 color: #fff;
-                margin-top: 1px;
+                margin-top: 0px;
                 margin-bottom: 10%;
-                font-size: 40px; //size
+                //font-size: 20px; //size
             }
             hr {
                 margin: 30px auto;
@@ -268,9 +268,9 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
-        opacity: 0.9; //text on top
+        opacity: 1.0; //text on top
         display: block;
-        background: $theme-dark; //port color
+        //background: $theme-dark; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -309,11 +309,11 @@ header {
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 16px;
-                    font-weight: 500;
+                    font-weight: 600;
                     color: #fff; // category-color
                 }
                 .project-name {
-                    font-size: 20px;
+                    font-size: 22px;
                     font-weight: 600;
                 }
             }

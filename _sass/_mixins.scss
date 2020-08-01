@@ -7,10 +7,10 @@
 
 @mixin background-cover()
 {
-    -webkit-background-size: contain; //was cover
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    -webkit-background-size: auto; //was cover
+    -moz-background-size: auto;
+    background-size: auto;
+    -o-background-size: auto;
 }
 
 @mixin button-variant($color, $background, $border)
