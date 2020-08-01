@@ -105,18 +105,18 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-link;
+                color: #fff;
                 &:hover {
-                    color: #fff; //changed link color
+                    color: $theme-link; //changed link color
                 }
             }
             &.active {
                 > a,
                 > a:focus {
-                    color:  #fff !important; //section highlight
-                    background-color: red; //changed
+                    color:  $theme-main-link !important; //section highlight
+                    background-color: transparent; //changed
                     &:hover {
-                        background-color: $theme-link; //changed
+                        background-color: transparent; //come back
                     }
                 }
             }
