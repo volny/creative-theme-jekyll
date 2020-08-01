@@ -78,7 +78,7 @@ aside {
     padding: 0;
 }
 
-// Navigation
+// Navigation Mobile
 
 .navbar-default {
     background-color: #222; //mobile translucent
@@ -105,16 +105,16 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: #fff;
+                color: $theme-link;
                 &:hover {
-                    color: $theme-link; //changed link color
+                    color: #fff; //changed link color
                 }
             }
             &.active {
                 > a,
                 > a:focus {
                     color:  #fff !important; //section highlight
-                    background-color: $theme-dark; //changed
+                    background-color: red; //changed
                     &:hover {
                         background-color: $theme-link; //changed
                     }
@@ -136,18 +136,18 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: #fff;
+            color: yellow;
             &:hover {
                 color: $theme-link;
             }
         }
         &.affix {
-            background-color: #222;
+            background-color: transparent;
            // opacity: 0.5; //scrolling fixed nav bar desktop transparency
-            border-color: #fff;
+            border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 18px;
+                font-size: 20px;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -258,7 +258,7 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: white;
-        opacity: 0; //text on top
+       // opacity: ; //text on top
         display: block;
         background: $theme-main-link; //port color
         position: absolute;
