@@ -223,7 +223,7 @@ header {
     @media (min-width: 768px) {
         min-height: 100%;
         .header-content {
-            position: relative; // changed abs
+            position: absolute; // changed abs
             top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
@@ -266,6 +266,7 @@ header {
     display: block;
     max-width: 650px;
     margin: 0 auto;
+    background-color: $theme-dark;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
@@ -301,7 +302,7 @@ header {
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 0.7;
+            opacity: 0.8;
         }
     }
     @media (min-width: 768px) {

@@ -9,8 +9,8 @@
 {
     -webkit-background-size: cover; //was cover
     -moz-background-size: cover;
-    background-size: auto;
-    -o-background-size: auto;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 @mixin button-variant($color, $background, $border)
