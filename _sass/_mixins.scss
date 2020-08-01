@@ -34,7 +34,7 @@
 	&.active,
 	.open > .dropdown-toggle & {
 		background-image: none;
-		color: #fff; // change transparent big nav bar
+		color: $theme-dark; // change transparent big nav bar
 	}
 	&.disabled,
 	&[disabled],

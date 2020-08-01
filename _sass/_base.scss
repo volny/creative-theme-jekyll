@@ -142,8 +142,8 @@ aside {
             }
         }
         &.affix {
-            background-color: transparent;
-           // opacity: 0.5; //scrolling fixed nav bar desktop transparency
+            background-color: $theme-dark;
+            opacity: 0.5; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
