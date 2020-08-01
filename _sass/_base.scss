@@ -20,11 +20,17 @@ hr.light {
 
 a {
     @include transition-all;
-    color: $theme-main-link; //regular links
-    &:hover,
+    color: $theme-main-link; 
+    font-weight: 300; //regular links
+    &:hover {
+        color: $theme-link;
+        text-decoration-line: overline underline;
+        font-weight: 100;
+    }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
+        font-weight: 600;
     }
 }
 
@@ -116,7 +122,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: transparent; //come back
+                        background-color: #fff; //come back
                     }
                 }
             }
@@ -147,7 +153,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 20px;
+                font-size: 22px;
                 &:hover,
                 &:focus {
                     color: $theme-link;
