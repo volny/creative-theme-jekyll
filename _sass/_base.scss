@@ -112,7 +112,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 12px;
+                font-size: 20px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: #141414; //behind nav section on bg
+                        background-color: #202020; //behind nav section on bg
                     }
                 }
             }
@@ -157,7 +157,7 @@ aside {
             .navbar-header .navbar-brand {
                 color: #fff;
                 font-size: 45px; //logo?
-                font-weight: 800;
+                font-weight:400;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -206,7 +206,7 @@ header {
                 text-align: left;
                 color: #fff;
                 margin-top: 0px;
-                margin-bottom: 10%;
+                margin-bottom: 40%;
                 //font-size: 20px; //size
             }
             hr {
@@ -223,7 +223,7 @@ header {
     @media (min-width: 768px) {
         min-height: 100%;
         .header-content {
-            position: absolute; // changed abs
+            position: relative; // changed abs
             top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
@@ -268,9 +268,9 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
-        opacity: 1.0; //text on top
+        opacity: 0; //text on top
         display: block;
-        //background: $theme-dark; //port color
+        background: $theme-dark; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -301,7 +301,7 @@ header {
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 0.8;
+            opacity: 0.7;
         }
     }
     @media (min-width: 768px) {
