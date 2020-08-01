@@ -21,11 +21,11 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; 
-    font-weight: 700; //regular links
+    font-weight: 1700; //regular links
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 1200;
+        font-weight: 2600;
     }
     &:focus {
         color: $theme-link;
@@ -51,11 +51,13 @@ p {
 
 .p-tagline {
     @include sans-serif-font; 
-    font-size: relative; //header tagline
+    font-size: absolute; //header tagline
     font-weight: 1700;
     text-transform: none;
-    line-height: 0.5;
-    margin-bottom: 40%;
+    line-height: 1.5;
+    margin-bottom: 50%;
+    text-align: left;
+    color: #fff; //color
 
 }
 
@@ -109,7 +111,7 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                font-weight: 700;
+                font-weight: 1700;
                 font-size: 13px;
                 color: #fff;
                 &:hover {
@@ -138,6 +140,7 @@ aside {
             &:hover,
             &:focus {
                 color: $theme-link;
+                font-weight: 4000;
             }
         }
         .nav > li > a,
@@ -153,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 22px;
+                font-size: 110%;
                 &:hover,
                 &:focus {
                     color: $theme-link;
