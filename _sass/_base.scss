@@ -25,12 +25,12 @@ a {
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 800;
+        font-weight: 500;
     }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
-        font-weight: 800;
+        font-weight: 500;
     }
 }
 
@@ -112,7 +112,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 50px;
+                font-size: 30px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 35px; //logo
+                font-size: 45px; //logo
                 font-weight: 800;
                 &:hover,
                 &:focus {
@@ -201,13 +201,13 @@ header {
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 550;
+                font-weight: 400;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
                 margin-top: 1px;
                 margin-bottom: 10%;
-                font-size: 100px; //size
+                font-size: 40px; //size
             }
             hr {
                 margin: 30px auto;
@@ -267,7 +267,7 @@ header {
     max-width: 650px;
     margin: 0 auto;
     .portfolio-box-caption {
-        color: white;
+        color: $theme-main-link;
         opacity: 0; //text on top
         display: block;
         background: $theme-dark; //port color
@@ -295,7 +295,7 @@ header {
             }
             .project-name {
                 font-size: 20px;
-                font-weight: 500;
+                font-weight: 600;
             }
         }
     }
@@ -313,7 +313,7 @@ header {
                 }
                 .project-name {
                     font-size: 20px;
-                    font-weight: 500;
+                    font-weight: 600;
                 }
             }
         }
