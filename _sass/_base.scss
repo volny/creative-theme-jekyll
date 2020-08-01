@@ -184,7 +184,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header2.jpg');
+    background-image: url('../img/header3.jpg');
     text-align: center;
     background-attachment: fixed; //change to fixed for mobile
     color: #222;
@@ -199,16 +199,16 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top:50%;
+                margin-top: 70%;
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 400;
+                font-weight: 400 italic;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
                 margin-top: 0px;
-                margin-bottom: 30%;
+                margin-bottom:20%;
                 //font-size: 20px; //size
             }
             hr {
@@ -268,7 +268,7 @@ header {
     display: block;
     max-width: 650px;
     margin: 0 auto;
-    background-color: $theme-dark;
+    background-color: black;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
@@ -313,7 +313,8 @@ header {
                 .project-category {
                     font-size: 16px;
                     font-weight: 600;
-                    color: #fff; // category-color
+                    color: #fff;
+                    background-color: #222; // category-color
                 }
                 .project-name {
                     font-size: 22px;
@@ -364,7 +365,7 @@ header {
 // Contact
 #contact .fa {
     color: rgb(223, 223, 223);
-    font-size: 3em; //was 4
+    font-size: 2em; //was 4
 }
 
 // Extras
@@ -378,7 +379,7 @@ header {
 ::selection {
     color: #222;
     text-shadow: none;
-    background: #fff; //highlight
+    background: $theme-link; //highlight
 }
 
 img::selection {
@@ -388,7 +389,7 @@ img::selection {
 
 img::-moz-selection {
     color: #fff; //white
-    background: transparent;
+    background: #000;
 }
 
 body {
