@@ -97,7 +97,7 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 800;
+        font-weight: 300;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -111,7 +111,7 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                font-weight: 800;
+                font-weight: 300;
                 font-size: 13px;
                 color: #fff;
                 &:hover {
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: red; //come back
+                        background-color: #fff; //behind nav section on bg
                     }
                 }
             }
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 14px ;
+                font-size: 20px ;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -192,7 +192,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 900;
+                font-weight: 650;
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
@@ -200,13 +200,13 @@ header {
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 500;
+                font-weight: 400;
                 text-transform: none;
                 text-align: left;
-                color: #fff; //color
-                margin-top: 10px;
+                color: #fff;
+                margin-top: 1px;
                 margin-bottom: 10%;
-               // font-size: 40px; //size
+                font-size: 20px; //size
             }
             hr {
                 margin: 30px auto;
