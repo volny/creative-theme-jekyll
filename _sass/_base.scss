@@ -21,16 +21,16 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; 
-    font-weight: 1700; //regular links
+    font-weight: 500; //regular links
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 2600;
+        font-weight: 800;
     }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
-        font-weight: 80;
+        font-weight: 500;
     }
 }
 
@@ -46,15 +46,15 @@ h6 {
 p {
     font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 5%; //ch
+    margin-bottom: 5px; //ch
 }
 
 .p-tagline {
     @include sans-serif-font; 
-    font-size: absolute; //header tagline
-    font-weight: 1700;
+    font-size: 400px; //header tagline
+    font-weight: 900;
     text-transform: none;
-    line-height: 1.5;
+    line-height: 25;
     margin-bottom: 50%;
     text-align: left;
     color: #fff; //color
@@ -97,7 +97,7 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 600;
+        font-weight: 500;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -111,8 +111,8 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                font-weight: 1700;
-                font-size: 13px;
+                font-weight: 500;
+                font-size: 16px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -140,7 +140,7 @@ aside {
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 4000;
+                font-weight: 500;
             }
         }
         .nav > li > a,
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 110%;
+                font-size: 60px;
                 &:hover,
                 &:focus {
                     color: $theme-link;
