@@ -97,7 +97,7 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 500;
+        font-weight: 600;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -111,7 +111,7 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                font-weight: 500;
+                font-weight: 600;
                 font-size: 16px;
                 color: #fff;
                 &:hover {
@@ -184,7 +184,7 @@ header {
     background-image: url('../img/header.jpg');
     text-align: center;
     background-attachment: fixed; //change to fixed for mobile
-    color: white;
+    color: #222;
     .header-content {
         position: relative;
         text-align: left; //center
@@ -200,13 +200,13 @@ header {
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 300;
+                font-weight: 450;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
                 margin-top: 1px;
                 margin-bottom: 10%;
-                font-size: 25px; //size
+                font-size: 55px; //size
             }
             hr {
                 margin: 30px auto;
