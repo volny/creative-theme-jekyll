@@ -45,8 +45,8 @@ p {
 
 .p-tagline {
     @include sans-serif-font; 
-    font-size: 80px; //header tagline
-    font-weight: 600;
+    font-size: 30px; //header tagline
+    font-weight: 700;
     text-transform: none;
     line-height: 0.5;
     margin-bottom: 30%;
@@ -82,14 +82,14 @@ aside {
 
 .navbar-default {
     background-color: #222; //mobile translucent
-    opacity: 1 ;
+    opacity: 1;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 700;
+        font-weight: 600;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -143,7 +143,7 @@ aside {
         }
         &.affix {
             background-color: $theme-dark;
-            opacity: 0.5; //scrolling fixed nav bar desktop transparency
+            opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
