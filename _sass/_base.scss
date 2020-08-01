@@ -97,7 +97,7 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 400;
+        font-weight: 500;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -111,8 +111,8 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                font-weight: 400;
-                font-size: 14px;
+                font-weight: 500;
+                font-size: 16px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: rgb(0, 0, 0); //behind nav section on bg
+                        background-color: #414141; //behind nav section on bg
                     }
                 }
             }
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 30px ;
+                font-size: 50px ;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -192,7 +192,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 650;
+                font-weight: 560;
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
@@ -200,13 +200,13 @@ header {
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 550;
+                font-weight: 300;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
                 margin-top: 1px;
                 margin-bottom: 10%;
-                font-size: 50px; //size
+                font-size: 80%; //size
             }
             hr {
                 margin: 30px auto;
@@ -294,6 +294,7 @@ header {
             }
             .project-name {
                 font-size: 16px;
+                font-weight: 500;
             }
         }
     }
