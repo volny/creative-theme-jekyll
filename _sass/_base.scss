@@ -21,16 +21,16 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; 
-    font-weight: 400; //regular links
+    font-weight: 900; //regular links
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 400;
+        font-weight: 900;
     }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
-        font-weight: 400;
+        font-weight: 500;
     }
 }
 
@@ -156,7 +156,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 50px ;
+                font-size: 35px ; //logo
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -206,7 +206,7 @@ header {
                 color: #fff;
                 margin-top: 1px;
                 margin-bottom: 10%;
-                font-size: 80%; //size
+                font-size: 25px; //size
             }
             hr {
                 margin: 30px auto;
