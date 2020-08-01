@@ -258,7 +258,7 @@ header {
     margin: 0 auto;
     .portfolio-box-caption {
         color: white;
-       // opacity: ; //text on top
+        opacity: 0; //text on top
         display: block;
         background: $theme-main-link; //port color
         position: absolute;
