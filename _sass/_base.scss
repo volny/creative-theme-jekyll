@@ -82,7 +82,7 @@ aside {
 
 .navbar-default {
     background-color: #222; //mobile translucent
-    opacity: 0.9;
+    opacity: 1 ;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
@@ -136,7 +136,7 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: yellow;
+            color: #fff; //main nav color
             &:hover {
                 color: $theme-link;
             }

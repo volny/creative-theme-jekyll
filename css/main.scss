@@ -36,8 +36,8 @@
 // variables.less
 $theme-primary: #f2f6ff;
 $theme-dark: #222222;
-$theme-link: #22e;
-$theme-main-link: green;
+$theme-link: rgb(108, 226, 30);
+$theme-main-link: rgb(108, 226, 30);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
