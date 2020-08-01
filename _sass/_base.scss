@@ -189,7 +189,7 @@ header {
     background-attachment: fixed; //change to fixed for mobile
     color: #222;
     .header-content {
-        position: relative;
+        position: absolute;
         text-align: left; //center
         padding: 100px 50px 100px; //was 15
         width: 100%;
