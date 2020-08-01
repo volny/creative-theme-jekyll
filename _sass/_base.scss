@@ -21,16 +21,16 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-main-link; 
-    font-weight: 900; //regular links
+    font-weight: 400; //regular links
     &:hover {
         color: $theme-link;
         text-decoration-line: overline;
-        font-weight: 900;
+        font-weight: 800;
     }
     &:focus {
         color: $theme-link;
         text-decoration-line: none;
-        font-weight: 900;
+        font-weight: 800;
     }
 }
 
@@ -112,7 +112,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 50px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -140,7 +140,7 @@ aside {
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 600; //logo?
+                font-weight: 800; //logo?
             }
         }
         .nav > li > a,
@@ -157,7 +157,7 @@ aside {
             .navbar-header .navbar-brand {
                 color: #fff;
                 font-size: 35px; //logo
-                font-weight: 500;
+                font-weight: 800;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -201,13 +201,13 @@ header {
                // margin-bottom:1%;
             }
             h2 {
-                font-weight: 900;
+                font-weight: 550;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
                 margin-top: 1px;
                 margin-bottom: 10%;
-                font-size: 55px; //size
+                font-size: 100px; //size
             }
             hr {
                 margin: 30px auto;
@@ -270,7 +270,7 @@ header {
         color: white;
         opacity: 0; //text on top
         display: block;
-        background: $theme-main-link; //port color
+        background: $theme-dark; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -291,10 +291,10 @@ header {
             .project-category {
                 text-transform: uppercase;
                 font-weight:500;
-                font-size: 14px;
+                font-size: 16px;
             }
             .project-name {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 500;
             }
         }
@@ -309,11 +309,11 @@ header {
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 16px;
-                    font-weight: 300;
+                    font-weight: 500;
                 }
                 .project-name {
                     font-size: 20px;
-                    font-weight: 400;
+                    font-weight: 500;
                 }
             }
         }
