@@ -4,10 +4,6 @@ body {
     width: 100%;
 }
 
-body { 
-    background-color: $theme-dark;
-}
-
 body {
     @include sans-serif-font;
 }
@@ -163,7 +159,7 @@ aside {
             .navbar-header .navbar-brand {
                 color: #fff;
                 font-size: 30px; //logo?
-                font-weight: 400;
+                font-weight: 500;
                 &:hover,
                 &:focus {
                     color: $theme-link;
