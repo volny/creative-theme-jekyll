@@ -179,7 +179,7 @@ aside {
 // Homepage Header
 
 header {
-    position: absolute;
+    position: relative;
     width: 100%;
     min-height: auto;
     @include background-cover;
@@ -200,7 +200,7 @@ header {
                 text-align: left; //title
                 color: #fff;
                 margin-top: 30%;
-               // margin-bottom:1%;
+                margin-bottom: 0;
             }
             h2 {
                 font-weight: 400;
@@ -293,7 +293,7 @@ header {
             }
             .project-category {
                 text-transform: uppercase;
-                font-weight:500;
+                font-weight: 500;
                 font-size: 16px;
             }
             .project-name {
