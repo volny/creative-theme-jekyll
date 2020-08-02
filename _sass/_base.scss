@@ -180,11 +180,11 @@ aside {
 
 header {
     position: relative;
-    width: 100%;
+    width: auto;
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header4.jpg');
+    background-image: url('../img/header5.jpg');
     text-align: center;
     background-attachment: fixed; //change to fixed for mobile
     color: #222;
@@ -203,7 +203,7 @@ header {
                 margin-bottom: 0;
             }
             h2 {
-                font-weight: 400;
+                font-weight: 500;
                 text-transform: none;
                 text-align: left;
                 color: #fff;
