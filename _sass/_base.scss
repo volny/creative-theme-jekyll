@@ -137,7 +137,7 @@ aside {
         border-color: transparent;
         .navbar-header .navbar-brand {
             color: #fff;
-            font-size: 20px;
+            font-size: 30px;
             font-weight: 600;
             &:hover,
             &:focus {
@@ -159,7 +159,7 @@ aside {
             .navbar-header .navbar-brand {
                 color: #fff;
                 font-size: 30px; //logo?
-                font-weight: 500;
+                font-weight: 600;
                 &:hover,
                 &:focus {
                     color: $theme-link;
