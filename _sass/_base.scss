@@ -117,7 +117,7 @@ aside {
                 &:hover {
                     color: $theme-link; //changed link color
                 }
-            &.active {
+                &.active {
                 > a,
                 > a:focus {
                     color:  $theme-main-link !important; //section highlight
@@ -208,7 +208,7 @@ header {
                 color: #b3b3b3;
                 margin-top: 0px;
                 margin-bottom: 10%;
-                font-size: medium;
+                font-size: 16px;
             }
             hr {
                 margin: 30px auto;
@@ -225,7 +225,7 @@ header {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 70%;
+            top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -394,3 +394,6 @@ img::-moz-selection {
 body {
     -webkit-tap-highlight-color: $theme-dark;
 }
+
+
+
