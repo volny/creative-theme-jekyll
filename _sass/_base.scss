@@ -41,6 +41,11 @@ h4,
 h5,
 h6 {
     @include sans-serif-font;
+    font-weight: 500;
+    text-transform: none;
+    text-align: left;
+    color: #fff;
+    margin-top: 0px;
 }
 
 p {
