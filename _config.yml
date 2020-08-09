@@ -1,5 +1,5 @@
 # Site settings
-title: "Jerry Hansana Portfolio"
+title: "Jerry Hansana"
 email: "jerryhansana@gmail.com"
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "/portfolio/" # the subpath of your site, e.g. /blog/
