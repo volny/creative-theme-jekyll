@@ -11,7 +11,7 @@ body {
 hr {
     border-color: $theme-primary;
     border-width: 3px;
-    max-width: 100px;
+    max-width: 50px;
 }
 
 hr.light {
@@ -124,7 +124,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: #636363; //behind nav section on bg
+                        background-color: #d8d8d8; //behind nav section on bg
                     }
                 }
             }
@@ -158,8 +158,9 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 15px; //logo?
-                font-weight: 400;
+                font-size: 25px; //logo?
+                opacity: 0.8;
+                font-weight: 600;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -199,7 +200,7 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 33%;
+                margin-top: 40%;
                 margin-bottom: 0;
             }
             h2 {
@@ -209,7 +210,7 @@ header {
                 color: #b3b3b3;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: medium;
+                font-size: relative;
             }
             hr {
                 margin: 30px auto;
