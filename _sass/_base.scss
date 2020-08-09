@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 20px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -114,7 +114,7 @@ aside {
                 text-transform: uppercase;
                 text-align: right;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 20px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -140,7 +140,7 @@ aside {
         .navbar-header .navbar-brand {
             color: #fff;
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 400;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -160,8 +160,8 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 35px; //logo?
-                opacity: 0.8;
+                font-size: 38px; //logo
+                opacity: 1;
                 font-weight: 400;
                 &:hover,
                 &:focus {
@@ -194,7 +194,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 100px 50px 100px;
+        padding: 90px 50px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -203,7 +203,7 @@ header {
                 text-align: left; //title
                 color: #fff;
                 margin-top: 60%;
-                margin-bottom: -10px;
+                margin-bottom: -8px;
             }
             h2 {
                 font-weight: 350;
@@ -212,7 +212,7 @@ header {
                 color: #b3b3b3;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 70%;
+                font-size: 180%;
             }
             hr {
                 margin: 30px auto;
@@ -229,7 +229,7 @@ header {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 70%;
+            top: 90%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -240,7 +240,7 @@ header {
                 margin-right: auto;
                 p {
                     font-size: 10px;
-                    max-width: 80%;
+                    max-width: 90%;
                     margin-left: auto;
                     margin-right: auto;
                 }
