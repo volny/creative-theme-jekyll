@@ -112,18 +112,19 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 600;
-                font-size: 15px;
+                font-size: 20px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
                 }
-                &.active {
+            }
+            &.active {
                 > a,
                 > a:focus {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent; //changed
                     &:hover {
-                        background-color: #535353; //behind nav section on bg
+                        background-color: #020202; //behind nav section on bg
                     }
                 }
             }
@@ -207,8 +208,8 @@ header {
                 text-align: left;
                 color: #b3b3b3;
                 margin-top: 0px;
-                margin-bottom: 10%;
-                font-size: 16px;
+                margin-bottom: 30%;
+                font-size: 15px;
             }
             hr {
                 margin: 30px auto;
