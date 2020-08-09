@@ -98,6 +98,7 @@ aside {
         color: #fff;
         @include sans-serif-font;
         font-weight: 600;
+        font-size: 14px;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -137,12 +138,12 @@ aside {
         border-color: transparent;
         .navbar-header .navbar-brand {
             color: #fff;
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 600;
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 600; //logo?
+                font-weight: 600; //logo
             }
         }
         .nav > li > a,
@@ -154,11 +155,11 @@ aside {
         }
         &.affix {
             background-color: $theme-dark;
-            opacity: 0.98; //scrolling fixed nav bar desktop transparency
+            opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 40px; //logo?
+                font-size: 15px; //logo
                 font-weight: 600;
                 &:hover,
                 &:focus {
@@ -199,7 +200,7 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 30%;
+                margin-top: 33%;
                 margin-bottom: 0;
             }
             h2 {
@@ -208,8 +209,8 @@ header {
                 text-align: left;
                 color: #b3b3b3;
                 margin-top: 0px;
-                margin-bottom: 30%;
-                font-size: 15px;
+                margin-bottom: 20%;
+                font-size: 16px;
             }
             hr {
                 margin: 30px auto;
