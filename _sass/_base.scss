@@ -118,19 +118,6 @@ aside {
                 &:hover {
                     color: $theme-link; //changed link color
                 }
-                &.affix {
-                    background-color: $theme-dark;
-                    opacity: 1; //scrolling fixed nav bar transparency
-                    border-color: transparent;
-                    .navbar-header .navbar-brand {
-                        color: #b9b9b9;
-                        font-size: 10px; //logo
-                        font-weight: 550;
-                        &:hover,
-                        &:focus {
-                            color: $theme-link;
-                        }
-            }
             &.active {
                 > a,
                 > a:focus {
@@ -408,5 +395,3 @@ img::-moz-selection {
 body {
     -webkit-tap-highlight-color: $theme-dark;
 }
-
-    }
