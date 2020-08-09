@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 42px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -112,9 +112,9 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
-                text-align: center;
+                text-align: left;
                 font-weight: 600;
-                font-size: 20px;
+                font-size: 23px;
                 color: #fff;
                 &:hover {
                     color: $theme-link;
@@ -188,13 +188,13 @@ header {
     @include background-cover;
     background-position: center;
     //background-image: url('../img/header5.jpg');
-    text-align: center;
+    text-align: left;
     background-attachment: fixed; //change to fixed for mobile
     background-color: #222;
     .header-content {
         position: relative;
         text-align: left;
-        padding: 70px 50px 100px;
+        padding: 0px 50px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -212,7 +212,7 @@ header {
                 color: #c4c4c4;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 14px;
+                font-size: 50px;
             }
             hr {
                 margin: 30px auto;
@@ -229,7 +229,7 @@ header {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 50%;
+            top: 60%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -240,7 +240,7 @@ header {
                 margin-right: auto;
                 p {
                     font-size: 20px;
-                    max-width: 90%;
+                    max-width: 100%;
                     margin-left: auto;
                     margin-right: auto;
                 }
