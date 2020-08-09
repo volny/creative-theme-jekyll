@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 15px;
+        font-size: 12px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -134,7 +134,7 @@ aside {
     }
 
     // logo settings / big transparent
-    @media (min-width: 790px) {
+    @media (min-width: 600px) {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
@@ -160,7 +160,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 38px; //logo
+                font-size: 40px; //logo
                 opacity: 1;
                 font-weight: 400;
                 &:hover,
@@ -194,7 +194,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 90px 50px 100px;
+        padding: 70px 50px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -212,7 +212,7 @@ header {
                 color: #c4c4c4;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 16px;
+                font-size: 14px;
             }
             hr {
                 margin: 30px auto;
@@ -220,12 +220,12 @@ header {
             p {
                 font-weight: 300;
                 color: inherit; // color
-                font-size: 16px;
-                margin-bottom: 5px;
+                font-size: 14px;
+                margin-bottom: 0px;
             }
         }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         min-height: 100%;
         .header-content {
             position: absolute;
@@ -239,19 +239,10 @@ header {
                 margin-left: auto;
                 margin-right: auto;
                 p {
-                    font-size: 10px;
+                    font-size: 20px;
                     max-width: 90%;
                     margin-left: auto;
                     margin-right: auto;
-                }
-                h2 {
-                    font-weight: 350;
-                    text-transform: none;
-                    text-align: left;
-                    color: #ff0000;
-                    margin-top: 0px;
-                    margin-bottom: 30%;
-                    font-size: 300px;
                 }
             }
         }
