@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 42px;
+        font-size: 20px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -138,7 +138,7 @@ aside {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
-            color: #fff;
+            color: rgb(194, 8, 8);
             font-size: 30px;
             font-weight: 400;
             &:hover,
@@ -159,7 +159,7 @@ aside {
             opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
-                color: #fff;
+                color: rgb(22, 177, 61);
                 font-size: 40px; //logo
                 opacity: 1;
                 font-weight: 400;
@@ -194,7 +194,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 0px 50px 100px;
+        padding: 50px 50px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -212,7 +212,7 @@ header {
                 color: #c4c4c4;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 50px;
+                font-size: 16px;
             }
             hr {
                 margin: 30px auto;
