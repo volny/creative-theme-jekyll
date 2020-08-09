@@ -97,8 +97,9 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 500;
+        font-weight: 600;
         text-transform: uppercase;
+        font-size: 16px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -111,8 +112,9 @@ aside {
             > a,
             > a:focus {
                 text-transform: uppercase;
+                text-align: right;
                 font-weight: 600;
-                font-size: 14px;
+                font-size: 16px;
                 color: #fff;
                 &:hover {
                     color: $theme-link; //changed link color
@@ -122,9 +124,9 @@ aside {
                 > a,
                 > a:focus {
                     color:  $theme-main-link !important; //section highlight
-                    background-color: transparent; //changed
+                    background-color: transparent;
                     &:hover {
-                        background-color: #d8d8d8; //behind nav section on bg
+                        background-color: #1d1d1d; //behind nav section on bg
                     }
                 }
             }
@@ -158,9 +160,9 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #fff;
-                font-size: 25px; //logo?
+                font-size: 35px; //logo?
                 opacity: 0.8;
-                font-weight: 600;
+                font-weight: 400;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -191,8 +193,8 @@ header {
     background-color: #222;
     .header-content {
         position: relative;
-        text-align: left; //center
-        padding: 105px 50px 100px; //was 15
+        text-align: left;
+        padding: 100px 50px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -200,17 +202,17 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 40%;
-                margin-bottom: 0;
+                margin-top: 60%;
+                margin-bottom: -10px;
             }
             h2 {
-                font-weight: 400;
+                font-weight: 350;
                 text-transform: none;
                 text-align: left;
                 color: #b3b3b3;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: relative;
+                font-size: 70%;
             }
             hr {
                 margin: 30px auto;
@@ -227,11 +229,11 @@ header {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 50%;
+            top: 70%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 100 50px; //was 0
+            padding: 100 50px;
             .header-content-inner {
                 max-width: 1000px;
                 margin-left: auto;
@@ -367,6 +369,7 @@ header {
 #contact .fa {
     color: rgb(223, 223, 223);
     font-size: 2em; //was 4
+    text-align: center;
 }
 
 // Extras
