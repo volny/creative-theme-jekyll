@@ -86,7 +86,7 @@ aside {
     padding: 0;
 }
 
-// Navigation Mobile
+// Navigation Main
 
 .navbar-default {
     background-color: #222;
@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 15px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -117,7 +117,7 @@ aside {
                 font-size: 20px;
                 color: #fff;
                 &:hover {
-                    color: $theme-link; //changed link color
+                    color: $theme-link;
                 }
             }
             &.active {
@@ -134,17 +134,17 @@ aside {
     }
 
     // logo settings / big transparent
-    @media (min-width: 768px) {
+    @media (min-width: 790px) {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
             color: #fff;
-            font-size: 20px;
+            font-size: 30px;
             font-weight: 400;
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 600; //logo
+                font-weight: 400; //logo
             }
         }
         .nav > li > a,
@@ -202,14 +202,14 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 60%;
-                margin-bottom: -8px;
+                margin-top: 50%;
+                margin-bottom: 0px;
             }
             h2 {
-                font-weight: 350;
+                font-weight: 380;
                 text-transform: none;
                 text-align: left;
-                color: #b3b3b3;
+                color: #c4c4c4;
                 margin-top: 0px;
                 margin-bottom: 30%;
                 font-size: 16px;
@@ -229,7 +229,7 @@ header {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 60%;
+            top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -251,7 +251,7 @@ header {
                     color: #ff0000;
                     margin-top: 0px;
                     margin-bottom: 30%;
-                    font-size: 10px;
+                    font-size: 300px;
                 }
             }
         }
