@@ -298,12 +298,12 @@ header {
             }
             .project-category {
                 text-transform: none;
-                font-weight: 500;
-                font-size: 13px;
+                font-weight: 480;
+                font-size: 14px;
             }
             .project-name {
                 font-size: 30px;
-                font-weight: 650;
+                font-weight: 500;
             }
         }
     }
@@ -315,18 +315,18 @@ header {
             // filter: brightness(40%);
         }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         .portfolio-box-caption {
             .portfolio-box-caption-content {
                 .project-category {
-                    font-size: 16px;
-                    font-weight: 400;
+                    font-size: 14px;
+                    font-weight: 500;
                     color: #fff;
-                    background-color: #222; // category-color
+                    background-color:  #141414; // category-color
                 }
                 .project-name {
-                    font-size: 22px;
-                    font-weight: 500;
+                    font-size: 28px;
+                    font-weight: 600;
                 }
             }
         }
@@ -341,9 +341,10 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-body-text-dark; //body text
+    color: $theme-body-text-light; //body text
     text-align: center;
-    font-weight: 380 ;
+    font-weight: 480;
+    font-size: 14px;
 }
 
 .no-gutter > [class*='col-'] {
@@ -374,8 +375,8 @@ header {
 
 // Contact
 #contact .fa {
-    color: rgb(223, 223, 223);
-    font-size: 2em; //was 4
+    color: $theme-link;
+    font-size: 4em; //was 4
     text-align: center;
 }
 
