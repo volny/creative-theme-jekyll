@@ -139,7 +139,7 @@ aside {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
-            color: #ffffff;
+            color: $theme-main-link;
             font-size: 30px; //static logo
             font-weight: 300;
             &:hover,
@@ -209,7 +209,7 @@ header {
                 font-family: 'Times New Roman', Times, serif;
             }
             h2 {
-                font-weight: 390;
+                font-weight: 400;
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
@@ -254,6 +254,7 @@ header {
 
 .section-heading {
     margin-top: 0;
+    font-size: 18px;
 }
 h2
 { 
@@ -276,13 +277,13 @@ h2
     display: block;
     max-width: auto;
     margin: 0 auto;
-   // background-color: black;
+    background-color: black;
     //filter: brightness(0.9);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
         display: block;
-        background: $theme-dark; //port color
+        background: pink; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -307,8 +308,7 @@ h2
             }
             .project-name {
                 font-size: 30px;
-                font-weight: 500;
-                //font-family: 'Times New Roman', Times, serif;
+                font-weight: 550;
             }
         }
     }
@@ -320,7 +320,7 @@ h2
             // filter: brightness(40%);
         }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         .portfolio-box-caption {
             .portfolio-box-caption-content {
                 .project-category {
@@ -331,7 +331,6 @@ h2
                 .project-name {
                     font-size: 22px;
                     font-weight: 600;
-                    font-family: 'Times New Roman', Times, serif;
                 }
             }
         }
@@ -346,7 +345,9 @@ h2
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-primary;
+    color: $theme-body-text-light;
+    font-size: 14px;
+
 }
 
 .no-gutter > [class*='col-'] {
@@ -380,7 +381,7 @@ h2
     color: $theme-link;
     font-size: 2em;
     text-align: center;
-   // position: absolute;
+    position: absolute;
 }
 
 // Extras
