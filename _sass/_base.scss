@@ -316,8 +316,8 @@ h2
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 0.7;
-            background filter: blur(1.0rem);
+            opacity: 1;
+            filter: blur(1.0rem);
         }
     }
     @media (min-width: 600px) {
