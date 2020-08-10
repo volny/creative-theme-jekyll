@@ -256,7 +256,7 @@ header {
     position: relative;
     width: auto;
     min-height: 15px;
-    //@include background-cover;
+    @include background-cover;
     background-position: center;
     background-image: url('../img/header5.jpg');
     text-align: left;
@@ -319,11 +319,10 @@ header {
         }
     }
 }
-
 .section-heading {
     margin-top: 0px;
-    font-size: 22px;
-    font-weight: 300px;
+    font-size: 25px;
+    font-weight: 350px;
 }
 h2
 { 
