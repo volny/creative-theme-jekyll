@@ -195,7 +195,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 20px 50px 100px;
+        padding: 20px 100px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -203,7 +203,7 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 40%;
+                margin-top: 50%;
                 margin-bottom: 0px;
             }
             h2 {
@@ -233,7 +233,7 @@ header {
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 20px 100 50px;
+            padding: 20px 100px 50px;
             .header-content-inner {
                 max-width: auto;
                 margin-left: auto;
