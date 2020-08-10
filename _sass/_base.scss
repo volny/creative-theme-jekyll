@@ -45,6 +45,7 @@ h6 {
 
 p {
     font-size: 16px;
+    line-height:1.5 ;
     margin-bottom: 5px; //ch
 }
 
@@ -318,7 +319,7 @@ h2
             // filter: brightness(40%);
         }
     }
-    @media (min-width: 600px) {
+    @media (min-width: 768px) {
         .portfolio-box-caption {
             .portfolio-box-caption-content {
                 .project-category {
@@ -344,7 +345,7 @@ h2
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-body-text-light; //body text
+    color: #fff; //body text
     text-align: center;
     font-weight: 480;
     font-size: 15px;
