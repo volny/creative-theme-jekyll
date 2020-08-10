@@ -209,7 +209,7 @@ header {
                 font-family: 'Times New Roman', Times, serif;
             }
             h2 {
-                font-weight: 400;
+                font-weight: 390;
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
@@ -283,7 +283,8 @@ h2
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
         display: block;
-        background: pink; //port color
+        background-color: #222; //behind nav section on bg
+        background: #141414; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -325,12 +326,12 @@ h2
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 14px;
-                    font-weight: 500;
+                    font-weight: 600;
                     color: #fff;
                 }
                 .project-name {
-                    font-size: 22px;
-                    font-weight: 600;
+                    font-size: 30px;
+                    font-weight: 700;
                 }
             }
         }
@@ -379,9 +380,9 @@ h2
 // Contact
 #contact .fa {
     color: $theme-link;
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
-    position: absolute;
+    position: relative;
 }
 
 // Extras
