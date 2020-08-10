@@ -252,6 +252,74 @@ header {
 
 // Sections
 
+.parallax1 {
+    position: relative;
+    width: auto;
+    min-height: 15px;
+    //@include background-cover;
+    background-position: center;
+    background-image: url('../img/header5.jpg');
+    text-align: left;
+    background-attachment: fixed; //change to fixed for mobile
+    background-color: #222;
+    .header-content {
+        position: relative;
+        text-align: left;
+        padding: 0px 0px;
+        width: 100%;
+        .header-content-inner {
+            h1 {
+                font-weight: 500;
+                text-transform: none;
+                text-align: left; //title
+                color: #fff;
+                margin-top: 58%;
+                margin-bottom: 10px;
+                font-size: 45px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            h2 {
+                font-weight: 392;
+                text-transform: none;
+                text-align: left;
+                color: #8a8a8a;
+                margin-bottom: 50%;
+                margin-top: 12px;
+                font-size: 22px;
+            }
+            hr {
+                margin: 30px auto;
+            }
+          //  p {
+                font-weight: 400;
+                color: inherit;
+                margin-bottom: 0px;
+           // }
+        }
+    }
+    @media (min-width: 1px) {
+        min-height: 15px;
+        .header-content {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            padding: 100 50px;
+            .header-content-inner {
+                max-width: auto;
+                margin-left: auto;
+                margin-right: auto;
+                p {
+                    max-width: 100%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}
+
 .section-heading {
     margin-top: 0px;
     font-size: 22px;
@@ -349,18 +417,18 @@ h2
 .text-primary {
     color: $theme-body-text-light;
     font-size: 16px;
-    font-family: 'Futura', Segoe UI, Tahoma, Geneva, Verdana, sans-serif, Helvetica;
+    font-family: 'Futura', Tahoma, Geneva, Verdana, sans-serif, Helvetica;
     color: #f7f7f7;
     font-weight: 430;
     line-height: 140%;
-    letter-spacing: 1.1px;
-    text-indent: 26%;
+   // letter-spacing: 1.1px;
+    text-indent: 18%;
 
 }
 
 .no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 // Button Styles
@@ -387,7 +455,7 @@ h2
 // Contact
 #contact .fa {
     color: $theme-link;
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
     position: relative;
 }
