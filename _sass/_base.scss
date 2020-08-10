@@ -285,6 +285,7 @@ h2
         opacity: 0; //text on top
         display: block;
         background: #141414; //port overlay
+        filter: blur(0.5);
         position: absolute;
         bottom: 0;
         text-align: center;
