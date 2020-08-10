@@ -195,7 +195,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 5px 5px;
+        padding: 15px 5px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -203,16 +203,17 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 50%;
+                margin-top: 0%;
                 margin-bottom: 0px;
             }
             h2 {
                 font-weight: 450;
-                text-transform: italic;
+                text-transform: none;
                 text-align: left;
                 color: #dadada;
                 margin-bottom: 0%;
-                margin-top: -5em;
+                margin-top: 10%;
+                letter-spacing: 1em;
                 font-size: 15px;
             }
             hr {
