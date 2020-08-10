@@ -114,7 +114,7 @@ aside {
                 text-transform: uppercase;
                 text-align: left;
                 font-weight: 600;
-                font-size: 18px;
+                font-size: 16px;
                 color: #fff;
                 &:hover {
                     color: $theme-link;
@@ -126,7 +126,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent;
                     &:hover {
-                        background-color: #1d1d1d; //behind nav section on bg
+                        background-color: #1a1a1a; //behind nav section on bg
                     }
                 }
             }
@@ -139,12 +139,12 @@ aside {
         border-color: transparent;
         .navbar-header .navbar-brand {
             color: #ffffff;
-            font-size: 30px; //static logo
+            font-size: 40px; //static logo
             font-weight: 400;
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 400; //logo
+                font-weight: 300; //logo
             }
         }
         .nav > li > a,
@@ -160,9 +160,9 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #d6d6d6;
-                font-size: 40px; //logo scroll down
+                font-size: 50px; //logo scroll down
                 opacity: 1;
-                font-weight: 400;
+                font-weight: 300;
                 &:hover,
                 &:focus {
                     color: $theme-link;
