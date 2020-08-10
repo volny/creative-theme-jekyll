@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 18px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -113,7 +113,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 text-align: left;
-                font-weight: 600;
+                font-weight: 450;
                 font-size: 23px;
                 color: #fff;
                 &:hover {
@@ -134,12 +134,12 @@ aside {
     }
 
     // logo settings / big transparent
-    @media (min-width: 600px) {
+    @media (min-width: 1px) {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
-            color: rgb(194, 8, 8);
-            font-size: 30px;
+            color: #ffffff;
+            font-size: 30px; //static logo
             font-weight: 400;
             &:hover,
             &:focus {
@@ -159,8 +159,8 @@ aside {
             opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
-                color: rgb(22, 177, 61);
-                font-size: 40px; //logo
+                color: #d6d6d6;
+                font-size: 20px; //logo scroll down
                 opacity: 1;
                 font-weight: 400;
                 &:hover,
@@ -210,7 +210,7 @@ header {
                 text-transform: none;
                 text-align: left;
                 color: #c4c4c4;
-                margin-top: 0px;
+                margin-top: -5px;
                 margin-bottom: 30%;
                 font-size: 16px;
             }
