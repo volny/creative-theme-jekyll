@@ -126,7 +126,7 @@ aside {
                     color:  $theme-main-link !important; //section highlight
                     background-color: transparent;
                     &:hover {
-                        background-color: #1a1a1a; //behind nav section on bg
+                        background-color: #141414; //behind nav section on bg
                     }
                 }
             }
@@ -159,7 +159,7 @@ aside {
             opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
-                color: #ffffff;
+                color: #cacaca;
                 font-size: 35px; //logo scroll down
                 opacity: 1;
                 font-weight: 300;
@@ -194,7 +194,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 20px 70px 60px 100px;
+        padding: 0px 70px 60px 0px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -210,7 +210,7 @@ header {
                 text-transform: none;
                 text-align: left;
                 color: #c4c4c4;
-                margin-top: 0px;
+                margin-top: -5px;
                 margin-bottom: 30%;
                 font-size: 20px;
             }
@@ -219,8 +219,7 @@ header {
             }
           //  p {
                 font-weight: 400;
-                color: inherit; // color
-                //font-size: 34px;
+                color: inherit;
                 margin-bottom: 0px;
            // }
         }
@@ -233,13 +232,12 @@ header {
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 20px 100 50px;
+            padding: 0px 100 50px;
             .header-content-inner {
                 max-width: 1000px;
                 margin-left: auto;
                 margin-right: auto;
                 p {
-                   // font-size: 20px;
                     max-width: 100%;
                     margin-left: auto;
                     margin-right: auto;
