@@ -337,7 +337,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: #fff; //body text
+    color: $theme-body-text-dark; //body text
 }
 
 .no-gutter > [class*='col-'] {
