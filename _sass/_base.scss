@@ -116,7 +116,7 @@ aside {
                 font-weight: 600;
                 font-size: 16px;
                 color: #fff;
-                padding-right: 5px;
+               // padding-right: 5px;
                 &:hover {
                     color: $theme-link;
                 }
@@ -203,7 +203,7 @@ header {
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 0%;
+                margin-top: 60%;
                 margin-bottom: 0px;
             }
             h2 {
@@ -211,9 +211,8 @@ header {
                 text-transform: none;
                 text-align: left;
                 color: #dadada;
-                margin-bottom: 0%;
-                margin-top: 10%;
-                letter-spacing: 1em;
+                margin-bottom: 5%;
+                margin-top: 5%;
                 font-size: 15px;
             }
             hr {
@@ -234,7 +233,7 @@ header {
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 0px 100 50px;
+            padding: 20px 100 5px;
             .header-content-inner {
                 max-width: auto;
                 margin-left: auto;
