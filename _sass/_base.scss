@@ -255,70 +255,16 @@ header {
 .parallax1 {
     position: relative;
     width: auto;
-    min-height: 15px;
+    min-height: 1000px;
     @include background-cover;
     background-position: center;
     background-image: url('../img/header5.jpg');
     text-align: left;
     background-attachment: fixed; //change to fixed for mobile
-    background-color: #222;
-    .header-content {
-        position: relative;
-        text-align: left;
-        padding: 0px 0px;
-        width: 100%;
-        .header-content-inner {
-            h1 {
-                font-weight: 500;
-                text-transform: none;
-                text-align: left; //title
-                color: #fff;
-                margin-top: 58%;
-                margin-bottom: 10px;
-                font-size: 45px;
-                font-family: 'Times New Roman', Times, serif;
-            }
-            h2 {
-                font-weight: 392;
-                text-transform: none;
-                text-align: left;
-                color: #8a8a8a;
-                margin-bottom: 50%;
-                margin-top: 12px;
-                font-size: 22px;
-            }
-            hr {
-                margin: 30px auto;
-            }
-          //  p {
-                font-weight: 400;
-                color: inherit;
-                margin-bottom: 0px;
-           // }
-        }
-    }
-    @media (min-width: 1px) {
-        min-height: 15px;
-        .header-content {
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            padding: 100 50px;
-            .header-content-inner {
-                max-width: auto;
-                margin-left: auto;
-                margin-right: auto;
-                p {
-                    max-width: 100%;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
-        }
-    }
+    background-color: blue;
+
 }
+
 .section-heading {
     margin-top: 0px;
     font-size: 25px;
