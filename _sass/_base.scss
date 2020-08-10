@@ -255,13 +255,13 @@ header {
 .parallax1 {
     position: relative;
     width: auto;
-    min-height: 1000px;
+    min-height: 20px;
     @include background-cover;
     background-position: center;
     background-image: url('../img/header5.jpg');
     text-align: left;
     background-attachment: fixed; //change to fixed for mobile
-    background-color: blue;
+    background-color: #ffffff;
 
 }
 
