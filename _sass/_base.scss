@@ -284,8 +284,8 @@ h2
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
         display: block;
+        filter: blur(1.5rem);
         background: #141414; //port overlay
-        filter: blur(0.5);
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -318,7 +318,6 @@ h2
     &:hover {
         .portfolio-box-caption {
             opacity: 1;
-            filter: blur(1.5rem);
             // filter: grayscale(1);
             // filter: brightness(40%);
         }
@@ -350,6 +349,8 @@ h2
 .text-primary {
     color: $theme-body-text-light;
     font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif
+    weight: 400;
 
 }
 
@@ -397,12 +398,12 @@ h2
 
 ::selection {
     color: #fff;
-    text-shadow: none;
+    text-shadow: #000;
     background: $theme-link; //highlight
 }
 
 img::selection {
-    color: white;
+    color: #222;
     background: #000;
 }
 
