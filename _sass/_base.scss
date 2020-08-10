@@ -208,7 +208,7 @@ header {
                 font-family: 'Times New Roman', Times, serif;
             }
             h2 {
-                font-weight: 400;
+                font-weight: 390;
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
@@ -348,7 +348,7 @@ h2
     text-align: center;
     font-weight: 480;
     font-size: 15px;
-    line-height: 2.0;
+    //line-height: 2.0;
 }
 
 .no-gutter > [class*='col-'] {
@@ -382,7 +382,7 @@ h2
     color: $theme-link;
     font-size: 2em;
     text-align: center;
-    position: absolute;
+   // position: absolute;
 }
 
 // Extras
