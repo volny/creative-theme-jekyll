@@ -307,7 +307,7 @@ h2
             .project-name {
                 font-size: 30px;
                 font-weight: 500;
-                font-family: 'Times New Roman', Times, serif;
+                //font-family: 'Times New Roman', Times, serif;
             }
         }
     }
@@ -345,7 +345,7 @@ h2
 
 // Bootstrap Overrides
 .text-primary {
-    color: #fff; //body text
+    color: red; //body text
     text-align: center;
     font-weight: 480;
     font-size: 15px;
