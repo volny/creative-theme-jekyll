@@ -44,7 +44,7 @@ h6 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.5;
     margin-bottom: 5px; //ch
 }
@@ -380,7 +380,7 @@ header {
 }
 
 ::selection {
-    color: #222;
+    color: #fff;
     text-shadow: none;
     background: $theme-link; //highlight
 }
