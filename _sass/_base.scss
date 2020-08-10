@@ -114,7 +114,7 @@ aside {
                 text-transform: uppercase;
                 text-align: left;
                 font-weight: 450;
-                font-size: 23px;
+                font-size: 15px;
                 color: #fff;
                 &:hover {
                     color: $theme-link;
@@ -160,7 +160,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #d6d6d6;
-                font-size: 20px; //logo scroll down
+                font-size: 40px; //logo scroll down
                 opacity: 1;
                 font-weight: 400;
                 &:hover,
@@ -194,7 +194,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 50px 50px 100px;
+        padding: 20px 50px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -220,7 +220,7 @@ header {
             p {
                 font-weight: 300;
                 color: inherit; // color
-                font-size: 14px;
+                font-size:34px;
                 margin-bottom: 0px;
             }
         }
