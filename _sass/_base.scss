@@ -205,11 +205,11 @@ header {
                 color: #fff;
                 margin-top: 58%;
                 margin-bottom: 10px;
-                font-size: 39px;
+                font-size: 40px;
                 font-family: 'Times New Roman', Times, serif;
             }
             h2 {
-                font-weight: 390;
+                font-weight: 392;
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
@@ -254,11 +254,11 @@ header {
 
 .section-heading {
     margin-top: 0;
-    font-size: 18px;
+    font-size: 22px;
 }
 h2
 { 
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .service-box {
@@ -278,13 +278,13 @@ h2
     max-width: auto;
     margin: 0 auto;
     background-color: #222;
+    background-size: cover;
     //filter: brightness(0.9);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
         display: block;
-        background: #141414;
-        background-size: auto; //port color
+        background: #141414; //port overlay
         position: absolute;
         bottom: 0;
         text-align: center;
