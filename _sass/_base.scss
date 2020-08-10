@@ -113,7 +113,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 text-align: left;
-                font-weight: 500;
+                font-weight: 600;
                 font-size: 15px;
                 color: #fff;
                 &:hover {
@@ -134,7 +134,7 @@ aside {
     }
 
     // logo settings / big transparent
-    @media (min-width: 200px) {
+    @media (min-width: 600px) {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
@@ -210,9 +210,9 @@ header {
                 text-transform: none;
                 text-align: left;
                 color: #c4c4c4;
-                margin-top: -5px;
+                margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 16px;
+                font-size: 60px;
             }
             hr {
                 margin: 30px auto;
