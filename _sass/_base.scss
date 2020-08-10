@@ -307,6 +307,7 @@ h2
             .project-name {
                 font-size: 30px;
                 font-weight: 500;
+                font-family: 'Times New Roman', Times, serif;
             }
         }
     }
@@ -325,7 +326,6 @@ h2
                     font-size: 14px;
                     font-weight: 500;
                     color: #fff;
-                    background-color:  #141414; // category-color
                 }
                 .project-name {
                     font-size: 28px;
@@ -347,7 +347,7 @@ h2
     color: $theme-body-text-light; //body text
     text-align: center;
     font-weight: 480;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .no-gutter > [class*='col-'] {
@@ -379,8 +379,9 @@ h2
 // Contact
 #contact .fa {
     color: $theme-link;
-    font-size: 4em; //was 4
+    font-size: 2em;
     text-align: center;
+    position: absolute;
 }
 
 // Extras
