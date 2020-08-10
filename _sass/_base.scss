@@ -279,12 +279,11 @@ h2
     margin: 0 auto;
     background-color: #222;
     background-size: cover;
-    //filter: brightness(0.9);
+    // filter: blur(1.5rem);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
         display: block;
-        filter: blur(1.5rem);
         background: #141414; //port overlay
         position: absolute;
         bottom: 0;
@@ -317,7 +316,8 @@ h2
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 1;
+            //opacity: 1;
+            filter: brightness(0.9);
             // filter: grayscale(1);
             // filter: brightness(40%);
         }
