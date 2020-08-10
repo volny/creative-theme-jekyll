@@ -199,7 +199,7 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 560;
+                font-weight: 500;
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
@@ -209,7 +209,7 @@ header {
                 font-family: 'Times New Roman', Cambria, Cochin, Georgia, Times, serif;
             }
             h2 {
-                font-weight: 420;
+                font-weight: 390;
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
@@ -273,6 +273,7 @@ header {
     max-width: auto;
     margin: 0 auto;
     background-color: black;
+    filter: brightness(0.9);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
@@ -296,19 +297,22 @@ header {
                 padding: 0 15px;
             }
             .project-category {
-                text-transform: uppercase;
+                text-transform: nonee;
                 font-weight: 500;
-                font-size: 16px;
+                font-size: 13px;
             }
             .project-name {
-                font-size: 20px;
-                font-weight: 600;
+                font-size: 30px;
+                font-weight: 650;
             }
         }
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 0.8;
+            //opacity: 0.8;
+            filter: blur(1.5rem);
+            filter: grayscale(1);
+            filter: brightness(40%);
         }
     }
     @media (min-width: 768px) {
@@ -338,6 +342,7 @@ header {
 // Bootstrap Overrides
 .text-primary {
     color: $theme-body-text-dark; //body text
+    text-align: left;
 }
 
 .no-gutter > [class*='col-'] {
