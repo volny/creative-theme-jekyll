@@ -205,7 +205,7 @@ header {
                 color: #fff;
                 margin-top: 58%;
                 margin-bottom: 10px;
-                font-size: 36px;
+                font-size: 39px;
                 font-family: 'Times New Roman', Times, serif;
             }
             h2 {
@@ -227,7 +227,7 @@ header {
            // }
         }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         min-height: 100%;
         .header-content {
             position: absolute;
