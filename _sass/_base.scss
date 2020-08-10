@@ -90,7 +90,7 @@ aside {
 
 .navbar-default {
     background-color: #222;
-    opacity: .90;
+    opacity: 1;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
@@ -99,7 +99,7 @@ aside {
         @include sans-serif-font;
         font-weight: 300;
         text-transform: uppercase;
-        font-size: 40px;
+        font-size: 30px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -139,7 +139,7 @@ aside {
         border-color: transparent;
         .navbar-header .navbar-brand {
             color: #ffffff;
-            font-size: 40px; //static logo
+            font-size: 30px; //static logo
             font-weight: 300;
             &:hover,
             &:focus {
@@ -160,7 +160,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #ffffff;
-                font-size: 40px; //logo scroll down
+                font-size: 35px; //logo scroll down
                 opacity: 1;
                 font-weight: 300;
                 &:hover,
@@ -187,14 +187,14 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header5.jpg');
+    //background-image: url('../img/header5.jpg');
     text-align: left;
     background-attachment: fixed; //change to fixed for mobile
     background-color: #222;
     .header-content {
         position: relative;
         text-align: left;
-        padding: 20px 50px 100px;
+        padding: 20px 70px 60px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -212,7 +212,7 @@ header {
                 color: #c4c4c4;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 30px;
+                font-size: 20px;
             }
             hr {
                 margin: 30px auto;
