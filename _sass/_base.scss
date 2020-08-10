@@ -100,7 +100,7 @@ aside {
         font-weight: 300;
         text-transform: uppercase;
         font-size: 30px;
-        padding-right:5px;
+        padding-right: 15px;
         &:hover,
         &:focus {
             color: $theme-link;
@@ -195,7 +195,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 20px 100px 20px;
+        padding: 5px 5px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -209,10 +209,11 @@ header {
             h2 {
                 font-weight: 450;
                 text-transform: none;
-                text-decoration: wavy;
+                text-decoration: italic;
                 text-align: left;
                 color: #dadada;
                 margin-bottom: 30%;
+                margin-top: 0em;
                 font-size: 15px;
             }
             hr {
