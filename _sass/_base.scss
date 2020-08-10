@@ -159,7 +159,7 @@ aside {
             opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
-                color: #d6d6d6;
+                color: #ffffff;
                 font-size: 40px; //logo scroll down
                 opacity: 1;
                 font-weight: 300;
@@ -187,7 +187,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    //background-image: url('../img/header5.jpg');
+    background-image: url('../img/header5.jpg');
     text-align: left;
     background-attachment: fixed; //change to fixed for mobile
     background-color: #222;
@@ -212,24 +212,24 @@ header {
                 color: #c4c4c4;
                 margin-top: 0px;
                 margin-bottom: 30%;
-                font-size: 16px;
+                font-size: 30px;
             }
             hr {
                 margin: 30px auto;
             }
-            p {
+          //  p {
                 font-weight: 400;
                 color: inherit; // color
-                font-size:34px;
+                //font-size: 34px;
                 margin-bottom: 0px;
-            }
+           // }
         }
     }
     @media (min-width: 600px) {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 80%;
+            top: 50%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
