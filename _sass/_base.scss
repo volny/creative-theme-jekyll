@@ -309,7 +309,7 @@ header {
     }
     &:hover {
         .portfolio-box-caption {
-            opacity: 0.8;
+            opacity: 1;
            // filter: blur(1.5rem);
             // filter: grayscale(1);
             // filter: brightness(40%);
@@ -320,13 +320,13 @@ header {
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 16px;
-                    font-weight: 600;
+                    font-weight: 400;
                     color: #fff;
                     background-color: #222; // category-color
                 }
                 .project-name {
                     font-size: 22px;
-                    font-weight: 600;
+                    font-weight: 500;
                 }
             }
         }
@@ -342,8 +342,8 @@ header {
 // Bootstrap Overrides
 .text-primary {
     color: $theme-body-text-dark; //body text
-    text-align: justify;
-    font-weight: 300 ;
+    text-align: center;
+    font-weight: 380 ;
 }
 
 .no-gutter > [class*='col-'] {
