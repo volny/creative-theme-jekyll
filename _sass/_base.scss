@@ -273,7 +273,7 @@ header {
     max-width: auto;
     margin: 0 auto;
     background-color: black;
-    filter: brightness(0.9);
+    //filter: brightness(0.9);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
@@ -297,7 +297,7 @@ header {
                 padding: 0 15px;
             }
             .project-category {
-                text-transform: nonee;
+                text-transform: none;
                 font-weight: 500;
                 font-size: 13px;
             }
@@ -311,8 +311,8 @@ header {
         .portfolio-box-caption {
             //opacity: 0.8;
             filter: blur(1.5rem);
-            filter: grayscale(1);
-            filter: brightness(40%);
+            // filter: grayscale(1);
+            // filter: brightness(40%);
         }
     }
     @media (min-width: 768px) {
