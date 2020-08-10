@@ -209,7 +209,7 @@ header {
                 font-family: 'Times New Roman', Cambria, Cochin, Georgia, Times, serif;
             }
             h2 {
-                font-weight: 390;
+                font-weight: 400;
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
@@ -254,6 +254,9 @@ header {
 
 .section-heading {
     margin-top: 0;
+h2
+{ 
+    font-size: 16px;
 }
 
 .service-box {
