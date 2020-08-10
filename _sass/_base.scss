@@ -258,7 +258,7 @@ header {
 }
 h2
 { 
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .service-box {
@@ -277,14 +277,14 @@ h2
     display: block;
     max-width: auto;
     margin: 0 auto;
-    background-color: black;
+    background-color: #222;
     //filter: brightness(0.9);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
         display: block;
-        background-color: #222; //behind nav section on bg
-        background: #141414; //port color
+        background: #141414;
+        background-size: auto; //port color
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -293,6 +293,7 @@ h2
         @include transition-all;
         .portfolio-box-caption-content {
             width: 100%;
+            height: auto ;
             text-align: center;
             position: absolute;
             top: 50%;
