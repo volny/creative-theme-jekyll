@@ -199,13 +199,14 @@ header {
         width: 100%;
         .header-content-inner {
             h1 {
-                font-weight: 520;
+                font-weight: 540;
                 text-transform: none;
                 text-align: left; //title
                 color: #fff;
-                margin-top: 50%;
-                margin-bottom: 12px;
+                margin-top: 52%;
+                margin-bottom: 10px;
                 font-size: 32px;
+                font-family: 'Times New Roman', Cambria, Cochin, Georgia, Times, serif;
             }
             h2 {
                 font-weight: 450;
@@ -215,7 +216,6 @@ header {
                 margin-bottom: 50%;
                 margin-top: 14px;
                 font-size: 22px;
-                font-family: 'Times New Roman', Cambria, Cochin, Georgia, Times, serif;
             }
             hr {
                 margin: 30px auto;
