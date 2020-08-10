@@ -280,7 +280,6 @@ h2
     margin: 0 auto;
     background-color: #222;
     background-size: cover;
-    // filter: blur(1.5rem);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
@@ -291,6 +290,7 @@ h2
         text-align: center;
         width: 100%;
         height: 100%;
+        filter: blur(1.0rem);
         @include transition-all;
         .portfolio-box-caption-content {
             width: 100%;
@@ -317,8 +317,7 @@ h2
     }
     &:hover {
         .portfolio-box-caption {
-            //opacity: 0.5;
-            backdrop-filter: 0.9;
+            opacity: 0.7;
         }
     }
     @media (min-width: 600px) {
