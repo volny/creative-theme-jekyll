@@ -227,7 +227,7 @@ header {
            // }
         }
     }
-    @media (min-width: 600px) {
+    @media (min-width: 768px) {
         min-height: 100%;
         .header-content {
             position: absolute;
@@ -254,6 +254,7 @@ header {
 
 .section-heading {
     margin-top: 0;
+}
 h2
 { 
     font-size: 16px;
@@ -275,7 +276,7 @@ h2
     display: block;
     max-width: auto;
     margin: 0 auto;
-    background-color: black;
+   // background-color: black;
     //filter: brightness(0.9);
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
@@ -328,7 +329,7 @@ h2
                     color: #fff;
                 }
                 .project-name {
-                    font-size: 28px;
+                    font-size: 22px;
                     font-weight: 600;
                     font-family: 'Times New Roman', Times, serif;
                 }
@@ -345,11 +346,7 @@ h2
 
 // Bootstrap Overrides
 .text-primary {
-    color: red; //body text
-    text-align: center;
-    font-weight: 480;
-    font-size: 15px;
-    //line-height: 2.0;
+    color: $theme-primary;
 }
 
 .no-gutter > [class*='col-'] {
@@ -412,5 +409,4 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: $theme-dark;
-}
 }
