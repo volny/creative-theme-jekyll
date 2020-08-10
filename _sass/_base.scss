@@ -195,7 +195,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 30px 5px;
+        padding: 60px 5px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -212,7 +212,7 @@ header {
                 text-align: left;
                 color: #dadada;
                 margin-bottom: 15%;
-                margin-top: 0%;
+                margin-top: 10%;
                 font-size: 15px;
             }
             hr {
@@ -230,9 +230,9 @@ header {
         .header-content {
             position: absolute;
             top: 50%;
-           // -webkit-transform: translateY(-50%);
-           // -ms-transform: translateY(-50%);
-           // transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
             padding: 50px 100 5px;
             .header-content-inner {
                 max-width: auto;
