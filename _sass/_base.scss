@@ -106,7 +106,7 @@ aside {
         }
     }
 
-    //  navigation bar mobile
+    //  all nav?
     .nav {
         > li {
             > a,
@@ -114,7 +114,7 @@ aside {
                 text-transform: uppercase;
                 text-align: left;
                 font-weight: 600;
-                font-size: 10px;
+                font-size: 18px;
                 color: #fff;
                 &:hover {
                     color: $theme-link;
