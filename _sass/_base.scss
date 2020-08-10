@@ -90,14 +90,14 @@ aside {
 
 .navbar-default {
     background-color: #222;
-    opacity: 1;
+    opacity: .90;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 400;
+        font-weight: 300;
         text-transform: uppercase;
         font-size: 40px;
         &:hover,
@@ -140,7 +140,7 @@ aside {
         .navbar-header .navbar-brand {
             color: #ffffff;
             font-size: 40px; //static logo
-            font-weight: 400;
+            font-weight: 300;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -160,7 +160,7 @@ aside {
             border-color: transparent;
             .navbar-header .navbar-brand {
                 color: #d6d6d6;
-                font-size: 50px; //logo scroll down
+                font-size: 40px; //logo scroll down
                 opacity: 1;
                 font-weight: 300;
                 &:hover,
@@ -229,7 +229,7 @@ header {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 60%;
+            top: 80%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
