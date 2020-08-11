@@ -83,7 +83,7 @@ p {
 }
 
 section {
-    padding: 20px 70px 20px;
+    padding: 20px 100px;
 }
 
 aside {
@@ -289,7 +289,7 @@ h2.section-heading
 }
 
 .cover {
-    object-fit: cover;
+    object-fit: contain;
     width: auto;
     height: auto;
 }
