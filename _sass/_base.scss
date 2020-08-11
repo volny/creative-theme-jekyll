@@ -289,10 +289,10 @@ header {
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
-.carousel-inner > .item > img,{
+.carousel-inner > .item > img,
 
 .img-block > .item > a > img {
-     display: block;
+     display: inline;
      max-width: 60%;
      height: auto;
      border-radius: 10px;
@@ -302,7 +302,7 @@ header {
 .img-float-right {
      display: inline-flexbox;
     // float: right;
-     max-width: 100%;
+     max-width: 50%;
      height: auto;
      border-radius: 10px;
      border-color: green;
@@ -310,14 +310,14 @@ header {
 }
 
 .img-float-left {
-     display: flexbox;
+     display: inline-block;
      float: left;
-     max-width: 100%;
+     max-width: 30%;
      height: auto;
      border-radius: 10px;
      padding: 5px;
 }
-}
+
 
 // Sections
 
