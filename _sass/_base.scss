@@ -83,7 +83,7 @@ p {
 }
 
 section {
-    padding: 10px 10px 10px;
+    padding: 20px 40px 20px;
 }
 
 aside {
@@ -150,7 +150,7 @@ aside {
         .navbar-header .navbar-brand {
             color: $theme-main-link;
             font-size: 30px; //static logo
-            font-weight: 200;
+            font-weight: 180;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -172,7 +172,7 @@ aside {
                 color: #f3f3f3;
                 font-size: 40px; //logo scroll down
                 opacity: 1;
-                font-weight: 200;
+                font-weight: 180;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -292,7 +292,7 @@ h2.section-heading
     position: relative;
     display: block;
     max-width: 100%;
-    margin: 0 0;
+    margin: 0px 20px 0px;
     background-color: #222;
     //background-size: cover;
     .portfolio-box-caption {
@@ -308,7 +308,7 @@ h2.section-heading
         @include transition-all;
         .portfolio-box-caption-content {
             width: 100%;
-            height: auto ;
+            height: fit-content;
             text-align: center;
             position: absolute;
             top: 50%;
@@ -336,7 +336,7 @@ h2.section-heading
             //filter: blur(1.0rem);
         }
     }
-    @media (min-width: 600px) {
+    @media (min-width: 800px) {
         .portfolio-box-caption {
             .portfolio-box-caption-content {
                 .project-category {
