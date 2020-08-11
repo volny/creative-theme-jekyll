@@ -292,36 +292,44 @@ header {
 .carousel-inner > .item > img,
 
 .img-gen > .item > a > img {
-     border-radius: 10px;
-     padding: 15px;
+     border-radius: 8px;
+     padding: 8px;
 }
 
 .img-block {
-     display: inline-flex;
-     max-width: 50%;
+     display: inline-block;
+     max-width: 85%;
      height: auto;
-     border-radius: 30px;
+     border-radius: 20px;
      padding: 15px;
 }
 
 .img-float-right {
      display: inline-block;
      float: right;
-     max-width: 40%;
+     max-width: 60%;
      height: auto;
-     border-radius: 10px;
-     padding: 10px;
+     border-radius: 20px;
+     padding: 15px;
 }
 
 .img-float-left {
      display: inline-block;
      float: left;
-     max-width: 30%;
+     max-width: 50%;
      height: auto;
-     border-radius: 10px;
-     padding: 20px;
+     border-radius: 20px;
+     padding: 15px;
 }
 
+.img-test {
+     display: block;
+     float: right;
+     max-width: 50%;
+     height: auto;
+     border-radius: 20px;
+     padding: 15px;
+}
 
 // Sections
 
