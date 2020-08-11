@@ -267,12 +267,12 @@ header {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 13px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: transparentize($color: #078b0d, $amount: 50%);
+    background: transparent;
   }
   
   /* Handle */
