@@ -288,12 +288,12 @@ h2.section-heading
 }
 
 .portfolio-box {
-    position: relative;
+    position: absolute;
     display: block;
     max-width: auto;
-    margin: 0 auto;
+    margin: 0 0;
     background-color: #222;
-    background-size: cover;
+    //background-size: cover;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
         opacity: 0; //text on top
