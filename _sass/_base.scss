@@ -296,27 +296,26 @@ header {
      padding: 0px;
 }
 
-.img-left {
-     display: inline-block;
-     float: left;
-     max-width: 60%;
-     height: auto;
-     border-radius: 30px;
-     padding: 17px;
-}
-
-.img-right {
-     display: inline-block;
-     float: right;
+.img-block {
+     display: block;
      max-width: 60%;
      height: auto;
      border-radius: 20px;
      padding: 15px;
 }
 
-.img-test {
-     display: block;
-     //float: right;
+.img-l {
+     display: inline-block;
+     float: left;
+     max-width: 60%;
+     height: auto;
+     border-radius: 20px;
+     padding: 15px;
+}
+
+.img-r {
+     display: inline-block;
+     float: right;
      max-width: 60%;
      height: auto;
      border-radius: 20px;
