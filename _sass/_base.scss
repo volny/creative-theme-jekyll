@@ -290,7 +290,8 @@ h2.section-heading
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: 0 auto;
+    max-width: min-content;
+    max-height: min-content;
     background-color: #222;
     object-fit: contain;
     //background-size: cover;
