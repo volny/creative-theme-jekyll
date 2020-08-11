@@ -292,13 +292,13 @@ header {
 .carousel-inner > .item > img,
 
 .img-gen > .item > a > img {
-     border-radius: 8px;
-     padding: 8px;
+    // border-radius: 0px;
+     padding: 0px;
 }
 
 .img-block {
      display: inline-block;
-     max-width: 85%;
+     max-width: 60%;
      height: auto;
      border-radius: 20px;
      padding: 15px;
