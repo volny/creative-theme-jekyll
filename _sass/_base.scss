@@ -263,6 +263,28 @@ header {
     }
 }
 
+// Scrollbar
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0ab38e;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #df0000;
+  }
+
 // Sections
 
 .section-heading {
@@ -295,9 +317,10 @@ h2.section-heading
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: auto;
+    max-width: 900px;
+    max-height: 900px;
     background-color: #222;
-    //object-fit: contain;
+    object-fit: contain;
     //background-size: cover;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
@@ -371,7 +394,7 @@ h2.section-heading
     font-size: 16px;
     @include sans-serif-font;
     color: #f1f1f1;
-    font-weight: 380;
+    font-weight: 395;
     line-height: 140%;
    // letter-spacing: 1.1px;
     //text-indent: 18%;
