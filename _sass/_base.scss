@@ -49,7 +49,7 @@ h3.italic {
         font-family: 'Times New Roman', Times, Serif;
         font-style: italic;
         font-weight: 300;
-        font-size: 14px;
+        font-size: 18px;
 }
 p {
     font-size: 16px;
@@ -264,8 +264,10 @@ header {
     font-family: 'Times New Roman', Times, Serif;
     margin-top: 0px;
     font-size: 25px;
-    font-weight: 350px;
+    font-weight: 400px;
     letter-spacing: -0.6px;
+    text-transform: none;
+    text-shadow: fade-out($color: #000000, $amount: 0);
 }
 h2
 { 
@@ -275,7 +277,7 @@ h2
 .service-box {
     max-width: 500px;
     margin: 50px auto 0;
-    @media (min-width: 600px) {
+    @media (min-width: auto) {
         margin: 20px auto 0;
     }
     p {
