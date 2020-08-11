@@ -121,7 +121,7 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 text-align: left;
-                font-weight: 600;
+                font-weight: 500;
                 font-size: 16px;
                 color: #fff;
                // padding-right: 5px;
@@ -168,8 +168,8 @@ aside {
             opacity: 1; //scrolling fixed nav bar desktop transparency
             border-color: transparent;
             .navbar-header .navbar-brand {
-                color: #cacaca;
-                font-size: 35px; //logo scroll down
+                color: #f3f3f3;
+                font-size: 40px; //logo scroll down
                 opacity: 1;
                 font-weight: 300;
                 &:hover,
@@ -265,7 +265,7 @@ header {
     margin-top: 0px;
     font-size: 30px;
     font-weight: 400px;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
 }
 h2.section-heading
 { 
@@ -273,14 +273,14 @@ h2.section-heading
     margin-top: 0px;
     font-size: 30px;
     font-weight: 400px;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
 }
 
 .service-box {
     max-width: 500px;
-    margin: 50px auto 0;
+    margin: 30px auto 0;
     @media (min-width: auto) {
-        margin: 20px auto 0;
+        margin: 20px 0px 0;
     }
     p {
         margin-bottom: 0;
@@ -288,7 +288,8 @@ h2.section-heading
 }
 
 .portfolio-box {
-    position: absolute;
+    position: relative;
+    float: inline-start;
     display: block;
     max-width: auto;
     margin: 0 0;
