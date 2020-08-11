@@ -267,22 +267,22 @@ header {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 18px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: transparentize($color: #960808, $amount: 0);
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #0ab38e;
+    background: #181818;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #df0000;
+    background: #00dfae;
   }
 
 // Sections
