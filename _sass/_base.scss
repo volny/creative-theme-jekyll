@@ -83,7 +83,7 @@ p {
 }
 
 section {
-    padding: 20px 100px;
+    padding: 0px 200px;
 }
 
 aside {
@@ -99,7 +99,6 @@ aside {
 .navbar-default {
     background-color: #222;
     opacity: 1;
-    padding: 5px 0;
     border-color: transparent;
     @include sans-serif-font;
     @include transition-all;
@@ -288,10 +287,10 @@ h2.section-heading
     }
 }
 
-.cover {
+.contain {
     object-fit: contain;
-    width: auto;
-    height: auto;
+    width: 200px;
+    height: 100px;
 }
 
 .portfolio-box {
@@ -299,7 +298,7 @@ h2.section-heading
     display: block;
     max-width: 0 0;
     background-color: #222;
-    object-fit: cover;
+    object-fit: contain;
     //background-size: cover;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
