@@ -9,9 +9,10 @@ body {
 }
 
 hr {
-    border-color: $theme-primary;
+    border-color: $theme-main-link;
     border-width: 3px;
-    max-width: 50px;
+    max-width: 100px;
+    
 }
 
 hr.light {
@@ -36,7 +37,11 @@ a {
 
 h1,
 h2,
-h3,
+h3, {
+    font-family: 'Times New Roman', Times, Serif;
+    font-style: italic;
+    weight: 300;
+}
 h4,
 h5,
 h6 {
@@ -346,10 +351,11 @@ h2
 }
 
 // Bootstrap Overrides
+
 .text-primary {
     color: $theme-body-text-light;
     font-size: 16px;
-    font-family: 'Tahoma', Geneva, Verdana, sans-serif, Helvetica;
+    @include sans-serif-font;
     color: #f7f7f7;
     font-weight: 410;
     line-height: 140%;
