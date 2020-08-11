@@ -291,18 +291,23 @@ header {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 
-.img-block > .item > a > img {
-     display: inline;
-     max-width: 60%;
-     height: auto;
+.img-gen > .item > a > img {
      border-radius: 10px;
      padding: 15px;
 }
 
-.img-float-right {
-     display: inline-flexbox;
-     float: right;
+.img-block {
+     display: inline-flex;
      max-width: 50%;
+     height: auto;
+     border-radius: 30px;
+     padding: 15px;
+}
+
+.img-float-right {
+     display: inline-block;
+     float: right;
+     max-width: 40%;
      height: auto;
      border-radius: 10px;
      padding: 10px;
@@ -314,7 +319,7 @@ header {
      max-width: 30%;
      height: auto;
      border-radius: 10px;
-     padding: 5px;
+     padding: 20px;
 }
 
 
