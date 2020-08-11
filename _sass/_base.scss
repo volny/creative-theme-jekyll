@@ -83,8 +83,8 @@ p {
 }
 
 .synopsis {
-    @include media-query($content-width);
-    padding: 10px 50px ;
+    -webkit-column-rule-width: thick;
+    padding: 10px 50px;
 }
 
 section {
