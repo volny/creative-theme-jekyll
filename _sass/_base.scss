@@ -292,31 +292,23 @@ header {
 .carousel-inner > .item > img,
 
 .img-gen > .item > a > img {
-    // border-radius: 0px;
+     border-radius: 20px;
      padding: 0px;
 }
 
-.img-block {
+.img-left {
      display: inline-block;
+     float: left;
      max-width: 60%;
      height: auto;
-     border-radius: 20px;
-     padding: 15px;
+     border-radius: 30px;
+     padding: 17px;
 }
 
-.img-float-right {
+.img-right {
      display: inline-block;
      float: right;
      max-width: 60%;
-     height: auto;
-     border-radius: 20px;
-     padding: 15px;
-}
-
-.img-float-left {
-     display: inline-block;
-     float: left;
-     max-width: 50%;
      height: auto;
      border-radius: 20px;
      padding: 15px;
@@ -324,8 +316,8 @@ header {
 
 .img-test {
      display: block;
-     float: right;
-     max-width: 50%;
+     //float: right;
+     max-width: 60%;
      height: auto;
      border-radius: 20px;
      padding: 15px;
