@@ -83,12 +83,12 @@ p {
 }
 
 .synopsis {
-    -webkit-column-rule-width: thick;
-    padding: 10px 50px;
+    column-width: 900px;
+    padding: 100px 50px;
 }
 
 section {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 aside {
@@ -295,7 +295,7 @@ h2.section-heading
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: 80%;
+    max-width: auto;
     background-color: #222;
     //object-fit: contain;
     //background-size: cover;
