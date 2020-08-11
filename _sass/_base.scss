@@ -49,7 +49,7 @@ h3.italic {
         font-family: 'Times New Roman', Times, Serif;
         font-style: oblique;
         font-weight: 250;
-        font-size: 16px;
+        font-size: 19px;
 }
 p {
     font-size: 16px;
@@ -84,7 +84,7 @@ p {
 
 .synopsis {
     width: 100%;
-    padding: 20px 20px;
+    padding: 30px 30px;
 }
 
 section {
@@ -277,7 +277,7 @@ header {
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #131313;
+    background: #333333;
   }
   
   /* Handle on hover */
@@ -393,7 +393,7 @@ h2.section-heading
 
 .text-primary {
     color: $theme-body-text-light;
-    font-size: 18px;
+    font-size: 16px;
     @include sans-serif-font;
     color: #f1f1f1;
     font-weight: 410;
