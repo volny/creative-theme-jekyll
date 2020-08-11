@@ -84,7 +84,8 @@ p {
 
 .synopsis {
     column-width: 900px;
-    padding: 100px 50px;
+    -webkit-column-span: all;
+    padding: 10px 0px;
 }
 
 section {
