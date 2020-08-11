@@ -298,7 +298,7 @@ header {
 
 .img-block {
      display: block;
-     max-width: 100%;
+     max-width: 105%;
      height: auto;
      border-radius: 20px;
      padding: 15px;
@@ -308,6 +308,7 @@ header {
 .img-l {
      display: inline-block;
      float: left;
+     align: left;
      max-width: 60%;
      height: auto;
      border-radius: 20px;
