@@ -48,12 +48,12 @@ h6 {
 h3.italic {
         font-family: 'Times New Roman', Times, Serif;
         font-style: oblique;
-        font-weight: 300;
-        font-size: 22px;
+        font-weight: 250;
+        font-size: 18px;
 }
 p {
     font-size: 16px;
-    line-height:1.5 ;
+    line-height: 1.5;
     margin-bottom: 5px; //ch
 }
 
@@ -83,7 +83,7 @@ p {
 }
 
 section {
-    padding: 100px 0;
+    padding: 0px 0;
 }
 
 aside {
@@ -149,7 +149,7 @@ aside {
         .navbar-header .navbar-brand {
             color: $theme-main-link;
             font-size: 30px; //static logo
-            font-weight: 300;
+            font-weight: 250;
             &:hover,
             &:focus {
                 color: $theme-link;
@@ -171,7 +171,7 @@ aside {
                 color: #f3f3f3;
                 font-size: 40px; //logo scroll down
                 opacity: 1;
-                font-weight: 300;
+                font-weight: 250;
                 &:hover,
                 &:focus {
                     color: $theme-link;
@@ -263,17 +263,17 @@ header {
 .section-heading {
     font-family: 'Times New Roman', Times, Serif;
     margin-top: 0px;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 400px;
-    letter-spacing: 1px;
+    letter-spacing: -0.5px;
 }
 h2.section-heading
 { 
     font-family: 'Times New Roman', Times, Serif;
     margin-top: 0px;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 400px;
-    letter-spacing: 1px;
+    letter-spacing: -0.5px;
 }
 
 .service-box {
@@ -289,9 +289,8 @@ h2.section-heading
 
 .portfolio-box {
     position: relative;
-    float: inline-start;
     display: block;
-    max-width: auto;
+    max-width: 85%;
     margin: 0 0;
     background-color: #222;
     //background-size: cover;
