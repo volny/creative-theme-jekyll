@@ -263,10 +263,10 @@ header {
 .section-heading {
     font-family: 'Times New Roman', Times, Serif;
     margin-top: 0px;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 400px;
-    letter-spacing: -0.6px;
-    text-transform: lowercase;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
     text-shadow: fade-out($color: #000000, $amount: 0);
 }
 h2
