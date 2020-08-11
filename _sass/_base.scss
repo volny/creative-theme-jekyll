@@ -9,14 +9,16 @@ body {
 }
 
 hr {
-    border-color: $theme-main-link;
+    border-color:#fff;
     border-width: 3px;
-    max-width: 100px;
+    max-width: 250px;
 
 }
 
 hr.accent {
-    border-color: white;
+    border-color: $theme-main-link;
+    max-width:250px;
+    border-width: 3px;
 }
 
 a {
@@ -25,7 +27,7 @@ a {
     font-weight: 400; //regular links
     &:hover {
         color: $theme-link;
-        text-decoration-line: overline;
+        text-decoration-line: line-through;
         font-weight: 500;
     }
     &:focus {
@@ -46,7 +48,8 @@ h6 {
 h3.italic {
         font-family: 'Times New Roman', Times, Serif;
         font-style: italic;
-        weight: 300;
+        font-weight: 300;
+        font-size: 14px;
 }
 p {
     font-size: 16px;
@@ -258,9 +261,11 @@ header {
 // Sections
 
 .section-heading {
+    font-family: 'Times New Roman', Times, Serif;
     margin-top: 0px;
     font-size: 25px;
     font-weight: 350px;
+    letter-spacing: -0.6px;
 }
 h2
 { 
@@ -268,9 +273,9 @@ h2
 }
 
 .service-box {
-    max-width: 400px;
+    max-width: 500px;
     margin: 50px auto 0;
-    @media (min-width: 992px) {
+    @media (min-width: 600px) {
         margin: 20px auto 0;
     }
     p {
@@ -393,7 +398,7 @@ h2
 // Contact
 #contact .fa {
     color: $theme-link;
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
     position: relative;
 }
