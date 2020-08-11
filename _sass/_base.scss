@@ -49,7 +49,7 @@ h3.italic {
         font-family: 'Times New Roman', Times, Serif;
         font-style: italic;
         font-weight: 300;
-        font-size: 18px;
+        font-size: 20px;
 }
 p {
     font-size: 16px;
@@ -266,7 +266,7 @@ header {
     font-size: 25px;
     font-weight: 400px;
     letter-spacing: -0.6px;
-    text-transform: none;
+    text-transform: lowercase;
     text-shadow: fade-out($color: #000000, $amount: 0);
 }
 h2
