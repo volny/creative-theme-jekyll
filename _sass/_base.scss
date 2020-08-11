@@ -277,7 +277,7 @@ header {
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #0f0f0f;
+    background: #1f1f1f;
   }
   
   /* Handle on hover */
@@ -394,8 +394,8 @@ h2.section-heading
     font-size: 16px;
     @include sans-serif-font;
     color: #f1f1f1;
-    font-weight: 395;
-    line-height: 140%;
+    font-weight: 410;
+    line-height: 150%;
    // letter-spacing: 1.1px;
     //text-indent: 18%;
 
