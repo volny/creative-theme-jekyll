@@ -83,7 +83,7 @@ p {
 }
 
 section {
-    padding: 20px 40px 20px;
+    padding: 20px 70px 20px;
 }
 
 aside {
@@ -291,9 +291,9 @@ h2.section-heading
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: 100%;
-    margin: 0px 20px 0px;
+    max-width: 0 0;
     background-color: #222;
+    object-fit: cover;
     //background-size: cover;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
@@ -308,7 +308,7 @@ h2.section-heading
         @include transition-all;
         .portfolio-box-caption-content {
             width: 100%;
-            height: fit-content;
+            height: auto;
             text-align: center;
             position: absolute;
             top: 50%;
@@ -377,6 +377,7 @@ h2.section-heading
 .no-gutter > [class*='col-'] {
     padding-right: 0px;
     padding-left: 0px;
+    background-color: #222;
 }
 
 // Button Styles
