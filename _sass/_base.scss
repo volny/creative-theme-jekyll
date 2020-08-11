@@ -47,7 +47,7 @@ h6 {
 
 h3.italic {
         font-family: 'Times New Roman', Times, Serif;
-        font-style: italic;
+        font-style: oblique;
         font-weight: 300;
         font-size: 20px;
 }
@@ -267,11 +267,15 @@ header {
     font-weight: 400px;
     letter-spacing: -0.5px;
     text-transform: capitalize;
-    text-shadow: fade-out($color: #000000, $amount: 0);
 }
-h2
+h2.section-heading
 { 
+    font-family: 'Times New Roman', Times, Serif;
+    margin-top: 0px;
     font-size: 30px;
+    font-weight: 400px;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
 }
 
 .service-box {
