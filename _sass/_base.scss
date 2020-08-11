@@ -277,7 +277,7 @@ header {
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #333333;
+    background: #1d1d1d;
   }
   
   /* Handle on hover */
@@ -309,7 +309,7 @@ h2.section-heading
     max-width: 500px;
     margin: 30px auto 0;
     @media (min-width: auto) {
-        margin: 20px 0px 0;
+        margin: 15px 10px 0;
     }
     p {
         margin-bottom: 0;
