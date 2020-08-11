@@ -289,33 +289,34 @@ header {
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
-.carousel-inner > .item > img,
+.carousel-inner > .item > img,{
 
 .img-block > .item > a > img {
      display: block;
-     max-width: 100%;
+     max-width: 60%;
      height: auto;
      border-radius: 10px;
-     padding: 8px;
+     padding: 5px;
 }
 
 .img-float-right {
-     display: block;
-     float: right;
+     display: inline-flexbox;
+    // float: right;
      max-width: 100%;
      height: auto;
      border-radius: 10px;
-     border-color: green($color: #cf0000);
+     border-color: green;
      padding: 5px;
 }
 
 .img-float-left {
-     display: block;
+     display: flexbox;
      float: left;
      max-width: 100%;
      height: auto;
      border-radius: 10px;
      padding: 5px;
+}
 }
 
 // Sections
