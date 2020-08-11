@@ -290,10 +290,9 @@ h2.section-heading
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: block;
-    max-height: block;
+    max-width: 80%;
     background-color: #222;
-    object-fit: contain;
+    //object-fit: contain;
     //background-size: cover;
     .portfolio-box-caption {
         color: $theme-main-link; //projectname color
