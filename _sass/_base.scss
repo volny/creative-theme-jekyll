@@ -83,11 +83,11 @@ p {
 }
 
 section {
-    padding: 0px 0;
+    padding: 50px 0;
 }
 
 aside {
-    padding: 50px 0;
+    padding: 50px 30px;
 }
 
 .no-padding {
@@ -105,7 +105,7 @@ aside {
     .navbar-header .navbar-brand {
         color: #fff;
         @include sans-serif-font;
-        font-weight: 300;
+        font-weight: 250;
         text-transform: uppercase;
         font-size: 30px;
         &:hover,
@@ -153,7 +153,7 @@ aside {
             &:hover,
             &:focus {
                 color: $theme-link;
-                font-weight: 300; //logo
+                font-weight: 250; //logo
             }
         }
         .nav > li > a,
@@ -290,7 +290,7 @@ h2.section-heading
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: 85%;
+    max-width: 100%;
     margin: 0 0;
     background-color: #222;
     //background-size: cover;
@@ -405,6 +405,7 @@ h2.section-heading
     font-size: 3em;
     text-align: center;
     position: relative;
+    margin-bottom: 20px;
 }
 
 // Extras
