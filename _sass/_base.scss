@@ -288,6 +288,12 @@ h2.section-heading
     }
 }
 
+.cover {
+    object-fit: cover;
+    width: auto;
+    height: auto;
+}
+
 .portfolio-box {
     position: relative;
     display: block;
