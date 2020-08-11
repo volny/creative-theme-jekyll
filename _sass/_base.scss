@@ -290,15 +290,32 @@ header {
 .thumbnail > img,
 .thumbnail a > img,
 .carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+
+.img-block > .item > a > img {
      display: block;
      max-width: 100%;
      height: auto;
-}
-.img-rounded {
-    border-radius: 6px;
+     border-radius: 10px;
+     padding: 8px;
 }
 
+.img-float-right {
+     display: block;
+     float: right;
+     max-width: 100%;
+     height: auto;
+     border-radius: 10px;
+     padding: 5px;
+}
+
+.img-float-left {
+     display: block;
+     float: left;
+     max-width: 100%;
+     height: auto;
+     border-radius: 10px;
+     padding: 5px;
+}
 
 // Sections
 
