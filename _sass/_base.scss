@@ -207,7 +207,8 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 40px 90px 90px 40px;
+        padding sm-4: 40px 90px 90px 50px;
+        padding lg-12: 40px 90px 90px 100px;
         margin: 0px;
         width: 100%;
         .header-content-inner {
