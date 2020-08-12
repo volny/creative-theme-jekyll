@@ -7,7 +7,7 @@
 
 @mixin background-cover()
 {
-    -webkit-background-size: cover; //was cover
+    -webkit-background-size: cover; 
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
