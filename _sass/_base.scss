@@ -198,6 +198,7 @@ header {
     position: relative;
     width: auto;
     min-height: auto;
+    margin: 20px;
     @include background-cover;
     background-position: center;
     //background-image: url('../img/header5.jpg');
@@ -207,8 +208,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 90px 90px 90px 100px;
-        margin: 20px;
+       // padding: 90px 90px 90px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
