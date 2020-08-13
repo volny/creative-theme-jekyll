@@ -207,7 +207,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding: 40px 90px 90px 40px;
+        padding: 40px 90px 90px 39px;
         margin: 0px;
         width: 100%;
         .header-content-inner {
@@ -228,9 +228,9 @@ header {
                 text-transform: none;
                 text-align: left;
                 color: #8a8a8a;
-                margin-bottom: 50%;
+                margin-bottom: 40%;
                 margin-left: 3%;
-               // margin-top: 1px;
+                margin-top: 0.5px;
                 font-size: 20px;
             }
             hr {
