@@ -22,7 +22,7 @@ hr.accent {
 
 a {
     @include transition-all;
-    color: $theme-main-link; 
+    color: $theme-main-link;
     font-weight: 400; //regular links
     &:hover {
         color: $theme-link;
@@ -57,7 +57,7 @@ p {
 }
 
 .p-tagline {
-    @include sans-serif-font; 
+    @include sans-serif-font;
     font-size: 40px; //header tagline
     font-weight: 900;
     text-transform: none;
@@ -207,7 +207,7 @@ header {
     .header-content {
         position: relative;
         text-align: left;
-        padding:80px 90px 50px 30px;
+        padding:110px 90px 80px 50px;
         margin: 0px;
         width: 100%;
         .header-content-inner {
@@ -269,17 +269,17 @@ header {
 ::-webkit-scrollbar {
     width: 15px;
   }
-  
+
   /* Track */
   ::-webkit-scrollbar-track {
     background: #222;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #1d1d1d;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #00dfae;
@@ -337,7 +337,7 @@ header {
     letter-spacing: -0.5px;
 }
 h2.section-heading
-{ 
+{
     font-family: 'Times New Roman', Times, Serif;
     margin-top: 0px;
     margin-bottom: -4px;
@@ -484,7 +484,7 @@ h2.section-heading
 ::-moz-selection {
     color: #222;
     text-shadow: none;
-    background: #fff; //changed 
+    background: #fff; //changed
 }
 
 ::selection {
