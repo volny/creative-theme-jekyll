@@ -217,8 +217,8 @@ header {
                 text-align: left; //title
                 color: #fff;
                 margin-top: 70%;
-                margin-bottom: 1px;
-                margin-right: 0;
+                margin-bottom: 0;
+                margin-right: 10px;
                 margin-left: 3%;
                 font-size: 45px;
                 font-family: 'Times New Roman', Times, serif;
@@ -230,7 +230,8 @@ header {
                 color: #8a8a8a;
                 margin-bottom: 40%;
                 margin-left: 3%;
-                margin-top: 0.5px;
+                margin-top: 1px;
+                margin-right: inherit;
                 font-size: 20px;
             }
             hr {
