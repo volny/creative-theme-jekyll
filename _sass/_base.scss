@@ -247,16 +247,25 @@ header {
     @media (min-width: 600px) {
         min-height: 100%;
         .header-content {
-            position: relative; //absolute
+            position: absolute;
             top: 50%;
-          //  -webkit-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-           // padding: 100 50px;
+            padding: 100 50px;
             .header-content-inner {
                 max-width: auto;
                 margin-left: auto;
                 margin-right: auto;
+            h1 {
+                font-weight: 500;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            h2 {
+                font-weight: 392;
+                color: #8a8a8a;
+            }
+
                 p {
                     max-width: 100%;
                     margin-left: auto;
