@@ -220,7 +220,8 @@ header {
         hr{
             margin:30px auto;
     }
-    @media (min-width: 600px) { 
+}
+ }  @media (min-width: 600px) { 
         min-height:100%;
         .header-content {
             position:absolute;
@@ -251,11 +252,10 @@ header {
                 margin-right:auto;
              }
             }
-        }
+          }
         }
     }
- }
-}
+ 
 
 // Scrollbar
 
