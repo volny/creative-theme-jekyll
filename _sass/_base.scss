@@ -198,7 +198,6 @@ header {
     position: relative;
     width: auto;
     min-height: auto;
-    margin: 20px;
     @include background-cover;
     background-position: center;
     //background-image: url('../img/header5.jpg');
@@ -208,11 +207,9 @@ header {
     .header-content {
         position: relative;
         text-align: left;
+        padding: 40px 90px 90px 40px;
         margin: 0px;
         width: 100%;
-        padding:  41px 90px 60px 40px;
-    }
-    
         .header-content-inner {
             h1 {
                 font-weight: 500;
@@ -264,6 +261,7 @@ header {
             }
         }
     }
+}
 
 // Scrollbar
 
