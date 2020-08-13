@@ -247,12 +247,12 @@ header {
     @media (min-width: 600px) {
         min-height: 100%;
         .header-content {
-            position: absolute;
+            position: relative; //absolute
             top: 50%;
-            -webkit-transform: translateY(-50%);
+          //  -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 100 50px;
+           // padding: 100 50px;
             .header-content-inner {
                 max-width: auto;
                 margin-left: auto;
