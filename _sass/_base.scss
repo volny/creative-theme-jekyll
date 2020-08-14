@@ -37,11 +37,19 @@ a {
 }
 
 h1,
-h2,
 h4,
 h5,
 h6 {
     @include sans-serif-font;
+}
+
+// em inherit?
+
+h2 {
+    font-family: 'Times New Roman', Times, Serif;
+    font-style: oblique;
+    font-weight: 250;
+    font-size: 19px;
 }
 
 h3.italic {
