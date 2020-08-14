@@ -239,9 +239,16 @@ header {
                 font-family:'Times New Roman', Times, serif;
                 color: #fff;
             }
-            h2 em {
+            h2 {
                 font-weight:392;
                 font-size:15px;
+                line-height: 0.1px;
+                color:#8a8a8a;
+                margin-bottom:0px;
+            }
+            em {
+                font-weight:392;
+                font-size: 40px;
                 line-height: 0.1px;
                 color:#8a8a8a;
                 margin-bottom:0px;
