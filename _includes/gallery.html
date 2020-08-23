@@ -28,7 +28,7 @@
             <div class="col-6 col-md-4">
                 <a href="javascript:void(0)" id="6" class="portfolio-box" onclick="openSlideshow(this.id)">
                     <div class="row no-gutter gallery-container">
-                    {% for index in (1..site.t.sections.gallery.images.size) limit:9 %}
+                    {% for index in (1..site.t.sections.gallery.images.size) offset: 5 limit:9 %}
                     {% assign thumbnail = site.t.sections.gallery.images[index] %}
                         <div class="col-4">
                             <img data-src="/img/gallery/thumb/{{ thumbnail.image }}" class="img-lazy img-responsive" alt="{{ thumbnail.alt[ page.lang] }}">
