@@ -110,9 +110,9 @@ t:
             fr: "Plage et Surf"
             de: "Strand und Surfen"
           text:
-            en: "Only few steps away from the beautiful beach of Le Penon! And if you want to cool down or go jogging, a quiet pine forest is right in front of the house."
+            en: "Only a few steps away from the beautiful beach of Le Penon! And if you want to cool down or go for a run, a quiet pine forest is right in front of the house."
             fr: "A seulement quelques pas se trouve la belle plage du Penon! Et s'il fait trop chaud ou si vous voulez faire du jogging, la forêt de pins est juste en face de la maison."
-            de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine runde Joggen willst, bist du genauso schnell im ruhigen Pinienwald."
+            de: "In wenigen Schritten bist du am wunderschönen Strand von Le Penon! Und wenn es doch mal zu heiß wird oder du eine Runde joggen willst, bist du genauso schnell im ruhigen Pinienwald."
         2:
           image: "food-nourriture-bars-restaurants-club-boite-de-nuit-beach-club-essen-lecker-disco.jpg"
           alt:
@@ -121,17 +121,17 @@ t:
             de: "Dutzende von Bars, Restaurants, Geschäften und ein Nachtclub sind von Ihrem Surf Haus in Seignosse Le Penon, Frankreich, zu Fuß erreichbar."
           distance: "300 m"
           title:
-            en: "Bars and restaurants"
-            fr: "Bars et restaurants"
+            en: "Bars and Restaurants"
+            fr: "Bars et Restaurants"
             de: "Bars und Restaurants"
           text:
-            en: "There is everything you need in Le Penon. Very close by are lots of restaurants, shops, supermarket, surf shops, a pharmacy and the Beach Club L'Escargot!<br/ >Tuesday, Thursday and Sunday are market days in Le Penon, Seignosse. Perfect to stock up on a wide variety of fresh produce."
+            en: "There is everything you need in Le Penon. Very close by are lots of restaurants, shops, supermarket, surf shops, a pharmacy and the Beach Club L'Escargot!<br/ >Tuesdays, Thursdays and Sundays are market days in Le Penon, Seignosse. Perfect to stock up on a wide variety of fresh produce."
             fr: "Il est impossible de s'ennuyer sur la place du Penon où se trouve beaucoup de restaurants, magasins, supermarchés, magasins de surf, une pharmacie et surtout le Beach Club de l'Escargot!<br/ >Les mardi, jeudi et dimanche sont les jours de marché au Penon, Seignosse. Parfait pour faire le plein de produit frais!"
-            de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum nächsten Platz mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags ist Markt in Seignosse Le Penon, und du findest viele frische Angebote!"
+            de: "In und um Le Penon gibt es viele weitere Möglichkeiten, den Tag zu verbringen. Bis zum nächsten Platz mit vielen Restaurants und Bars, Geschäften, Supermarkt, Surfshops, Apotheke und dem Beach-Club L'escargot ist es nicht weit.<br />Dienstags, Mittwochs und Sonntags ist Markt in Seignosse Le Penon, und du findest viele frische Angebote!"
         3:
           image: "skate-surf-kitesurf-skatepark-school-ecole-schule.jpg"
           alt:
-            en: "There is everything for sports in Seignosse Le Penon, France, with a new Skatepark and lots of surf and kitesurf schools."
+            en: "There is everything for sports in Seignosse Le Penon, France, with a new skatepark and lots of surf and kitesurf schools."
             fr: "Tout pour le sport avec un nouveau Skatepark et plein d'écoles de surf et de kitesurf sont disponible à Seignosse Le Penon, France"
             de: "Es gibt alles für den Sport mit einem neuen Skatepark und vielen Surf- und Kitesurfschulen in Seignosse Le Penon, Frankreich."
           distance: "800 m"
@@ -155,9 +155,9 @@ t:
             fr: "Hossegor"
             de: "Hossegor"
           text:
-            en: "Off you go to the famous surf spots of Capbreton or Hossegor La Gravière & Les Culs Nuls! Where the Quicksilver Pro France and Roxy Pro France competitions of the World Surf League are held every year! <br />Or you can easily reach other great beaches for sunbathing, swimming and surfing such as Plage des Bourdaines, Plage des Estagnots or Plage des Casernes."
+            en: "Off you go to the famous surf spots of Capbreton or Hossegor La Gravière & Les Culs Nuls, where the Quicksilver Pro France and Roxy Pro France competitions of the World Surf League are held every year! <br />Or you can easily reach other great beaches for sunbathing, swimming and surfing such as Plage des Bourdaines, Plage des Estagnots or Plage des Casernes."
             fr: "Partez pour les célèbres spots de surf de Capbreton ou Hossegor La Gravière & Les Culs Nuls où se déroulent chaque année les compétitions Quicksilver Pro France et Roxy Pro France de la World Surf League! <br />Ou alors vous pouvez facilement rejoindre d'autres grandes plages pour prendre le soleil, nager et surfer comme par exemple les plages des Bourdaines, des Estagnots ou des Casernes."
-            de: "Auf zu den berühmten Surfspots von Capbreton oder Hossegor La Gravière & Les Culs Nuls! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League ausgetragen!<br />Oder kannst du leicht andere tolle Strände zum Sonnenbaden, Schwimmen und Surfen erreichen wie z.b. Plage des Bourdaines, Plage des Estagnots oder Plage des Casernes."
+            de: "Auf zu den berühmten Surfspots von Capbreton oder Hossegor La Gravière & Les Culs Nuls! Hier werden jedes Jahr die Wettbewerbe Quicksilver Pro France und Roxy Pro France der World Surf League ausgetragen!<br />Andere leicht zu erreichende Strände zum Sonnenbaden, Schwimmen und Surfen sind z. B. Plage de Bourdaines, Plage des Estagnots oder Plage des Casernes."
         5:
           image: "plane-avion-flugzeug-train-access-zugang-cities-villes-staedte.jpg"
           alt:
@@ -194,7 +194,7 @@ t:
           text:
             en: "Fully equipped with oven, coffee machine, dishwasher and everything else you need"
             fr: "Entièrement équipée dont un four, une machine à café, un lave-vaisselle et tout ce dont vous avez besoin"
-            de: "Komplett ausgestattet mit Backofen, Kaffeemaschine, Spülmaschine und alles was man braucht"
+            de: "Komplett ausgestattet mit Backofen, Kaffeemaschine, Spülmaschine und allem, was man braucht."
         2:
           icon: "fa-umbrella-beach"
           title:
@@ -218,11 +218,11 @@ t:
         4:
           icon: "fa-paper-plane"
           title:
-            en: "Surfboards rack"
-            fr: "Surfboards rack"
+            en: "Surfboard rack"
+            fr: "Surfboard rack"
             de: "Surfbrettständer"
           text:
-            en: "Up to 4 surfboards"
+            en: "For up to 4 surfboards"
             fr: "Etagère dédiée jusqu'à 4 planches de surf"
             de: "Mit Platz für 4 Surfbretter"
         5:
@@ -368,6 +368,6 @@ t:
         fr: "Allez on se parle!"
         de: "Ruf uns an!"
       subtitle:
-        en: "Ready to come? Have you already packed your surfboard? But you don't want to book online? Then just give as a call!"
+        en: "Ready to come? Have you already packed your surfboard? But you don't want to book online? Then just give us a call!"
         fr: "Prêt à venir? Vous avez déjà préparer votre sac et vos planches de surf? Mais vous ne voulez pas réserver par internet? Dans ce cas là appelez nous!"
-        de: "Bist du bereit? Sind die Koffer gepackt? Aber du willst nicht online buchen? Dann ruf uns an!"
+        de: "Bist du bereit? Die Koffer sind gepackt? Aber du willst nicht online buchen? Dann ruf uns an!"
