@@ -359,9 +359,9 @@ t:
         fr: "Adresse"
         de: "Anschrift"
       subtitle:
-        en: "Résidence Atlantique<br />9 Avenue Chambrelent<br />40510 Seignosse"
-        fr: "Résidence Atlantique<br />9 Avenue Chambrelent<br />40510 Seignosse"
-        de: "Résidence Atlantique<br />9 Avenue Chambrelent<br />40510 Seignosse"
+        en: "Résidence Atlantique, Apt. 5<br />9 Avenue Chambrelent<br />40510 Seignosse"
+        fr: "Résidence Atlantique, Apt. 5<br />9 Avenue Chambrelent<br />40510 Seignosse"
+        de: "Résidence Atlantique, Apt. 5<br />9 Avenue Chambrelent<br />40510 Seignosse"
     contact:
       title:
         en: "Let's Get In Touch!"
