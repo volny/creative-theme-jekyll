@@ -349,6 +349,66 @@ t:
             en: ""
             fr: ""
             de: ""
+        10:
+          image: "10.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        11:
+          image: "11.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        12:
+          image: "12.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        13:
+          image: "13.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        14:
+          image: "14.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        15:
+          image: "15.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        16:
+          image: "16.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        17:
+          image: "17.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        18:
+          image: "18.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
+        19:
+          image: "19.jpeg"
+          alt:
+            en: ""
+            fr: ""
+            de: ""
       slideshow:
         en: "Open photo gallery"
         fr: "Voir toutes les photos"
