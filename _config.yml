@@ -14,3 +14,4 @@ github_username:  gpozzi
 # Build settings
 markdown: kramdown
 future: true
+timezone: America/Argentina/Buenos_Aires
