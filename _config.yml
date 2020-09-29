@@ -13,3 +13,4 @@ github_username:  gpozzi
 
 # Build settings
 markdown: kramdown
+future: true
