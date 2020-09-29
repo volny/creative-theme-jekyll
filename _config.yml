@@ -2,7 +2,7 @@
 title: Portfolio personal
 email: gpozzi@gmail.com
 
-baseurl: "/blog/" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
 twitter_username: gpozzi__
