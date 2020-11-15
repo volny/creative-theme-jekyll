@@ -76,18 +76,21 @@ t:
       partners:
         1:
           image: "booking-reservation-buchen-partner-airbnb.png"
+          link: "https://www.airbnb.fr/rooms/46364539"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Airbnb"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse directement sur Airbnb"
             de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf Airbnb"
         2:
           image: "booking-reservation-buchen-partner-holilandes.png"
+          link: "https://holilandes.fr/"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on HoliLandes.fr"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur HoliLandes.fr"
             de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf HoliLandes.fr"
         3:
           image: "booking-reservation-buchen-partner-homeaway.png"
+          link: "https://www.abritel.fr/"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Homeaway"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Homeaway"
