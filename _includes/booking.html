@@ -13,7 +13,7 @@
 			<div class="row justify-content-center">
 				{% for index in (1..site.t.sections.booking.partners.size) %}
 				{% assign partner = site.t.sections.booking.partners[index] %}
-					<a class="booking-partner col-sm" href="{{ partner.link }}" target="_blank">
+					<a class="booking-partner col-sm btn" href="{{ partner.link }}" target="_blank">
 						<img class="img-lazy img-responsive" data-src="/img/partners/{{ partner.image }}" alt="{{ partner.alt[page.lang] }}">
 					</a>
 				{% endfor %}
