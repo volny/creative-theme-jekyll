@@ -70,12 +70,12 @@ Netlify has been configured to deploy the website at every git commit/push on th
 ### Booking
 - [x] Rename About section into Booking with lower part with a calendar (or 'coming soon').
 - [x] Prepare booking area with a coming soon.
-- [ ] Find out how to integrate booking to a gmaps POI.
+- [ ] Find out how to integrate booking info to a gmaps POI.
 
 ### Map
 - [x] Add a new section to show a map location
 - [x] Mobile: Add link to map application
-- [ ] Add POI to google maps
+- [x] Add POI to google maps
 
 ### Slideshow
 - [x] Responsive design for mobile devices
@@ -97,11 +97,10 @@ Netlify has been configured to deploy the website at every git commit/push on th
 - [x] Add GitHub link
 
 ### Description on Partner's websites.
-- [ ] Check for those information:
+- [x] Check for those information:
 	- Non-smoker property
 	- Smoke detector
 	- Bedsheets handling
-	- First Aid Kit
 	- Heating
 
 ## Feedbacks

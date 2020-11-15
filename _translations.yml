@@ -70,24 +70,27 @@ t:
         fr: "Le Penon Surf House est situé à Seignosse Le Penon, sur la côte atlantique française. Le Sud-Ouest est célèbre pour ses beach-breaks parfaits, ses plages magnifiques et certains des meilleurs spots de surf d'Europe.<br />Le logement dispose d'un accès rapide à la plage à seulement 150 mètres, d'une place de parking et d'une piscine sur la propriété de la Résidence Atlantique! Au coin de la rue, vous trouverez tout ce dont vous avez besoin pour passer des vacances exceptionnelles: écoles de surf, bars, restaurants, boutiques, skatepark et même un club de plage pour faire la fête."
         de: "Le Penon Surf House befindet sich in Seignosse Le Penon an der französischen Atlantikküste. Der Südwesten Frankreichs ist berühmt für seine perfekten Beachbreaks, wunderschönen Strände und einige der besten Surfspots Europas.<br />Die Unterkunft verfügt über einen schnellen Strandzugang (nur 150 m entfernt), einen Parkplatz und ein Schwimmbad auf dem Grundstück der Résidence Atlantique. Gleich um die Ecke gibt es alles, was man für einen tollen Urlaub braucht, mit Surfschulen, Bars, Restaurants, Geschäften, einem Skatepark und sogar einem Beach-Club, um das Nachtleben zu beleben."
       coming_soon:
-        en: "Coming soon via our partners"
-        fr: "Bientôt disponible avec nos partenaires"
-        de: "Demnächst verfügbar über unsere Partner"
+        en: "Book now on:"
+        fr: "Réservez dès maintenant sur:"
+        de: "Jetzt buchen auf:"
       partners:
         1:
           image: "booking-reservation-buchen-partner-airbnb.png"
+          link: "https://www.airbnb.fr/rooms/46364539"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Airbnb"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse directement sur Airbnb"
             de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf Airbnb"
         2:
-          image: "booking-reservation-buchen-partner-booking.com.png"
+          image: "booking-reservation-buchen-partner-holilandes.png"
+          link: "https://holilandes.fr/"
           alt:
-            en: "Book now your Surf House close to the beach in Seignosse directly on Booking.com"
-            fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Booking.com"
-            de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf Booking.com"
+            en: "Book now your Surf House close to the beach in Seignosse directly on HoliLandes.fr"
+            fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur HoliLandes.fr"
+            de: "Buchen Sie jetzt Ihr Surf Haus in Strandnähe in Seignosse direkt auf HoliLandes.fr"
         3:
           image: "booking-reservation-buchen-partner-homeaway.png"
+          link: "https://www.abritel.fr/"
           alt:
             en: "Book now your Surf House close to the beach in Seignosse directly on Homeaway"
             fr: "Réservez dès maintenant votre Surf House tout près de la plage à Seignosse sur Homeaway"
