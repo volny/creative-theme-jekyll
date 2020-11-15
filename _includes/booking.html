@@ -10,7 +10,7 @@
 		<hr class="primary">
 		<div class="text-center">
 			<h5>{{ site.t.sections.booking.coming_soon[page.lang] }}</h5>
-			<div class="row">
+			<div class="row justify-content-center">
 				{% for index in (1..site.t.sections.booking.partners.size) %}
 				{% assign partner = site.t.sections.booking.partners[index] %}
 					<a class="booking-partner col-sm" href="{{ partner.link }}" target="_blank">
