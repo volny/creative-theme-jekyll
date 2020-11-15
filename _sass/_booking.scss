@@ -16,7 +16,7 @@
 }
 
 .booking-partner {
-	height: 80px;
+	height: 100px;
 
 	/* Vertically and horizontally align the content*/
 	display: flex;
@@ -24,6 +24,22 @@
 	align-items: center;
 
 	img {
-		max-height: 60%;
+		max-height: 80%;
 	}
+
+	/* Border */
+	background-color: #F0F0F0; /* Light Gray*/
+	border-radius: 10px;
+	border: 4px double #B0B0B0; /* Dark Gray*/
+
+	/* Hover transition */
+	transition: all 0.5s;
+	cursor: pointer;
+
+	/* Margin between the elements*/
+	margin: 20px;
+}
+
+.booking-partner:hover {
+	background-color: #CDCDCD; /* Mid Gray*/
 }
