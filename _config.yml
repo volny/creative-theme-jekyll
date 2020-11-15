@@ -4,9 +4,9 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "lepenon-surfhouse.fr" # the base hostname & protocol for your site
 
 # Contact Information
-email: delord.kevin@gmail.com
-phone_number: 0033558123456
-phone_display: "+33 (0)5 58 12 34 56"
+email: holilandes@gmail.com
+phone_number: 0033677782518
+phone_display: "+33 (0)6 77 78 25 18"
 github_link: "kevindelord/lepenon-surfhouse"
 
 # Build settings
