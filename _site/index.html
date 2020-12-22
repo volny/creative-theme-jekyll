@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata -->
+    <!-- Include Meta Tags Here -->
+<meta charset="UTF-8">
+
+<!-- disable scroll on mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+-->
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1 user-scalable=no, shrink-to-fit=no">
+<meta content='#000000' name='theme-color'/>
+<meta name="keywords" content="QRL, Quantum Resistant Ledger, Tipbot, tips, faucet, cryptocurrency">
+<title>QRL Tipbot</title>
+
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="QRL Tipbot">
+
+<!--<meta name="og:description" content="Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4">-->
+<meta name="og:description" content="Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4">
+
+
+<meta name="og:image" content="/img/yellow.png">
+<meta name="og:image:alt" content="QRL Tipbot">
+<meta name="og:url" content="https://qrl.tips/">
+<meta name="article:author" content="https://fr1t2/com">
+<meta name="og:site_name" content="QRL Tipbot">
+<meta name="og:type" content="website">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="QRL Tipbot">
+<meta name="twitter:description" content="Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4">
+<meta name="twitter:site" content="@just_a_warning">
+<meta name="twitter:creator" content="@just_a_warning">
+<meta name="twitter:image:src" content="/img/yellow.png">
+<!-- Search Engine -->
+<meta name="description" content="Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4">
+<meta name="image" content="/img/yellow.png">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="QRL Tipbot">
+<meta name="author" content=""/>
+<meta itemprop="description" content="Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4">
+<meta itemprop="image" content="/img/yellow.png">
+
+
+
+
+<!--
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4">
+    <meta name="author" content="fr1t2">
+
+    <title>QRL Tipbot</title>
+-->
+
+<!-- Bootstrap Core CSS Bootstrap CDN-->
+
+<!-- Latest compiled and minified CSS -->
+<!--
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+-->
+<!-- Latest compiled and minified JavaScript -->
+<!--
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+-->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+
+
+
+    <!-- Bootstrap Core CSS -->
+    <!--
+     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+ -->
+     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="font-awesome-5/css/all.css" type="text/css">
+<!--    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css"> -->
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', '');
+    </script>
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top"><span><img src="/img/yellow_512x512.png" width="30" height="30" alt=""></span> QRL Tipbot</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#about">About</a>
+                </li>
+           <li>
+                    <a class="page-scroll" href="#usage">Bot Usage</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#support">Support</a>
+                </li>
+           <!--     
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                </li>
+                -->
+                <li>
+                    <a class="page-scroll" href="https://discord.gg/eUkymqbZe4" target="_blank"><span><i class="fab fa-discord" style="color: #ffa729;"></i> Discord</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+
+</nav>
+
+  <header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>QRL Tipbot and Faucet</h1>
+            <hr>
+            <p>On-Chain QRL tipbot and faucet linked to the Discord commuity chat. Sign up an account today to start tipping!</p>
+            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+        </div>
+    </div>
+</header>
+
+
+  <section class="bg-primary" id="about">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Spreading the worlds most secure currency and store of value!</h2>
+                <hr class="light">
+                <p class="text-faded">The tipbot was created to enable the community the ability to send quantum resistant quanta to other users. Along the way during development a faucet found it's way into the project.</p>
+                <p>All tips are sent on-chain to users individual wallet addresses. Users have full access to their tipbot private keys allowing transparency and control of funds. Your keys, your quantum secure crypto!</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <aside class="bg-dark">
+      <div class="container text-center">
+          <div class="call-to-action">
+              <h2>Join the Discord Community for Tipbot Access!</h2>
+              <a href="https://discord.gg/eUkymqbZe4" class="btn btn-default btn-xl wow tada"> <span ><i class="fab fa-discord fa-2x" ></i></span>  Discord</a>
+          </div>
+      </div>
+  </aside>
+
+  <section id="usage">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">Tipbot Usage</h2>
+        <hr class="primary">
+        <p>
+          Below you will find a larger explanation to the bot usage. You can always evoke these instructions through the bot in Discord using the <kbd>+help</kbd> function
+        </p>
+        <p>
+          All tipbot commands begin with the <kbd>+</kbd> symbol or by directly calling the bot with <kbd>@QRL-tips</kbd>
+        </p>
+      </div>
+      <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-justified" >
+        <div id="accordion" class="">
+        <!-- add -->
+          <div class="card text-center" >
+            <div class="card-header" id="headingAdd">
+              <div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseAdd" aria-expanded="true" aria-controls="collapseAdd"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+                <strong>add -</strong> Sign up to the QRL TipBot...
+              </div>
+            </div>
+            <div id="collapseAdd" class="collapse" aria-labelledby="headingAdd" data-parent="#accordion">
+              <div class="card-body">
+                <h5 class="card-title"><strong>Alias -</strong><i> join, signup, su, Add, ADD</i></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +add </kbd></h6>
+                <p class="card-text">
+                  Users must enter this command once from their main account to activate an account with the tipbot in a server and channel the tipbot is allowed to be in.
+                </p>
+              </div>
+            </div>
+          </div>
+         	<!-- agree -->
+					<div class="card text-center" id="usage-agree">
+    				<div class="card-header" id="headingAgree">
+      				<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseAgree" aria-expanded="true" aria-controls="collapseAgree"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  							<strong>agree -</strong> Agree to the Tipbot Terms...
+						  </div>
+	        	</div>
+    				<div id="collapseAgree" class="collapse" aria-labelledby="headingAgree" data-parent="#accordion">
+	      			<div class="card-body">
+    	  				<h5 class="card-title"><strong>Alias -</strong><i> Agree, AGREE, ok, confirm, consent</i></h5>
+    						<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +agree </kbd></h6>
+    						<p class="card-text">
+ 	  							Users must agree with the terms and conditions of the bot. With out agreeing to these terms, the user will not be able to use most of the tipbot functions.<br>This command must be entered in a private chat with the tipbot. 
+   							</p>
+   							<a href="#usage-terms" class="card-link">Terms and Conditions</a>
+     					</div>
+    				</div>
+  				</div>
+	        <!-- Balance -->
+					<div class="card text-center" id="usage-balance">
+    					<div class="card-header" id="headingBal">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseBal" aria-expanded="true" aria-controls="collapseBal"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>balance -</strong> Get a QRL wallet balance...
+							</div>
+	        			</div>
+    					<div id="collapseBal" class="collapse" aria-labelledby="headingBal" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i> ?$, Bal, BAL, Balance, bal, funds</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +bal </kbd> or <kbd>+bal Q01060088d97b51178...</kbd></h6>
+    							<p class="card-text">
+    								Provides the user balance information for both the users tipbot address or any address passed as an argument. Both will report the balance information and links to view on the QRL block explorer.
+    							</p>
+    							<a href="https://explorer.theqrl.org" class="card-link">QRL Block Explorer</a>
+      						</div>
+    					</div>
+					</div>
+					<!-- Deposit -->
+					<div class="card text-center" id="usage-deposit">
+    					<div class="card-header" id="headingAdd">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseDep" aria-expanded="true" aria-controls="collapseDep"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>deposit -</strong> Print users tipbot Address...
+							</div>
+	        			</div>
+    					<div id="collapseDep" class="collapse" aria-labelledby="headingDep" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i> dep, fund, addfunds, Deposit, DEP, fill</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +deposit </kbd></h6>
+    							<p class="card-text">
+    								Print out users tipbot address information for depositing coins into the users tipbot account to send. Will display this information in a private message with the user.
+    							</p>
+      						</div>
+    					</div>
+					</div>
+	            	
+
+					<!-- faucet -->
+					<div class="card text-center" id="usage-faucet">
+    					<div class="card-header" id="headingFaucet">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseFaucet" aria-expanded="true" aria-controls="collapseFaucet"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>faucet -</strong> Free QRL from the tipbot...
+							</div>
+	        			</div>
+    					<div id="collapseFaucet" class="collapse" aria-labelledby="headingFaucet" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i> Faucet, drip, Drip, payme, freeqrl, free, drop</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +faucet </kbd></h6>
+    							<p class="card-text">
+    								Collect a small drip from the tipbot faucet. When funded this faucet will disperse funds to users on a daily basis if requested. Users may not receive more than one faucet drip a day. 
+    							</p>
+    							<p class="card-text">
+    								This faucet is funded by the generosity of community members, please consider giving back to the community. Consider setting the faucet as a mining payout address if you can afford the hashrate.
+    							</p>
+    							 Faucet Address: <a href="https://explorer.theqrl.org/a/Q010300284cc14642e9b2978218f70fcf76274d67d82f3cf7d9038d0e3e43bacfe293773f803931" class="card-link">Q010300284cc14642e9b2978218f70fcf76274d67d82f3cf7d9038d0e3e43bacfe293773f803931</a>
+      						</div>
+    					</div>
+					</div>
+	            	
+
+					<!-- info -->
+					<div class="card text-center" id="usage-info">
+    					<div class="card-header" id="headinginfo">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseinfo" aria-expanded="true" aria-controls="collapseinfo"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>info -</strong> Information about things...
+							</div>
+	        			</div>
+    					<div id="collapseinfo" class="collapse" aria-labelledby="headinginfo" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i> ??, stats, status, state</i></h5>
+    	  						<h5 class="card-title"><strong>Flags -</strong> <i>qrl, market, exchange, faucet, bot, user</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +info faucet</kbd></h6>
+    							<p class="card-text">
+    								This command will report various information to the user. Command requires an additional flag to get detailed information, otherwise prints a simple information message. 
+    							</p>
+    							<table class="table table-bordered">
+  									<thead>
+    									<tr class="table-active">
+      										<th scope="col" class="text-left">Flag</th>
+      										<th scope="col" class="text-center">Sub-Alias</th>
+      										<th scope="col" class="text-center">Info</th>
+    									</tr>
+  									</thead>
+  									<tbody>
+    									<tr class="table-secondary">
+      										<th scope="row">bot</th>
+      										<td><i>tipbot, details</i></td>
+      										<td>Provides information about the tipbot.</td>
+    									</tr>
+    									<tr>
+      										<th scope="row">exchange</th>
+      										<td><i>exchange, trade</i></td>
+      										<td>Shows information on where to exchange QRL.</td>
+    									</tr>
+    									<tr>
+      										<th scope="row">faucet</th>
+      										<td><i>faucet, drip, free, charity, giveaway</i></td>
+      										<td>Prints information on the faucet, including balance and address to donate to.</td>
+    									</tr>
+    									<tr>
+      										<th scope="row">market</th>
+      										<td><i>$$, market, markets, price, value, volume</i></td>
+      										<td>Prints the current market data from <a href="https://www.coingecko.com/en/coins/quantum-resistant-ledger" target="_blank"> Coin Gecko</a>  </td>
+    									</tr>
+    									<tr>
+      										<th scope="row">user</th>
+      										<td><i>?$, user, me, account, balance, bal, address</i></td>
+      										<td>Prints user information to private message including public address and balance. </td>
+    									</tr>
+    									<tr>
+          									<th scope="row">help</th>
+	   										<td><i>info, use, what</i></td>
+    										<td>Prints help message</td>
+    									</tr>
+
+  									</tbody>
+								</table>
+      						</div>
+    					</div>
+					</div>
+					<!-- Keys -->
+					<div class="card text-center" id="usage-keys">
+    					<div class="card-header" id="headingKeys">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseKeys" aria-expanded="true" aria-controls="collapseKeys" ><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>keys -</strong> Print secret keys...
+							</div>
+	        			</div>
+    					<div id="collapseKeys" class="collapse" aria-labelledby="headingKeys" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title" ><strong>Alias -</strong><i> getkeys, privatekeys, privatekey, key, secret, mnemonic, hexseed, GetKeys, getKeys, GETKEYS, Keys, KEYS, KEY</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +keys</kbd></h6>
+    							<p class="card-text">
+									 Returns users private keys in a private message with the requesting user. The Tipbot QRL address assigned to a user will not be changed if user compromises their keys.
+                  </p>
+									<div class="row">
+                    <div class="alert alert-danger col-md-6 col-md-offset-3 text-uppercase" role="alert">
+                      <strong>DANGER!</strong> Never share these keys!
+                    </div>
+                  </div>
+
+                  <p>
+									If you don't need to print these, they are safer with the bot than with a user. Best practice is to leave only small amounts of funds on the bot, withdrawing any excessive tips to an address you control.<br> If you want to backup the tipbot address, save these keys somewhere safe, offline.
+								</p>
+      						</div>
+    					</div>
+					</div>
+	            	
+
+					<!-- Opt-In -->
+					<div class="card text-center" id="usage-optin">
+    					<div class="card-header" id="headingOptIn">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseOptIn" aria-expanded="true" aria-controls="collapseOptIn"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>optin -</strong> Opt-In to the tipbot...
+							</div>
+	        			</div>
+    					<div id="collapseOptIn" class="collapse" aria-labelledby="headingOptIn" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i>oi</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +optin</kbd></h6>
+    							<p class="card-text">
+									Opt Into the QRL TipBot if you have opted out. This function will not do anything if you have not previously opted out. Use it to opt back into the bot. All funds that have been sent to the user while opted-out will be automatically deposited into the users address. 
+    							</p>
+      						</div>
+    					</div>
+					</div>
+	            	
+
+					<!-- Opt-Out -->
+					<div class="card text-center" id="usage-optout">
+    					<div class="card-header" id="headingOptOut">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseOptOut" aria-expanded="true" aria-controls="collapseOptOut"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>optout -</strong> Opt-Out of the QRL TipBot...
+							</div>
+	        			</div>
+    					<div id="collapseOptOut" class="collapse" aria-labelledby="headingOptOut" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i>oo</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +optout</kbd></h6>
+    							<p class="card-text">
+    								Opt out of the QRL TipBot removing all functionality with on-chain functions. Users tips sent to a user that has opt-ed out will be sent upon user re-signup, or after a set time will be deposited back into the faucet address to give back to the community. <br><i>Details of time before faucet deposit is open for discussion!</i>
+    							</p>
+
+      						</div>
+    					</div>
+					</div>
+					<!-- Terms -->
+					<div class="card text-center" id="usage-terms">
+    					<div class="card-header" id="headingTerms">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseTerms" aria-expanded="true" aria-controls="collapseTerms"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>terms -</strong> Print terms and conditions...
+							</div>
+	        			</div>
+    					<div id="collapseTerms" class="collapse" aria-labelledby="headingTerms" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i> </i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +terms</kbd></h6>
+    							<p class="card-text">
+    								Terms and conditions that you must agree to in order to use the bot. 
+    							</p>
+								<div class="panel panel-default text-left">
+  									<div class="panel-body">
+    									<h4><strong>Terms</strong></h4>
+    									<ul class="list-group">
+    										<li class="list-group-item">Use of this TipBot and any function it may provide to you, as the user, is at your risk.</li>
+    										<li class="list-group-item">By using this service you agree to not hold liable, for any reasons, the owner, operators, or any affiliates of the QRL TipBot or anyone associated with this service.</li>
+    										<li class="list-group-item">By using this service, you agree to not abuse or misuse the service and will follow the rules listed below.</li>
+    										<li class="list-group-item">Abuse of this service may result in a ban from the service and if warranted legal action may be taken. </li>
+    										<li class="list-group-item">By using this service you agree to share information about your social media account used for signup to the TipBot service including but not limited to, service user name(s), service user ID(s), all interactions and messages with the bot, and any other public information available through the social media API services.</li>
+    										<li class="list-group-item">At no point will this information be sold or used for any purpose other than this TipBot service, and is only stored for the purpose of managing your accounts.</li>
+    										<li class="list-group-item">All funds must be withdrawn to a user controlled account. </li>
+    										<li class="list-group-item">Any funds left on the bot may be lost at any time, and the user agrees that this is an acceptable loss. </li>
+    										<li class="list-group-item">Funds shall be withdrawn from the bot regularly into user controlled wallets.</li>
+    										<li class="list-group-item">Users will not store large amounts of funds in any tipbot wallet</li>
+    										<li class="list-group-item"><strong>User assumes all risk by using the tipbot</strong></li>
+    									</ul>
+                      <h4><strong>Rules</strong></h4>
+                      <ul class="list-group">
+                        <li class="list-group-item">All tips are final once sent.</li>
+                        <li class="list-group-item">Tips will never be refunded or returned to a user, for any reason.</li>
+                        <li class="list-group-item">This service is for tipping or giving small amounts of QRL to other users.</li>
+                        <li class="list-group-item">You agree to not store or trade currency or for any other reason than tipping users.</li>
+                        <li class="list-group-item">You will not store large amounts of QRL in this address at any time.</li>
+                        <li class="list-group-item">You take full responsibility for transferring funds out of the Tipbot, using the <kbd>+transfer</kbd> function into a wallet you control.</li>
+                        <li class="list-group-item">You will not use this bot if it will in any way break any law, in any jurisdiction. <kbd>+opt-out</kbd> to disable your account.</li>
+                        <li class="list-group-item">You will not use this bot in any way that is not intended or identified in these rules.</li>
+                        <li class="list-group-item">Any tips sent to a user that has not signed up will be saved by the bot for that user. Failure of the user to collect tips may result in a loss of funds for that user. They will not be returned to the sender.</li>
+                        <li class="list-group-item">Any abuse of the service will result in a ban, and if warranted legal action may be taken accordingly. Funds will not be returned to banned users.</li>
+                      </ul>
+                    </div>
+    							</div>
+
+      						</div>
+    					</div>
+					</div>
+					<!-- Tip -->
+					<div class="card text-center" id="usage-tip">
+    					<div class="card-header" id="headingTip">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseTip" aria-expanded="true" aria-controls="collapseTip"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								  <strong>tip -</strong> Send QRL through the TipBot...
+                  </div>
+	        			</div>
+                <div id="collapseTip" class="collapse" aria-labelledby="headingTip" data-parent="#accordion">
+                  <div class="card-body">
+    	  					  <h5 class="card-title"><strong>Alias -</strong><i>!$, send, Tip, give, gift, TIP</i></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +tip @USER @USER1 @USER2 1.233</kbd></h6>
+                    <p class="card-text">
+                      Allows the tipping of users when tipbot account has a balance. Command requires that you specify a user to tip and an amount to send. Command can send tips to up to 99 accounts at the same time and there is no limit on the amount you can send, as long as the sending address has this balance. 
+                    </p>
+                  <div class="row">
+                    <div class="alert alert-danger col-md-6 col-md-offset-3 text-uppercase" role="alert">
+                      <strong>All Tips Are Final once sent - no refunds!</strong>
+                    </div>
+                  </div>
+
+      						</div>
+    					</div>
+					</div>
+					<!-- Withdraw -->
+					<div class="card text-center" id="usage-withdraw">
+    					<div class="card-header" id="headingWithdraw">
+      						<div class="alert alert-qrl mb-0 text-left" role="alert" data-toggle="collapse" data-target="#collapseWithdraw" aria-expanded="true" aria-controls="collapseWithdraw"><span><i class="far fa-caret-square-down fa-lg">&emsp;</i></span>
+  								<strong>withdraw -</strong> Remove QRL from tipbot...
+							</div>
+	        			</div>
+    					<div id="collapseWithdraw" class="collapse" aria-labelledby="headingWithdraw" data-parent="#accordion">
+	      					<div class="card-body">
+    	  						<h5 class="card-title"><strong>Alias -</strong><i>wd, transfer, cashout, Withdraw, WD, extract</i></h5>
+    							<h6 class="card-subtitle mb-2 text-muted">Example command: <kbd> +withdraw 2.33 Q01060088d97b51178...</kbd> or <kbd>+wd all Q01060088d97b51178...</kbd></h6>
+    							<p class="card-text">
+    								Withdraw funds from the tipbot, transferring to an address you specify. This command will transfer out any positive balance to any address you specify in the command.
+    							</p>
+
+      						</div>
+    					</div>
+					</div>
+				</div>
+			</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+  <section id="support" class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">All support is via the QRL Discord channel</h2>
+                <hr class="primary">
+                <p>If you need additional assistance please reach out to the <code>#support</code> channel in the QRL discord server.</p>
+                <a href="https://discord.gg/eUkymqbZe4" class="btn btn-default btn-xl wow tada"> <span ><i class="fab fa-discord fa-2x" ></i></span>  Discord</a>
+            </div>
+
+    </div>
+</div>
+</section>
+
+  <!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.fittext.js"></script>
+<script src="js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/creative.js"></script>
+
+</body>
+
+</html>
