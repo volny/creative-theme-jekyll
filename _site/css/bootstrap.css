@@ -9,9 +9,12 @@ html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-}
+    margin: 0px;
+    padding: 0px;
+  }
 body {
   margin: 0;
+  padding:0;
 }
 article,
 aside,
@@ -27,6 +30,7 @@ nav,
 section,
 summary {
   display: block;
+
 }
 audio,
 canvas,
