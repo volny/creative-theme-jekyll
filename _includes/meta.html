@@ -1,0 +1,44 @@
+<!-- Include Meta Tags Here -->
+<meta charset="UTF-8">
+
+<!-- disable scroll on mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+-->
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1 user-scalable=no, shrink-to-fit=no">
+<meta content='#000000' name='theme-color'/>
+<meta name="keywords" content="{{site.site-keywords}}">
+<title>{{site.title}}{% if page.title %} | {{page.title}}{% endif %}</title>
+
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
+
+<!--<meta name="og:description" content="{% unless page.layout == 'post' %}{{site.description}}{% else %}{{page.description}}{% endunless %}">-->
+<meta name="og:description" content="{{site.description}}">
+
+
+<meta name="og:image" content="{{site.site-image}}">
+<meta name="og:image:alt" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
+<meta name="og:url" content="{{site.url}}{{site.baseurl}}{{page.url}}">
+<meta name="article:author" content="{{site.author-url}}">
+<meta name="og:site_name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
+<meta name="og:type" content="website">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
+<meta name="twitter:description" content="{{site.description}}">
+<meta name="twitter:site" content="@{{site.twitter_username}}">
+<meta name="twitter:creator" content="@{{site.twitter_username}}">
+<meta name="twitter:image:src" content="{{site.site-image}}">
+<!-- Search Engine -->
+<meta name="description" content="{{site.description}}">
+<meta name="image" content="{{site.site-image}}">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">
+<meta name="author" content="{{site.author-name}}"/>
+<meta itemprop="description" content="{{site.description}}">
+<meta itemprop="image" content="{% unless page.layout == 'post' %}{{site.site-image}}{% else %}{{page.post-image}}{% endunless %}">
+

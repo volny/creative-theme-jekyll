@@ -1,12 +1,38 @@
 # Site settings
-title:
-email:
-description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+markdown: kramdown
+permalink: pretty
 
-twitter_username:
-github_username:
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://qrl.tips" # the base hostname & protocol for your site
+
+
+################
+# Meta content #
+################
+# Title of the Site
+title: QRL Tipbot
+# site author
+author: fr1t2
+# URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
+author-url: https://fr1t2/com
+twitter_username: just_a_warning
+# Site description for the <head>
+description: Tipbot for the QRL project. Join our discord channel to start tipping! https://discord.gg/eUkymqbZe4
+site-keywords: QRL, Quantum Resistant Ledger, Tipbot, tips, faucet, cryptocurrency
+discord-link: https://discord.gg/eUkymqbZe4
+# Site email
+email: info@qrl.tips
+
+# Paragraph in the main content section
+hero-slug: On-Chain QRL tipbot and faucet linked to the Discord commuity chat. Sign up an account today to start tipping!
+hero-slug-link: {{site.discord-link}}
+# Image for the main header
+site-image: /img/yellow.png
+github_username: fr1t2
 
 # Build settings
 markdown: kramdown
+logo: /img/logo-256.png
+favicon-url: /img/logo-256.png
+
+google-analytics:

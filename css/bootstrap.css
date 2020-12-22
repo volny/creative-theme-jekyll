@@ -4955,6 +4955,32 @@ a.thumbnail.active {
 .alert-info .alert-link {
   color: #245269;
 }
+
+
+.alert-qrl {
+  color: #0b181e;
+  background-color: #b7dfff;
+  border-color: #4aafff;
+  tab-size: 4;
+}
+.alert-qrl:hover,
+.alert-qrl:focus {
+  color: #000;
+  background-color: #ffa729;
+  border-color: #000;
+
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=75);
+  opacity: .75;
+}
+.alert-qrl hr {
+  border-top-color: #000000;
+}
+.alert-qrl .alert-link {
+  color: #245269;
+}
+
 .alert-warning {
   color: #8a6d3b;
   background-color: #fcf8e3;
