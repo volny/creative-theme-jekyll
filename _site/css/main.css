@@ -50,11 +50,11 @@ p { font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
 
 .a-dark:active, .a-dark:focus, .a-dark:hover { color: #4aafff; }
 
-section { padding: 100px 0; }
+section { padding: 100px 0; padding-left: 15px; padding-right: 15px; }
 
 footer { padding: 25px 0; }
 
-aside { padding: 50px 0; }
+aside { padding: 50px 0; padding-left: 15px; padding-right: 15px; }
 
 .no-padding { padding: 0; }
 
