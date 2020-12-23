@@ -52,7 +52,7 @@ p { font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
 
 section { padding: 50px 0; padding-left: 15px; padding-right: 15px; }
 
-section p { max-width: 95%; }
+section p { max-width: 100%; }
 
 footer { padding: 25px 0; }
 
