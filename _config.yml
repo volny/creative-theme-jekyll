@@ -24,7 +24,7 @@ discord-link: https://discord.gg/eUkymqbZe4
 email: info@qrl.tips
 
 # Paragraph in the main content section
-hero-slug: On-Chain QRL tipbot and faucet linked to the Discord commuity chat. Sign up an account today to start tipping!
+hero-slug: On-Chain QRL tipbot and faucet linked to the QRL Discord commuity chat. Sign up an account today to start tipping.
 hero-slug-link: {{site.discord-link}}
 # Image for the main header
 site-image: /img/yellow.png
@@ -32,7 +32,9 @@ github_username: fr1t2
 
 # Build settings
 markdown: kramdown
+
+favicon: /img/yellow-black.svg
+alt-favicon: /img/favicon.png
 logo: /img/logo-256.png
-favicon-url: /img/logo-256.png
 
 google-analytics: G-GZ9QPG0VVQ

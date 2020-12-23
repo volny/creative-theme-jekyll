@@ -13,11 +13,20 @@ hr {
     border-width: 3px;
     max-width: 50px;
 }
+hr.long {
+    border-color: $theme-primary;
+    border-width: 3px;
+    max-width: 75%;
+}
+
 
 hr.light {
     border-color: white;
 }
 
+hr.dark {
+    border-color: $theme-dark;
+}
 a {
     @include transition-all;
     color: $theme-primary;
@@ -52,12 +61,26 @@ p {
 }
 
 .text-faded {
-    color: rgba(white, .7);
+    color: rgba($theme-faded-dark-text, .87);
+}
+.text-dark {
+    color: $theme-dark
+}
+.a-dark {
+    color: rgba(#4aafff, .7);
+}
+.a-dark:active,
+.a-dark:focus,
+.a-dark:hover {
+    color: #4aafff;
+}
+section {
+    padding: 100px 0;
 }
 
-section {
-    margin: 0;
-    padding: 0px;
+footer {
+    padding: 25px 0;
+    
 }
 
 aside {
@@ -226,11 +249,18 @@ header {
 }
 
 // Sections
-
 .section-heading {
     margin-top: 0;
+    color: white;
 }
-
+.section-heading-dark {
+    margin-top: 0;
+    color: $theme-dark;
+}
+.section-heading-faded {
+    margin-top: 0;
+    color: rgba($theme-faded-dark-text, .7);
+}
 .service-box {
     max-width: 400px;
     margin: 50px auto 0;
