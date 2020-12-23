@@ -13,8 +13,11 @@
 <meta name="keywords" content="{{site.site-keywords}}">
 <title>{{site.title}}{% if page.title %} | {{page.title}}{% endif %}</title>
 
+<!--
 <link rel="icon" href="{{site.favicon}}" sizes="any" type="image/svg+xml">
 <link rel="alternate icon" href="{{site.alt-favicon}}">
+-->
+<link rel="shortcut icon" href="{% if site.favicon %}{{site.favicon}}{% else %}{{ 'img/logo-512.png' | absolute_url }}{% endif %}" type="image/x-icon">
 
 <!-- Open Graph general (Facebook, Pinterest & Google+) -->
 <meta name="og:title" content="{{site.title}}{% if page.title %} | {{page.title}}{% endif %}">

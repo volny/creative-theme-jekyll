@@ -33,7 +33,7 @@ github_username: fr1t2
 # Build settings
 markdown: kramdown
 
-favicon: /img/yellow-black.svg
+favicon: /img/yellow_512x512.png
 alt-favicon: /img/favicon.png
 logo: /img/logo-256.png
 
