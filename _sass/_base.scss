@@ -1,7 +1,14 @@
+html {    
+
+    margin: 0px;
+    padding: 0px;
+    }
+
 html,
 body {
-    height: 100%;
     width: 100%;
+    height: 100%;
+
 }
 
 body {
@@ -42,7 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-    @include sans-serif-font;
+    @include sans-serif-font-bold;
 }
 
 p {
@@ -66,8 +73,10 @@ p {
 .text-dark {
     color: $theme-dark
 }
+
 .a-dark {
-    color: rgba(#4aafff, .7);
+    color: rgba($theme-dark, .7);
+    text-decoration: underline;
 }
 .a-dark:active,
 .a-dark:focus,
@@ -80,7 +89,7 @@ section {
 
 footer {
     padding: 25px 0;
-    
+
 }
 
 aside {
@@ -199,12 +208,13 @@ header {
     @include background-cover;
     background-position: center;
     background-image: url('../img/coins.png');
+    background-attachment: fixed;
     text-align: center;
     color: white;
     .header-content {
         position: relative;
         text-align: center;
-        padding: 100px 15px 100px;
+        padding: 100px 0px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -225,7 +235,8 @@ header {
         }
     }
     @media (min-width: 768px) {
-        min-height: 100%;
+        min-height: 80%;
+        width: 100%;
         .header-content {
             position: absolute;
             top: 50%;
@@ -234,7 +245,7 @@ header {
             transform: translateY(-50%);
             padding: 0 50px;
             .header-content-inner {
-                max-width: 1000px;
+                max-width: 100%;
                 margin-left: auto;
                 margin-right: auto;
                 p {

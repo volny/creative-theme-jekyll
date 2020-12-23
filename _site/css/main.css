@@ -1,6 +1,26 @@
-html, body { height: 100%; width: 100%; }
+@font-face { font-family: 'Alte DIN 1451 Mittelschrift'; font-style: normal; font-weight: 400; src: url("/fonts1/AlteDIN1451Mittelschrift/din1451alt.eot"); /* IE9 Compat Modes */ src: local("Alte DIN 1451 Mittelschrift"), local("AlteDIN1451Mittelschrift"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt.eot?#iefix") format("embedded-opentype"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt.woff2") format("woff2"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt.woff") format("woff"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt.ttf") format("truetype"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt.svg#AlteDIN1451Mittelschrift") format("svg"); /* Legacy iOS */ }
 
-body { font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif; }
+@font-face { font-family: 'Alte DIN 1451 Mittelschrift Bold'; font-style: bold; font-weight: 600; src: url("/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.eot"); /* IE9 Compat Modes */ src: local("Alte DIN 1451 Mittelschrift"), local("AlteDIN1451Mittelschrift"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.eot?#iefix") format("embedded-opentype"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.woff2") format("woff2"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.woff") format("woff"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.ttf") format("truetype"), url("/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.svg#AlteDIN1451Mittelschrift") format("svg"); /* Legacy iOS */ }
+
+/* source-sans-pro-200 - latin */
+@font-face { font-family: 'Source Sans Pro ExtraLight'; font-style: normal; font-weight: 200; src: url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.eot"); /* IE9 Compat Modes */ src: local("Source Sans Pro ExtraLight"), local("SourceSansPro-ExtraLight"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.eot?#iefix") format("embedded-opentype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.woff2") format("woff2"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.woff") format("woff"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.ttf") format("truetype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.svg#SourceSansPro") format("svg"); /* Legacy iOS */ }
+
+/* source-sans-pro-regular - latin */
+@font-face { font-family: 'Source Sans Pro'; font-style: normal; font-weight: 400; src: url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.eot"); /* IE9 Compat Modes */ src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.woff2") format("woff2"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.woff") format("woff"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.ttf") format("truetype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.svg#SourceSansPro") format("svg"); /* Legacy iOS */ }
+
+/* source-sans-pro-700 - latin */
+@font-face { font-family: 'Source Sans Pro Bold'; font-style: normal; font-weight: 700; src: url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.eot"); /* IE9 Compat Modes */ src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.eot?#iefix") format("embedded-opentype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.woff2") format("woff2"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.woff") format("woff"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.ttf") format("truetype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.svg#SourceSansPro") format("svg"); /* Legacy iOS */ }
+
+/* source-sans-pro-900 - latin */
+@font-face { font-family: 'Source Sans Pro Black'; font-style: normal; font-weight: 900; src: url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.eot"); /* IE9 Compat Modes */ src: local("Source Sans Pro Black"), local("SourceSansPro-Black"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.eot?#iefix") format("embedded-opentype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.woff2") format("woff2"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.woff") format("woff"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.ttf") format("truetype"), url("/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.svg#SourceSansPro") format("svg"); /* Legacy iOS */ }
+
+@font-face { font-family: 'source_sans_proitalic'; src: url("/fonts1/SourceSansPro/sourcesanspro-it-webfont.woff2") format("woff2"), url("/fonts1/SourceSansPro/sourcesanspro-it-webfont.woff") format("woff"); font-weight: normal; font-style: normal; }
+
+html { margin: 0px; padding: 0px; }
+
+html, body { width: 100%; height: 100%; }
+
+body { font-family: 'Source Sans Pro', sans-serif; }
 
 hr { border-color: #ffa729; border-width: 3px; max-width: 50px; }
 
@@ -14,7 +34,7 @@ a { -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0
 
 a:hover, a:focus { color: #f59000; }
 
-h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Alte DIN 1451 Mittelschrift bold'; }
 
 p { font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
 
@@ -26,7 +46,7 @@ p { font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
 
 .text-dark { color: #0b181e; }
 
-.a-dark { color: rgba(74, 175, 255, 0.7); }
+.a-dark { color: rgba(11, 24, 30, 0.7); text-decoration: underline; }
 
 .a-dark:active, .a-dark:focus, .a-dark:hover { color: #4aafff; }
 
@@ -38,9 +58,9 @@ aside { padding: 50px 0; }
 
 .no-padding { padding: 0; }
 
-.navbar-default { background-color: #fdfdfd; border-color: rgba(11, 24, 30, 0.5); font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; }
+.navbar-default { background-color: #fdfdfd; border-color: rgba(11, 24, 30, 0.5); font-family: 'Alte DIN 1451 Mittelschrift'; -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; }
 
-.navbar-default .navbar-header .navbar-brand { color: #0b181e; font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; text-transform: uppercase; }
+.navbar-default .navbar-header .navbar-brand { color: #0b181e; font-family: 'Alte DIN 1451 Mittelschrift'; font-weight: 700; text-transform: uppercase; }
 
 .navbar-default .navbar-header .navbar-brand:hover, .navbar-default .navbar-header .navbar-brand:focus { color: #dc8100; }
 
@@ -54,9 +74,9 @@ aside { padding: 50px 0; }
 
 @media (min-width: 768px) { .navbar-default { background-color: #fdfdfd; border-color: rgba(255, 255, 255, 0.3); } .navbar-default .navbar-header .navbar-brand { color: rgba(255, 255, 255, 0.7); } .navbar-default .navbar-header .navbar-brand:hover, .navbar-default .navbar-header .navbar-brand:focus { color: #ffa729; } .navbar-default .nav > li > a, .navbar-default .nav > li > a:focus { color: rgba(255, 255, 255, 0.7); } .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus:hover { color: #ffa729; } .navbar-default.affix { background-color: #fdfdfd; border-color: rgba(11, 24, 30, 0.5); } .navbar-default.affix .navbar-header .navbar-brand { color: #ffa729; font-size: 14px; } .navbar-default.affix .navbar-header .navbar-brand:hover, .navbar-default.affix .navbar-header .navbar-brand:focus { color: #f59000; } .navbar-default.affix .nav > li > a, .navbar-default.affix .nav > li > a:focus { color: #0b181e; } .navbar-default.affix .nav > li > a:hover, .navbar-default.affix .nav > li > a:focus:hover { color: #ffa729; } .navbar-default.affix-top { background-color: #fdfdfd; border-color: rgba(11, 24, 30, 0.5); } .navbar-default.affix-top .navbar-header .navbar-brand { color: #ffa729; font-size: 14px; } .navbar-default.affix-top .navbar-header .navbar-brand:hover, .navbar-default.affix-top .navbar-header .navbar-brand:focus { color: #f59000; } .navbar-default.affix-top .nav > li > a, .navbar-default.affix-top .nav > li > a:focus { color: #0b181e; } .navbar-default.affix-top .nav > li > a:hover, .navbar-default.affix-top .nav > li > a:focus:hover { color: #ffa729; } }
 
-header { position: relative; width: 100%; min-height: auto; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; background-position: center; background-image: url("../img/coins.png"); text-align: center; color: white; }
+header { position: relative; width: 100%; min-height: auto; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; background-position: center; background-image: url("../img/coins.png"); background-attachment: fixed; text-align: center; color: white; }
 
-header .header-content { position: relative; text-align: center; padding: 100px 15px 100px; width: 100%; }
+header .header-content { position: relative; text-align: center; padding: 100px 0px 100px; width: 100%; }
 
 header .header-content .header-content-inner h1 { font-weight: 700; text-transform: uppercase; margin-top: 0; margin-bottom: 0; }
 
@@ -64,7 +84,7 @@ header .header-content .header-content-inner hr { margin: 30px auto; }
 
 header .header-content .header-content-inner p { font-weight: 300; color: rgba(255, 255, 255, 0.7); font-size: 16px; margin-bottom: 50px; }
 
-@media (min-width: 768px) { header { min-height: 100%; } header .header-content { position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); padding: 0 50px; } header .header-content .header-content-inner { max-width: 1000px; margin-left: auto; margin-right: auto; } header .header-content .header-content-inner p { font-size: 18px; max-width: 80%; margin-left: auto; margin-right: auto; } }
+@media (min-width: 768px) { header { min-height: 80%; width: 100%; } header .header-content { position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); padding: 0 50px; } header .header-content .header-content-inner { max-width: 100%; margin-left: auto; margin-right: auto; } header .header-content .header-content-inner p { font-size: 18px; max-width: 80%; margin-left: auto; margin-right: auto; } }
 
 .section-heading { margin-top: 0; color: white; }
 
@@ -84,7 +104,7 @@ header .header-content .header-content-inner p { font-weight: 300; color: rgba(2
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content { width: 100%; text-align: center; position: absolute; top: 50%; transform: translateY(-50%); }
 
-.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category, .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name { font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; padding: 0 15px; }
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category, .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name { font-family: 'Alte DIN 1451 Mittelschrift'; padding: 0 15px; }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category { text-transform: uppercase; font-weight: 600; font-size: 14px; }
 
@@ -120,7 +140,7 @@ header .header-content .header-content-inner p { font-weight: 300; color: rgba(2
 
 .btn-primary .badge { color: #ffa729; background-color: white; }
 
-.btn { font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; border: none; border-radius: 300px; font-weight: 700; text-transform: uppercase; }
+.btn { font-family: 'Alte DIN 1451 Mittelschrift'; border: none; border-radius: 300px; font-weight: 700; text-transform: uppercase; }
 
 .btn-xl { padding: 15px 30px; }
 

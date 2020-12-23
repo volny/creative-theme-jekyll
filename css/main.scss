@@ -40,5 +40,6 @@ $theme-faded-dark-text: lighten($theme-dark, 40%);
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "mixins",
+        "fonts",
         "base"
 ;
