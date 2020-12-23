@@ -84,9 +84,13 @@ p {
     color: #4aafff;
 }
 section {
-    padding: 100px 0;
+    padding: 50px 0;
     padding-left: 15px;
     padding-right: 15px;
+    p {
+        max-width: 95%;
+
+    }
 }
 
 footer {
@@ -218,7 +222,7 @@ header {
     .header-content {
         position: relative;
         text-align: center;
-        padding: 100px 0px 100px;
+        padding: 80px 0px 100px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -239,7 +243,7 @@ header {
         }
     }
     @media (min-width: 768px) {
-        min-height: 80%;
+        min-height: 75%;
         width: 100%;
         .header-content {
             position: absolute;

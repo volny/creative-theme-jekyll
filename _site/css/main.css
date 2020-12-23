@@ -50,7 +50,9 @@ p { font-size: 16px; line-height: 1.5; margin-bottom: 20px; }
 
 .a-dark:active, .a-dark:focus, .a-dark:hover { color: #4aafff; }
 
-section { padding: 100px 0; padding-left: 15px; padding-right: 15px; }
+section { padding: 50px 0; padding-left: 15px; padding-right: 15px; }
+
+section p { max-width: 95%; }
 
 footer { padding: 25px 0; }
 
@@ -76,7 +78,7 @@ aside { padding: 50px 0; padding-left: 15px; padding-right: 15px; }
 
 header { position: relative; width: 100%; min-height: auto; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; -o-background-size: cover; background-position: center; background-image: url("../img/coins.png"); background-attachment: fixed; text-align: center; color: white; }
 
-header .header-content { position: relative; text-align: center; padding: 100px 0px 100px; width: 100%; }
+header .header-content { position: relative; text-align: center; padding: 80px 0px 100px; width: 100%; }
 
 header .header-content .header-content-inner h1 { font-weight: 700; text-transform: uppercase; margin-top: 0; margin-bottom: 0; }
 
@@ -84,7 +86,7 @@ header .header-content .header-content-inner hr { margin: 30px auto; }
 
 header .header-content .header-content-inner p { font-weight: 300; color: rgba(255, 255, 255, 0.7); font-size: 16px; margin-bottom: 50px; }
 
-@media (min-width: 768px) { header { min-height: 80%; width: 100%; } header .header-content { position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); padding: 0 50px; } header .header-content .header-content-inner { max-width: 100%; margin-left: auto; margin-right: auto; } header .header-content .header-content-inner p { font-size: 18px; max-width: 80%; margin-left: auto; margin-right: auto; } }
+@media (min-width: 768px) { header { min-height: 75%; width: 100%; } header .header-content { position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); padding: 0 50px; } header .header-content .header-content-inner { max-width: 100%; margin-left: auto; margin-right: auto; } header .header-content .header-content-inner p { font-size: 18px; max-width: 80%; margin-left: auto; margin-right: auto; } }
 
 .section-heading { margin-top: 0; color: white; }
 
