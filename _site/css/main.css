@@ -60,7 +60,7 @@ aside { padding: 50px 0; padding-left: 15px; padding-right: 15px; }
 
 .no-padding { padding: 0; }
 
-.navbar-default { background-color: #fdfdfd; border-color: rgba(11, 24, 30, 0.5); font-family: 'Alte DIN 1451 Mittelschrift'; -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; }
+.navbar-default { background-color: #fdfdfd; border-color: rgba(11, 24, 30, 0.5); padding-right: 15px; padding-left: 15px; font-family: 'Alte DIN 1451 Mittelschrift'; -webkit-transition: all 0.35s; -moz-transition: all 0.35s; transition: all 0.35s; }
 
 .navbar-default .navbar-header .navbar-brand { color: #0b181e; font-family: 'Alte DIN 1451 Mittelschrift'; font-weight: 700; text-transform: uppercase; }
 

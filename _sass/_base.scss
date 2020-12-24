@@ -112,6 +112,8 @@ aside {
 .navbar-default {
     background-color: $background-color;
     border-color: rgba($theme-dark, .5);
+    padding-right:15px;
+    padding-left:15px;
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
