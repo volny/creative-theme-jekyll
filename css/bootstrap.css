@@ -1125,6 +1125,7 @@ figure {
 img {
   vertical-align: middle;
 }
+
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
@@ -5680,6 +5681,28 @@ a.list-group-item-danger.active:focus {
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1;
 }
+
+.panel-qrl {
+  border-color: #ebccd1;
+  background-color: transparent;
+  vertical-align: center;
+}
+.panel-qrl > .panel-heading {
+  color: white;
+  background-color: #ffa729;
+  border-color: #ffca7e;
+}
+.panel-qrl > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ffca7e;
+}
+.panel-qrl > .panel-heading .badge {
+  color: rgba(white, .7);
+  background-color: transparent;
+}
+.panel-qrl > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #ffca7e;
+}
+
 .embed-responsive {
   position: relative;
   display: block;
