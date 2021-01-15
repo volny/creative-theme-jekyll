@@ -1,7 +1,12 @@
 # Site settings
-title:
-email: user@example.com
-description: > # this means to ignore newlines until "baseurl:"
+title: Creative - Start Bootstrap theme
+tagline: Your Favorite Source of Free Bootstrap Themes
+author: 
+first_button_text: 'Find out more'
+first_button_url: '#about'
+header_img: /img/header.jpg
+home_menu_text: Start Bootstrap
+description: Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
@@ -9,6 +14,8 @@ url: "" # the base hostname & protocol for your site
 primary: '#F05F40'
 dark: '#222'
 
+# Contact details
+email: user@example.com
 twitter_username:
 github_username:
 
