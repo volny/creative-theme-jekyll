@@ -1,9 +1,13 @@
 # Site settings
 title:
-email:
+email: user@example.com
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
+
+# Theme customization
+primary: '#F05F40'
+dark: '#222'
 
 twitter_username:
 github_username:
@@ -15,3 +19,5 @@ exclude:
   - serve
   - README.md
   - LICENCE
+
+
