@@ -1,9 +1,9 @@
-<header>
-    <div class="header-content">
+<header {% if include.header_img %} style="background-image: url({{ include.header_img }}" {% endif %} >
+    <div class="header-content" >
         <div class="header-content-inner">
             <h1>{{ site.tagline }}</h1>
             <hr>
-            <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+            {{ include.body }}
             <a href="{{ site.first_button_url }}" class="btn btn-primary btn-xl page-scroll">{{ site.first_button_text }}</a>
         </div>
     </div>

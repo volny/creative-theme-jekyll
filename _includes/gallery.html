@@ -1,0 +1,28 @@
+{% if include.where_expr %}
+    {% assign coll = site.gallery | where_exp: "item", include.where_expr %}
+{% else %}
+    {% assign coll = site.gallery  %}
+{% endif %}
+<section class="no-padding" id="{{ include.id }}">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            {% for item in coll %}
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{{ item.img }}" class="img-responsive" alt="{{ item.alt }}">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    {{ item.category }}
+                                </div>
+                                <div class="project-name">
+                                    {{ item.name }}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

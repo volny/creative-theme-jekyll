@@ -15,9 +15,21 @@ primary: '#F05F40'
 dark: '#222'
 
 # Contact details
-email: user@example.com
-twitter_username:
-github_username:
+email: 
+telephone_number: 
+whatsapp_number: 
+twitter_username: 
+github_username: volny
+instagram_username: 
+facebook_username: 
+linkedin_username: 
+
+# Data collections
+collections:
+  blocks:
+    output: false
+  gallery:
+    output: false
 
 # Build settings
 markdown: kramdown
@@ -26,5 +38,4 @@ exclude:
   - serve
   - README.md
   - LICENCE
-
 
