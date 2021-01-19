@@ -1,12 +1,41 @@
 # Site settings
-title:
-email:
-description: > # this means to ignore newlines until "baseurl:"
+title: Creative - Start Bootstrap theme
+tagline: Your Favorite Source of Free Bootstrap Themes
+author: 
+first_button_text: 'Find out more'
+first_button_url: '#about'
+header_img: /img/header.jpg
+home_menu_text: Start Bootstrap
+description: Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
-twitter_username:
-github_username:
+# Theme customization
+primary: '#F05F40'
+dark: '#222'
+
+# Contact details
+email: 
+telephone_number: 
+whatsapp_number: 
+twitter_username: 
+github_username: volny
+instagram_username: 
+facebook_username: 
+linkedin_username: 
+
+# Data collections
+collections:
+  blocks:
+    output: false
+  gallery:
+    output: false
 
 # Build settings
 markdown: kramdown
+
+exclude:
+  - serve
+  - README.md
+  - LICENCE
+

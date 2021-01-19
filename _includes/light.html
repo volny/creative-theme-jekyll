@@ -1,0 +1,110 @@
+<section id="{{ include.id }}">
+    <div class="container">
+        <div class="row">
+            <div class="
+                col-lg-{{ include.width }}
+                {% if include.width %}
+                    col-lg-offset-{{ 12 | minus: include.width | divided_by: 2 | floor }}
+                {% endif %}                     
+                text-center"
+            >
+                <h2 class="section-heading">{{ include.title }}</h2>
+                {% assign body = include.body | strip %}
+                {% if body != "" %}
+                    <hr class="primary">
+                    <div>
+                        {{ include.body }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% assign colcount = 0 %}
+    {% for col in include.cols %}
+        {% assign colcount = colcount | plus: 1 %}
+    {% endfor %}
+    {% if colcount > 0 %}
+        {% if colcount == 2 %}
+            {% assign size = 6 %}
+            {% assign first_offset = 0 %}
+            {% assign offset = 0 %}
+        {% elsif colcount == 3 %}
+            {% assign size = 4 %}
+            {% assign first_offset = 0 %}
+            {% assign offset = 0 %}            
+        {% elsif colcount == 4 %}
+            {% assign size = 3 %}
+            {% assign first_offset = 0 %}
+            {% assign offset = 0 %}            
+        {% elsif colcount == 5 %}
+            {% assign size = 2 %}
+            {% assign first_offset = 1 %}
+            {% assign offset = 0 %}            
+        {% elsif colcount == 6 %}
+            {% assign size = 2 %}
+            {% assign first_offset = 0 %}
+            {% assign offset = 0 %}            
+        {% elsif colcount == 8 %}
+            {% assign size = 1 %}
+            {% assign first_offset = 2 %}
+            {% assign offset = 0 %}            
+        {% elsif colcount == 10 %}
+            {% assign size = 1 %}
+            {% assign first_offset = 1 %}
+            {% assign offset = 0 %}            
+        {% elsif colcount == 12 %}
+            {% assign size = 1 %}
+            {% assign first_offset = 0 %}
+            {% assign offset = 0 %}            
+        {% endif %}
+        {% if size %}
+        <div class="container">
+            <div class="row">
+                {% assign first = true %}
+                {% for col in include.cols %}
+                    {% assign fields = col | split: "\" %}
+                    <div class="
+                        col-lg-{{ size }}
+                        {% if first %}
+                            {% assign first = false %}
+                            col-lg-offset-{{ first_offset }}
+                        {% else %} 
+                            col-lg-offset-{{ offset }}
+                        {% endif %}
+                        text-center
+                        bg-light
+                    ">
+                        {% if fields[3] %}
+                            <a href="{{ fields[3] }}">
+                        {% endif %}
+                                <div class="service-box">
+                                    {% if fields[2] %}
+                                        <i class="fa fa-4x fa-{{ fields[2] | strip }} wow bounceIn text-primary"></i>
+                                    {% endif %}
+                                    <h3>{{ fields[0] }}</h3>
+                                    <p class="text-muted">{{ fields[1] }}</p>
+                                </div>
+                        {% if fields[3] %}
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+            <div class="container">
+                <h1>ERROR: Cannot render {{ colcount }} columns, can render 2, 3, 4, 5, 6, 8, 10 or 12 colums</h1>
+            </div>>
+        {% endif %}
+    {% endif %}
+    {% if include.button_text %}
+        <div class="container">
+            <div class="row text-center">
+                <p></p>
+                <p>
+                    <a href="{{ include.button_url }}" class="btn btn-primary btn-xl">{{ include.button_text }}</a>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+</section>

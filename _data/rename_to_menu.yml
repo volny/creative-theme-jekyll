@@ -1,0 +1,7 @@
+# rename this file to menu.yml if you want to specify the menu yourself instead e.g. for a multipage site
+- name: Services
+  link: /#services
+- name: Contact
+  link: /#contact
+- name: Github
+  link: https://github.com/volny/creative-theme-jekyll

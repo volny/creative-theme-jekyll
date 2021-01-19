@@ -44,11 +44,27 @@ p {
 
 .bg-primary {
     background-color: $theme-primary;
+    a {
+        color: white;
+    }
 }
 
 .bg-dark {
     background-color: $theme-dark;
     color: white;
+    a {
+        color: white;
+    }
+}
+
+.bg-light {
+    > a {
+        color: $theme-primary;
+    }
+}
+
+a .text-muted {
+    color: $theme-primary;
 }
 
 .text-faded {
@@ -155,7 +171,7 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header.jpg');
+    background-image: url($header-img);
     text-align: center;
     color: white;
     .header-content {
@@ -295,15 +311,15 @@ header {
 }
 
 // Button Styles
-.btn-default {
+a.btn-default {
     @include button-variant($theme-dark, white, white);
 }
 
-.btn-primary {
+a.btn-primary {
     @include button-variant(white, $theme-primary, $theme-primary);
 }
 
-.btn {
+a.btn {
     @include sans-serif-font;
     border: none;
     border-radius: 300px;
@@ -311,7 +327,7 @@ header {
     text-transform: uppercase;
 }
 
-.btn-xl {
+a.btn-xl {
     padding: 15px 30px;
 }
 

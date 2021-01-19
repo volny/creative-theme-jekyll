@@ -4,13 +4,30 @@
 {% include head.html %}
 
 <body id="page-top">
-  {% include nav.html %}
-  {% include header.html %}
-  {% include call-to-action.html %}
-  {% include services.html %}
-  {% include portfolio.html %}
-  {% include aside.html %}
-  {% include contact.html %}
+  {% include nav.html blocks=page.blocks %}
+
+  {% for page_block in page.blocks %}
+	  {% assign found = false %}
+  	{% for block in site.blocks %}
+  	  {% if block.name == page_block %}
+  		{% assign found = true %}
+  		{% include {{ block.type }}.html
+  		  id=block.name
+  		  title=block.title
+  		  body=block.content
+  		  button_text=block.button_text
+  		  button_url=block.button_url
+  		  width=block.width
+  		  cols=block.cols
+  		  where_expr=block.where_expr
+        header_img=block.header_img
+        %}
+      {% endif %}
+    {% endfor %}
+  	{% if found != true %}
+  	  <h1>Sorry I was unable to find a block called {{ page_block }}
+  	{% endif %}
+  {% endfor %}
   {% include scripts.html %}
 </body>
 

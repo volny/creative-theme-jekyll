@@ -10,5 +10,7 @@ See it live in action at <https://volny.github.io/creative-theme-jekyll/>
 ## To use the Creative Theme template in your project
 
 - Start by adding your info in `_config.yml`
-- In `_layouts/front.html` reorder or remove section as you prefer.
+- In `index.html/` there is a blocks property that allows you to reorder remove or add sections.
+- In `_blocks/` you can create more sections and customize them
+- The types referred to in the blocks is includes from `_includes/` 
 

@@ -8,24 +8,37 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand page-scroll" href="#page-top">{{ site.home_menu_text }}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="page-scroll" href="#about">About</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#services">Services</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
-                </li>
+                {% if site.data.menu %}
+                    {% for item in site.data.menu %}
+                        <li>
+                            <a class="page-scroll" href="{{ item.link }}">{{ item.name }}</a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    {% for page_block in page.blocks %}
+                        {% for block in site.blocks %}
+                            {% if block.name == page_block %}
+                                {% unless block.menu_exclude %}
+                                    <li>
+                                        <a class="page-scroll" href="#{{ block.name }}">
+                                            {% if block.menu_txt %}
+                                                {{ menu_txt }}
+                                            {% else %}
+                                                {{ block.name }}
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endunless %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->
