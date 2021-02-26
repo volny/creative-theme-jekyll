@@ -8,7 +8,6 @@ jobs:
       - image: circleci/ruby:2.5
     environment:
       BUNDLE_PATH: ~/repo/vendor/bundle
-      ENV BUNDLER_VERSION: 2.1.4
     steps:
       - checkout
       - restore_cache:
