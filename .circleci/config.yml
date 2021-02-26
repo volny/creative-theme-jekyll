@@ -2,11 +2,8 @@ defaults: &defaults
   working_directory: ~/repo  
 version: 2  
 jobs:  
-  build:  
-    <<: *defaults  
   docker:  
       - image: circleci/ruby:2.6  
-    environment:  
     steps:  
       - checkout  
       - run:  
