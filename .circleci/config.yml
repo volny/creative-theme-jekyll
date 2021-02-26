@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.5
     environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
+      BUNDLE_PATH: ~/repo/vendor/bundler
     steps:
       - checkout
       - restore_cache:
@@ -15,19 +15,19 @@ jobs:
             - rubygems-v1-{{ checksum "Gemfile.lock" }}
             - rubygems-v1-fallback
       - run:
-          name: Bundle Install
-          command: bundle check || bundle install
+          name: Bundler Install
+          command: bundler check || bundler install
       - save_cache:
           key: rubygems-v1-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - vendor/bundler
       - run:
           name: Jekyll build
-          command: bundle exec jekyll build
+          command: bundler exec jekyll build
       - run:
           name: HTMLProofer tests
           command: |
-            bundle exec htmlproofer ./_site \
+            bundler exec htmlproofer ./_site \
               --allow-hash-href \
               --check-favicon  \
               --check-html \
