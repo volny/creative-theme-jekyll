@@ -2,8 +2,11 @@ defaults: &defaults
   working_directory: ~/repo  
 version: 2  
 jobs:  
+  build:  
+    <<: *defaults  
   docker:  
     image: circleci/ruby:2.6  
+    environment:  
     steps:  
       - checkout  
       - run:  
@@ -20,7 +23,7 @@ jobs:
           command: bundle exec jekyll build  
 #      - deploy:  
 #          name: Deploy Blog to GitHub  
-#          command: |
+##          command: |
 #            if [ $CIRCLE_BRANCH == 'master' ]; then  
 #              bash .circleci/deploy.sh  
 #            fi  
