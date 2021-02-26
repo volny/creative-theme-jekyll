@@ -57,10 +57,14 @@
 
 @mixin sans-serif-font()
 {
-	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	font-family: 'Alte DIN 1451 Mittelschrift';
 }
 
+@mixin sans-serif-font-bold()
+{
+	font-family: 'Alte DIN 1451 Mittelschrift bold';
+}
 @mixin serif-font()
 {
-	font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }

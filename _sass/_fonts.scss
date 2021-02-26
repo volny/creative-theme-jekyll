@@ -1,0 +1,103 @@
+//include third-party fonts
+
+// @mixin font-face($font-name, $file-name, $font-weight, $font-style) {
+//   @font-face {
+//     font-family: quote($font-name);
+//     src: url("../fonts1/"+ $file-name + ".woff") format("woff"),
+//     url("../fonts1/"+ $file-name + ".woff") format("woff");
+//     font-weight: $font-weight;
+//     font-style: $font-style;
+//     font-display: swap;
+//   }
+// }
+
+// @include font-face('Alte DIN 1451 Mittelschrift', AlteDIN1451Mittelschrift, 400, normal);
+// @include font-face('Alte DIN 1451 Mittelschrift', AlteDIN1451Mittelschrift, 700, bold);
+
+@font-face {
+  font-family: 'Alte DIN 1451 Mittelschrift';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts1/AlteDIN1451Mittelschrift/din1451alt.eot'); /* IE9 Compat Modes */
+  src: local('Alte DIN 1451 Mittelschrift'), local('AlteDIN1451Mittelschrift'),
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt.woff') format('woff'), /* Modern Browsers */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt.svg#AlteDIN1451Mittelschrift') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Alte DIN 1451 Mittelschrift Bold';
+  font-style: bold;
+  font-weight: 600;
+  src: url('/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.eot'); /* IE9 Compat Modes */
+  src: local('Alte DIN 1451 Mittelschrift'), local('AlteDIN1451Mittelschrift'),
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.woff') format('woff'), /* Modern Browsers */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts1/AlteDIN1451Mittelschrift/din1451alt_bold.svg#AlteDIN1451Mittelschrift') format('svg'); /* Legacy iOS */
+}
+
+/* source-sans-pro-200 - latin */
+@font-face {
+  font-family: 'Source Sans Pro ExtraLight';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'),
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.woff') format('woff'), /* Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-200.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-regular - latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-700 - latin */
+@font-face {
+  font-family: 'Source Sans Pro Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-700.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-900 - latin */
+@font-face {
+  font-family: 'Source Sans Pro Black';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'),
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.woff') format('woff'), /* Modern Browsers */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts1/SourceSansPro/source-sans-pro-v14-latin-900.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'source_sans_proitalic';
+    src: url('/fonts1/SourceSansPro/sourcesanspro-it-webfont.woff2') format('woff2'),
+         url('/fonts1/SourceSansPro/sourcesanspro-it-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
