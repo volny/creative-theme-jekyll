@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -185,8 +184,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Android Device Rooting Lab</p>
-</div>
+Android Device Rooting Lab</div>
 <div class="section" id="android-device-rooting-lab">
 <h1>Android Device Rooting Lab<a class="headerlink" href="#android-device-rooting-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -226,7 +224,7 @@ if the device is rooted. In general, rooting allows users to customize
 their phones, removing restrictions, adding new features, and making
 changes to the system. There are several approaches to root an Android
 device, and we will discuss them in more details in this lab.
-<strong>Figure 1</strong> provides a summary of these
+<strong>Figure&nbsp;1</strong> provides a summary of these
 approaches.</p>
 </div>
 <div class="section" id="modifying-android-from-inside">
@@ -257,9 +255,9 @@ Unfortunately, the <code class="docutils literal notranslate"><span class="pre">
 instead of exiting, it keeps running, while retaining the root
 privilege. As results, the <code class="docutils literal notranslate"><span class="pre">&quot;adb</span> <span class="pre">shell&quot;</span></code> command will give users a
 root shell. This vulnerability has already been fixed after Android 2.2.</p>
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="Rooting Android Devices" src="../../_images/AndroidRooting.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Rooting Android Devices</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Rooting Android Devices</span></p>
 </div>
 </div>
 <div class="section" id="modifying-android-from-outside">
@@ -335,9 +333,9 @@ systems. Since rooting also needs to update Android OS, OTA becomes a
 popular choice. In this section, we will describe the structure of the
 OTA package. Students need to build their own OTA package from the
 scratch in this lab.</p>
-<div class="align-center figure align-default" id="id4">
+<div class="align-center figure" id="id4">
 <img alt="OTA Structure" src="../../_images/Real_OTA.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: OTA Structure</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: OTA Structure</span></p>
 </div>
 <p>OTA package is just a zip file and its structure is depicted in
 <strong>Figure 2</strong>. Of particular interest to this lab
@@ -345,13 +343,13 @@ is the <code class="docutils literal notranslate"><span class="pre">META-INF</sp
 the package along with two very important files named <code class="docutils literal notranslate"><span class="pre">update-binary</span></code>
 and <code class="docutils literal notranslate"><span class="pre">updater-script</span></code>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">META-INF/com/google/android/update-binary</span></code>: This binary is
+<li><code class="docutils literal notranslate"><span class="pre">META-INF/com/google/android/update-binary</span></code>: This binary is
 executed by the recovery OS to apply OTA updates; it loads and
-execute <code class="docutils literal notranslate"><span class="pre">updater-script</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">META-INF/com/google/android/updater-script</span></code>: This is an
+execute <code class="docutils literal notranslate"><span class="pre">updater-script</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">META-INF/com/google/android/updater-script</span></code>: This is an
 installation script which is interpreted by <code class="docutils literal notranslate"><span class="pre">update-binary</span></code>. It is
 written using a script language called <code class="docutils literal notranslate"><span class="pre">Edify</span></code>, which describes the
-required action to be performed to apply updates.</p></li>
+required action to be performed to apply updates.</li>
 </ul>
 <p>After signature verification on the OTA package, the recovery OS
 extracts the <code class="docutils literal notranslate"><span class="pre">update-binary</span></code> executable from the OTA package to the
@@ -388,7 +386,7 @@ OS. Once users boot into this OS, they can run any arbitrary commands
 partition.</p>
 <p>Students who have a physical Android device and want to know how to root
 a real device, they can follow our guidelines in
-Section 7 However, other than the step to
+Section&nbsp;7 However, other than the step to
 replace the recovery OS, everything else is the same as what we do in
 this lab.</p>
 <p>Another important thing to know is that our Android VM is already
@@ -408,10 +406,10 @@ use it to root Android OS. We divide this complicated task into several
 tasks, each focusing on a specific goal. Here are the goals that we
 would like to achieve:</p>
 <ul class="simple">
-<li><p>How to inject a program into the Android OS from the recovery OS?</p></li>
-<li><p>How to get our injected program to run automatically, and with the
-root privilege?</p></li>
-<li><p>How to write a program that can give us the root shell?</p></li>
+<li>How to inject a program into the Android OS from the recovery OS?</li>
+<li>How to get our injected program to run automatically, and with the
+root privilege?</li>
+<li>How to write a program that can give us the root shell?</li>
 </ul>
 <p>In this Task 1, we focus on how to inject a program into the Android OS
 from the recovery OS, and then get Android to run our injected program
@@ -452,7 +450,7 @@ different approach related to Android framework.</p>
 its underlying Linux boots up first, which conducts system
 initialization, including starting essential daemon processes. The
 booting procedure, using the root privilege, runs a file called
-<code class="docutils literal notranslate"><span class="pre">/system/etc/init.sh</span></code>  <a class="footnote-reference brackets" href="#id2" id="id1">1</a> for part of the initialization. Therefore,
+<code class="docutils literal notranslate"><span class="pre">/system/etc/init.sh</span></code>&nbsp; <a class="footnote-reference" href="#id2" id="id1">[1]</a> for part of the initialization. Therefore,
 if we can insert a command into <code class="docutils literal notranslate"><span class="pre">init.sh</span></code> file, we can run our
 <code class="docutils literal notranslate"><span class="pre">dummy.sh</span></code> file with the root privilege.</p>
 <p>If we can do it manually, we can simply edit the <code class="docutils literal notranslate"><span class="pre">init.sh</span></code>, and add a
@@ -479,9 +477,9 @@ Explanation:
 <h3>Step 2: Build the OTA Package.<a class="headerlink" href="#step-2-build-the-ota-package" title="Permalink to this headline">¶</a></h3>
 <p>Constructing an OTA package is quite straightforward. All we need to do
 is to put our files in their corresponding folders according to
-<strong>Figure 2</strong>. We need to maintain the same
+<strong>Figure&nbsp;2</strong>. We need to maintain the same
 structure as what is shown in the figure, but you do not need to create
-all the files that are not needed for our task (such as signature and
+all the files that are not needed for our task&nbsp;(such as signature and
 optional files). You can put the <code class="docutils literal notranslate"><span class="pre">dummy.sh</span></code> file in any place of your
 OTA package, as long as the location matches with your command in the
 <code class="docutils literal notranslate"><span class="pre">update-binary</span></code>. After creating the file structure, we can use the
@@ -518,7 +516,7 @@ injected program during this bootstrapping process. The objective of
 this task is not only to find a different way to do what we have done in
 the previous task, but also to learn how Android gets bootstrapped.</p>
 <p>Before conducting this task, please read the guideline in
-Section 7.1 about the Android booting
+Section&nbsp;7.1 about the Android booting
 sequence. From the guideline, we can see that when the Android runtime
 bootstraps, it always run a program called <code class="docutils literal notranslate"><span class="pre">app_process</span></code>, using the
 root privilege. This starts the <code class="docutils literal notranslate"><span class="pre">Zygote</span></code> daemon, whose mission is to
@@ -607,13 +605,13 @@ ndk-build NDK_APPLICATION_MK=./Application.mk
 the recovery OS what to do. Students need to write the shell script code
 in this task. Here are some guidelines:</p>
 <ul class="simple">
-<li><p>We need to copy our compiled binary code to the corresponding
-location inside Android.</p></li>
-<li><p>We need to rename the original <code class="docutils literal notranslate"><span class="pre">app_process</span></code> binary to something
+<li>We need to copy our compiled binary code to the corresponding
+location inside Android.</li>
+<li>We need to rename the original <code class="docutils literal notranslate"><span class="pre">app_process</span></code> binary to something
 else, and then use our code as <code class="docutils literal notranslate"><span class="pre">app_process</span></code>. The actual name of
 <code class="docutils literal notranslate"><span class="pre">app_process</span></code> can be either <code class="docutils literal notranslate"><span class="pre">app_process32</span></code> or <code class="docutils literal notranslate"><span class="pre">app_process64</span></code>,
 depending on the architecture of the device. Our Android VM is a
-64-bit device, so the name should be <code class="docutils literal notranslate"><span class="pre">app_process64</span></code>.</p></li>
+64-bit device, so the name should be <code class="docutils literal notranslate"><span class="pre">app_process64</span></code>.</li>
 </ul>
 <p>Students should then repeat Steps 2 and 3 of the previous task, and
 describe their observations and explanation.</p>
@@ -672,8 +670,8 @@ types in the input device of the client program will also be fed into
 the shell process; whatever the shell process prints to its output
 device will be showing to client program.</p>
 <p>Writing the code to implement the above idea is not easy, as we need to
-have two essential pieces of knowledge: (1) how to send the standard
-input/output devices (file descriptors) to another process, and (2) once
+have two essential pieces of knowledge: (1)&nbsp;how to send the standard
+input/output devices (file descriptors) to another process, and (2)&nbsp;once
 a process receives the file descriptors, how it can use them as its
 input/output devices. We provide some background knowledge regarding
 these.</p>
@@ -709,11 +707,11 @@ descriptor 1 points to 5, causing anything printed out by <code class="docutils 
 to be saved to the file that was just opened. This is because
 <code class="docutils literal notranslate"><span class="pre">printf()</span></code> by default prints out everything to the standard output
 device, which is represented by the file descriptor 1.</p>
-<div class="align-center figure align-default" id="id5">
+<div class="align-center figure" id="id5">
 <img alt="File Descriptor Tables" src="../../_images/file_descriptor.jpg" />
-<p class="caption"><span class="caption-text">Figure 3: File Descriptor Tables</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: File Descriptor Tables</span></p>
 </div>
-<p><strong>Figure 3</strong> shows the file descriptor tables of
+<p><strong>Figure&nbsp;3</strong> shows the file descriptor tables of
 two processes. The table of Process 0 is quite simple. It has three
 standard I/O FDs (indices 0, 1, 2), a file descriptor (index 3) for an
 opened file, and another file descriptor (index 4) for a socket. Table 1
@@ -723,7 +721,7 @@ the descriptor at index 4. Moreover, Process 1’s standard output and
 error are redirected to <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code>, while its standard input is
 redirected to the one (index 4) received from Process 0. The consequence
 of such redirections is that Process 1 will take exactly the same input
-as Process 0, but all outputs are abandoned (<code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> is a standard
+as Process 0, but all outputs are abandoned&nbsp;(<code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> is a standard
 device that functions like a black hole: nothing written to it gets
 out).</p>
 </div>
@@ -747,42 +745,42 @@ else {
 }
 </pre></div>
 </div>
-<div class="align-center figure align-default" id="id6">
+<div class="align-center figure" id="id6">
 <img alt="alternate text" src="../../_images/dispatch_control_of_process.jpg" />
-<p class="caption"><span class="caption-text">Figure 4: How one process (Client) gains the control of the input/output devices of another process</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: How one process (Client) gains the control of the input/output devices of another process</span></p>
 </div>
 </div>
 <div class="section" id="passing-the-file-descriptors">
 <h3>Passing the File Descriptors.<a class="headerlink" href="#passing-the-file-descriptors" title="Permalink to this headline">¶</a></h3>
-<p><strong>Figure 4</strong> shows how to use the
+<p><strong>Figure&nbsp;4</strong> shows how to use the
 three standard I/O file descriptors to help the client gain the full
 control of the root shell created by the server. Initially, as shown in
-<strong>Figure 4</strong> (a), the client and
+<strong>Figure&nbsp;4</strong> (a), the client and
 server are running in different processes, while the client has a normal
 privilege and the server has the root privilege. Each of them has its
 own standard I/O FDs 0, 1, 2. In the figure, the client FDs are denoted
 as <code class="docutils literal notranslate"><span class="pre">C_IN</span></code>, <code class="docutils literal notranslate"><span class="pre">C_OUT</span></code>, and <code class="docutils literal notranslate"><span class="pre">C_ERR</span></code>, and the server’s FDs are denoted
 as <code class="docutils literal notranslate"><span class="pre">S_IN</span></code>, <code class="docutils literal notranslate"><span class="pre">S_OUT</span></code>, and <code class="docutils literal notranslate"><span class="pre">S_ERR</span></code>. In
-<strong>Figure 4</strong> (b), we depict how the
+<strong>Figure&nbsp;4</strong> (b), we depict how the
 client and the server work together to help the client get the root
 privilege.</p>
 <ol class="arabic simple">
-<li><p>The client connects to the server using the Unix Domain Socket.</p></li>
-<li><p>Upon receiving the request, the server forks a child process and runs
+<li>The client connects to the server using the Unix Domain Socket.</li>
+<li>Upon receiving the request, the server forks a child process and runs
 a root shell. The child process inherits all the standard I/O FDs
-from the parent.</p></li>
-<li><p>The client sends its FDs 0, 1, and 2 to the server’s child process
+from the parent.</li>
+<li>The client sends its FDs 0, 1, and 2 to the server’s child process
 using the Unix Domain Socket. These FDs will be saved in the table
-indices 4, 5, and 6, respectively.</p></li>
-<li><p>The child process redirects its FDs 0, 1, 2 to the FDs received from
+indices 4, 5, and 6, respectively.</li>
+<li>The child process redirects its FDs 0, 1, 2 to the FDs received from
 the client, resulting in FDs 4, 5, and 6 being used the as the
 standard input, output, and error devices. Since these three devices
 are the same as those in the client, essentially, the client process
 and the server’s child process now share the same I/O devices
-(Figure <a class="reference external" href="#fig:rooting:dispatchingControl">4</a>(c)). Although the
+(Figure&nbsp;<a class="reference external" href="#fig:rooting:dispatchingControl">4</a>(c)). Although the
 client process is still running with a normal user privilege, it has
 the full control of the server’s child process, which is running with
-the root privilege.</p></li>
+the root privilege.</li>
 </ol>
 <div class="section" id="the-task">
 <h4>The Task<a class="headerlink" href="#the-task" title="Permalink to this headline">¶</a></h4>
@@ -802,12 +800,12 @@ the id of a process.</p>
 indicate where the following actions occur. Filename, function name, and
 line number need to be provided in the answer.</p>
 <ul class="simple">
-<li><p>Server launches the original <code class="docutils literal notranslate"><span class="pre">app_process</span></code> binary</p></li>
-<li><p>Client sends its FDs</p></li>
-<li><p>Server forks to a child process</p></li>
-<li><p>Child process receives client’s FDs</p></li>
-<li><p>Child process redirects its standard I/O FDs</p></li>
-<li><p>Child process launches a root shell</p></li>
+<li>Server launches the original <code class="docutils literal notranslate"><span class="pre">app_process</span></code> binary</li>
+<li>Client sends its FDs</li>
+<li>Server forks to a child process</li>
+<li>Child process receives client’s FDs</li>
+<li>Child process redirects its standard I/O FDs</li>
+<li>Child process launches a root shell</li>
 </ul>
 </div>
 </div>
@@ -816,11 +814,11 @@ line number need to be provided in the answer.</p>
 <span id="sec-rooting-guidelines"></span><h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="android-booting-sequence-and-app-process">
 <h3>Android Booting Sequence and <code class="docutils literal notranslate"><span class="pre">app_process</span></code><a class="headerlink" href="#android-booting-sequence-and-app-process" title="Permalink to this headline">¶</a></h3>
-<div class="align-center figure align-default" id="id7">
+<div class="align-center figure" id="id7">
 <img alt="Detailed Booting Process" src="../../_images/full_booting_process.jpg" />
-<p class="caption"><span class="caption-text">Figure 5: Detailed Booting Process</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 5: Detailed Booting Process</span></p>
 </div>
-<p><strong>Figure 5</strong> shows a detailed booting
+<p><strong>Figure&nbsp;5</strong> shows a detailed booting
 process. In the figure, we assume that the bootloader choses to boot the
 Android OS, not the recovery OS.</p>
 </div>
@@ -846,27 +844,27 @@ purposes, such as setting up environment variables, executing
 architecture specific commands, and launching <code class="docutils literal notranslate"><span class="pre">zygote</span></code>. Here are the
 files imported to <code class="docutils literal notranslate"><span class="pre">init.rc</span></code>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">init.environ.rc</span></code>: Environment variables are set by
+<li><code class="docutils literal notranslate"><span class="pre">init.environ.rc</span></code>: Environment variables are set by
 <code class="docutils literal notranslate"><span class="pre">init.environ.rc</span></code>, which provides some important path-related
 environment variables. These paths are very important for launching
 further processes because many of them will try to access these paths
 using the corresponding environment variable names. In one of the lab
 tasks, we need to pass environment variables to the child process;
-now we see why that is needed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">init.${ro.hardware}.rc</span></code>: Some commands or codes are architecture
+now we see why that is needed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">init.${ro.hardware}.rc</span></code>: Some commands or codes are architecture
 specific. The variable <code class="docutils literal notranslate"><span class="pre">${ro.hardware}</span></code> is inherited from the
 <code class="docutils literal notranslate"><span class="pre">Init</span></code> process and passed to the <code class="docutils literal notranslate"><span class="pre">init.rc</span></code> script. On our
 Android-x86 VM, it will be “android_x86” and the script file
 <code class="docutils literal notranslate"><span class="pre">init.android_x86.rc</span></code> file will be invoked. Inside this file,
 <code class="docutils literal notranslate"><span class="pre">init.sh</span></code> is called. This <code class="docutils literal notranslate"><span class="pre">init.sh</span></code> file is the one used in In
-Task 1, where we inject the invocation of our code.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">init.${ro.zygote}.rc</span></code>: This file starts a very important daemon
+Task 1, where we inject the invocation of our code.</li>
+<li><code class="docutils literal notranslate"><span class="pre">init.${ro.zygote}.rc</span></code>: This file starts a very important daemon
 called <code class="docutils literal notranslate"><span class="pre">Zygote</span></code>. The variable <code class="docutils literal notranslate"><span class="pre">${ro.zygote}</span></code> is inherited from
 the <code class="docutils literal notranslate"><span class="pre">Init</span></code> binary. It can be <code class="docutils literal notranslate"><span class="pre">zygote32</span></code> or <code class="docutils literal notranslate"><span class="pre">zygote64</span></code>, for
 32-bit and 64-bit architecture, respectively; it can also be
 <code class="docutils literal notranslate"><span class="pre">zygote32_64</span></code> or <code class="docutils literal notranslate"><span class="pre">zygote64_32</span></code> for hybrid modes
 (mainMode_secondaryMode). In our Android-x86 VM, it is
-<code class="docutils literal notranslate"><span class="pre">init.zygote32.rc</span></code>.</p></li>
+<code class="docutils literal notranslate"><span class="pre">init.zygote32.rc</span></code>.</li>
 </ul>
 <p>All these <code class="docutils literal notranslate"><span class="pre">rc</span></code> script files are stored in an image file, named
 <code class="docutils literal notranslate"><span class="pre">ramdisk.img</span></code> on our Android-x86 VM; on real devices, these script
@@ -898,7 +896,7 @@ original <code class="docutils literal notranslate"><span class="pre">app_proces
 existing rooting OTA packages.</p>
 <div class="section" id="how-to-unlock-the-boot-loader-on-a-real-device">
 <h4>How to unlock the boot loader on a real device<a class="headerlink" href="#how-to-unlock-the-boot-loader-on-a-real-device" title="Permalink to this headline">¶</a></h4>
-<p>As what is shown in <strong>Figure 5</strong>, when the
+<p>As what is shown in <strong>Figure&nbsp;5</strong>, when the
 power button is pressed, the device firsts goes to a fixed location in
 its ROM, and run instructions from there. These instructions will then
 go to a pre-defined location on the disk or flash drive to load the
@@ -937,11 +935,11 @@ demonstration purpose we are using a Nexus device. To unlock it, first
 we need to load bootloader of the Nexus device by passing the
 <code class="docutils literal notranslate"><span class="pre">&quot;adb</span> <span class="pre">reboot</span> <span class="pre">bootloader&quot;</span></code> command or by interrupting the normal boot
 process using the “volume down” and “power” button combination.
-<strong>Figure 6</strong> (a) shows the bootloader screen
+<strong>Figure&nbsp;6</strong> (a) shows the bootloader screen
 of a Nexus 5 device, which indicates that the bootloader is locked.</p>
-<div class="align-center figure align-default" id="id8">
+<div class="align-center figure" id="id8">
 <img alt="Unlock Bootloader" src="../../_images/Bootloader.jpg" />
-<p class="caption"><span class="caption-text">Figure 6: Unlock Bootloader</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 6: Unlock Bootloader</span></p>
 </div>
 <p>Bootloader of Nexus devices can be unlocked by using the
 <code class="docutils literal notranslate"><span class="pre">&quot;fastboot</span> <span class="pre">oem</span> <span class="pre">unlock&quot;</span></code> command. Be very careful while unlocking the
@@ -952,15 +950,15 @@ your installed apps and app data by using the
 <code class="docutils literal notranslate"><span class="pre">&quot;adb</span> <span class="pre">backup</span> <span class="pre">-apk</span> <span class="pre">-all</span> <span class="pre">-f</span> <span class="pre">backup.ab&quot;</span></code> command, which creates a file
 called <code class="docutils literal notranslate"><span class="pre">backup.ab</span></code>. After unlocking the bootloader, you can restore
 the data by running <code class="docutils literal notranslate"><span class="pre">&quot;adb</span> <span class="pre">restore</span> <span class="pre">backup.ab&quot;</span></code>.
-<strong>Figure 6</strong> (b) shows the confirmation
-screen, and <strong>Figure 6</strong> (c) shows that the
+<strong>Figure&nbsp;6</strong> (b) shows the confirmation
+screen, and <strong>Figure&nbsp;6</strong> (c) shows that the
 bootloader is now unlocked.</p>
 </div>
 <div class="section" id="how-to-replace-the-existing-recovery-os-on-a-real-device">
 <h4>How to replace the existing recovery OS on a real device<a class="headerlink" href="#how-to-replace-the-existing-recovery-os-on-a-real-device" title="Permalink to this headline">¶</a></h4>
-<div class="align-center figure align-default" id="id9">
+<div class="align-center figure" id="id9">
 <img alt="Custom Recovery OS" src="../../_images/RecoveryMode.jpg" />
-<p class="caption"><span class="caption-text">Figure 7: Custom Recovery OS</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 7: Custom Recovery OS</span></p>
 </div>
 <p>On real devices, to remove the restrictions imposed by the stock
 recovery OS, such as signature verification, we have to replace it with
@@ -983,8 +981,8 @@ finished. total time: 1.435s
 </div>
 <p>After that, we can boot into the recovery OS by pressing the “volume
 down” and “power” button combination during the boot-up process.
-<strong>Figure 7</strong> (a) shows how to boot into
-the recovery OS, and <strong>Figure 7</strong> (b)
+<strong>Figure&nbsp;7</strong> (a) shows how to boot into
+the recovery OS, and <strong>Figure&nbsp;7</strong> (b)
 shows the user interface of the TWRP recovery OS. As you can see, it has
 several useful features.</p>
 </div>
@@ -997,12 +995,13 @@ and what you have observed, including screenshots and code snippets (if
 needed). You also need to provide explanation to the observations that
 are interesting or surprising. You are encouraged to pursue further
 investigation, beyond what is required by the lab description.</p>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>This is for Android-x86 build; for the ARM build, the file name is
-different.</p>
-</dd>
-</dl>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>This is for Android-x86 build; for the ARM build, the file name is
+different.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -198,8 +197,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Firewall Exploration Lab</p>
-</div>
+Firewall Exploration Lab</div>
 <div class="section" id="firewall-exploration-lab">
 <h1>Firewall Exploration Lab<a class="headerlink" href="#firewall-exploration-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -217,22 +215,22 @@ set up firewall rules to protect the network. Students will also be
 exposed to several other interesting applications of <code class="docutils literal notranslate"><span class="pre">iptables</span></code>. This
 lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Firewall</p></li>
-<li><p>Netfilter</p></li>
-<li><p>Loadable kernel module</p></li>
-<li><p>Using <code class="docutils literal notranslate"><span class="pre">iptables</span></code> to set up firewall rules</p></li>
-<li><p>Various applications of <code class="docutils literal notranslate"><span class="pre">iptables</span></code></p></li>
+<li>Firewall</li>
+<li>Netfilter</li>
+<li>Loadable kernel module</li>
+<li>Using <code class="docutils literal notranslate"><span class="pre">iptables</span></code> to set up firewall rules</li>
+<li>Various applications of <code class="docutils literal notranslate"><span class="pre">iptables</span></code></li>
 </ul>
 <div class="section" id="readings-and-videos">
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of firewalls can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 17 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 17 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 9 of the SEED Lecture, <em>Internet Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 9 of the SEED Lecture, <em>Internet Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -246,11 +244,11 @@ and you can follow our instruction to create a SEED VM on the cloud.</p>
 <div class="section" id="environment-setup-using-containers">
 <h2>Environment Setup Using Containers<a class="headerlink" href="#environment-setup-using-containers" title="Permalink to this headline">¶</a></h2>
 <p>In this lab, we need to use multiple machines. Their setup is depicted
-in <strong>Figure 1</strong>. We will use containers to set up this
+in <strong>Figure&nbsp;1</strong>. We will use containers to set up this
 lab environment.</p>
-<div class="align-center figure align-default" id="id1">
+<div class="align-center figure" id="id1">
 <img alt="Lab setup" src="../../_images/twoLANs.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Lab setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab setup</span></p>
 </div>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
@@ -341,22 +339,22 @@ we will get familiar with LKM.</p>
 from the kernel, it prints out <code class="docutils literal notranslate"><span class="pre">&quot;Bye-bye</span> <span class="pre">World!&quot;</span></code>. The messages are
 not printed out on the screen; they are actually printed into the
 <code class="docutils literal notranslate"><span class="pre">/var/log/syslog</span></code> file. You can use <code class="docutils literal notranslate"><span class="pre">&quot;dmesg&quot;</span></code> to view the messages.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;linux/module.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;linux/kernel.h&gt;</span><span class="cp"></span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;linux/module.h&gt;
+#include &lt;linux/kernel.h&gt;
 
-<span class="kt">int</span> <span class="nf">initialization</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+int initialization(void)
+{
+    printk(KERN_INFO &quot;Hello World!\n&quot;);
+    return 0;
+}
 
-<span class="kt">void</span> <span class="nf">cleanup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&quot;Bye-bye World!.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+void cleanup(void)
+{
+    printk(KERN_INFO &quot;Bye-bye World!.\n&quot;);
+}
 
-<span class="n">module_init</span><span class="p">(</span><span class="n">initialization</span><span class="p">);</span>
-<span class="n">module_exit</span><span class="p">(</span><span class="n">cleanup</span><span class="p">);</span>
+module_init(initialization);
+module_exit(cleanup);
 </pre></div>
 </div>
 <p>We now need to create <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, which includes the following
@@ -425,12 +423,12 @@ implemented earlier. When the kernel module is added to the kernel, the
 function, we register two hooks to <code class="docutils literal notranslate"><span class="pre">netfilter</span></code>.</p>
 <p>To register a hook, you need to prepare a hook data structure, and set
 all the needed parameters, the most important of which are a function
-name (Line ) and a hook number (Line ). The hook number is one of the 5
+name (Line&nbsp;) and a hook number (Line&nbsp;). The hook number is one of the 5
 hooks in <code class="docutils literal notranslate"><span class="pre">netfilter</span></code>, and the specified function will be invoked when
 a packet has reached this hook. In this example, when a packet gets to
 the <code class="docutils literal notranslate"><span class="pre">LOCAL_IN</span></code> hook, the function <code class="docutils literal notranslate"><span class="pre">printInfo()</span></code> will be invoked
 (this function will be given later). Once the hook data structure is
-prepared, we attach the hook to <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> in Line ).</p>
+prepared, we attach the hook to <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> in Line&nbsp;).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>static struct nf_hook_ops hook1, hook2;
 
 int registerFilter(void) {
@@ -470,13 +468,13 @@ module_exit(removeFilter);
 changed slightly to work in Ubuntu 20.04. The change is in the hook
 registration and un-registration APIs. See the difference in the
 following:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Hook registration:</span>
-  <span class="n">nf_register_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span>                  <span class="c1">// For Ubuntu 16.04 VM</span>
-  <span class="n">nf_register_net_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">init_net</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span>   <span class="c1">// For Ubuntu 20.04 VM</span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>// Hook registration:
+  nf_register_hook(&amp;nfho);                  // For Ubuntu 16.04 VM
+  nf_register_net_hook(&amp;init_net, &amp;nfho);   // For Ubuntu 20.04 VM
 
-<span class="c1">// Hook unregistration:</span>
-  <span class="n">nf_unregister_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span>                <span class="c1">// For Ubuntu 16.04 VM</span>
-  <span class="n">nf_unregister_net_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">init_net</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span> <span class="c1">// For Ubuntu 20.04 VM</span>
+// Hook unregistration:
+  nf_unregister_hook(&amp;nfho);                // For Ubuntu 16.04 VM
+  nf_unregister_net_hook(&amp;init_net, &amp;nfho); // For Ubuntu 20.04 VM
 </pre></div>
 </div>
 </div>
@@ -485,11 +483,11 @@ following:</p>
 <p>We give an example of hook function below. It only prints out the packet
 information. When <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> invokes a hook function, it passes three
 arguments to the function, including a pointer to the actual packet
-(<code class="docutils literal notranslate"><span class="pre">skb</span></code>). In the following code, Line  shows how to retrieve the hook
-number from the <code class="docutils literal notranslate"><span class="pre">state</span></code> argument. In Line , we use <code class="docutils literal notranslate"><span class="pre">ip_hdr()</span></code>
+(<code class="docutils literal notranslate"><span class="pre">skb</span></code>). In the following code, Line&nbsp; shows how to retrieve the hook
+number from the <code class="docutils literal notranslate"><span class="pre">state</span></code> argument. In Line&nbsp;, we use <code class="docutils literal notranslate"><span class="pre">ip_hdr()</span></code>
 function to get the pointer for the IP header, and then use the <code class="docutils literal notranslate"><span class="pre">%pI4</span></code>
 format string specifier to print out the source and destination IP
-addresses in Line .</p>
+addresses in Line&nbsp;.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unsigned int printInfo(void *priv, struct sk_buff *skb,
                        const struct nf_hook_state *state)
 {
@@ -513,10 +511,10 @@ following functions defined in various header files. The structure
 definition of these headers can be found inside the folder, where the
 version number in the path is the result of <code class="docutils literal notranslate"><span class="pre">&quot;uname</span> <span class="pre">-r&quot;</span></code>, so it may be
 different if the kernel version is different.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">iphdr</span>   <span class="o">*</span><span class="n">iph</span>   <span class="o">=</span> <span class="n">ip_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>    <span class="c1">// (need to include &lt;linux/ip.h&gt;)</span>
-<span class="k">struct</span> <span class="nc">tcphdr</span>  <span class="o">*</span><span class="n">tcph</span>  <span class="o">=</span> <span class="n">tcp_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>   <span class="c1">// (need to include &lt;linux/tcp.h&gt;)</span>
-<span class="k">struct</span> <span class="nc">udphdr</span>  <span class="o">*</span><span class="n">udph</span>  <span class="o">=</span> <span class="n">udp_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>   <span class="c1">// (need to include &lt;linux/udp.h&gt;)</span>
-<span class="k">struct</span> <span class="nc">icmphdr</span> <span class="o">*</span><span class="n">icmph</span> <span class="o">=</span> <span class="n">icmp_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>  <span class="c1">// (need to include &lt;linux/icmp.h&gt;)</span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>struct iphdr   *iph   = ip_hdr(skb)    // (need to include &lt;linux/ip.h&gt;)
+struct tcphdr  *tcph  = tcp_hdr(skb)   // (need to include &lt;linux/tcp.h&gt;)
+struct udphdr  *udph  = udp_hdr(skb)   // (need to include &lt;linux/udp.h&gt;)
+struct icmphdr *icmph = icmp_hdr(skb)  // (need to include &lt;linux/icmp.h&gt;)
 </pre></div>
 </div>
 </div>
@@ -551,10 +549,10 @@ nameserver <code class="docutils literal notranslate"><span class="pre">8.8.8.8<
 }
 </pre></div>
 </div>
-<p>In the code above, Line  shows, inside the kernel, how to convert an IP
+<p>In the code above, Line&nbsp; shows, inside the kernel, how to convert an IP
 address in the dotted decimal format (i.e., a string, such as
 <code class="docutils literal notranslate"><span class="pre">1.2.3.4</span></code>) to a 32-bit binary (<code class="docutils literal notranslate"><span class="pre">0x01020304</span></code>), so it can be compared
-with the binary number stored inside packets. Line  compares the
+with the binary number stored inside packets. Line&nbsp; compares the
 destination IP address and port number with the values in our specified
 rule. If they match the rule, the <code class="docutils literal notranslate"><span class="pre">NF_DROP</span></code> will be returned to
 <code class="docutils literal notranslate"><span class="pre">netfilter</span></code>, which will drop the packet. Otherwise, the <code class="docutils literal notranslate"><span class="pre">NF_ACCEPT</span></code>
@@ -568,7 +566,7 @@ hook function; it may still be dropped by other hook functions).</p>
 in the lab setup files (inside the folder). Please do the following
 tasks (do each of them separately):</p>
 <ol class="arabic">
-<li><p>Compile the sample code using the provided <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>. Load it into
+<li><p class="first">Compile the sample code using the provided <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>. Load it into
 the kernel, and demonstrate that the firewall is working as expected.
 You can use the following command to generate UDP packets to
 <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code>, which is Google’s DNS server. If your firewall works,
@@ -577,7 +575,7 @@ your request will be blocked; otherwise, you will get a response.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Hook the <code class="docutils literal notranslate"><span class="pre">printInfo</span></code> function to all of the <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hooks.
+<li><p class="first">Hook the <code class="docutils literal notranslate"><span class="pre">printInfo</span></code> function to all of the <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hooks.
 Here are the macros of the hook numbers. Using your experiment
 results to help explain at what condition will each of the hook
 function be invoked.</p>
@@ -589,7 +587,7 @@ NF_INET_POST_ROUTING
 </pre></div>
 </div>
 </li>
-<li><p>Implement two more hooks to achieve the following: (1) preventing
+<li><p class="first">Implement two more hooks to achieve the following: (1) preventing
 other computers to ping the VM, and (2) preventing other computers to
 telnet into the VM. Please implement two different hook functions,
 but register them to the same <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hook. You should decide
@@ -605,8 +603,8 @@ telnet 10.9.0.1
 </li>
 </ol>
 <div class="admonition-important-note admonition">
-<p class="admonition-title">Important Note:</p>
-<p>Since we make changes to the kernel, there is a high chance that you would crash the kernel. Make sure you back up your files frequently, so you don’t lose them. One of the common reasons for system crash is that you forget to unregister hooks. When a module is removed, these hooks will still be triggered, but the module is no longer present in the kernel. That will cause system crash. To avoid this, make sure for each hook you add to your module, add a line in <code class="docutils literal notranslate"><span class="pre">removeFilter</span></code> to unregister it, so when the module is removed, those hooks are also removed.</p>
+<p class="first admonition-title">Important Note:</p>
+<p class="last">Since we make changes to the kernel, there is a high chance that you would crash the kernel. Make sure you back up your files frequently, so you don’t lose them. One of the common reasons for system crash is that you forget to unregister hooks. When a module is removed, these hooks will still be triggered, but the module is no longer present in the kernel. That will cause system crash. To avoid this, make sure for each hook you add to your module, add a line in <code class="docutils literal notranslate"><span class="pre">removeFilter</span></code> to unregister it, so when the module is removed, those hooks are also removed.</p>
 </div>
 </div>
 </div>
@@ -628,7 +626,7 @@ to make changes to packets. To help manage these firewall rules for
 different purposes, <code class="docutils literal notranslate"><span class="pre">iptables</span></code> organizes all rules using a
 hierarchical structure: table, chain, and rules. There are several
 tables, each specifying the main purpose of the rules as shown in
-Table 1. For example, rules for packet
+Table&nbsp;1. For example, rules for packet
 filtering should be placed in the <code class="docutils literal notranslate"><span class="pre">filter</span></code> table, while rules for
 making changes to packets should be placed in the <code class="docutils literal notranslate"><span class="pre">nat</span></code> or <code class="docutils literal notranslate"><span class="pre">mangle</span></code>
 tables.</p>
@@ -646,67 +644,67 @@ different host, basically doing port forwarding, we can add a rule to
 the <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> chain of the <code class="docutils literal notranslate"><span class="pre">mangle</span></code> table, as we need to make changes
 to packets.</p>
 <div class="docutils container" id="firewall-table-iptables">
-<table class="docutils align-default" id="id2">
+<table border="1" class="docutils" id="id2">
 <caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">iptables</span></code> Tables and Chains</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 27%" />
-<col style="width: 56%" />
+<col width="16%" />
+<col width="27%" />
+<col width="56%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Table</strong></p></th>
-<th class="head"><p><strong>Chain</strong></p></th>
-<th class="head"><p><strong>Functionality</strong></p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Table</strong></th>
+<th class="head"><strong>Chain</strong></th>
+<th class="head"><strong>Functionality</strong></th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>filter</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
-<td><p>Packet filtering</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>filter</td>
+<td><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></td>
+<td>Packet filtering</td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">FORWARD</span></code></p></td>
-<td></td>
+<tr class="row-odd"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">FORWARD</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
-<td></td>
+<tr class="row-even"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p>nat</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">PREROUTING</span></code></p></td>
-<td><p>Modifying source or destination</p></td>
+<tr class="row-odd"><td>nat</td>
+<td><code class="docutils literal notranslate"><span class="pre">PREROUTING</span></code></td>
+<td>Modifying source or destination</td>
 </tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
-<td><p>network addresses</p></td>
+<tr class="row-even"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></td>
+<td>network addresses</td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
-<td></td>
+<tr class="row-odd"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">POSTROUTING</span></code></p></td>
-<td></td>
+<tr class="row-even"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">POSTROUTING</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p>mangle</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">PREROUTING</span></code></p></td>
-<td><p>Packet content modification</p></td>
+<tr class="row-odd"><td>mangle</td>
+<td><code class="docutils literal notranslate"><span class="pre">PREROUTING</span></code></td>
+<td>Packet content modification</td>
 </tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
-<td></td>
+<tr class="row-even"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">FORWARD</span></code></p></td>
-<td></td>
+<tr class="row-odd"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">FORWARD</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
-<td></td>
+<tr class="row-even"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">POSTROUTING</span></code></p></td>
-<td></td>
+<tr class="row-odd"><td></td>
+<td><code class="docutils literal notranslate"><span class="pre">POSTROUTING</span></code></td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -812,11 +810,11 @@ can find out the interface names via the <code class="docutils literal notransla
 network. More specifically, we need to enforce the following
 restrictions on the ICMP traffic:</p>
 <ol class="arabic simple">
-<li><p>Outside hosts cannot ping internal hosts.</p></li>
-<li><p>Outside hosts can ping the router.</p></li>
-<li><p>Internal hosts can ping outside hosts.</p></li>
-<li><p>All other packets between the internal and external networks should
-be blocked.</p></li>
+<li>Outside hosts cannot ping internal hosts.</li>
+<li>Outside hosts can ping the router.</li>
+<li>Internal hosts can ping outside hosts.</li>
+<li>All other packets between the internal and external networks should
+be blocked.</li>
 </ol>
 <p>You will need to use the <code class="docutils literal notranslate"><span class="pre">&quot;-p</span> <span class="pre">icmp&quot;</span></code> options to specify the match
 options related to the ICMP protocol. You can run
@@ -836,14 +834,14 @@ before moving on to the next task.</p>
 network (<code class="docutils literal notranslate"><span class="pre">192.168.60.0/24</span></code>). More specifically, we would like to
 achieve the following objectives.</p>
 <ol class="arabic simple">
-<li><p>All the internal hosts run a telnet server (listening to port
+<li>All the internal hosts run a telnet server (listening to port
 <code class="docutils literal notranslate"><span class="pre">23</span></code>). Outside hosts can only access the telnet server on
-<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>, not the other internal hosts.</p></li>
-<li><p>Outside hosts cannot access other internal servers.</p></li>
-<li><p>Internal hosts can access all the internal servers.</p></li>
-<li><p>Internal hosts cannot access external servers.</p></li>
-<li><p>In this task, the connection tracking mechanism is not allowed. It
-will be used in a later task.</p></li>
+<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>, not the other internal hosts.</li>
+<li>Outside hosts cannot access other internal servers.</li>
+<li>Internal hosts can access all the internal servers.</li>
+<li>Internal hosts cannot access external servers.</li>
+<li>In this task, the connection tracking mechanism is not allowed. It
+will be used in a later task.</li>
 </ol>
 <p>You will need to use the <code class="docutils literal notranslate"><span class="pre">&quot;-p</span> <span class="pre">tcp&quot;</span></code> options to specify the match
 options related to the TCP protocol. You can run
@@ -889,7 +887,7 @@ connections. Please conduct the following experiments. For each
 experiment, please describe your observation, along with your
 explanation.</p>
 <ul>
-<li><p>ICMP experiment: Run the following command and check the connection
+<li><p class="first">ICMP experiment: Run the following command and check the connection
 tracking information on the router. Describe your observation. How
 long is the ICMP connection state be kept?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 10.9.0.5, send out ICMP packets
@@ -897,7 +895,7 @@ long is the ICMP connection state be kept?</p>
 </pre></div>
 </div>
 </li>
-<li><p>UDP experiment: Run the following command and check the connection
+<li><p class="first">UDP experiment: Run the following command and check the connection
 tracking information on the router. Describe your observation. How
 long is the UDP connection state be kept?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 192.168.60.5, start a netcat UDP server
@@ -909,7 +907,7 @@ long is the UDP connection state be kept?</p>
 </pre></div>
 </div>
 </li>
-<li><p>TCP experiment: Run the following command and check the connection
+<li><p class="first">TCP experiment: Run the following command and check the connection
 tracking information on the router. Describe your observation. How
 long is the TCP connection state be kept?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 192.168.60.5, start a netcat TCP server

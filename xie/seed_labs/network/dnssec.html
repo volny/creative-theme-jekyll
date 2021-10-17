@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -198,13 +197,12 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>DNS Security Extensions (DNSSEC) Lab</p>
-</div>
+DNS Security Extensions (DNSSEC) Lab</div>
 <div class="section" id="dns-security-extensions-dnssec-lab">
 <h1>DNS Security Extensions (DNSSEC) Lab<a class="headerlink" href="#dns-security-extensions-dnssec-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lab-overview">
 <h2>Lab Overview<a class="headerlink" href="#lab-overview" title="Permalink to this headline">¶</a></h2>
-<p>To protect DNS, the Domain Name System Security Extensions (DNSSEC) were
+<p>To protect DNS, the Domain Name System Security Extensions&nbsp;(DNSSEC) were
 developed. DNSSEC is a set of extension to DNS, aiming to provide
 authentication and integrity checking on DNS data. With DNSSEC, all
 answers from DNSSEC protected zones are digitally signed. By checking
@@ -218,22 +216,22 @@ miniature DNS system developed in the DNS-in-a-Box lab with DNSSEC.
 Students will configure each of the nameservers, so they all support
 DNSSEC. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>DNS and how it works</p></li>
-<li><p>DNSSEC and how it works</p></li>
-<li><p>Key management, public key, digital signature</p></li>
-<li><p>Docker container, docker compose</p></li>
+<li>DNS and how it works</li>
+<li>DNSSEC and how it works</li>
+<li>Key management, public key, digital signature</li>
+<li>Docker container, docker compose</li>
 </ul>
 <div class="section" id="readings-and-videos">
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the DNS protocol and attacks can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -248,16 +246,16 @@ do this lab using other VMs, physical machines, or VMs on the cloud.</p>
 <h2>Lab Environment Setup<a class="headerlink" href="#lab-environment-setup" title="Permalink to this headline">¶</a></h2>
 <p>This lab depends on the DNS-In-a-Box lab, so students should do that lab
 first. After doing the lab, we will have a miniature DNS system depicted
-in <strong>Figure 1</strong>. In this lab, we will enhance
+in <strong>Figure&nbsp;1</strong>. In this lab, we will enhance
 this infrastructure with DNSSEC. In this lab description, we assume that
 the miniature DNS system has already been set up correctly, and each
 nameserver is hosted inside a container. We will modify each of the
 container, so the nameserver inside can support DNSSEC. Please download
 the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file from the website of this lab (this file is
 slightly different from one used in the DNS-In-a-Box lab).</p>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="Lab environment setup" src="../../_images/DNS-in-a-box.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span></p>
 </div>
 <div class="section" id="software-installation">
 <h3>Software installation.<a class="headerlink" href="#software-installation" title="Permalink to this headline">¶</a></h3>

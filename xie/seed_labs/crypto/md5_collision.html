@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -190,8 +188,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>MD5 Collision Attack Lab</p>
-</div>
+MD5 Collision Attack Lab</div>
 <div class="section" id="md5-collision-attack-lab">
 <h1>MD5 Collision Attack Lab<a class="headerlink" href="#md5-collision-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
@@ -222,25 +219,25 @@ students should be able to create two different programs that share the
 same MD5 hash but have completely different behaviors. This lab covers a
 number of topics described in the following:</p>
 <ul class="simple">
-<li><p>One-way hash function, MD5</p></li>
-<li><p>The collision-resistance property</p></li>
-<li><p>Collision attacks</p></li>
+<li>One-way hash function, MD5</li>
+<li>The collision-resistance property</li>
+<li>Collision attacks</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the one-way hash function can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 22 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 22 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="lab-environment">
 <h2>Lab Environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
 <p>This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be
-downloaded from the SEED website.  The lab uses a tool called “Fast MD5
+downloaded from the SEED website.&nbsp;&nbsp;The lab uses a tool called “Fast MD5
 Collision Generation”, which was written by Marc Stevens. The name of
 the binary is called <code class="docutils literal notranslate"><span class="pre">md5collgen</span></code> in our VM, and it is installed
 inside the <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code> folder. If it is not there, you can download it
@@ -261,15 +258,15 @@ hash values. The beginning parts of these two files need to be the same,
 i.e., they share the same prefix. We can achieve this using the
 <code class="docutils literal notranslate"><span class="pre">md5collgen</span></code> program, which allows us to provide a prefix file with
 any arbitrary content. The way how the program works is illustrated in
-<strong>Figure 1</strong>. The following command generates two
+<strong>Figure&nbsp;1</strong>. The following command generates two
 output files, <code class="docutils literal notranslate"><span class="pre">out1.bin</span></code> and <code class="docutils literal notranslate"><span class="pre">out2.bin</span></code>, for a given a prefix file
 <code class="docutils literal notranslate"><span class="pre">prefix.txt</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ md5collgen -p prefix.txt -o out1.bin out2.bin
 </pre></div>
 </div>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="alternate text" src="../../_images/generate_collision.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: MD5 collision generation from a prefix</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: MD5 collision generation from a prefix</span></p>
 </div>
 <p>We can check whether the output files are distinct or not using the
 <code class="docutils literal notranslate"><span class="pre">diff</span></code> command. We can also use the <code class="docutils literal notranslate"><span class="pre">md5sum</span></code> command to check the
@@ -286,13 +283,13 @@ editor software called <code class="docutils literal notranslate"><span class="p
 view these two output files, and describe your observations. In
 addition, you should answer the following questions:</p>
 <ul class="simple">
-<li><p><strong>Question 1.</strong> If the length of your prefix file is not multiple of
-64, what is going to happen?</p></li>
-<li><p><strong>Question 2.</strong> Create a prefix file with exactly 64 bytes, and run
-the collision tool again, and see what happens.</p></li>
-<li><p><strong>Question 3.</strong> Are the data (128 bytes) generated by <code class="docutils literal notranslate"><span class="pre">md5collgen</span></code>
+<li><strong>Question 1.</strong> If the length of your prefix file is not multiple of
+64, what is going to happen?</li>
+<li><strong>Question 2.</strong> Create a prefix file with exactly 64 bytes, and run
+the collision tool again, and see what happens.</li>
+<li><strong>Question 3.</strong> Are the data (128 bytes) generated by <code class="docutils literal notranslate"><span class="pre">md5collgen</span></code>
 completely different for the two output files? Please identify all
-the bytes that are different.</p></li>
+the bytes that are different.</li>
 </ul>
 </div>
 <div class="section" id="task-2-understanding-md5s-property">
@@ -301,7 +298,7 @@ the bytes that are different.</p></li>
 MD5 algorithm. These properties are important for us to conduct further
 tasks in this lab. MD5 is a quite complicated algorithm, but from very
 high level, it is not so complicated. As
-<strong>Figure 2</strong> shows, MD5 divides the input data
+<strong>Figure&nbsp;2</strong> shows, MD5 divides the input data
 into blocks of 64 bytes, and then computes the hash iteratively on these
 blocks. The core of the MD5 algorithm is a compression function, which
 takes two inputs, a 64-byte data block and the outcome of the previous
@@ -310,9 +307,9 @@ for “Intermediate Hash Value”; this output is then fed into the next
 iteration. If the current iteration is the last one, the IHV will be the
 final hash value. The IHV input for the first iteration
 (IHV<span class="math notranslate nohighlight">\(_0\)</span>) is a fixed value.</p>
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="How the MD5 algorithm works" src="../../_images/How_MD5_works.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: How the MD5 algorithm works</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: How the MD5 algorithm works</span></p>
 </div>
 <p>Based on how MD5 works, we can derive the following property of the MD5
 algorithm: Given two inputs <code class="docutils literal notranslate"><span class="pre">M</span></code> and <code class="docutils literal notranslate"><span class="pre">N</span></code>, if <code class="docutils literal notranslate"><span class="pre">MD5(M)</span> <span class="pre">=</span> <span class="pre">MD5(N)</span></code>,
@@ -377,10 +374,10 @@ will not be difficult to locate 200 <code class="docutils literal notranslate"><
 </div>
 <div class="section" id="guidelines">
 <h3>Guidelines.<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h3>
-<p>From inside the array, we can find two locations, from where we can divide the executable file into three parts: a prefix, a 128-byte region, and a suffix. The length of the prefix needs to be multiple of 64 bytes. Se  <strong>Figure 3</strong> for an illustration of how the file is divided.</p>
-<div class="align-center figure align-default" id="id4">
+<p>From inside the array, we can find two locations, from where we can divide the executable file into three parts: a prefix, a 128-byte region, and a suffix. The length of the prefix needs to be multiple of 64 bytes. Se  <strong>Figure&nbsp;3</strong> for an illustration of how the file is divided.</p>
+<div class="align-center figure" id="id4">
 <img alt="Break the executable file into three pieces." src="../../_images/fill_array.jpg" />
-<p class="caption"><span class="caption-text">Figure 3: Break the executable file into three pieces.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: Break the executable file into three pieces.</span></p>
 </div>
 <p>We can run <code class="docutils literal notranslate"><span class="pre">md5collgen</span></code> on the prefix to generate two outputs that
 have the same MD5 hash value. Let us use <code class="docutils literal notranslate"><span class="pre">P</span></code> and <code class="docutils literal notranslate"><span class="pre">Q</span></code> to represent
@@ -506,13 +503,13 @@ different versions that have the same MD5 hash. In one version, the
 contents of X and Y are the same, so the benign code is executed; in the
 other version, the contents of X and Y are different, so the malicious
 code is executed. We can achieve this goal using a technique similar to
-the one used in Task 3. <strong>Figure 4</strong> illustrates
+the one used in Task 3. <strong>Figure&nbsp;4</strong> illustrates
 what the two versions of the program look like.</p>
-<div class="align-center figure align-default" id="id5">
+<div class="align-center figure" id="id5">
 <img alt="alternate text" src="../../_images/two_versions.jpg" />
-<p class="caption"><span class="caption-text">Figure 4: An approach to generate two hash-colliding programs with different behaviors.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: An approach to generate two hash-colliding programs with different behaviors.</span></p>
 </div>
-<p>From <strong>Figure 4</strong>, we know that these two binary
+<p>From <strong>Figure&nbsp;4</strong>, we know that these two binary
 files have the same MD5 hash value, as long as <code class="docutils literal notranslate"><span class="pre">P</span></code> and <code class="docutils literal notranslate"><span class="pre">Q</span></code> are
 generated accordingly. In the first version, we make the contents of
 arrays X and Y the same, while in the second version, we make their

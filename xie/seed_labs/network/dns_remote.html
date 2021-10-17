@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -200,8 +198,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>The Kaminsky Attack Lab</p>
-</div>
+The Kaminsky Attack Lab</div>
 <div class="section" id="the-kaminsky-attack-lab">
 <h1>The Kaminsky Attack Lab<a class="headerlink" href="#the-kaminsky-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lab-overview">
@@ -221,11 +218,11 @@ where packet sniffing is possible. In this remote attack lab, packet
 sniffing is not possible, so the attack becomes much more challenging
 than the local attack. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>DNS and how it works</p></li>
-<li><p>DNS server setup</p></li>
-<li><p>DNS cache poisoning attack</p></li>
-<li><p>Spoofing DNS responses</p></li>
-<li><p>Packet spoofing</p></li>
+<li>DNS and how it works</li>
+<li>DNS server setup</li>
+<li>DNS cache poisoning attack</li>
+<li>Spoofing DNS responses</li>
+<li>Packet spoofing</li>
 </ul>
 <div class="section" id="downloadable-files">
 <h3>Downloadable Files.<a class="headerlink" href="#downloadable-files" title="Permalink to this headline">¶</a></h3>
@@ -236,12 +233,12 @@ than the local attack. This lab covers the following topics:</p>
 <p>Detailed coverage of the DNS protocol and attacks can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -254,16 +251,16 @@ and you can follow our instruction to create a SEED VM on the cloud.</p>
 </div>
 <div class="section" id="lab-environment-setup-task-1">
 <h2>Lab Environment Setup (Task 1)<a class="headerlink" href="#lab-environment-setup-task-1" title="Permalink to this headline">¶</a></h2>
-<div class="align-center figure align-default" id="id1">
+<div class="align-center figure" id="id1">
 <img alt="Environment setup for the experiment" src="../../_images/environment_setup_remote.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Environment setup for the experiment</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Environment setup for the experiment</span></p>
 </div>
 <p>The main target for DNS cache poisoning attacks is local DNS server.
 Obviously, it is illegal to attack a real server, so we need to set up
 our own DNS server to conduct the attack experiments. The lab
 environment needs four separate machines: one for the victim, one for
 the DNS server, and two for the attacker. The lab environment setup is
-illustrated in <strong>Figure 1</strong>.</p>
+illustrated in <strong>Figure&nbsp;1</strong>.</p>
 <p>We put all these machines on the same LAN only for the sake of
 simplicity. Students are not allowed to exploit this fact in their
 attacks; they should treat the attacker machine as a remote machine,
@@ -326,7 +323,7 @@ attacker machine. If you look at the Docker Compose file, you will see
 that the attacker container is configured differently from the other
 containers.</p>
 <ul>
-<li><p><em>Shared folder.</em> When we use the attacker container to launch
+<li><p class="first"><em>Shared folder.</em> When we use the attacker container to launch
 attacks, we need to put the attacking code inside the attacker
 container. Code editing is more convenient inside the VM than in
 containers, because we can use our favorite editors. In order for the
@@ -343,7 +340,7 @@ containers.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Host mode.</em> In this lab, the attacker needs to be able to sniff
+<li><p class="first"><em>Host mode.</em> In this lab, the attacker needs to be able to sniff
 packets, but running sniffer programs inside a container has
 problems, because a container is effectively attached to a virtual
 switch, so it can only see its own traffic, and it is never going to
@@ -376,16 +373,18 @@ entries, i.e., the actual configurations are stored in those included
 files. One of the included files is called . This is where the actual
 configuration is set.</p>
 <ul>
-<li><p><em>Simplification.</em> DNS servers now randomize the source port number in
+<li><p class="first"><em>Simplification.</em> DNS servers now randomize the source port number in
 their DNS queries; this makes the attacks much more difficult.
 Unfortunately, many DNS servers still use predictable source port
 number. For the sake of simplicity in this lab, we fix the source
-port number to <code class="docutils literal notranslate"><span class="pre">33333</span></code> in the configuration file.</p></li>
-<li><p><em>Turning off DNSSEC.</em> DNSSEC is introduced to protect against
+port number to <code class="docutils literal notranslate"><span class="pre">33333</span></code> in the configuration file.</p>
+</li>
+<li><p class="first"><em>Turning off DNSSEC.</em> DNSSEC is introduced to protect against
 spoofing attacks on DNS servers. To show how attacks work without
 this protection mechanism, we have turned off the protection in the
-configuration file.</p></li>
-<li><p><em>DNS cache.</em> During the attack, we need to inspect the DNS cache on
+configuration file.</p>
+</li>
+<li><p class="first"><em>DNS cache.</em> During the attack, we need to inspect the DNS cache on
 the local DNS server. The following two commands are related to DNS
 cache. The first command dumps the content of the cache to the file ,
 and the second command clears the cache.</p>
@@ -394,7 +393,7 @@ and the second command clears the cache.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Forwarding the ``attacker32.com`` zone.</em> A forward zone is added to
+<li><p class="first"><em>Forwarding the ``attacker32.com`` zone.</em> A forward zone is added to
 the local DNS server, so if anybody queries the <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>
 domain, the query will be forwarded to this domain’s nameserver,
 which is hosted in the attacker container. The zone entry is put
@@ -414,7 +413,7 @@ inside the <code class="docutils literal notranslate"><span class="pre">named.co
 <h4>User machine.<a class="headerlink" href="#user-machine" title="Permalink to this headline">¶</a></h4>
 <p>The user container <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code> is already configured to use
 <code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> as its local DNS server. This is achieved by changing the
-resolver configuration file (<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>) of the user machine,
+resolver configuration file&nbsp;(<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>) of the user machine,
 so the server <code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> is added as the first <code class="docutils literal notranslate"><span class="pre">nameserver</span></code> entry
 in the file, i.e., this server will be used as the primary DNS server.</p>
 </div>
@@ -507,13 +506,13 @@ will end up going to the attacker’s nameserver <code class="docutils literal n
 get the IP address, so the IP address returned can be any number that is
 decided by the attacker. As results, the user will be led to the
 attacker’s web site, instead of to the authentic <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>.</p>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="The complete DNS query process" src="../../_images/DNS_Remote_new1.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: The complete DNS query process</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: The complete DNS query process</span></p>
 </div>
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="The Kaminsky Attack" src="../../_images/DNS_Remote_new2.jpg" />
-<p class="caption"><span class="caption-text">Figure 3: The Kaminsky Attack</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: The Kaminsky Attack</span></p>
 </div>
 <div class="section" id="how-kaminsky-attack-works">
 <h3>How Kaminsky attack works<a class="headerlink" href="#how-kaminsky-attack-works" title="Permalink to this headline">¶</a></h3>
@@ -521,11 +520,11 @@ attacker’s web site, instead of to the authentic <code class="docutils literal
 server (<code class="docutils literal notranslate"><span class="pre">Apollo</span></code>), triggering a DNS query from <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>. The query
 may go through one of the root DNS servers, the <code class="docutils literal notranslate"><span class="pre">.COM</span></code> DNS server, and
 the final result will come back from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s DNS server.
-This is illustrated in <strong>Figure 2</strong>. In case that
+This is illustrated in <strong>Figure&nbsp;2</strong>. In case that
 <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s nameserver information is already cached by
 <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>, the query will not go through the root or the <code class="docutils literal notranslate"><span class="pre">.COM</span></code>
-server; this is illustrated in <strong>Figure 3</strong>. In
-this lab, the situation depicted in <strong>Figure 3</strong> is
+server; this is illustrated in <strong>Figure&nbsp;3</strong>. In
+this lab, the situation depicted in <strong>Figure&nbsp;3</strong> is
 more common, so we will use this figure as the basis to describe the
 attack mechanism.</p>
 <p>While <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> waits for the DNS reply from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s name
@@ -567,15 +566,15 @@ name, without the need for waiting, so attacks can succeed within a very
 short period of time. Details of the attacks are described
 in. In this task, we will try
 this attack method. The following steps with reference to
-<strong>Figure 3</strong> outlines the attack.</p>
+<strong>Figure&nbsp;3</strong> outlines the attack.</p>
 <ol class="arabic simple">
-<li><p>The attacker queries the DNS Server <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> for a non-existing
+<li>The attacker queries the DNS Server <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> for a non-existing
 name in <code class="docutils literal notranslate"><span class="pre">example.com</span></code>, such as <code class="docutils literal notranslate"><span class="pre">twysw.example.com</span></code>, where
-<code class="docutils literal notranslate"><span class="pre">twysw</span></code> is a random name.</p></li>
-<li><p>Since the mapping is unavailable in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache,
+<code class="docutils literal notranslate"><span class="pre">twysw</span></code> is a random name.</li>
+<li>Since the mapping is unavailable in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache,
 <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> sends a DNS query to the nameserver of the <code class="docutils literal notranslate"><span class="pre">example.com</span></code>
-domain.</p></li>
-<li><p>While <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> waits for the reply, the attacker floods <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>
+domain.</li>
+<li>While <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> waits for the reply, the attacker floods <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>
 with a stream of spoofed DNS response, each trying a different
 transaction ID, hoping one is correct. In the response, not only does
 the attacker provide an IP resolution for <code class="docutils literal notranslate"><span class="pre">twysw.example.com</span></code>, the
@@ -584,17 +583,17 @@ indicating <code class="docutils literal notranslate"><span class="pre">ns.attac
 <code class="docutils literal notranslate"><span class="pre">example.com</span></code> domain. If the spoofed response beats the actual
 responses and the transaction ID matches with that in the query,
 <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> will accept and cache the spoofed answer, and and thus
-<code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache is poisoned.</p></li>
-<li><p>Even if the spoofed DNS response fails (e.g. the transaction ID does
+<code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache is poisoned.</li>
+<li>Even if the spoofed DNS response fails (e.g. the transaction ID does
 not match or it comes too late), it does not matter, because the next
 time, the attacker will query a different name, so <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> has to
 send out another query, giving the attack another chance to do the
-spoofing attack. This effectively defeats the caching effect.</p></li>
-<li><p>If the attack succeeds, in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache, the nameserver
+spoofing attack. This effectively defeats the caching effect.</li>
+<li>If the attack succeeds, in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache, the nameserver
 for <code class="docutils literal notranslate"><span class="pre">example.com</span></code> will be replaced by the attacker’s nameserver
 <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code>. To demonstrate the success of this attack,
 students need to show that such a record is in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS
-cache.</p></li>
+cache.</li>
 </ol>
 </div>
 <div class="section" id="task-overview">

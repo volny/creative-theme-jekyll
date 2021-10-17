@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -188,8 +187,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Transport Layer Security (TLS) Lab</p>
-</div>
+Transport Layer Security (TLS) Lab</div>
 <div class="section" id="transport-layer-security-tls-lab">
 <h1>Transport Layer Security (TLS) Lab<a class="headerlink" href="#transport-layer-security-tls-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -214,12 +212,12 @@ implement a simple HTTPS proxy program to understand the security impact
 if some trusted CAs are compromised. The lab covers the following
 topics:</p>
 <ul class="simple">
-<li><p>Public-Key Infrastructure (PKI)</p></li>
-<li><p>Transport Layer Security (TLS)</p></li>
-<li><p>TLS programming</p></li>
-<li><p>HTTPS proxy</p></li>
-<li><p>X.509 certificates with the Subject Alternative Name (SAN) extensions</p></li>
-<li><p>Man-In-The-Middle attacks</p></li>
+<li>Public-Key Infrastructure (PKI)</li>
+<li>Transport Layer Security (TLS)</li>
+<li>TLS programming</li>
+<li>HTTPS proxy</li>
+<li>X.509 certificates with the Subject Alternative Name (SAN) extensions</li>
+<li>Man-In-The-Middle attacks</li>
 </ul>
 <div class="section" id="prerequisite">
 <h3>Prerequisite.<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h3>
@@ -230,9 +228,9 @@ working on this lab.</p>
 <h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of PKI and TLS can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapters 24 and 25 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapters 24 and 25 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -337,35 +335,35 @@ of the TLS Handshake Protocol. In this task, we focus on the TLS
 handshake protocol. The following sample code initiates a TLS handshake
 with a TLS server (the name of the server needs to be specified as the
 first command line argument).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
 
-<span class="kn">import</span> <span class="nn">socket</span><span class="o">,</span> <span class="nn">ssl</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">pprint</span>
+import socket, ssl, sys, pprint
 
-<span class="n">hostname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">port</span> <span class="o">=</span> <span class="mi">443</span>
-<span class="n">cadir</span> <span class="o">=</span> <span class="s1">&#39;/etc/ssl/certs&#39;</span>
+hostname = sys.argv[1]
+port = 443
+cadir = &#39;/etc/ssl/certs&#39;
 
-<span class="c1"># Set up the TLS context</span>
-<span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">(</span><span class="n">ssl</span><span class="o">.</span><span class="n">PROTOCOL_TLS_CLIENT</span><span class="p">)</span>
-<span class="n">context</span><span class="o">.</span><span class="n">load_verify_locations</span><span class="p">(</span><span class="n">capath</span><span class="o">=</span><span class="n">cadir</span><span class="p">)</span>
-<span class="n">context</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">CERT_REQUIRED</span>
-<span class="n">context</span><span class="o">.</span><span class="n">check_hostname</span> <span class="o">=</span> <span class="kc">True</span>
+# Set up the TLS context
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+context.load_verify_locations(capath=cadir)
+context.verify_mode = ssl.CERT_REQUIRED
+context.check_hostname = True
 
-<span class="c1"># Create TCP connection</span>
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-<span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
-<span class="nb">input</span><span class="p">(</span><span class="s2">&quot;After making TCP connection. Press any key to continue ...&quot;</span><span class="p">)</span>
+# Create TCP connection
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((hostname, port))
+input(&quot;After making TCP connection. Press any key to continue ...&quot;)
 
-<span class="c1"># Add the TLS</span>
-<span class="n">ssock</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="n">hostname</span><span class="p">,</span>
-                            <span class="n">do_handshake_on_connect</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ssock</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>   <span class="c1"># Start the handshake</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">ssock</span><span class="o">.</span><span class="n">getpeercert</span><span class="p">())</span>
-<span class="nb">input</span><span class="p">(</span><span class="s2">&quot;After handshake. Press any key to continue ...&quot;</span><span class="p">)</span>
+# Add the TLS
+ssock = context.wrap_socket(sock, server_hostname=hostname,
+                            do_handshake_on_connect=False)
+ssock.do_handshake()   # Start the handshake
+pprint.pprint(ssock.getpeercert())
+input(&quot;After handshake. Press any key to continue ...&quot;)
 
-<span class="c1"># Close the TLS Connection</span>
-<span class="n">ssock</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_RDWR</span><span class="p">)</span>
-<span class="n">ssock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+# Close the TLS Connection
+ssock.shutdown(socket.SHUT_RDWR)
+ssock.close()
 </pre></div>
 </div>
 <div class="section" id="tasks">
@@ -375,14 +373,14 @@ Additional code may need to be added to complete the tasks. Students can
 find the manual for Python’s SSL module online. Please report the
 following:</p>
 <ul class="simple">
-<li><p>What is the cipher used between the client and the server?</p></li>
-<li><p>Please print out the server certificate in the program.</p></li>
-<li><p>Explain the purpose of <code class="docutils literal notranslate"><span class="pre">/etc/ssl/certs</span></code>.</p></li>
-<li><p>Use Wireshark to capture the network traffics during the execution of
+<li>What is the cipher used between the client and the server?</li>
+<li>Please print out the server certificate in the program.</li>
+<li>Explain the purpose of <code class="docutils literal notranslate"><span class="pre">/etc/ssl/certs</span></code>.</li>
+<li>Use Wireshark to capture the network traffics during the execution of
 the program, and explain your observation. In particular, explain
 which step triggers the TCP handshake, and which step triggers the
 TLS handshake. Explain the relationship between the TLS handshake and
-the TCP handshake.</p></li>
+the TCP handshake.</li>
 </ul>
 </div>
 </div>
@@ -437,7 +435,7 @@ different CA certificates.</p>
 of hostname checks at the client side. Please conduct the following
 steps using the client program.</p>
 <ul>
-<li><p>Step 1: Get the IP address of <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> using the <code class="docutils literal notranslate"><span class="pre">dig</span></code>
+<li><p class="first">Step 1: Get the IP address of <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> using the <code class="docutils literal notranslate"><span class="pre">dig</span></code>
 command, such as the following (you may want to run this command in
 your VM or host computers, because the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command is not
 installed inside the container):</p>
@@ -448,14 +446,14 @@ www.example.com.    403 IN  A   93.184.216.34
 </pre></div>
 </div>
 </li>
-<li><p>Step 2: Modify the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file (inside the container), add
+<li><p class="first">Step 2: Modify the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file (inside the container), add
 the following entry at the end of the file (the IP address is what
 you get from the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>93.184.216.34   www.example2020.com
 </pre></div>
 </div>
 </li>
-<li><p>Step 3: Switch the following line in the client program between
+<li><p class="first">Step 3: Switch the following line in the client program between
 <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>, and then connect your client program to
 <code class="docutils literal notranslate"><span class="pre">www.example2020.com</span></code>. Describe and explain your observation.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>context.check_hostname = False  # try both True and False
@@ -477,16 +475,16 @@ Since we choose to use HTTPS servers, we need to send HTTP requests to
 the server; otherwise, the server will not understand our request. The
 following code example shows how to send HTTP requests and how to read
 the response.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Send HTTP Request to Server</span>
-<span class="n">request</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;GET / HTTP/1.0</span><span class="se">\r\n</span><span class="s2">Host: &quot;</span> <span class="o">+</span> \
-          <span class="n">hostname</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span>
-<span class="n">ssock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span># Send HTTP Request to Server
+request = b&quot;GET / HTTP/1.0\r\nHost: &quot; + \
+          hostname.encode(&#39;utf-8&#39;) + b&quot;\r\n\r\n&quot;
+ssock.sendall(request)
 
-<span class="c1"># Read HTTP Response from Server</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">ssock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
-<span class="k">while</span> <span class="n">response</span><span class="p">:</span>
-  <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">))</span>
-  <span class="n">response</span> <span class="o">=</span> <span class="n">ssock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+# Read HTTP Response from Server
+response = ssock.recv(2048)
+while response:
+  pprint.pprint(response.split(b&quot;\r\n&quot;))
+  response = ssock.recv(2048)
 </pre></div>
 </div>
 <div class="section" id="tasks-1">
@@ -518,36 +516,36 @@ server points to the IP address of the server container.</p>
 <p>In this task, we will implement a simple TLS server. We will use the
 client program from Task 1 to test this server program. A sample server
 code is provided in the following.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
 
-<span class="kn">import</span> <span class="nn">socket</span>
-<span class="kn">import</span> <span class="nn">ssl</span>
+import socket
+import ssl
 
-<span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s2">Content-Type: text/html</span><span class="se">\r\n\r\n</span><span class="s2"></span>
-<span class="s2">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello, world!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span>
+html = &quot;&quot;&quot;
+HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello, world!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+&quot;&quot;&quot;
 
-<span class="n">SERVER_CERT</span>    <span class="o">=</span> <span class="s1">&#39;./server-certs/server.crt&#39;</span>
-<span class="n">SERVER_PRIVATE</span> <span class="o">=</span> <span class="s1">&#39;./server-certs/server.key&#39;</span>
+SERVER_CERT    = &#39;./server-certs/server.crt&#39;
+SERVER_PRIVATE = &#39;./server-certs/server.key&#39;
 
 
-<span class="n">context</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">SSLContext</span><span class="p">(</span><span class="n">ssl</span><span class="o">.</span><span class="n">PROTOCOL_TLS_SERVER</span><span class="p">)</span>
-<span class="n">context</span><span class="o">.</span><span class="n">load_cert_chain</span><span class="p">(</span><span class="n">SERVER_CERT</span><span class="p">,</span> <span class="n">SERVER_PRIVATE</span><span class="p">)</span>
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+context.load_cert_chain(SERVER_CERT, SERVER_PRIVATE)
 
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">443</span><span class="p">))</span>
-<span class="n">sock</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
+sock.bind((&#39;0.0.0.0&#39;, 443))
+sock.listen(5)
 
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-   <span class="n">newsock</span><span class="p">,</span> <span class="n">fromaddr</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-   <span class="n">ssock</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">newsock</span><span class="p">,</span> <span class="n">server_side</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+while True:
+   newsock, fromaddr = sock.accept()
+   ssock = context.wrap_socket(newsock, server_side=True)
 
-   <span class="n">data</span> <span class="o">=</span> <span class="n">ssock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>              <span class="c1"># Read data over TLS</span>
-   <span class="n">ssock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>  <span class="c1"># Send data over TLS</span>
+   data = ssock.recv(1024)              # Read data over TLS
+   ssock.sendall(html.encode(&#39;utf-8&#39;))  # Send data over TLS
 
-   <span class="n">ssock</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_RDWR</span><span class="p">)</span>     <span class="c1"># Close the TLS connection</span>
-   <span class="n">ssock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+   ssock.shutdown(socket.SHUT_RDWR)     # Close the TLS connection
+   ssock.close()
 </pre></div>
 </div>
 <div class="section" id="testing">
@@ -674,12 +672,12 @@ the server’s private key is stolen.</p>
 <p>We will implement a simple HTTPS proxy called <code class="docutils literal notranslate"><span class="pre">mHTTPSproxy</span></code> (<code class="docutils literal notranslate"><span class="pre">m</span></code>
 stands for <code class="docutils literal notranslate"><span class="pre">mini</span></code>). The proxy program simply integrates the client and
 server programs from Task 1 and 2 together. How it works is illustrated
-in <strong>Figure 1</strong>. We will run the proxy on the proxy
+in <strong>Figure&nbsp;1</strong>. We will run the proxy on the proxy
 container.</p>
 <div class="center docutils container">
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="How ``mHTTPSproxy`` works" src="../../_images/httpsproxy.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: How <code class="docutils literal notranslate"><span class="pre">mHTTPSproxy</span></code> works</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: How <code class="docutils literal notranslate"><span class="pre">mHTTPSproxy</span></code> works</span></p>
 </div>
 </div>
 <p>The proxy is actually a combination of the TLS client and server
@@ -710,41 +708,41 @@ so after receiving an HTTP request from the browser, it is better to
 spawn a thread to process that request, so the proxy program can handle
 multiple simultaneous requests. The following code snippet shows how to
 create a thread to handle each TLS connection.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>import threading
 
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">sock_for_browser</span><span class="p">,</span> <span class="n">fromaddr</span> <span class="o">=</span> <span class="n">sock_listen</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-    <span class="n">ssock_for_browser</span> <span class="o">=</span> <span class="n">context_srv</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">sock_for_browser</span><span class="p">,</span>
-                                                <span class="n">server_side</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">process_request</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">ssock_for_browser</span><span class="p">,))</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+while True:
+    sock_for_browser, fromaddr = sock_listen.accept()
+    ssock_for_browser = context_srv.wrap_socket(sock_for_browser,
+                                                server_side=True)
+    x = threading.Thread(target=process_request, args=(ssock_for_browser,))
+    x.start()
 </pre></div>
 </div>
 <p>The thread will execute the code in the <code class="docutils literal notranslate"><span class="pre">process_request</span></code> function,
 which forwards the HTTP request from the browser to the server, and then
 forward the HTTP response from the server to the browser. A code
 skeleton is provided in the following:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_request</span><span class="p">(</span><span class="n">ssock_for_browser</span><span class="p">):</span>
-    <span class="n">hostname</span> <span class="o">=</span> <span class="s1">&#39;www.example.com&#39;</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>def process_request(ssock_for_browser):
+    hostname = &#39;www.example.com&#39;
 
-    <span class="c1"># Make a connection to the real server</span>
-    <span class="n">sock_for_server</span>  <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">((</span><span class="n">hostname</span><span class="p">,</span> <span class="mi">443</span><span class="p">))</span>
-    <span class="n">ssock_for_server</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># [Code omitted]: Wrap the socket using TLS</span>
+    # Make a connection to the real server
+    sock_for_server  = socket.create_connection((hostname, 443))
+    ssock_for_server = ... # [Code omitted]: Wrap the socket using TLS
 
-    <span class="n">request</span> <span class="o">=</span> <span class="n">ssock_for_browser</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+    request = ssock_for_browser.recv(2048)
 
-    <span class="k">if</span> <span class="n">request</span><span class="p">:</span>
-        <span class="c1"># Forward request to server</span>
-        <span class="n">ssock_for_server</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    if request:
+        # Forward request to server
+        ssock_for_server.sendall(request)
 
-        <span class="c1"># Get response from server, and forward it to browser</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">ssock_for_server</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">response</span><span class="p">:</span>
-            <span class="n">ssock_for_browser</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="c1"># Forward to browser</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">ssock_for_server</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+        # Get response from server, and forward it to browser
+        response = ssock_for_server.recv(2048)
+        while response:
+            ssock_for_browser.sendall(response) # Forward to browser
+            response = ssock_for_server.recv(2048)
 
-    <span class="n">ssock_for_browser</span><span class="o">.</span><span class="n">shutdown</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SHUT_RDWR</span><span class="p">)</span>
-    <span class="n">ssock_for_browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    ssock_for_browser.shutdown(socket.SHUT_RDWR)
+    ssock_for_browser.close()
 </pre></div>
 </div>
 </div>
@@ -814,13 +812,13 @@ browser, and we assume this CA’s private key is compromised, so
 you/attacker can use it to forge certificate for any web server. Please
 demonstrate your MITM attack in the following scenarios:</p>
 <ul class="simple">
-<li><p>Launch the MITM attack against your own server.</p></li>
-<li><p>Launch the MITM attack on a real HTTPS website. You can pick a
+<li>Launch the MITM attack against your own server.</li>
+<li>Launch the MITM attack on a real HTTPS website. You can pick a
 website. Find one that requires login, and then use your MITM proxy
 to steal the password. Many popular servers, such as facebook, have
 complicated login mechanisms, so feel free to find a server that has
 simple login mechanisms. Please remember to hide your password in
-your lab report if you are using a real password.</p></li>
+your lab report if you are using a real password.</li>
 </ul>
 </div>
 </div>

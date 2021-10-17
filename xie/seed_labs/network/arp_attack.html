@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -196,8 +195,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>ARP Cache Poisoning Attack Lab</p>
-</div>
+ARP Cache Poisoning Attack Lab</div>
 <div class="section" id="arp-cache-poisoning-attack-lab">
 <h1>ARP Cache Poisoning Attack Lab<a class="headerlink" href="#arp-cache-poisoning-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -221,19 +219,19 @@ security, and they are the building blocks for many network attack and
 defense tools. Students will use Scapy to conduct lab tasks. This lab
 covers the following topics:</p>
 <ul class="simple">
-<li><p>The ARP protocol</p></li>
-<li><p>The ARP cache poisoning attack</p></li>
-<li><p>Man-in-the-middle attack</p></li>
-<li><p>Scapy programming</p></li>
+<li>The ARP protocol</li>
+<li>The ARP cache poisoning attack</li>
+<li>Man-in-the-middle attack</li>
+<li>Scapy programming</li>
 </ul>
 <div class="section" id="videos">
 <h3>Videos.<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the ARP protocol and attacks can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Section 3 of the SEED Lecture at Udemy, <em>Internet Security: A
+<li>Section 3 of the SEED Lecture at Udemy, <em>Internet Security: A
 Hands-on Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -247,15 +245,15 @@ and you can follow our instruction to create a SEED VM on the cloud.</p>
 <div class="section" id="environment-setup-using-container">
 <h2>Environment Setup using Container<a class="headerlink" href="#environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
 <p>In this lab, we need three machines. We use containers to set up the lab
-environment, which is depicted in <strong>Figure 1</strong>. In
+environment, which is depicted in <strong>Figure&nbsp;1</strong>. In
 this setup, we have an attacker machine (Host M), which is used to
 launch attacks against the other two machines, Host A and Host B. These
 three machines must be on the same LAN, because the ARP cache poisoning
 attack is limited to LAN. We use containers to set up the lab
 environment.</p>
-<div class="align-center figure align-default" id="id1">
+<div class="align-center figure" id="id1">
 <img alt="Lab environment setup" src="../../_images/ARP_onelan.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span></p>
 </div>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
@@ -314,7 +312,7 @@ attacker machine. If you look at the Docker Compose file, you will see
 that the attacker container is configured differently from the other
 containers. Here are the differences:</p>
 <ul>
-<li><p><em>Shared folder.</em> When we use the attacker container to launch
+<li><p class="first"><em>Shared folder.</em> When we use the attacker container to launch
 attacks, we need to put the attacking code inside the container. Code
 editing is more convenient inside the VM than in containers, because
 we can use our favorite editors. In order for the VM and container to
@@ -331,7 +329,7 @@ containers.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Privileged mode.</em> To be able to modify kernel parameters at runtime
+<li><p class="first"><em>Privileged mode.</em> To be able to modify kernel parameters at runtime
 (using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling IP forwarding, a container needs
 to be privileged. This is achieved by including the following entry
 in the Docker Compose file for the container.</p>
@@ -348,7 +346,7 @@ things do not go as expected, being able to look at where packets go can
 help us identify the problems. There are several different ways to do
 packet sniffing:</p>
 <ul>
-<li><p>Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on containers. We have already installed
+<li><p class="first">Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on containers. We have already installed
 <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on each container. To sniff the packets going through a
 particular interface, we just need to find out the interface name,
 and then do the following (assume that the interface name is
@@ -363,17 +361,19 @@ be able to sniff the packets between other containers. However, if a
 container uses the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode in its network setup, it can sniff
 other containers’ packets.</p>
 </li>
-<li><p>Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM. If we run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM, we do
+<li><p class="first">Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM. If we run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM, we do
 not have the restriction on the containers, and we can sniff all the
 packets going among containers. The interface name for a network is
 different on the VM than on the container. On containers, each
 interface name usually starts with <code class="docutils literal notranslate"><span class="pre">eth</span></code>; on the VM, the interface
 name for the network created by Docker starts with <code class="docutils literal notranslate"><span class="pre">br-</span></code>, followed
 by the ID of the network. You can always use the <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code>
-command to get the interface name on the VM and containers.</p></li>
-<li><p>We can also run Wireshark on the VM to sniff packets. Similar to
+command to get the interface name on the VM and containers.</p>
+</li>
+<li><p class="first">We can also run Wireshark on the VM to sniff packets. Similar to
 <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code>, we need to select what interface we want Wireshark to
-sniff on.</p></li>
+sniff on.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -433,19 +433,20 @@ Address     HWtype  HWaddress           Flags Mask  Iface
 to try the following three methods, and report whether each method works
 or not.</p>
 <ul>
-<li><p><strong>Task 1.A (using ARP request).</strong> On host M, construct an ARP request
+<li><p class="first"><strong>Task 1.A (using ARP request).</strong> On host M, construct an ARP request
 packet and send to host A. Check A’s ARP cache, and see whether M’s
-MAC address is mapped to B’s IP address.</p></li>
-<li><p><strong>Task 1.B (using ARP reply).</strong> On host M, construct an ARP reply
+MAC address is mapped to B’s IP address.</p>
+</li>
+<li><p class="first"><strong>Task 1.B (using ARP reply).</strong> On host M, construct an ARP reply
 packet and send to host A. Check A’s ARP cache, and see whether M’s
 MAC address is mapped to B’s IP address. Try the attack for two
 different scenarios:</p>
 <ul class="simple">
-<li><p>Scenario 1: B’s IP is already in A’s cache.</p></li>
-<li><p>Scenario 2: B’s IP is not in A’s cache.</p></li>
+<li>Scenario 1: B’s IP is already in A’s cache.</li>
+<li>Scenario 2: B’s IP is not in A’s cache.</li>
 </ul>
 </li>
-<li><p><strong>Task 1C (using ARP gratuitous message).</strong> On host M, construct an
+<li><p class="first"><strong>Task 1C (using ARP gratuitous message).</strong> On host M, construct an
 ARP gratuitous packets, and use it to map M’s MAC address to B’s IP
 address. Please launch the attack under the same two scenarios as
 those described in Task 1.B.</p>
@@ -454,11 +455,11 @@ when a host machine needs to update outdated information on all the
 other machine’s ARP cache. The gratuitous ARP packet has the
 following characteristics:</p>
 <ul class="simple">
-<li><p>The source and destination IP addresses are the same, and they are
-the IP address of the host issuing the gratuitous ARP.</p></li>
-<li><p>The destination MAC addresses in both ARP header and Ethernet
-header are the broadcast MAC address (<code class="docutils literal notranslate"><span class="pre">ff:ff:ff:ff:ff:ff</span></code>).</p></li>
-<li><p>No reply is expected.</p></li>
+<li>The source and destination IP addresses are the same, and they are
+the IP address of the host issuing the gratuitous ARP.</li>
+<li>The destination MAC addresses in both ARP header and Ethernet
+header are the broadcast MAC address (<code class="docutils literal notranslate"><span class="pre">ff:ff:ff:ff:ff:ff</span></code>).</li>
+<li>No reply is expected.</li>
 </ul>
 </li>
 </ul>
@@ -468,12 +469,12 @@ header are the broadcast MAC address (<code class="docutils literal notranslate"
 <p>Hosts A and B are communicating using Telnet, and Host M wants to
 intercept their communication, so it can make changes to the data sent
 between A and B. The setup is depicted in
-<strong>Figure 2</strong>. We have already created an account
+<strong>Figure&nbsp;2</strong>. We have already created an account
 called <code class="docutils literal notranslate"><span class="pre">&quot;seed&quot;</span></code> inside the container, the password is <code class="docutils literal notranslate"><span class="pre">&quot;dees&quot;</span></code>. You
 can telnet into this account.</p>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="Man-In-The-Middle Attack against telnet" src="../../_images/telnet_mitm.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: Man-In-The-Middle Attack against telnet</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Man-In-The-Middle Attack against telnet</span></p>
 </div>
 <div class="section" id="step-1-launch-the-arp-cache-poisoning-attack">
 <h3>Step 1 (Launch the ARP cache poisoning attack).<a class="headerlink" href="#step-1-launch-the-arp-cache-poisoning-attack" title="Permalink to this headline">¶</a></h3>
@@ -519,7 +520,7 @@ M, but instead of forwarding them, we would like to replace them with a
 spoofed packet. We will write a sniff-and-spoof program to accomplish
 this goal. In particular, we would like to do the following:</p>
 <ul>
-<li><p>We first keep the IP forwarding on, so we can successfully create a
+<li><p class="first">We first keep the IP forwarding on, so we can successfully create a
 Telnet connection between A to B. Once the connection is established,
 we turn off the IP forwarding using the following command. Please
 type something on A’s Telnet window, and report your observation:</p>
@@ -527,11 +528,12 @@ type something on A’s Telnet window, and report your observation:</p>
 </pre></div>
 </div>
 </li>
-<li><p>We run our sniff-and-spoof program on Host M, such that for the
+<li><p class="first">We run our sniff-and-spoof program on Host M, such that for the
 captured packets sent from A to B, we spoof a packet but with TCP
 different data. For packets from B to A (Telnet response), we do not
 make any change, so the spoofed packet is exactly the same as the
-original one.</p></li>
+original one.</p>
+</li>
 </ul>
 <p>To help students get started, we provide a skeleton sniff-and-spoof
 program in the following. The program capture all the TCP packets, and

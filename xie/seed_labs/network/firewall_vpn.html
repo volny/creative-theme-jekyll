@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -195,8 +194,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Firewall Evasion Lab: Bypassing Firewalls using VPN</p>
-</div>
+Firewall Evasion Lab: Bypassing Firewalls using VPN</div>
 <div class="section" id="firewall-evasion-lab-bypassing-firewalls-using-vpn">
 <h1>Firewall Evasion Lab: Bypassing Firewalls using VPN<a class="headerlink" href="#firewall-evasion-lab-bypassing-firewalls-using-vpn" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -229,20 +227,20 @@ can work on our VPN lab to learn how to build a complete VPN. In this
 lab, we only focus on how to use VPN tunnel to bypass firewalls. This
 lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Firewall</p></li>
-<li><p>VPN</p></li>
+<li>Firewall</li>
+<li>VPN</li>
 </ul>
 <div class="section" id="readings-and-videos">
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of firewalls, firewall evasion techniques, and VPN can
 be found in the following</p>
 <ul class="simple">
-<li><p>Chapters 17 and 19 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapters 17 and 19 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Sections 8 and 9 of the SEED Lecture, <em>Internet Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Sections 8 and 9 of the SEED Lecture, <em>Internet Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -261,10 +259,10 @@ supposed to be two machines connected via the Internet through routers.
 This setup may require more than two VMs. For the sake of simplicity, we
 use a LAN to emulate the Internet connection. Basically, we simply
 connect VM1 and VM2 to a LAN using the <code class="docutils literal notranslate"><span class="pre">NAT</span> <span class="pre">Network</span></code> adapter.
-<strong>Figure 1</strong> depicts the lab setup.</p>
-<div class="align-center figure align-default" id="id1">
+<strong>Figure&nbsp;1</strong> depicts the lab setup.</p>
+<div class="align-center figure" id="id1">
 <img alt="Lab Environment Setup" src="../../_images/Host2Gateway.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Lab Environment Setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab Environment Setup</span></p>
 </div>
 </div>
 <div class="section" id="task-2-set-up-firewall">
@@ -305,7 +303,7 @@ lab report.</p>
 <div class="section" id="task-3-bypassing-firewall-using-vpn">
 <h2>Task 3: Bypassing Firewall using VPN<a class="headerlink" href="#task-3-bypassing-firewall-using-vpn" title="Permalink to this headline">¶</a></h2>
 <p>The idea of using VPN to bypass firewall is depicted in
-<strong>Figure 2</strong>. We establish a VPN tunnel
+<strong>Figure&nbsp;2</strong>. We establish a VPN tunnel
 between VM1 (VPN Client VM) and VM2 (VPN Server VM). When a user on VM1
 tries to access a blocked site, the traffic will not directly go through
 its network adapter, because it will be blocked. Instead, the packets to
@@ -315,9 +313,9 @@ destination. When the reply packets come back, it will come back to VM2,
 which will then redirect the packets to the VPN tunnel, and eventually
 get the packet back to VM1. That is how the VPN helps VM1 to bypass
 firewalls.</p>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="Bypassing firewall using VPN" src="../../_images/BypassingFirewall.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: Bypassing firewall using VPN</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Bypassing firewall using VPN</span></p>
 </div>
 <p>We have created a sample VPN program, including a client program
 (<code class="docutils literal notranslate"><span class="pre">vpnclient</span></code>) and a server program (<code class="docutils literal notranslate"><span class="pre">vpnserver</span></code>), both of which can
@@ -325,13 +323,13 @@ be downloaded from this lab’s web site. This simple VPN program only
 establishes a VPN tunnel between the client and server; it does not
 encrypt the tunnel traffic. The program is explained in details in the
 SEED book (in the VPN chapter).</p>
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="VPN client and server" src="../../_images/ClientServerTunnel.jpg" />
-<p class="caption"><span class="caption-text">Figure 3: VPN client and server</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: VPN client and server</span></p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">vpnclient</span></code> and <code class="docutils literal notranslate"><span class="pre">vpnserver</span></code> programs are the two ends of a VPN
 tunnel. They communicate with each other using either TCP or UDP via the
-sockets depicted in <strong>Figure 3</strong>. In
+sockets depicted in <strong>Figure&nbsp;3</strong>. In
 our sample code, we choose to use UDP for the sake of simplicity. The
 dotted line between the client and server depicts the path for the VPN
 tunnel. The VPN client and server programs connect to the hosting system
@@ -378,7 +376,7 @@ command on this machine (the first command will connect to the VPN
 server program running on <code class="docutils literal notranslate"><span class="pre">10.0.2.8</span></code>. This command will block as well,
 so we need to find another window to configure the <code class="docutils literal notranslate"><span class="pre">tun0</span></code> interface
 created by the VPN client program. We assign IP address <code class="docutils literal notranslate"><span class="pre">192.168.53.5</span></code>
-to the <code class="docutils literal notranslate"><span class="pre">tun0</span></code> interface (you can choose other IP addresses).</p>
+to the <code class="docutils literal notranslate"><span class="pre">tun0</span></code> interface&nbsp;(you can choose other IP addresses).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On VPN Client VM:
 $ sudo ./vpnclient 10.0.2.8
 
@@ -439,7 +437,7 @@ provided by VirtualBox, but since the source IP is the Server VM, this
 second NAT will have no problem relaying back the returned packets from
 the Internet to the Server VM. Using this solution, we do not need to
 use ARP cache poisoning to “fool” the NAT any more. The following
-commands can enable the NAT on the Server VM (in your case, the name of
+commands can enable the NAT on the Server VM&nbsp;(in your case, the name of
 the <code class="docutils literal notranslate"><span class="pre">NAT</span> <span class="pre">Network</span></code> adapter may not be called <code class="docutils literal notranslate"><span class="pre">enp0s3</span></code>; you just need
 to find its real name on your VM):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo iptables -t nat -A POSTROUTING -j MASQUERADE -o enp0s3

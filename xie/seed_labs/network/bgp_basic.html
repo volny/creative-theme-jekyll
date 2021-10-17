@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -197,8 +196,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>BGP Lab: Building an Internet Simulator</p>
-</div>
+BGP Lab: Building an Internet Simulator</div>
 <div class="section" id="bgp-lab-building-an-internet-simulator">
 <h1>BGP Lab: Building an Internet Simulator<a class="headerlink" href="#bgp-lab-building-an-internet-simulator" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -225,10 +223,10 @@ will be asked to expand this simulator by including more autonomous
 systems, BGP routers, and Internet exchange points. This lab covers the
 following topics:</p>
 <ul class="simple">
-<li><p>How the BGP protocol works</p></li>
-<li><p>BGP configuration</p></li>
-<li><p>Routing</p></li>
-<li><p>Internet Exchange Point (IXP)</p></li>
+<li>How the BGP protocol works</li>
+<li>BGP configuration</li>
+<li>Routing</li>
+<li>Internet Exchange Point (IXP)</li>
 </ul>
 <div class="section" id="videos">
 <h3>Videos.<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h3>
@@ -273,12 +271,12 @@ those numbers, we do use several conventions.</p>
 Exchange, small transit AS , and large transit AS. Here is the
 convention for the ASN assignment:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: Reserved.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">-</span> <span class="pre">19</span></code>: For large transit ASes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">-</span> <span class="pre">49</span></code>: For small transit ASes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">50</span> <span class="pre">-</span> <span class="pre">99</span></code>: Reserved.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">-</span> <span class="pre">149</span></code>: For Internet Exchange.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">150</span> <span class="pre">-</span> <span class="pre">254</span></code>: For stub ASes.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">1</span></code>: Reserved.</li>
+<li><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">-</span> <span class="pre">19</span></code>: For large transit ASes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">-</span> <span class="pre">49</span></code>: For small transit ASes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">50</span> <span class="pre">-</span> <span class="pre">99</span></code>: Reserved.</li>
+<li><code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">-</span> <span class="pre">149</span></code>: For Internet Exchange.</li>
+<li><code class="docutils literal notranslate"><span class="pre">150</span> <span class="pre">-</span> <span class="pre">254</span></code>: For stub ASes.</li>
 </ul>
 </div>
 <div class="section" id="ip-prefixes-assigned-to-as">
@@ -287,9 +285,9 @@ convention for the ASN assignment:</p>
 In our simulator, we create an artificial relationship between them, so
 we can easily find the network address for any given ASN.</p>
 <ul class="simple">
-<li><p>For AS number <code class="docutils literal notranslate"><span class="pre">X</span></code>, its network prefix is <code class="docutils literal notranslate"><span class="pre">10.X.0.0/16</span></code>.</p></li>
-<li><p>If this AS has multiple subnets, the subnet ID will be
-<code class="docutils literal notranslate"><span class="pre">10.X.1.0/24</span></code>, <code class="docutils literal notranslate"><span class="pre">10.X.2.0/24</span></code>, and so on.</p></li>
+<li>For AS number <code class="docutils literal notranslate"><span class="pre">X</span></code>, its network prefix is <code class="docutils literal notranslate"><span class="pre">10.X.0.0/16</span></code>.</li>
+<li>If this AS has multiple subnets, the subnet ID will be
+<code class="docutils literal notranslate"><span class="pre">10.X.1.0/24</span></code>, <code class="docutils literal notranslate"><span class="pre">10.X.2.0/24</span></code>, and so on.</li>
 </ul>
 </div>
 <div class="section" id="ip-address-assigned-to-machine">
@@ -298,9 +296,9 @@ we can easily find the network address for any given ASN.</p>
 convention on the IP address. We only apply the convention to the last 8
 bits of IP address.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">71</span> <span class="pre">-</span> <span class="pre">99</span></code>: For normal hosts. The assignment starts from <code class="docutils literal notranslate"><span class="pre">71</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">-</span> <span class="pre">254</span></code>: For BGP routers. The assignment starts from <code class="docutils literal notranslate"><span class="pre">254</span></code>
-and goes backward.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">71</span> <span class="pre">-</span> <span class="pre">99</span></code>: For normal hosts. The assignment starts from <code class="docutils literal notranslate"><span class="pre">71</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">-</span> <span class="pre">254</span></code>: For BGP routers. The assignment starts from <code class="docutils literal notranslate"><span class="pre">254</span></code>
+and goes backward.</li>
 </ul>
 </div>
 </div>
@@ -475,27 +473,27 @@ specifies the host container for <code class="docutils literal notranslate"><spa
 </div>
 <p>We provide some further explanation in the following:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">build:</span> <span class="pre">&lt;folder</span> <span class="pre">name&gt;</span></code>: This entry indicates the container’s folder
+<li><code class="docutils literal notranslate"><span class="pre">build:</span> <span class="pre">&lt;folder</span> <span class="pre">name&gt;</span></code>: This entry indicates the container’s folder
 name, and will use the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> inside the folder to build the
-container.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">container_name</span></code>: This entry specifies the name for the container.
+container.</li>
+<li><code class="docutils literal notranslate"><span class="pre">container_name</span></code>: This entry specifies the name for the container.
 For convenience, we include the IP address of the container in the
-name, so we can easily know a container’s IP address from its name.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">environment</span></code>: We specify a environment variable called
+name, so we can easily know a container’s IP address from its name.</li>
+<li><code class="docutils literal notranslate"><span class="pre">environment</span></code>: We specify a environment variable called
 <code class="docutils literal notranslate"><span class="pre">DEFAULT_ROUTER</span></code>. As we have discussed before, this environment
-variable is used by the <code class="docutils literal notranslate"><span class="pre">CMD</span></code> entry of the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cap_add</span></code>: this entry assigns capabilities to container. In our
+variable is used by the <code class="docutils literal notranslate"><span class="pre">CMD</span></code> entry of the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">cap_add</span></code>: this entry assigns capabilities to container. In our
 setup, we assign <code class="docutils literal notranslate"><span class="pre">ALL</span></code> the capabilities to the containers. This is
 because we need to conduct some operations inside container that are
 privileged. The root account inside a container does not have the
 same privilege as the root in the host machine. Granting all the
 capabilities to a container gives most of the real-root’s privileges
-to the root inside the container. <a class="footnote-reference brackets" href="#id6" id="id1">1</a></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">networks</span></code> entry: It specifies the name of the networks that
+to the root inside the container. <a class="footnote-reference" href="#id6" id="id1">[1]</a></li>
+<li>The <code class="docutils literal notranslate"><span class="pre">networks</span></code> entry: It specifies the name of the networks that
 this container is attached to, along with the IP address assigned to
 the container. You can attach multiple networks to a container. In
 Tasks 2 and 3, you will find out that we attach two networks to the
-router containers (not for this task).</p></li>
+router containers (not for this task).</li>
 </ul>
 </div>
 <div class="section" id="router">
@@ -521,13 +519,13 @@ following is the BGP router container for <code class="docutils literal notransl
 <p>Most of entries are the same as those in the host container. We provide
 some further explanation in the following:</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">args</span></code> entry: In this entry, we define an argument called
+<li>The <code class="docutils literal notranslate"><span class="pre">args</span></code> entry: In this entry, we define an argument called
 <code class="docutils literal notranslate"><span class="pre">BIRD_CONF</span></code>. This argument is used in the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, it
 specifies which of the bird configuration files should be copied into
-the container image.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">sysctls</span></code> entry: Since this container is used as a router, we
+the container image.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">sysctls</span></code> entry: Since this container is used as a router, we
 need to enable its IP forwarding; otherwise, it will not forward
-packets.</p></li>
+packets.</li>
 </ul>
 </div>
 </div>
@@ -695,22 +693,22 @@ For this lab, we will use either <code class="docutils literal notranslate"><spa
 labs, we will introduce filters here, so you can set up rules to decide
 what routes can be imported or exported.</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">protocol</span></code> is not a real routing protocol. It doesn’t
+<li>The <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">protocol</span></code> is not a real routing protocol. It doesn’t
 generate any route, nor does it accept any route. It is only used to
 get information about the network interfaces from the kernel. Without
 the <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">protocol</span></code>, BIRD will know nothing about the network
 interfaces; it will not even be able to run BGP, as it does not know
 how to reach BGP peer’s IP address. Therefore, this block is
-mandatory.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">direct</span> <span class="pre">protocol</span></code> is for generating routes for the directly
+mandatory.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">direct</span> <span class="pre">protocol</span></code> is for generating routes for the directly
 connected networks from a list of interfaces. In the
 <code class="docutils literal notranslate"><span class="pre">direct</span> <span class="pre">protocol</span></code> block, the <em>interface</em> keyword is used to
 generate routes from an interface. In this case, <code class="docutils literal notranslate"><span class="pre">AS150</span></code>’s bgp
 router uses <code class="docutils literal notranslate"><span class="pre">eth0</span></code> to connect to <code class="docutils literal notranslate"><span class="pre">AS150</span></code>’s internal network
 (<code class="docutils literal notranslate"><span class="pre">10.150.0.0/24</span></code>). Therefore, this <code class="docutils literal notranslate"><span class="pre">direct</span> <span class="pre">protocol</span></code> block will
 generate a routing entry for <code class="docutils literal notranslate"><span class="pre">10.150.0.0/24</span></code>. BGP will announce
-this network prefix to the peers.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">kernel</span></code> protocol is not a real routing protocol like BGP or
+this network prefix to the peers.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">kernel</span></code> protocol is not a real routing protocol like BGP or
 OSPF. Instead of communicating with other routers in the network, it
 connects BIRD’s routing table to kernel’s routing table. It is the
 kernel’s routing table that is used in the actual routing, not BIRD’s
@@ -719,7 +717,7 @@ using the routes received from BGP peers. Here <code class="docutils literal not
 BIRD’s routing table will not import anything from the kernel’s
 routing table; <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">all</span></code> means BIRD’s routing table will export
 all the routes to the kernel’s routing table. This is how BGP routers
-set the routing table using the data collected from the BGP protocol.</p></li>
+set the routing table using the data collected from the BGP protocol.</li>
 </ul>
 <div class="section" id="adding-the-bgp-protocol-to-bird-conf">
 <h4>Adding the BGP protocol to <code class="docutils literal notranslate"><span class="pre">bird.conf</span></code>.<a class="headerlink" href="#adding-the-bgp-protocol-to-bird-conf" title="Permalink to this headline">¶</a></h4>
@@ -851,11 +849,11 @@ at <code class="docutils literal notranslate"><span class="pre">IX100</span></co
 transit services to these two ASes, so they can reach each other through
 <code class="docutils literal notranslate"><span class="pre">AS2</span></code>. The peering relationship of <code class="docutils literal notranslate"><span class="pre">AS150</span></code> and <code class="docutils literal notranslate"><span class="pre">AS151</span></code> stays the
 same. The peering relationships are depicted in
-<strong>Figure 1</strong>. All the files for this task can be
+<strong>Figure&nbsp;1</strong>. All the files for this task can be
 found from the <code class="docutils literal notranslate"><span class="pre">Task3_Transit</span></code> folder.</p>
-<div class="align-center figure align-default" id="id7">
+<div class="align-center figure" id="id7">
 <img alt="Internet Simulator for Task 3" src="../../_images/peering_task3.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Internet Simulator for Task 3</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Internet Simulator for Task 3</span></p>
 </div>
 <p>We need two BGP routers for <code class="docutils literal notranslate"><span class="pre">AS2</span></code>. For the sake of simplicity, we
 assume that these two routers are on the same LAN (<code class="docutils literal notranslate"><span class="pre">10.2.0.0/24</span></code>) . In
@@ -929,18 +927,18 @@ use any name.</p>
 <p>It should be noted that IBGP session has several different behaviors
 than the EBGP session.</p>
 <ul class="simple">
-<li><p>In IBGP sessions, when sending routes to peers, routers will not
+<li>In IBGP sessions, when sending routes to peers, routers will not
 prepend their own ASN in the <code class="docutils literal notranslate"><span class="pre">AS_PATH</span></code>, and the <code class="docutils literal notranslate"><span class="pre">nexthop</span></code>
 attribute will not be altered either. <strong>In your lab report, please
-explain why.</strong></p></li>
-<li><p>BGP routers will not forward the information collected from one IBGP
+explain why.</strong></li>
+<li>BGP routers will not forward the information collected from one IBGP
 peer to another; otherwise, there will be a loop. This is because
 IBGP does not add their own information to the AS path, BGP routers
 will not be able to know whether their peers already know the AS path
 or not. If forwarding is enabled, a BGP router will keep forwarding
 information to their peers, creating loops. Because there is no
 forwarding, typically, inside an AS, all IBGP peers will peer with
-one another.</p></li>
+one another.</li>
 </ul>
 </div>
 <div class="section" id="testing-your-task-3">
@@ -1115,9 +1113,9 @@ bird&gt; show route
 some of them in the following. For detailed instructions, please read
 the manual listed on the lab’s website.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">route</span> <span class="pre">all</span></code>: print out detailed information about routes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">protocol</span> <span class="pre">all</span> <span class="pre">bgp1</span></code>: print out detailed information about a
-BGP session (<code class="docutils literal notranslate"><span class="pre">bgp1</span></code>).</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">route</span> <span class="pre">all</span></code>: print out detailed information about routes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">protocol</span> <span class="pre">all</span> <span class="pre">bgp1</span></code>: print out detailed information about a
+BGP session (<code class="docutils literal notranslate"><span class="pre">bgp1</span></code>).</li>
 </ul>
 <div class="section" id="sniffing-bgp-packet">
 <h4>Sniffing BGP packet.<a class="headerlink" href="#sniffing-bgp-packet" title="Permalink to this headline">¶</a></h4>
@@ -1148,11 +1146,11 @@ NETWORK ID          NAME                DRIVER              SCOPE
 <h4>Your Tasks.<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h4>
 <p>Using <code class="docutils literal notranslate"><span class="pre">birdc</span></code> and Wireshark, please finish the following tasks.</p>
 <ul class="simple">
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">&quot;show</span> <span class="pre">route&quot;</span></code> command on <code class="docutils literal notranslate"><span class="pre">AS152</span></code> router, and explain what
-you see.</p></li>
-<li><p>Disable an BGP session and then enable it. Capture all the BGP
+<li>Run <code class="docutils literal notranslate"><span class="pre">&quot;show</span> <span class="pre">route&quot;</span></code> command on <code class="docutils literal notranslate"><span class="pre">AS152</span></code> router, and explain what
+you see.</li>
+<li>Disable an BGP session and then enable it. Capture all the BGP
 packets using Wireshark, take a closer look at those packets, and
-report your findings.</p></li>
+report your findings.</li>
 </ul>
 </div>
 </div>
@@ -1163,10 +1161,10 @@ report your findings.</p></li>
 this simulator by adding more components to it. We will add an IX
 (<code class="docutils literal notranslate"><span class="pre">IX102</span></code>), a new transit AS (<code class="docutils literal notranslate"><span class="pre">AS3</span></code>), and two stub ASes (<code class="docutils literal notranslate"><span class="pre">AS160</span></code>
 and <code class="docutils literal notranslate"><span class="pre">AS161</span></code>). Their peering relationship is depicted in
-<strong>Figure 2</strong>.</p>
-<div class="align-center figure align-default" id="id8">
+<strong>Figure&nbsp;2</strong>.</p>
+<div class="align-center figure" id="id8">
 <img alt="Internet Simulator for Task 4" src="../../_images/peering_task4.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: Internet Simulator for Task 4</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Internet Simulator for Task 4</span></p>
 </div>
 <p>The IP addresses for the BGP routers of the transit systems (<code class="docutils literal notranslate"><span class="pre">AS2</span></code> and
 <code class="docutils literal notranslate"><span class="pre">AS3</span></code>) are already provided in the following. They are based on our
@@ -1204,12 +1202,13 @@ what you have done and what you have observed. You also need to provide
 explanation to the observations that are interesting or surprising.
 Please also list the important code snippets followed by explanation.
 Simply attaching code without any explanation will not receive credits.</p>
-<dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>There are still something that the container-root cannot do, such as
-changing the <code class="docutils literal notranslate"><span class="pre">sysctl</span></code> parameters.</p>
-</dd>
-</dl>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>There are still something that the container-root cannot do, such as
+changing the <code class="docutils literal notranslate"><span class="pre">sysctl</span></code> parameters.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 

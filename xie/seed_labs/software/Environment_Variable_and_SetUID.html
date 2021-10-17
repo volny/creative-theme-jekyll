@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -213,19 +211,19 @@ affect system/program behaviors. We are particularly interested in how
 environment variables affect the behavior of programs, which are usually
 privileged programs. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Environment variables</p></li>
-<li><p>programs</p></li>
-<li><p>Securely invoke external programs</p></li>
-<li><p>Capability leaking</p></li>
-<li><p>Dynamic loader/linker</p></li>
+<li>Environment variables</li>
+<li>programs</li>
+<li>Securely invoke external programs</li>
+<li>Capability leaking</li>
+<li>Dynamic loader/linker</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the mechanism, environment variables, and their
 related security problems can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapters 1 and 2 of the SEED Book, , Computer &amp; Internet Security: A Hands-on Approach, 2nd
-Edition, by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 2 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapters 1 and 2 of the SEED Book, , Computer &amp; Internet Security: A Hands-on Approach, 2nd
+Edition, by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 2 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
@@ -242,13 +240,13 @@ field of each entry). You can change this to another shell program using
 the command chsh (please do not do it for this lab). Please do the
 following tasks:</p>
 <ul class="simple">
-<li><p>Use printenv or env command to print out the environment variables.
+<li>Use printenv or env command to print out the environment variables.
 If you are interested in some particular environment variables, such
-as PWD, you can use “printenv PWD” or “env | grep PWD”.</p></li>
-<li><p>Use export and unset to set or unset environment variables. It should
+as PWD, you can use “printenv PWD” or “env | grep PWD”.</li>
+<li>Use export and unset to set or unset environment variables. It should
 be noted that these two commands are not separate programs; they are
 two of the Bash’s internal commands (you will not be able to find
-them outside of Bash).</p></li>
+them outside of Bash).</li>
 </ul>
 </div>
 <div class="section" id="task-2-passing-environment-variables-from-parent-process-to-child-process">
@@ -351,14 +349,14 @@ to it the environment variables array. Therefore, using system(), the
 environment variables of the calling process is passed to the new
 program /bin/sh. Please compile and run the following program to verify
 this.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">system</span><span class="p">(</span><span class="s">&quot;/usr/bin/env&quot;</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span> <span class="p">;</span>
-<span class="p">}</span>
+int main()
+{
+  system(&quot;/usr/bin/env&quot;);
+  return 0 ;
+}
 </pre></div>
 </div>
 </div>
@@ -376,18 +374,18 @@ us first figure out whether environment variables are inherited by the
 program’s process from the user’s process.</p>
 <p><strong>Step 1.</strong> Write the following program that can print out all the environment
 variables in the current process.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<span class="k">extern</span> <span class="kt">char</span> <span class="o">**</span><span class="n">environ</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+extern char **environ;
+int main()
+{
+  int i = 0;
+  while (environ[i] != NULL) {
+    printf(&quot;%s\n&quot;, environ[i]);
+    i++;
+  }
+}
 </pre></div>
 </div>
 <p><strong>Step 2.</strong> Compile the above program, change its ownership to root, and make it a
@@ -401,10 +399,10 @@ $ sudo chmod 4755 foo
 account), use the export command to set the following environment
 variables (they may have already exist):</p>
 <ul class="simple">
-<li><p>PATH</p></li>
-<li><p>LD_LIBRARY_PATH</p></li>
-<li><p>ANY_NAME (this is an environment variable defined by you, so pick
-whatever name you want).</p></li>
+<li>PATH</li>
+<li>LD_LIBRARY_PATH</li>
+<li>ANY_NAME (this is an environment variable defined by you, so pick
+whatever name you want).</li>
 </ul>
 <p>These environment variables are set in the user’s shell process. Now,
 run the program from Step 2 in your shell. After you type the name of
@@ -430,11 +428,11 @@ variable in the following way (this example adds the directory
 <p>The program below is supposed to execute the <code class="docutils literal notranslate"><span class="pre">/bin/ls</span></code> command; however,
 the programmer only uses the relative path for the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, rather
 than the absolute path:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">system</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>int main()
+{
+  system(&quot;ls&quot;);
+  return 0;
+}
 </pre></div>
 </div>
 <div class="line-block">
@@ -481,40 +479,40 @@ others. In this task, we will only study LD_PRELOAD.</p>
 behavior of dynamic loader/linker when running a normal program. Please
 follow these steps:</p>
 <ol class="arabic">
-<li><p>Let us build a dynamic link library. Create the following program,
+<li><p class="first">Let us build a dynamic link library. Create the following program,
 and name it mylib.c. It basically overrides the sleep() function in
 libc:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="kt">void</span> <span class="nf">sleep</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="cm">/* If this is invoked by a privileged program,</span>
-<span class="cm">     you can do damages here!  */</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;I am not sleeping!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+void sleep (int s)
+{
+  /* If this is invoked by a privileged program,
+     you can do damages here!  */
+  printf(&quot;I am not sleeping!\n&quot;);
+}
 </pre></div>
 </div>
 </li>
-<li><p>We can compile the above program using the following commands (in the
+<li><p class="first">We can compile the above program using the following commands (in the
 -lc argument, the second character is <span class="math notranslate nohighlight">\(\ell\)</span>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc -fPIC -g -c mylib.c
 $ gcc -shared -o libmylib.so.1.0.1 mylib.o -lc
 </pre></div>
 </div>
 </li>
-<li><p>Now, set the LD_PRELOAD environment variable:</p>
+<li><p class="first">Now, set the LD_PRELOAD environment variable:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ export LD_PRELOAD=./libmylib.so.1.0.1
 </pre></div>
 </div>
 </li>
-<li><p>Finally, compile the following program myprog, and in the same
+<li><p class="first">Finally, compile the following program myprog, and in the same
 directory as the above dynamic link library libmylib.so.1.0.1:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* myprog.c */</span>
-<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="code c highlight-none notranslate"><div class="highlight"><pre><span></span>/* myprog.c */
+#include &lt;unistd.h&gt;
+int main()
+{
+  sleep(1);
+  return 0;
+}
 </pre></div>
 </div>
 </li>
@@ -522,13 +520,13 @@ directory as the above dynamic link library libmylib.so.1.0.1:</p>
 <p><strong>Step 2.</strong> After you have done the above, please run myprog under the following
 conditions, and observe what happens.</p>
 <ul class="simple">
-<li><p>Make myprog a regular program, and run it as a normal user.</p></li>
-<li><p>Make myprog a root program, and run it as a normal user.</p></li>
-<li><p>Make myprog a root program, export the LD_PRELOAD environment
-variable again in the root account and run it.</p></li>
-<li><p>Make myprog a user1 program (i.e., the owner is user1, which is
+<li>Make myprog a regular program, and run it as a normal user.</li>
+<li>Make myprog a root program, and run it as a normal user.</li>
+<li>Make myprog a root program, export the LD_PRELOAD environment
+variable again in the root account and run it.</li>
+<li>Make myprog a user1 program (i.e., the owner is user1, which is
 another user account), export the LD_PRELOAD environment variable
-again in a different user’s account (not-root user) and run it.</p></li>
+again in a different user’s account (not-root user) and run it.</li>
 </ul>
 <p><strong>Step 3.</strong> You should be able to observe different behaviors in the scenarios
 described above, even though you are running the same program. You need

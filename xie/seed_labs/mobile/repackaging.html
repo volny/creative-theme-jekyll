@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -185,8 +184,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Android Repackaging Attack Lab</p>
-</div>
+Android Repackaging Attack Lab</div>
 <div class="section" id="android-repackaging-attack-lab">
 <h1>Android Repackaging Attack Lab<a class="headerlink" href="#android-repackaging-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -214,7 +212,7 @@ legal consequence. Nor should they run the attack on their own Android
 devices, as that may cause real damages.</p>
 <p>What makes repackaging attack easy is that Android apps’ binary code can
 be easily reverse engineered, due to the lack of protection on binaries.
-The left part of <strong>Figure 1</strong> depicts the
+The left part of <strong>Figure&nbsp;1</strong> depicts the
 typical development process of Android apps, which produces a file
 called APK file. This file is uploaded to app markets for others to
 download. The right part of the figure shows that once attackers get the
@@ -224,9 +222,9 @@ everything back to APK file (modified) again. Attackers then upload the
 repackaged app to app markets, most of which do not have countermeasures
 to detect whether an app is repackaged or not.</p>
 <div class="center docutils container">
-<div class="align-center figure align-default" id="id1">
+<div class="align-center figure" id="id1">
 <img alt="alternate text" src="../../_images/RepackagingAttackOverview.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Overview of the Repackaging attack</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Overview of the Repackaging attack</span></p>
 </div>
 </div>
 <div class="section" id="lab-environment">
@@ -301,15 +299,15 @@ needs to be done. For the Dalvik bytecode <code class="docutils literal notransl
 disassembled into smali code, <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> places the output files into a
 created folder with a name that is the same as the name of the APK file.
 The typical folder structure of APK file after disassembly is shown in
-<strong>Figure 2</strong>. The folder contains
+<strong>Figure&nbsp;2</strong>. The folder contains
 <code class="docutils literal notranslate"><span class="pre">XML</span></code> resource files, <code class="docutils literal notranslate"><span class="pre">AndroidManifest</span></code> file, source code files,
 etc. The <code class="docutils literal notranslate"><span class="pre">XML</span></code> resources and <code class="docutils literal notranslate"><span class="pre">AndroidManifest</span></code> files should be
 readable and usually very close to their original forms. The
 disassembled smali code is placed in the smali folder. Typically, one
 smali file contains the code for one Java class.</p>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="APK file structure after running ``APKTool``" src="../../_images/ApkFileStructure.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: APK file structure after running <code class="docutils literal notranslate"><span class="pre">APKTool</span></code></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: APK file structure after running <code class="docutils literal notranslate"><span class="pre">APKTool</span></code></span></p>
 </div>
 <p>What we will do next is to inject some malicious code into the smali
 folder, and then assemble everything together into a new APK package.
@@ -346,23 +344,23 @@ receiver. For those who have not taken any Android programming course,
 you can use our provided smali code. The Java code is described in the
 following, while the smali code can be downloaded from the web site of
 this lab.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaliciousCode</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="p">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaliciousCode</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="o">{</span>
   <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="p">(</span><span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span>
-     <span class="n">ContentResolver</span> <span class="n">contentResolver</span> <span class="o">=</span> <span class="n">context</span><span class="p">.</span><span class="na">getContentResolver</span><span class="p">();</span>
-     <span class="n">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">contentResolver</span><span class="p">.</span><span class="na">query</span>
-              <span class="p">(</span><span class="n">ContactsContract</span><span class="p">.</span><span class="na">Contacts</span><span class="p">.</span><span class="na">CONTENT_URI</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+     <span class="n">ContentResolver</span> <span class="n">contentResolver</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getContentResolver</span><span class="o">();</span>
+     <span class="n">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">contentResolver</span><span class="o">.</span><span class="na">query</span>
+              <span class="o">(</span><span class="n">ContactsContract</span><span class="o">.</span><span class="na">Contacts</span><span class="o">.</span><span class="na">CONTENT_URI</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
 
-     <span class="k">while</span> <span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">moveToNext</span><span class="p">())</span> <span class="p">{</span>
-         <span class="n">String</span> <span class="n">lookupKey</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="na">getString</span>
-              <span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">getColumnIndex</span><span class="p">(</span><span class="n">ContactsContract</span><span class="p">.</span><span class="na">Contacts</span><span class="p">.</span><span class="na">LOOKUP_KEY</span><span class="p">));</span>
+     <span class="k">while</span> <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">moveToNext</span><span class="o">())</span> <span class="o">{</span>
+         <span class="n">String</span> <span class="n">lookupKey</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="na">getString</span>
+              <span class="o">(</span><span class="n">cursor</span><span class="o">.</span><span class="na">getColumnIndex</span><span class="o">(</span><span class="n">ContactsContract</span><span class="o">.</span><span class="na">Contacts</span><span class="o">.</span><span class="na">LOOKUP_KEY</span><span class="o">));</span>
 
-         <span class="n">Uri</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">Uri</span><span class="p">.</span><span class="na">withAppendedPath</span>
-               <span class="p">(</span><span class="n">ContactsContract</span><span class="p">.</span><span class="na">Contacts</span><span class="p">.</span><span class="na">CONTENT_LOOKUP_URI</span><span class="p">,</span> <span class="n">lookupKey</span><span class="p">);</span>
-         <span class="n">contentResolver</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
-     <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+         <span class="n">Uri</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">Uri</span><span class="o">.</span><span class="na">withAppendedPath</span>
+               <span class="o">(</span><span class="n">ContactsContract</span><span class="o">.</span><span class="na">Contacts</span><span class="o">.</span><span class="na">CONTENT_LOOKUP_URI</span><span class="o">,</span> <span class="n">lookupKey</span><span class="o">);</span>
+         <span class="n">contentResolver</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">uri</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+     <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>The above malicious code, if triggered, will delete all the contact
@@ -407,11 +405,11 @@ shows what needs to be added to the manifest file.</p>
 </pre></div>
 </div>
 <p>In the above manifest file, we add two permissions to allow the app to
-read from and write to <code class="docutils literal notranslate"><span class="pre">Contacts</span></code>’ content provider (Lines  and ).
+read from and write to <code class="docutils literal notranslate"><span class="pre">Contacts</span></code>’ content provider&nbsp;(Lines&nbsp; and ).
 It should be noted that these permissions are added outside of the
 <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> block, but within the <code class="docutils literal notranslate"><span class="pre">&lt;manifest&gt;</span></code> block. In the
 file, we also register our broadcast receiver to the <code class="docutils literal notranslate"><span class="pre">TIME_SET</span></code>
-broadcast event (Line ), so our code can be triggered every time we
+broadcast event&nbsp;(Line&nbsp;), so our code can be triggered every time we
 change the time on the phone. The registration should be added inside
 the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> block, not inside the <code class="docutils literal notranslate"><span class="pre">&lt;activity&gt;</span></code> block. The
 application that you downloaded from app markets may have a large
@@ -454,7 +452,7 @@ verification before accepting an app, but other third-party app markets
 do not always conduct such a verification. In this lab, we will just use
 a self-signed certificate. The entire process consists of two steps.</p>
 <ol class="arabic">
-<li><p>Step 1: Generate a public and private key pair using the <code class="docutils literal notranslate"><span class="pre">keytool</span></code>
+<li><p class="first">Step 1: Generate a public and private key pair using the <code class="docutils literal notranslate"><span class="pre">keytool</span></code>
 command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
   $ keytool -alias &lt;alias_name&gt; -genkey -v -keystore mykey.keystore
@@ -468,7 +466,7 @@ the command line). The keystore can store multiple keys, each
 identified by an alias name (specified in the command), which is the
 name that we will use later when signing your app.</p>
 </li>
-<li><p>Step 2: We can now use <code class="docutils literal notranslate"><span class="pre">jarsigner</span></code> to sign the APK file using the
+<li><p class="first">Step 2: We can now use <code class="docutils literal notranslate"><span class="pre">jarsigner</span></code> to sign the APK file using the
 key generated in the previous step. We can do it using the following
 command.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]

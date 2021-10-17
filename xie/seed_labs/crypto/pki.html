@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -192,8 +190,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Public-Key Infrastructure (PKI) Lab</p>
-</div>
+Public-Key Infrastructure (PKI) Lab</div>
 <div class="section" id="public-key-infrastructure-pki-lab">
 <h1>Public-Key Infrastructure (PKI) Lab<a class="headerlink" href="#public-key-infrastructure-pki-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -204,7 +201,7 @@ side of communication sends its public key to the other side. The
 fundamental problem is that there is no easy way to verify the ownership
 of a public key, i.e., given a public key and its claimed owner
 information, how do we ensure that the public key is indeed owned by the
-claimed owner? The Public Key Infrastructure (PKI) is a practical
+claimed owner? The Public Key Infrastructure&nbsp;(PKI) is a practical
 solution to this problem.</p>
 <p>The learning objective of this lab is for students to gain the
 first-hand experience on PKI. SEED labs have a series of labs focusing
@@ -216,18 +213,18 @@ will be able to understand the root of the trust in the public-key
 infrastructure, and what problems will arise if the root trust is
 broken. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Public-key encryption, Public-Key Infrastructure (PKI)</p></li>
-<li><p>Certificate Authority (CA), X.509 certificate, and root CA</p></li>
-<li><p>Apache, HTTP, and HTTPS</p></li>
-<li><p>Man-in-the-middle attacks</p></li>
+<li>Public-key encryption, Public-Key Infrastructure (PKI)</li>
+<li>Certificate Authority (CA), X.509 certificate, and root CA</li>
+<li>Apache, HTTP, and HTTPS</li>
+<li>Man-in-the-middle attacks</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of PKI can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 23 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 23 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="related-labs">
@@ -402,13 +399,13 @@ openssl rsa  -in ca.key -text -noout
 <p>Please run the above commands. From the output, please identify the
 followings:</p>
 <ul class="simple">
-<li><p>What part of the certificate indicates this is a CA’s certificate?</p></li>
-<li><p>What part of the certificate indicates this is a self-signed
-certificate?</p></li>
-<li><p>In the RSA algorithm, we have a public exponent <span class="math notranslate nohighlight">\(e\)</span>, a private
+<li>What part of the certificate indicates this is a CA’s certificate?</li>
+<li>What part of the certificate indicates this is a self-signed
+certificate?</li>
+<li>In the RSA algorithm, we have a public exponent <span class="math notranslate nohighlight">\(e\)</span>, a private
 exponent <span class="math notranslate nohighlight">\(d\)</span>, a modulus <span class="math notranslate nohighlight">\(n\)</span>, and two secret numbers
 <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>, such that <span class="math notranslate nohighlight">\(n = pq\)</span>. Please identify
-the values for these elements in your certificate and key files.</p></li>
+the values for these elements in your certificate and key files.</li>
 </ul>
 </div>
 </div>
@@ -475,7 +472,7 @@ They will be needed in the tasks later.</p>
 the real world, the CSR files are usually sent to a trusted CA for their
 signature. In this lab, we will use our own trusted CA to generate
 certificates. The following command turns the certificate signing
-request (<code class="docutils literal notranslate"><span class="pre">server.csr</span></code>) into an X509 certificate (<code class="docutils literal notranslate"><span class="pre">server.crt</span></code>),
+request&nbsp;(<code class="docutils literal notranslate"><span class="pre">server.csr</span></code>) into an X509 certificate&nbsp;(<code class="docutils literal notranslate"><span class="pre">server.crt</span></code>),
 using the CA’s <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">ca.key</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl ca -config myCA_openssl.cnf -policy policy_anything \
            -md sha256 -days 3650 \
@@ -541,8 +538,8 @@ the name of the website, while the <code class="docutils literal notranslate"><s
 where the files for the website are stored. Using the <code class="docutils literal notranslate"><span class="pre">ServerAlias</span></code>
 entries, we allow the website to have different names. You should also
 provide two alias entries.</p>
-<p>We also need to tell Apache where the server certificate (Line ) and
-private key (Line ) are stored. In the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, we have already
+<p>We also need to tell Apache where the server certificate&nbsp;(Line&nbsp;) and
+private key&nbsp;(Line&nbsp;) are stored. In the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, we have already
 included the commands to copy the certificate and key to the <code class="docutils literal notranslate"><span class="pre">/certs</span></code>
 folder of the container.</p>
 <p>In order to make the website work, we need to enable Apache’s <code class="docutils literal notranslate"><span class="pre">ssl</span></code>
@@ -617,7 +614,7 @@ that our certificate is now in Firefox’s list of accepted certificates.</p>
 <div class="section" id="task-5-launching-a-man-in-the-middle-attack">
 <h2>Task 5: Launching a Man-In-The-Middle Attack<a class="headerlink" href="#task-5-launching-a-man-in-the-middle-attack" title="Permalink to this headline">¶</a></h2>
 <p>In this task, we will show how PKI can defeat Man-In-The-Middle (MITM)
-attacks. <strong>Figure 1</strong> depicts how MITM attacks work.
+attacks. <strong>Figure&nbsp;1</strong> depicts how MITM attacks work.
 Assume Alice wants to visit <code class="docutils literal notranslate"><span class="pre">example.com</span></code> via the HTTPS protocol. She
 needs to get the public key from the <code class="docutils literal notranslate"><span class="pre">example.com</span></code> server; Alice will
 generate a secret, and encrypt the secret using the server’s public key,
@@ -630,9 +627,9 @@ the server using the server’s public key. The secret is used to encrypt
 the communication between Alice and server, so the attacker can decrypt
 the encrypted communication.</p>
 <div class="center docutils container">
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="A Man-In-The-Middle (MITM) attack" src="../../_images/mitm.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: A Man-In-The-Middle (MITM) attack</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: A Man-In-The-Middle (MITM) attack</span></p>
 </div>
 </div>
 <p>The goal of this task is to help students understand how PKI can defeat

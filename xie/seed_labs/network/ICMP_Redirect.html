@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -212,15 +211,15 @@ can intercept the packets, make changes, and then send the modified
 packets out. This is a form of the Man-In-The-Middle (MITM) attack. This
 lab covers the following topics:</p>
 <ul class="simple">
-<li><p>The IP and ICMP protocols</p></li>
-<li><p>ICMP redirect attack</p></li>
-<li><p>Routing</p></li>
+<li>The IP and ICMP protocols</li>
+<li>ICMP redirect attack</li>
+<li>Routing</li>
 </ul>
 <p><strong>Videos.</strong> Detailed coverage of the IP protocol and the attacks at the IP layer can
 be found in the following:</p>
 <ul class="simple">
-<li><p>Section 4 of the SEED Lecture,, Internet Security: A Hands-on Approach, by Wenliang Du. See details
-at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Section 4 of the SEED Lecture,, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
@@ -229,7 +228,7 @@ labs can be conducted on the cloud, and you can follow our instruction to create
 <div class="section" id="environment-setup-using-container">
 <h2>Environment Setup using Container<a class="headerlink" href="#environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
 <p>In this lab, we need several machines. The lab environment setup is
-depicted in Figure 1. We use containers to set up this environment.</p>
+depicted in Figure&nbsp;1. We use containers to set up this environment.</p>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
 <p>Please download the Labsetup.zip file to your VM from the lab’s website, unzip it, enter the Labsetup
@@ -242,7 +241,7 @@ we are going to use these commands very frequently, we have created aliases for 
 (in our provided SEEDUbuntu 20.04 VM).</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/icmp_redirect_img1.png" src="../../_images/icmp_redirect_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span></p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build   # Build the container image
 $ docker-compose up      # Start the container
@@ -285,7 +284,7 @@ attacker machine. If you look at the Docker Compose file, you will see
 that the attacker container is configured differently from the other
 containers. Here are the differences:</p>
 <ul>
-<li><p><em>Shared folder.</em> When we use the attacker container to launch
+<li><p class="first"><em>Shared folder.</em> When we use the attacker container to launch
 attacks, we need to put the attacking code inside the attacker
 container. Code editing is more convenient inside the VM than in containers,
 because we can use our favorite editors. In order for the VM and container to share files, we have
@@ -299,7 +298,7 @@ volumes:</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Privileged mode.</em>  To be able to modify kernel parameters at runtime (using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling
+<li><p class="first"><em>Privileged mode.</em>  To be able to modify kernel parameters at runtime (using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling
 IP forwarding, a container needs to be privileged. This is achieved by including the following entry
 in the Docker Compose file for the container.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>privileged: true
@@ -390,16 +389,18 @@ victim machine.</p>
 experiments, and see whether your attack can still succeed. Please
 explain your observations:</p>
 <ul>
-<li><p>Question 1: Can you use ICMP redirect attacks to redirect to a remote
+<li><p class="first">Question 1: Can you use ICMP redirect attacks to redirect to a remote
 machine? Namely, the IP address assigned to <code class="docutils literal notranslate"><span class="pre">icmp.gw</span></code> is a computer
 not on the local LAN. Please show your experiment result, and explain
-your observation.</p></li>
-<li><p>Question 2: Can you use ICMP redirect attacks to redirect to a
+your observation.</p>
+</li>
+<li><p class="first">Question 2: Can you use ICMP redirect attacks to redirect to a
 non-existing machine on the same network? Namely, the IP address
 assigned to <code class="docutils literal notranslate"><span class="pre">icmp.gw</span></code> is a local computer that is either offline or
 non-existing. Please show your experiment result, and explain your
-observation.</p></li>
-<li><p>Question 3: If you look at the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file, you will
+observation.</p>
+</li>
+<li><p class="first">Question 3: If you look at the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file, you will
 find the following entries for the malicious router container. What
 are the purposes of these entries? Please change their value to
 <code class="docutils literal notranslate"><span class="pre">1</span></code>, and launch the attack again. Please describe and explain your
@@ -487,15 +488,15 @@ so it does not capture its own packets.</p>
 <p><strong>Questions.</strong> After you have succeeded in the attack, please answer the following
 questions:</p>
 <ul class="simple">
-<li><p>Question 4: In your MITM program, you only need to capture the
+<li>Question 4: In your MITM program, you only need to capture the
 traffics in one direction. Please indicate which direction, and
-explain why.</p></li>
-<li><p>Question 5: In the MITM program, when you capture the <code class="docutils literal notranslate"><span class="pre">nc</span></code> traffics
+explain why.</li>
+<li>Question 5: In the MITM program, when you capture the <code class="docutils literal notranslate"><span class="pre">nc</span></code> traffics
 from A (<code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>), you can use A’s IP address or MAC address in
 the filter. One of the choices is not good and is going to create
 issues, even though both choices may work. Please try both, and use
 your experiment results to show which choice is the correct one, and
-please explain your conclusion.</p></li>
+please explain your conclusion.</li>
 </ul>
 </div>
 <div class="section" id="submission">

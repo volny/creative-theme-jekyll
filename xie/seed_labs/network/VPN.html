@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -217,19 +216,19 @@ VPN is simple, it does include all the essential elements of a VPN. The
 design and implementation of TLS/SSL VPNs exemplify a number of security
 principles, including the following:</p>
 <ul class="simple">
-<li><p>Virtual Private Network</p></li>
-<li><p>TUN/TAP, and IP tunneling</p></li>
-<li><p>Routing</p></li>
-<li><p>Public-key cryptography, PKI, and X.509 certificate</p></li>
-<li><p>TLS/SSL programming</p></li>
-<li><p>Authentication</p></li>
+<li>Virtual Private Network</li>
+<li>TUN/TAP, and IP tunneling</li>
+<li>Routing</li>
+<li>Public-key cryptography, PKI, and X.509 certificate</li>
+<li>TLS/SSL programming</li>
+<li>Authentication</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of VPN, PKI, and TLS can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapters 19, 24, and 25 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach,
-2nd Edition, by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 8 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
-at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapters 19, 24, and 25 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach,
+2nd Edition, by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 8 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Related labs.</strong> We have a separate SEED lab on PKI, and another one on TLS. It is
 recommended that students finish these two crypto labs before working on
@@ -251,10 +250,10 @@ it miniVPN.</p>
 allowing the computer to securely access a private network via the
 gateway. We need at least three VMs: VPN client (also serving as Host
 U), VPN server (the gateway), and a host in the private network (Host
-V). The network setup is depicted in Figure 1.</p>
+V). The network setup is depicted in Figure&nbsp;1.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/vpn_img1.png" src="../../_images/vpn_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: VM setup for this lab</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: VM setup for this lab</span></p>
 </div>
 <p>In practice, the VPN client and VPN server are connected via the
 Internet. For the sake of simplicity, we directly connect these two
@@ -280,11 +279,11 @@ whether you picked the right connection.</p>
 <p>After you have selected the right connection to edit, pick the
 <code class="docutils literal notranslate"><span class="pre">&quot;ipv4</span> <span class="pre">Settings&quot;</span></code> tab and select the <code class="docutils literal notranslate"><span class="pre">&quot;Manual&quot;</span></code> method, instead of
 the default <code class="docutils literal notranslate"><span class="pre">&quot;Automatic</span> <span class="pre">(DHCP)&quot;</span></code>. Click the <code class="docutils literal notranslate"><span class="pre">&quot;Add&quot;</span></code> button to set up
-the new IP address for the VM. See Figure 2for details.</p>
+the new IP address for the VM. See Figure&nbsp;2for details.</p>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/vpn_img2.png" src="../../_images/vpn_img2.png" />
 <p class="caption"><span class="caption-text">Figure 2: Manually set up the IP address for the <code class="docutils literal notranslate"><span class="pre">&quot;Internal</span> <span class="pre">Network&quot;</span></code> adaptor
-on VPN Server.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+on VPN Server.</span></p>
 </div>
 </div>
 <div class="section" id="task-2-creating-a-vpn-tunnel-using-tun-tap">
@@ -319,11 +318,11 @@ Edition</em>; the chapter also explains how TUN/TAP works and how to use it
 to create VPN.</p>
 <div class="figure align-center" id="id3">
 <img alt="../../_images/vpn_img3.png" src="../../_images/vpn_img3.png" />
-<p class="caption"><span class="caption-text">Figure 3: VPN client and server</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: VPN client and server</span></p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">vpnclient</span></code> and <code class="docutils literal notranslate"><span class="pre">vpnserver</span></code> programs are the two ends of a VPN
 tunnel. They communicate with each other using either TCP or UDP via the
-sockets depicted in Figure 3. In our
+sockets depicted in Figure&nbsp;3. In our
 sample code, we choose to use UDP for the sake of simplicity. The dotted
 line between the client and server depicts the path for the VPN tunnel.
 The VPN client and server programs connect to the hosting system via a
@@ -483,7 +482,7 @@ different machines, so you cannot hardcode the hostname of the VPN
 server in the program. The hostname needs to be typed in from the
 command line. This name represents the user’s intention, so it should be
 used in the verification. This name should also be used to find the IP
-address of the server. Section 3.2 provides a sample program to show you
+address of the server. Section&nbsp;3.2 provides a sample program to show you
 how to get the IP address for a given hostname.</p>
 <p><strong>Our sample TLS client and server programs.</strong> Server authentication is implemented in the sample programs provided by
 us. Part of the authentication requires the certificate of the CA who
@@ -504,7 +503,7 @@ their own CA in order to create server certificates. The objective of
 this requirement is to differentiate student’s work.</p>
 <p>To use our client to talk to an HTTPS server, we need to get its CA’s
 certificate, save the certificate in the <code class="docutils literal notranslate"><span class="pre">./ca_client</span></code> folder, and
-create a symbolic link to it (or rename it) using the hash value
+create a symbolic link to it&nbsp;(or rename it) using the hash value
 generated from its subject field. For example, to enable our client to
 talk to Google, who gets its certificate from a root CA called “GeoTrust
 Global CA”, we get this root CA’s certificate (<code class="docutils literal notranslate"><span class="pre">GeoTrustGlobalCA.pem</span></code>)
@@ -534,7 +533,7 @@ provide a user name and a password. The server will check its shadow
 file (<code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code>); if a matching record is found, the user is
 authenticated, and the VPN tunnel will be established. If there is no
 match, the server will break its connection with the user, and thus no
-tunnel will be established. See Section 3.3 for
+tunnel will be established. See Section&nbsp;3.3 for
 sample code on how to authenticate users using the shadow file.</p>
 </div>
 <div class="section" id="task-6-supporting-multiple-clients">
@@ -545,11 +544,11 @@ simultaneously, with each client having its own VPN tunnel (and thus its
 own TLS session). Our MiniVPN should support multiple clients.</p>
 <div class="figure align-center" id="id4">
 <img alt="../../_images/vpn_img4.png" src="../../_images/vpn_img4.png" />
-<p class="caption"><span class="caption-text">Figure 4: Supporting multiple VPN clients</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: Supporting multiple VPN clients</span></p>
 </div>
 <p>In a typical implementation, the VPN server process (the parent process)
 will create a child process for each tunnel (see
-Figure 3). When a packet comes from the
+Figure&nbsp;3). When a packet comes from the
 tunnel, its corresponding child process will get the packet, and forward
 it to the TUN interface. This direction is the same regardless of
 whether multiple clients are supported or not. It is the other direction
@@ -561,12 +560,12 @@ to think about how to implement this decision-making logic.</p>
 needs to send the packet to the child process, to which the selected
 tunnel is attached. This calls for IPC (Inter-Process Communication). A
 typical approach is to use pipes. We provide a sample program in
-Section 3.4 to demonstrate how to use pipes for
+Section&nbsp;3.4 to demonstrate how to use pipes for
 IPC.</p>
 <p>Child processes need to monitor this pipe interface, and read data from
 it if there are data. Since child processes also need to watch out for
 data coming from the socket interface, they need to simultaneously
-monitor multiple interfaces. Section 3.5
+monitor multiple interfaces. Section&nbsp;3.5
 shows how to achieve that.</p>
 </div>
 </div>
@@ -701,7 +700,7 @@ used <code class="docutils literal notranslate"><span class="pre">-lcrypto</span
 <h3>Inter-Process Communication Using Pipe<a class="headerlink" href="#inter-process-communication-using-pipe" title="Permalink to this headline">¶</a></h3>
 <p>The following program shows how a parent process sends data to its child
 process using pipe. The parent process creates a pipe using <code class="docutils literal notranslate"><span class="pre">pipe()</span></code>
-in Line ➀. Each pipe has two ends: the input end’s file descriptor is
+in Line&nbsp;➀. Each pipe has two ends: the input end’s file descriptor is
 <code class="docutils literal notranslate"><span class="pre">fd[0]</span></code>, and the output end’s file descriptor is <code class="docutils literal notranslate"><span class="pre">fd[1]</span></code>.</p>
 <p>After the pipe is created, a child process is spawned using <code class="docutils literal notranslate"><span class="pre">fork()</span></code>.
 Both parent and child processes have the file descriptors associated
@@ -713,8 +712,8 @@ the parent process. Similarly, the child does not send anything via the
 pipe, so it closes the output end <code class="docutils literal notranslate"><span class="pre">fd[1]</span></code>. At this point, we have
 established a uni-directional pipe from the parent process to the child
 process. To send data via the pipe, the parent process writes to
-<code class="docutils literal notranslate"><span class="pre">fd[1]</span></code> (see Line ➁); to receive data from the pipe, the child process
-reads from <code class="docutils literal notranslate"><span class="pre">fd[0]</span></code> (see Line ➂).</p>
+<code class="docutils literal notranslate"><span class="pre">fd[1]</span></code> (see Line&nbsp;➁); to receive data from the pipe, the child process
+reads from <code class="docutils literal notranslate"><span class="pre">fd[0]</span></code> (see Line&nbsp;➂).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;unistd.h&gt;
@@ -773,8 +772,8 @@ of the interfaces. It has to block on all of them altogether. has a
 system call called <code class="docutils literal notranslate"><span class="pre">select()</span></code>, which allows a program to monitor
 multiple file descriptors simultaneously. To use <code class="docutils literal notranslate"><span class="pre">select()</span></code>, we need
 to store all the file descriptors to be monitored in a set using the
-<code class="docutils literal notranslate"><span class="pre">FD_SET</span></code> macro (see Lines ➀ and ➁ in the code below). We then give the
-set to the <code class="docutils literal notranslate"><span class="pre">select()</span></code> system call (Line ➂), which will block the
+<code class="docutils literal notranslate"><span class="pre">FD_SET</span></code> macro&nbsp;(see Lines&nbsp;➀ and&nbsp;➁ in the code below). We then give the
+set to the <code class="docutils literal notranslate"><span class="pre">select()</span></code> system call&nbsp;(Line&nbsp;➂), which will block the
 process until data are available on one of the file descriptors in the
 set. We can then use the <code class="docutils literal notranslate"><span class="pre">FD_ISSET</span></code> macro to figure out which file
 descriptor has received data. In the following code example, we use
@@ -805,51 +804,51 @@ the complete packet flow path when users run telnet 10.0.20.100 from a
 host machine, which is the Point A of a host-to-gateway VPN. The other
 end of the VPN is on a gateway, which is connected to the 10.0.20.0/24
 network, where our telnet server 10.0.20.100 resides.</p>
-<p>Figure 5(a) shows how a packet flow from the telnet client to the server.
-Figure 5(b) shows how a packet flow from the telnet server back to the
-client. We will only describe the path in Figure 5(a) in the following.
-The return path is self-explained from Figure 5(b) once you have understood
-the path in Figure 5(a).</p>
+<p>Figure&nbsp;5(a) shows how a packet flow from the telnet client to the server.
+Figure&nbsp;5(b) shows how a packet flow from the telnet server back to the
+client. We will only describe the path in Figure&nbsp;5(a) in the following.
+The return path is self-explained from Figure&nbsp;5(b) once you have understood
+the path in Figure&nbsp;5(a).</p>
 <ol class="arabic simple">
-<li><p>The data of the packet starts from the telnet program.</p></li>
-<li><p>The kernel will construct an IP packet, with the destination IP
-address being 10.0.20.100.</p></li>
-<li><p>The kernel needs to decide which network interface the packet should
+<li>The data of the packet starts from the telnet program.</li>
+<li>The kernel will construct an IP packet, with the destination IP
+address being 10.0.20.100.</li>
+<li>The kernel needs to decide which network interface the packet should
 be routed through: eth1 or tun0. You need to set up your routing
 table correctly for the kernel to pick tun0. Once the decision is
 made, the kernel will set the source IP address of the packet using
-the IP address of the network interface, which is 10.0.4.1.</p></li>
-<li><p>The packet will reach our VPN program (Point A) through the virtual
+the IP address of the network interface, which is 10.0.4.1.</li>
+<li>The packet will reach our VPN program (Point A) through the virtual
 interface tun0, then it will be encrypted, and then be sent back to
 the kernel through a UDP port (not through the tun0 interface). This
-is because our VPN program use the UDP as our tunnel.</p></li>
-<li><p>The kernel will treat the encrypted IP packet as UDP data, construct
+is because our VPN program use the UDP as our tunnel.</li>
+<li>The kernel will treat the encrypted IP packet as UDP data, construct
 a new IP packet, and put the entire encrypted IP packet as its UDP
 payload. The new IP’s destination address will be the other end of
 the tunnel (decided by the VPN program we write); in the figure, the
-new IP’s destination address is 128.230.208.97.</p></li>
-<li><p>You need to set up your routing table correctly, so the new packet
+new IP’s destination address is 128.230.208.97.</li>
+<li>You need to set up your routing table correctly, so the new packet
 will be routed through the interaface eth1; therefore, the source IP
-address of this new packet should be 209.164.131.32.</p></li>
-<li><p>The packet will now flow through the Internet, with the original
+address of this new packet should be 209.164.131.32.</li>
+<li>The packet will now flow through the Internet, with the original
 telnet packet being entirely encrypted, and carried in the payload of
-the packet. This is why it is called a tunnel.</p></li>
-<li><p>The packet will reach our gateway 128.230.208.97 through its
-interface eth1.</p></li>
-<li><p>The kernel will give the UDP payload (i.e. the encrypted IP packet)
+the packet. This is why it is called a tunnel.</li>
+<li>The packet will reach our gateway 128.230.208.97 through its
+interface eth1.</li>
+<li>The kernel will give the UDP payload (i.e. the encrypted IP packet)
 to the VPN program (Point B), which is waiting for UDP data. This is
-through the UDP port.</p></li>
-<li><p>The VPN program will decrypt the payload, and then feed the decrypted
+through the UDP port.</li>
+<li>The VPN program will decrypt the payload, and then feed the decrypted
 payload, which is the original telnet packet, back to the kernel
-through the virtual network interface tun0.</p></li>
-<li><p>Since it comes through a network interface, the kernel will treat it
+through the virtual network interface tun0.</li>
+<li>Since it comes through a network interface, the kernel will treat it
 as an IP packet (it is indeed an IP packet), look at its destination
 IP address, and decide where to route it. Remember, the destination
 IP address of this packet is 10.0.20.100. If your routing table is
 set up correctly, the packet should be routed through eth2, because
-this is the interface that connects to the 10.0.20.0/24 network.</p></li>
-<li><p>The telnet packet will now be delivered to its final destination
-10.0.20.100.</p></li>
+this is the interface that connects to the 10.0.20.0/24 network.</li>
+<li>The telnet packet will now be delivered to its final destination
+10.0.20.100.</li>
 </ol>
 </div>
 </div>
@@ -861,19 +860,19 @@ your system. You also need to demonstrate your system to us. Please sign up
 a demonstration time slot with the TA. Please take the following into
 consideration when you prepare for demonstraiton:</p>
 <ul class="simple">
-<li><p>The total time of the demo will be 15 minutes, no more additional time would be given. So prepare
-your demonstration so you can cover the important features.</p></li>
-<li><p>You are entirely responsible for showing the demo. We will NOT even touch the keyboard during
+<li>The total time of the demo will be 15 minutes, no more additional time would be given. So prepare
+your demonstration so you can cover the important features.</li>
+<li>You are entirely responsible for showing the demo. We will NOT even touch the keyboard during
 the demonstration; so you should not depend on us to test your system. If you fail to demo some
-important features of your system, we will assume that your system does not have those features.</p></li>
-<li><p>You need to practice before you come to the demonstration. If the system crashes or anything goes
-wrong, it is your own fault. We will not debug your problems, nor give you extra time for it.</p></li>
-<li><p>During the demo, you should consider yourself as salesmen, and you want to sell your system to us.
+important features of your system, we will assume that your system does not have those features.</li>
+<li>You need to practice before you come to the demonstration. If the system crashes or anything goes
+wrong, it is your own fault. We will not debug your problems, nor give you extra time for it.</li>
+<li>During the demo, you should consider yourself as salesmen, and you want to sell your system to us.
 You are given 15 minutes to show us how good your system is. So think about your sales strategies.
 If you have implemented a great system, but fail to show us how good it is, you are not likely to get a
-good grade.</p></li>
-<li><p>Do turn off the messages your system prints out for debugging purposes. Those messages should not
-appear in a demonstration.</p></li>
+good grade.</li>
+<li>Do turn off the messages your system prints out for debugging purposes. Those messages should not
+appear in a demonstration.</li>
 </ul>
 </div>
 <div class="section" id="checklist-for-demonstration">
@@ -882,18 +881,18 @@ appear in a demonstration.</p></li>
 doing demo online is an option, we decide to experiment with a different
 approach: asking students to record their demo and submit the video
 file. To help them conduct a self-guided demo, we provide a checklist in
-Table 1. Even if we do in-person demo, this checklist is still quite useful.</p>
+Table&nbsp;1. Even if we do in-person demo, this checklist is still quite useful.</p>
 <div class="figure align-center" id="id5">
 <img alt="../../_images/vpn_img5.png" src="../../_images/vpn_img5.png" />
-<p class="caption"><span class="caption-text">Figure 5: An Example of Packet Flow in VPN</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 5: An Example of Packet Flow in VPN</span></p>
 </div>
 <div class="figure align-center" id="id6">
 <img alt="../../_images/vpn_img6.png" src="../../_images/vpn_img6.png" />
-<p class="caption"><span class="caption-text">Table 1(a): Checklist for VPN demonstration</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Table 1(a): Checklist for VPN demonstration</span></p>
 </div>
 <div class="figure align-center" id="id7">
 <img alt="../../_images/vpn_img7.png" src="../../_images/vpn_img7.png" />
-<p class="caption"><span class="caption-text">Table 1(b): Checklist for VPN demonstration</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Table 1(b): Checklist for VPN demonstration</span></p>
 </div>
 </div>
 </div>

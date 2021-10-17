@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -215,18 +214,18 @@ object, students will write simple sniffer and spoofing programs, and
 gain an in-depth understanding of the technical aspects of these
 programs. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>How the sniffing and spoofing work</p></li>
-<li><p>Packet sniffing using the pcap library and Scapy</p></li>
-<li><p>Packet spoofing using raw socket and Scapy</p></li>
-<li><p>Manipulating packets using Scapy</p></li>
+<li>How the sniffing and spoofing work</li>
+<li>Packet sniffing using the pcap library and Scapy</li>
+<li>Packet spoofing using raw socket and Scapy</li>
+<li>Manipulating packets using Scapy</li>
 </ul>
 <p><strong>Readings and Videos.</strong> Detailed coverage of sniffing and spoofing can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 15 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 2 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
-at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 15 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 2 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> . This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
@@ -248,12 +247,12 @@ their students’ programming background.</p>
 <h2>Environment Setup using Container<a class="headerlink" href="#environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
 <p>In this lab, we will use two machines that are connected to the same
 LAN. We can either use two VMs or use two containers.
-Figure 1 depicts the lab environment setup using
+Figure&nbsp;1 depicts the lab environment setup using
 containers. We will do all the attacks on the attacker container, while
 using the other container as the user machine.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/sniffing_img1.png" src="../../_images/sniffing_img1.png" />
-<p class="caption"><span class="caption-text">Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Lab environment setup</span></p>
 </div>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
@@ -306,7 +305,7 @@ attacker machine. If you look at the Docker Compose file, you will see
 that the attacker container is configured differently from the other
 containers. Here are the differences:</p>
 <ul>
-<li><p><em>Shared folder.</em> When we use the attacker container to launch attacks, we need to put the attacking
+<li><p class="first"><em>Shared folder.</em> When we use the attacker container to launch attacks, we need to put the attacking
 code inside the attacker container. Code editing is more convenient inside the VM than in containers,
 because we can use our favorite editors. In order for the VM and container to share files, we have
 created a shared folder between the VM and the container using the Docker <code class="docutils literal notranslate"><span class="pre">volumes</span></code>. If you look
@@ -319,7 +318,7 @@ VM), so they can be used inside the containers.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
+<li><p class="first"><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
 inside a container has problems, because a container is effectively attached to a virtual switch, so it
 can only see its own traffic, and it is never going to see the packets among other containers. To solve
 this problem, we use the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode for the attacker container. This allows the attacker container to
@@ -369,7 +368,7 @@ Scapy for each task.</p>
 <p>To use Scapy, we can write a Python program, and then execute this
 program using Python. See the following example. We should run Python
 using the root privilege because the privilege is required for spoofing
-packets. At the beginning of the program (Line ➀), we should import all
+packets. At the beginning of the program (Line&nbsp;➀), we should import all
 Scapy’s modules.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># view mycode.py
 #!/usr/bin/env python3
@@ -453,12 +452,12 @@ use the BPF (Berkeley Packet Filter) syntax; you can find the BPF manual
 from the Internet. Please set the following filters and demonstrate your
 sniffer program again (each filter should be set separately):</p>
 <ul class="simple">
-<li><p>Capture only the ICMP packet</p></li>
-<li><p>Capture any TCP packet that comes from a particular IP and with a
-destination port number 23.</p></li>
-<li><p>Capture packets comes from or to go to a particular subnet. You can
+<li>Capture only the ICMP packet</li>
+<li>Capture any TCP packet that comes from a particular IP and with a
+destination port number 23.</li>
+<li>Capture packets comes from or to go to a particular subnet. You can
 pick any subnet, such as <code class="docutils literal notranslate"><span class="pre">128.230.0.0/16</span></code>; you should not pick the
-subnet that your VM is attached to.</p></li>
+subnet that your VM is attached to.</li>
 </ul>
 </div>
 <div class="section" id="task-1-2-spoofing-icmp-packets">
@@ -481,10 +480,10 @@ spoof an ICMP packets.</p>
 Sent 1 packets.
 </pre></div>
 </div>
-<p>In the code above, Line ➀ creates an IP object from the IP class; a class
+<p>In the code above, Line&nbsp;➀ creates an IP object from the IP class; a class
 attribute is defined for each IP header field. We can use <code class="docutils literal notranslate"><span class="pre">ls(a)</span></code> or
 <code class="docutils literal notranslate"><span class="pre">ls(IP)</span></code> to see all the attribute names/values. We can also use
-a.show() and IP.show() to do the same. Line ➁ shows how to set the
+a.show() and IP.show() to do the same. Line&nbsp;➁ shows how to set the
 destination IP address field. If a field is not set, a default value
 will be used.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ls(a)
@@ -503,13 +502,13 @@ dst        : DestIPField             = &#39;127.0.0.1&#39;     (None)
 options    : PacketListField         = []              ([])
 </pre></div>
 </div>
-<p>Line ➂ creates an ICMP object. The default type is echo request. In
-Line ➃, we stack <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> together to form a new object. The <code class="docutils literal notranslate"><span class="pre">/</span></code>
+<p>Line&nbsp;➂ creates an ICMP object. The default type is echo request. In
+Line&nbsp;➃, we stack <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> together to form a new object. The <code class="docutils literal notranslate"><span class="pre">/</span></code>
 operator is overloaded by the IP class, so it no longer represents
 division; instead, it means adding <code class="docutils literal notranslate"><span class="pre">b</span></code> as the payload field of <code class="docutils literal notranslate"><span class="pre">a</span></code>
 and modifying the fields of <code class="docutils literal notranslate"><span class="pre">a</span></code> accordingly. As a result, we get a new
 object that represent an ICMP packet. We can now send out this packet
-using <code class="docutils literal notranslate"><span class="pre">send()</span></code> in Line ➄. Please make any necessary change to the
+using <code class="docutils literal notranslate"><span class="pre">send()</span></code> in Line&nbsp;➄. Please make any necessary change to the
 sample code, and then demonstrate that you can spoof an ICMP echo
 request packet with an arbitrary source IP address.</p>
 </div>
@@ -644,25 +643,25 @@ Students should provide screenshots as evidences to show that their
 sniffer program can run successfully and produces expected results. In
 addition, please answer the following questions:</p>
 <ul class="simple">
-<li><p><strong>Question 1.</strong> Please use your own words to describe the sequence of
+<li><strong>Question 1.</strong> Please use your own words to describe the sequence of
 the library calls that are essential for sniffer programs. This is
 meant to be a summary, not detailed explanation like the one in the
-tutorial or book.</p></li>
-<li><p><strong>Question 2.</strong> Why do you need the root privilege to run a sniffer
+tutorial or book.</li>
+<li><strong>Question 2.</strong> Why do you need the root privilege to run a sniffer
 program? Where does the program fail if it is executed without the
-root privilege?</p></li>
-<li><p><strong>Question 3.</strong> Please turn on and turn off the promiscuous mode in
+root privilege?</li>
+<li><strong>Question 3.</strong> Please turn on and turn off the promiscuous mode in
 your sniffer program. Can you demonstrate the difference when this
-mode is on and off? Please describe how you can demonstrate this.</p></li>
+mode is on and off? Please describe how you can demonstrate this.</li>
 </ul>
 <p><strong>Task 2.1B: Writing Filters.</strong> Please write filter expressions for your sniffer program to capture each
 of the followings. You can find online manuals for <code class="docutils literal notranslate"><span class="pre">pcap</span></code> filters. In
 your lab reports, you need to include screenshots to show the results
 after applying each of these filters.</p>
 <ul class="simple">
-<li><p>Capture the ICMP packets between two specific hosts.</p></li>
-<li><p>Capture the TCP packets with a destination port number in the range
-from 10 to 100.</p></li>
+<li>Capture the ICMP packets between two specific hosts.</li>
+<li>Capture the TCP packets with a destination port number in the range
+from 10 to 100.</li>
 </ul>
 <p><strong>Task 2.1C: Sniffing Passwords.</strong> Please show how you can use your sniffer program to capture the password
 when somebody is using <code class="docutils literal notranslate"><span class="pre">telnet</span></code> on the network that you are
@@ -734,13 +733,13 @@ is successful, you can see the echo reply coming back from the remote
 machine.</p>
 <p><strong>Questions.</strong> Please answer the following questions.</p>
 <ul class="simple">
-<li><p><strong>Question 4.</strong> Can you set the IP packet length field to an
-arbitrary value, regardless of how big the actual packet is?</p></li>
-<li><p><strong>Question 5.</strong> Using the raw socket programming, do you have to
-calculate the checksum for the IP header?</p></li>
-<li><p><strong>Question 6.</strong> Why do you need the root privilege to run the
+<li><strong>Question 4.</strong> Can you set the IP packet length field to an
+arbitrary value, regardless of how big the actual packet is?</li>
+<li><strong>Question 5.</strong> Using the raw socket programming, do you have to
+calculate the checksum for the IP header?</li>
+<li><strong>Question 6.</strong> Why do you need the root privilege to run the
 programs that use raw sockets? Where does the program fail if
-executed without the root privilege?</p></li>
+executed without the root privilege?</li>
 </ul>
 </div>
 <div class="section" id="task-2-3-sniff-and-then-spoof">

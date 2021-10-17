@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -195,8 +194,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>DNS Rebinding Attack Lab</p>
-</div>
+DNS Rebinding Attack Lab</div>
 <div class="section" id="dns-rebinding-attack-lab">
 <h1>DNS Rebinding Attack Lab<a class="headerlink" href="#dns-rebinding-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
@@ -229,10 +227,10 @@ device and then use the information to set the temperature of the
 thermostat to a dangerously high value. This lab covers the following
 topics:</p>
 <ul class="simple">
-<li><p>DNS server setup</p></li>
-<li><p>DNS rebinding attack</p></li>
-<li><p>Attacks on IoT devices</p></li>
-<li><p>Same Origin Policy</p></li>
+<li>DNS server setup</li>
+<li>DNS rebinding attack</li>
+<li>Attacks on IoT devices</li>
+<li>Same Origin Policy</li>
 </ul>
 <div class="section" id="downloadable-files">
 <h3>Downloadable Files.<a class="headerlink" href="#downloadable-files" title="Permalink to this headline">¶</a></h3>
@@ -243,12 +241,12 @@ topics:</p>
 <p>Detailed coverage of the DNS protocol and attacks can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -289,9 +287,9 @@ re-generated periodically.</p>
 </div>
 <div class="section" id="lab-environment-setup-using-container">
 <h2>Lab Environment Setup Using Container<a class="headerlink" href="#lab-environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
-<div class="align-center figure align-default" id="id1">
+<div class="align-center figure" id="id1">
 <img alt="Lab environment setup" src="../../_images/environment_setup_vm.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span></p>
 </div>
 <p>In this lab, we will use six machines. The lab environment setup is
 illustrated in <strong>Figure 1</strong>. Only the user
@@ -439,8 +437,8 @@ attacker’s website. Please provide a screenshot in your lab report.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We may have used the same hostname <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> in other SEED labs, so it is likely that this name is already mapped to a different IP address. Therefore, if you do not see the expected attacker’s website, you should check the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file, and remove any entry that contains <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">We may have used the same hostname <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> in other SEED labs, so it is likely that this name is already mapped to a different IP address. Therefore, if you do not see the expected attacker’s website, you should check the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file, and remove any entry that contains <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>.</p>
 </div>
 </div>
 </div>
@@ -462,18 +460,18 @@ URL 3:  http://www.attacker32.com/change
 </pre></div>
 </div>
 <p>The first page lets us see the current temperature setting of the
-thermostat (see <strong>Figure 2</strong>.a); it fetches
+thermostat (see <strong>Figure&nbsp;2</strong>.a); it fetches
 the temperature value from the IoT server once every second. We should
 keep this page always visible, so we can see the temperature setting on
 the thermostat. The second and third pages are identical (see
-<strong>Figure 2</strong>.b), except that one comes from
+<strong>Figure&nbsp;2</strong>.b), except that one comes from
 the IoT server, and the other comes from the attacker’s server. When we
 click the button on both pages, a request will be sent out to the IoT
 server to set its temperature. We are supposed to raise the thermostat’s
 temperature to <code class="docutils literal notranslate"><span class="pre">99</span></code> Celsius.</p>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="The web pages from the three URLs" src="../../_images/iot_webpages.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: The web pages from the three URLs</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: The web pages from the three URLs</span></p>
 </div>
 <p>Click the button on the second and third pages, and describe your
 observation. Which page can successfully set the thermostat’s

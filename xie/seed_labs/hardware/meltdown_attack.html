@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -184,15 +183,14 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Meltdown Attack Lab</p>
-</div>
+Meltdown Attack Lab</div>
 <div class="section" id="meltdown-attack-lab">
 <h1>Meltdown Attack Lab<a class="headerlink" href="#meltdown-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Discovered in 2017 and publicly disclosed in January 2018, the Meltdown
 exploits critical vulnerabilities existing in many modern processors,
-including those from Intel and ARM <a class="reference internal" href="#id6">|6|</a>.
+including those from Intel and ARM&nbsp;<a class="reference internal" href="#id6">|6|</a>.
 The vulnerabilities allow a user-level program to read data stored
 inside the kernel memory. Such an access is not allowed by the hardware
 protection mechanism implemented in most CPUs, but a vulnerability
@@ -211,12 +209,12 @@ perform the actual attack. Students will use the Meltdown attack to
 print out a secret data stored inside the kernel. This lab covers a
 number of topics described in the following:</p>
 <ul class="simple">
-<li><p>Meltdown attack</p></li>
-<li><p>Side channel attack</p></li>
-<li><p>CPU Caching</p></li>
-<li><p>Out-of-order execution inside CPU microarchitecture</p></li>
-<li><p>Kernel memory protection in operating system</p></li>
-<li><p>Kernel module</p></li>
+<li>Meltdown attack</li>
+<li>Side channel attack</li>
+<li>CPU Caching</li>
+<li>Out-of-order execution inside CPU microarchitecture</li>
+<li>Kernel memory protection in operating system</li>
+<li>Kernel module</li>
 </ul>
 <div class="section" id="downloadable-files">
 <h3>Downloadable Files.<a class="headerlink" href="#downloadable-files" title="Permalink to this headline">¶</a></h3>
@@ -226,12 +224,12 @@ number of topics described in the following:</p>
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the Meltdown attack can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 13 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 13 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 8 of the SEED Lecture, <em>Computer Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 8 of the SEED Lecture, <em>Computer Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -273,7 +271,7 @@ example, we compile <code class="docutils literal notranslate"><span class="pre"
 <h2>Tasks 1 and 2: Side Channel Attacks via CPU Caches<a class="headerlink" href="#tasks-1-and-2-side-channel-attacks-via-cpu-caches" title="Permalink to this headline">¶</a></h2>
 <p>Both the Meltdown and Spectre attacks use CPU cache as a side channel to
 steal a protected secret. The technique used in this side-channel attack
-is called FLUSH+RELOAD <a class="reference internal" href="#id7">|7|</a>. We will study this
+is called FLUSH+RELOAD&nbsp;<a class="reference internal" href="#id7">|7|</a>. We will study this
 technique first. The code developed in these two tasks will be used as a
 building block in later tasks.</p>
 <p>A CPU cache is a hardware cache used by the CPU of a computer to reduce
@@ -287,9 +285,9 @@ called cache hit), it will be fetched directly from there. If the data
 is not there (this is called miss), the CPU will go to the main memory
 to get the data. The time spent in the latter case is significant
 longer. Most modern CPUs have CPU caches.</p>
-<div class="align-center figure align-default" id="id8">
+<div class="align-center figure" id="id8">
 <img alt="alternate text" src="../../_images/cachehitmiss.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Cache hit and miss</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Cache hit and miss</span></p>
 </div>
 <div class="section" id="task-1-reading-from-cache-versus-from-memory">
 <h3>Task 1: Reading from Cache versus from Memory<a class="headerlink" href="#task-1-reading-from-cache-versus-from-memory" title="Permalink to this headline">¶</a></h3>
@@ -301,7 +299,7 @@ two of its elements, <code class="docutils literal notranslate"><span class="pre
 the pages containing these two elements will be cached. We then read the
 elements from <code class="docutils literal notranslate"><span class="pre">array[0*4096]</span></code> to <code class="docutils literal notranslate"><span class="pre">array[9*4096]</span></code> and measure the
 time spent in the memory reading.
-<strong>Figure 1</strong> illustrates the difference.
+<strong>Figure&nbsp;1</strong> illustrates the difference.
 In the code, Line ① reads the CPU’s timestamp (TSC) counter before the
 memory read, while Line ② reads the counter after the memory read. Their
 difference is the time (in terms of number of CPU cycles) spent in the
@@ -358,9 +356,9 @@ threshold is important for the rest of the tasks in this lab.</p>
 </div>
 <div class="section" id="task-2-using-cache-as-a-side-channel">
 <h3>Task 2: Using Cache as a Side Channel<a class="headerlink" href="#task-2-using-cache-as-a-side-channel" title="Permalink to this headline">¶</a></h3>
-<div class="align-center figure align-default" id="id10">
+<div class="align-center figure" id="id10">
 <img alt="Diagram depicting the Side Channel Attack" src="../../_images/flushreload.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: Diagram depicting the Side Channel Attack</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Diagram depicting the Side Channel Attack</span></p>
 </div>
 <p>The objective of this task is to use the side channel to extract a
 secret value used by the victim function. Assume there is a victim
@@ -368,20 +366,20 @@ function that uses a secret value as index to load some values from an
 array. Also assume that the secret value cannot be accessed from the
 outside. Our goal is to use side channels to get this secret value. The
 technique that we will be using is called
-FLUSH+RELOAD <a class="reference internal" href="#id7">|7|</a>.
-<strong>Figure 2</strong> illustrates the technique,
+FLUSH+RELOAD&nbsp;<a class="reference internal" href="#id7">|7|</a>.
+<strong>Figure&nbsp;2</strong> illustrates the technique,
 which consists of three steps:</p>
 <ol class="arabic simple">
-<li><p>FLUSH the entire array from the cache memory to make sure the array
-is not cached.</p></li>
-<li><p>Invoke the victim function, which accesses one of the array elements
+<li>FLUSH the entire array from the cache memory to make sure the array
+is not cached.</li>
+<li>Invoke the victim function, which accesses one of the array elements
 based on the value of the secret. This action causes the
-corresponding array element to be cached.</p></li>
-<li><p>RELOAD the entire array, and measure the time it takes to reload each
+corresponding array element to be cached.</li>
+<li>RELOAD the entire array, and measure the time it takes to reload each
 element. If one specific element’s loading time is fast, it is very
 likely that element is already in the cache. This element must be the
 one accessed by the victim function. Therefore, we can figure out
-what the secret value is.</p></li>
+what the secret value is.</li>
 </ol>
 <p>The following program uses the FLUSH+RELOAD technique to find out a
 one-byte secret value contained in the variable <code class="docutils literal notranslate"><span class="pre">secret</span></code>. Since there
@@ -464,7 +462,7 @@ program, we use <code class="docutils literal notranslate"><span class="pre">arr
 </div>
 </div>
 <p>Please compile the program using <code class="docutils literal notranslate"><span class="pre">gcc</span></code> and run it (see
-<strong>Section 2</strong> for compilation
+<strong>Section&nbsp;2</strong> for compilation
 instruction). It should be noted that the technique is not 100 percent
 accurate, and you may not be able to observe the expected output all the
 time. Run the program for at least 20 times, and count how many times
@@ -481,7 +479,7 @@ programs. This isolation is achieved by a supervisor bit of the
 processor that defines whether a memory page of the kernel can be
 accessed or not. This bit is set when CPU enters the kernel space and
 cleared when it exits to the user
-space <a class="reference internal" href="#id3">|3|</a>. With this feature, kernel
+space&nbsp;<a class="reference internal" href="#id3">|3|</a>. With this feature, kernel
 memory can be safely mapped into the address space of every process, so
 the page table does not need to change when a user-level program traps
 into the kernel. However, this isolation feature is broken by the
@@ -506,26 +504,26 @@ to compile and install the kernel module. The code is shown below.</p>
 <span class="cp">#include</span> <span class="cpf">&lt;linux/uaccess.h&gt;</span><span class="cp"></span>
 
 <span class="k">static</span> <span class="kt">char</span> <span class="n">secret</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="sc">&#39;D&#39;</span><span class="p">,</span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="sc">&#39;b&#39;</span><span class="p">,</span><span class="sc">&#39;s&#39;</span><span class="p">};</span>
-<span class="k">static</span> <span class="k">struct</span> <span class="nc">proc_dir_entry</span> <span class="o">*</span><span class="n">secret_entry</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">struct</span> <span class="n">proc_dir_entry</span> <span class="o">*</span><span class="n">secret_entry</span><span class="p">;</span>
 <span class="k">static</span> <span class="kt">char</span><span class="o">*</span> <span class="n">secret_buffer</span><span class="p">;</span>
 
-<span class="k">static</span> <span class="kt">int</span> <span class="n">test_proc_open</span><span class="p">(</span><span class="k">struct</span> <span class="nc">inode</span> <span class="o">*</span><span class="n">inode</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">file</span> <span class="o">*</span><span class="n">file</span><span class="p">)</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">test_proc_open</span><span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="n">inode</span><span class="p">,</span> <span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">file</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="cp">#if LINUX_VERSION_CODE &lt;= KERNEL_VERSION(4,0,0)</span>
-   <span class="k">return</span> <span class="nf">single_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">PDE</span><span class="p">(</span><span class="n">inode</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+   <span class="k">return</span> <span class="n">single_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">PDE</span><span class="p">(</span><span class="n">inode</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
 <span class="cp">#else</span>
-   <span class="k">return</span> <span class="nf">single_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">PDE_DATA</span><span class="p">(</span><span class="n">inode</span><span class="p">));</span>
+   <span class="k">return</span> <span class="n">single_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">PDE_DATA</span><span class="p">(</span><span class="n">inode</span><span class="p">));</span>
 <span class="cp">#endif</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">ssize_t</span> <span class="n">read_proc</span><span class="p">(</span><span class="k">struct</span> <span class="nc">file</span> <span class="o">*</span><span class="n">filp</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> 
+<span class="k">static</span> <span class="kt">ssize_t</span> <span class="nf">read_proc</span><span class="p">(</span><span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">filp</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> 
                          <span class="kt">size_t</span> <span class="n">length</span><span class="p">,</span> <span class="n">loff_t</span> <span class="o">*</span><span class="n">offset</span><span class="p">)</span>
 <span class="p">{</span>
    <span class="n">memcpy</span><span class="p">(</span><span class="n">secret_buffer</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">secret</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>              
    <span class="k">return</span> <span class="mi">8</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="k">const</span> <span class="k">struct</span> <span class="nc">file_operations</span> <span class="n">test_proc_fops</span> <span class="o">=</span>
+<span class="k">static</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">file_operations</span> <span class="n">test_proc_fops</span> <span class="o">=</span>
 <span class="p">{</span>
    <span class="p">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">THIS_MODULE</span><span class="p">,</span>
    <span class="p">.</span><span class="n">open</span> <span class="o">=</span> <span class="n">test_proc_open</span><span class="p">,</span>
@@ -534,7 +532,7 @@ to compile and install the kernel module. The code is shown below.</p>
    <span class="p">.</span><span class="n">release</span> <span class="o">=</span> <span class="n">single_release</span><span class="p">,</span>
 <span class="p">};</span>
 
-<span class="k">static</span> <span class="n">__init</span> <span class="kt">int</span> <span class="n">test_proc_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="k">static</span> <span class="n">__init</span> <span class="kt">int</span> <span class="nf">test_proc_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
    <span class="c1">// write message in kernel message buffer</span>
    <span class="n">printk</span><span class="p">(</span><span class="s">&quot;secret data address:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">secret</span><span class="p">);</span>      
@@ -549,7 +547,7 @@ to compile and install the kernel module. The code is shown below.</p>
    <span class="k">return</span> <span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="n">__exit</span> <span class="kt">void</span> <span class="n">test_proc_cleanup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="k">static</span> <span class="n">__exit</span> <span class="kt">void</span> <span class="nf">test_proc_cleanup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
    <span class="n">remove_proc_entry</span><span class="p">(</span><span class="s">&quot;secret_data&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
 <span class="p">}</span>
@@ -563,22 +561,22 @@ to compile and install the kernel module. The code is shown below.</p>
 quite difficult to succeed. In our kernel module, we ensure that the
 conditions are met:</p>
 <ul class="simple">
-<li><p>We need to know the address of the target secret data. The kernel
+<li>We need to know the address of the target secret data. The kernel
 module saves the address of the secret data into the kernel message
-buffer (Line ②), which is public accessible; we will get the address
+buffer&nbsp;(Line ②), which is public accessible; we will get the address
 from there. In real Meltdown attacks, attackers have to figure out a
-way to get the address, or they have to guess.</p></li>
-<li><p>The secret data need to be cached, or the attack’s success rate will
+way to get the address, or they have to guess.</li>
+<li>The secret data need to be cached, or the attack’s success rate will
 be low. The reason for this condition will be explained later. To
 achieve this, we just need to use the secret once. We create a data
-entry <code class="docutils literal notranslate"><span class="pre">/proc/secret_data</span></code>  (Line ③), which provides a window for
+entry <code class="docutils literal notranslate"><span class="pre">/proc/secret_data</span></code> &nbsp;(Line ③), which provides a window for
 user-level programs to interact with the kernel module. When a
 user-level program reads from this entry, the <code class="docutils literal notranslate"><span class="pre">read_proc()</span></code>
 function in the kernel module will be invoked, inside which, the
-secret variable will be loaded (Line ①) and thus be cached by the CPU.
+secret variable will be loaded&nbsp;(Line ①) and thus be cached by the CPU.
 It should be noted that <code class="docutils literal notranslate"><span class="pre">read_proc()</span></code> does not return the secret
 data to the user space, so it does not leak the secret data. We still
-need to use the Meltdown attack to get the secret.</p></li>
+need to use the Meltdown attack to get the secret.</li>
 </ul>
 <div class="section" id="compilation-and-execution">
 <h4>Compilation and execution.<a class="headerlink" href="#compilation-and-execution" title="Permalink to this headline">¶</a></h4>
@@ -629,7 +627,7 @@ programs from crashing by a catastrophic event. One way is to define our
 own signal handler in the program to capture the exceptions raised by
 catastrophic events.</p>
 <p>Unlike C++ or other high-level languages, C does not provide direct
-support for error handling (also known as exception handling), such as
+support for error handling&nbsp;(also known as exception handling), such as
 the try/catch clause. However, we can emulate the try/catch clause using
 <code class="docutils literal notranslate"><span class="pre">sigsetjmp()</span></code> and <code class="docutils literal notranslate"><span class="pre">siglongjmp()</span></code>. We provide a C program called
 <code class="docutils literal notranslate"><span class="pre">ExceptionHandling.c</span></code> in the following to demonstrate how a program
@@ -644,13 +642,13 @@ observations.</p>
 
 <span class="k">static</span> <span class="n">sigjmp_buf</span> <span class="n">jbuf</span><span class="p">;</span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="n">catch_segv</span><span class="p">()</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">catch_segv</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="c1">// Roll back to the checkpoint set by sigsetjmp().</span>
   <span class="n">siglongjmp</span><span class="p">(</span><span class="n">jbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>                         
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span> 
   <span class="c1">// The address of our secret data</span>
   <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">kernel_data_addr</span> <span class="o">=</span> <span class="mh">0xfb61b000</span><span class="p">;</span>
@@ -679,27 +677,27 @@ observations.</p>
 <p>The exception handling mechanism in the above code is quite complicated,
 so we provide further explanation in the following:</p>
 <ul class="simple">
-<li><p>Set up a signal handler: we register a <code class="docutils literal notranslate"><span class="pre">SIGSEGV</span></code> signal handler in
+<li>Set up a signal handler: we register a <code class="docutils literal notranslate"><span class="pre">SIGSEGV</span></code> signal handler in
 Line ②, so when a <code class="docutils literal notranslate"><span class="pre">SIGSEGV</span></code> signal is raised, the handler function
-<code class="docutils literal notranslate"><span class="pre">catch_segv()</span></code> will be invoked.</p></li>
-<li><p>Set up a checkpoint: after the signal handler has finished processing
+<code class="docutils literal notranslate"><span class="pre">catch_segv()</span></code> will be invoked.</li>
+<li>Set up a checkpoint: after the signal handler has finished processing
 the exception, it needs to let the program continue its execution
 from particular checkpoint. Therefore, we need to define a checkpoint
 first. This is achieved via <code class="docutils literal notranslate"><span class="pre">sigsetjmp()</span></code> in Line ③:
 <code class="docutils literal notranslate"><span class="pre">sigsetjmp(jbuf,</span> <span class="pre">1)</span></code> saves the stack context/environment in
 <code class="docutils literal notranslate"><span class="pre">jbuf</span></code> for later use by <code class="docutils literal notranslate"><span class="pre">siglongjmp()</span></code>; it returns 0 when the
-checkpoint is set up <a class="reference internal" href="#id4">|4|</a>.</p></li>
-<li><p>Roll back to a checkpoint: When <code class="docutils literal notranslate"><span class="pre">siglongjmp(jbuf,</span> <span class="pre">1)</span></code> is called,
+checkpoint is set up&nbsp;<a class="reference internal" href="#id4">|4|</a>.</li>
+<li>Roll back to a checkpoint: When <code class="docutils literal notranslate"><span class="pre">siglongjmp(jbuf,</span> <span class="pre">1)</span></code> is called,
 the state saved in the <code class="docutils literal notranslate"><span class="pre">jbuf</span></code> variable is copied back in the
 processor and computation starts over from the return point of the
 <code class="docutils literal notranslate"><span class="pre">sigsetjmp()</span></code> function, but the returned value of the
 <code class="docutils literal notranslate"><span class="pre">sigsetjmp()</span></code> function is the second argument of the
 <code class="docutils literal notranslate"><span class="pre">siglongjmp()</span></code> function, which is <code class="docutils literal notranslate"><span class="pre">1</span></code> in our case. Therefore,
 after the exception handling, the program continues its execution
-from the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch.</p></li>
-<li><p>Triggering the exception: The code at Line ④ will trigger a <code class="docutils literal notranslate"><span class="pre">SIGSEGV</span></code>
+from the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch.</li>
+<li>Triggering the exception: The code at Line ④ will trigger a <code class="docutils literal notranslate"><span class="pre">SIGSEGV</span></code>
 signal due to the memory access violation (user-level programs cannot
-access kernel memory).</p></li>
+access kernel memory).</li>
 </ul>
 </div>
 </div>
@@ -730,7 +728,7 @@ modern high performance CPUs allow out-of-order execution to exhaust all
 of the execution units. Executing instructions one after another may
 lead to poor performance and inefficient resources usage, i.e., current
 instruction is waiting for previous instruction to complete even though
-some execution units are idle <a class="reference internal" href="#id2">|2|</a>. With
+some execution units are idle&nbsp;<a class="reference internal" href="#id2">|2|</a>. With
 the out-of-order execution feature, CPU can run ahead once the required
 resources are available.</p>
 <p>In the code example above, at the microarchitectural level, Line 3
@@ -744,11 +742,11 @@ results of the execution will not be committed before the access check
 finishes. In our case, the check fails, so all the results caused by the
 out-of-order execution will be discarded like it has never happened.
 That is why from outside we do not see that Line 4 was executed.
-<strong>Figure 3</strong> illustrates the out-of-order
+<strong>Figure&nbsp;3</strong> illustrates the out-of-order
 execution caused by Line 3 of the sample code.</p>
-<div class="align-center figure align-default" id="id14">
+<div class="align-center figure" id="id14">
 <img alt="Out-of-order execution inside CPU" src="../../_images/meltdown.jpg" />
-<p class="caption"><span class="caption-text">Figure 3: Out-of-order execution inside CPU</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: Out-of-order execution inside CPU</span></p>
 </div>
 <p>Intel and several CPU makers made a severe mistake in the design of the
 out-of-order execution. They wipe out the effects of the out-of-order
@@ -852,12 +850,12 @@ evidence to show that Line ② is actually executed.</p>
 
 <span class="c1">// signal handler</span>
 <span class="k">static</span> <span class="n">sigjmp_buf</span> <span class="n">jbuf</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">void</span> <span class="n">catch_segv</span><span class="p">()</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">catch_segv</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">siglongjmp</span><span class="p">(</span><span class="n">jbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="c1">// Register a signal handler</span>
   <span class="n">signal</span><span class="p">(</span><span class="n">SIGSEGV</span><span class="p">,</span> <span class="n">catch_segv</span><span class="p">);</span>
@@ -881,7 +879,7 @@ evidence to show that Line ② is actually executed.</p>
 </div>
 <p>It should be noted that the address in Line ③ should be replaced by the
 actual address that you found from the kernel module. Compile and run
-the code (see <strong>Section 2</strong>) for the
+the code (see <strong>Section&nbsp;2</strong>) for the
 instructions on the compilation). Document and explain your
 observations.</p>
 </div>
@@ -933,7 +931,7 @@ check aborts our out-of-order execution. In practice, if a kernel data
 item is not cached, using Meltdown to steal the data will be difficult.
 However, as it has been demonstrated, Meltdown attacks can still be
 successful, but they require high-performance CPU and
-DRAM <a class="reference internal" href="#id5">|5|</a>.</p>
+DRAM&nbsp;<a class="reference internal" href="#id5">|5|</a>.</p>
 <p>In this lab, we will get the kernel secret data cached before launching
 the attack. In the kernel module shown in
 <a class="reference internal" href="#listing-3">Listing 3</a>,
@@ -965,7 +963,7 @@ times (see Line ①); inside the loop, it simply add a number <code class="docut
 the <code class="docutils literal notranslate"><span class="pre">eax</span></code> register. This code basically does useless computations, but
 according to a post discussion, these extra lines of code “give the
 algorithmic units something to chew while memory access is being
-speculated” <a class="reference internal" href="#id1">|1|</a>. This is an important trick to
+speculated”&nbsp;<a class="reference internal" href="#id1">|1|</a>. This is an important trick to
 increase the possibility of success.</p>
 <div class="literal-block-wrapper docutils container" id="id16">
 <span id="listing-6"></span><div class="code-block-caption"><span class="caption-text">Listing 6: meltdown_asm()</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
@@ -1080,12 +1078,12 @@ code is shown in the following.</p>
 
 <span class="c1">// signal handler</span>
 <span class="k">static</span> <span class="n">sigjmp_buf</span> <span class="n">jbuf</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">void</span> <span class="n">catch_segv</span><span class="p">()</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">catch_segv</span><span class="p">()</span>
 <span class="p">{</span>
    <span class="n">siglongjmp</span><span class="p">(</span><span class="n">jbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   
@@ -1095,7 +1093,7 @@ code is shown in the following.</p>
   <span class="kt">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="s">&quot;/proc/secret_data&quot;</span><span class="p">,</span> <span class="n">O_RDONLY</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">perror</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">-1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
   
   <span class="n">memset</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">scores</span><span class="p">));</span>

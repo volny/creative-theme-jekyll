@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -184,8 +183,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Spectre Attack Lab</p>
-</div>
+Spectre Attack Lab</div>
 <div class="section" id="spectre-attack-lab">
 <h1>Spectre Attack Lab<a class="headerlink" href="#spectre-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
@@ -193,7 +191,7 @@
 <p>Discovered in 2017 and publicly disclosed in January 2018, the Spectre
 attack exploits critical vulnerabilities existing in many modern
 processors, including those from Intel, AMD, and
-ARM <a class="reference internal" href="#id1">|1|</a>. The vulnerabilities allow a
+ARM&nbsp;<a class="reference internal" href="#id1">|1|</a>. The vulnerabilities allow a
 program to break inter-process and intra-process isolation, so a
 malicious program can read the data from the area that is not accessible
 to it. Such an access is not allowed by the hardware protection
@@ -213,22 +211,22 @@ step, it should not be difficult for them to put everything together to
 perform the actual attack. This lab covers a number of topics described
 in the following:</p>
 <ul class="simple">
-<li><p>Spectre attack</p></li>
-<li><p>Side channel attack</p></li>
-<li><p>CPU caching</p></li>
-<li><p>Out-of-order execution and branch prediction inside CPU
-microarchitecture</p></li>
+<li>Spectre attack</li>
+<li>Side channel attack</li>
+<li>CPU caching</li>
+<li>Out-of-order execution and branch prediction inside CPU
+microarchitecture</li>
 </ul>
 <div class="section" id="readings-and-videos">
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the Spectre attack can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 14 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 14 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 8 of the SEED Lecture, <em>Computer Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 8 of the SEED Lecture, <em>Computer Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="downloadable-files">
@@ -268,7 +266,7 @@ example, we compile <code class="docutils literal notranslate"><span class="pre"
 <h2>Tasks 1 and 2: Side Channel Attacks via CPU Caches<a class="headerlink" href="#tasks-1-and-2-side-channel-attacks-via-cpu-caches" title="Permalink to this headline">¶</a></h2>
 <p>Both the Meltdown and Spectre attacks use CPU cache as a side channel to
 steal a protected secret. The technique used in this side-channel attack
-is called FLUSH+RELOAD <a class="reference internal" href="#id2">|2|</a>. We will study this
+is called FLUSH+RELOAD&nbsp;<a class="reference internal" href="#id2">|2|</a>. We will study this
 technique first. The code developed in these two tasks will be used as a
 building block in later tasks.</p>
 <p>A CPU cache is a hardware cache used by the CPU of a computer to reduce
@@ -282,9 +280,9 @@ called cache hit), it will be fetched directly from there. If the data
 is not there (this is called miss), the CPU will go to the main memory
 to get the data. The time spent in the latter case is significant
 longer. Most modern CPUs have CPU caches.</p>
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="Cache hit and miss" src="../../_images/cachehitmiss.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Cache hit and miss</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Cache hit and miss</span></p>
 </div>
 <div class="section" id="task-1-reading-from-cache-versus-from-memory">
 <h3>Task 1: Reading from Cache versus from Memory<a class="headerlink" href="#task-1-reading-from-cache-versus-from-memory" title="Permalink to this headline">¶</a></h3>
@@ -296,7 +294,7 @@ two of its elements, <code class="docutils literal notranslate"><span class="pre
 the pages containing these two elements will be cached. We then read the
 elements from <code class="docutils literal notranslate"><span class="pre">array[0*4096]</span></code> to <code class="docutils literal notranslate"><span class="pre">array[9*4096]</span></code> and measure the
 time spent in the memory reading.
-<strong>Figure 1</strong> illustrates the difference.
+<strong>Figure&nbsp;1</strong> illustrates the difference.
 In the code, Line ① reads the CPU’s timestamp (TSC) counter before the
 memory read, while Line ② reads the counter after the memory read. Their
 difference is the time (in terms of number of CPU cycles) spent in the
@@ -348,9 +346,9 @@ threshold is important for the rest of the tasks in this lab.</p>
 </div>
 <div class="section" id="task-2-using-cache-as-a-side-channel">
 <h3>Task 2: Using Cache as a Side Channel<a class="headerlink" href="#task-2-using-cache-as-a-side-channel" title="Permalink to this headline">¶</a></h3>
-<div class="align-center figure align-default" id="id5">
+<div class="align-center figure" id="id5">
 <img alt="Diagram depicting the Side Channel Attack" src="../../_images/flushreload.jpg" />
-<p class="caption"><span class="caption-text">Figure 2: Diagram depicting the Side Channel Attack</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Diagram depicting the Side Channel Attack</span></p>
 </div>
 <p>The objective of this task is to use the side channel to extract a
 secret value used by the victim function. Assume there is a victim
@@ -358,18 +356,18 @@ function that uses a secret value as index to load some values from an
 array. Also assume that the secret value cannot be accessed from the
 outside. Our goal is to use side channels to get this secret value. The
 technique that we will be using is called
-FLUSH+RELOAD <a class="reference internal" href="#id2">|2|</a>. <strong>Figure 2</strong> illustrates the technique, which consists of three steps:</p>
+FLUSH+RELOAD&nbsp;<a class="reference internal" href="#id2">|2|</a>. <strong>Figure&nbsp;2</strong> illustrates the technique, which consists of three steps:</p>
 <ol class="arabic simple">
-<li><p>FLUSH the entire array from the cache memory to make sure the array
-is not cached.</p></li>
-<li><p>Invoke the victim function, which accesses one of the array elements
+<li>FLUSH the entire array from the cache memory to make sure the array
+is not cached.</li>
+<li>Invoke the victim function, which accesses one of the array elements
 based on the value of the secret. This action causes the
-corresponding array element to be cached.</p></li>
-<li><p>RELOAD the entire array, and measure the time it takes to reload each
+corresponding array element to be cached.</li>
+<li>RELOAD the entire array, and measure the time it takes to reload each
 element. If one specific element’s loading time is fast, it is very
 likely that element is already in the cache. This element must be the
 one accessed by the victim function. Therefore, we can figure out
-what the secret value is.</p></li>
+what the secret value is.</li>
 </ol>
 <p>The following program uses the FLUSH+RELOAD technique to find out a
 one-byte secret value contained in the variable <code class="docutils literal notranslate"><span class="pre">secret</span></code>. Since there
@@ -448,7 +446,7 @@ program, we use <code class="docutils literal notranslate"><span class="pre">arr
 </div>
 </div>
 <p>Please compile the program using <code class="docutils literal notranslate"><span class="pre">gcc</span></code> and run it (see
-Section 2 for compilation
+Section&nbsp;2 for compilation
 instruction). It should be noted that the technique is not 100 percent
 accurate, and you may not be able to observe the expected output all the
 time. Run the program for at least 20 times, and count how many times
@@ -503,12 +501,12 @@ performed execution is committed and there is a significant performance
 gain. If the prediction is wrong, the CPU will revert back to its saved
 state, so all the results produced by the out-of-order execution will be
 discarded like it has never happened. That is why from outside we see
-that Line 3 was never executed. <strong>Figure 3</strong>
+that Line 3 was never executed. <strong>Figure&nbsp;3</strong>
 illustrates the out-of-order execution caused by Line 2 of the sample
 code.</p>
-<div class="align-center figure align-default" id="id7">
+<div class="align-center figure" id="id7">
 <img alt="Speculative execution (out-of-order execution)" src="../../_images/spectre.jpg" />
-<p class="caption"><span class="caption-text">Figure 3: Speculative execution (out-of-order execution)</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: Speculative execution (out-of-order execution)</span></p>
 </div>
 <p>Intel and several CPU makers made a severe mistake in the design of the
 out-of-order execution. They wipe out the effects of the out-of-order
@@ -628,18 +626,18 @@ and start speculative execution.</p>
 <div class="section" id="task-3">
 <h4>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h4>
 <p>Please compile the <code class="docutils literal notranslate"><span class="pre">SpectreExperiment.c</span></code> program shown in
-Listing 3 (see Section 2 for the compilation instruction); run the program and describe your observations. There may
+Listing&nbsp;3 (see Section 2 for the compilation instruction); run the program and describe your observations. There may
 be some noise in the side channel due to extra things cached by the CPU,
 we will reduce the noise later, but for now you can execute the task
 multiple times to observe the effects. Please observe whether Line ② is
 executed or not when <code class="docutils literal notranslate"><span class="pre">97</span></code> is fed into <code class="docutils literal notranslate"><span class="pre">victim()</span></code>. Please also do the
 followings:</p>
 <ul class="simple">
-<li><p>Comment out the line marked with ✰ and execute again. Explain your
+<li>Comment out the line marked with ✰ and execute again. Explain your
 observation. After you are done with this experiment, uncomment it,
-so the subsequent tasks are not affected.</p></li>
-<li><p>Replace Line ④ with <code class="docutils literal notranslate"><span class="pre">victim(i</span> <span class="pre">+</span> <span class="pre">20)</span></code>; run the code again and explain
-your observation.</p></li>
+so the subsequent tasks are not affected.</li>
+<li>Replace Line ④ with <code class="docutils literal notranslate"><span class="pre">victim(i</span> <span class="pre">+</span> <span class="pre">20)</span></code>; run the code again and explain
+your observation.</li>
 </ul>
 </div>
 </div>
@@ -671,11 +669,11 @@ be granted or not. With the Spectre attack, we can get CPUs to execute
 fails, essentially defeating the access check.</p>
 <div class="section" id="the-setup-for-the-experiment">
 <h3>The Setup for the Experiment<a class="headerlink" href="#the-setup-for-the-experiment" title="Permalink to this headline">¶</a></h3>
-<div class="align-center figure align-default" id="id9">
+<div class="align-center figure" id="id9">
 <img alt="Experiment setup: the buffer and the protected secret" src="../../_images/buffer_new.jpg" />
-<p class="caption"><span class="caption-text">Figure 4: Experiment setup: the buffer and the protected secret</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: Experiment setup: the buffer and the protected secret</span></p>
 </div>
-<p><strong>Figure 4</strong> illustrates the setup for the
+<p><strong>Figure&nbsp;4</strong> illustrates the setup for the
 experiment. In this setup, there are two types of regions: restricted
 region and non-restricted region. The restriction is achieved via an
 if-condition implemented in a sandbox function described below. The
@@ -805,7 +803,7 @@ print out more bytes.</p>
 Listing 3, so we
 will not repeat their explanation here. The most important part is in
 Lines ②, ③, and  ④ . Line ④ calculates the offset of the secret from the
-beginning of the buffer (we assume that the address of the secret is
+beginning of the buffer&nbsp;(we assume that the address of the secret is
 known to the attacker; in real attacks, there are many ways for
 attackers to figure out the address, including guessing). The offset is
 definitely beyond the scope of the buffer, so it is larger than the
@@ -961,19 +959,19 @@ run. The revised code is shown in the following.</p>
 <p>Please compile and run <code class="docutils literal notranslate"><span class="pre">SpectreAttackImproved.c</span></code>, and do the following
 tasks:</p>
 <ul class="simple">
-<li><p>You may observe that when running the code above, the one with the
+<li>You may observe that when running the code above, the one with the
 highest score is very likely to be <code class="docutils literal notranslate"><span class="pre">scores[0]</span></code>. Please figure out
 why, and fix the code above, so the actual secret value (which is not
-zero) will be printed out.</p></li>
-<li><p>Line ①  seems useless, but from our experience on SEED Ubuntu 20.04,
+zero) will be printed out.</li>
+<li>Line ①&nbsp; seems useless, but from our experience on SEED Ubuntu 20.04,
 without this line, the attack will not work. On the SEED Ubuntu 16.04
 VM, there is no need for this line. We have not figured out the exact
 reason yet, so if you can, your instructor will likely give you bonus
 points. Please run the program with and without this line, and
-describe your observations.</p></li>
-<li><p>Line ② causes the program to sleep for 10 microseconds. How long the
+describe your observations.</li>
+<li>Line&nbsp;② causes the program to sleep for 10 microseconds. How long the
 program sleeps does affect the success rate of the attack. Please try
-several other values, and describe your observations.</p></li>
+several other values, and describe your observations.</li>
 </ul>
 </div>
 </div>

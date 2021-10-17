@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -194,8 +193,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Secret-Key Encryption Lab</p>
-</div>
+Secret-Key Encryption Lab</div>
 <div class="section" id="secret-key-encryption-lab">
 <h1>Secret-Key Encryption Lab<a class="headerlink" href="#secret-key-encryption-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -212,18 +210,18 @@ the encryption, and eventually lead to vulnerabilities. This lab exposes
 students to some of these mistakes, and ask students to launch attacks
 to exploit those vulnerabilities. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Secret-key encryption</p></li>
-<li><p>Substitution cipher and frequency analysis</p></li>
-<li><p>Encryption modes, IV, and paddings</p></li>
-<li><p>Common mistakes in using encryption algorithms</p></li>
-<li><p>Programming using the crypto library</p></li>
+<li>Secret-key encryption</li>
+<li>Substitution cipher and frequency analysis</li>
+<li>Encryption modes, IV, and paddings</li>
+<li>Common mistakes in using encryption algorithms</li>
+<li>Programming using the crypto library</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the secret-key encryption can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 21 of the SEED Book,</p></li>
+<li>Chapter 21 of the SEED Book,</li>
 </ul>
 </div>
 </div>
@@ -249,7 +247,7 @@ what simplification we have made. Instructors can use the same method to
 encrypt an article of their choices, instead of asking students to use
 the ciphertext made by us.</p>
 <ul>
-<li><p>Step 1: let us generate the encryption key, i.e., the substitution
+<li><p class="first">Step 1: let us generate the encryption key, i.e., the substitution
 table. We will permute the alphabet from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">z</span></code> using Python,
 and use the permuted alphabet as the key. See the following program.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/env python3
@@ -262,7 +260,7 @@ print(key)
 </pre></div>
 </div>
 </li>
-<li><p>Step 2: let us do some simplification to the original article. We
+<li><p class="first">Step 2: let us do some simplification to the original article. We
 convert all upper cases to lower cases, and then removed all the
 punctuations and numbers. We do keep the spaces between words, so you
 can still see the boundaries of the words in the ciphertext. In real
@@ -274,7 +272,7 @@ $ tr -cd &#39;[a-z][\n][:space:]&#39; &lt; lowercase.txt &gt; plaintext.txt
 </pre></div>
 </div>
 </li>
-<li><p>Step 3: we use the <code class="docutils literal notranslate"><span class="pre">tr</span></code> command to do the encryption. We only
+<li><p class="first">Step 3: we use the <code class="docutils literal notranslate"><span class="pre">tr</span></code> command to do the encryption. We only
 encrypt letters, while leaving the space and return characters alone.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ tr &#39;abcdefghijklmnopqrstuvwxyz&#39; &#39;sxtrwinqbedpvgkfmalhyuojzc&#39; \
       &lt; plaintext.txt &gt; ciphertext.txt
@@ -302,14 +300,14 @@ letters <code class="docutils literal notranslate"><span class="pre">a</span></c
 <p>There are many online resources that you can use. We list four useful
 links in the following:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://www.richkni.co.uk/php/crypta/freq.php">http://www.richkni.co.uk/php/crypta/freq.php</a> : This website can
+<li><a class="reference external" href="http://www.richkni.co.uk/php/crypta/freq.php">http://www.richkni.co.uk/php/crypta/freq.php</a> : This website can
 produce the statistics from a ciphertext, including the single-letter
 frequencies, bigram frequencies (2-letter sequence), and trigram
-frequencies (3-letter sequence), etc.</p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_analysis">https://en.wikipedia.org/wiki/Frequency_analysis</a>: This Wikipedia page
-provides frequencies for a typical English plaintext.</p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bigram">https://en.wikipedia.org/wiki/Bigram</a>: Bigram frequency.</p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Trigram">https://en.wikipedia.org/wiki/Trigram</a>: Trigram frequency.</p></li>
+frequencies (3-letter sequence), etc.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_analysis">https://en.wikipedia.org/wiki/Frequency_analysis</a>: This Wikipedia page
+provides frequencies for a typical English plaintext.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Bigram">https://en.wikipedia.org/wiki/Bigram</a>: Bigram frequency.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Trigram">https://en.wikipedia.org/wiki/Trigram</a>: Trigram frequency.</li>
 </ul>
 </div>
 </div>
@@ -346,7 +344,7 @@ people without the encryption keys cannot know what is in the picture.
 Please encrypt the file using the ECB (Electronic Code Book) and CBC
 (Cipher Block Chaining) modes, and then do the following:</p>
 <ol class="arabic">
-<li><p>Let us treat the encrypted picture as a picture, and use a picture
+<li><p class="first">Let us treat the encrypted picture as a picture, and use a picture
 viewing software to display it. However, For the <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> file, the
 first 54 bytes contain the header information about the picture, we
 have to set it correctly, so the encrypted file can be treated as a
@@ -363,10 +361,11 @@ $ cat header body &gt; new.bmp
 </pre></div>
 </div>
 </li>
-<li><p>Display the encrypted picture using a picture viewing program (we
+<li><p class="first">Display the encrypted picture using a picture viewing program (we
 have installed an image viewer program called <code class="docutils literal notranslate"><span class="pre">eog</span></code> on our VM). Can
 you derive any useful information about the original picture from the
-encrypted picture? Please explain your observations.</p></li>
+encrypted picture? Please explain your observations.</p>
+</li>
 </ol>
 <p>Select a picture of your choice, repeat the experiment above, and report
 your observations.</p>
@@ -379,10 +378,11 @@ used by many block ciphers (see Chapter 21.4 of the SEED book for
 details). We will conduct the following experiments to understand how
 this type of padding works:</p>
 <ol class="arabic">
-<li><p>Use ECB, CBC, CFB, and OFB modes to encrypt a file (you can pick any
+<li><p class="first">Use ECB, CBC, CFB, and OFB modes to encrypt a file (you can pick any
 cipher). Please report which modes have paddings and which ones do
-not. For those that do not need paddings, please explain why.</p></li>
-<li><p>Let us create three files, which contain 5 bytes, 10 bytes, and 16
+not. For those that do not need paddings, please explain why.</p>
+</li>
+<li><p class="first">Let us create three files, which contain 5 bytes, 10 bytes, and 16
 bytes, respectively. We can use the following <code class="docutils literal notranslate"><span class="pre">&quot;echo</span> <span class="pre">-n&quot;</span></code> command
 to create such files. The following example creates a file <code class="docutils literal notranslate"><span class="pre">f1.txt</span></code>
 with length 5 (without the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option, the length will be 6,
@@ -420,12 +420,12 @@ $ xxd p1.txt
 <p>To understand the error propagation property of various encryption
 modes, we would like to do the following exercise:</p>
 <ol class="arabic simple">
-<li><p>Create a text file that is at least 1000 bytes long.</p></li>
-<li><p>Encrypt the file using the AES-128 cipher.</p></li>
-<li><p>Unfortunately, a single bit of the 55th byte in the encrypted file
+<li>Create a text file that is at least 1000 bytes long.</li>
+<li>Encrypt the file using the AES-128 cipher.</li>
+<li>Unfortunately, a single bit of the 55th byte in the encrypted file
 got corrupted. You can achieve this corruption using the <code class="docutils literal notranslate"><span class="pre">bless</span></code>
-hex editor.</p></li>
-<li><p>Decrypt the corrupted ciphertext file using the correct key and IV.</p></li>
+hex editor.</li>
+<li>Decrypt the corrupted ciphertext file using the correct key and IV.</li>
 </ol>
 <p>Please answer the following question: How much information can you
 recover by decrypting the corrupted file, if the encryption mode is ECB,
@@ -573,12 +573,12 @@ required for their courses or not.</p>
 is to find the key that is used for the encryption. You do know the
 following facts:</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">aes-128-cbc</span></code> cipher is used for the encryption.</p></li>
-<li><p>The key used to encrypt this plaintext is an English word shorter
+<li>The <code class="docutils literal notranslate"><span class="pre">aes-128-cbc</span></code> cipher is used for the encryption.</li>
+<li>The key used to encrypt this plaintext is an English word shorter
 than 16 characters; the word can be found from a typical English
 dictionary. Since the word has less than 16 characters (i.e. 128
 bits), pound signs (<code class="docutils literal notranslate"><span class="pre">#</span></code>: hexadecimal value is <code class="docutils literal notranslate"><span class="pre">0x23</span></code>) are
-appended to the end of the word to form a key of 128 bits.</p></li>
+appended to the end of the word to form a key of 128 bits.</li>
 </ul>
 <p>Your goal is to write a program to find out the encryption key. You can
 download a English word list from the Internet. We have also included
@@ -592,7 +592,7 @@ IV (in hex format):         aabbccddeeff00998877665544332211
 </div>
 <p>You need to pay attention to the following issues:</p>
 <ul>
-<li><p>If you choose to store the plaintext message in a file, and feed the
+<li><p class="first">If you choose to store the plaintext message in a file, and feed the
 file to your program, you need to check whether the file length is
 21. If you type the message in a text editor, you need to be aware
 that some editors may add a special character to the end of the file.
@@ -603,7 +603,7 @@ trailing newline):</p>
 </pre></div>
 </div>
 </li>
-<li><p>In this task, you are supposed to write your own program to invoke
+<li><p class="first">In this task, you are supposed to write your own program to invoke
 the crypto library. No credit will be given if you simply use the
 <code class="docutils literal notranslate"><span class="pre">openssl</span></code> commands to do this task. Sample code can be found from
 the following URL:</p>
@@ -611,7 +611,7 @@ the following URL:</p>
 </pre></div>
 </div>
 </li>
-<li><p>When you compile your code using <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, do not forget to include
+<li><p class="first">When you compile your code using <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, do not forget to include
 the <code class="docutils literal notranslate"><span class="pre">-lcrypto</span></code> flag, because your code needs the <code class="docutils literal notranslate"><span class="pre">crypto</span></code>
 library. See the following example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc -o myenc myenc.c -lcrypto
@@ -643,8 +643,8 @@ e5accdb667e8e569b1b34f423508c15422631198454e104ceb658f5918800c22
 <div class="section" id="submission">
 <h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-please-note admonition">
-<p class="admonition-title">Please Note</p>
-<p>This section is intentionally left blank to be filled out at a later date.</p>
+<p class="first admonition-title">Please Note</p>
+<p class="last">This section is intentionally left blank to be filled out at a later date.</p>
 </div>
 </div>
 <div class="section" id="acknowledgment">
@@ -652,12 +652,12 @@ e5accdb667e8e569b1b34f423508c15422631198454e104ceb658f5918800c22
 <p>We would like to acknowledge the contribution made by the following
 people and organizations:</p>
 <ul class="simple">
-<li><p>Jiamin Shen developed the following: the code running inside the
-container, and the container version of the task on predictable IV.</p></li>
-<li><p>The US National Science Foundation provided the funding for the SEED
-project from 2002 to 2020.</p></li>
-<li><p>Syracuse University provided the resources for the SEED project from
-2001 onwards.</p></li>
+<li>Jiamin Shen developed the following: the code running inside the
+container, and the container version of the task on predictable IV.</li>
+<li>The US National Science Foundation provided the funding for the SEED
+project from 2002 to 2020.</li>
+<li>Syracuse University provided the resources for the SEED project from
+2001 onwards.</li>
 </ul>
 </div>
 </div>

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -209,17 +208,17 @@ can be used to counter the race-condition attacks. Students need to
 evaluate whether the schemes work or not and explain why. This lab
 covers the following topics:</p>
 <ul class="simple">
-<li><p>Race condition vulnerability</p></li>
-<li><p>Sticky symlink protection</p></li>
-<li><p>Principle of least privilege</p></li>
+<li>Race condition vulnerability</li>
+<li>Sticky symlink protection</li>
+<li>Principle of least privilege</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the race condition attack can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 7 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
-Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 6 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 7 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 6 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Related topics.</strong> There are three more labs related to race condition. One is the Dirty
 COW attack lab, which exploits a race condition vulnerability inside the
@@ -318,11 +317,11 @@ not writable by normal users. By exploiting the vulnerability, we would
 like to add a record to the password file, with a goal of creating a new
 user account that has the root privilege. Inside the password file, each
 user has an entry, which consists of seven fields separated by
-colons (:). The entry for the root user is listed below.</p>
+colons&nbsp;(:). The entry for the root user is listed below.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root:x:0:0:root:/root:/bin/bash
 </pre></div>
 </div>
-<p>For the root user, the third field (the user ID field) has a value zero.
+<p>For the root user, the third field&nbsp;(the user ID field) has a value zero.
 Namely, when the root user logs in, its process’s user ID is set to
 zero, giving the process the root privilege. Basically, the power of the
 root account does not come from its name, but instead from the user ID
@@ -330,7 +329,7 @@ field. If we want to create an account with the root privilege, we just
 need to put a zero in this field.</p>
 <p>Each entry also contains a password field, which is the second field. In
 the example above, the field is set to <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, indicating that the
-password is stored in another file called <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> (the shadow
+password is stored in another file called <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code>&nbsp;(the shadow
 file). If we follow this example, we have to use the race condition
 vulnerability to modify both password and shadow files, which is not
 very hard to do. However, there is a simpler solution. Instead of

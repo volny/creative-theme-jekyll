@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -196,7 +195,7 @@
 web applications. This vulnerability makes it possible for attackers to
 inject malicious code (e.g. JavaScript programs) into victim’s web
 browser. Using this malicious code, attackers can steal a victim’s
-credentials, such as session cookies. The access control policies (i.e.,
+credentials, such as session cookies. The access control policies&nbsp;(i.e.,
 the same origin policy) employed by browsers to protect those
 credentials can be bypassed by exploiting XSS vulnerabilities.</p>
 <p>To demonstrate what attackers can do by exploiting XSS vulnerabilities,
@@ -216,20 +215,20 @@ such that whoever views an infected user profile will be infected, and
 whoever is infected will add you (i.e., the attacker) to his/her friend
 list. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Cross-Site Scripting attack</p></li>
-<li><p>XSS worm and self-propagation</p></li>
-<li><p>Session cookies</p></li>
-<li><p>HTTP GET and POST requests</p></li>
-<li><p>JavaScript and Ajax</p></li>
-<li><p>Content Security Policy (CSP)</p></li>
+<li>Cross-Site Scripting attack</li>
+<li>XSS worm and self-propagation</li>
+<li>Session cookies</li>
+<li>HTTP GET and POST requests</li>
+<li>JavaScript and Ajax</li>
+<li>Content Security Policy (CSP)</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the Cross-Site Scripting attack can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 10 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li>Chapter 10 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment-setup">
@@ -442,7 +441,7 @@ figure out what are sent to the server when a user adds a friend.
 Firefox’s <code class="docutils literal notranslate"><span class="pre">HTTP</span></code> inspection tool can help us get the information. It
 can display the contents of any HTTP request message sent from the
 browser. From the contents, we can identify all the parameters in the
-request. Section 5 provides guidelines on how to use the tool.</p>
+request. Section&nbsp;5 provides guidelines on how to use the tool.</p>
 <p>Once we understand what the add-friend HTTP request look like, we can
 write a JavaScript program to send out the same HTTP request. We provide
 a skeleton JavaScript code that aids in completing the task.</p>
@@ -476,11 +475,11 @@ clicking on <code class="docutils literal notranslate"><span class="pre">&quot;E
 <h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
 <p>Please answer the following questions:</p>
 <ul class="simple">
-<li><p><strong>Question 1:</strong> Explain the purpose of Lines ➀ and ➁, why are they are
-needed?</p></li>
-<li><p><strong>Question 2:</strong> If the <code class="docutils literal notranslate"><span class="pre">Elgg</span></code> application only provide the Editor
+<li><strong>Question 1:</strong> Explain the purpose of Lines ➀ and ➁, why are they are
+needed?</li>
+<li><strong>Question 2:</strong> If the <code class="docutils literal notranslate"><span class="pre">Elgg</span></code> application only provide the Editor
 mode for the <code class="docutils literal notranslate"><span class="pre">&quot;About</span> <span class="pre">Me&quot;</span></code> field, i.e., you cannot switch to the
-Text mode, can you still launch a successful attack?</p></li>
+Text mode, can you still launch a successful attack?</li>
 </ul>
 </div>
 </div>
@@ -538,8 +537,8 @@ entering the above JavaScript code.</p>
 <h3>Questions 2<a class="headerlink" href="#questions-2" title="Permalink to this headline">¶</a></h3>
 <p>Please answer the following questions:</p>
 <ul class="simple">
-<li><p><strong>Question 3:</strong> Why do we need Line ➀? Remove this line, and repeat
-your attack. Report and explain your observation.</p></li>
+<li><strong>Question 3:</strong> Why do we need Line ➀? Remove this line, and repeat
+your attack. Report and explain your observation.</li>
 </ul>
 </div>
 </div>
@@ -805,16 +804,16 @@ http://www.example32c.com
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><p>Describe and explain your observations when you visit these websites.</p></li>
-<li><p>Click the button in the web pages from all the three websites,
-describe and explain your observations.</p></li>
-<li><p>Change the server configuration on <code class="docutils literal notranslate"><span class="pre">example32b</span></code> (modify the Apache
+<li>Describe and explain your observations when you visit these websites.</li>
+<li>Click the button in the web pages from all the three websites,
+describe and explain your observations.</li>
+<li>Change the server configuration on <code class="docutils literal notranslate"><span class="pre">example32b</span></code> (modify the Apache
 configuration), so Areas 5 and 6 display OK. Please include your
-modified configuration in the lab report.</p></li>
-<li><p>Change the server configuration on <code class="docutils literal notranslate"><span class="pre">example32c</span></code> (modify the PHP
+modified configuration in the lab report.</li>
+<li>Change the server configuration on <code class="docutils literal notranslate"><span class="pre">example32c</span></code> (modify the PHP
 code), so Areas 1, 2, 4, 5, and 6 all display <code class="docutils literal notranslate"><span class="pre">OK</span></code>. Please include
-your modified configuration in the lab report.</p></li>
-<li><p>Please explain why CSP can help prevent Cross-Site Scripting attacks.</p></li>
+your modified configuration in the lab report.</li>
+<li>Please explain why CSP can help prevent Cross-Site Scripting attacks.</li>
 </ol>
 </div>
 </div>
@@ -834,7 +833,7 @@ that re-drawing is not automatically triggered when the window pops up, but chan
 the re-drawing).</p>
 <div class="align-center figure" id="id1">
 <img alt="../../_images/xss_img1.png" src="../../_images/xss_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: Enable the HTTP Header Live Add-on</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Enable the HTTP Header Live Add-on</span></p>
 </div>
 <p>5.2 Using the Web Developer Tool to Inspect HTTP Headers
 There is another tool provided by Firefox that can be quite useful in inspecting HTTP headers. The tool is
@@ -849,7 +848,7 @@ Click the &quot;Tools&quot; menu --&gt; Web Developer --&gt; Network
 POST request that was used for login.</p>
 <div class="align-center figure" id="id2">
 <img alt="../../_images/xss_img2.png" src="../../_images/xss_img2.png" />
-<p class="caption"><span class="caption-text">Figure 2: HTTP Request in Web Developer Network Tool</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: HTTP Request in Web Developer Network Tool</span></p>
 </div>
 <p>To further see the details of the request, we can click on a particular HTTP request and the tool will
 show the information in two panes (see Figure 3).
@@ -863,11 +862,11 @@ HTTP POST requests.</p>
 focusing click anywhere in the Network Tool window, and then using Ctrl and + button</p>
 <div class="align-center figure" id="id3">
 <img alt="../../_images/xss_img3.png" src="../../_images/xss_img3.png" />
-<p class="caption"><span class="caption-text">Figure 3: HTTP Request and Request Details in Two Panes</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: HTTP Request and Request Details in Two Panes</span></p>
 </div>
 <div class="align-center figure" id="id4">
 <img alt="../../_images/xss_img4.png" src="../../_images/xss_img4.png" />
-<p class="caption"><span class="caption-text">Figure 4: HTTP Headers and Parameters</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: HTTP Headers and Parameters</span></p>
 </div>
 </div>
 <div class="section" id="javascript-debugging">
@@ -887,11 +886,11 @@ appears on the right side of the error message in the console. Click on the line
 to the exact place that has the error. See Figure 6.</p>
 <div class="align-center figure" id="id5">
 <img alt="../../_images/xss_img5.png" src="../../_images/xss_img5.png" />
-<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (1)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (1)</span></p>
 </div>
 <div class="align-center figure" id="id6">
 <img alt="../../_images/xss_img6.png" src="../../_images/xss_img6.png" />
-<p class="caption"><span class="caption-text">Figure 6: Debugging JavaScript Code (2)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 6: Debugging JavaScript Code (2)</span></p>
 </div>
 </div>
 </div>

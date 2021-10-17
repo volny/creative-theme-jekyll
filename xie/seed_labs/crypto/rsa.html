@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -192,8 +190,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>RSA Public-Key Encryption and Signature Lab</p>
-</div>
+RSA Public-Key Encryption and Signature Lab</div>
 <div class="section" id="rsa-public-key-encryption-and-signature-lab">
 <h1>RSA Public-Key Encryption and Signature Lab<a class="headerlink" href="#rsa-public-key-encryption-and-signature-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -216,21 +213,21 @@ apply the theories learned from the class. Essentially, students will be
 implementing the RSA algorithm using the C program language. The lab
 covers the following security-related topics:</p>
 <ul class="simple">
-<li><p>Public-key cryptography</p></li>
-<li><p>The RSA algorithm and key generation</p></li>
-<li><p>Big number calculation</p></li>
-<li><p>Encryption and Decryption using RSA</p></li>
-<li><p>Digital signature</p></li>
-<li><p>X.509 certificate</p></li>
+<li>Public-key cryptography</li>
+<li>The RSA algorithm and key generation</li>
+<li>Big number calculation</li>
+<li>Encryption and Decryption using RSA</li>
+<li>Digital signature</li>
+<li>X.509 certificate</li>
 </ul>
 <div class="section" id="readings-and-videos">
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the public-key cryptography can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 23 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 23 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -270,7 +267,7 @@ exponentiation, modular operations, etc.</p>
 <a class="reference external" href="https://linux.die.net/man/3/bn">https://linux.die.net/man/3/bn</a>. In the following, we describe some of
 the APIs that are needed for this lab.</p>
 <ul>
-<li><p>Some of the library functions requires temporary variables. Since
+<li><p class="first">Some of the library functions requires temporary variables. Since
 dynamic memory allocation to create BIGNUMs is quite expensive when
 used in conjunction with repeated subroutine calls, a <code class="docutils literal notranslate"><span class="pre">BN_CTX</span></code>
 structure is created to holds BIGNUM temporary variables used by
@@ -280,12 +277,12 @@ the functions that requires it.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Initialize a BIGNUM variable.</p>
+<li><p class="first">Initialize a BIGNUM variable.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BIGNUM *a = BN_new()
 </pre></div>
 </div>
 </li>
-<li><p>There are a number of ways to assign a value to a BIGNUM variable.</p>
+<li><p class="first">There are a number of ways to assign a value to a BIGNUM variable.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Assign a value from a decimal number string
 BN_dec2bn(&amp;a, &quot;12345678901112231223&quot;);
 
@@ -300,7 +297,7 @@ BN_generate_prime_ex(a, 128, 1, NULL, NULL, NULL);
 </pre></div>
 </div>
 </li>
-<li><p>Print out a big number.</p>
+<li><p class="first">Print out a big number.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>void printBN(char *msg, BIGNUM * a)
 {
    // Convert the BIGNUM to number string
@@ -315,29 +312,29 @@ BN_generate_prime_ex(a, 128, 1, NULL, NULL, NULL);
 </pre></div>
 </div>
 </li>
-<li><p>Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>:</p>
+<li><p class="first">Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BN_sub(res, a, b);
 BN_add(res, a, b);
 </pre></div>
 </div>
 </li>
-<li><p>Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>. It should be noted that a <code class="docutils literal notranslate"><span class="pre">BN_CTX</span></code>
+<li><p class="first">Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code>. It should be noted that a <code class="docutils literal notranslate"><span class="pre">BN_CTX</span></code>
 structure is need in this API.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BN_mul(res, a, b, ctx)
 </pre></div>
 </div>
 </li>
-<li><p>Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">mod</span> <span class="pre">n</span></code>:</p>
+<li><p class="first">Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">mod</span> <span class="pre">n</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BN_mod_mul(res, a, b, n, ctx)
 </pre></div>
 </div>
 </li>
-<li><p>Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a^c</span> <span class="pre">mod</span> <span class="pre">n</span></code>:</p>
+<li><p class="first">Compute <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">a^c</span> <span class="pre">mod</span> <span class="pre">n</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BN_mod_exp(res, a, c, n, ctx)
 </pre></div>
 </div>
 </li>
-<li><p>Compute modular inverse, i.e., given <code class="docutils literal notranslate"><span class="pre">a</span></code>, find <code class="docutils literal notranslate"><span class="pre">b</span></code>, such that
+<li><p class="first">Compute modular inverse, i.e., given <code class="docutils literal notranslate"><span class="pre">a</span></code>, find <code class="docutils literal notranslate"><span class="pre">b</span></code>, such that
 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">mod</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code>. The value <code class="docutils literal notranslate"><span class="pre">b</span></code> is called the inverse of <code class="docutils literal notranslate"><span class="pre">a</span></code>,
 with respect to modular <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BN_mod_inverse(b, a, n, ctx);
@@ -403,8 +400,8 @@ the compiler to use the <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To avoid mistakes in the Tasks below, please avoid manually typing the numbers used in the lab tasks. Instead, copy and paste them from this documentation.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">To avoid mistakes in the Tasks below, please avoid manually typing the numbers used in the lab tasks. Instead, copy and paste them from this documentation.</p>
 </div>
 </div>
 </div>

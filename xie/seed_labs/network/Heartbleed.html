@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -213,10 +212,10 @@ the SEEDUbuntu 12.04 VM is 1.0.1.</p>
 <p><strong>Readings and videos.</strong> Detailed coverage of the Heartbleed attack can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 20 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 11 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See
-details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a></p></li>
+<li>Chapter 20 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 11 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See
+details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a></li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on our pre-built Ubuntu 12.04 VM, which can be
 downloaded from the SEED website. If you are using our SEEDUbuntu 16.04
@@ -267,12 +266,12 @@ server, you will not be able to steal useful data. Therefore, we need to
 interact with the web server as legitimate users. Let us do it as the
 administrator, and do the followings:</p>
 <ul class="simple">
-<li><p>Visit <code class="docutils literal notranslate"><span class="pre">https://www.heartbleedlabelgg.com</span></code> from your browser.</p></li>
-<li><p>Login as the site administrator. (User Name:<code class="docutils literal notranslate"><span class="pre">admin</span></code>;
-Password:<code class="docutils literal notranslate"><span class="pre">seedelgg</span></code>)</p></li>
-<li><p>Add Boby as friend. (Go to <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">-&gt;</span> <span class="pre">Members</span></code> and click
-<code class="docutils literal notranslate"><span class="pre">Boby</span> <span class="pre">-&gt;</span> <span class="pre">Add</span> <span class="pre">Friend</span></code>)</p></li>
-<li><p>Send Boby a private message.</p></li>
+<li>Visit <code class="docutils literal notranslate"><span class="pre">https://www.heartbleedlabelgg.com</span></code> from your browser.</li>
+<li>Login as the site administrator. (User Name:<code class="docutils literal notranslate"><span class="pre">admin</span></code>;
+Password:<code class="docutils literal notranslate"><span class="pre">seedelgg</span></code>)</li>
+<li>Add Boby as friend. (Go to <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">-&gt;</span> <span class="pre">Members</span></code> and click
+<code class="docutils literal notranslate"><span class="pre">Boby</span> <span class="pre">-&gt;</span> <span class="pre">Add</span> <span class="pre">Friend</span></code>)</li>
+<li>Send Boby a private message.</li>
 </ul>
 <p>After you have done enough interaction as legitimate users, you can
 launch the attack and see what information you can get out of the victim
@@ -292,9 +291,9 @@ file is executable. You can then run the attack code as follows:</p>
 Try and see whether you can get the following information from the
 target server.</p>
 <ul class="simple">
-<li><p>User name and password.</p></li>
-<li><p>User’s activity (what the user has done).</p></li>
-<li><p>The exact content of the private message.</p></li>
+<li>User name and password.</li>
+<li>User’s activity (what the user has done).</li>
+<li>The exact content of the private message.</li>
 </ul>
 <p>For each piece of secret that you steal from the Heartbleed attack, you
 need to show the screen-dump as the proof and explain how you did the
@@ -320,13 +319,13 @@ server’s private memory, and they may contain other user’s information,
 secret keys, password, etc.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/heartbleed_img1.png" src="../../_images/heartbleed_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: The Benign Heartbeat Communication</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: The Benign Heartbeat Communication</span></p>
 </div>
 <p>In this task, we will play with the length field of the request. First,
 let’s understand how the Heartbeat response packet is built from
-Figure 1. When the Heartbeat request packet comes, the server will parse the packet to get
+Figure&nbsp;1. When the Heartbeat request packet comes, the server will parse the packet to get
 the payload and the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code> value (which is highlighted in
-Figure 1). Here, the payload is only a 3-byte string <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code> and the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code>
+Figure&nbsp;1). Here, the payload is only a 3-byte string <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code> and the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code>
 value is exactly 3. The server program will blindly take this length
 value from the request packet. It then builds the response packet by
 pointing to the memory storing <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code> and copy <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code>
@@ -334,10 +333,10 @@ bytes to the response payload. In this way, the response packet would
 contain a 3-byte string <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code>.</p>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/heartbleed_img2.png" src="../../_images/heartbleed_img2.png" />
-<p class="caption"><span class="caption-text">Figure 2: The Heartbleed Attack Communication</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: The Heartbleed Attack Communication</span></p>
 </div>
 <p>We can launch the HeartBleed attack like what is shown in
-Figure <a class="reference external" href="#fig:mal_packet">[fig:mal_packet]</a>. We keep the same
+Figure&nbsp;<a class="reference external" href="#fig:mal_packet">[fig:mal_packet]</a>. We keep the same
 payload (3 bytes), but set the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code> field to 1003. The
 server will again blindly take this <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code> value when
 building the response packet. This time, the server program will point
@@ -357,9 +356,9 @@ $./attack.py  www.heartbleedlabelgg.com  --length 83
 <p>Your task is to play with the attack program with different payload
 length values and answer the following questions:</p>
 <ul class="simple">
-<li><p>Question 2.1: As the length variable decreases, what kind of
-difference can you observe?</p></li>
-<li><p>Question 2.2: As the length variable decreases, there is a boundary
+<li>Question 2.1: As the length variable decreases, what kind of
+difference can you observe?</li>
+<li>Question 2.2: As the length variable decreases, there is a boundary
 value for the input length variable. At or below that boundary, the
 Heartbeat query will receive a response packet without attaching any
 extra data (which means the request is benign). Please find that
@@ -367,7 +366,7 @@ boundary length. You may need to try many different length values
 until the web server sends back the reply without extra data. To help
 you with this, when the number of returned bytes is smaller than the
 expected length, the program will print
-<code class="docutils literal notranslate"><span class="pre">&quot;Server</span> <span class="pre">processed</span> <span class="pre">malformed</span> <span class="pre">Heartbeat,</span> <span class="pre">but</span> <span class="pre">did</span> <span class="pre">not</span> <span class="pre">return</span> <span class="pre">any</span> <span class="pre">extra</span> <span class="pre">data.&quot;</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">&quot;Server</span> <span class="pre">processed</span> <span class="pre">malformed</span> <span class="pre">Heartbeat,</span> <span class="pre">but</span> <span class="pre">did</span> <span class="pre">not</span> <span class="pre">return</span> <span class="pre">any</span> <span class="pre">extra</span> <span class="pre">data.&quot;</span></code></li>
 </ul>
 </div>
 <div class="section" id="task-3-countermeasure-and-bug-fix">
@@ -467,8 +466,8 @@ if (hbtype == TLS1_HB_REQUEST)
 </pre></div>
 </div>
 <p>Please point out the problem from the code in
-Listing 1 abve and provide a
-solution to fix the bug (i.e., what modification is needed to fix the
+Listing&nbsp;1 abve and provide a
+solution to fix the bug&nbsp;(i.e., what modification is needed to fix the
 bug). You do not need to recompile the code; just describe how you can
 fix the problem in your lab report.</p>
 <p>Moreover, please comment on the following discussions by Alice, Bob, and

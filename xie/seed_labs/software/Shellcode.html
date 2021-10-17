@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -212,16 +211,16 @@ address of the data is treated as the return address, and is pushed into
 the stack. Both solutions are quite elegant, and we hope students can
 learn these two techniques. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Shellcode</p></li>
-<li><p>Assembly code</p></li>
-<li><p>Disassembling</p></li>
+<li>Shellcode</li>
+<li>Assembly code</li>
+<li>Disassembling</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the shellcode can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapters 4.7 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 4 of the SEED Lecture (Lecture 30), Computer Security: A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapters 4.7 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 4 of the SEED Lecture (Lecture 30), Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
@@ -401,17 +400,19 @@ identify all of those places, and explain how the code uses zeros but
 without introducing zero in the code. Some hints are given in the
 following:</p>
 <ul>
-<li><p>If we want to assign zero to <code class="docutils literal notranslate"><span class="pre">eax</span></code>, we can use <code class="docutils literal notranslate"><span class="pre">&quot;mov</span> <span class="pre">eax,</span> <span class="pre">0&quot;</span></code>,
+<li><p class="first">If we want to assign zero to <code class="docutils literal notranslate"><span class="pre">eax</span></code>, we can use <code class="docutils literal notranslate"><span class="pre">&quot;mov</span> <span class="pre">eax,</span> <span class="pre">0&quot;</span></code>,
 but doing so, we will get a zero in the machine code. A typical way
 to solve this problem is to use <code class="docutils literal notranslate"><span class="pre">&quot;xor</span> <span class="pre">eax,</span> <span class="pre">eax&quot;</span></code>. Please explain
-why this would work.</p></li>
-<li><p>If we want to store <code class="docutils literal notranslate"><span class="pre">0x00000099</span></code> to <code class="docutils literal notranslate"><span class="pre">eax</span></code>. We cannot just use
+why this would work.</p>
+</li>
+<li><p class="first">If we want to store <code class="docutils literal notranslate"><span class="pre">0x00000099</span></code> to <code class="docutils literal notranslate"><span class="pre">eax</span></code>. We cannot just use
 <code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x99</span></code>, because the second operand is actually
 <code class="docutils literal notranslate"><span class="pre">0x00000099</span></code>, which contains three zeros. To solve this problem, we
 can first set <code class="docutils literal notranslate"><span class="pre">eax</span></code> to zero, and then assign a one-byte number
 <code class="docutils literal notranslate"><span class="pre">0x99</span></code> to the <code class="docutils literal notranslate"><span class="pre">al</span></code> register, which is the least significant 8
-bits of the <code class="docutils literal notranslate"><span class="pre">eax</span></code> register.</p></li>
-<li><p>Another way is to use shift. In the following code, first
+bits of the <code class="docutils literal notranslate"><span class="pre">eax</span></code> register.</p>
+</li>
+<li><p class="first">Another way is to use shift. In the following code, first
 <code class="docutils literal notranslate"><span class="pre">0x237A7978</span></code> is assigned to <code class="docutils literal notranslate"><span class="pre">ebx</span></code>. The ASCII values for <code class="docutils literal notranslate"><span class="pre">x</span></code>,
 <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, and <code class="docutils literal notranslate"><span class="pre">#</span></code> are <code class="docutils literal notranslate"><span class="pre">0x78</span></code>, <code class="docutils literal notranslate"><span class="pre">0x79</span></code>, <code class="docutils literal notranslate"><span class="pre">0x7a</span></code>, <code class="docutils literal notranslate"><span class="pre">0x23</span></code>,
 respectively. Because most Intel CPUs use the small-Endian byte

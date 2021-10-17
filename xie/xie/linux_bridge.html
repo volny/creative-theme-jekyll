@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -194,18 +193,18 @@ understand the way Linux bridge works. Then, we will look into Linux
 bridge from both application and implementation perspective.</p>
 <p><strong>Objectives:</strong> Upon completing the experiments, students should:</p>
 <ul class="simple">
-<li><p>Understand the basic concepts of Linux networking.</p></li>
-<li><p>Get familiar with some popular Linux networking tools used to analyze
-network structure and traffic.</p></li>
-<li><p>Learn to use Linux bridge tools to manage Linux bridges, and
-understand the how the Linux bridge works.</p></li>
+<li>Understand the basic concepts of Linux networking.</li>
+<li>Get familiar with some popular Linux networking tools used to analyze
+network structure and traffic.</li>
+<li>Learn to use Linux bridge tools to manage Linux bridges, and
+understand the how the Linux bridge works.</li>
 </ul>
 <p><strong>Required Knowledge:</strong> Students are required to have the following prerequisite knowledge for this lab:</p>
 <ol class="arabic simple">
-<li><p>The usage of the text-based terminal and basic Linux commands.</p></li>
-<li><p>Knowledge of accessing a remote Linux server using SSH.</p></li>
-<li><p>Basic understanding of the use of common network devices such as
-routers and switches.</p></li>
+<li>The usage of the text-based terminal and basic Linux commands.</li>
+<li>Knowledge of accessing a remote Linux server using SSH.</li>
+<li>Basic understanding of the use of common network devices such as
+routers and switches.</li>
 </ol>
 <p id="background"><strong>Background:</strong></p>
 <blockquote>
@@ -254,41 +253,41 @@ Please refer to the EZSetup dashboard for the actual public IP addresses
 and passwords.</p>
 <div class="align-center figure" id="id1">
 <img alt="alternate text" src="../_images/LB_img1.png" />
-<p class="caption"><span class="caption-text"><strong>Figure 1</strong> VM properties and access information</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Figure 1</strong> VM properties and access information</span></p>
 </div>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 26%" />
-<col style="width: 11%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 24%" />
+<col width="11%" />
+<col width="26%" />
+<col width="11%" />
+<col width="14%" />
+<col width="14%" />
+<col width="24%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Name</strong></p></th>
-<th class="head"><p><strong>Image</strong></p></th>
-<th class="head"><p><strong>RAM</strong></p></th>
-<th class="head"><p><strong>VCPU</strong></p></th>
-<th class="head"><p><strong>Disk</strong></p></th>
-<th class="head"><p><strong>Login
-account</strong></p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Name</strong></th>
+<th class="head"><strong>Image</strong></th>
+<th class="head"><strong>RAM</strong></th>
+<th class="head"><strong>VCPU</strong></th>
+<th class="head"><strong>Disk</strong></th>
+<th class="head"><strong>Login
+account</strong></th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>lb-vm1</p></td>
-<td><p>linuxbridge-vm-1</p></td>
-<td><p>2GB</p></td>
-<td><p>2</p></td>
-<td><p>40GB</p></td>
-<td><p>See EZSetup</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>lb-vm1</td>
+<td>linuxbridge-vm-1</td>
+<td>2GB</td>
+<td>2</td>
+<td>40GB</td>
+<td>See EZSetup</td>
 </tr>
-<tr class="row-odd"><td><p>lb-vm2</p></td>
-<td><p>linuxbridge-vm-2</p></td>
-<td><p>2GB</p></td>
-<td><p>2</p></td>
-<td><p>40GB</p></td>
-<td><p>See EZSetup</p></td>
+<tr class="row-odd"><td>lb-vm2</td>
+<td>linuxbridge-vm-2</td>
+<td>2GB</td>
+<td>2</td>
+<td>40GB</td>
+<td>See EZSetup</td>
 </tr>
 </tbody>
 </table>
@@ -305,72 +304,72 @@ make it easier for people to standardize diverse communication systems
 and protocols by abstract the network into several layers.</p>
 <p>The seven layers of an OSI model, as described in <a class="reference download internal" download="" href="../_downloads/f57286adca47c1d59d0a1bcaa0b3926a/ISOIEC7498-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">ISOIEC</span> <span class="pre">7498-1</span></code></a>, are listed below in <strong>Table 2</strong>. These layers are identified by their functions and roles in data processing, like dealing with electric signals or routing data across the network. Each layer provides necessary interfaces to its upper layer, the higher the layer, the more abstract the data representation will be.</p>
 <p><strong>Table 2</strong> Layers of OSI Model</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 19%" />
-<col style="width: 54%" />
-<col style="width: 26%" />
+<col width="19%" />
+<col width="54%" />
+<col width="26%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Layer</strong></p></th>
-<th class="head"><p><strong>Function</strong></p></th>
-<th class="head"><p><strong>Example
-protocols</strong></p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Layer</strong></th>
+<th class="head"><strong>Function</strong></th>
+<th class="head"><strong>Example
+protocols</strong></th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>7.
-Application</p></td>
-<td><p>Provide an interface to end users
+<tbody valign="top">
+<tr class="row-even"><td>7.
+Application</td>
+<td>Provide an interface to end users
 or other applications like web
-browser, and electronic mail</p></td>
-<td><p>HTTP, HTTPS,
-IMAP, AMPQ</p></td>
+browser, and electronic mail</td>
+<td>HTTP, HTTPS,
+IMAP, AMPQ</td>
 </tr>
-<tr class="row-odd"><td><p>6.
-Presentation</p></td>
-<td><p>Data translation and formatting
+<tr class="row-odd"><td>6.
+Presentation</td>
+<td>Data translation and formatting
 between network services and
 applications like data compression
-and decryption</p></td>
-<td><p>TLS, SSL, AFP</p></td>
+and decryption</td>
+<td>TLS, SSL, AFP</td>
 </tr>
-<tr class="row-even"><td><p>5.
-Session</p></td>
-<td><p>Manage dialogues between local and
+<tr class="row-even"><td>5.
+Session</td>
+<td>Manage dialogues between local and
 remote applications like
 connection establishment and
-termination</p></td>
-<td><p>SOCKS, SSH, RPC</p></td>
+termination</td>
+<td>SOCKS, SSH, RPC</td>
 </tr>
-<tr class="row-odd"><td><p>4.
-Transport</p></td>
-<td><p>Provide data segmentation,
+<tr class="row-odd"><td>4.
+Transport</td>
+<td>Provide data segmentation,
 acknowledgment mechanisms for
 transmitting data segments
 reliably over layer 3 network
-protocols</p></td>
-<td><p>TCP, UDP, iSCSI</p></td>
+protocols</td>
+<td>TCP, UDP, iSCSI</td>
 </tr>
-<tr class="row-even"><td><p>3.
-Network</p></td>
-<td><p>Provide a logical addressing and
+<tr class="row-even"><td>3.
+Network</td>
+<td>Provide a logical addressing and
 routing system to transfer data
-over multiple layer 2 networks</p></td>
-<td><p>ICMP, IPv4, IPv6</p></td>
+over multiple layer 2 networks</td>
+<td>ICMP, IPv4, IPv6</td>
 </tr>
-<tr class="row-odd"><td><p>2. Data
-link</p></td>
-<td><p>Handle node-to-node data transfer
-connected to a physical layer</p></td>
-<td><p>ARP, RARP, VLAN</p></td>
+<tr class="row-odd"><td>2. Data
+link</td>
+<td>Handle node-to-node data transfer
+connected to a physical layer</td>
+<td>ARP, RARP, VLAN</td>
 </tr>
-<tr class="row-even"><td><p>1.
-Physical</p></td>
-<td><p>Define physical network devices
-and transmit bit streams over them</p></td>
-<td><p>USB, Wi-Fi,
-Bluetooth</p></td>
+<tr class="row-even"><td>1.
+Physical</td>
+<td>Define physical network devices
+and transmit bit streams over them</td>
+<td>USB, Wi-Fi,
+Bluetooth</td>
 </tr>
 </tbody>
 </table>
@@ -438,26 +437,26 @@ left in an IP address is the prefix, and we can do the bitwise AND
 operation of the IP address on the netmask to get the subnet prefix.
 CIDR is just a compact representation of the count of leading 1 bits in
 the prefix.</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 10%" />
-<col style="width: 65%" />
-<col style="width: 25%" />
+<col width="10%" />
+<col width="65%" />
+<col width="25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>11000000.10101000.00000001.00000010</p></th>
-<th class="head"><p>192.168.1.2</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">11000000.10101000.00000001.00000010</th>
+<th class="head">192.168.1.2</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>AND</p></td>
-<td><p>11111111.11111111.00000000.00000000</p></td>
-<td><p>255.255.0.0</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>AND</td>
+<td>11111111.11111111.00000000.00000000</td>
+<td>255.255.0.0</td>
 </tr>
-<tr class="row-odd"><td><p>=</p></td>
-<td><p>11000000.10101000.00000000.00000000</p></td>
-<td><p>192.168.0.0</p></td>
+<tr class="row-odd"><td>=</td>
+<td>11000000.10101000.00000000.00000000</td>
+<td>192.168.0.0</td>
 </tr>
 </tbody>
 </table>
@@ -469,7 +468,7 @@ address, which can be achieved by using Address Resolution Protocol
 connection to another machine, which you haven’t connected before.</p>
 <div class="align-center figure" id="id2">
 <img alt="alternate text" src="../_images/LB_img2.png" />
-<p class="caption"><span class="caption-text"><strong>Figure 2</strong> Packet flow from user to the remote server</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Figure 2</strong> Packet flow from user to the remote server</span></p>
 </div>
 <p>Linux provides a set of network tools for developers to test their
 network setups. To view interface information, we can use the <code class="docutils literal notranslate"><span class="pre">ip</span></code> command
@@ -532,8 +531,8 @@ apply some filter rules behind the <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For a comprehensive list of filter syntax, you can refer back to the <a class="reference external" href="http://www.tcpdump.org/manpages/pcap-filter.7.html">pcap-filter</a> manage listed in the <a class="reference internal" href="#background"><span class="std std-ref">Background</span></a> section.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">For a comprehensive list of filter syntax, you can refer back to the <a class="reference external" href="http://www.tcpdump.org/manpages/pcap-filter.7.html">pcap-filter</a> manage listed in the <a class="reference internal" href="#background"><span class="std std-ref">Background</span></a> section.</p>
 </div>
 <p>If you like to work in a desktop environment, Wireshark is also a great choice. Wireshark is a network protocol analyzer which lets you live capture network traffic and provide easy-to-use offline analysis functions. First, let’s open Wireshark by typing the command below in terminal window.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo wireshark-gtk
@@ -547,7 +546,7 @@ one or more interfaces in the interface selection dialog. Then, press
 the <code class="docutils literal notranslate"><span class="pre">Start</span></code> button to initiate the capturing process.</p>
 <div class="align-center figure" id="id3">
 <img alt="alternate text" src="../_images/LB_img3.png" />
-<p class="caption"><span class="caption-text"><strong>Figure 3</strong> Interface selection dialog in Wireshark</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Figure 3</strong> Interface selection dialog in Wireshark</span></p>
 </div>
 <p>Once the capture begins, we can see all the network traffic in the
 packet list pane. There are several columns available, including the
@@ -561,24 +560,24 @@ to the bottom. You can click on any protocol to view its fields and
 values, or raw bytes in the packet bytes pane.</p>
 <div class="align-center figure" id="id4">
 <img alt="alternate text" src="../_images/LB_img4.png" />
-<p class="caption"><span class="caption-text"><strong>Figure 4</strong> Wireshark network traffic capturing window</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Figure 4</strong> Wireshark network traffic capturing window</span></p>
 </div>
 <div class="section" id="lab-exercise-1">
 <h3>Lab Exercise 1<a class="headerlink" href="#lab-exercise-1" title="Permalink to this headline">¶</a></h3>
 <p>Log in to the first VM (lb-vm1) and answer the following questions.</p>
 <ol class="arabic simple">
-<li><p>What are the interfaces on your VM? What’s their MAC and IP
-addresses? What’s their MTU (Maximum Transmission Unit) value?</p></li>
-<li><p>What are the netmask and IP range for the subnet 10.0.0.0/23?</p></li>
-<li><p>Can you connect to the host 192.168.0.1? What about 192.168.0.9? What
+<li>What are the interfaces on your VM? What’s their MAC and IP
+addresses? What’s their MTU (Maximum Transmission Unit) value?</li>
+<li>What are the netmask and IP range for the subnet 10.0.0.0/23?</li>
+<li>Can you connect to the host 192.168.0.1? What about 192.168.0.9? What
 command do you use? If you cannot connect to a host, what does the
-reply say?</p></li>
-<li><p>Before we move on, clear <strong>all</strong> of your browser history by opening the Application Menu in Firefox &gt; History &gt; Clear Recent History… &gt; Set time range to clear: Everything, and check all boxes. Close your browser when this is completed. Now, open Wireshark and start capture on the <span class="font">ens3</span> interface. Then visit <a class="reference external" href="http://ualr.edu">http://ualr.edu</a>. How do you filter out all the HTTP request to ualr.edu? What is the IP address of the Web server? What is the “Accept-Encoding” field in the Hypertext Transfer Protocol in the first HTTP request?</p></li>
+reply say?</li>
+<li>Before we move on, clear <strong>all</strong> of your browser history by opening the Application Menu in Firefox &gt; History &gt; Clear Recent History… &gt; Set time range to clear: Everything, and check all boxes. Close your browser when this is completed. Now, open Wireshark and start capture on the <span class="font">ens3</span> interface. Then visit <a class="reference external" href="http://ualr.edu">http://ualr.edu</a>. How do you filter out all the HTTP request to ualr.edu? What is the IP address of the Web server? What is the “Accept-Encoding” field in the Hypertext Transfer Protocol in the first HTTP request?</li>
 </ol>
 <blockquote>
 <div><div class="admonition-hint admonition">
-<p class="admonition-title">Hint</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">http.host</span></code> as the display filter.</p>
+<p class="first admonition-title">Hint</p>
+<p class="last">Use <code class="docutils literal notranslate"><span class="pre">http.host</span></code> as the display filter.</p>
 </div>
 </div></blockquote>
 </div>
@@ -653,8 +652,8 @@ br0            8000.000000000000    no
 </div>
 <p>Now, let’s try to plug an interface to the bridge.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Please be careful with the interface name when you enter the command. Adding an interface to a bridge will make the interface lose network connection temporarily, and the first ethernet interface, which is <span class="font">ens3</span>, is the channel for the VM to communicate with you. So, make sure you don’t operate on the <span class="font">ens3</span> interface, or you will lose the connection to your VM.</p>
+<p class="first admonition-title">Warning</p>
+<p class="last">Please be careful with the interface name when you enter the command. Adding an interface to a bridge will make the interface lose network connection temporarily, and the first ethernet interface, which is <span class="font">ens3</span>, is the channel for the VM to communicate with you. So, make sure you don’t operate on the <span class="font">ens3</span> interface, or you will lose the connection to your VM.</p>
 </div>
 <p>Enter the following command to add the second ethernet interface <span class="font">ens4</span> to bridge <span class="font">br0</span>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo brctl addif br0 ens4
@@ -685,7 +684,7 @@ same subnet. This can be explained with the first two figures in <strong>Figure
 5</strong>.</p>
 <div class="align-center figure" id="id5">
 <img alt="alternate text" src="../_images/LB_img5.png" />
-<p class="caption"><span class="caption-text"><strong>Figure 5</strong> Steps of connecting a virtual host to the Linux bridge</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Figure 5</strong> Steps of connecting a virtual host to the Linux bridge</span></p>
 </div>
 <p>At first, the system connects to the subnet via <span class="font">ens4</span> directly. When we
 add <span class="font">ens4</span> to the bridge, we cut down the connection between the system
@@ -743,24 +742,24 @@ $ sudo brctl addif br0 p-h2
 virtual hosts.</p>
 <div class="align-center figure" id="id6">
 <img alt="alternate text" src="../_images/LB_img6.png" />
-<p class="caption"><span class="caption-text"><strong>Figure 6</strong> Network structure of the host VM and virtual hosts</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><strong>Figure 6</strong> Network structure of the host VM and virtual hosts</span></p>
 </div>
 <div class="section" id="lab-exercise-2">
 <h3>Lab Exercise 2<a class="headerlink" href="#lab-exercise-2" title="Permalink to this headline">¶</a></h3>
 <p>Activate virtual hosts using the <code class="docutils literal notranslate"><span class="pre">start.sh</span></code> script and try to connect both
 hosts to the network. Then answer the following questions.</p>
 <ol class="arabic simple">
-<li><p>What’s the MAC address of the bridge interface?</p></li>
-<li><p>What commands do you use to connect the virtual hosts to the
-network? What are the IP and MAC addresses of the virtual hosts?</p></li>
-<li><p>Open Wireshark on the second VM (lb-vm2) and listen on the <span class="font">ens3</span>
+<li>What’s the MAC address of the bridge interface?</li>
+<li>What commands do you use to connect the virtual hosts to the
+network? What are the IP and MAC addresses of the virtual hosts?</li>
+<li>Open Wireshark on the second VM (lb-vm2) and listen on the <span class="font">ens3</span>
 interface. Then, try to ping it from virtual host <span class="font">h1</span>. What’s the
 IP and MAC address of the incoming packets do you see in
-Wireshark? What does this mean?</p></li>
-<li><p>On the first VM (lb-vm1), use tcpdump to capture traffic on <span class="font">ens4</span>.
+Wireshark? What does this mean?</li>
+<li>On the first VM (lb-vm1), use tcpdump to capture traffic on <span class="font">ens4</span>.
 Then, try to ping the second VM (lb-vm2) and <span class="font">h2</span> from <span class="font">h1</span>
 successively. What commands do you use? What do you observe and
-what does it mean?</p></li>
+what does it mean?</li>
 </ol>
 </div>
 </div>

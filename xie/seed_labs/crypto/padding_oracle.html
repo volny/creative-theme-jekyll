@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -190,8 +188,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Padding Oracle Attack Lab</p>
-</div>
+Padding Oracle Attack Lab</div>
 <div class="section" id="padding-oracle-attack-lab">
 <h1>Padding Oracle Attack Lab<a class="headerlink" href="#padding-oracle-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -213,9 +210,9 @@ whether the padding is valid or not. Your job is to use the response
 from the oracle to figure out the content of the secret message. This
 lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Secret-key encryption</p></li>
-<li><p>Encryption modes and paddings</p></li>
-<li><p>Padding oracle attack</p></li>
+<li>Secret-key encryption</li>
+<li>Encryption modes and paddings</li>
+<li>Padding oracle attack</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
@@ -224,9 +221,9 @@ following, but the padding oracle attack is not covered in the current
 edition (future editions will include this attack). Students can find
 tutorials on this attack from online resources, such as Wikipedia.</p>
 <ul class="simple">
-<li><p>Chapter 21 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 21 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -287,8 +284,8 @@ root@9652715c8e0a:/#
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you encounter problems when setting up the lab environment, please read the “Common Problems” section of the manual for potential solutions.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">If you encounter problems when setting up the lab environment, please read the “Common Problems” section of the manual for potential solutions.</p>
 </div>
 </div>
 </div>
@@ -363,12 +360,12 @@ the actual content of the secret message. For the sake of simplicity,
 you only need to find out one block of the secret message. For the
 debugging purpose, we provide the secret message in the following (it is
 in the source code of the oracle).</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span> <span class="mi">29</span><span class="o">&gt;</span> <span class="n">PLAIN_TEXT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span>
-    <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span>
-    <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span>
-    <span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mh">0xdd</span><span class="p">,</span> <span class="mh">0xee</span>
-<span class="p">};</span>
+<div class="code c++ highlight-none notranslate"><div class="highlight"><pre><span></span>static std::array&lt;unsigned char, 29&gt; PLAIN_TEXT = {
+    0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88,
+    0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88,
+    0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88,
+    0xaa, 0xbb, 0xcc, 0xdd, 0xee
+};
 </pre></div>
 </div>
 <p>The secret message is provided only for debugging purposes, and you
@@ -385,25 +382,25 @@ attack. We will explain each piece of this code.</p>
 <p>First, let’s get the ciphertext from the oracle. The ciphertext in this
 task consists of two blocks, and we use two 16-byte bytearrays <code class="docutils literal notranslate"><span class="pre">C1</span></code>
 and <code class="docutils literal notranslate"><span class="pre">C2</span></code> to hold the content of these two blocks.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oracle</span> <span class="o">=</span> <span class="n">PaddingOracle</span><span class="p">(</span><span class="s1">&#39;10.9.0.80&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>oracle = PaddingOracle(&#39;10.9.0.80&#39;, 5000)
 
-<span class="c1"># Get the IV + Ciphertext from the oracle</span>
-<span class="n">iv_and_ctext</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">ctext</span><span class="p">)</span>
-<span class="n">IV</span>    <span class="o">=</span> <span class="n">iv_and_ctext</span><span class="p">[</span><span class="mi">00</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
-<span class="n">C1</span>    <span class="o">=</span> <span class="n">iv_and_ctext</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">]</span>  <span class="c1"># 1st block of ciphertext</span>
-<span class="n">C2</span>    <span class="o">=</span> <span class="n">iv_and_ctext</span><span class="p">[</span><span class="mi">32</span><span class="p">:</span><span class="mi">48</span><span class="p">]</span>  <span class="c1"># 2nd block of ciphertext</span>
+# Get the IV + Ciphertext from the oracle
+iv_and_ctext = bytearray(oracle.ctext)
+IV    = iv_and_ctext[00:16]
+C1    = iv_and_ctext[16:32]  # 1st block of ciphertext
+C2    = iv_and_ctext[32:48]  # 2nd block of ciphertext
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C1:  &quot;</span> <span class="o">+</span> <span class="n">C1</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C2:  &quot;</span> <span class="o">+</span> <span class="n">C2</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+print(&quot;C1:  &quot; + C1.hex())
+print(&quot;C2:  &quot; + C2.hex())
 </pre></div>
 </div>
 <div class="center docutils container">
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="Decryption using CBC" src="../../_images/cbc-dec.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: Decryption using CBC</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Decryption using CBC</span></p>
 </div>
 </div>
-<p>As depicted in <strong>Figure 1</strong>, D1 and D2 are the output of
+<p>As depicted in <strong>Figure&nbsp;1</strong>, D1 and D2 are the output of
 the AES block cipher. If we can get their values, we can easily get the
 plaintext by xoring them with the ciphertext (or IV for the first
 block). In this task, we focus on the second block P2. Therefore, if we
@@ -422,23 +419,23 @@ time. In the skeleton code, we have initialized two arrays D2 and CC1.
 Their initial values do not really matter. Your task is to use an
 iterative process to figure out the value for the D2 array. For each
 iteration, you need to construct the CC1 array properly.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The inital value of D2 does not matter. Our job is to</span>
-<span class="c1"># find its correct values.</span>
-<span class="n">D2</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span># The inital value of D2 does not matter. Our job is to
+# find its correct values.
+D2 = bytearray(16)
 
-<span class="n">D2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">C1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">D2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="o">=</span> <span class="n">C1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="o">...</span>
-<span class="n">D2</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="n">C1</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span>
+D2[0]  = C1[0]
+D2[1]  = C1[1]
+...
+D2[15] = C1[15]
 
-<span class="c1"># CC1 is used to replace the C1 block in the ciphertext</span>
-<span class="c1"># Its values need to be set properly in each round</span>
-<span class="n">CC1</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+# CC1 is used to replace the C1 block in the ciphertext
+# Its values need to be set properly in each round
+CC1 = bytearray(16)
 
-<span class="n">CC1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mh">0x00</span>
-<span class="n">CC1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="o">=</span> <span class="mh">0x00</span>
-<span class="o">...</span>
-<span class="n">CC1</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x00</span>
+CC1[0]  = 0x00
+CC1[1]  = 0x00
+...
+CC1[15] = 0x00
 </pre></div>
 </div>
 <p>In each iteration, we focus on one byte of CC1. We try all 256 possible
@@ -447,13 +444,13 @@ the IV) to the oracle, and see which value makes the padding valid. As
 long as our construction is correct, there will be one valid value. This
 value helps us get one byte of D2. The code in the following focuses on
 K=1. It can help us find the value for D[15].</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
-      <span class="n">CC1</span><span class="p">[</span><span class="mi">16</span> <span class="o">-</span> <span class="n">K</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-      <span class="n">status</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">IV</span> <span class="o">+</span> <span class="n">CC1</span> <span class="o">+</span> <span class="n">C2</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;Valid&quot;</span><span class="p">:</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valid: i = 0x</span><span class="si">{:02x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CC1: &quot;</span> <span class="o">+</span> <span class="n">CC1</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>K = 1
+for i in range(256):
+      CC1[16 - K] = i
+      status = oracle.decrypt(IV + CC1 + C2)
+      if status == &quot;Valid&quot;:
+          print(&quot;Valid: i = 0x{:02x}&quot;.format(i))
+          print(&quot;CC1: &quot; + CC1.hex())
 </pre></div>
 </div>
 <p>You can use the skeleton code as your basis, manually change the value
@@ -462,9 +459,9 @@ and then re-run the program with a updated CC1 to get the next byte of
 D2, i.e., D2[14]. Repeating the step, you can get D2[13], D2[12], …,
 D2[0]. Once you get the entire D2, you get the value of the plaintext
 P2.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Once you get all the 16 bytes of D2, you can easily get P2</span>
-<span class="n">P2</span> <span class="o">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">D2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P2:  &quot;</span> <span class="o">+</span> <span class="n">P2</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span># Once you get all the 16 bytes of D2, you can easily get P2
+P2 = xor(C1, D2)
+print(&quot;P2:  &quot; + P2.hex())
 </pre></div>
 </div>
 </div>
@@ -517,12 +514,12 @@ Simply attaching code without any explanation will not receive credits.</p>
 <p>We would like to acknowledge the contribution made by the following
 people and organizations:</p>
 <ul class="simple">
-<li><p>Jiamin Shen developed the following: the code running inside the
-container, the initial version of the padding oracle attack task.</p></li>
-<li><p>The US National Science Foundation provided the funding for the SEED
-project from 2002 to 2020.</p></li>
-<li><p>Syracuse University provided the resources for the SEED project from
-2001 onwards.</p></li>
+<li>Jiamin Shen developed the following: the code running inside the
+container, the initial version of the padding oracle attack task.</li>
+<li>The US National Science Foundation provided the funding for the SEED
+project from 2002 to 2020.</li>
+<li>Syracuse University provided the resources for the SEED project from
+2001 onwards.</li>
 </ul>
 </div>
 </div>

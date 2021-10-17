@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -204,17 +203,17 @@ application is called <code class="docutils literal notranslate"><span class="pr
 VM. <code class="docutils literal notranslate"><span class="pre">Elgg</span></code> has countermeasures against CSRF, but we have turned them
 off for the purpose of this lab. This lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Cross-Site Request Forgery attack</p></li>
-<li><p>CSRF countermeasures: Secret token and Same-site cookie</p></li>
-<li><p>HTTP GET and POST requests</p></li>
-<li><p>JavaScript and Ajax</p></li>
+<li>Cross-Site Request Forgery attack</li>
+<li>CSRF countermeasures: Secret token and Same-site cookie</li>
+<li>HTTP GET and POST requests</li>
+<li>JavaScript and Ajax</li>
 </ul>
 <div class="section" id="readings">
 <h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the CSRF attack can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 10 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li>Chapter 10 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment-setup">
@@ -508,7 +507,7 @@ window.onload = function() { forge_post();}
 &lt;/html&gt;
 </pre></div>
 </div>
-<p>In Line ➀, the value <code class="docutils literal notranslate"><span class="pre">2</span></code> sets the access level of a field to public.
+<p>In Line&nbsp;➀, the value <code class="docutils literal notranslate"><span class="pre">2</span></code> sets the access level of a field to public.
 This is needed, otherwise, the access level will be set by default to
 private, so others cannot see this field. It should be noted that when
 copy-and-pasting the above code from a file, the single quote
@@ -521,15 +520,15 @@ errors.</p>
 <p>In addition to describing your attack in full details, you also need to
 answer the following questions in your report:</p>
 <ul class="simple">
-<li><p><strong>Question 1</strong>: The forged HTTP request needs Alice’s user id (guid)
+<li><strong>Question 1</strong>: The forged HTTP request needs Alice’s user id (guid)
 to work properly. If Boby targets Alice specifically, before the
 attack, he can find ways to get Alice’s user id. Boby does not know
 Alice’s Elgg password, so he cannot log into Alice’s account to get
-the information. Please describe how Boby can solve this problem.</p></li>
-<li><p><strong>Question 2:</strong> If Boby would like to launch the attack to anybody
+the information. Please describe how Boby can solve this problem.</li>
+<li><strong>Question 2:</strong> If Boby would like to launch the attack to anybody
 who visits his malicious web page. In this case, he does not know who
 is visiting the web page beforehand. Can he still launch the CSRF
-attack to modify the victim’s Elgg profile? Please explain.</p></li>
+attack to modify the victim’s Elgg profile? Please explain.</li>
 </ul>
 </div>
 </div>
@@ -684,14 +683,14 @@ which simply displays the cookies sent by the browser. By looking at the
 display results, you can tell which cookies were sent by the browser.
 Please do the following:</p>
 <ul class="simple">
-<li><p>Please describe what you see and explain why some cookies are not
-sent in certain scenarios.</p></li>
-<li><p>Based on your understanding, please describe how the SameSite cookies
+<li>Please describe what you see and explain why some cookies are not
+sent in certain scenarios.</li>
+<li>Based on your understanding, please describe how the SameSite cookies
 can help a server detect whether a request is a cross-site or
-same-site request.</p></li>
-<li><p>Please describe how you would use the SameSite cookie mechanism to
+same-site request.</li>
+<li>Please describe how you would use the SameSite cookie mechanism to
 help Elgg defend against CSRF attacks. You only need to describe
-general ideas, and there is no need to implement them.</p></li>
+general ideas, and there is no need to implement them.</li>
 </ul>
 <div class="section" id="bonus-points">
 <h3>Bonus points<a class="headerlink" href="#bonus-points" title="Permalink to this headline">¶</a></h3>
@@ -729,19 +728,19 @@ Click the &quot;Tools&quot; menu --&gt; Web Developer --&gt; Network
 </div>
 <div class="align-center figure" id="id1">
 <img alt="../../_images/xss_img1.png" src="../../_images/xss_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: Enable the HTTP Header Live Add-on</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Enable the HTTP Header Live Add-on</span></p>
 </div>
 <p>We use the user login page in Elgg as an example. Figure 2 shows the Network Tool showing the HTTP
 POST request that was used for login.</p>
 <div class="align-center figure" id="id2">
 <img alt="../../_images/xss_img2.png" src="../../_images/xss_img2.png" />
-<p class="caption"><span class="caption-text">Figure 2: HTTP Request in Web Developer Network Tool</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: HTTP Request in Web Developer Network Tool</span></p>
 </div>
 <p>To further see the details of the request, we can click on a particular HTTP request and the tool will
 show the information in two panes (see Figure 3).</p>
 <div class="align-center figure" id="id3">
 <img alt="../../_images/xss_img3.png" src="../../_images/xss_img3.png" />
-<p class="caption"><span class="caption-text">Figure 3: HTTP Request and Request Details in Two Panes</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: HTTP Request and Request Details in Two Panes</span></p>
 </div>
 <p>The details of the selected request will be visible in the right pane. Figure 4(a) shows the details of the
 login request in the Headers tab (details include URL, request method, and cookie). One can observe
@@ -751,7 +750,7 @@ username and password. The tool can be used to inspect HTTP GET requests in a si
 HTTP POST requests.</p>
 <div class="align-center figure" id="id4">
 <img alt="../../_images/xss_img4.png" src="../../_images/xss_img4.png" />
-<p class="caption"><span class="caption-text">Figure 4: HTTP Headers and Parameters</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: HTTP Headers and Parameters</span></p>
 </div>
 <p><strong>Font Size.</strong> The default font size of Web Developer Tools window is quite small. It can be increased by
 focusing click anywhere in the Network Tool window, and then using Ctrl and + button.</p>
@@ -770,14 +769,14 @@ and ensure there is a check mark beside Error. If you are also interested in War
 Warning. See Figure 5.</p>
 <div class="align-center figure" id="id5">
 <img alt="../../_images/xss_img5.png" src="../../_images/xss_img5.png" />
-<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (1)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (1)</span></p>
 </div>
 <p>If there are any errors in the code, a message will display in the console. The line that caused the error
 appears on the right side of the error message in the console. Click on the line number and you will be taken
 to the exact place that has the error. See Figure 6.</p>
 <div class="align-center figure" id="id6">
 <img alt="../../_images/xss_img6.png" src="../../_images/xss_img6.png" />
-<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (2)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (2)</span></p>
 </div>
 </div>
 </div>

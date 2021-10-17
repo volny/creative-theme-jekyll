@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -206,10 +205,10 @@ will exploit the Dirty COW race condition vulnerability to gain the root
 privilege.</p>
 <p><strong>Readings and videos.</strong> Detailed coverage of the Dirty COW attack can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 8 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
-Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 7 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 8 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 7 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on our pre-built Ubuntu 12.04 VM, which can be
 downloaded from the SEED website. If you are using our SEEDUbuntu 16.04
@@ -298,8 +297,8 @@ int main(int argc, char *argv[])
 </div>
 <p>In the above code, we need to find where the pattern <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code>is.
 We use a string function called <code class="docutils literal notranslate"><span class="pre">strstr()</span></code> to find where <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code>
-is in the mapped memory (Line ➀). We then start two threads:
-<code class="docutils literal notranslate"><span class="pre">madviseThread</span></code> (Line ➁) and <code class="docutils literal notranslate"><span class="pre">writeThread</span></code> (Line ➂).</p>
+is in the mapped memory&nbsp;(Line&nbsp;➀). We then start two threads:
+<code class="docutils literal notranslate"><span class="pre">madviseThread</span></code>&nbsp;(Line&nbsp;➁) and <code class="docutils literal notranslate"><span class="pre">writeThread</span></code>&nbsp;(Line&nbsp;➂).</p>
 </div>
 <div class="section" id="set-up-the-write-thread">
 <h3>Set Up the <code class="docutils literal notranslate"><span class="pre">write</span></code> Thread<a class="headerlink" href="#set-up-the-write-thread" title="Permalink to this headline">¶</a></h3>
@@ -378,7 +377,7 @@ seed:x:1000:1000:Seed,123,,:/home/seed:/bin/bash
 </pre></div>
 </div>
 <p>Each of the above record contains seven colon-separated fields. Our
-interest is on the third field, which specifies the user ID (UID) value
+interest is on the third field, which specifies the user ID&nbsp;(UID) value
 assigned to a user. UID is the primary basis for access control in , so
 this value is critical to security. The root user’s UID field contains a
 special value 0; that is what makes it the superuser, not its name. Any

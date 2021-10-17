@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -183,8 +182,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Clickjacking Attack Lab</p>
-</div>
+Clickjacking Attack Lab</div>
 <div class="section" id="clickjacking-attack-lab">
 <h1>Clickjacking Attack Lab<a class="headerlink" href="#clickjacking-attack-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -215,8 +213,8 @@ is very commonly used in devices. Popular applications like the Music
 application, calling application, all use this permissions. Be very
 careful when giving an application this permission.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All devices are vulnerable to this attack. Attacks on devices with Android version below 7.0 do not even require users permission to draw over other applications.</p>
+<p class="first admonition-title">Note</p>
+<p class="last">All devices are vulnerable to this attack. Attacks on devices with Android version below 7.0 do not even require users permission to draw over other applications.</p>
 </div>
 </div>
 <div class="section" id="lab-environment">
@@ -254,7 +252,7 @@ the views are using coordinate values and have to position them
 perfectly.</div>
 </div>
 <ol class="arabic">
-<li><p>Step 1: We use an intent to open the page which closest to our goal,
+<li><p class="first">Step 1: We use an intent to open the page which closest to our goal,
 programitically. For example, to delete contacts we will open the
 contacts application first and then design our views.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>startStep1();
@@ -274,7 +272,7 @@ applications. Consecutively, <strong>startStep1()</strong> will call
 <strong>startStep2()</strong>, <strong>startStep3()</strong> and so on, until we have performed
 the required tasks.</p>
 </li>
-<li><p>Step 2: The main work now is to design the views. While designing
+<li><p class="first">Step 2: The main work now is to design the views. While designing
 views we need to place the button exactly on top of where we want the
 user to click and cover the rest of the page with whitespace. This
 makes sure that the page in the background is not visible. We use
@@ -314,16 +312,16 @@ coordinate values and the boolean “passthrough” value for this view.
 Each view has preset coordinates which are set using “mRect”.</p>
 <p>Refer to <strong>Figure 1</strong> and <strong>Figure 2</strong> to see the views with “Attack
 visible” toggled on and off.</p>
-<div class="align-center figure align-default" id="id3">
+<div class="align-center figure" id="id3">
 <img alt="alternate text" src="../../_images/Figure2.png" />
-<p class="caption"><span class="caption-text">Figure 1: Attack visible toggled on</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Attack visible toggled on</span></p>
 </div>
-<div class="align-center figure align-default" id="id4">
+<div class="align-center figure" id="id4">
 <img alt="alternate text" src="../../_images/Figure3.png" />
-<p class="caption"><span class="caption-text">Figure 2: Attack visible toggled off</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Attack visible toggled off</span></p>
 </div>
 </li>
-<li><p>Step 3: This is the step where we add our views. This is how our
+<li><p class="first">Step 3: This is the step where we add our views. This is how our
 function <strong>startStep1()</strong> looks like:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public void startStep1() {
        if (currentStep &gt; 0) return;
@@ -351,7 +349,7 @@ new views and remove the old ones. This is how startStep2() looks:</p>
 <p><strong>addView</strong> and <strong>viewRemover</strong> are functions defined by us, which
 use Android WindowManager to set and remove views.</p>
 </li>
-<li><p>Step 4: addView() and viewRemover(): <strong>addView() :</strong></p>
+<li><p class="first">Step 4: addView() and viewRemover(): <strong>addView() :</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public void addView(ViewWithParams v) {
        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
        wm.addView(v.getView(), v.getParams());
@@ -396,22 +394,22 @@ NOTE :  &quot;WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH&quot;  is what
 <p>Now we can perform the attack. This involves, two steps. Refer to figure
 3 to see how the application looks:</p>
 <ol class="arabic simple">
-<li><p>Step 1: Add a contact. We will delete this contact using the
-clickjacking attack.</p></li>
-<li><p>Step 2: Run the clickjacking application. Click on “ASK FOR
+<li>Step 1: Add a contact. We will delete this contact using the
+clickjacking attack.</li>
+<li>Step 2: Run the clickjacking application. Click on “ASK FOR
 PERMISSION” and it will take you to the permission page. Give that
 permission. Now, head back to the app and click on “START
 CLICKJACKING ATTACK”. Follow the steps and at the end you should see
-that the contact has been deleted.</p></li>
-<li><p>Additional: Now try to run the attack after toggling “Make attack
+that the contact has been deleted.</li>
+<li>Additional: Now try to run the attack after toggling “Make attack
 visible” option. You should be able to see how the views have been
 overlayed on top of the contacts and get an idea of how the attack
-really works (make sure to add a new contact before trying again).</p></li>
+really works (make sure to add a new contact before trying again).</li>
 </ol>
 <div class="center docutils container">
-<div class="align-center figure align-default" id="id5">
+<div class="align-center figure" id="id5">
 <img alt="alternate text" src="../../_images/Figure1.png" />
-<p class="caption"><span class="caption-text">Figure 3: Clickjacking Attack Application</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: Clickjacking Attack Application</span></p>
 </div>
 </div>
 <p>Submit screenshots to prove you have done the attack.</p>
@@ -502,13 +500,13 @@ the device.</p>
 <p>Follow the steps below to perform the attack. We will need both the VM’s
 for this task.</p>
 <ol class="arabic">
-<li><p>Step 1: On your SEEDUbuntu machine, open a terminal and run the
+<li><p class="first">Step 1: On your SEEDUbuntu machine, open a terminal and run the
 following command:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nc -kl 7777
 </pre></div>
 </div>
 </li>
-<li><p>Step 2: On yourAndroidVM machine, you need to modify the
+<li><p class="first">Step 2: On yourAndroidVM machine, you need to modify the
 /system/etc/hosts file and modify the IP address of
 “SeedLabsClickjacking.com” with the IP address of your SEEDUbuntu VM.
 In order to do this, we will use “adb push” and “adb pull”. On your
@@ -522,15 +520,16 @@ $ adb push hosts /system/etc/
 </pre></div>
 </div>
 </li>
-<li><p>Step 3: Give accessibility permissions to our applications. For this:</p>
+<li><p class="first">Step 3: Give accessibility permissions to our applications. For this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Go into settings -&gt; Accessibility -&gt; ClickJacking Attack -&gt; Toggle on -&gt; OK
 </pre></div>
 </div>
 </li>
-<li><p>Step 4: Play around in your AndroidVM and watch the SEEDUbuntu netcat
+<li><p class="first">Step 4: Play around in your AndroidVM and watch the SEEDUbuntu netcat
 session recieve everything you do. Try to type in the browser of the
 Android VM and you will be able to see each key being logged in our
-SEEDUbuntu machine.</p></li>
+SEEDUbuntu machine.</p>
+</li>
 </ol>
 <p>Refer to <strong>Figure 4</strong> to see how a keylog response looks like on our
 SEEDUbuntu machine.</p>
@@ -538,9 +537,9 @@ SEEDUbuntu machine.</p>
 attack. If attackers were to get your accessibility permission on their
 application, all your information could be leaked.</p>
 <div class="center docutils container">
-<div class="align-center figure align-default" id="id6">
+<div class="align-center figure" id="id6">
 <img alt="alternate text" src="../../_images/Figure4.png" />
-<p class="caption"><span class="caption-text">Figure 4: Keylog Response on SEEDUbuntu</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: Keylog Response on SEEDUbuntu</span></p>
 </div>
 </div>
 </div>
@@ -578,12 +577,15 @@ have to modify is “setCoords” values inside the “ClickJacking.java”
 file. Follow the guidelines given below to modify, recompile and install
 your applications (you will neeed both your VM’s for this task) :</p>
 <ul>
-<li><p>Step 1 : Download and unzip ClickJacking.zip file from our website</p></li>
-<li><p>Step 2: Locate the code files. Go to the folder
-app/src/main/java/seedlabs/clickjacking2 folder.</p></li>
-<li><p>Step 3: Here you should see ClickJacking.java. This is where you have
-to modify the coordinate values for our views.</p></li>
-<li><p>Step 4: After making the required modifications, build the
+<li><p class="first">Step 1 : Download and unzip ClickJacking.zip file from our website</p>
+</li>
+<li><p class="first">Step 2: Locate the code files. Go to the folder
+app/src/main/java/seedlabs/clickjacking2 folder.</p>
+</li>
+<li><p class="first">Step 3: Here you should see ClickJacking.java. This is where you have
+to modify the coordinate values for our views.</p>
+</li>
+<li><p class="first">Step 4: After making the required modifications, build the
 application and get the .apk file. To build your app go into the root
 folder of the application and run :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ chmod +x gradlew
@@ -593,24 +595,25 @@ $ ./gradlew assembleDebug
 </div>
 <p>You can find the built .apk file in app/build/outputs/apk/</p>
 </li>
-<li><p>Step 5: Install the apk on the Android VM using :</p>
+<li><p class="first">Step 5: Install the apk on the Android VM using :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ adb disconnect
 $ adb connect IP-OF-ANDROIDVM
 $ adb install YOUR-APK.apk
 </pre></div>
 </div>
 </li>
-<li><p>Step 6: After installation, you should find an application with the
-name “Clickjacking Attack 2”</p></li>
+<li><p class="first">Step 6: After installation, you should find an application with the
+name “Clickjacking Attack 2”</p>
+</li>
 </ul>
 <p><strong>NOTE:</strong></p>
 <ul class="simple">
-<li><p>1 : You should first install the application on the AndroidVM without
-changes to get a feel of the views</p></li>
-<li><p>2: You have to delete the application from the AndroidVM before
-re-installing, everytime.</p></li>
-<li><p>3: You will probably have to modify, recompile and re-install
-multiple times before you can allign the views perfectly</p></li>
+<li>1 : You should first install the application on the AndroidVM without
+changes to get a feel of the views</li>
+<li>2: You have to delete the application from the AndroidVM before
+re-installing, everytime.</li>
+<li>3: You will probably have to modify, recompile and re-install
+multiple times before you can allign the views perfectly</li>
 </ul>
 </div>
 <div class="section" id="submission-and-demonstration">

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -199,8 +198,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>SEED Lab: DNS In a Box</p>
-</div>
+SEED Lab: DNS In a Box</div>
 <div class="section" id="dns-in-a-box">
 <h1>DNS In a Box<a class="headerlink" href="#dns-in-a-box" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="lab-overview">
@@ -222,21 +220,21 @@ deeper understanding of how the DNS actually works. Although this lab is
 not a security lab, it is the basis for several SEED labs. This lab
 covers the following topics:</p>
 <ul class="simple">
-<li><p>DNS and how it works</p></li>
-<li><p>The DNS query process</p></li>
-<li><p>Root and TLD servers</p></li>
-<li><p>Docker container, docker compose</p></li>
+<li>DNS and how it works</li>
+<li>The DNS query process</li>
+<li>Root and TLD servers</li>
+<li>Docker container, docker compose</li>
 </ul>
 <div class="section" id="readings-and-videos">
 <h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
 <p>Detailed coverage of the DNS protocol can be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+<li>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
 Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
 Approach</em>, by Wenliang Du. See details at
-<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 </div>
 <div class="section" id="lab-environment">
@@ -249,9 +247,9 @@ do this lab using other VMs, physical machines, or VMs on the cloud.</p>
 </div>
 <div class="section" id="lab-setup">
 <h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline">¶</a></h2>
-<div class="align-center figure align-default" id="id2">
+<div class="align-center figure" id="id2">
 <img alt="A simplified DNS infrastructure" src="../../_images/DNS-in-a-box.jpg" />
-<p class="caption"><span class="caption-text">Figure 1: A simplified DNS infrastructure</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: A simplified DNS infrastructure</span></p>
 </div>
 <p>In this lab, we will build a simplified DNS infrastructure. We will
 start with a small one, and then gradually make it bigger. The first DNS
@@ -259,7 +257,7 @@ system that we build consists of four nameservers, each one representing
 a specific role in the DNS infrastructure. In the real world, these
 nameservers are on different networks, but in this lab, for the sake of
 simplicity, we place them on the same network.
-<strong>Figure 1</strong> depicts the system setup. We will
+<strong>Figure&nbsp;1</strong> depicts the system setup. We will
 use containers to run these nameservers.</p>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
@@ -316,12 +314,12 @@ solutions.</p>
 <p>Our DNS system includes the four nameservers. The purpose of these four
 nameservers are summarized in the following:</p>
 <ul class="simple">
-<li><p>Local DNS server: conduct the DNS resolution process for other
-computers.</p></li>
-<li><p>Root server: a nameserver serving the root zone.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edu</span></code> server: nameserver serving the <code class="docutils literal notranslate"><span class="pre">edu</span></code> zone, a Top Level
-Domain (TLD).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">example.edu</span></code> server: nameserver serving the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> zone.</p></li>
+<li>Local DNS server: conduct the DNS resolution process for other
+computers.</li>
+<li>Root server: a nameserver serving the root zone.</li>
+<li><code class="docutils literal notranslate"><span class="pre">edu</span></code> server: nameserver serving the <code class="docutils literal notranslate"><span class="pre">edu</span></code> zone, a Top Level
+Domain (TLD).</li>
+<li><code class="docutils literal notranslate"><span class="pre">example.edu</span></code> server: nameserver serving the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> zone.</li>
 </ul>
 <p>We use a container for each of the nameservers above. How these
 containers are built and run is described in the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>
@@ -544,13 +542,13 @@ a.gtld-servers.net.  IN   A    192.5.6.30
 <p>Students need to add records to the zone file <code class="docutils literal notranslate"><span class="pre">root.db</span></code> to satisfy the
 following requirements:</p>
 <ul class="simple">
-<li><p>Register your <code class="docutils literal notranslate"><span class="pre">edu</span></code> nameserver with this root server.</p></li>
-<li><p>Choose two more real TLD names, and register them with this TLD
+<li>Register your <code class="docutils literal notranslate"><span class="pre">edu</span></code> nameserver with this root server.</li>
+<li>Choose two more real TLD names, and register them with this TLD
 server. One of the TLDs should be a country-code TLD (ccTLD), which
 is the root for a country. You can find the nameserver of a TLD
 domain using <code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">&lt;tld&gt;</span> <span class="pre">NS&quot;</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">com</span> <span class="pre">NS&quot;</span></code>). You can
 also find all the TLD information from
-<a class="reference external" href="https://www.internic.net/domain/root.zone">https://www.internic.net/domain/root.zone</a>.</p></li>
+<a class="reference external" href="https://www.internic.net/domain/root.zone">https://www.internic.net/domain/root.zone</a>.</li>
 </ul>
 <p>Using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> commands, students can build and start all the
 containers. Once the containers are running, run the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command
@@ -623,7 +621,7 @@ issue for <code class="docutils literal notranslate"><span class="pre">dig</span
 DNS. We need to tell the operating system that the DNS server container
 built in this task is the system’s local DNS server.</p>
 <p>This is achieved by changing the resolver configuration
-file (<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>) of the user machine, so the container’s IP
+file&nbsp;(<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>) of the user machine, so the container’s IP
 address is added as the first <code class="docutils literal notranslate"><span class="pre">nameserver</span></code> entry in the file, i.e.,
 this server will be used as the primary DNS server. Unfortunately, our
 provided VM uses the Dynamic Host Configuration Protocol (DHCP) to
@@ -659,8 +657,8 @@ abc.example.edu.    259200  IN  A   1.2.3.7
 </pre></div>
 </div>
 <div class="admonition-very-very-important admonition">
-<p class="admonition-title">Very Very Important!</p>
-<p>After finishing the lab, please do remember to remove the added entryfrom ; otherwise, it will cause lot of problems for your future labs. If in the future, you have trouble connecting to the Internet, but your network is fine, the chances are that you may have forgotten to remove this entry, and itmesses up the DNS query process. This happens to me many times, as I often forgot to remove the entry.</p>
+<p class="first admonition-title">Very Very Important!</p>
+<p class="last">After finishing the lab, please do remember to remove the added entryfrom ; otherwise, it will cause lot of problems for your future labs. If in the future, you have trouble connecting to the Internet, but your network is fine, the chances are that you may have forgotten to remove this entry, and itmesses up the DNS query process. This happens to me many times, as I often forgot to remove the entry.</p>
 </div>
 </div>
 <div class="section" id="task-7-making-it-more-realistic">
@@ -668,14 +666,14 @@ abc.example.edu.    259200  IN  A   1.2.3.7
 <p>In this task, we will make our miniature DNS system a little bit more
 realistic by adding the following nameservers or records to our system.</p>
 <ul class="simple">
-<li><p>Adding 2 more root servers. The real-world DNS system has 13
+<li>Adding 2 more root servers. The real-world DNS system has 13
 different IP address for the root server. We will create 3 in this
-lab.</p></li>
-<li><p>Pick two of the TLDs registered with your root server, build a
+lab.</li>
+<li>Pick two of the TLDs registered with your root server, build a
 second-level domain for each of them, use your last name as the
 domain name. For example, if your last name is <code class="docutils literal notranslate"><span class="pre">Smith</span></code>, you need to
 build the nameservers for the <code class="docutils literal notranslate"><span class="pre">smith.&lt;tld1&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">smith.&lt;tld2&gt;</span></code>
-domains, You need to host both domains on the same nameserver.</p></li>
+domains, You need to host both domains on the same nameserver.</li>
 </ul>
 </div>
 <div class="section" id="submission">

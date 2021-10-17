@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -222,18 +221,18 @@ helping students understand the tunneling technology, so the tunnel in
 this lab is not encrypted. There is another more comprehensive VPN lab
 that includes the encryption part. The lab covers the following topics:</p>
 <ul class="simple">
-<li><p>Virtual Private Network</p></li>
-<li><p>The TUN/TAP virtual interface</p></li>
-<li><p>IP tunneling</p></li>
-<li><p>Routing</p></li>
+<li>Virtual Private Network</li>
+<li>The TUN/TAP virtual interface</li>
+<li>IP tunneling</li>
+<li>Routing</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the TUN/TAP virtual interface and how VPN works can
 be found in the following:</p>
 <ul class="simple">
-<li><p>Chapter 19 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 8 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
-at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 19 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 8 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Related lab.</strong> This lab only covers the tunneling part of a VPN, while a complete VPN
 also needs to protect its tunnel. We have a separate lab, called VPN
@@ -252,10 +251,10 @@ allowing the computer to securely access a private network via the
 gateway. We need at least three machines: VPN client (also serving as
 Host U), VPN server (the router/gateway), and a host in the private
 network (Host V). The network setup is depicted in
-Figure 1.</p>
+Figure&nbsp;1.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/vpn_tunnel_img1.png" src="../../_images/vpn_tunnel_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span></p>
 </div>
 <p>In practice, the VPN client and VPN server are connected via the
 Internet. For the sake of simplicity, we directly connect these two
@@ -324,7 +323,7 @@ this lab, because if things do not go as expected, being able to look at
 where packets go can help us identify the problems. There are several
 different ways to do packet sniffing:</p>
 <ul>
-<li><p>Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on containers. We have already installed <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on each container. To sniff
+<li><p class="first">Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on containers. We have already installed <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on each container. To sniff
 the packets going through a particular interface, we just need to find out the interface name, and then
 do the following (assume that the interface name is <code class="docutils literal notranslate"><span class="pre">eth0</span></code>):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># tcpdump -i eth0 -n
@@ -335,23 +334,25 @@ do the following (assume that the interface name is <code class="docutils litera
 won’t be able to sniff the packets between other containers. However, if a container uses the host
 mode in its network setup, it can sniff other containers’ packets.</p>
 </li>
-<li><p>Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM. If we run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM, we do not have the restriction on the
+<li><p class="first">Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM. If we run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM, we do not have the restriction on the
 containers, and we can sniff all the packets going among containers. The interface name for a network
 is different on the VM than on the container. On containers, each interface name usually starts with
 <code class="docutils literal notranslate"><span class="pre">eth</span></code>; on the VM, the interface name for the network created by Docker starts with <code class="docutils literal notranslate"><span class="pre">br-</span></code>, followed by
 the ID of the network. You can always use the <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code> command to get the interface name on
-the VM and containers.</p></li>
-<li><p>We can also run Wireshark on the VM to sniff packets. Similar to tcpdump, we need to select what
-interface we want Wireshark to sniff on.</p></li>
+the VM and containers.</p>
+</li>
+<li><p class="first">We can also run Wireshark on the VM to sniff packets. Similar to tcpdump, we need to select what
+interface we want Wireshark to sniff on.</p>
+</li>
 </ul>
 <p><strong>Testing.</strong> Please conduct the following testings to ensure that the lab environment
 is set up correctly:</p>
 <ul class="simple">
-<li><p>Host U can communicate with VPN Server.</p></li>
-<li><p>VPN Server can communicate with Host V.</p></li>
-<li><p>Host U should not be able to communicate with Host V.</p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the router, and sniff the traffic on each of the
-network. Show that you can capture packets.</p></li>
+<li>Host U can communicate with VPN Server.</li>
+<li>VPN Server can communicate with Host V.</li>
+<li>Host U should not be able to communicate with Host V.</li>
+<li>Run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the router, and sniff the traffic on each of the
+network. Show that you can capture packets.</li>
 </ul>
 </div>
 <div class="section" id="task-2-create-and-configure-tun-interface">
@@ -482,10 +483,10 @@ replace the one in <code class="docutils literal notranslate"><span class="pre">
 interface accordingly, and then conduct the following experiments.
 Please describe your observations:</p>
 <ul class="simple">
-<li><p>On Host U, <code class="docutils literal notranslate"><span class="pre">ping</span></code> a host in the <code class="docutils literal notranslate"><span class="pre">192.168.53.0/24</span></code> network. What
-are printed out by the <code class="docutils literal notranslate"><span class="pre">tun.py</span></code> program? What has happened? Why?</p></li>
-<li><p>On Host U, <code class="docutils literal notranslate"><span class="pre">ping</span></code> a host in the internal network
-<code class="docutils literal notranslate"><span class="pre">192.168.60.0/24</span></code>, Does <code class="docutils literal notranslate"><span class="pre">tun.py</span></code> print out anything? Why?</p></li>
+<li>On Host U, <code class="docutils literal notranslate"><span class="pre">ping</span></code> a host in the <code class="docutils literal notranslate"><span class="pre">192.168.53.0/24</span></code> network. What
+are printed out by the <code class="docutils literal notranslate"><span class="pre">tun.py</span></code> program? What has happened? Why?</li>
+<li>On Host U, <code class="docutils literal notranslate"><span class="pre">ping</span></code> a host in the internal network
+<code class="docutils literal notranslate"><span class="pre">192.168.60.0/24</span></code>, Does <code class="docutils literal notranslate"><span class="pre">tun.py</span></code> print out anything? Why?</li>
 </ul>
 </div>
 <div class="section" id="task-2-d-write-to-the-tun-interface">
@@ -507,12 +508,12 @@ os.write(tun, bytes(newpkt))
 <p>Please modify the <code class="docutils literal notranslate"><span class="pre">tun.py</span></code> code according to the following
 requirements:</p>
 <ul class="simple">
-<li><p>After getting a packet from the TUN interface, if this packet is an
+<li>After getting a packet from the TUN interface, if this packet is an
 ICMP echo request packet, construct a corresponding echo reply packet
 and write it to the TUN interface. Please provide evidence to show
-that the code works as expected.</p></li>
-<li><p>Instead of writing an IP packet to the interface, write some
-arbitrary data to the interface, and report your observation.</p></li>
+that the code works as expected.</li>
+<li>Instead of writing an IP packet to the interface, write some
+arbitrary data to the interface, and report your observation.</li>
 </ul>
 </div>
 </div>
@@ -594,10 +595,10 @@ final destination. This needs to be done through a TUN interface, just
 like what we did in Task 2. Please modify <code class="docutils literal notranslate"><span class="pre">tun_server.py</span></code>, so it can
 do the following:</p>
 <ul class="simple">
-<li><p>Create a TUN interface and configure it.</p></li>
-<li><p>Get the data from the socket interface; treat the received data as an
-IP packet.</p></li>
-<li><p>Write the packet to the TUN interface.</p></li>
+<li>Create a TUN interface and configure it.</li>
+<li>Get the data from the socket interface; treat the received data as an
+IP packet.</li>
+<li>Write the packet to the TUN interface.</li>
 </ul>
 <p>Before running the modified <code class="docutils literal notranslate"><span class="pre">tun_server.py</span></code>, we need to enable the IP
 forwarding. Unless specifically configured, a computer will only act as
@@ -723,10 +724,10 @@ remove the default entry and add a new entry:</p>
 <h2>Task 8: VPN Between Private Networks<a class="headerlink" href="#task-8-vpn-between-private-networks" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/vpn_tunnel_img2.png" src="../../_images/vpn_tunnel_img2.png" />
-<p class="caption"><span class="caption-text">Figure 2: VPN between two private networks</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: VPN between two private networks</span></p>
 </div>
 <p>In this task, we are setting up a VPN between two private networks. The
-setup is illustrated in Figure 2.
+setup is illustrated in Figure&nbsp;2.
 The whole setup is described in the <code class="docutils literal notranslate"><span class="pre">docker-compose2.yml</span></code> file, and
 you can use the <code class="docutils literal notranslate"><span class="pre">&quot;-f</span> <span class="pre">docker-compose2.yml&quot;</span></code> option to ask
 <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> to use this file, instead of the default

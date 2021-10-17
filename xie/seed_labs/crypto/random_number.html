@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -189,8 +188,7 @@
            <div itemprop="articleBody">
             
   <div class="center docutils container">
-<p>Pseudo Random Number Generation Lab</p>
-</div>
+Pseudo Random Number Generation Lab</div>
 <div class="section" id="pseudo-random-number-generation-lab">
 <h1>Pseudo Random Number Generation Lab<a class="headerlink" href="#pseudo-random-number-generation-lab" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
@@ -213,10 +211,10 @@ encryption keys. They will further learn a standard way to generate
 pseudo random numbers that are good for security purposes. This lab
 covers the following topics:</p>
 <ul class="simple">
-<li><p>Pseudo random number generation</p></li>
-<li><p>Mistakes in random number generation</p></li>
-<li><p>Generating encryption key</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">/dev/random</span></code> and <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> device files</p></li>
+<li>Pseudo random number generation</li>
+<li>Mistakes in random number generation</li>
+<li>Generating encryption key</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">/dev/random</span></code> and <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> device files</li>
 </ul>
 <div class="section" id="lab-environment">
 <h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
@@ -256,7 +254,7 @@ void main()
 </div>
 <p>The library function <code class="docutils literal notranslate"><span class="pre">time()</span></code> returns the time as the number of
 seconds since the Epoch, <code class="docutils literal notranslate"><span class="pre">1970-01-01</span> <span class="pre">00:00:00</span> <span class="pre">+0000</span> <span class="pre">(UTC)</span></code>. Run the
-code above, and describe your observations. Then, comment out Line , run
+code above, and describe your observations. Then, comment out Line&nbsp;, run
 the program again, and describe your observations. Use the observations
 in both cases to explain the purpose of the <code class="docutils literal notranslate"><span class="pre">srand()</span></code> and <code class="docutils literal notranslate"><span class="pre">time()</span></code>
 functions in the code.</p>
@@ -410,7 +408,7 @@ $ ent output.bin
 </div>
 <p>Theoretically speaking, the <code class="docutils literal notranslate"><span class="pre">/dev/random</span></code> device is more secure, but
 in practice, there is not much difference, because the “seed” used by
-<code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> is random and non-predictable (<code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> does
+<code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> is random and non-predictable&nbsp;(<code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> does
 re-seed whenever new random data become available). A big problem of the
 blocking behavior of <code class="docutils literal notranslate"><span class="pre">/dev/random</span></code> is that blocking can lead to denial
 of service attacks. Therefore, it is recommended that we use

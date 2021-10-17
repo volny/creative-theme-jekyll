@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,10 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -222,19 +221,19 @@ two of Shimomura’s computers. If the attack is successful, we should be
 able to run any command on Shimomura’s computer. This lab covers the
 following topics:</p>
 <ul class="simple">
-<li><p>TCP session hijacking attack</p></li>
-<li><p>TCP three-way handshake protocol</p></li>
-<li><p>The Mitnick attack</p></li>
-<li><p>Remote shell <code class="docutils literal notranslate"><span class="pre">rsh</span></code></p></li>
-<li><p>Packet sniffing and spoofing</p></li>
+<li>TCP session hijacking attack</li>
+<li>TCP three-way handshake protocol</li>
+<li>The Mitnick attack</li>
+<li>Remote shell <code class="docutils literal notranslate"><span class="pre">rsh</span></code></li>
+<li>Packet sniffing and spoofing</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the TCP session hijacking can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 16 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
-by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 6 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
-at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+<li>Chapter 16 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 6 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
@@ -251,11 +250,11 @@ the target. Mitnick wanted to log into X-Terminal and run his commands
 on it. Host B was a trusted server, which was allowed to log into
 X-Terminal without a password. In order to log into X-Terminal, Mitnick
 had to impersonate the trusted server, so he did not need to provide any
-password. Figure 1 depicts the high-level picture
+password. Figure&nbsp;1 depicts the high-level picture
 of the attack. There are four primary steps in this attack.</p>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/mitnick_img1.png" src="../../_images/mitnick_img1.png" />
-<p class="caption"><span class="caption-text">Figure 1: The illustration of the Mitnick Attack</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 1: The illustration of the Mitnick Attack</span></p>
 </div>
 <p><strong>Step 1: Sequence number prediction.</strong> Before the attack, Mitnick needed to learn the pattern of the initial
 sequence numbers (ISN) on X-terminal (in those days, ISNs were not
@@ -325,7 +324,7 @@ attacker machine is a remote machine. In this lab, for the sake of
 simplicity, we put all these three machines on the same network.
 Students can use three virtual machines for this lab, but it will be
 much more convenient to use containers. The lab environment is depicted
-Figure 2.</p>
+Figure&nbsp;2.</p>
 </div>
 <div class="section" id="container-setup-and-commands">
 <h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
@@ -344,7 +343,7 @@ $ docker-compose down     # Shut down the container
 </div>
 <div class="figure align-center" id="id2">
 <img alt="../../_images/mitnick_img2.png" src="../../_images/mitnick_img2.png" />
-<p class="caption"><span class="caption-text">Figure 2: Lab enviornment setup</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 2: Lab enviornment setup</span></p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Aliases for the Compose commands above
 $ dcbuild                 # Alias for: docker-compose build
@@ -383,7 +382,7 @@ attacker machine. If you look at the Docker Compose file, you will see
 that the attacker container is configured differently from the other
 containers. Here are the differences.</p>
 <ul>
-<li><p><em>Shared folder.</em> When we use the attacker container to launch
+<li><p class="first"><em>Shared folder.</em> When we use the attacker container to launch
 attacks, we need to put the attacking code inside the attacker
 container.Code editing is more convenient inside the VM than in containers,
 because we can use our favorite editors. In order for the VM and container to share files, we have
@@ -397,7 +396,7 @@ VM), so they can be used inside the containers.</p>
 </pre></div>
 </div>
 </li>
-<li><p><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
+<li><p class="first"><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
 inside a container has problems, because a container is effectively attached to a virtual switch, so it
 can only see its own traffic, and it is never going to see the packets among other containers. To solve
 this problem, we use the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode for the attacker container. This allows the attacker container to
@@ -410,7 +409,7 @@ same IP addresses as the host. Basically, it is put in the same network namespac
 However, the container is still a separate machine, because its other namespaces are still different
 from the host.</p>
 </li>
-<li><p><em>Privileged mode.</em>  To be able to modify kernel parameters at runtime (using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling
+<li><p class="first"><em>Privileged mode.</em>  To be able to modify kernel parameters at runtime (using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling
 IP forwarding, a container needs to be privileged. This is achieved by including the following entry
 in the Docker Compose file for the container.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>privileged: true
@@ -542,18 +541,18 @@ Mitnick could not sniff packets. When students write their attack
 programs, they can only use the following fields from the captured
 packets. Penalty will be applied if other fields are used.</p>
 <ul class="simple">
-<li><p><strong>The TCP sequence number field</strong> (this does not include the
-acknowledgment field).</p></li>
-<li><p><strong>The TCP flag field</strong>. This allows us to know the types of the
+<li><strong>The TCP sequence number field</strong> (this does not include the
+acknowledgment field).</li>
+<li><strong>The TCP flag field</strong>. This allows us to know the types of the
 captured TCP packets. In the actual Mitnick attack, Mitnick knew
 exactly what type of packets were sent out by X-Terminal, because
 they are part of the TCP three-way handshake protocol. We allow
-students to use this field for task simplification.</p></li>
-<li><p><strong>All the length fields</strong>, including IP header length, IP total
+students to use this field for task simplification.</li>
+<li><strong>All the length fields</strong>, including IP header length, IP total
 length, and TCP header length. These pieces of information are not
 necessary for the attacks. In the actual Mitnick attack, Mitnick knew
 exactly what their values are. We allow students to use these fields
-for task simplification.</p></li>
+for task simplification.</li>
 </ul>
 <p><strong>The behavior of ``rsh``.</strong> To create a spoofed <code class="docutils literal notranslate"><span class="pre">rsh</span></code> session between the trusted server and
 X-Terminal, we need to understand the behavior of <code class="docutils literal notranslate"><span class="pre">rsh</span></code>. Let us start
@@ -620,19 +619,19 @@ sub-tasks, each one focusing on one connection.</p>
 <div class="section" id="task-2-1-spoof-the-first-tcp-connection">
 <h3>Task 2.1: Spoof the First TCP Connection<a class="headerlink" href="#task-2-1-spoof-the-first-tcp-connection" title="Permalink to this headline">¶</a></h3>
 <p>The first TCP connection is initiated by the attacker via a spoofed SYN
-packet. As you can see in Figure 3, after
+packet. As you can see in Figure&nbsp;3, after
 X-Terminal receives the SYN packet, it will in turn send a SYN+ACK
 packet to the trusted server. Since the server has been brought down, it
 will not reset the connection. The attacker, which is on the same
 network, can sniff the packet and get the sequence number.</p>
 <p><strong>Step 1: Spoof a SYN packet.</strong> Students should write a program to spoof a SYN packet from the trusted
-server to X-Terminal (see Packet 1 in Listing 1). There are six standard TCP
+server to X-Terminal (see Packet 1 in Listing&nbsp;1). There are six standard TCP
 code bits, and they can be set in the flag field of the TCP header. The
 following code examples show how to set the flag field and how to check
 whether certain bits are set in the flag field.</p>
 <div class="figure align-center" id="id3">
 <img alt="../../_images/mitnick_img3.png" src="../../_images/mitnick_img3.png" />
-<p class="caption"><span class="caption-text">Figure 3: First Connection</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 3: First Connection</span></p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># &#39;U&#39;: URG bit
 # &#39;A&#39;: ACK bit
@@ -658,12 +657,12 @@ port <code class="docutils literal notranslate"><span class="pre">1023</span></c
 connection after the connection is established. If this step is
 successful, from Wireshark, we should be able to see a SYN+ACK packet
 coming out of X-Terminal (see Packet 2 in
-Listing 1).</p>
+Listing&nbsp;1).</p>
 <p><strong>Step 2: Respond to the SYN+ACK packet.</strong> After X-Terminal sends out a SYN+ACK, the trusted server needs to send
 out an ACK packet to complete the three-way handshake protocol. The
 acknowledge number in the packet should be <code class="docutils literal notranslate"><span class="pre">S+1</span></code>, where <code class="docutils literal notranslate"><span class="pre">S</span></code> is the
 sequence number contained in the SYN+ACK packet. See Packet 3 in
-Listing 1.</p>
+Listing&nbsp;1.</p>
 <p>In the actual Mitnick attack, the attacker could not see the SYN+ACK
 packet, because it was sent to the trusted server, not to the attacker.
 That is why Mitnick had to guess the value of the sequence number. In
@@ -732,7 +731,7 @@ send(IP()/TCP()/data, verbose=0)
 </div>
 <p>Students should modify the sniff-and-spoof program written in Step 2, so
 an <code class="docutils literal notranslate"><span class="pre">rsh</span></code> data packet is sent to X-Terminal (see Packet 4 in
-Listing 1). If this step is successful,
+Listing&nbsp;1). If this step is successful,
 from Wireshark, we can see that X-Terminal is going to initiate a TCP
 connection to the trusted server’s port <code class="docutils literal notranslate"><span class="pre">9090</span></code>, which is the port
 number specified in our <code class="docutils literal notranslate"><span class="pre">rsh</span></code> data.</p>
@@ -744,7 +743,7 @@ Wireshark.</p>
 <h3>Task 2.2: Spoof the Second TCP Connection<a class="headerlink" href="#task-2-2-spoof-the-second-tcp-connection" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="id4">
 <img alt="../../_images/mitnick_img4.png" src="../../_images/mitnick_img4.png" />
-<p class="caption"><span class="caption-text">Figure 4: Second Connection</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure 4: Second Connection</span></p>
 </div>
 <p>After the first connection has been established, X-Terminal will
 initiate the second connection. This connection is used by <code class="docutils literal notranslate"><span class="pre">rshd</span></code> to
@@ -752,12 +751,12 @@ send out error messages. In our attack, we will not use this connection,
 but if this connection is not established, <code class="docutils literal notranslate"><span class="pre">rshd</span></code> will stop without
 executing our command. Therefore, we need to use spoofing to help
 X-Terminal and the trusted server finish establishing this connection.
-See Figure 4.</p>
+See Figure&nbsp;4.</p>
 <p>Students need to write another sniff-and-spoof program, which sniffs the
 TCP traffic going to the port 9090 of the trusted server (assuming
 <code class="docutils literal notranslate"><span class="pre">9090</span></code> is used in Task 2.1). When it sees a SYN packet, it should
 respond with a SYN+ACK packet. See Packet 7 in
-Listing 1 for an example.</p>
+Listing&nbsp;1 for an example.</p>
 <p>If both connections have been successfully established, <code class="docutils literal notranslate"><span class="pre">rshd</span></code> will
 execute the command contained in the <code class="docutils literal notranslate"><span class="pre">rsh</span></code> data packet. Please check
 the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder and see whether <code class="docutils literal notranslate"><span class="pre">/tmp/xyz</span></code> is created and whether
@@ -775,7 +774,7 @@ inconvenient.</p>
 attack again and again, he planted a backdoor in X-Terminal after his
 initial attack. This backdoor allowed him to log into X-Terminal
 normally anytime he wanted, without typing any password. To achieve this
-goal, as we have discussed in Section 3.5,
+goal, as we have discussed in Section&nbsp;3.5,
 all we need to do is to add the string <code class="docutils literal notranslate"><span class="pre">&quot;+</span> <span class="pre">+&quot;</span></code> to the <code class="docutils literal notranslate"><span class="pre">.rhosts</span></code> file
 (in a single line). We can include the following command in our <code class="docutils literal notranslate"><span class="pre">rsh</span></code>
 data.</p>

