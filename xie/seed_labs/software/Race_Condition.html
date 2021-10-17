@@ -1,0 +1,634 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Race Condition Vulnerability Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Dirty COW Attack Lab" href="Dirty_COW.html" />
+    <link rel="prev" title="Environment Variable and Program Lab" href="Environment_Variable_and_SetUID.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="software_index.html">Software Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html">Shellcode Development Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Environment_Variable_and_SetUID.html">Environment Variable and Program Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Race Condition Vulnerability Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-setup">Environment Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-choosing-our-target">Task 1: Choosing Our Target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-launching-the-race-condition-attack">Task 2: Launching the Race Condition Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-countermeasures">Task 3: Countermeasures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html">Dirty COW Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html">Shellshock Attack Lab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="software_index.html">Software Security Labs</a> &raquo;</li>
+        
+      <li>Race Condition Vulnerability Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="race-condition-vulnerability-lab">
+<h1>Race Condition Vulnerability Lab<a class="headerlink" href="#race-condition-vulnerability-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The learning objective of this lab is for students to gain the
+first-hand experience on the race-condition vulnerability by putting
+what they have learned about the vulnerability from class into actions.
+A race condition occurs when multiple processes access and manipulate
+the same data concurrently, and the outcome of the execution depends on
+the particular order in which the access takes place. If a privileged
+program has a race-condition vulnerability, attackers can run a parallel
+process to “race” against the privileged program, with an intention to
+change the behaviors of the program.</p>
+<p>In this lab, students will be given a program with a race-condition
+vulnerability; their task is to develop a scheme to exploit the
+vulnerability and gain the root privilege. In addition to the attacks,
+students will be guided to walk through several protection schemes that
+can be used to counter the race-condition attacks. Students need to
+evaluate whether the schemes work or not and explain why. This lab
+covers the following topics:</p>
+<ul class="simple">
+<li><p>Race condition vulnerability</p></li>
+<li><p>Sticky symlink protection</p></li>
+<li><p>Principle of least privilege</p></li>
+</ul>
+<p><strong>Readings and videos.</strong> Detailed coverage of the race condition attack can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 7 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition, by
+Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 6 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Related topics.</strong> There are three more labs related to race condition. One is the Dirty
+COW attack lab, which exploits a race condition vulnerability inside the
+OS kernel (Chapter 8 of the SEED book covers this attack). The other two
+are Meltdown and Spectre attack labs (Chapters 13 and 14 of the SEED
+book). They exploit race conditions inside CPU. These four labs provide
+a comprehensive coverage of the race condition problem at different
+levels of a computer system, from application, kernel, to hardware.</p>
+<p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
+image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
+labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+<div class="section" id="environment-setup">
+<h2>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="turning-off-countermeasures">
+<h3>Turning Off Countermeasures<a class="headerlink" href="#turning-off-countermeasures" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu has a built-in protection against race condition attacks. This
+scheme works by restricting who can follow a symlink. According to the
+documentation, “symlinks in world-writable sticky directories (e.g.
+/tmp) cannot be followed if the follower and directory owner do not
+match the symlink owner.” Ubuntu 20.04 introduces another security
+mechanism that prevents the root from writing to the files in <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>
+that are owned by others. In this lab, we need to disable these
+protections. You can achieve that using the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On Ubuntu 20.04, use the following:
+$ sudo sysctl -w fs.protected_symlinks=0
+$ sudo sysctl fs.protected_regular=0
+
+// On Ubuntu 16.04, use the following:
+$ sudo sysctl -w fs.protected_symlinks=0
+
+// On Ubuntu 12.04, use the following:
+$ sudo sysctl -w kernel.yama.protected_sticky_symlinks=0
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-vulnerable-program">
+<h3>A Vulnerable Program<a class="headerlink" href="#a-vulnerable-program" title="Permalink to this headline">¶</a></h3>
+<p>The following program is a seemingly harmless program. It contains a
+race-condition vulnerability.(The vulnerability program <code class="docutils literal notranslate"><span class="pre">vulp.c</span></code>)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+#include&lt;unistd.h&gt;
+
+int main()
+{
+   char * fn = &quot;/tmp/XYZ&quot;;
+   char buffer[60];
+   FILE *fp;
+
+   /* get user input */
+   scanf(&quot;%50s&quot;, buffer );
+
+   if(!access(fn, W_OK)){                 ➀
+      fp = fopen(fn, &quot;a+&quot;);               ➁
+      fwrite(&quot;\n&quot;, sizeof(char), 1, fp);
+      fwrite(buffer, sizeof(char), strlen(buffer), fp);
+      fclose(fp);
+   }
+   else printf(&quot;No permission \n&quot;);
+}
+</pre></div>
+</div>
+<p>The program above is a root-owned program; it appends a string of user
+input to the end of a temporary file /tmp/XYZ. Since the code runs with
+the root privilege, i.e., its effective use ID is zero, it can overwrite
+any file. To prevent itself from accidentally overwriting other people’s
+file, the program first checks whether the real user ID has the access
+permission to the file /tmp/XYZ; that is the purpose of the <code class="docutils literal notranslate"><span class="pre">access()</span></code>
+call in Line ➀. If the real user ID indeed has the right, the program
+opens the file in Line ➁ and append the user input to the file.</p>
+<p>At first glance the program does not seem to have any problem. However,
+there is a race condition vulnerability in this program: due to the time
+window between the check (access) and the use (fopen), there is a
+possibility that the file used by <code class="docutils literal notranslate"><span class="pre">access()</span></code> is different from the file
+used by <code class="docutils literal notranslate"><span class="pre">fopen()</span></code>, even though they have the same file name <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>. If a
+malicious attacker can somehow makes /tmp/XYZ a symbolic link pointing
+to a protected file, such as <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, inside the time window,
+the attacker can cause the user input to be appended to <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>,
+and can thus gain the root privilege. The vulnerable program runs with
+the root privilege, so it can overwrite any file.</p>
+<p><strong>Set up the Set-UID program.</strong> We first compile the above code, and turn its
+binary into a Set-UID program that is owned by the root. The following commands
+achieve this goal:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc vulp.c -o vulp
+$ sudo chown root vulp
+$ sudo chmod 4755 vulp
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-1-choosing-our-target">
+<h2>Task 1: Choosing Our Target<a class="headerlink" href="#task-1-choosing-our-target" title="Permalink to this headline">¶</a></h2>
+<p>We would like to exploit the race condition vulnerability in the
+program. We choose to target the password file <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, which is
+not writable by normal users. By exploiting the vulnerability, we would
+like to add a record to the password file, with a goal of creating a new
+user account that has the root privilege. Inside the password file, each
+user has an entry, which consists of seven fields separated by
+colons (:). The entry for the root user is listed below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>root:x:0:0:root:/root:/bin/bash
+</pre></div>
+</div>
+<p>For the root user, the third field (the user ID field) has a value zero.
+Namely, when the root user logs in, its process’s user ID is set to
+zero, giving the process the root privilege. Basically, the power of the
+root account does not come from its name, but instead from the user ID
+field. If we want to create an account with the root privilege, we just
+need to put a zero in this field.</p>
+<p>Each entry also contains a password field, which is the second field. In
+the example above, the field is set to <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code>, indicating that the
+password is stored in another file called <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> (the shadow
+file). If we follow this example, we have to use the race condition
+vulnerability to modify both password and shadow files, which is not
+very hard to do. However, there is a simpler solution. Instead of
+putting <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> in the password file, we can simply put the password
+there, so the operating system will not look for the password from the
+shadow file.</p>
+<p>The password field does not hold the actual password; it holds the
+one-way hash value of the password. To get such a value for a given
+password, we can add a new user in our own system using the <code class="docutils literal notranslate"><span class="pre">adduser</span></code>
+command, and then get the one-way hash value of our password from the
+shadow file. Or we can simply copy the value from the <code class="docutils literal notranslate"><span class="pre">seed</span></code> user’s
+entry, because we know its password is <code class="docutils literal notranslate"><span class="pre">dees</span></code>. Interestingly, there is
+a magic value used in live CD for a password-less account, and the magic
+value is <code class="docutils literal notranslate"><span class="pre">U6aMy0wojraho</span></code> (the 6th character is zero, not letter
+<code class="docutils literal notranslate"><span class="pre">O</span></code>). If we put this value in the password field of a user entry, we
+only need to hit the return key when prompted for a password.</p>
+<p><strong>Task.</strong> To verify whether the magic password works or not, we manually (as a
+superuser) add the following entry to the end of the <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>
+file. Please report whether you can log into the <code class="docutils literal notranslate"><span class="pre">test</span></code> account
+without typing a password, and check whether you have the root
+privilege.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>test:U6aMy0wojraho:0:0:test:/root:/bin/bash
+</pre></div>
+</div>
+<p>After this task, please remove this entry from the password file. In the
+next task, we need to achieve this goal as a normal user. Clearly, we
+are not allowed to do that directly to the password file, but we can
+exploit a race condition in a privileged program to achieve the same
+goal.</p>
+<p><strong>Warning.</strong> In the past, some students accidentally emptied the /etc/passwd file
+during the attack (this could be caused by some race condition problems
+inside the OS kernel). If you lose the password file, you will not be
+able to log in again. To avoid this trouble, please make a copy of the
+original password file or take a snapshot of the VM. This way, you can
+easily recover from the mishap.</p>
+</div>
+<div class="section" id="task-2-launching-the-race-condition-attack">
+<h2>Task 2: Launching the Race Condition Attack<a class="headerlink" href="#task-2-launching-the-race-condition-attack" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this task is to exploit the race condition vulnerability in
+the vulnerable program listed earlier. The ultimate goal is to gain the
+root privilege. The most critical step of the attack, making
+<code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code> point to the password file, must occur within the window
+between check and use; namely between the <code class="docutils literal notranslate"><span class="pre">access</span></code> and <code class="docutils literal notranslate"><span class="pre">fopen</span></code> calls
+in the vulnerable program.</p>
+<div class="section" id="task-2-a-simulating-a-slow-machine">
+<h3>Task 2.A: Simulating a Slow Machine<a class="headerlink" href="#task-2-a-simulating-a-slow-machine" title="Permalink to this headline">¶</a></h3>
+<p>Let us pretend that the machine is very slow, and there is a 10-second
+time window between the <code class="docutils literal notranslate"><span class="pre">access()</span></code> and <code class="docutils literal notranslate"><span class="pre">fopen()</span></code> calls. To simulate
+that, we add a <code class="docutils literal notranslate"><span class="pre">sleep(10)</span></code> between them. The program will look like
+the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (!access(fn, W_OK)) {
+     sleep(10);
+     fp = fopen(fn, &quot;a+&quot;);
+     ...
+</pre></div>
+</div>
+<p>With this addition, the <code class="docutils literal notranslate"><span class="pre">vulp</span></code> program (when re-compiled) will pause
+and yield control to the operating system for 10 seconds. Your job is to
+manually do something, so when the program resumes after 10 seconds, the
+program can help you add a root account to the system. Please
+demonstrate how you would achieve this.</p>
+<p>You won’t be able to modify the file name <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>, because it is
+hardcoded in the program, but you can use symbolic links to change the
+meaning of this name. For example, you can make <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code> a symbolic
+link to the <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> file. When you write to <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>, the
+actual content will be written to <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code>. See the following
+example (the <code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code> option means that if the link exists, remove the
+old one first):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ln -sf /dev/null /tmp/XYZ
+$ ls -ld /tmp/XYZ
+lrwxrwxrwx 1 seed seed 9 Dec 25 22:20 /tmp/XYZ -&gt; /dev/null
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-2-b-the-real-attack">
+<h3>Task 2.B: The Real Attack<a class="headerlink" href="#task-2-b-the-real-attack" title="Permalink to this headline">¶</a></h3>
+<p>In the previous task, we have kind of “cheated” by asking the vulnerable
+program to slow down, so we can launch the attack. This is definitely
+not a real attack. In this task, we will launch the real attack. Before
+doing this task, make sure that the <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> statement is removed
+from the <code class="docutils literal notranslate"><span class="pre">vulp</span></code> program.</p>
+<p>The typical strategy in race condition attacks is to run the attack
+program in parallel to the target program, hoping to be able to do the
+critical step within that time window. Unfortunately, perfect timing is
+very hard to achieve, so the success of attack is only probabilistic.
+The probability of a successful attack might be quite low if the window
+is small, but we can run the attack many many times. We just need to hit
+the race condition window once.</p>
+<p><strong>Writing the attack program.</strong> In the simulated attack, we use the <code class="docutils literal notranslate"><span class="pre">&quot;ln</span> <span class="pre">-s&quot;</span></code> command to make/change
+symbolic links. Now we need to do it in a program. We can use symlink()
+in C to create symbolic links. Since does not allow one to create a link
+if the link already exists, we need to delete the old link first. The
+following C code snippet shows how to remove a link and then make
+/tmp/XYZ point to /etc/passwd. Please write your attack program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unlink(&quot;/tmp/XYZ&quot;);
+symlink(&quot;/etc/passwd&quot;,&quot;/tmp/XYZ&quot;);
+</pre></div>
+</div>
+<p><strong>Running the vulnerable program and monitoring results.</strong> Since we
+need to run the vulnerable program for many times, we will
+write a program to automate this process. To avoid manually typing an
+input to the vulnerable program <code class="docutils literal notranslate"><span class="pre">vulp</span></code>, we can use input redirection.
+Namely, we save our input in a file, and ask <code class="docutils literal notranslate"><span class="pre">vulp</span></code> to get the input
+from this file using <code class="docutils literal notranslate"><span class="pre">&quot;vulp</span> <span class="pre">&lt;</span> <span class="pre">inputFile&quot;</span></code>. We can also use pipe (an
+example will be given later).</p>
+<p>It may take a while before our attack can successfully modify the
+password file, so we need a way to automatically detect whether the
+attack is successful or not. There are many ways to do that; an easy way
+is to monitor the timestamp of the file. The following shell script runs
+the <code class="docutils literal notranslate"><span class="pre">&quot;ls</span> <span class="pre">-l&quot;</span></code> command, which outputs several piece of information
+about a file, including the last modified time. By comparing the outputs
+of the command with the ones produced previously, we can tell whether
+the file has been modified or not.</p>
+<p>The following shell script runs the vulnerable program (<code class="docutils literal notranslate"><span class="pre">vulp</span></code>) in a
+loop, with the input given by the <code class="docutils literal notranslate"><span class="pre">echo</span></code> command (via a pipe). You
+need to decide what should be the actual input. If the attack is
+successful, i.e., the <code class="docutils literal notranslate"><span class="pre">passwd</span></code> is modified, the shell script will
+stop. You do need to be a little bit patient. Normally, you should be
+able to succeed within 5 minutes.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+
+CHECK_FILE=&quot;ls -l /etc/passwd&quot;
+old=$($CHECK_FILE)
+new=$($CHECK_FILE)
+while [ &quot;$old&quot; == &quot;$new&quot; ]    &lt;-- Check if /etc/passwd is modified
+do
+   echo &quot;your input&quot; | ./vulp &lt;-- Run the vulnerable program
+   new=$($CHECK_FILE)
+done
+echo &quot;STOP... The passwd file has been changed&quot;
+</pre></div>
+</div>
+<p><strong>Verifying success</strong> When your script terminates, test the success of your exploit by logging
+in as the test user and verifying root privileges. Then terminate the
+attack program by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> in the Terminal window in which
+you started the program.</p>
+<p><strong>A Note.</strong> If after 10 minutes, your attack is still not successful, you can stop
+the attack, and check the ownership of the <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code> file. If the
+owner of this file becomes root, manually delete this file, and try your
+attack again, until your attack becomes successful. Please document this
+observation in your lab report. In Task 2.C, we will explain the reason
+and provide an improved attack method.</p>
+</div>
+<div class="section" id="task-2-c-an-improved-attack-method">
+<h3>Task 2.C: An Improved Attack Method<a class="headerlink" href="#task-2-c-an-improved-attack-method" title="Permalink to this headline">¶</a></h3>
+<p>In Task 2.B, if you have done everything correctly, but still could not
+succeed in the attack, check the ownership of <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>. You will
+find out that <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>’s owner has become root (normally, it
+should be <code class="docutils literal notranslate"><span class="pre">seed</span></code>). If this happens, your attack will never succeed,
+because your attack program, running with the <code class="docutils literal notranslate"><span class="pre">seed</span></code> privilege, can no
+longer remove or <code class="docutils literal notranslate"><span class="pre">unlink()</span></code> it. This is because the <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> folder
+has a “sticky” bit on, meaning that only the owner of the file can
+delete the file, even though the folder is world-writable.</p>
+<p>In Task 2.B, we let you use the root’s privilege to delete <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>,
+and then try your attack again. The undesirable condition happens
+randomly, so by repeating the attack (with the “help” from root), you
+will eventually succeed in Task 2.B. Obviously, getting help from root
+is not a real attack. We would like to get rid of that, and do it
+without root’s help.</p>
+<p>The main reason for that undesirable situation is that our attack
+program has a problem, a race condition problem, the exact problem that
+we are trying to exploit in the victim program. How ironic! In the past,
+when we saw that problem, we simply advised students to delete the file
+and try the attack again. Thanks to one of my students, who was
+determined to figure out what the problem was. Because of his effort, we
+finally understand why and have an improved solution.</p>
+<p>The main reason for the situation to happen is that the attack program
+is context switched out right after it removes /tmp/XYZ (i.e.,
+<code class="docutils literal notranslate"><span class="pre">unlink()</span></code>), but before it links the name to another file (i.e.,
+<code class="docutils literal notranslate"><span class="pre">symlink()</span></code>. Remember, the action to remove the existing symbolic link
+and create a new one is not atomic (it involves two separate system
+calls), so if the context switch occurs in the middle (i.e., right after
+the removal of /tmp/XYZ), and the target program gets a chance to run
+its fopen(fn, “a+”) statement, it will create a new file with root being
+the owner. After that, your attack program can no longer make changes to
+/tmp/XYZ.</p>
+<p>Basically, using the <code class="docutils literal notranslate"><span class="pre">unlink()</span></code> and <code class="docutils literal notranslate"><span class="pre">symlink()</span></code> approach, we have a
+race condition in our attack program. Therefore, while we are trying to
+exploit the race condition in the target program, the target program may
+accidentally “exploit” the race condition in our attack program,
+defeating our attack.</p>
+<p>To solve this problem, we need to make <code class="docutils literal notranslate"><span class="pre">unlink()</span></code> and <code class="docutils literal notranslate"><span class="pre">symlink()</span></code>
+atomic. Fortunately, there is a system call that allows us to achieve
+that. More accurately, it allows us to atomically swap two symbolic
+links. The following program first makes two symbolic links <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>
+and <code class="docutils literal notranslate"><span class="pre">/tmp/ABC</span></code>, and then using the <code class="docutils literal notranslate"><span class="pre">renameat2</span></code> system call to
+atomically switch them. This allows us to change what <code class="docutils literal notranslate"><span class="pre">/tmp/XYZ</span></code>
+points to without introducing any race condition.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#define _GNU_SOURCE
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+int main()
+{
+   unsigned int flags = RENAME_EXCHANGE;
+
+   unlink(&quot;/tmp/XYZ&quot;); symlink(&quot;/dev/null&quot;,   &quot;/tmp/XYZ&quot;);
+   unlink(&quot;/tmp/ABC&quot;); symlink(&quot;/etc/passwd&quot;, &quot;/tmp/ABC&quot;);
+
+   renameat2(0, &quot;/tmp/XYZ&quot;, 0, &quot;/tmp/ABC&quot;, flags);
+   return 0;
+}
+</pre></div>
+</div>
+<p><strong>Tasks.</strong> Please revise your attack program using this new strategy, and try your
+attack again. If everything is done correctly, your attack should be
+able to succeed.</p>
+</div>
+</div>
+<div class="section" id="task-3-countermeasures">
+<h2>Task 3: Countermeasures<a class="headerlink" href="#task-3-countermeasures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-3-a-applying-the-principle-of-least-privilege">
+<h3>Task 3.A: Applying the Principle of Least Privilege<a class="headerlink" href="#task-3-a-applying-the-principle-of-least-privilege" title="Permalink to this headline">¶</a></h3>
+<p>The fundamental problem of the vulnerable program in this lab is the
+violation of the Principle of Least Privilege. The programmer does
+understand that the user who runs the program might be too powerful, so
+he/she introduced <code class="docutils literal notranslate"><span class="pre">access()</span></code> to limit the user’s power. However, this is
+not the proper approach. A better approach is to apply the Principle of
+Least Privilege; namely, if users do not need certain privilege, the
+privilege needs to be disabled.</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">seteuid</span></code> system call to temporarily disable the root
+privilege, and later enable it if necessary. Please use this approach to
+fix the vulnerability in the program, and then repeat your attack. Will
+you be able to succeed? Please report your observations and provide
+explanation.</p>
+</div>
+<div class="section" id="task-3-b-using-ubuntus-built-in-scheme">
+<h3>Task 3.B: Using Ubuntu’s Built-in Scheme<a class="headerlink" href="#task-3-b-using-ubuntus-built-in-scheme" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu 10.10 and later come with a built-in protection scheme against
+race condition attacks. In this task, you need to turn the protection
+back on using the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On Ubuntu 16.04 and 20.04, use the following command:
+$ sudo sysctl -w fs.protected_symlinks=1
+
+// On Ubuntu 12.04, use the following command:
+$ sudo sysctl -w kernel.yama.protected_sticky_symlinks=1
+</pre></div>
+</div>
+<p>Conduct your attack after the protection is turned on. Please describe
+your observations. Please also explain the followings: (1) How does this
+protection scheme work? (2) What are the limitations of this scheme?</p>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Dirty_COW.html" class="btn btn-neutral float-right" title="Dirty COW Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Environment_Variable_and_SetUID.html" class="btn btn-neutral float-left" title="Environment Variable and Program Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

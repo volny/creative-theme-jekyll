@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cross-Site Request Forgery (CSRF) Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SQL Injection Attack Lab" href="Web_SQL_Injection.html" />
+    <link rel="prev" title="Cross-Site Scripting (XSS) Attack Lab" href="Web_XSS_Elgg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="web_index.html">Web Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Web_XSS_Elgg.html">Cross-Site Scripting (XSS) Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Cross-Site Request Forgery (CSRF) Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-tasks-attacks">Lab Tasks: Attacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-observing-http-request">Task 1: Observing HTTP Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-csrf-attack-using-get-request">Task 2: CSRF Attack using GET Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-csrf-attack-using-post-request">Task 3: CSRF Attack using POST Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-tasks-defense">Lab Tasks: Defense</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-enabling-elggs-countermeasure">Task 4: Enabling Elgg’s Countermeasure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-experimenting-with-the-samesite-cookie-method">Task 5: Experimenting with the SameSite Cookie Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Web_SQL_Injection.html">SQL Injection Attack Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="web_index.html">Web Security Labs</a> &raquo;</li>
+        
+      <li>Cross-Site Request Forgery (CSRF) Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cross-site-request-forgery-csrf-attack-lab">
+<h1>Cross-Site Request Forgery (CSRF) Attack Lab<a class="headerlink" href="#cross-site-request-forgery-csrf-attack-lab" title="Permalink to this headline">¶</a></h1>
+<p>(Web Application: Elgg)</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this lab is to help students understand the Cross-Site
+Request Forgery (CSRF) attack. A CSRF attack involves a victim user, a
+trusted site, and a malicious site. The victim user holds an active
+session with a trusted site while visiting a malicious site. The
+malicious site injects an HTTP request for the trusted site into the
+victim user session, causing damages.</p>
+<p>In this lab, students will be attacking a social networking web
+application using the CSRF attack. The open-source social networking
+application is called <code class="docutils literal notranslate"><span class="pre">Elgg</span></code>, which has already been installed in our
+VM. <code class="docutils literal notranslate"><span class="pre">Elgg</span></code> has countermeasures against CSRF, but we have turned them
+off for the purpose of this lab. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Cross-Site Request Forgery attack</p></li>
+<li><p>CSRF countermeasures: Secret token and Same-site cookie</p></li>
+<li><p>HTTP GET and POST requests</p></li>
+<li><p>JavaScript and Ajax</p></li>
+</ul>
+<div class="section" id="readings">
+<h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the CSRF attack can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 10 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment-setup">
+<h3>Lab environment setup<a class="headerlink" href="#lab-environment-setup" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be downloaded
+from the SEED website. Since we use containers to set up the lab environment, this lab does not depend
+much on the SEED VM. You can do this lab using other VMs, physical machines, or VMs on the cloud.</p>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we will use three websites. The first website is the
+vulnerable Elgg site accessible at www.seed-server.com. The second website is the
+attacker’s malicious web site that is used for attacking Elgg. This web
+site is accessible via www.attacker32.com. The
+third website is used for the defense tasks, and its hostname is
+www.example32.com. We use containers to set up the lab environment.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the Labsetup.zip file to your VM from the lab’s website, unzip it, enter the Labsetup
+folder, and use the docker-compose.yml file to set up the lab environment. Detailed explanation of the
+content in this file and all the involved Dockerfile can be found from the user manual, which is linked
+to the website of this lab. If this is the first time you set up a SEED lab environment using containers, it is
+very important that you read the user manual.
+In the following, we list some of the commonly used commands related to Docker and Compose. Since
+we are going to use these commands very frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file
+(in our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build    # Build the container image
+$ docker-compose up       # Start the container
+$ docker-compose down     # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild                 # Alias for: docker-compose build
+$ dcup                    # Alias for: docker-compose up
+$ dcdown                  # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on a container, we often need
+to get a shell on that container. We first need to use the “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>” command to find out the ID of
+the container, and then use “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code>” to start a shell on that container. We have created aliases for
+them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps          // Alias for: docker ps --format &quot;{{.ID}} {{.Names}}&quot;
+$ docksh &lt;id&gt;     // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275 hostA-10.9.0.5
+0af4ea7a3e2e hostB-10.9.0.6
+9652715c8e0a hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems”
+section of the manual for potential solutions.</p>
+</div>
+<div class="section" id="elgg-web-application">
+<h3>Elgg Web Application<a class="headerlink" href="#elgg-web-application" title="Permalink to this headline">¶</a></h3>
+<p>We use an open-source web application called Elgg in this lab. Elgg is a
+web-based social-networking application. It is already set up in the
+provided container images. We use two containers, one running the web
+server (<code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>) , and the other running the MySQL database
+(<code class="docutils literal notranslate"><span class="pre">10.9.0.6</span></code>). The IP addresses for these two containers are hardcoded
+in various places in the configuration, so please do not change them
+from the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file.</p>
+<div class="section" id="the-elgg-container">
+<h4>The Elgg container<a class="headerlink" href="#the-elgg-container" title="Permalink to this headline">¶</a></h4>
+<p>We host the Elgg web application using the Apache web server. The
+website setup is included in <code class="docutils literal notranslate"><span class="pre">apache_elgg.conf</span></code> inside the Elgg image
+folder. The configuration specifies the URL for the website and the
+folder where the web application code is stored.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+     DocumentRoot /var/www/elgg
+     ServerName   www.seed-server.com
+     &lt;Directory /var/www/elgg&gt;
+          Options FollowSymlinks
+          AllowOverride All
+          Require all granted
+     &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-attacker-container">
+<h4>The Attacker container<a class="headerlink" href="#the-attacker-container" title="Permalink to this headline">¶</a></h4>
+<p>We use another container (<code class="docutils literal notranslate"><span class="pre">10.9.0.105</span></code>) for the attacker machine,
+which hosts a malicious website. The Apache configuration for this
+website is listed in the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+     DocumentRoot /var/www/attacker
+     ServerName   www.attacker32.com
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<p>Since we need to create web pages inside this container, for
+convenience, as well as for keeping the pages we have created, we
+mounted a folder (<code class="docutils literal notranslate"><span class="pre">Labsetup/attacker</span></code> on the hosting VM) to the
+container’s <code class="docutils literal notranslate"><span class="pre">/var/www/attacker</span></code> folder, which is the <code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code>
+folder in our Apache configuration. Therefore, the web pages we put
+inside the <code class="docutils literal notranslate"><span class="pre">attacker</span></code> folder on the VM will be hosted by the
+attacker’s website. We have already placed some code skeletons inside
+this folder.</p>
+</div>
+<div class="section" id="dns-configuration">
+<h4>DNS configuration.<a class="headerlink" href="#dns-configuration" title="Permalink to this headline">¶</a></h4>
+<p>We access the Elgg website, the attacker website, and the defense site
+using their respective URLs. We need to add the following entries to the
+<code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file, so these hostnames are mapped to their
+corresponding IP addresses. You need to use the root privilege to change
+this file (using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>). It should be noted that these names might
+have already been added to the file due to some other labs. If they are
+mapped to different IP addresses, the old entries must be removed.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.5        www.seed-server.com
+10.9.0.5        www.example32.com
+10.9.0.105      www.attacker32.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="mysql-database">
+<h4>MySQL database<a class="headerlink" href="#mysql-database" title="Permalink to this headline">¶</a></h4>
+<p>Containers are usually disposable, so once it is destroyed, all the data inside the containers are lost.
+For this lab, we do want to keep the data in the MySQL database, so we do not lose
+our work when we shutdown our container. To achieve this, we have mounted the <code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">data</span></code> folder
+on the host machine (inside <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code>, it will be created after the MySQL container runs once) to the
+<code class="docutils literal notranslate"><span class="pre">/var/lib/mysql</span></code> folder inside the MySQL container. This folder is where MySQL stores its database.
+Therefore, even if the container is destroyed, data in the database are still kept. If you do want to start from
+a clean database, you can remove this folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo rm -rf mysql_data
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-accounts">
+<h4>User accounts<a class="headerlink" href="#user-accounts" title="Permalink to this headline">¶</a></h4>
+<p>We have created several user accounts on the Elgg server; the user name and passwords
+are given in the following.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>----------------------------
+UserName   | Password
+----------------------------
+admin      | seedelgg
+alice      | seedalice
+boby       | seedboby
+charlie    | seedcharlie
+samy       | seedsamy
+----------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lab-tasks-attacks">
+<h2>Lab Tasks: Attacks<a class="headerlink" href="#lab-tasks-attacks" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="task-1-observing-http-request">
+<h2>Task 1: Observing HTTP Request<a class="headerlink" href="#task-1-observing-http-request" title="Permalink to this headline">¶</a></h2>
+<p>In Cross-Site Request Forget attacks, we need to forge HTTP requests.
+Therefore, we need to know what a legitimate HTTP request looks like and
+what parameters it uses, etc. We can use a Firefox add-on called
+<code class="docutils literal notranslate"><span class="pre">&quot;HTTP</span> <span class="pre">Header</span> <span class="pre">Live&quot;</span></code> for this purpose. The goal of this task is to get
+familiar with this tool. Instructions on how to use this tool is given
+in the Guideline section.
+Please use this tool to capture an HTTP GET request and an HTTP POST
+request in Elgg. In your report, please identify the parameters used in
+this these requests, if any.</p>
+</div>
+<div class="section" id="task-2-csrf-attack-using-get-request">
+<h2>Task 2: CSRF Attack using GET Request<a class="headerlink" href="#task-2-csrf-attack-using-get-request" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we need two people in the Elgg social network: Alice and
+Samy. Samy wants to become a friend to Alice, but Alice refuses to add
+him to her Elgg friend list. Samy decides to use the CSRF attack to
+achieve his goal. He sends Alice an URL (via an email or a posting in
+Elgg); Alice, curious about it, clicks on the URL, which leads her to
+Samy’s web site: <cite>www.attacker32.com</cite>. Pretend that you are Samy,
+describe how you can construct the content of the web page, so as soon
+as Alice visits the web page, Samy is added to the friend list of Alice
+(assuming Alice has an active session with Elgg).</p>
+<p>To add a friend to the victim, we need to identify what the legitimate
+Add-Friend HTTP request (a GET request) looks like. We can use the
+<code class="docutils literal notranslate"><span class="pre">&quot;HTTP</span> <span class="pre">Header</span> <span class="pre">Live&quot;</span></code> Tool to do the investigation. In this task, you
+are not allowed to write JavaScript code to launch the CSRF attack. Your
+job is to make the attack successful as soon as Alice visits the web
+page, without even making any click on the page (hint: you can use the
+img tag, which automatically triggers an HTTP GET request).</p>
+<p>Elgg has implemented a countermeasure to defend against CSRF attacks. In
+Add-Friend HTTP requests, you may notice that each request includes two
+weird-looking parameters, <code class="docutils literal notranslate"><span class="pre">__elgg_ts</span></code> and <code class="docutils literal notranslate"><span class="pre">__elgg_token</span></code>. These
+parameters are used by the countermeasure, so if they do not contain
+correct values, the request will not be accepted by Elgg. We have
+disabled the countermeasure for this lab, so there is no need to include
+these two parameters in the forged requests.</p>
+</div>
+<div class="section" id="task-3-csrf-attack-using-post-request">
+<h2>Task 3: CSRF Attack using POST Request<a class="headerlink" href="#task-3-csrf-attack-using-post-request" title="Permalink to this headline">¶</a></h2>
+<p>After adding himself to Alice’s friend list, Samy wants to do something
+more. He wants Alice to say “Samy is my Hero” in her profile, so
+everybody knows about that. Alice does not like Samy, let alone putting
+that statement in her profile. Samy plans to use a CSRF attack to
+achieve that goal. That is the purpose of this task.</p>
+<p>One way to do the attack is to post a message to Alice’s Elgg account,
+hoping that Alice will click the URL inside the message. This URL will
+lead Alice to your (i.e., Samy’s) malicious web site
+<a class="reference external" href="www.attacker32.com">www.attacker32.com</a>, where you can launch the
+CSRF attack.</p>
+<p>The objective of your attack is to modify the victim’s profile. In
+particular, the attacker needs to forge a request to modify the profile
+information of the victim user of Elgg. Allowing users to modify their
+profiles is a feature of Elgg. If users want to modify their profiles,
+they go to the profile page of Elgg, fill out a form, and then submit
+the form—sending a POST request—to the server-side script
+/profile/edit.php, which processes the request and does the profile
+modification.</p>
+<p>The server-side script edit.php accepts both GET and POST requests, so
+you can use the same trick as that in Task 1 to achieve the attack.
+However, in this task, you are required to use the POST request. Namely,
+attackers (you) need to forge an HTTP POST request from the victim’s
+browser, when the victim is visiting their malicious site. Attackers
+need to know the structure of such a request. You can observe the
+structure of the request, i.e., the parameters of the request, by making
+some modifications to the profile and monitoring the request using the
+<code class="docutils literal notranslate"><span class="pre">&quot;HTTP</span> <span class="pre">Header</span> <span class="pre">Live&quot;</span></code> tool. You may see something similar to the
+following. Unlike HTTP GET requests, which append parameters to the URL
+strings, the parameters of HTTP POST requests are included in the HTTP
+message body (see the contents between the two ✰ symbols):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seed-server.com/action/profile/edit
+
+POST /action/profile/edit HTTP/1.1
+Host: www.seed-server.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:23.0) ...
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://www.seed-server.com/profile/elgguser1/edit
+Cookie: Elgg=p0dci8baqrl4i2ipv2mio3po05
+Connection: keep-alive
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 642
+__elgg_token=fc98784a9fbd02b68682bbb0e75b428b&amp;__elgg_ts=1403464813  ✰
+&amp;name=elgguser1&amp;description=%3Cp%3Iamelgguser1%3C%2Fp%3E
+&amp;accesslevel%5Bdescription%5D=2&amp;briefdescription= Iamelgguser1
+&amp;accesslevel%5Bbriefdescription%5D=2&amp;location=US
+......                                                              ✰
+</pre></div>
+</div>
+<p>After understanding the structure of the request, you need to be able to
+generate the request from your attacking web page using JavaScript code.
+To help you write such a JavaScript program, we provide a sample code in
+the following code fence. You can use this sample code to construct your
+malicious web site for the CSRF attacks. This is only a sample code, and
+you need to modify it to make it work for your attack.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;This page forges an HTTP POST request.&lt;/h1&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+function forge_post()
+{
+    var fields;
+
+    // The following are form entries need to be filled out by attackers.
+    // The entries are made hidden, so the victim won&#39;t be able to see them.
+    fields += &quot;&lt;input type=&#39;hidden&#39; name=&#39;name&#39; value=&#39;****&#39;&gt;&quot;;
+    fields += &quot;&lt;input type=&#39;hidden&#39; name=&#39;briefdescription&#39; value=&#39;****&#39;&gt;&quot;;
+    fields += &quot;&lt;input type=&#39;hidden&#39; name=&#39;accesslevel[briefdescription]&#39;
+                                    value=&#39;2&#39;&gt;&quot;;                         ➀
+    fields += &quot;&lt;input type=&#39;hidden&#39; name=&#39;guid&#39; value=&#39;****&#39;&gt;&quot;;
+
+    // Create a &lt;form&gt; element.
+    var p = document.createElement(&quot;form&quot;);
+
+    // Construct the form
+    p.action = &quot;http://www.example.com&quot;;
+    p.innerHTML = fields;
+    p.method = &quot;post&quot;;
+
+    // Append the form to the current page.
+    document.body.appendChild(p);
+
+    // Submit the form
+    p.submit();
+}
+
+
+// Invoke forge_post() after the page is loaded.
+window.onload = function() { forge_post();}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>In Line ➀, the value <code class="docutils literal notranslate"><span class="pre">2</span></code> sets the access level of a field to public.
+This is needed, otherwise, the access level will be set by default to
+private, so others cannot see this field. It should be noted that when
+copy-and-pasting the above code from a file, the single quote
+character in the program may become something else (but still looks like
+a single quote). That will cause syntax errors. Replacing all the single
+quote symbols with the one typed from your keyboard will fix those
+errors.</p>
+<div class="section" id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
+<p>In addition to describing your attack in full details, you also need to
+answer the following questions in your report:</p>
+<ul class="simple">
+<li><p><strong>Question 1</strong>: The forged HTTP request needs Alice’s user id (guid)
+to work properly. If Boby targets Alice specifically, before the
+attack, he can find ways to get Alice’s user id. Boby does not know
+Alice’s Elgg password, so he cannot log into Alice’s account to get
+the information. Please describe how Boby can solve this problem.</p></li>
+<li><p><strong>Question 2:</strong> If Boby would like to launch the attack to anybody
+who visits his malicious web page. In this case, he does not know who
+is visiting the web page beforehand. Can he still launch the CSRF
+attack to modify the victim’s Elgg profile? Please explain.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lab-tasks-defense">
+<h2>Lab Tasks: Defense<a class="headerlink" href="#lab-tasks-defense" title="Permalink to this headline">¶</a></h2>
+<p>CSRF is not difficult to defend against. Initially, most applications
+put a secret token in their pages, and by checking whether the token is
+present in the request or not, they can tell whether a request is a
+same-site request or a cross-site request. This is called <em>secret token</em>
+approach. More recently, most browsers have implemented a mechanism
+called <em>SameSite cookie</em>, which is intended to simplify the
+implementation of CSRF countermeasures. We will conduct experiments on
+both methods.</p>
+</div>
+<div class="section" id="task-4-enabling-elggs-countermeasure">
+<h2>Task 4: Enabling Elgg’s Countermeasure<a class="headerlink" href="#task-4-enabling-elggs-countermeasure" title="Permalink to this headline">¶</a></h2>
+<p>To defend against CSRF attacks, web applications can embed a secret
+token in their pages. All the requests coming from these pages must
+carry this token, or they will be considered as a cross-site request,
+and will not have the same privilege as the same-site requests. Attacker
+will not be able to get this secret token, so their requests are easily
+identified as cross-site requests.</p>
+<p>Elgg uses this secret-token approach as its built-in countermeasures to
+defend against CSRF attacks. We have disabled the countermeasures to
+make the attack work. Elgg embeds two parameters __elgg_ts and
+__elgg_token in the request. The two parameters are added to the HTTP
+message body for the POST requests and to the URL string for the HTTP
+GET requests. The server will validate them before processing a request.</p>
+<div class="section" id="embedding-secret-token-and-timestamp-to-web-pages">
+<h3>Embedding secret token and timestamp to web pages<a class="headerlink" href="#embedding-secret-token-and-timestamp-to-web-pages" title="Permalink to this headline">¶</a></h3>
+<p>Elgg adds security token and timestamp to all the HTTP requests. The
+following HTML code is present in all the forms where user action is
+required. These are two hidden fields; when the form is submitted, these
+two hidden parameters are added to the request:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;input type = &quot;hidden&quot; name = &quot;__elgg_ts&quot; value = &quot;&quot; /&gt;
+&lt;input type = &quot;hidden&quot; name = &quot;__elgg_token&quot; value = &quot;&quot; /&gt;
+</pre></div>
+</div>
+<p>Elgg also assign the values of the security token and timestamp to
+JavaScript variables, so they can be easily accessed by the JavaScript
+code on the same page.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>elgg.security.token.__elgg_ts;
+elgg.security.token.__elgg_token;
+</pre></div>
+</div>
+<p>The secret token and timestamp are added to Elgg’s web pages by the
+module. The code snippet below shows how they are dynamically added to
+web pages.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ts = time();
+$token = elgg()-&gt;csrf-&gt;generateActionToken($ts);
+
+echo elgg_view(&#39;input/hidden&#39;, [&#39;name&#39; =&gt; &#39;__elgg_token&#39;, &#39;value&#39; =&gt; $token]);
+echo elgg_view(&#39;input/hidden&#39;, [&#39;name&#39; =&gt; &#39;__elgg_ts&#39;, &#39;value&#39; =&gt; $ts]);
+</pre></div>
+</div>
+</div>
+<div class="section" id="secret-token-generation">
+<h3>Secret token generation<a class="headerlink" href="#secret-token-generation" title="Permalink to this headline">¶</a></h3>
+<p>Elgg’s security token is a hash value (md5 message digest) of the site
+secret value (retrieved from database), timestamp, user session ID and
+random generated session string. The code below shows the secret token
+generation in Elgg (in ).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/**
+ * Generate a token from a session token (specifying the user),
+ * the timestamp, and the site key.
+ */
+public function generateActionToken($timestamp, $session_token = &#39;&#39;) {
+  if (!$session_token) {
+          $session_token = $this-&gt;session-&gt;get(&#39;__elgg_session&#39;);
+          if (!$session_token) {
+                  return false;
+          }
+  }
+
+  return $this-&gt;hmac
+          -&gt;getHmac([(int) $timestamp, $session_token], &#39;md5&#39;)
+          -&gt;getToken();
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="secret-token-validation">
+<h3>Secret token validation<a class="headerlink" href="#secret-token-validation" title="Permalink to this headline">¶</a></h3>
+<p>The elgg web application validates the generated token and timestamp to
+defend against the CSRF attack. Every user action calls the <code class="docutils literal notranslate"><span class="pre">validate</span></code>
+function inside <code class="docutils literal notranslate"><span class="pre">Csrf.php</span></code>, and this function validates the tokens. If
+tokens are not present or invalid, the action will be denied and the
+user will be redirected. In our setup, we added a <code class="docutils literal notranslate"><span class="pre">return</span></code> at the
+beginning of this function, essentially disabling the validation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public function validate(Request $request) {
+   return; // Added for SEED Labs (disabling the CSRF countermeasure)
+
+   $token = $request-&gt;getParam(&#39;__elgg_token&#39;);
+   $ts = $request-&gt;getParam(&#39;__elgg_ts&#39;);
+   ... (code omitted) ...
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-turn-on-the-countermeasure">
+<h3>Task: Turn on the countermeasure<a class="headerlink" href="#task-turn-on-the-countermeasure" title="Permalink to this headline">¶</a></h3>
+<p>To turn on the countermeasure, get into the Elgg container, go to the
+folder, remove the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement from <code class="docutils literal notranslate"><span class="pre">Csrf.php</span></code>. A simple
+editor called <code class="docutils literal notranslate"><span class="pre">nano</span></code> is available from inside the container. After
+making the change, repeat the attack again, and see whether your attack
+will be successful or not. Please point out the secret tokens in the
+captured HTTP requests. Please explain why the attacker cannot send
+these secret tokens in the CSRF attack; what prevents them from finding
+out the secret tokens from the web page?</p>
+<p><strong>It should be noted (important)</strong> that when we launch the edit-profile
+attack while the countermeasure is enabled, the failed attempt will
+cause the attacker’s page to be reloaded, which will trigger the forged
+POST request again. This will lead to another failed attempt, so the
+page will be reloaded again and another forged POST request will be sent
+out. This endless loop will slow down your computer. Therefore, after
+verifying that the attack failed, kill the tab to stop the endless loop.</p>
+</div>
+</div>
+<div class="section" id="task-5-experimenting-with-the-samesite-cookie-method">
+<h2>Task 5: Experimenting with the SameSite Cookie Method<a class="headerlink" href="#task-5-experimenting-with-the-samesite-cookie-method" title="Permalink to this headline">¶</a></h2>
+<p>Most browsers have now implemented a mechanism called SameSite cookie,
+which is a property associated with cookies. When sending out requests,
+browsers will check this property, and decide whether to attach the
+cookie in a cross-site request. A web application can set a cookie as
+SameSite if it does not want the cookie to be attached to cross-site
+requests. For example, they can mark the session ID cookie as SameSite,
+so no cross-site request can use the session ID, and will therefore not
+be able to launch CSRF attacks.</p>
+<p>To help students get an idea on how the SameSite cookies can help defend
+against CSTF attacks, we have created a website called
+www.example32.com &lt;www.example32.com&gt; on one of the containers.
+Please visit the following URL (the hostname is already mapped to
+<code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code> in the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file; if you are not using the SEED
+VM, you should add this mapping to your machine):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>URL: http://www.example32.com/
+</pre></div>
+</div>
+<p>Once you have visited this website once, three cookies will be set on
+your browser, <code class="docutils literal notranslate"><span class="pre">cookie-normal</span></code>, <code class="docutils literal notranslate"><span class="pre">cookie-lax</span></code>, and <code class="docutils literal notranslate"><span class="pre">cookie-strict</span></code>.
+As indicated by the name, the first cookie is just a normal one, the
+second and third cookies are samesite cookies of two different types
+(<code class="docutils literal notranslate"><span class="pre">Lax</span></code> and <code class="docutils literal notranslate"><span class="pre">Strict</span></code> types). We have designed two sets of experiments
+to see which cookies will be attached when you send an HTTP request back
+to the server. Typically, all the cookies belonging to the server will
+be attached, but this is not the case if a cookie is a samesite type.</p>
+<p>Please follow the links for the two experiments. Link A points to a page
+on example32.com &lt;example32.com&gt;, while Link B points to a page on
+attacker32.com &lt;attacker32.com&gt;. Both pages are identical (except
+for the background color), and they both send three different types of
+requests to www.example32.com/showcookies.php &lt;www.example32.com/showcookies.php&gt;,
+which simply displays the cookies sent by the browser. By looking at the
+display results, you can tell which cookies were sent by the browser.
+Please do the following:</p>
+<ul class="simple">
+<li><p>Please describe what you see and explain why some cookies are not
+sent in certain scenarios.</p></li>
+<li><p>Based on your understanding, please describe how the SameSite cookies
+can help a server detect whether a request is a cross-site or
+same-site request.</p></li>
+<li><p>Please describe how you would use the SameSite cookie mechanism to
+help Elgg defend against CSRF attacks. You only need to describe
+general ideas, and there is no need to implement them.</p></li>
+</ul>
+<div class="section" id="bonus-points">
+<h3>Bonus points<a class="headerlink" href="#bonus-points" title="Permalink to this headline">¶</a></h3>
+<p>Although it is not required, students are encouraged to modify the Elgg
+application, so they can use the samesite cookie mechanism to defend
+against CSRF attacks. We recommend instructors to give bonus points to
+the students who can do this. Students should check with their
+instructors regarding the bonus points.</p>
+</div>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-http-header-live-add-on-to-inspect-http-headers">
+<h3>Using the “HTTP Header Live” add-on to Inspect HTTP Headers<a class="headerlink" href="#using-the-http-header-live-add-on-to-inspect-http-headers" title="Permalink to this headline">¶</a></h3>
+<p>The version of Firefox (version 60) in our Ubuntu 16.04 VM does not support the LiveHTTPHeader
+add-on, which was used in our Ubuntu 12.04 VM. A new add-on called “HTTP Header Live” is used
+in its place. The instruction on how to enable and use this add-on tool is depicted in Figure 1. Just click the
+icon marked by ➀; a sidebar will show up on the left. Make sure that HTTP Header Live is selected
+at position ➁. Then click any link inside a web page, all the triggered HTTP requests will be captured and
+displayed inside the sidebar area marked by ➂. If you click on any HTTP request, a pop-up window will
+show up to display the selected HTTP request. Unfortunately, there is a bug in this add-on tool (it is still
+under development); nothing will show up inside the pop-up window unless you change its size (It seems
+that re-drawing is not automatically triggered when the window pops up, but changing its size will trigger
+the re-drawing).</p>
+</div>
+<div class="section" id="using-the-web-developer-tool-to-inspect-http-headers">
+<h3>Using the Web Developer Tool to Inspect HTTP Headers<a class="headerlink" href="#using-the-web-developer-tool-to-inspect-http-headers" title="Permalink to this headline">¶</a></h3>
+<p>There is another tool provided by Firefox that can be quite useful in inspecting HTTP headers. The tool is
+the Web Developer Network Tool. In this section, we cover some of the important features of the tool. The
+Web Developer Network Tool can be enabled via the following navigation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Click Firefox’s top right menu --&gt; Web Developer --&gt; Network
+   or
+Click the &quot;Tools&quot; menu --&gt; Web Developer --&gt; Network
+</pre></div>
+</div>
+<div class="align-center figure" id="id1">
+<img alt="../../_images/xss_img1.png" src="../../_images/xss_img1.png" />
+<p class="caption"><span class="caption-text">Figure 1: Enable the HTTP Header Live Add-on</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>We use the user login page in Elgg as an example. Figure 2 shows the Network Tool showing the HTTP
+POST request that was used for login.</p>
+<div class="align-center figure" id="id2">
+<img alt="../../_images/xss_img2.png" src="../../_images/xss_img2.png" />
+<p class="caption"><span class="caption-text">Figure 2: HTTP Request in Web Developer Network Tool</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>To further see the details of the request, we can click on a particular HTTP request and the tool will
+show the information in two panes (see Figure 3).</p>
+<div class="align-center figure" id="id3">
+<img alt="../../_images/xss_img3.png" src="../../_images/xss_img3.png" />
+<p class="caption"><span class="caption-text">Figure 3: HTTP Request and Request Details in Two Panes</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>The details of the selected request will be visible in the right pane. Figure 4(a) shows the details of the
+login request in the Headers tab (details include URL, request method, and cookie). One can observe
+both request and response headers in the right pane. To check the parameters involved in an HTTP request,
+we can use the Params tab. Figure 4(b) shows the parameter sent in the login request to Elgg, including
+username and password. The tool can be used to inspect HTTP GET requests in a similar manner to
+HTTP POST requests.</p>
+<div class="align-center figure" id="id4">
+<img alt="../../_images/xss_img4.png" src="../../_images/xss_img4.png" />
+<p class="caption"><span class="caption-text">Figure 4: HTTP Headers and Parameters</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Font Size.</strong> The default font size of Web Developer Tools window is quite small. It can be increased by
+focusing click anywhere in the Network Tool window, and then using Ctrl and + button.</p>
+</div>
+<div class="section" id="javascript-debugging">
+<h3>JavaScript Debugging<a class="headerlink" href="#javascript-debugging" title="Permalink to this headline">¶</a></h3>
+<p>We may also need to debug our JavaScript code. Firefox’s Developer Tool can also help debug JavaScript
+code. It can point us to the precise places where errors occur. The following instruction shows how to enable
+this debugging tool:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Click the &quot;Tools&quot; menu --&gt; Web Developer --&gt; Web Console
+or use the Shift+Ctrl+K shortcut.
+</pre></div>
+</div>
+<p>Once we are in the web console, click the JS tab. Click the downward pointing arrowhead beside JS
+and ensure there is a check mark beside Error. If you are also interested in Warning messages, click
+Warning. See Figure 5.</p>
+<div class="align-center figure" id="id5">
+<img alt="../../_images/xss_img5.png" src="../../_images/xss_img5.png" />
+<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (1)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>If there are any errors in the code, a message will display in the console. The line that caused the error
+appears on the right side of the error message in the console. Click on the line number and you will be taken
+to the exact place that has the error. See Figure 6.</p>
+<div class="align-center figure" id="id6">
+<img alt="../../_images/xss_img6.png" src="../../_images/xss_img6.png" />
+<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (2)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Web_SQL_Injection.html" class="btn btn-neutral float-right" title="SQL Injection Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Web_XSS_Elgg.html" class="btn btn-neutral float-left" title="Cross-Site Scripting (XSS) Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1119 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Firewall Exploration Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Firewall Evasion Lab: Bypassing Firewalls using VPN" href="firewall_vpn.html" />
+    <link rel="prev" title="DNS Security Extensions (DNSSEC) Lab" href="dnssec.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Firewall Exploration Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-setup-using-containers">Environment Setup Using Containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-implementing-a-simple-firewall">Task 1: Implementing a Simple Firewall</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-experimenting-with-stateless-firewall-rules">Task 2: Experimenting with Stateless Firewall Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-connection-tracking-and-stateful-firewall">Task 3: Connection Tracking and Stateful Firewall</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-limiting-network-traffic">Task 4: Limiting Network Traffic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-load-balancing">Task 5: Load Balancing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission-and-demonstration">Submission and Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>Firewall Exploration Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Firewall Exploration Lab</p>
+</div>
+<div class="section" id="firewall-exploration-lab">
+<h1>Firewall Exploration Lab<a class="headerlink" href="#firewall-exploration-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The learning objective of this lab is two-fold: learning how firewalls
+work, and setting up a simple firewall for a network. Students will
+first implement a simple stateless packet-filtering firewall, which
+inspects packets, and decides whether to drop or forward a packet based
+on firewall rules. Through this implementation task, students can get
+the basic ideas on how firewall works.</p>
+<p>Actually, Linux already has a built-in firewall, also based on
+<code class="docutils literal notranslate"><span class="pre">netfilter</span></code>. This firewall is called <code class="docutils literal notranslate"><span class="pre">iptables</span></code>. Students will be
+given a simple network topology, and are asked to use <code class="docutils literal notranslate"><span class="pre">iptables</span></code> to
+set up firewall rules to protect the network. Students will also be
+exposed to several other interesting applications of <code class="docutils literal notranslate"><span class="pre">iptables</span></code>. This
+lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Firewall</p></li>
+<li><p>Netfilter</p></li>
+<li><p>Loadable kernel module</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">iptables</span></code> to set up firewall rules</p></li>
+<li><p>Various applications of <code class="docutils literal notranslate"><span class="pre">iptables</span></code></p></li>
+</ul>
+<div class="section" id="readings-and-videos">
+<h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of firewalls can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 17 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 9 of the SEED Lecture, <em>Internet Security: A Hands-on
+Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a
+pre-built image from the SEED website, and run the SEED VM on your own
+computer. However, most of the SEED labs can be conducted on the cloud,
+and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+</div>
+<div class="section" id="environment-setup-using-containers">
+<h2>Environment Setup Using Containers<a class="headerlink" href="#environment-setup-using-containers" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we need to use multiple machines. Their setup is depicted
+in <strong>Figure 1</strong>. We will use containers to set up this
+lab environment.</p>
+<div class="align-center figure align-default" id="id1">
+<img alt="Lab setup" src="../../_images/twoLANs.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Lab setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please
+read the “Common Problems” section of the manual for potential
+solutions.</p>
+</div>
+</div>
+<div class="section" id="task-1-implementing-a-simple-firewall">
+<h2>Task 1: Implementing a Simple Firewall<a class="headerlink" href="#task-1-implementing-a-simple-firewall" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will implement a simple packet filtering type of
+firewall, which inspects each incoming and outgoing packets, and
+enforces the firewall policies set by the administrator. Since the
+packet processing is done within the kernel, the filtering must also be
+done within the kernel. Therefore, it seems that implementing such a
+firewall requires us to modify the <code class="docutils literal notranslate"><span class="pre">Linux</span></code> kernel. In the past, this
+had to be done by modifying and rebuilding the kernel. The modern
+<code class="docutils literal notranslate"><span class="pre">Linux</span></code> operating systems provide several new mechanisms to facilitate
+the manipulation of packets without rebuilding the kernel image. These
+two mechanisms are <em>Loadable Kernel Module</em> (<code class="docutils literal notranslate"><span class="pre">LKM</span></code>) and <code class="docutils literal notranslate"><span class="pre">Netfilter</span></code>.</p>
+<div class="section" id="notes-about-containers">
+<h3>Notes about containers.<a class="headerlink" href="#notes-about-containers" title="Permalink to this headline">¶</a></h3>
+<p>Since all the containers share the same kernel, kernel modules are
+global. Therefore, if we set a kernel model from a container, it affects
+all the containers and the host. For this reason, it does not matter
+where you set the kernel module. In this lab, we will just set the
+kernel module from the host VM.</p>
+<p>Another thing to keep in mind is that containers’ IP addresses are
+virtual. Packets going to these virtual IP addresses may not traverse
+the same path as what is described in the Netfilter document. Therefore,
+in this task, to avoid confusion, we will try to avoid using those
+virtual addresses. We do most tasks on the host VM. The containers are
+mainly for the other tasks.</p>
+</div>
+<div class="section" id="task-1-a-implement-a-simple-kernel-module">
+<h3>Task 1.A: Implement a Simple Kernel Module<a class="headerlink" href="#task-1-a-implement-a-simple-kernel-module" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">LKM</span></code> allows us to add a new module to the kernel at the runtime. This
+new module enables us to extend the functionalities of the kernel,
+without rebuilding the kernel or even rebooting the computer. The packet
+filtering part of a firewall can be implemented as an LKM. In this task,
+we will get familiar with LKM.</p>
+<p>The following is a simple loadable kernel module. It prints out
+<code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code> when the module is loaded; when the module is removed
+from the kernel, it prints out <code class="docutils literal notranslate"><span class="pre">&quot;Bye-bye</span> <span class="pre">World!&quot;</span></code>. The messages are
+not printed out on the screen; they are actually printed into the
+<code class="docutils literal notranslate"><span class="pre">/var/log/syslog</span></code> file. You can use <code class="docutils literal notranslate"><span class="pre">&quot;dmesg&quot;</span></code> to view the messages.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;linux/module.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;linux/kernel.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">initialization</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">cleanup</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printk</span><span class="p">(</span><span class="n">KERN_INFO</span> <span class="s">&quot;Bye-bye World!.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">module_init</span><span class="p">(</span><span class="n">initialization</span><span class="p">);</span>
+<span class="n">module_exit</span><span class="p">(</span><span class="n">cleanup</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>We now need to create <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, which includes the following
+contents (the file is included in the lab setup files). Just type
+<code class="docutils literal notranslate"><span class="pre">make</span></code>, and the above program will be compiled into a loadable kernel
+module (if you copy and paste the following into <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, make sure
+replace the spaces before the <code class="docutils literal notranslate"><span class="pre">make</span></code> commands with a tab).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>obj-m += hello.o
+
+all:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+</pre></div>
+</div>
+<p>The generated kernel module is in <code class="docutils literal notranslate"><span class="pre">hello.ko</span></code>. You can use the
+following commands to load the module, list all modules, and remove the
+module. Also, you can use <code class="docutils literal notranslate"><span class="pre">&quot;modinfo</span> <span class="pre">hello.ko&quot;</span></code> to show information
+about a Linux Kernel module.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo insmod hello.ko     (inserting a module)
+$ lsmod | grep hello       (list modules)
+$ sudo rmmod hello         (remove the module)
+$ dmesg                    (check the messages)
+</pre></div>
+</div>
+<div class="section" id="task">
+<h4>Task.<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h4>
+<p>Please compile this simple kernel module on your VM, and run it on the
+VM. For this task, we will not use containers. Please show your running
+results in the lab report.</p>
+</div>
+</div>
+<div class="section" id="task-1-b-implement-a-simple-firewall-using-netfilter">
+<h3>Task 1.B: Implement a Simple Firewall Using <code class="docutils literal notranslate"><span class="pre">Netfilter</span></code><a class="headerlink" href="#task-1-b-implement-a-simple-firewall-using-netfilter" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we will write our packet filtering program as an LKM, and
+then insert in into the packet processing path inside the kernel. This
+cannot be easily done in the past before the <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> was
+introduced into the <code class="docutils literal notranslate"><span class="pre">Linux</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Netfilter</span></code> is designed to facilitate the manipulation of packets by
+authorized users. It achieves this goal by implementing a number of
+hooks in the <code class="docutils literal notranslate"><span class="pre">Linux</span></code> kernel. These hooks are inserted into various
+places, including the packet incoming and outgoing paths. If we want to
+manipulate the incoming packets, we simply need to connect our own
+programs (within LKM) to the corresponding hooks. Once an incoming
+packet arrives, our program will be invoked. Our program can decide
+whether this packet should be blocked or not; moreover, we can also
+modify the packets in the program.</p>
+<p>In this task, you need to use LKM and <code class="docutils literal notranslate"><span class="pre">Netfilter</span></code> to implement a
+packet filtering module. This module will fetch the firewall policies
+from a data structure, and use the policies to decide whether packets
+should be blocked or not. We would like students to focus on the
+filtering part, the core of firewalls, so students are allowed to
+hardcode firewall policies in the program. Detailed guidelines on how to
+use <code class="docutils literal notranslate"><span class="pre">Netfilter</span></code> can be found in Chapter 17 of the SEED book. We will
+provide some guidelines in here as well.</p>
+<div class="section" id="hooking-to-netfilter">
+<h4>Hooking to <code class="docutils literal notranslate"><span class="pre">Netfilter</span></code>.<a class="headerlink" href="#hooking-to-netfilter" title="Permalink to this headline">¶</a></h4>
+<p>Using <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> is quite straightforward. All we need to do is to
+hook our functions (in the kernel module) to the corresponding
+<code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hooks. Here we show an example (the code is in , but it
+may not be exactly the same as this example).</p>
+<p>The structure of the code follows the structure of the kernel module
+implemented earlier. When the kernel module is added to the kernel, the
+<code class="docutils literal notranslate"><span class="pre">registerFilter()</span></code> function in the code will be invoked. Inside this
+function, we register two hooks to <code class="docutils literal notranslate"><span class="pre">netfilter</span></code>.</p>
+<p>To register a hook, you need to prepare a hook data structure, and set
+all the needed parameters, the most important of which are a function
+name (Line ) and a hook number (Line ). The hook number is one of the 5
+hooks in <code class="docutils literal notranslate"><span class="pre">netfilter</span></code>, and the specified function will be invoked when
+a packet has reached this hook. In this example, when a packet gets to
+the <code class="docutils literal notranslate"><span class="pre">LOCAL_IN</span></code> hook, the function <code class="docutils literal notranslate"><span class="pre">printInfo()</span></code> will be invoked
+(this function will be given later). Once the hook data structure is
+prepared, we attach the hook to <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> in Line ).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>static struct nf_hook_ops hook1, hook2;
+
+int registerFilter(void) {
+   printk(KERN_INFO &quot;Registering filters.\n&quot;);
+
+   // Hook 1
+   hook1.hook = printInfo;                    (*@\ding{202}@*)
+   hook1.hooknum = NF_INET_LOCAL_IN;          (*@\ding{203}@*)
+   hook1.pf = PF_INET;
+   hook1.priority = NF_IP_PRI_FIRST;
+   nf_register_net_hook(&amp;init_net, &amp;hook1);   (*@\ding{204}@*)
+
+   // Hook 2
+   hook2.hook = blockUDP;
+   hook2.hooknum = NF_INET_POST_ROUTING;
+   hook2.pf = PF_INET;
+   hook2.priority = NF_IP_PRI_FIRST;
+   nf_register_net_hook(&amp;init_net, &amp;hook2);
+
+   return 0;
+}
+
+void removeFilter(void) {
+   printk(KERN_INFO &quot;The filters are being removed.\n&quot;);
+   nf_unregister_net_hook(&amp;init_net, &amp;hook1);
+   nf_unregister_net_hook(&amp;init_net, &amp;hook2);
+}
+
+module_init(registerFilter);
+module_exit(removeFilter);
+</pre></div>
+</div>
+</div>
+<div class="section" id="note-for-ubuntu-20-04-vm">
+<h4>Note for Ubuntu 20.04 VM:<a class="headerlink" href="#note-for-ubuntu-20-04-vm" title="Permalink to this headline">¶</a></h4>
+<p>The code in the SEED book was developed in Ubuntu 16.04. It needs to be
+changed slightly to work in Ubuntu 20.04. The change is in the hook
+registration and un-registration APIs. See the difference in the
+following:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Hook registration:</span>
+  <span class="n">nf_register_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span>                  <span class="c1">// For Ubuntu 16.04 VM</span>
+  <span class="n">nf_register_net_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">init_net</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span>   <span class="c1">// For Ubuntu 20.04 VM</span>
+
+<span class="c1">// Hook unregistration:</span>
+  <span class="n">nf_unregister_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span>                <span class="c1">// For Ubuntu 16.04 VM</span>
+  <span class="n">nf_unregister_net_hook</span><span class="p">(</span><span class="o">&amp;</span><span class="n">init_net</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nfho</span><span class="p">);</span> <span class="c1">// For Ubuntu 20.04 VM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hook-functions">
+<h4>Hook functions.<a class="headerlink" href="#hook-functions" title="Permalink to this headline">¶</a></h4>
+<p>We give an example of hook function below. It only prints out the packet
+information. When <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> invokes a hook function, it passes three
+arguments to the function, including a pointer to the actual packet
+(<code class="docutils literal notranslate"><span class="pre">skb</span></code>). In the following code, Line  shows how to retrieve the hook
+number from the <code class="docutils literal notranslate"><span class="pre">state</span></code> argument. In Line , we use <code class="docutils literal notranslate"><span class="pre">ip_hdr()</span></code>
+function to get the pointer for the IP header, and then use the <code class="docutils literal notranslate"><span class="pre">%pI4</span></code>
+format string specifier to print out the source and destination IP
+addresses in Line .</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unsigned int printInfo(void *priv, struct sk_buff *skb,
+                       const struct nf_hook_state *state)
+{
+   struct iphdr *iph;
+   char *hook;
+
+   switch (state-&gt;hook){          (*@\ding{202}@*)
+     case NF_INET_LOCAL_IN:
+          printk(&quot;*** LOCAL_IN&quot;); break;
+     .. (code omitted) ...
+   }
+
+   iph = ip_hdr(skb);             (*@\ding{203}@*)
+   printk(&quot;    %pI4  --&gt; %pI4\n&quot;, &amp;(iph-&gt;saddr), &amp;(iph-&gt;daddr)); (*@\ding{204}@*)
+   return NF_ACCEPT;
+}
+</pre></div>
+</div>
+<p>If you need to get the headers for other protocols, you can use the
+following functions defined in various header files. The structure
+definition of these headers can be found inside the folder, where the
+version number in the path is the result of <code class="docutils literal notranslate"><span class="pre">&quot;uname</span> <span class="pre">-r&quot;</span></code>, so it may be
+different if the kernel version is different.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">iphdr</span>   <span class="o">*</span><span class="n">iph</span>   <span class="o">=</span> <span class="n">ip_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>    <span class="c1">// (need to include &lt;linux/ip.h&gt;)</span>
+<span class="k">struct</span> <span class="nc">tcphdr</span>  <span class="o">*</span><span class="n">tcph</span>  <span class="o">=</span> <span class="n">tcp_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>   <span class="c1">// (need to include &lt;linux/tcp.h&gt;)</span>
+<span class="k">struct</span> <span class="nc">udphdr</span>  <span class="o">*</span><span class="n">udph</span>  <span class="o">=</span> <span class="n">udp_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>   <span class="c1">// (need to include &lt;linux/udp.h&gt;)</span>
+<span class="k">struct</span> <span class="nc">icmphdr</span> <span class="o">*</span><span class="n">icmph</span> <span class="o">=</span> <span class="n">icmp_hdr</span><span class="p">(</span><span class="n">skb</span><span class="p">)</span>  <span class="c1">// (need to include &lt;linux/icmp.h&gt;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="blocking-packets">
+<h4>Blocking packets.<a class="headerlink" href="#blocking-packets" title="Permalink to this headline">¶</a></h4>
+<p>We also provide a hook function example to show how to block a packet,
+if it satisfies the specified condition. The following example blocks
+the UDP packets if their destination IP is <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> and the
+destination port is <code class="docutils literal notranslate"><span class="pre">53</span></code>. This means blocking the DNS query to the
+nameserver <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>unsigned int blockUDP(void *priv, struct sk_buff *skb,
+                 const struct nf_hook_state *state)
+{
+   struct iphdr *iph;
+   struct udphdr *udph;
+   u32  ip_addr;
+   char ip[16] = &quot;8.8.8.8&quot;;
+
+   // Convert the IPv4 address from dotted decimal to a 32-bit number
+   in4_pton(ip, -1, (u8 *)&amp;ip_addr, &#39;\0&#39;, NULL);                  (*@\ding{202}@*)
+
+   iph = ip_hdr(skb);
+   if (iph-&gt;protocol == IPPROTO_UDP) {
+       udph = udp_hdr(skb);
+       if (iph-&gt;daddr == ip_addr &amp;&amp; ntohs(udph-&gt;dest) == 53){     (*@\ding{203}@*)
+            printk(KERN_DEBUG &quot;****Dropping %pI4 (UDP), port %d\n&quot;,
+                              &amp;(iph-&gt;daddr), port);
+            return NF_DROP;                                       (*@\ding{204}@*)
+        }
+   }
+   return NF_ACCEPT;                                              (*@\ding{205}@*)
+}
+</pre></div>
+</div>
+<p>In the code above, Line  shows, inside the kernel, how to convert an IP
+address in the dotted decimal format (i.e., a string, such as
+<code class="docutils literal notranslate"><span class="pre">1.2.3.4</span></code>) to a 32-bit binary (<code class="docutils literal notranslate"><span class="pre">0x01020304</span></code>), so it can be compared
+with the binary number stored inside packets. Line  compares the
+destination IP address and port number with the values in our specified
+rule. If they match the rule, the <code class="docutils literal notranslate"><span class="pre">NF_DROP</span></code> will be returned to
+<code class="docutils literal notranslate"><span class="pre">netfilter</span></code>, which will drop the packet. Otherwise, the <code class="docutils literal notranslate"><span class="pre">NF_ACCEPT</span></code>
+will be returned, and <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> will let the packet continue its
+journey (<code class="docutils literal notranslate"><span class="pre">NF_ACCEPT</span></code> only means that the packet is accepted by this
+hook function; it may still be dropped by other hook functions).</p>
+</div>
+<div class="section" id="tasks">
+<h4>Tasks.<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h4>
+<p>The complete sample code is called <code class="docutils literal notranslate"><span class="pre">seedFilter.c</span></code>, which is included
+in the lab setup files (inside the folder). Please do the following
+tasks (do each of them separately):</p>
+<ol class="arabic">
+<li><p>Compile the sample code using the provided <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>. Load it into
+the kernel, and demonstrate that the firewall is working as expected.
+You can use the following command to generate UDP packets to
+<code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code>, which is Google’s DNS server. If your firewall works,
+your request will be blocked; otherwise, you will get a response.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dig @8.8.8.8 www.example.com
+</pre></div>
+</div>
+</li>
+<li><p>Hook the <code class="docutils literal notranslate"><span class="pre">printInfo</span></code> function to all of the <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hooks.
+Here are the macros of the hook numbers. Using your experiment
+results to help explain at what condition will each of the hook
+function be invoked.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NF_INET_PRE_ROUTING
+NF_INET_LOCAL_IN
+NF_INET_FORWARD
+NF_INET_LOCAL_OUT
+NF_INET_POST_ROUTING
+</pre></div>
+</div>
+</li>
+<li><p>Implement two more hooks to achieve the following: (1) preventing
+other computers to ping the VM, and (2) preventing other computers to
+telnet into the VM. Please implement two different hook functions,
+but register them to the same <code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hook. You should decide
+what hook to use. Telnet’s default port is TCP port <code class="docutils literal notranslate"><span class="pre">23</span></code>. To test
+it, you can start the containers, go to <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>, run the
+following commands (<code class="docutils literal notranslate"><span class="pre">10.9.0.1</span></code> is the IP address assigned to the
+VM; for the sake of simplicity, you can hardcode this IP address in
+your firewall rules):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ping 10.9.0.1
+telnet 10.9.0.1
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition-important-note admonition">
+<p class="admonition-title">Important Note:</p>
+<p>Since we make changes to the kernel, there is a high chance that you would crash the kernel. Make sure you back up your files frequently, so you don’t lose them. One of the common reasons for system crash is that you forget to unregister hooks. When a module is removed, these hooks will still be triggered, but the module is no longer present in the kernel. That will cause system crash. To avoid this, make sure for each hook you add to your module, add a line in <code class="docutils literal notranslate"><span class="pre">removeFilter</span></code> to unregister it, so when the module is removed, those hooks are also removed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="task-2-experimenting-with-stateless-firewall-rules">
+<h2>Task 2: Experimenting with Stateless Firewall Rules<a class="headerlink" href="#task-2-experimenting-with-stateless-firewall-rules" title="Permalink to this headline">¶</a></h2>
+<p>In the previous task, we had a chance to build a simple firewall using
+<code class="docutils literal notranslate"><span class="pre">netfilter</span></code>. Actually, <code class="docutils literal notranslate"><span class="pre">Linux</span></code> already has a built-in firewall, also
+based on <code class="docutils literal notranslate"><span class="pre">netfilter</span></code>. This firewall is called <code class="docutils literal notranslate"><span class="pre">iptables</span></code>.
+Technically, the kernel part implementation of the firewall is called
+<code class="docutils literal notranslate"><span class="pre">Xtables</span></code>, while <code class="docutils literal notranslate"><span class="pre">iptables</span></code> is a user-space program to configure the
+firewall. However, <code class="docutils literal notranslate"><span class="pre">iptables</span></code> is often used to refer to both the
+kernel-part implementation and the user-space program.</p>
+<div class="section" id="background-of-iptables">
+<h3>Background of <code class="docutils literal notranslate"><span class="pre">iptables</span></code><a class="headerlink" href="#background-of-iptables" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we will use <code class="docutils literal notranslate"><span class="pre">iptables</span></code> to set up a firewall. The
+<code class="docutils literal notranslate"><span class="pre">iptables</span></code> firewall is designed not only to filter packets, but also
+to make changes to packets. To help manage these firewall rules for
+different purposes, <code class="docutils literal notranslate"><span class="pre">iptables</span></code> organizes all rules using a
+hierarchical structure: table, chain, and rules. There are several
+tables, each specifying the main purpose of the rules as shown in
+Table 1. For example, rules for packet
+filtering should be placed in the <code class="docutils literal notranslate"><span class="pre">filter</span></code> table, while rules for
+making changes to packets should be placed in the <code class="docutils literal notranslate"><span class="pre">nat</span></code> or <code class="docutils literal notranslate"><span class="pre">mangle</span></code>
+tables.</p>
+<p>Each table contains several chains, each of which corresponds to a
+<code class="docutils literal notranslate"><span class="pre">netfilter</span></code> hook. Basically, each chain indicates where its rules are
+enforced. For example, rules on the <code class="docutils literal notranslate"><span class="pre">FORWARD</span></code> chain are enforced at
+the <code class="docutils literal notranslate"><span class="pre">NF_INET_FORWARD</span></code> hook, and rules on the <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> chain are
+enforced at the <code class="docutils literal notranslate"><span class="pre">NF_INET_LOCAL_IN</span></code> hook.</p>
+<p>Each chain contains a set of firewall rules that will be enforced. When
+we set up firewalls, we add rules to these chains. For example, if we
+would like to block all incoming <code class="docutils literal notranslate"><span class="pre">telnet</span></code> traffic, we would add a rule
+to the <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> chain of the <code class="docutils literal notranslate"><span class="pre">filter</span></code> table. If we would like to
+redirect all incoming <code class="docutils literal notranslate"><span class="pre">telnet</span></code> traffic to a different port on a
+different host, basically doing port forwarding, we can add a rule to
+the <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> chain of the <code class="docutils literal notranslate"><span class="pre">mangle</span></code> table, as we need to make changes
+to packets.</p>
+<div class="docutils container" id="firewall-table-iptables">
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">iptables</span></code> Tables and Chains</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 27%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Table</strong></p></th>
+<th class="head"><p><strong>Chain</strong></p></th>
+<th class="head"><p><strong>Functionality</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>filter</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>Packet filtering</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FORWARD</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>nat</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PREROUTING</span></code></p></td>
+<td><p>Modifying source or destination</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td><p>network addresses</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POSTROUTING</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mangle</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PREROUTING</span></code></p></td>
+<td><p>Packet content modification</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FORWARD</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POSTROUTING</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="using-iptables">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">iptables</span></code><a class="headerlink" href="#using-iptables" title="Permalink to this headline">¶</a></h3>
+<p>To add rules to the chains in each table, we use the <code class="docutils literal notranslate"><span class="pre">iptables</span></code>
+command, which is a quite powerful command. Students can find the manual
+of <code class="docutils literal notranslate"><span class="pre">iptables</span></code> by typing <code class="docutils literal notranslate"><span class="pre">&quot;man</span> <span class="pre">iptables&quot;</span></code> or easily find many
+tutorials from online. What makes <code class="docutils literal notranslate"><span class="pre">iptables</span></code> complicated is the many
+command-line arguments that we need to provide when using the command.
+However, if we understand the structure of these command-line arguments,
+we will find out that the command is not that complicated.</p>
+<p>In a typical <code class="docutils literal notranslate"><span class="pre">iptables</span></code> command, we add a rule to or remove a rule
+from one of the chains in one of the tables, so we need to specify a
+table name (the default is <code class="docutils literal notranslate"><span class="pre">filter</span></code>), a chain name, and an operation
+on the chain. After that, we specify the rule, which is basically a
+pattern that will be matched with each of the packets passing through.
+If there is a match, an action will be performed on this packet. The
+general structure of the command is depicted in the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t &lt;table&gt; -&lt;operation&gt; &lt;chain&gt;  &lt;rule&gt;   -j &lt;target&gt;
+         ---------- --------------------  -------  -----------
+            Table          Chain           Rule      Action
+</pre></div>
+</div>
+<p>The rule is the most complicated part of the <code class="docutils literal notranslate"><span class="pre">iptables</span></code> command. We
+will provide additional information later when we use specific rules. In
+the following, we list some commonly used commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// List all the rules in a table (without line number)
+iptables -t nat -L -n
+
+// List all the rules in a table (with line number)
+iptables -t filter -L -n --line-numbers
+
+
+// Delete rule No. 2 in the INPUT chain of the filter table
+iptables -t filter -D INPUT 2
+
+// Drop all the incoming packets that satisfy the &lt;rule&gt;
+iptables -t filter -A INPUT &lt;rule&gt;  -j DROP
+</pre></div>
+</div>
+<div class="section" id="note">
+<h4>Note.<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h4>
+<p>Docker relies on <code class="docutils literal notranslate"><span class="pre">iptables</span></code> to manage the networks it creates, so it
+adds many rules to the <code class="docutils literal notranslate"><span class="pre">nat</span></code> table. When we manipulate <code class="docutils literal notranslate"><span class="pre">iptables</span></code>
+rules, we should be careful not to remove Docker rules. For example, it
+will be quite dangerous to run the <code class="docutils literal notranslate"><span class="pre">&quot;iptables</span> <span class="pre">-t</span> <span class="pre">nat</span> <span class="pre">-F&quot;</span></code> command,
+because it removes all the rules in the <code class="docutils literal notranslate"><span class="pre">nat</span></code> table, including many of
+the Docker rules. That will cause trouble to Docker containers. Doing
+this for the <code class="docutils literal notranslate"><span class="pre">filter</span></code> table is fine, because Docker does not touch
+this table.</p>
+</div>
+</div>
+<div class="section" id="task-2-a-protecting-the-router">
+<h3>Task 2.A: Protecting the Router<a class="headerlink" href="#task-2-a-protecting-the-router" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we will set up rules to prevent outside machines from
+accessing the router machine, except ping. Please execute the following
+<code class="docutils literal notranslate"><span class="pre">iptables</span></code> command on the router container, and then try to access it
+from <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>. (1) Can you ping the router? (2) Can you telnet into
+the router (a telnet server is running on all the containers; an account
+called <code class="docutils literal notranslate"><span class="pre">seed</span></code> was created on them with a password <code class="docutils literal notranslate"><span class="pre">dees</span></code>). Please
+report your observation and explain the purpose for each rule.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -A INPUT  -p icmp --icmp-type echo-reply   -j ACCEPT
+iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -P OUTPUT DROP     (*@\pointleft{Set default rule for OUTPUT}@*)
+iptables -P INPUT  DROP     (*@\pointleft{Set default rule for INPUT}@*)
+</pre></div>
+</div>
+<div class="section" id="cleanup">
+<h4>Cleanup.<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h4>
+<p>Before moving on to the next task, please restore the <code class="docutils literal notranslate"><span class="pre">filter</span></code> table
+to its original state by running the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -F
+iptables -P OUTPUT ACCEPT
+iptables -P INPUT  ACCEPT
+</pre></div>
+</div>
+<p>Another way to restore the states of all the tables is to restart the
+container. You can do it using the following command (you need to find
+the container’s ID first):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker restart &lt;Container ID&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-2-b-protecting-the-internal-network">
+<h3>Task 2.B: Protecting the Internal Network<a class="headerlink" href="#task-2-b-protecting-the-internal-network" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we will set up firewall rules on the router to protect the
+internal network <code class="docutils literal notranslate"><span class="pre">192.168.60.0/24</span></code>. We need to use the FORWARD chain
+for this purpose.</p>
+<p>The directions of packets in the INPUT and OUTPUT chains are clear:
+packets are either coming into (for INPUT) or going out (for OUTPUT).
+This is not true for the FORWARD chain, because it is bi-directional:
+packets going into the internal network or going out to the external
+network all go through this chain. To specify the direction, we can add
+the interface options using <code class="docutils literal notranslate"><span class="pre">&quot;-i</span> <span class="pre">xyz&quot;</span></code> (coming in from the <code class="docutils literal notranslate"><span class="pre">xyz</span></code>
+interface) and/or <code class="docutils literal notranslate"><span class="pre">&quot;-o</span> <span class="pre">xyz&quot;</span></code> (going out from the <code class="docutils literal notranslate"><span class="pre">xyz</span></code> interface).
+The interfaces for the internal and external networks are different. You
+can find out the interface names via the <code class="docutils literal notranslate"><span class="pre">&quot;ip</span> <span class="pre">addr&quot;</span></code> command.</p>
+<p>In this task, we want to implement a firewall to protect the internal
+network. More specifically, we need to enforce the following
+restrictions on the ICMP traffic:</p>
+<ol class="arabic simple">
+<li><p>Outside hosts cannot ping internal hosts.</p></li>
+<li><p>Outside hosts can ping the router.</p></li>
+<li><p>Internal hosts can ping outside hosts.</p></li>
+<li><p>All other packets between the internal and external networks should
+be blocked.</p></li>
+</ol>
+<p>You will need to use the <code class="docutils literal notranslate"><span class="pre">&quot;-p</span> <span class="pre">icmp&quot;</span></code> options to specify the match
+options related to the ICMP protocol. You can run
+<code class="docutils literal notranslate"><span class="pre">&quot;iptables</span> <span class="pre">-p</span> <span class="pre">icmp</span> <span class="pre">-h&quot;</span></code> to find out all the ICMP match options. The
+following example drops the ICMP echo request.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -A FORWARD -p icmp --icmp-type echo-request -j DROP
+</pre></div>
+</div>
+<p>In your lab report, please include your rules and screenshots to
+demonstrate that your firewall works as expected. When you are done with
+this task, please remember to clean the table or restart the container
+before moving on to the next task.</p>
+</div>
+<div class="section" id="task-2-c-protecting-internal-servers">
+<h3>Task 2.C: Protecting Internal Servers<a class="headerlink" href="#task-2-c-protecting-internal-servers" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we want to protect the TCP servers inside the internal
+network (<code class="docutils literal notranslate"><span class="pre">192.168.60.0/24</span></code>). More specifically, we would like to
+achieve the following objectives.</p>
+<ol class="arabic simple">
+<li><p>All the internal hosts run a telnet server (listening to port
+<code class="docutils literal notranslate"><span class="pre">23</span></code>). Outside hosts can only access the telnet server on
+<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>, not the other internal hosts.</p></li>
+<li><p>Outside hosts cannot access other internal servers.</p></li>
+<li><p>Internal hosts can access all the internal servers.</p></li>
+<li><p>Internal hosts cannot access external servers.</p></li>
+<li><p>In this task, the connection tracking mechanism is not allowed. It
+will be used in a later task.</p></li>
+</ol>
+<p>You will need to use the <code class="docutils literal notranslate"><span class="pre">&quot;-p</span> <span class="pre">tcp&quot;</span></code> options to specify the match
+options related to the TCP protocol. You can run
+<code class="docutils literal notranslate"><span class="pre">&quot;iptables</span> <span class="pre">-p</span> <span class="pre">tcp</span> <span class="pre">-h&quot;</span></code> to find out all the TCP match options. The
+following example allows the TCP packets coming from the interface
+<code class="docutils literal notranslate"><span class="pre">eth0</span></code> if their source port is <code class="docutils literal notranslate"><span class="pre">5000</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -A FORWARD -i eth0 -p tcp --sport 5000  -j ACCEPT
+</pre></div>
+</div>
+<p>When you are done with this task, please remember to clean the table or
+restart the container before moving on to the next task.</p>
+</div>
+</div>
+<div class="section" id="task-3-connection-tracking-and-stateful-firewall">
+<h2>Task 3: Connection Tracking and Stateful Firewall<a class="headerlink" href="#task-3-connection-tracking-and-stateful-firewall" title="Permalink to this headline">¶</a></h2>
+<p>In the previous task, we have only set up stateless firewalls, which
+inspect each packet independently. However, packets are usually not
+independent; they may be part of a TCP connection, or they may be ICMP
+packets triggered by other packets. Treating them independently does not
+take into consideration the context of the packets, and can thus lead to
+inaccurate, unsafe, or complicated firewall rules. For example, if we
+would like to allow TCP packets to get into our network only if a
+connection was made first, we cannot achieve that easily using stateless
+packet filters, because when the firewall examines each individual TCP
+packet, it has no idea whether the packet belongs to an existing
+connection or not, unless the firewall maintains some state information
+for each connection. If it does that, it becomes a stateful firewall.</p>
+<div class="section" id="task-3-a-experiment-with-the-connection-tracking">
+<h3>Task 3.A: Experiment with the Connection Tracking<a class="headerlink" href="#task-3-a-experiment-with-the-connection-tracking" title="Permalink to this headline">¶</a></h3>
+<p>To support stateful firewalls, we need to be able to track connections.
+This is achieved by the <code class="docutils literal notranslate"><span class="pre">conntrack</span></code> mechanism inside the kernel. In
+this task, we will conduct experiments related to this module, and get
+familiar with the connection tracking mechanism. In our experiment, we
+will check the connection tracking information on the router container.
+This can be done using the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># conntrack -L
+</pre></div>
+</div>
+<p>The goal of the task is to use a series of experiments to help students
+understand the connection concept in this tracking mechanism, especially
+for the ICMP and UDP protocols, because unlike TCP, they do not have
+connections. Please conduct the following experiments. For each
+experiment, please describe your observation, along with your
+explanation.</p>
+<ul>
+<li><p>ICMP experiment: Run the following command and check the connection
+tracking information on the router. Describe your observation. How
+long is the ICMP connection state be kept?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 10.9.0.5, send out ICMP packets
+# ping 192.168.60.5
+</pre></div>
+</div>
+</li>
+<li><p>UDP experiment: Run the following command and check the connection
+tracking information on the router. Describe your observation. How
+long is the UDP connection state be kept?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 192.168.60.5, start a netcat UDP server
+# nc -lu 9090
+
+// On 10.9.0.5, send out UDP packets
+# nc -u 192.168.60.5 9090
+&lt;type something, then hit return&gt;
+</pre></div>
+</div>
+</li>
+<li><p>TCP experiment: Run the following command and check the connection
+tracking information on the router. Describe your observation. How
+long is the TCP connection state be kept?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 192.168.60.5, start a netcat TCP server
+# nc -l 9090
+
+// On 10.9.0.5, send out TCP packets
+# nc 192.168.60.5 9090
+&lt;type something, then hit return&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="task-3-b-setting-up-a-stateful-firewall">
+<h3>Task 3.B: Setting Up a Stateful Firewall<a class="headerlink" href="#task-3-b-setting-up-a-stateful-firewall" title="Permalink to this headline">¶</a></h3>
+<p>Now we are ready to set up firewall rules based on connections. In the
+following example, the <code class="docutils literal notranslate"><span class="pre">&quot;-m</span> <span class="pre">conntrack&quot;</span></code> option indicates that we are
+using the <code class="docutils literal notranslate"><span class="pre">conntrack</span></code> module, which is a very important module for
+<code class="docutils literal notranslate"><span class="pre">iptables</span></code>; it tracks connections, and <code class="docutils literal notranslate"><span class="pre">iptables</span></code> replies on the
+tracking information to build stateful firewalls. The
+<code class="docutils literal notranslate"><span class="pre">–ctsate</span> <span class="pre">ESTABLISHED,RELATED</span></code> indicates that whether a packet belongs
+to an <code class="docutils literal notranslate"><span class="pre">ESTABLISHED</span></code> or <code class="docutils literal notranslate"><span class="pre">RELATED</span></code> connection. The rule allows TCP
+packets belonging to an existing connection to pass through.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -A FORWARD -p tcp -m conntrack          \
+         --ctstate ESTABLISHED,RELATED -j ACCEPT
+</pre></div>
+</div>
+<p>The rule above does not cover the SYN packets, which do not belong to
+any established connection. Without it, we will not be able to create a
+connection in the first place. Therefore, we need to add a rule to
+accept incoming SYN packet:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -A FORWARD -p tcp -i eth0 --dport 8080 --syn  \
+         -m conntrack --ctstate NEW -j ACCEPT
+</pre></div>
+</div>
+<p>Finally, we will set the default policy on FORWARD to drop everything.
+This way, if a packet is not accepted by the two rules above, they will
+be dropped.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -P FORWARD DROP
+</pre></div>
+</div>
+<p>Please rewrite the firewall rules in Task 2.C, but this time, <strong>we will
+add a rule allowing internal hosts to visit any external server</strong> (this
+was not allowed in Task 2.C). After you write the rules using the
+connection tracking mechanism, think about how to do it without using
+the connection tracking mechanism (you do not need to actually implement
+them). Based on these two sets of rules, compare these two different
+approaches, and explain the advantage and disadvantage of each approach.
+When you are done with this task, remember to clear all the rules.</p>
+</div>
+</div>
+<div class="section" id="task-4-limiting-network-traffic">
+<h2>Task 4: Limiting Network Traffic<a class="headerlink" href="#task-4-limiting-network-traffic" title="Permalink to this headline">¶</a></h2>
+<p>In addition to blocking packets, we can also limit the number of packets
+that can pass through the firewall. This can be done using the <code class="docutils literal notranslate"><span class="pre">limit</span></code>
+module of <code class="docutils literal notranslate"><span class="pre">iptables</span></code>. In this task, we will use this module to limit
+how many packets from <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code> are allowed to get into the internal
+network. You can use <code class="docutils literal notranslate"><span class="pre">&quot;iptables</span> <span class="pre">-m</span> <span class="pre">limit</span> <span class="pre">-h&quot;</span></code> to see the manual.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ iptables -m limit -h
+limit match options:
+--limit avg             max average match rate: default 3/hour
+                        [Packets per second unless followed by
+                        /sec /minute /hour /day postfixes]
+--limit-burst number    number to match in a burst, default 5
+</pre></div>
+</div>
+<p>Please run the following commands on router, and then ping
+<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code> from <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>. Describe your observation. Please
+conduct the experiment with and without the second rule, and then
+explain whether the second rule is needed or not, and why.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -A FORWARD -s 10.9.0.5 -m limit \
+         --limit 10/minute --limit-burst 5 -j ACCEPT
+
+iptables -A FORWARD -s 10.9.0.5 -j DROP
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-5-load-balancing">
+<h2>Task 5: Load Balancing<a class="headerlink" href="#task-5-load-balancing" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">iptables</span></code> is very powerful. In addition to firewalls, it has many
+other applications. We will not be able to cover all its applications in
+this lab, but we will experimenting with one of the applications, load
+balancing. In this task, we will use it to load balance three UDP
+servers running in the internal network. Let’s first start the server on
+each of the hosts: <code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>, <code class="docutils literal notranslate"><span class="pre">192.168.60.6</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">192.168.60.7</span></code> (the <code class="docutils literal notranslate"><span class="pre">-k</span></code> option indicates that the server can
+receive UDP datagrams from multiple hosts):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nc -luk 8080
+</pre></div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">statistic</span></code> module to achieve load balancing. You can
+type the following command to get its manual. You can see there are two
+modes: <code class="docutils literal notranslate"><span class="pre">random</span></code> and <code class="docutils literal notranslate"><span class="pre">nth</span></code>. We will conduct experiments using both of
+them.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ iptables -m statistic -h
+statistic match options:
+ --mode mode         Match mode (random, nth)
+ random mode:
+[!] --probability p  Probability
+ nth mode:
+[!] --every n        Match every nth packet
+ --packet p          Initial counter value (0 &lt;= p &lt;= n-1, default 0)
+</pre></div>
+</div>
+<div class="section" id="using-the-nth-mode-round-robin">
+<h3>Using the <code class="docutils literal notranslate"><span class="pre">nth</span></code> mode (round-robin).<a class="headerlink" href="#using-the-nth-mode-round-robin" title="Permalink to this headline">¶</a></h3>
+<p>On the router container, we set the following rule, which applies to all
+the UDP packets going to port <code class="docutils literal notranslate"><span class="pre">8080</span></code>. The <code class="docutils literal notranslate"><span class="pre">nth</span></code> mode of the
+<code class="docutils literal notranslate"><span class="pre">statistic</span></code> module is used; it implements a round-robin load balancing
+policy: for every three packets, pick the packet 0 (i.e., the first
+one), change its destination IP address and port number to
+<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code> and <code class="docutils literal notranslate"><span class="pre">8080</span></code>, respectively. The modified packets will
+continue on its journey.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A PREROUTING -p udp --dport 8080      \
+         -m statistic --mode nth --every 3 --packet 0  \
+         -j DNAT --to-destination 192.168.60.5:8080
+</pre></div>
+</div>
+<p>It should be noted that those packets that do not match the rule will
+continue on their journeys; they will not be modified or blocked. With
+this rule in place, if you send a UDP packet to the router’s <code class="docutils literal notranslate"><span class="pre">8080</span></code>
+port, you will see that one out of three packets gets to
+<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// On 10.9.0.5
+echo hello | nc -u 10.9.0.11 8080
+&lt;hit Ctrl-C&gt;
+</pre></div>
+</div>
+<p>Please add more rules to the router container, so all the three internal
+hosts get the equal number of packets. Please provide some explanation
+for the rules.</p>
+</div>
+<div class="section" id="using-the-random-mode">
+<h3>Using the <code class="docutils literal notranslate"><span class="pre">random</span></code> mode.<a class="headerlink" href="#using-the-random-mode" title="Permalink to this headline">¶</a></h3>
+<p>Let’s use a different mode to achieve the load balancing. The following
+rule will select a matching packet with the probability <code class="docutils literal notranslate"><span class="pre">P</span></code>. You need
+to replace <code class="docutils literal notranslate"><span class="pre">P</span></code> with a probability number.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iptables -t nat -A PREROUTING -p udp --dport 8080   \
+         -m statistic --mode random --probability P \
+         -j DNAT --to-destination 192.168.60.5:8080
+</pre></div>
+</div>
+<p>Please use this mode to implement your load balancing rules, so each
+internal server get roughly the same amount of traffic (it may not be
+exactly the same, but should be close when the total number of packets
+is large). Please provide some explanation for the rules.</p>
+</div>
+</div>
+<div class="section" id="submission-and-demonstration">
+<h2>Submission and Demonstration<a class="headerlink" href="#submission-and-demonstration" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="firewall_vpn.html" class="btn btn-neutral float-right" title="Firewall Evasion Lab: Bypassing Firewalls using VPN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dnssec.html" class="btn btn-neutral float-left" title="DNS Security Extensions (DNSSEC) Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

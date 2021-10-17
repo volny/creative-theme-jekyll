@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Packet Sniffing and Spoofing Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TCP/IP Attack Lab" href="TCP_Attacks.html" />
+    <link rel="prev" title="The Mitnick Attack Lab" href="Mitnick_Attack.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Packet Sniffing and Spoofing Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-setup-using-container">Environment Setup using Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-task-set-1-using-scapy-to-sniff-and-spoof-packets">Lab Task Set 1: Using Scapy to Sniff and Spoof Packets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-task-set-2-writing-programs-to-sniff-and-spoof-packets">Lab Task Set 2: Writing Programs to Sniff and Spoof Packets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>Packet Sniffing and Spoofing Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="packet-sniffing-and-spoofing-lab">
+<h1>Packet Sniffing and Spoofing Lab<a class="headerlink" href="#packet-sniffing-and-spoofing-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Packet sniffing and spoofing are two important concepts in network
+security; they are two major threats in network communication. Being
+able to understand these two threats is essential for understanding
+security measures in networking. There are many packet sniffing and
+spoofing tools, such as Wireshark, Tcpdump, Netwox, <code class="docutils literal notranslate"><span class="pre">Scapy</span></code>, etc. Some
+of these tools are widely used by security experts, as well as by
+attackers. Being able to use these tools is important for students, but
+what is more important for students in a network security course is to
+understand how these tools work, i.e., how packet sniffing and spoofing
+are implemented in software.</p>
+<p>The objective of this lab is two-fold: learning to use the tools and
+understanding the technologies underlying these tools. For the second
+object, students will write simple sniffer and spoofing programs, and
+gain an in-depth understanding of the technical aspects of these
+programs. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>How the sniffing and spoofing work</p></li>
+<li><p>Packet sniffing using the pcap library and Scapy</p></li>
+<li><p>Packet spoofing using raw socket and Scapy</p></li>
+<li><p>Manipulating packets using Scapy</p></li>
+</ul>
+<p><strong>Readings and Videos.</strong> Detailed coverage of sniffing and spoofing can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 15 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 2 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See details
+at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Lab environment.</strong> . This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
+image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
+labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
+<p><strong>Note for Instructors.</strong> There are two sets of tasks in this lab. The first set focuses on using
+tools to conduct packet sniffing and spoofing. It only requires a little
+bit of Python programming (usually a few lines of code); students do not
+need to have a prior Python programming background.</p>
+<p>The second set of tasks is designed primarily for Computer
+Science/Engineering students. Students need to write their own C
+programs from the scratch to do sniffing and spoofing. This way, they
+can gain a deeper understanding on how sniffing and spoofing tools
+actually work. Students need to have a solid programming background for
+these tasks. The two sets of tasks are independent; instructors can
+choose to assign one set or both sets to their students, depending on
+their students’ programming background.</p>
+</div>
+<div class="section" id="environment-setup-using-container">
+<h2>Environment Setup using Container<a class="headerlink" href="#environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we will use two machines that are connected to the same
+LAN. We can either use two VMs or use two containers.
+Figure 1 depicts the lab environment setup using
+containers. We will do all the attacks on the attacker container, while
+using the other container as the user machine.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/sniffing_img1.png" src="../../_images/sniffing_img1.png" />
+<p class="caption"><span class="caption-text">Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code>
+folder, and use the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed explanation of the
+content in this file and all the involved <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked
+to the website of this lab. If this is the first time you set up a SEED lab environment using containers, it is
+very important that you read the user manual.</p>
+<p>In the following, we list some of the commonly used commands related to Docker and Compose. Since
+we are going to use these commands very frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file
+(in our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build    # Build the container image
+$ docker-compose up       # Start the container
+$ docker-compose down     # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild                 # Alias for: docker-compose build
+$ dcup                    # Alias for: docker-compose up
+$ dcdown                  # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on a container, we often need
+to get a shell on that container. We first need to use the “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>” command to find out the ID of
+the container, and then use “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code>” to start a shell on that container. We have created aliases for
+them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps // Alias for: docker ps --format &quot;{{.ID}} {{.Names}}&quot;
+$ docksh &lt;id&gt; // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275 hostA-10.9.0.5
+0af4ea7a3e2e hostB-10.9.0.6
+9652715c8e0a hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems”
+section of the manual for potential solutions</p>
+</div>
+<div class="section" id="about-the-attacker-container">
+<h3>About the Attacker Container<a class="headerlink" href="#about-the-attacker-container" title="Permalink to this headline">¶</a></h3>
+<p>In this lab, we can either use the VM or the attacker container as the
+attacker machine. If you look at the Docker Compose file, you will see
+that the attacker container is configured differently from the other
+containers. Here are the differences:</p>
+<ul>
+<li><p><em>Shared folder.</em> When we use the attacker container to launch attacks, we need to put the attacking
+code inside the attacker container. Code editing is more convenient inside the VM than in containers,
+because we can use our favorite editors. In order for the VM and container to share files, we have
+created a shared folder between the VM and the container using the Docker <code class="docutils literal notranslate"><span class="pre">volumes</span></code>. If you look
+at the Docker Compose file, you will find out that we have added the following entry to some of the
+containers. It indicates mounting the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder on the host machine (i.e., the VM) to the
+<code class="docutils literal notranslate"><span class="pre">/volumes</span></code> folder inside the container. We will write our code in the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder (on the
+VM), so they can be used inside the containers.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>volumes:
+      ./volumes:/volumes
+</pre></div>
+</div>
+</li>
+<li><p><em>Host mode.</em> In this lab, the attacker needs to be able to sniff packets, but running sniffer programs
+inside a container has problems, because a container is effectively attached to a virtual switch, so it
+can only see its own traffic, and it is never going to see the packets among other containers. To solve
+this problem, we use the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode for the attacker container. This allows the attacker container to
+see all the traffics. The following entry used on the attacker container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>network_mode: host
+</pre></div>
+</div>
+<p>When a container is in the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode, it sees all the host’s network interfaces, and it even has the
+same IP addresses as the host. Basically, it is put in the same network namespace as the host VM.
+However, the container is still a separate machine, because its other namespaces are still different
+from the host.</p>
+</li>
+</ul>
+<p><strong>Getting the network interface name.</strong> When we use the provided Compose file to create containers for
+this lab, a new network is created to connect the VM and the containers. The IP prefix for this network is
+10.9.0.0/24, which is specified in the docker-compose.yml file. The IP address assigned to our
+VM is 10.9.0.1. We need to find the name of the corresponding network interface on our VM, because
+we need to use it in our programs. The interface name is the concatenation of br- and the ID of the network
+created by Docker. When we use ifconfig to list network interfaces, we will see quite a few. Look for
+the IP address 10.9.0.1.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ifconfig
+br-c93733e9f913: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500
+         inet 10.9.0.1 netmask 255.255.255.0 broadcast 10.9.0.255
+         ...
+</pre></div>
+</div>
+<p>Another way to get the interface name is to use the “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">network</span></code>” command to find out the
+network ID ourselves (the name of the network is seed-net:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker network ls
+NETWORK ID       NAME        DRIVER     SCOPE
+a82477ae4e6b     bridge      bridge     local
+e99b370eb525     host        host       local
+df62c6635eae     none        null       local
+c93733e9f913     seed-net    bridge     local
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lab-task-set-1-using-scapy-to-sniff-and-spoof-packets">
+<h2>Lab Task Set 1: Using Scapy to Sniff and Spoof Packets<a class="headerlink" href="#lab-task-set-1-using-scapy-to-sniff-and-spoof-packets" title="Permalink to this headline">¶</a></h2>
+<p>Many tools can be used to do sniffing and spoofing, but most of them
+only provide fixed functionalities. Scapy is different: it can be used
+not only as a tool, but also as a building block to construct other
+sniffing and spoofing tools, i.e., we can integrate the Scapy
+functionalities into our own program. In this set of tasks, we will use
+Scapy for each task.</p>
+<p>To use Scapy, we can write a Python program, and then execute this
+program using Python. See the following example. We should run Python
+using the root privilege because the privilege is required for spoofing
+packets. At the beginning of the program (Line ➀), we should import all
+Scapy’s modules.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># view mycode.py
+#!/usr/bin/env python3
+
+from scapy.all import *    ➀
+
+a = IP()
+a.show()
+
+# python3 mycode.py
+###[ IP ]###
+  version   = 4
+  ihl       = None
+  ...
+
+
+// Make mycode.py executable (another way to run python programs)
+# chmod a+x mycode.py
+# mycode.py
+</pre></div>
+</div>
+<p>We can also get into the interactive mode of Python and then run our
+program one line at a time at the Python prompt. This is more convenient
+if we need to change our code frequently in an experiment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># python3
+&gt;&gt;&gt; from scapy.all import *
+&gt;&gt;&gt; a = IP()
+&gt;&gt;&gt; a.show()
+###[ IP ]###
+  version   = 4
+  ihl       = None
+  ...
+</pre></div>
+</div>
+<div class="section" id="task-1-1-sniffing-packets">
+<h3>Task 1.1: Sniffing Packets<a class="headerlink" href="#task-1-1-sniffing-packets" title="Permalink to this headline">¶</a></h3>
+<p>Wireshark is the most popular sniffing tool, and it is easy to use. We
+will use it throughout the entire lab. However, it is difficult to use
+Wireshark as a building block to construct other tools. We will use
+Scapy for that purpose. The objective of this task is to learn how to
+use Scapy to do packet sniffing in Python programs. A sample code is
+provided in the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+from scapy.all import *
+
+def print_pkt(pkt):
+  pkt.show()
+
+pkt = sniff(iface=&#39;br-c93733e9f913&#39;, filter=&#39;icmp&#39;, prn=print_pkt)
+</pre></div>
+</div>
+<p>The code above will sniff the packets on the <code class="docutils literal notranslate"><span class="pre">br-c93733e9f913</span></code>
+interface. Please read the instruction in the lab setup section
+regarding how to get the interface name. If we want to sniff on multiple
+interfaces, we can put all the interfaces in a list, and assign it to
+<code class="docutils literal notranslate"><span class="pre">iface</span></code>. See the following example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>iface=[&#39;br-c93733e9f913&#39;, &#39;enp0s3&#39;]
+</pre></div>
+</div>
+<p><strong>Task 1.1A.</strong> In the above program, for each captured packet, the callback function
+<code class="docutils literal notranslate"><span class="pre">print_pkt()</span></code> will be invoked; this function will print out some of
+the information about the packet. Run the program with the root
+privilege and demonstrate that you can indeed capture packets. After
+that, run the program again, but without using the root privilege;
+describe and explain your observations.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Make the program executable
+# chmod a+x sniffer.py
+
+// Run the program with the root privilege
+# sniffer.py
+
+// Switch to the &quot;seed&quot; account, and
+// run the program without the root privilege
+# su seed
+$ sniffer.py
+</pre></div>
+</div>
+<p><strong>Task 1.1B.</strong> Usually, when we sniff packets, we are only interested certain types of
+packets. We can do that by setting filters in sniffing. Scapy’s filter
+use the BPF (Berkeley Packet Filter) syntax; you can find the BPF manual
+from the Internet. Please set the following filters and demonstrate your
+sniffer program again (each filter should be set separately):</p>
+<ul class="simple">
+<li><p>Capture only the ICMP packet</p></li>
+<li><p>Capture any TCP packet that comes from a particular IP and with a
+destination port number 23.</p></li>
+<li><p>Capture packets comes from or to go to a particular subnet. You can
+pick any subnet, such as <code class="docutils literal notranslate"><span class="pre">128.230.0.0/16</span></code>; you should not pick the
+subnet that your VM is attached to.</p></li>
+</ul>
+</div>
+<div class="section" id="task-1-2-spoofing-icmp-packets">
+<h3>Task 1.2: Spoofing ICMP Packets<a class="headerlink" href="#task-1-2-spoofing-icmp-packets" title="Permalink to this headline">¶</a></h3>
+<p>As a packet spoofing tool, Scapy allows us to set the fields of IP
+packets to arbitrary values. The objective of this task is to spoof IP
+packets with an arbitrary source IP address. We will spoof ICMP echo
+request packets, and send them to another VM on the same network. We
+will use Wireshark to observe whether our request will be accepted by
+the receiver. If it is accepted, an echo reply packet will be sent to
+the spoofed IP address. The following code shows an example of how to
+spoof an ICMP packets.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from scapy.all import *
+&gt;&gt;&gt; a = IP()              ➀
+&gt;&gt;&gt; a.dst = &#39;10.0.2.3&#39;    ➁
+&gt;&gt;&gt; b = ICMP()            ➂
+&gt;&gt;&gt; p = a/b               ➃
+&gt;&gt;&gt; send(p)               ➄
+.
+Sent 1 packets.
+</pre></div>
+</div>
+<p>In the code above, Line ➀ creates an IP object from the IP class; a class
+attribute is defined for each IP header field. We can use <code class="docutils literal notranslate"><span class="pre">ls(a)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ls(IP)</span></code> to see all the attribute names/values. We can also use
+a.show() and IP.show() to do the same. Line ➁ shows how to set the
+destination IP address field. If a field is not set, a default value
+will be used.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ls(a)
+version    : BitField (4 bits)       = 4               (4)
+ihl        : BitField (4 bits)       = None            (None)
+tos        : XByteField              = 0               (0)
+len        : ShortField              = None            (None)
+id         : ShortField              = 1               (1)
+flags      : FlagsField (3 bits)     = &lt;Flag 0 ()&gt;     (&lt;Flag 0 ()&gt;)
+frag       : BitField (13 bits)      = 0               (0)
+ttl        : ByteField               = 64              (64)
+proto      : ByteEnumField           = 0               (0)
+chksum     : XShortField             = None            (None)
+src        : SourceIPField           = &#39;127.0.0.1&#39;     (None)
+dst        : DestIPField             = &#39;127.0.0.1&#39;     (None)
+options    : PacketListField         = []              ([])
+</pre></div>
+</div>
+<p>Line ➂ creates an ICMP object. The default type is echo request. In
+Line ➃, we stack <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> together to form a new object. The <code class="docutils literal notranslate"><span class="pre">/</span></code>
+operator is overloaded by the IP class, so it no longer represents
+division; instead, it means adding <code class="docutils literal notranslate"><span class="pre">b</span></code> as the payload field of <code class="docutils literal notranslate"><span class="pre">a</span></code>
+and modifying the fields of <code class="docutils literal notranslate"><span class="pre">a</span></code> accordingly. As a result, we get a new
+object that represent an ICMP packet. We can now send out this packet
+using <code class="docutils literal notranslate"><span class="pre">send()</span></code> in Line ➄. Please make any necessary change to the
+sample code, and then demonstrate that you can spoof an ICMP echo
+request packet with an arbitrary source IP address.</p>
+</div>
+<div class="section" id="task-1-3-traceroute">
+<h3>Task 1.3: Traceroute<a class="headerlink" href="#task-1-3-traceroute" title="Permalink to this headline">¶</a></h3>
+<p>The objective of this task is to use Scapy to estimate the distance, in
+terms of number of routers, between your VM and a selected destination.
+This is basically what is implemented by the <code class="docutils literal notranslate"><span class="pre">traceroute</span></code> tool. In
+this task, we will write our own tool. The idea is quite
+straightforward: just send an packet (any type) to the destination, with
+its Time-To-Live (TTL) field set to 1 first. This packet will be dropped
+by the first router, which will send us an ICMP error message, telling
+us that the time-to-live has exceeded. That is how we get the IP address
+of the first router. We then increase our TTL field to 2, send out
+another packet, and get the IP address of the second router. We will
+repeat this procedure until our packet finally reach the destination. It
+should be noted that this experiment only gets an estimated result,
+because in theory, not all these packets take the same route (but in
+practice, they may within a short period of time). The code in the
+following shows one round in the procedure.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = IP()
+a.dst = &#39;1.2.3.4&#39;
+a.ttl = 3
+b = ICMP()
+send(a/b)
+</pre></div>
+</div>
+<p>If you are an experienced Python programmer, you can write your tool to
+perform the entire procedure automatically. If you are new to Python
+programming, you can do it by manually changing the TTL field in each
+round, and record the IP address based on your observation from
+Wireshark. Either way is acceptable, as long as you get the result.</p>
+</div>
+<div class="section" id="task-1-4-sniffing-and-then-spoofing">
+<h3>Task 1.4: Sniffing and-then Spoofing<a class="headerlink" href="#task-1-4-sniffing-and-then-spoofing" title="Permalink to this headline">¶</a></h3>
+<p>In this task, you will combine the sniffing and spoofing techniques to
+implement the following sniff-and-then-spoof program. You need two
+machines on the same LAN: the VM and the user container. From the user
+container, you ping an IP X. This will generate an ICMP echo request
+packet. If X is alive, the ping program will receive an echo reply, and
+print out the response. Your sniff-and-then-spoof program runs on the
+VM, which monitors the LAN through packet sniffing. Whenever it sees an
+ICMP echo request, regardless of what the target IP address is, your
+program should immediately send out an echo reply using the packet
+spoofing technique. Therefore, regardless of whether machine X is alive
+or not, the ping program will always receive a reply, indicating that X
+is alive. You need to use Scapy to do this task. In your report, you
+need to provide evidence to demonstrate that your technique works.</p>
+<p>In your experiment, you should <code class="docutils literal notranslate"><span class="pre">ping</span></code> the following three IP addresses
+from the user container. Report your observation and explain the
+results.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ping 1.2.3.4     # a non-existing host on the Internet
+ping 10.9.0.99   # a non-existing host on the LAN
+ping 8.8.8.8     # an existing host on the Internet
+</pre></div>
+</div>
+<p><strong>Hint:</strong> You need to understand how the ARP protocol works in order to correctly
+explain your observation. You also need to know a little bit about
+routing. The following command help you find the router for a specified
+destination:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ip route get 1.2.3.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lab-task-set-2-writing-programs-to-sniff-and-spoof-packets">
+<h2>Lab Task Set 2: Writing Programs to Sniff and Spoof Packets<a class="headerlink" href="#lab-task-set-2-writing-programs-to-sniff-and-spoof-packets" title="Permalink to this headline">¶</a></h2>
+<p>For this set up of tasks, you should compile the C code inside the host
+VM, and then run the code inside the container.</p>
+<div class="section" id="task-2-1-writing-packet-sniffing-program">
+<h3>Task 2.1: Writing Packet Sniffing Program<a class="headerlink" href="#task-2-1-writing-packet-sniffing-program" title="Permalink to this headline">¶</a></h3>
+<p>Sniffer programs can be easily written using the <code class="docutils literal notranslate"><span class="pre">pcap</span></code> library. With
+<code class="docutils literal notranslate"><span class="pre">pcap</span></code>, the task of sniffers becomes invoking a simple sequence of
+procedures in the <code class="docutils literal notranslate"><span class="pre">pcap</span></code> library. At the end of the sequence, packets
+will be put in buffer for further processing as soon as they are
+captured. All the details of packet capturing are handled by the
+<code class="docutils literal notranslate"><span class="pre">pcap</span></code> library. The SEED book provides a sample code, showing how to
+write a simple sniffer program using <code class="docutils literal notranslate"><span class="pre">pcap</span></code>. We include the sample
+code in the following (see the book for detailed explanation).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;pcap.h&gt;
+#include &lt;stdio.h&gt;
+
+/* This function will be invoked by pcap for each captured packet.
+   We can process each packet inside the function.
+ */
+void got_packet(u_char *args, const struct pcap_pkthdr *header,
+        const u_char *packet)
+{
+   printf(&quot;Got a packet\n&quot;);
+}
+
+int main()
+{
+  pcap_t *handle;
+  char errbuf[PCAP_ERRBUF_SIZE];
+  struct bpf_program fp;
+  char filter_exp[] = &quot;icmp&quot;;
+  bpf_u_int32 net;
+
+  // Step 1: Open live pcap session on NIC with name eth3
+  //         Students needs to change &quot;eth3&quot; to the name
+  //         found on their own machines (using ifconfig).
+  handle = pcap_open_live(&quot;eth3&quot;, BUFSIZ, 1, 1000, errbuf);
+
+  // Step 2: Compile filter_exp into BPF psuedo-code
+  pcap_compile(handle, &amp;fp, filter_exp, 0, net);
+  if (pcap_setfilter(handle, &amp;fp) !=0) {
+      pcap_perror(handle, &quot;Error:&quot;);
+      exit(EXIT_FAILURE);
+  }
+
+  // Step 3: Capture packets
+  pcap_loop(handle, -1, got_packet, NULL);
+
+  pcap_close(handle);   //Close the handle
+  return 0;
+}
+
+
+// Note: don&#39;t forget to add &quot;-lpcap&quot; to the compilation command.
+// For example: gcc -o sniff sniff.c -lpcap
+</pre></div>
+</div>
+<p>Tim Carstens has also written a tutorial on how to use <code class="docutils literal notranslate"><span class="pre">pcap</span></code> library
+to write a sniffer program. The tutorial is available at
+<a class="reference external" href="http://www.tcpdump.org/pcap.htm">http://www.tcpdump.org/pcap.htm</a>.</p>
+<p><strong>Task 2.1A: Understanding How a Sniffer Works.</strong> In this task, students need to write a sniffer program to print out the
+source and destination IP addresses of each captured packet. Students
+can type in the above code or download the sample code from the SEED
+book’s website (<a class="reference external" href="https://www.handsonsecurity.net/figurecode.html">https://www.handsonsecurity.net/figurecode.html</a>).
+Students should provide screenshots as evidences to show that their
+sniffer program can run successfully and produces expected results. In
+addition, please answer the following questions:</p>
+<ul class="simple">
+<li><p><strong>Question 1.</strong> Please use your own words to describe the sequence of
+the library calls that are essential for sniffer programs. This is
+meant to be a summary, not detailed explanation like the one in the
+tutorial or book.</p></li>
+<li><p><strong>Question 2.</strong> Why do you need the root privilege to run a sniffer
+program? Where does the program fail if it is executed without the
+root privilege?</p></li>
+<li><p><strong>Question 3.</strong> Please turn on and turn off the promiscuous mode in
+your sniffer program. Can you demonstrate the difference when this
+mode is on and off? Please describe how you can demonstrate this.</p></li>
+</ul>
+<p><strong>Task 2.1B: Writing Filters.</strong> Please write filter expressions for your sniffer program to capture each
+of the followings. You can find online manuals for <code class="docutils literal notranslate"><span class="pre">pcap</span></code> filters. In
+your lab reports, you need to include screenshots to show the results
+after applying each of these filters.</p>
+<ul class="simple">
+<li><p>Capture the ICMP packets between two specific hosts.</p></li>
+<li><p>Capture the TCP packets with a destination port number in the range
+from 10 to 100.</p></li>
+</ul>
+<p><strong>Task 2.1C: Sniffing Passwords.</strong> Please show how you can use your sniffer program to capture the password
+when somebody is using <code class="docutils literal notranslate"><span class="pre">telnet</span></code> on the network that you are
+monitoring. You may need to modify your sniffer code to print out the
+data part of a captured TCP packet (<code class="docutils literal notranslate"><span class="pre">telnet</span></code> uses TCP). It is
+acceptable if you print out the entire data part, and then manually mark
+where the password (or part of it) is.</p>
+</div>
+<div class="section" id="task-2-2-spoofing">
+<h3>Task 2.2: Spoofing<a class="headerlink" href="#task-2-2-spoofing" title="Permalink to this headline">¶</a></h3>
+<p>When a normal user sends out a packet, operating systems usually do not
+allow the user to set all the fields in the protocol headers (such as
+TCP, UDP, and IP headers). OSes will set most of the fields, while only
+allowing users to set a few fields, such as the destination IP address,
+the destination port number, etc. However, if users have the root
+privilege, they can set any arbitrary field in the packet headers. This
+is called packet spoofing, and it can be done through raw sockets.</p>
+<p>Raw sockets give programmers the absolute control over the packet
+construction, allowing programmers to construct any arbitrary packet,
+including setting the header fields and the payload. Using raw sockets
+is quite straightforward; it involves four steps: (1) create a raw
+socket, (2) set socket option, (3) construct the packet, and (4) send
+out the packet through the raw socket. There are many online tutorials
+that can teach you how to use raw sockets in C programming. We have
+linked some tutorials to the lab’s web page. Please read them, and learn
+how to write a packet spoofing program. We show a simple skeleton of
+such a program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int sd;
+struct sockaddr_in sin;
+char buffer[1024]; // You can change the buffer size
+
+/* Create a raw socket with IP protocol. The IPPROTO_RAW parameter
+ * tells the sytem that the IP header is already included;
+ * this prevents the OS from adding another IP header.  */
+sd = socket(AF_INET, SOCK_RAW, IPPROTO_RAW);
+if(sd &lt; 0) {
+    perror(&quot;socket() error&quot;); exit(-1);
+}
+
+/* This data structure is needed when sending the packets
+ * using sockets. Normally, we need to fill out several
+ * fields, but for raw sockets, we only need to fill out
+ * this one field */
+sin.sin_family = AF_INET;
+
+// Here you can construct the IP packet using buffer[]
+//    - construct the IP header ...
+//    - construct the TCP/UDP/ICMP header ...
+//    - fill in the data part if needed ...
+// Note: you should pay attention to the network/host byte order.
+
+
+/* Send out the IP packet.
+ * ip_len is the actual size of the packet. */
+if(sendto(sd, buffer, ip_len, 0, (struct sockaddr *)&amp;sin,
+              sizeof(sin)) &lt; 0) {
+      perror(&quot;sendto() error&quot;); exit(-1);
+}
+</pre></div>
+</div>
+<p><strong>Task 2.2A: Write a spoofing program.</strong> Please write your own packet spoofing program in C. You need to provide
+evidences (e.g., Wireshark packet trace) to show that your program
+successfully sends out spoofed IP packets.</p>
+<p><strong>Task 2.2B: Spoof an ICMP Echo Request.</strong> Spoof an ICMP echo request packet on behalf of another machine (i.e.,
+using another machine’s IP address as its source IP address). This
+packet should be sent to a remote machine on the Internet (the machine
+must be alive). You should turn on your Wireshark, so if your spoofing
+is successful, you can see the echo reply coming back from the remote
+machine.</p>
+<p><strong>Questions.</strong> Please answer the following questions.</p>
+<ul class="simple">
+<li><p><strong>Question 4.</strong> Can you set the IP packet length field to an
+arbitrary value, regardless of how big the actual packet is?</p></li>
+<li><p><strong>Question 5.</strong> Using the raw socket programming, do you have to
+calculate the checksum for the IP header?</p></li>
+<li><p><strong>Question 6.</strong> Why do you need the root privilege to run the
+programs that use raw sockets? Where does the program fail if
+executed without the root privilege?</p></li>
+</ul>
+</div>
+<div class="section" id="task-2-3-sniff-and-then-spoof">
+<h3>Task 2.3: Sniff and then Spoof<a class="headerlink" href="#task-2-3-sniff-and-then-spoof" title="Permalink to this headline">¶</a></h3>
+<p>In this task, you will combine the sniffing and spoofing techniques to
+implement the following sniff-and-then-spoof program. You need two VMs
+on the same LAN. From VM A, you ping an IP X. This will generate an ICMP
+echo request packet. If X is alive, the ping program will receive an
+echo reply, and print out the response. Your sniff-and-then-spoof
+program runs on VM B, which monitors the LAN through packet sniffing.
+Whenever it sees an ICMP echo request, regardless of what the target IP
+address is, your program should immediately send out an echo reply using
+the packet spoofing technique. Therefore, regardless of whether machine
+X is alive or not, the ping program will always receive a reply,
+indicating that X is alive. You need to write such a program in C, and
+include screenshots in your report to show that your program works.
+Please also attach the code (with adequate amount of comments) in your
+report.</p>
+</div>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="filling-in-data-in-raw-packets">
+<h3>Filling in Data in Raw Packets<a class="headerlink" href="#filling-in-data-in-raw-packets" title="Permalink to this headline">¶</a></h3>
+<p>When you send out a packet using raw sockets, you basically construct
+the packet inside a buffer, so when you need to send it out, you simply
+give the operating system the buffer and the size of the packet. Working
+directly on the buffer is not easy, so a common way is to typecast the
+buffer (or part of the buffer) into structures, such as IP header
+structure, so you can refer to the elements of the buffer using the
+fields of those structures. You can define the IP, ICMP, TCP, UDP and
+other header structures in your program. The following example show how
+you can construct an UDP packet:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>struct ipheader {
+   type  field;
+   .....
+}
+
+struct udpheader {
+   type field;
+   ......
+}
+
+// This buffer will be used to construct raw packet.
+char buffer[1024];
+
+// Typecasting the buffer to the IP header structure
+struct ipheader *ip = (struct ipheader *) buffer;
+
+// Typecasting the buffer to the UDP header structure
+struct udpheader *udp = (struct udpheader *) (buffer
+                             + sizeof(struct ipheader));
+
+// Assign value to the IP and UDP header fields.
+ip-&gt;field = ...;
+udp-&gt;field = ...;
+</pre></div>
+</div>
+</div>
+<div class="section" id="network-host-byte-order-and-the-conversions">
+<h3>Network/Host Byte Order and the Conversions<a class="headerlink" href="#network-host-byte-order-and-the-conversions" title="Permalink to this headline">¶</a></h3>
+<p>You need to pay attention to the network and host byte orders. If you
+use x86 CPU, your host byte order uses Little Endian, while the network
+byte order uses Big Endian. Whatever the data you put into the packet
+buffer has to use the network byte order; if you do not do that, your
+packet will not be correct. You actually do not need to worry about what
+kind of Endian your machine is using, and you actually should not worry
+about if you want your program to be portable.</p>
+<p>What you need to do is to always remember to convert your data to the
+network byte order when you place the data into the buffer, and convert
+them to the host byte order when you copy the data from the buffer to a
+data structure on your computer. If the data is a single byte, you do
+not need to worry about the order, but if the data is a short, int,
+long, or a data type that consists of more than one byte, you need to
+call one of the following functions to convert the data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>htonl(): convert unsigned int from host to network byte order.
+ntohl(): reverse of htonl().
+htons(): convert unsigned short int from host to network byte order.
+ntohs(): reverse of htons().
+</pre></div>
+</div>
+<p>You may also need to use inet_addr(), inet_network(), inet_ntoa(),
+inet_aton() to convert IP addresses from the dotted decimal form (a
+string) to a 32-bit integer of network/host byte order. You can get
+their manuals from the Internet.</p>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="TCP_Attacks.html" class="btn btn-neutral float-right" title="TCP/IP Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Mitnick_Attack.html" class="btn btn-neutral float-left" title="The Mitnick Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

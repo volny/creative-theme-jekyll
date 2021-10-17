@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Environment Variable and Program Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Race Condition Vulnerability Lab" href="Race_Condition.html" />
+    <link rel="prev" title="Return-to-libc Attack Lab" href="Return_to_Libc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="software_index.html">Software Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html">Shellcode Development Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Environment Variable and Program Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-manipulating-environment-variables">Task 1: Manipulating Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-passing-environment-variables-from-parent-process-to-child-process">Task 2: Passing Environment Variables from Parent Process to Child Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-environment-variables-and-execve">Task 3: Environment Variables and execve()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-environment-variables-and-system">Task 4: Environment Variables and system()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-environment-variable-and-programs">Task 5: Environment Variable and Programs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-the-path-environment-variable-and-set-uid-programs">Task 6: The PATH Environment Variable and Set-UID Programs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-7-the-ld-preload-environment-variable-and-programs">Task 7: The LD_PRELOAD Environment Variable and Programs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-8-invoking-external-programs-using-system-versus-execve">Task 8: Invoking External Programs Using system() versus execve()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-9-capability-leaking">Task 9: Capability Leaking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html">Race Condition Vulnerability Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html">Dirty COW Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html">Shellshock Attack Lab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="software_index.html">Software Security Labs</a> &raquo;</li>
+        
+      <li>Environment Variable and Program Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="environment-variable-and-program-lab">
+<h1>Environment Variable and Program Lab<a class="headerlink" href="#environment-variable-and-program-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The learning objective of this lab is for students to understand how
+environment variables affect program and system behaviors. Environment
+variables are a set of dynamic named values that can affect the way
+running processes will behave on a computer. They are used by most
+operating systems, since they were introduced to Unix in 1979. Although
+environment variables affect program behaviors, how they achieve that is
+not well understood by many programmers. As a result, if a program uses
+environment variables, but the programmer does not know that they are
+used, the program may have vulnerabilities.</p>
+<p>In this lab, students will understand how environment variables work,
+how they are propagated from parent process to child, and how they
+affect system/program behaviors. We are particularly interested in how
+environment variables affect the behavior of programs, which are usually
+privileged programs. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Environment variables</p></li>
+<li><p>programs</p></li>
+<li><p>Securely invoke external programs</p></li>
+<li><p>Capability leaking</p></li>
+<li><p>Dynamic loader/linker</p></li>
+</ul>
+<p><strong>Readings and videos.</strong> Detailed coverage of the mechanism, environment variables, and their
+related security problems can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapters 1 and 2 of the SEED Book, , Computer &amp; Internet Security: A Hands-on Approach, 2nd
+Edition, by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 2 of the SEED Lecture at Udemy, Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
+image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
+labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
+<p><strong>Lab tasks.</strong> Files needed for this lab are included in <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code>, which can be
+downloaded from the lab’s website.</p>
+</div>
+<div class="section" id="task-1-manipulating-environment-variables">
+<h2>Task 1: Manipulating Environment Variables<a class="headerlink" href="#task-1-manipulating-environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we study the commands that can be used to set and unset
+environment variables. We are using Bash in the seed account. The
+default shell that a user uses is set in the /etc/passwd file (the last
+field of each entry). You can change this to another shell program using
+the command chsh (please do not do it for this lab). Please do the
+following tasks:</p>
+<ul class="simple">
+<li><p>Use printenv or env command to print out the environment variables.
+If you are interested in some particular environment variables, such
+as PWD, you can use “printenv PWD” or “env | grep PWD”.</p></li>
+<li><p>Use export and unset to set or unset environment variables. It should
+be noted that these two commands are not separate programs; they are
+two of the Bash’s internal commands (you will not be able to find
+them outside of Bash).</p></li>
+</ul>
+</div>
+<div class="section" id="task-2-passing-environment-variables-from-parent-process-to-child-process">
+<h2>Task 2: Passing Environment Variables from Parent Process to Child Process<a class="headerlink" href="#task-2-passing-environment-variables-from-parent-process-to-child-process" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we study how a child process gets its environment
+variables from its parent. In Unix, fork() creates a new process by
+duplicating the calling process. The new process, referred to as the
+child, is an exact duplicate of the calling process, referred to as the
+parent; however, several things are not inherited by the child (please
+see the manual of fork() by typing the following command: man fork). In
+this task, we would like to know whether the parent’s environment
+variables are inherited by the child process or not.</p>
+<p><strong>Step 1.</strong> Please compile and run the following program, and describe your
+observation. The program can be found in the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder; it can
+be compiled using <code class="docutils literal notranslate"><span class="pre">&quot;gcc</span> <span class="pre">myprintenv.c&quot;</span></code>, which will generate a binary
+called <code class="docutils literal notranslate"><span class="pre">a.out</span></code>. Let’s run it and save the output into a file using
+<code class="docutils literal notranslate"><span class="pre">&quot;a.out</span> <span class="pre">&gt;</span> <span class="pre">file&quot;</span></code>. Below is Listing 1: <code class="docutils literal notranslate"><span class="pre">myprintenv.c</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+extern char **environ;
+void printenv()
+{
+  int i = 0;
+  while (environ[i] != NULL) {
+     printf(&quot;%s\n&quot;, environ[i]);
+     i++;
+  }
+}
+
+void main()
+{
+  pid_t childPid;
+  switch(childPid = fork()) {
+    case 0:  /* child process */
+      printenv();          ➀
+      exit(0);
+    default:  /* parent process */
+      //printenv();        ➁
+      exit(0);
+  }
+}
+</pre></div>
+</div>
+<p><strong>Step 2.</strong> Now comment out the printenv() statement in the child process case (Line ➀
+), and uncomment the printenv() statement in the parent process case
+(Line ➁). Compile and run the code again, and describe your observation.
+Save the output in another file.</p>
+<p><strong>Step 3.</strong> Compare the difference of these two files using the <code class="docutils literal notranslate"><span class="pre">diff</span></code> command. Please
+draw your conclusion.</p>
+</div>
+<div class="section" id="task-3-environment-variables-and-execve">
+<h2>Task 3: Environment Variables and execve()<a class="headerlink" href="#task-3-environment-variables-and-execve" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we study how environment variables are affected when a new
+program is executed via execve(). The function execve() calls a system
+call to load a new command and execute it; this function never returns.
+No new process is created; instead, the calling process’s text, data,
+bss, and stack are overwritten by that of the program loaded.
+Essentially, execve() runs the new program inside the calling process.
+We are interested in what happens to the environment variables; are they
+automatically inherited by the new program?</p>
+<p><strong>Step 1.</strong> Please compile and run the following program, and describe your
+observation. This program simply executes a program called
+<code class="docutils literal notranslate"><span class="pre">/usr/bin/env</span></code>, which prints out the environment variables of the
+current process. Listing 2: <code class="docutils literal notranslate"><span class="pre">myenv.c</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &lt;unistd.h&gt;
+
+extern char **environ;
+int main()
+{
+  char *argv[2];
+
+  argv[0] = &quot;/usr/bin/env&quot;;
+  argv[1] = NULL;
+  execve(&quot;/usr/bin/env&quot;, argv, NULL);    ➀
+
+  return 0 ;
+}
+</pre></div>
+</div>
+<p><strong>Step 2.</strong> Change the invocation of execve() in Line ➀ to the following; describe
+your observation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>execve(&quot;/usr/bin/env&quot;, argv, environ);
+</pre></div>
+</div>
+<p><strong>Step 3.</strong> Please draw your conclusion regarding how the new program gets its
+environment variables.</p>
+</div>
+<div class="section" id="task-4-environment-variables-and-system">
+<h2>Task 4: Environment Variables and system()<a class="headerlink" href="#task-4-environment-variables-and-system" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we study how environment variables are affected when a new
+program is executed via the system() function. This function is used to
+execute a command, but unlike execve(), which directly executes a
+command, system() actually executes <code class="docutils literal notranslate"><span class="pre">&quot;/bin/sh</span> <span class="pre">-c</span> <span class="pre">command&quot;</span></code>, i.e., it
+executes /bin/sh, and asks the shell to execute the command.</p>
+<p>If you look at the implementation of the system() function, you will see
+that it uses execl() to execute /bin/sh; execl() calls execve(), passing
+to it the environment variables array. Therefore, using system(), the
+environment variables of the calling process is passed to the new
+program /bin/sh. Please compile and run the following program to verify
+this.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">system</span><span class="p">(</span><span class="s">&quot;/usr/bin/env&quot;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-5-environment-variable-and-programs">
+<h2>Task 5: Environment Variable and Programs<a class="headerlink" href="#task-5-environment-variable-and-programs" title="Permalink to this headline">¶</a></h2>
+<p>Set-UID is an important security mechanism in Unix operating systems.
+When a program runs, it assumes the owner’s privileges. For example, if
+the program’s owner is root, when anyone runs this program, the program
+gains the root’s privileges during its execution. Set-UID allows us to
+do many interesting things, but since it escalates the user’s privilege,
+it is quite risky. Although the behaviors of programs are decided by
+their program logic, not by users, users can indeed affect the behaviors
+via environment variables. To understand how programs are affected, let
+us first figure out whether environment variables are inherited by the
+program’s process from the user’s process.</p>
+<p><strong>Step 1.</strong> Write the following program that can print out all the environment
+variables in the current process.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="k">extern</span> <span class="kt">char</span> <span class="o">**</span><span class="n">environ</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">environ</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Step 2.</strong> Compile the above program, change its ownership to root, and make it a
+program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Asssume the program&#39;s name is foo
+$ sudo chown root foo
+$ sudo chmod 4755 foo
+</pre></div>
+</div>
+<p><strong>Step 3.</strong> In your shell (you need to be in a normal user account, not the root
+account), use the export command to set the following environment
+variables (they may have already exist):</p>
+<ul class="simple">
+<li><p>PATH</p></li>
+<li><p>LD_LIBRARY_PATH</p></li>
+<li><p>ANY_NAME (this is an environment variable defined by you, so pick
+whatever name you want).</p></li>
+</ul>
+<p>These environment variables are set in the user’s shell process. Now,
+run the program from Step 2 in your shell. After you type the name of
+the program in your shell, the shell forks a child process, and uses the
+child process to run the program. Please check whether all the
+environment variables you set in the shell process (parent) get into the
+child process. Describe your observation. If there are surprises to you,
+describe them.</p>
+</div>
+<div class="section" id="task-6-the-path-environment-variable-and-set-uid-programs">
+<h2>Task 6: The PATH Environment Variable and Set-UID Programs<a class="headerlink" href="#task-6-the-path-environment-variable-and-set-uid-programs" title="Permalink to this headline">¶</a></h2>
+<p>Because of the shell program invoked, calling <code class="docutils literal notranslate"><span class="pre">system()</span></code> within a program
+is quite dangerous. This is because the actual behavior of the shell
+program can be affected by environment variables, such as PATH; these
+environment variables are provided by the user, who may be malicious. By
+changing these variables, malicious users can control the behavior of
+the Set-UID program. In Bash, you can change the PATH environment
+variable in the following way (this example adds the directory
+<code class="docutils literal notranslate"><span class="pre">/home/seed</span></code> to the beginning of the PATH environment variable):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ export PATH=/home/seed:$PATH
+</pre></div>
+</div>
+<p>The program below is supposed to execute the <code class="docutils literal notranslate"><span class="pre">/bin/ls</span></code> command; however,
+the programmer only uses the relative path for the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command, rather
+than the absolute path:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">system</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Please compile the above program, change its owner to root, and make
+it a program. Can you get this program to run your own malicious code,
+instead of <code class="docutils literal notranslate"><span class="pre">/bin/ls</span></code>? If you can, is your malicious code running with
+the root privilege? Describe and explain your observations.</div>
+</div>
+<p><strong>Note:</strong> The <code class="docutils literal notranslate"><span class="pre">system(cmd)</span></code> function executes the <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> program first, and
+then asks this shell program to run the <code class="docutils literal notranslate"><span class="pre">cmd</span></code> command. In Ubuntu 20.04
+(and several versions before), <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> is actually a symbolic link
+pointing to <code class="docutils literal notranslate"><span class="pre">/bin/dash</span></code>. This shell program has a countermeasure that
+prevents itself from being executed in a process. Basically, if <code class="docutils literal notranslate"><span class="pre">dash</span></code>
+detects that it is executed in a process, it immediately changes the
+effective user ID to the process’s real user ID, essentially dropping
+the privilege.</p>
+<p>Since our victim program is a program, the countermeasure in
+<code class="docutils literal notranslate"><span class="pre">/bin/dash</span></code> can prevent our attack. To see how our attack works
+without such a countermeasure, we will link <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> to another shell
+that does not have such a countermeasure. We have installed a shell
+program called <code class="docutils literal notranslate"><span class="pre">zsh</span></code> in our Ubuntu 20.04 VM. We use the following
+commands to link <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> to <code class="docutils literal notranslate"><span class="pre">/bin/zsh</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo ln -sf /bin/zsh /bin/sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-7-the-ld-preload-environment-variable-and-programs">
+<h2>Task 7: The LD_PRELOAD Environment Variable and Programs<a class="headerlink" href="#task-7-the-ld-preload-environment-variable-and-programs" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we study how programs deal with some of the environment
+variables. Several environment variables, including LD_PRELOAD,
+LD_LIBRARY_PATH, and other <code class="docutils literal notranslate"><span class="pre">LD_*</span></code> influence the behavior of dynamic
+loader/linker. A dynamic loader/linker is the part of an operating
+system (OS) that loads (from persistent storage to RAM) and links the
+shared libraries needed by an executable at run time.</p>
+<p>In Linux, ld.so or ld-linux.so, are the dynamic loader/linker (each for
+different types of binary). Among the environment variables that affect
+their behaviors, LD_LIBRARY_PATH and LD_PRELOAD are the two that we are
+concerned in this lab. In Linux, LD_LIBRARY_PATH is a colon-separated
+set of directories where libraries should be searched for first, before
+the standard set of directories. LD_PRELOAD specifies a list of
+additional, user-specified, shared libraries to be loaded before all
+others. In this task, we will only study LD_PRELOAD.</p>
+<p><strong>Step 1.</strong> First, we will see how these environment variables influence the
+behavior of dynamic loader/linker when running a normal program. Please
+follow these steps:</p>
+<ol class="arabic">
+<li><p>Let us build a dynamic link library. Create the following program,
+and name it mylib.c. It basically overrides the sleep() function in
+libc:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="kt">void</span> <span class="nf">sleep</span> <span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="cm">/* If this is invoked by a privileged program,</span>
+<span class="cm">     you can do damages here!  */</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;I am not sleeping!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>We can compile the above program using the following commands (in the
+-lc argument, the second character is <span class="math notranslate nohighlight">\(\ell\)</span>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc -fPIC -g -c mylib.c
+$ gcc -shared -o libmylib.so.1.0.1 mylib.o -lc
+</pre></div>
+</div>
+</li>
+<li><p>Now, set the LD_PRELOAD environment variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ export LD_PRELOAD=./libmylib.so.1.0.1
+</pre></div>
+</div>
+</li>
+<li><p>Finally, compile the following program myprog, and in the same
+directory as the above dynamic link library libmylib.so.1.0.1:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* myprog.c */</span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Step 2.</strong> After you have done the above, please run myprog under the following
+conditions, and observe what happens.</p>
+<ul class="simple">
+<li><p>Make myprog a regular program, and run it as a normal user.</p></li>
+<li><p>Make myprog a root program, and run it as a normal user.</p></li>
+<li><p>Make myprog a root program, export the LD_PRELOAD environment
+variable again in the root account and run it.</p></li>
+<li><p>Make myprog a user1 program (i.e., the owner is user1, which is
+another user account), export the LD_PRELOAD environment variable
+again in a different user’s account (not-root user) and run it.</p></li>
+</ul>
+<p><strong>Step 3.</strong> You should be able to observe different behaviors in the scenarios
+described above, even though you are running the same program. You need
+to figure out what causes the difference. Environment variables play a
+role here. Please design an experiment to figure out the main causes,
+and explain why the behaviors in Step 2 are different. (Hint: the child
+process may not inherit the <code class="docutils literal notranslate"><span class="pre">LD_*</span></code> environment variables).</p>
+</div>
+<div class="section" id="task-8-invoking-external-programs-using-system-versus-execve">
+<h2>Task 8: Invoking External Programs Using system() versus execve()<a class="headerlink" href="#task-8-invoking-external-programs-using-system-versus-execve" title="Permalink to this headline">¶</a></h2>
+<p>Although system() and execve() can both be used to run new programs,
+system() is quite dangerous if used in a privileged program, such as
+programs. We have seen how the PATH environment variable affect the
+behavior of system(), because the variable affects how the shell works.
+execve() does not have the problem, because it does not invoke shell.
+Invoking shell has another dangerous consequence, and this time, it has
+nothing to do with environment variables. Let us look at the following
+scenario.</p>
+<p>Bob works for an auditing agency, and he needs to investigate a company
+for a suspected fraud. For the investigation purpose, Bob needs to be
+able to read all the files in the company’s system; on the other hand,
+to protect the integrity of the system, Bob should not be able to modify
+any file. To achieve this goal, Vince, the superuser of the system,
+wrote a special set-root-uid program (see below), and then gave the
+executable permission to Bob. This program requires Bob to type a file
+name at the command line, and then it will run /bin/cat to display the
+specified file. Since the program is running as a root, it can display
+any file Bob specifies. However, since the program has no write
+operations, Vince is very sure that Bob cannot use this special program
+to modify any file. Listing 3: <code class="docutils literal notranslate"><span class="pre">catall.c</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>int main(int argc, char *argv[])
+{
+  char *v[3];
+  char *command;
+
+  if(argc &lt; 2) {
+    printf(&quot;Please type a file name.\n&quot;);
+    return 1;
+  }
+
+  v[0] = &quot;/bin/cat&quot;; v[1] = argv[1]; v[2] = NULL;
+  command = malloc(strlen(v[0]) + strlen(v[1]) + 2);
+  sprintf(command, &quot;%s %s&quot;, v[0], v[1]);
+
+  // Use only one of the followings.
+  system(command);
+  // execve(v[0], v, NULL);
+
+  return 0 ;
+}
+</pre></div>
+</div>
+<p><strong>Step 1:</strong> Compile the above program, make it a root-owned program. The program
+will use system() to invoke the command. If you were Bob, can you
+compromise the integrity of the system? For example, can you remove a
+file that is not writable to you?</p>
+<p><strong>Step 2:</strong> Comment out the system(command) statement, and uncomment the execve()
+statement; the program will use execve() to invoke the command. Compile
+the program, and make it a root-owned . Do your attacks in Step 1 still
+work? Please describe and explain your observations.</p>
+</div>
+<div class="section" id="task-9-capability-leaking">
+<h2>Task 9: Capability Leaking<a class="headerlink" href="#task-9-capability-leaking" title="Permalink to this headline">¶</a></h2>
+<p>To follow the Principle of Least Privilege, programs often permanently
+relinquish their root privileges if such privileges are not needed
+anymore. Moreover, sometimes, the program needs to hand over its control
+to the user; in this case, root privileges must be revoked. The setuid()
+system call can be used to revoke the privileges. According to the
+manual, <code class="docutils literal notranslate"><span class="pre">“setuid()</span></code> sets the effective user ID of the calling process.
+If the effective UID of the caller is root, the real UID and saved
+set-user-ID are also set”. Therefore, if a program with effective UID 0
+calls <code class="docutils literal notranslate"><span class="pre">setuid(n)</span></code>, the process will become a normal process, with all
+its UIDs being set to <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>When revoking the privilege, one of the common mistakes is capability
+leaking. The process may have gained some privileged capabilities when
+it was still privileged; when the privilege is downgraded, if the
+program does not clean up those capabilities, they may still be
+accessible by the non-privileged process. In other words, although the
+effective user ID of the process becomes non-privileged, the process is
+still privileged because it possesses privileged capabilities.</p>
+<p>Compile the following program, change its owner to root, and make it a
+program. Run the program as a normal user. Can you exploit the
+capability leaking vulnerability in this program? The goal is to write
+to the <code class="docutils literal notranslate"><span class="pre">/etc/zzz</span></code> file as a normal user. Listing 4: <code class="docutils literal notranslate"><span class="pre">cap_leak.c</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>void main()
+{
+  int fd;
+  char *v[2];
+
+  /* Assume that /etc/zzz is an important system file,
+   * and it is owned by root with permission 0644.
+   * Before running this program, you should create
+   * the file /etc/zzz first. */
+  fd = open(&quot;/etc/zzz&quot;, O_RDWR | O_APPEND);
+  if (fd == -1) {
+     printf(&quot;Cannot open /etc/zzz\n&quot;);
+     exit(0);
+  }
+
+  // Print out the file descriptor value
+  printf(&quot;fd is %d\n&quot;, fd);
+
+  // Permanently disable the privilege by making the
+  // effective uid the same as the real uid
+  setuid(getuid());
+
+  // Execute /bin/sh
+  v[0] = &quot;/bin/sh&quot;; v[1] = 0;
+  execve(v[0], v, 0);
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Race_Condition.html" class="btn btn-neutral float-right" title="Race Condition Vulnerability Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Return_to_Libc.html" class="btn btn-neutral float-left" title="Return-to-libc Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

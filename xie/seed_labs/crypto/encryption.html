@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Secret-Key Encryption Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hash Length Extension Attack Lab" href="hash_length_ext.html" />
+    <link rel="prev" title="Cryptography Labs" href="crypto_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="crypto_index.html">Cryptography Labs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Secret-Key Encryption Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-frequency-analysis">Task 1: Frequency Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-encryption-using-different-ciphers-and-modes">Task 2: Encryption using Different Ciphers and Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-encryption-mode-ecb-vs-cbc">Task 3: Encryption Mode – ECB vs. CBC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-padding">Task 4: Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-error-propagation-corrupted-cipher-text">Task 5: Error Propagation – Corrupted Cipher Text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-initial-vector-iv-and-common-mistakes">Task 6: Initial Vector (IV) and Common Mistakes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-7-programming-using-the-crypto-library">Task 7: Programming using the Crypto Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#note-to-instructors">Note to instructors.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html">Hash Length Extension Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html">MD5 Collision Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html">Padding Oracle Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html">Public-Key Infrastructure (PKI) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html">Pseudo Random Number Generation Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html">RSA Public-Key Encryption and Signature Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html">Transport Layer Security (TLS) Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="crypto_index.html">Cryptography Labs</a> &raquo;</li>
+        
+      <li>Secret-Key Encryption Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Secret-Key Encryption Lab</p>
+</div>
+<div class="section" id="secret-key-encryption-lab">
+<h1>Secret-Key Encryption Lab<a class="headerlink" href="#secret-key-encryption-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The learning objective of this lab is for students to get familiar with
+the concepts in the secret-key encryption and some common attacks on
+encryption. From this lab, students will gain a first-hand experience on
+encryption algorithms, encryption modes, paddings, and initial vector
+(IV). Moreover, students will be able to use tools and write programs to
+encrypt/decrypt messages.</p>
+<p>Many common mistakes have been made by developers in using the
+encryption algorithms and modes. These mistakes weaken the strength of
+the encryption, and eventually lead to vulnerabilities. This lab exposes
+students to some of these mistakes, and ask students to launch attacks
+to exploit those vulnerabilities. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Secret-key encryption</p></li>
+<li><p>Substitution cipher and frequency analysis</p></li>
+<li><p>Encryption modes, IV, and paddings</p></li>
+<li><p>Common mistakes in using encryption algorithms</p></li>
+<li><p>Programming using the crypto library</p></li>
+</ul>
+<div class="section" id="readings">
+<h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the secret-key encryption can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 21 of the SEED Book,</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we use a container to run an encryption oracle. The
+container is only needed in Task 6.3, so you do not need to start the
+container for other tasks.</p>
+</div>
+<div class="section" id="task-1-frequency-analysis">
+<h2>Task 1: Frequency Analysis<a class="headerlink" href="#task-1-frequency-analysis" title="Permalink to this headline">¶</a></h2>
+<p>It is well-known that monoalphabetic substitution cipher (also known as
+monoalphabetic cipher) is not secure, because it can be subjected to
+frequency analysis. In this lab, you are given a cipher-text that is
+encrypted using a monoalphabetic cipher; namely, each letter in the
+original text is replaced by another letter, where the replacement does
+not vary (i.e., a letter is always replaced by the same letter during
+the encryption). Your job is to find out the original text using
+frequency analysis. It is known that the original text is an English
+article.</p>
+<p>In the following, we describe how we encrypt the original article, and
+what simplification we have made. Instructors can use the same method to
+encrypt an article of their choices, instead of asking students to use
+the ciphertext made by us.</p>
+<ul>
+<li><p>Step 1: let us generate the encryption key, i.e., the substitution
+table. We will permute the alphabet from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">z</span></code> using Python,
+and use the permuted alphabet as the key. See the following program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/env python3
+
+import random
+s = &quot;abcdefghijklmnopqrstuvwxyz&quot;
+list = random.sample(s, len(s))
+key = &#39;&#39;.join(list)
+print(key)
+</pre></div>
+</div>
+</li>
+<li><p>Step 2: let us do some simplification to the original article. We
+convert all upper cases to lower cases, and then removed all the
+punctuations and numbers. We do keep the spaces between words, so you
+can still see the boundaries of the words in the ciphertext. In real
+encryption using monoalphabetic cipher, spaces will be removed. We
+keep the spaces to simplify the task. We did this using the following
+command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ tr [:upper:] [:lower:] &lt; article.txt &gt; lowercase.txt
+$ tr -cd &#39;[a-z][\n][:space:]&#39; &lt; lowercase.txt &gt; plaintext.txt
+</pre></div>
+</div>
+</li>
+<li><p>Step 3: we use the <code class="docutils literal notranslate"><span class="pre">tr</span></code> command to do the encryption. We only
+encrypt letters, while leaving the space and return characters alone.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ tr &#39;abcdefghijklmnopqrstuvwxyz&#39; &#39;sxtrwinqbedpvgkfmalhyuojzc&#39; \
+      &lt; plaintext.txt &gt; ciphertext.txt
+</pre></div>
+</div>
+</li>
+</ul>
+<p>We have created a ciphertext using a different encryption key (not the
+one described above). It is included in <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file, which can
+be downloaded from the lab’s website. Your job is to use the frequency
+analysis to figure out the encryption key and the original plaintext.</p>
+<div class="section" id="guidelines">
+<h3>Guidelines.<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h3>
+<p>Using the frequency analysis, you can find out the plaintext for some of
+the characters quite easily. For those characters, you may want to
+change them back to its plaintext, as you may be able to get more clues.
+It is better to use capital letters for plaintext, so for the same
+letter, we know which is plaintext and which is ciphertext. You can use
+the <code class="docutils literal notranslate"><span class="pre">tr</span></code> command to do this. For example, in the following, we replace
+letters <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, and <code class="docutils literal notranslate"><span class="pre">t</span></code> in <code class="docutils literal notranslate"><span class="pre">in.txt</span></code> with letters <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>,
+<code class="docutils literal notranslate"><span class="pre">E</span></code>, respectively; the results are saved in <code class="docutils literal notranslate"><span class="pre">out.txt</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ tr &#39;aet&#39; &#39;XGE&#39; &lt; in.txt &gt; out.txt
+</pre></div>
+</div>
+<p>There are many online resources that you can use. We list four useful
+links in the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.richkni.co.uk/php/crypta/freq.php">http://www.richkni.co.uk/php/crypta/freq.php</a> : This website can
+produce the statistics from a ciphertext, including the single-letter
+frequencies, bigram frequencies (2-letter sequence), and trigram
+frequencies (3-letter sequence), etc.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_analysis">https://en.wikipedia.org/wiki/Frequency_analysis</a>: This Wikipedia page
+provides frequencies for a typical English plaintext.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bigram">https://en.wikipedia.org/wiki/Bigram</a>: Bigram frequency.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Trigram">https://en.wikipedia.org/wiki/Trigram</a>: Trigram frequency.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-2-encryption-using-different-ciphers-and-modes">
+<h2>Task 2: Encryption using Different Ciphers and Modes<a class="headerlink" href="#task-2-encryption-using-different-ciphers-and-modes" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will play with various encryption algorithms and modes.
+You can use the following <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">enc</span></code> command to encrypt/decrypt a
+file. To see the manuals, you can type <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">openssl</span></code> and <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">enc</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ openssl enc -ciphertype -e  -in plain.txt -out cipher.bin \
+              -K  00112233445566778889aabbccddeeff \
+              -iv 0102030405060708
+</pre></div>
+</div>
+<p>Please replace the <code class="docutils literal notranslate"><span class="pre">ciphertype</span></code> with a specific cipher type, such as
+<code class="docutils literal notranslate"><span class="pre">-aes-128-cbc</span></code>, <code class="docutils literal notranslate"><span class="pre">-bf-cbc</span></code>, <code class="docutils literal notranslate"><span class="pre">-aes-128-cfb</span></code>, etc. In this task, you
+should try at least 3 different ciphers. You can find the meaning of the
+command-line options and all the supported cipher types by typing
+<code class="docutils literal notranslate"><span class="pre">&quot;man</span> <span class="pre">enc&quot;</span></code>. We include some common options for the <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">enc</span></code>
+command in the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-in &lt;file&gt;     input file
+-out &lt;file&gt;    output file
+-e             encrypt
+-d             decrypt
+-K/-iv         key/iv in hex is the next argument
+-[pP]          print the iv/key (then exit if -P)
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-3-encryption-mode-ecb-vs-cbc">
+<h2>Task 3: Encryption Mode – ECB vs. CBC<a class="headerlink" href="#task-3-encryption-mode-ecb-vs-cbc" title="Permalink to this headline">¶</a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">pic_original.bmp</span></code> is included in the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file,
+and it is a simple picture. We would like to encrypt this picture, so
+people without the encryption keys cannot know what is in the picture.
+Please encrypt the file using the ECB (Electronic Code Book) and CBC
+(Cipher Block Chaining) modes, and then do the following:</p>
+<ol class="arabic">
+<li><p>Let us treat the encrypted picture as a picture, and use a picture
+viewing software to display it. However, For the <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> file, the
+first 54 bytes contain the header information about the picture, we
+have to set it correctly, so the encrypted file can be treated as a
+legitimate <code class="docutils literal notranslate"><span class="pre">.bmp</span></code> file. We will replace the header of the encrypted
+picture with that of the original picture. We can use the <code class="docutils literal notranslate"><span class="pre">bless</span></code>
+hex editor tool (already installed on our VM) to directly modify
+binary files. We can also use the following commands to get the
+header from <code class="docutils literal notranslate"><span class="pre">p1.bmp</span></code>, the data from <code class="docutils literal notranslate"><span class="pre">p2.bmp</span></code> (from offset 55 to
+the end of the file), and then combine the header and data together
+into a new file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ head -c 54 p1.bmp  &gt; header
+$ tail -c +55 p2.bmp &gt; body
+$ cat header body &gt; new.bmp
+</pre></div>
+</div>
+</li>
+<li><p>Display the encrypted picture using a picture viewing program (we
+have installed an image viewer program called <code class="docutils literal notranslate"><span class="pre">eog</span></code> on our VM). Can
+you derive any useful information about the original picture from the
+encrypted picture? Please explain your observations.</p></li>
+</ol>
+<p>Select a picture of your choice, repeat the experiment above, and report
+your observations.</p>
+</div>
+<div class="section" id="task-4-padding">
+<h2>Task 4: Padding<a class="headerlink" href="#task-4-padding" title="Permalink to this headline">¶</a></h2>
+<p>For block ciphers, when the size of a plaintext is not a multiple of the
+block size, padding may be required. The PKCS#5 padding scheme is widely
+used by many block ciphers (see Chapter 21.4 of the SEED book for
+details). We will conduct the following experiments to understand how
+this type of padding works:</p>
+<ol class="arabic">
+<li><p>Use ECB, CBC, CFB, and OFB modes to encrypt a file (you can pick any
+cipher). Please report which modes have paddings and which ones do
+not. For those that do not need paddings, please explain why.</p></li>
+<li><p>Let us create three files, which contain 5 bytes, 10 bytes, and 16
+bytes, respectively. We can use the following <code class="docutils literal notranslate"><span class="pre">&quot;echo</span> <span class="pre">-n&quot;</span></code> command
+to create such files. The following example creates a file <code class="docutils literal notranslate"><span class="pre">f1.txt</span></code>
+with length 5 (without the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option, the length will be 6,
+because a newline character will be added by <code class="docutils literal notranslate"><span class="pre">echo</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo -n &quot;12345&quot; &gt; f1.txt
+</pre></div>
+</div>
+<p>We then use <code class="docutils literal notranslate"><span class="pre">&quot;openssl</span> <span class="pre">enc</span> <span class="pre">-aes-128-cbc</span> <span class="pre">-e&quot;</span></code> to encrypt these three
+files using 128-bit AES with CBC mode. Please describe the size of
+the encrypted files.</p>
+<p>We would like to see what is added to the padding during the
+encryption. To achieve this goal, we will decrypt these files using
+<code class="docutils literal notranslate"><span class="pre">&quot;openssl</span> <span class="pre">enc</span> <span class="pre">-aes-128-cbc</span> <span class="pre">-d&quot;</span></code>. Unfortunately, decryption by
+default will automatically remove the padding, making it impossible
+for us to see the padding. However, the command does have an option
+called <code class="docutils literal notranslate"><span class="pre">&quot;-nopad&quot;</span></code>, which disables the padding, i.e., during the
+decryption, the command will not remove the padded data. Therefore,
+by looking at the decrypted data, we can see what data are used in
+the padding. Please use this technique to figure out what paddings
+are added to the three files.</p>
+<p>It should be noted that padding data may not be printable, so you
+need to use a hex tool to display the content. The following example
+shows how to display a file in the hex format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ hexdump -C p1.txt
+00000000  31 32 33 34 35 36 37 38  39 49 4a 4b 4c 0a   |123456789IJKL.|
+$ xxd p1.txt
+00000000: 3132 3334 3536 3738 3949 4a4b 4c0a            123456789IJKL.
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="task-5-error-propagation-corrupted-cipher-text">
+<h2>Task 5: Error Propagation – Corrupted Cipher Text<a class="headerlink" href="#task-5-error-propagation-corrupted-cipher-text" title="Permalink to this headline">¶</a></h2>
+<p>To understand the error propagation property of various encryption
+modes, we would like to do the following exercise:</p>
+<ol class="arabic simple">
+<li><p>Create a text file that is at least 1000 bytes long.</p></li>
+<li><p>Encrypt the file using the AES-128 cipher.</p></li>
+<li><p>Unfortunately, a single bit of the 55th byte in the encrypted file
+got corrupted. You can achieve this corruption using the <code class="docutils literal notranslate"><span class="pre">bless</span></code>
+hex editor.</p></li>
+<li><p>Decrypt the corrupted ciphertext file using the correct key and IV.</p></li>
+</ol>
+<p>Please answer the following question: How much information can you
+recover by decrypting the corrupted file, if the encryption mode is ECB,
+CBC, CFB, or OFB, respectively? Please answer this question before you
+conduct this task, and then find out whether your answer is correct or
+wrong after you finish this task. Please provide justification.</p>
+</div>
+<div class="section" id="task-6-initial-vector-iv-and-common-mistakes">
+<h2>Task 6: Initial Vector (IV) and Common Mistakes<a class="headerlink" href="#task-6-initial-vector-iv-and-common-mistakes" title="Permalink to this headline">¶</a></h2>
+<p>Most of the encryption modes require an initial vector (IV). Properties
+of an IV depend on the cryptographic scheme used. If we are not careful
+in selecting IVs, the data encrypted by us may not be secure at all,
+even though we are using a secure encryption algorithm and mode. The
+objective of this task is to help students understand the problems if an
+IV is not selected properly. The detailed guidelines for this task is
+provided in Chapter 21.5 of the SEED book.</p>
+<div class="section" id="task-6-1-iv-experiment">
+<h3>Task 6.1. IV Experiment<a class="headerlink" href="#task-6-1-iv-experiment" title="Permalink to this headline">¶</a></h3>
+<p>A basic requirement for IV is <em>uniqueness</em>, which means that no IV may
+be reused under the same key. To understand why, please encrypt the same
+plaintext using (1) two different IVs, and (2) the same IV. Please
+describe your observation, based on which, explain why IV needs to be
+unique.</p>
+</div>
+<div class="section" id="task-6-2-common-mistake-use-the-same-iv">
+<h3>Task 6.2. Common Mistake: Use the Same IV<a class="headerlink" href="#task-6-2-common-mistake-use-the-same-iv" title="Permalink to this headline">¶</a></h3>
+<p>One may argue that if the plaintext does not repeat, using the same IV
+is safe. Let us look at the Output Feedback (OFB) mode. Assume that the
+attacker gets hold of a plaintext (<code class="docutils literal notranslate"><span class="pre">P1</span></code>) and a ciphertext (<code class="docutils literal notranslate"><span class="pre">C1</span></code>) ,
+can he/she decrypt other encrypted messages if the IV is always the
+same? You are given the following information, please try to figure out
+the actual content of <code class="docutils literal notranslate"><span class="pre">P2</span></code> based on <code class="docutils literal notranslate"><span class="pre">C2</span></code>, <code class="docutils literal notranslate"><span class="pre">P1</span></code>, and <code class="docutils literal notranslate"><span class="pre">C1</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Plaintext  (P1): This is a known message!
+Ciphertext (C1): a469b1c502c1cab966965e50425438e1bb1b5f9037a4c159
+
+Plaintext  (P2): (unknown to you)
+Ciphertext (C2): bf73bcd3509299d566c35b5d450337e1bb175f903fafc159
+</pre></div>
+</div>
+<p>If we replace OFB in this experiment with CFB (Cipher Feedback), how
+much of <code class="docutils literal notranslate"><span class="pre">P2</span></code> can be revealed? You only need to answer the question;
+there is no need to demonstrate that.</p>
+<p>The attack used in this experiment is called the <em>known-plaintext
+attack</em>, which is an attack model for cryptanalysis where the attacker
+has access to both the plaintext and its encrypted version (ciphertext).
+If this can lead to the revealing of further secret information, the
+encryption scheme is not considered as secure.</p>
+<div class="section" id="sample-code">
+<h4>Sample Code.<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h4>
+<p>We provide a sample program called <code class="docutils literal notranslate"><span class="pre">sample_code.py</span></code>, which can be
+found inside the folder. It shows you how to XOR strings (ascii strings
+and hex strings). The code is shown in the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/python3
+
+# XOR two bytearrays
+def xor(first, second):
+   return bytearray(x^y for x,y in zip(first, second))
+
+MSG   = &quot;A message&quot;
+HEX_1 = &quot;aabbccddeeff1122334455&quot;
+HEX_2 = &quot;1122334455778800aabbdd&quot;
+
+# Convert ascii/hex string to bytearray
+D1 = bytes(MSG, &#39;utf-8&#39;)
+D2 = bytearray.fromhex(HEX_1)
+D3 = bytearray.fromhex(HEX_2)
+
+r1 = xor(D1, D2)
+r2 = xor(D2, D3)
+r3 = xor(D2, D2)
+print(r1.hex())
+print(r2.hex())
+print(r3.hex())
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-6-3-common-mistake-use-a-predictable-iv">
+<h3>Task 6.3. Common Mistake: Use a Predictable IV<a class="headerlink" href="#task-6-3-common-mistake-use-a-predictable-iv" title="Permalink to this headline">¶</a></h3>
+<p>From the previous tasks, we now know that IVs cannot repeat. Another
+important requirement on IV is that IVs need to be unpredictable for
+many schemes, i.e., IVs need to be randomly generated. In this task, we
+will see what is going to happen if IVs are predictable.</p>
+<p>Assume that Bob just sent out an encrypted message, and Eve knows that
+its content is either <code class="docutils literal notranslate"><span class="pre">Yes</span></code> or <code class="docutils literal notranslate"><span class="pre">No</span></code>; Eve can see the ciphertext and
+the IV used to encrypt the message, but since the encryption algorithm
+AES is quite strong, Eve has no idea what the actual content is.
+However, since Bob uses predictable IVs, Eve knows exactly what IV Bob
+is going to use next.</p>
+<p>A good cipher should not only tolerate the known-plaintext attack
+described previously, it should also tolerate the <em>chosen-plaintext
+attack</em>, which is an attack model for cryptanalysis where the attacker
+can obtain the ciphertext for an arbitrary plaintext. Since AES is a
+strong cipher that can tolerate the chosen-plaintext attack, Bob does
+not mind encrypting any plaintext given by Eve; he does use a different
+IV for each plaintext, but unfortunately, the IVs he generates are not
+random, and they can always be predictable.</p>
+<p>Your job is to construct a message and ask Bob to encrypt it and give
+you the ciphertext. Your objective is to use this opportunity to figure
+out whether the actual content of Bob’s secret message is <code class="docutils literal notranslate"><span class="pre">Yes</span></code> or
+<code class="docutils literal notranslate"><span class="pre">No</span></code>. For this task, your are given an encryption oracle which
+simulates Bob and encrypts message with 128-bit AES with CBC mode. You
+can get access to the oracle by running the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nc 10.9.0.80 3000
+Bob&#39;s secret message is either &quot;Yes&quot; or &quot;No&quot;, without quotations.
+Bob&#39;s ciphertex: 54601f27c6605da997865f62765117ce
+The IV used    : d27d724f59a84d9b61c0f2883efa7bbc
+
+Next IV        : d34c739f59a84d9b61c0f2883efa7bbc
+Your plaintext : 11223344aabbccdd
+Your ciphertext: 05291d3169b2921f08fe34449ddc3611
+
+Next IV        : cd9f1ee659a84d9b61c0f2883efa7bbc
+Your plaintext : &lt;your input&gt;
+</pre></div>
+</div>
+<p>After showing you the next IV, the oracle will ask you to input a
+plaintext message (as a hex string). The oracle will encrypt the message
+with the next IV, and outputs the new ciphertext. You can try different
+plaintexts, but keep in mind that every time, the IV will change, but it
+is predictable. To simply your job, we let the oracle print out the next
+IV. To exit from the interaction, press .</p>
+</div>
+<div class="section" id="additional-readings">
+<h3>Additional Readings<a class="headerlink" href="#additional-readings" title="Permalink to this headline">¶</a></h3>
+<p>There are more advanced cryptanalysis on IV that is beyond the scope of
+this lab. Students can read the article posted in this URL:
+<a class="reference external" href="https://defuse.ca/cbcmodeiv.htm">https://defuse.ca/cbcmodeiv.htm</a>. Because the requirements on IV really
+depend on cryptographic schemes, it is hard to remember what properties
+should be maintained when we select an IV. However, we will be safe if
+we always use a new IV for each encryption, and the new IV needs to be
+generated using a good pseudo random number generator, so it is
+unpredictable by adversaries. See another SEED lab (Random Number
+Generation Lab) for details on how to generate cryptographically strong
+pseudo random numbers.</p>
+</div>
+</div>
+<div class="section" id="task-7-programming-using-the-crypto-library">
+<h2>Task 7: Programming using the Crypto Library<a class="headerlink" href="#task-7-programming-using-the-crypto-library" title="Permalink to this headline">¶</a></h2>
+<p>This task is mainly designed for students in Computer
+Science/Engineering or related fields, where programming is required.
+Students should check with their professors to see whether this task is
+required for their courses or not.</p>
+<p>In this task, you are given a plaintext and a ciphertext, and your job
+is to find the key that is used for the encryption. You do know the
+following facts:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">aes-128-cbc</span></code> cipher is used for the encryption.</p></li>
+<li><p>The key used to encrypt this plaintext is an English word shorter
+than 16 characters; the word can be found from a typical English
+dictionary. Since the word has less than 16 characters (i.e. 128
+bits), pound signs (<code class="docutils literal notranslate"><span class="pre">#</span></code>: hexadecimal value is <code class="docutils literal notranslate"><span class="pre">0x23</span></code>) are
+appended to the end of the word to form a key of 128 bits.</p></li>
+</ul>
+<p>Your goal is to write a program to find out the encryption key. You can
+download a English word list from the Internet. We have also included
+one in the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file. The plaintext, ciphertext, and IV are
+listed in the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Plaintext (total 21 characters): This is a top secret.
+Ciphertext (in hex format): 764aa26b55a4da654df6b19e4bce00f4
+                            ed05e09346fb0e762583cb7da2ac93a2
+IV (in hex format):         aabbccddeeff00998877665544332211
+</pre></div>
+</div>
+<p>You need to pay attention to the following issues:</p>
+<ul>
+<li><p>If you choose to store the plaintext message in a file, and feed the
+file to your program, you need to check whether the file length is
+21. If you type the message in a text editor, you need to be aware
+that some editors may add a special character to the end of the file.
+The easiest way to store the message in a file is to use the
+following command (the <code class="docutils literal notranslate"><span class="pre">-n</span></code> flag tells <code class="docutils literal notranslate"><span class="pre">echo</span></code> not to add a
+trailing newline):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo -n &quot;This is a top secret.&quot; &gt; file
+</pre></div>
+</div>
+</li>
+<li><p>In this task, you are supposed to write your own program to invoke
+the crypto library. No credit will be given if you simply use the
+<code class="docutils literal notranslate"><span class="pre">openssl</span></code> commands to do this task. Sample code can be found from
+the following URL:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://www.openssl.org/docs/man1.1.1/man3/EVP_CipherInit.html
+</pre></div>
+</div>
+</li>
+<li><p>When you compile your code using <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, do not forget to include
+the <code class="docutils literal notranslate"><span class="pre">-lcrypto</span></code> flag, because your code needs the <code class="docutils literal notranslate"><span class="pre">crypto</span></code>
+library. See the following example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc -o myenc myenc.c -lcrypto
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="note-to-instructors">
+<h2>Note to instructors.<a class="headerlink" href="#note-to-instructors" title="Permalink to this headline">¶</a></h2>
+<p>We encourage instructors to generate their own plaintext and ciphertext
+using a different key; this way students will not be able to get the
+answer from another place or from previous courses. Instructors can use
+the following commands to achieve this goal (please replace the word
+<code class="docutils literal notranslate"><span class="pre">example</span></code> with another secret word, and add the correct number of #
+signs to make the length of the string to be 16):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo -n &quot;This is a top secret.&quot; &gt; plaintext.txt
+$ echo -n &quot;example#########&quot; &gt; key
+$ xxd -p key
+6578616d706c65232323232323232323
+$ openssl enc -aes-128-cbc -e -in plaintext.txt -out ciphertext.bin \
+      -K  6578616d706c65232323232323232323  \
+      -iv 010203040506070809000a0b0c0d0e0f  \
+$ xxd -p ciphertext.bin
+e5accdb667e8e569b1b34f423508c15422631198454e104ceb658f5918800c22
+</pre></div>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-please-note admonition">
+<p class="admonition-title">Please Note</p>
+<p>This section is intentionally left blank to be filled out at a later date.</p>
+</div>
+</div>
+<div class="section" id="acknowledgment">
+<h2>Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h2>
+<p>We would like to acknowledge the contribution made by the following
+people and organizations:</p>
+<ul class="simple">
+<li><p>Jiamin Shen developed the following: the code running inside the
+container, and the container version of the task on predictable IV.</p></li>
+<li><p>The US National Science Foundation provided the funding for the SEED
+project from 2002 to 2020.</p></li>
+<li><p>Syracuse University provided the resources for the SEED project from
+2001 onwards.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="hash_length_ext.html" class="btn btn-neutral float-right" title="Hash Length Extension Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="crypto_index.html" class="btn btn-neutral float-left" title="Cryptography Labs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

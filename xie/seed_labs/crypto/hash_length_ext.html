@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Hash Length Extension Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MD5 Collision Attack Lab" href="md5_collision.html" />
+    <link rel="prev" title="Secret-Key Encryption Lab" href="encryption.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="crypto_index.html">Cryptography Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="encryption.html">Secret-Key Encryption Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hash Length Extension Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-send-request-to-list-files">Task 1: Send Request to List Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-create-padding">Task 2: Create Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-the-length-extension-attack">Task 3: The Length Extension Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-attack-mitigation-using-hmac">Task 4: Attack Mitigation using HMAC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html">MD5 Collision Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html">Padding Oracle Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html">Public-Key Infrastructure (PKI) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html">Pseudo Random Number Generation Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html">RSA Public-Key Encryption and Signature Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html">Transport Layer Security (TLS) Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="crypto_index.html">Cryptography Labs</a> &raquo;</li>
+        
+      <li>Hash Length Extension Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Hash Length Extension Attack Lab</p>
+</div>
+<div class="section" id="hash-length-extension-attack-lab">
+<h1>Hash Length Extension Attack Lab<a class="headerlink" href="#hash-length-extension-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>When a client and a server communicate over the internet, they are
+subject to MITM attacks. An attacker can intercept the request from the
+client. The attacker may choose to modify the data and send the modified
+request to the server. In such a scenario, the server needs to verify
+the integrity of the request received. The standard way to verify the
+integrity of the request is to attach a tag called MAC to the request.
+There are many ways to calculate MAC, and some of the methods are not
+secure.</p>
+<p>MAC is calculated from a secret key and a message. A naive way to
+calculate MAC is to concatenate the key with the message and calculate
+the one way hash of the resulting string. This method seems to be fine,
+but it is subject to an attack called length extension attack, which
+allows attackers to modify the message while still being able to
+generate a valid MAC based on the modified message, without knowing the
+secret key.</p>
+<p>The objective of this lab is to help students understand how the length
+extension attack works. Students will launch the attack against a server
+program; they will forge a valid command and get the server to execute
+the command.</p>
+<div class="section" id="readings">
+<h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the one way hash function can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 22 of the SEED Book,</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>We have set up a web server for this lab. A client can send a list of
+commands to this server. Each request must attach a MAC computed based
+on a secret key and the list of commands. The server will only execute
+the commands in the request if the MAC is verified successfully. We will
+use the host VM as the client and use a container for the web server.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands.<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="about-the-web-server">
+<h3>About the web server.<a class="headerlink" href="#about-the-web-server" title="Permalink to this headline">¶</a></h3>
+<p>We use the domain <code class="docutils literal notranslate"><span class="pre">www.seedlab-hashlen.com</span></code> to host the server
+program. In our VM, we map this hostname to the web server container
+(<code class="docutils literal notranslate"><span class="pre">10.9.0.80</span></code>). This can be achieved by adding the following entry to
+the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file (please add it if the entry is not in the VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.80  www.seedlab-hashlen.com
+</pre></div>
+</div>
+<p>The server code is in the folder. It has two directories. The <code class="docutils literal notranslate"><span class="pre">www</span></code>
+directory contains the server code, and the <code class="docutils literal notranslate"><span class="pre">LabHome</span></code> directory
+contains a secret file and the key used for computing the MAC.</p>
+</div>
+<div class="section" id="sending-requests">
+<h3>Sending requests.<a class="headerlink" href="#sending-requests" title="Permalink to this headline">¶</a></h3>
+<p>The server program accepts the following commands:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lstcmd</span></code> command: the server will list all the files in the
+<code class="docutils literal notranslate"><span class="pre">LabHome</span></code> folder.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">download</span></code> command: the server will return the contents of the
+specified file from the <code class="docutils literal notranslate"><span class="pre">LabHome</span></code> directory.</p></li>
+</ul>
+<p>A typical request sent by the client to the server is shown below. The
+server requires a <code class="docutils literal notranslate"><span class="pre">uid</span></code> argument to be passed. It uses <code class="docutils literal notranslate"><span class="pre">uid</span></code> to get
+the MAC key from <code class="docutils literal notranslate"><span class="pre">LabHome/key.txt</span></code>. The command in the example below
+is <code class="docutils literal notranslate"><span class="pre">lstcmd</span></code>, and its value is set to <code class="docutils literal notranslate"><span class="pre">1</span></code>. It requests the server to
+list all the files. The last argument is the MAC computed based on the
+secret key (shared by the client and the server) and the command
+arguments. Before executing the command, the server will verify the MAC
+to ensure the command’s integrity.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedlab-hashlen.com/?myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
+&amp;mac=dc8788905dbcbceffcdd5578887717c12691b3cf1dac6b2f2bcfabc14a6a7f11
+</pre></div>
+</div>
+<p>Students should replace the value <code class="docutils literal notranslate"><span class="pre">JohnDoe</span></code> in the <code class="docutils literal notranslate"><span class="pre">myname</span></code> field
+with their actual names (no space is allowed). This parameter is to make
+sure that different students’ results are different, so students cannot
+copy from one another. The server does not use this argument, but it
+checks whether the argument is present or not. Requests will be rejected
+if this field is not included. Instructors can use this argument to
+check whether students have done the work by themselves. No point will
+be given if students do not use their real names in this task.</p>
+<p>The following shows another example. The request includes two commands:
+list all the files and download the file <code class="docutils literal notranslate"><span class="pre">secret.txt</span></code>. Similarly, a
+valid MAC needs to be attached, or the server will not execute these
+commands.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedlab-hashlen.com/?myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
+&amp;download=secret.txt
+&amp;mac=dc8788905dbcbceffcdd5578887717c12691b3cf1dac6b2f2bcfabc14a6a7f11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-1-send-request-to-list-files">
+<h2>Task 1: Send Request to List Files<a class="headerlink" href="#task-1-send-request-to-list-files" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will send a benign request to the server so we can see
+how the server responds to the request. The request we want to send is
+as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;need-to-fill&gt;
+&amp;lstcmd=1&amp;mac=&lt;need-to-calculate&gt;
+</pre></div>
+</div>
+<p>To send such a request, other than using our real names, we need to fill
+in the two missing arguments. Students need to pick a uid number from
+the <code class="docutils literal notranslate"><span class="pre">key.txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">LabHome</span></code> directory. This file contains a list
+of colon-separated uid and key values. Students can use any uid and its
+associated key value. For example, students can use uid <code class="docutils literal notranslate"><span class="pre">1001</span></code> and its
+key <code class="docutils literal notranslate"><span class="pre">123456</span></code>.</p>
+<p>The second missing argument is the MAC, which can be calculated by
+concatenating the key with the contents of the requests <code class="docutils literal notranslate"><span class="pre">R</span></code> (the
+argument part only), with a colon added in between. See the following
+example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Key:R = 123456:myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
+</pre></div>
+</div>
+<p>The MAC will be calculated using the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo -n &quot;123456:myname=JohnDoe&amp;uid=1001&amp;lstcmd=1&quot; | sha256sum
+7d5f750f8b3203bd963d75217c980d139df5d0e50d19d6dfdb8a7de1f8520ce3  -
+</pre></div>
+</div>
+<p>We can then construct the complete request and send it to the server
+program using the browser:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedlab-hashlen.com/?myname=JohnDoe&amp;uid=1001&amp;lstcmd=1
+&amp;mac=7d5f750f8b3203bd963d75217c980d139df5d0e50d19d6dfdb8a7de1f8520ce3
+</pre></div>
+</div>
+<div class="section" id="task">
+<h3>Task.<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<p>Please send a download command to the server, and show that you can get
+the results back.</p>
+</div>
+</div>
+<div class="section" id="task-2-create-padding">
+<h2>Task 2: Create Padding<a class="headerlink" href="#task-2-create-padding" title="Permalink to this headline">¶</a></h2>
+<p>To conduct the hash length extension attack, we need to understand how
+padding is calculated for one-way hash. The block size of SHA-256 is 64
+bytes, so a message <code class="docutils literal notranslate"><span class="pre">M</span></code> will be padded to the multiple of 64 bytes
+during the hash calculation. According to RFC 6234, paddings for SHA256
+consist of one byte of \x80, followed by a many 0’s, followed by a
+64-bit (8 bytes) length field (the length is the number of <strong>bits</strong> in
+the <code class="docutils literal notranslate"><span class="pre">M</span></code>).</p>
+<p>Assume that the original message is <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">test</span> <span class="pre">message&quot;</span></code>.
+The length of <code class="docutils literal notranslate"><span class="pre">M</span></code> is <code class="docutils literal notranslate"><span class="pre">22</span></code> bytes, so the padding is <code class="docutils literal notranslate"><span class="pre">64</span> <span class="pre">-</span> <span class="pre">22</span> <span class="pre">=</span> <span class="pre">42</span></code>
+bytes, including <code class="docutils literal notranslate"><span class="pre">8</span></code> bytes of the length field. The length of <code class="docutils literal notranslate"><span class="pre">M</span></code> in
+term of bits is <code class="docutils literal notranslate"><span class="pre">22</span> <span class="pre">*</span> <span class="pre">8</span> <span class="pre">=</span> <span class="pre">176</span> <span class="pre">=</span> <span class="pre">0xB0</span></code>. SHA256 will be performed in the
+following padded message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;This is a test message&quot;
+&quot;\x80&quot;
+&quot;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;
+&quot;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;
+&quot;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;
+&quot;\x00\x00\x00&quot;
+&quot;\x00\x00\x00\x00\x00\x00\x00\xB0&quot;
+</pre></div>
+</div>
+<p>It should be noted that the length field uses the Big-Endian byte order,
+i.e., if the length of the message is <code class="docutils literal notranslate"><span class="pre">0x012345</span></code>, the length field in
+the padding should be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;\x00\x00\x00\x00\x00\x01\x23\x45&quot;
+</pre></div>
+</div>
+<div class="section" id="task-1">
+<span id="id1"></span><h3>Task.<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h3>
+<p>Students need to construct the padding for the following message (the
+actual value of the <code class="docutils literal notranslate"><span class="pre">&lt;key&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;uid&gt;</span></code> should be obtained from the
+<code class="docutils literal notranslate"><span class="pre">LabHome/key.txt</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;key&gt;:myname=&lt;name&gt;&amp;uid=&lt;uid&gt;&amp;lstcmd=1
+</pre></div>
+</div>
+<p>It should be noted that in the URL, all the hexadecimal numbers in the
+padding need to be encoded by changing <code class="docutils literal notranslate"><span class="pre">\x</span></code> to <code class="docutils literal notranslate"><span class="pre">%</span></code>. For example,
+<code class="docutils literal notranslate"><span class="pre">\x80</span></code> in the padding should be replaced with <code class="docutils literal notranslate"><span class="pre">%80</span></code> in the URL
+above. On the server side, encoded data in the URL will be changed back
+to the binary numbers. See the following example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;\x80\x00\x00\x99&quot; should be encoded as &quot;%80%00%00%99&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-3-the-length-extension-attack">
+<h2>Task 3: The Length Extension Attack<a class="headerlink" href="#task-3-the-length-extension-attack" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will generate a valid MAC for a URL without knowing the
+MAC key. Assume that we know the MAC of a valid request <code class="docutils literal notranslate"><span class="pre">R</span></code>, and we
+also know the size of the MAC key. Our job is to forge a new request
+based on <code class="docutils literal notranslate"><span class="pre">R</span></code>, while still being able to compute the valid MAC.</p>
+<p>Given the original message <code class="docutils literal notranslate"><span class="pre">M=&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">test</span> <span class="pre">message&quot;</span></code> and its MAC
+value, we will show how to add a message <code class="docutils literal notranslate"><span class="pre">&quot;Extra</span> <span class="pre">message&quot;</span></code> to the end
+of the padded <code class="docutils literal notranslate"><span class="pre">M</span></code>, and then compute its MAC, without knowing the
+secret MAC key.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo -n &quot;This is a test message&quot; | sha256sum
+6f3438001129a90c5b1637928bf38bf26e39e57c6e9511005682048bedbef906
+</pre></div>
+</div>
+<p>The program below can be used to compute the MAC for the new message:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* length_ext.c */
+#include &lt;stdio.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;openssl/sha.h&gt;
+
+int main(int argc, const char *argv[])
+{
+  int i;
+  unsigned char buffer[SHA256_DIGEST_LENGTH];
+  SHA256_CTX c;
+
+  SHA256_Init(&amp;c);
+  for(i=0; i&lt;64; i++)
+     SHA256_Update(&amp;c, &quot;*&quot;, 1);
+
+  // MAC of the original message M (padded)
+  c.h[0] = htole32(0x6f343800);
+  c.h[1] = htole32(0x1129a90c);
+  c.h[2] = htole32(0x5b163792);
+  c.h[3] = htole32(0x8bf38bf2);
+  c.h[4] = htole32(0x6e39e57c);
+  c.h[5] = htole32(0x6e951100);
+  c.h[6] = htole32(0x5682048b);
+  c.h[7] = htole32(0xedbef906);
+
+  // Append additional message
+  SHA256_Update(&amp;c, &quot;Extra message&quot;, 13);
+  SHA256_Final(buffer, &amp;c);
+
+  for(i = 0; i &lt; 32; i++) {
+     printf(&quot;%02x&quot;, buffer[i]);
+  }
+  printf(&quot;\n&quot;);
+  return 0;
+}
+</pre></div>
+</div>
+<p>Students can compile the program as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ gcc length_ext.c -o length_ext -lcrypto
+</pre></div>
+</div>
+<div class="section" id="task-2">
+<span id="id2"></span><h3>Task.<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h3>
+<p>Students should first generate a valid MAC for the following request
+(where <code class="docutils literal notranslate"><span class="pre">&lt;uid&gt;</span></code> and the MAC key should be obtained from the
+<code class="docutils literal notranslate"><span class="pre">LabHome/key.txt</span></code> file):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;uid&gt;
+&amp;lstcmd=1&amp;mac=&lt;mac&gt;
+</pre></div>
+</div>
+<p>Based on the <code class="docutils literal notranslate"><span class="pre">&lt;mac&gt;</span></code> value calculated above, please construct a new
+request that includes the <code class="docutils literal notranslate"><span class="pre">download</span></code> command. You are not allowed to
+use the secret key this time. The URL looks like below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedlab-hashlen.com/?myname=&lt;name&gt;&amp;uid=&lt;uid&gt;
+&amp;lstcmd=1&lt;padding&gt;&amp;download=secret.txt&amp;mac=&lt;new-mac&gt;
+</pre></div>
+</div>
+<p>Please send the constructed request to the server, and show that you can
+successfully get the content of the <code class="docutils literal notranslate"><span class="pre">secret.txt</span></code> file.</p>
+</div>
+</div>
+<div class="section" id="task-4-attack-mitigation-using-hmac">
+<h2>Task 4: Attack Mitigation using HMAC<a class="headerlink" href="#task-4-attack-mitigation-using-hmac" title="Permalink to this headline">¶</a></h2>
+<p>In the tasks so far, we have observed the damage caused when a developer
+computes a MAC in an insecure way by concatenating the key and the
+message. In this task, we will fix the mistake made by the developer.
+The standard way to calculate MACs is to use HMAC. Students should
+modify the server program’s <code class="docutils literal notranslate"><span class="pre">verifymac()</span></code> function and use Python’s
+<code class="docutils literal notranslate"><span class="pre">hmac</span></code> module to calculate the MAC. The function resides in
+<code class="docutils literal notranslate"><span class="pre">lab.py</span></code>. Given a key and message (both of type string), the HMAC can
+be computed as shown below (if you copy and paste the code from this PDF
+file, the <code class="docutils literal notranslate"><span class="pre">’</span></code> characters might not be copied correctly on some
+platforms).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>real_mac = hmac.new(bytearray(key.encode(&#39;utf-8&#39;)),
+             msg=message.encode(&#39;utf-8&#39;, &#39;surrogateescape&#39;),
+             digestmod=hashlib.sha256).hexdigest()
+</pre></div>
+</div>
+<p>After making the changes, stop all the containers, rebuild them, and
+start all the containers again. The change will then take effect.
+Students should repeat Task 1 to send a request to list files while
+using HMAC for the MAC calculation. Assuming that the chosen key is
+123456, the HMAC can be computed in the following program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/bin/env python3
+
+import hmac
+import hashlib
+
+key=&#39;123456&#39;
+message=&#39;lstcmd=1&#39;
+mac = hmac.new(bytearray(key.encode(&#39;utf-8&#39;)),
+               msg=message.encode(&#39;utf-8&#39;, &#39;surrogateescape&#39;),
+               digestmod=hashlib.sha256).hexdigest()
+print(mac)
+</pre></div>
+</div>
+<p>Students should describe why a malicious request using length extension
+and extra commands will fail MAC verification when the client and server
+use HMAC.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-please-note admonition">
+<p class="admonition-title">Please Note</p>
+<p>This section is intentionally left blank to be filled out at a later date.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="md5_collision.html" class="btn btn-neutral float-right" title="MD5 Collision Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="encryption.html" class="btn btn-neutral float-left" title="Secret-Key Encryption Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

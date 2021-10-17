@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Software Security Labs &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Shellcode Development Lab" href="Shellcode.html" />
+    <link rel="prev" title="SQL Injection Attack Lab" href="../web/Web_SQL_Injection.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Software Security Labs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html">Shellcode Development Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Environment_Variable_and_SetUID.html">Environment Variable and Program Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html">Race Condition Vulnerability Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html">Dirty COW Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html">Shellshock Attack Lab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+      <li>Software Security Labs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-security-labs">
+<h1>Software Security Labs<a class="headerlink" href="#software-security-labs" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Shellcode.html">Shellcode Development Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Shellcode.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellcode.html#task-1-writing-shellcode">Task 1: Writing Shellcode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html#task-1-a-the-entire-process">Task 1.a: The Entire Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html#task-1-b-eliminating-zeros-from-the-code">Task 1.b. Eliminating Zeros from the Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html#task-1-c-providing-arguments-for-system-calls">Task 1.c. Providing Arguments for System Calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellcode.html#task-1-d-providing-environment-variables-for-execve">Task 1.d. Providing Environment Variables for <code class="docutils literal notranslate"><span class="pre">execve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Shellcode.html#task-2-using-code-segment">Task 2: Using Code Segment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellcode.html#task-3-writing-64-bit-shellcode">Task 3: Writing 64-bit Shellcode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellcode.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#environment-setup">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#turning-off-countermeasures">Turning Off Countermeasures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-1-getting-familiar-with-shellcode">Task 1: Getting Familiar with Shellcode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#the-c-version-of-shellcode">The C Version of Shellcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#bit-shellcode">32-bit Shellcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#id1">64-Bit Shellcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-invoking-the-shellcode">Task: Invoking the Shellcode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-2-understanding-the-vulnerable-program">Task 2: Understanding the Vulnerable Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-3-launching-attack-on-32-bit-program-level-1">Task 3: Launching Attack on 32-bit Program (Level 1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#investigation">Investigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#launching-attacks">Launching Attacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-4-launching-attack-without-knowing-buffer-size-level-2">Task 4: Launching Attack without Knowing Buffer Size (Level 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-5-launching-attack-on-64-bit-program-level-3">Task 5: Launching Attack on 64-bit Program (Level 3)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-6-launching-attack-on-64-bit-program-level-4">Task 6: Launching Attack on 64-bit Program (Level 4)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#tasks-7-defeating-dashs-countermeasure">Tasks 7: Defeating <code class="docutils literal notranslate"><span class="pre">dash</span></code>’s Countermeasure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-8-defeating-address-randomization">Task 8: Defeating Address Randomization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#tasks-9-experimenting-with-other-countermeasures">Tasks 9: Experimenting with Other Countermeasures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-9-a-turn-on-the-stackguard-protection">Task 9.a: Turn on the StackGuard Protection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html#task-9-b-turn-on-the-non-executable-stack-protection">Task 9.b: Turn on the Non-executable Stack Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Setuid.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#lab-environment-setup">Lab Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#turning-off-countermeasures">Turning off Countermeasures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#the-vulnerable-program">The Vulnerable Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#container-setup-and-commands">Container Setup and Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#task-1-get-familiar-with-the-shellcode">Task 1: Get Familiar with the Shellcode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#task-2-level-1-attack">Task 2: Level-1 Attack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#writing-exploit-code-and-launching-attack">Writing Exploit Code and Launching Attack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#task-3-level-2-attack">Task 3: Level-2 Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#task-4-level-3-attack">Task 4: Level-3 Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#task-5-level-4-attack">Task 5: Level-4 Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#task-6-experimenting-with-the-address-randomization">Task 6: Experimenting with the Address Randomization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#tasks-7-experimenting-with-other-countermeasures">Tasks 7: Experimenting with Other Countermeasures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#task-7-a-turn-on-the-stackguard-protection">Task 7.a: Turn on the StackGuard Protection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html#task-7-b-turn-on-the-non-executable-stack-protection">Task 7.b: Turn on the Non-executable Stack Protection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#guidelines-on-reverse-shell">Guidelines on Reverse Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer_Overflow_Server.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#environment-setup">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#note-on-x86-and-x64-architectures">Note on x86 and x64 Architectures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#turning-off-countermeasures">Turning off countermeasures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#the-vulnerable-program">The Vulnerable Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#task-1-finding-out-the-addresses-of-libc-functions">Task 1: Finding out the Addresses of <code class="docutils literal notranslate"><span class="pre">libc</span></code> Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#task-2-putting-the-shell-string-in-the-memory">Task 2: Putting the shell string in the memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#task-3-launching-the-attack">Task 3: Launching the Attack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#attack-variation-1">Attack variation 1:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#attack-variation-2">Attack variation 2:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#task-4-defeat-shells-countermeasure">Task 4: Defeat Shell’s countermeasure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#task-5-optional-return-oriented-programming">Task 5 (Optional): Return-Oriented Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#guidelines-understanding-the-function-call-mechanism">Guidelines: Understanding the Function Call Mechanism</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#understanding-the-stack-layout">Understanding the stack layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#calling-and-entering-foo">Calling and entering foo()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html#leaving-foo">Leaving foo()</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Return_to_Libc.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Environment_Variable_and_SetUID.html">Environment Variable and Program Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-1-manipulating-environment-variables">Task 1: Manipulating Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-2-passing-environment-variables-from-parent-process-to-child-process">Task 2: Passing Environment Variables from Parent Process to Child Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-3-environment-variables-and-execve">Task 3: Environment Variables and execve()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-4-environment-variables-and-system">Task 4: Environment Variables and system()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-5-environment-variable-and-programs">Task 5: Environment Variable and Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-6-the-path-environment-variable-and-set-uid-programs">Task 6: The PATH Environment Variable and Set-UID Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-7-the-ld-preload-environment-variable-and-programs">Task 7: The LD_PRELOAD Environment Variable and Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-8-invoking-external-programs-using-system-versus-execve">Task 8: Invoking External Programs Using system() versus execve()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#task-9-capability-leaking">Task 9: Capability Leaking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Environment_Variable_and_SetUID.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Race_Condition.html">Race Condition Vulnerability Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Race_Condition.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Race_Condition.html#environment-setup">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#turning-off-countermeasures">Turning Off Countermeasures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#a-vulnerable-program">A Vulnerable Program</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Race_Condition.html#task-1-choosing-our-target">Task 1: Choosing Our Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Race_Condition.html#task-2-launching-the-race-condition-attack">Task 2: Launching the Race Condition Attack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#task-2-a-simulating-a-slow-machine">Task 2.A: Simulating a Slow Machine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#task-2-b-the-real-attack">Task 2.B: The Real Attack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#task-2-c-an-improved-attack-method">Task 2.C: An Improved Attack Method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Race_Condition.html#task-3-countermeasures">Task 3: Countermeasures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#task-3-a-applying-the-principle-of-least-privilege">Task 3.A: Applying the Principle of Least Privilege</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html#task-3-b-using-ubuntus-built-in-scheme">Task 3.B: Using Ubuntu’s Built-in Scheme</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Race_Condition.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Dirty_COW.html">Dirty COW Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Dirty_COW.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dirty_COW.html#task-1-modify-a-dummy-read-only-file">Task 1: Modify a Dummy Read-Only File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html#create-a-dummy-file">Create a Dummy File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html#set-up-the-memory-mapping-thread">Set Up the Memory Mapping Thread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html#set-up-the-write-thread">Set Up the <code class="docutils literal notranslate"><span class="pre">write</span></code> Thread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html#the-madvise-thread">The <code class="docutils literal notranslate"><span class="pre">madvise</span></code> Thread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html#launch-the-attack">Launch the Attack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Dirty_COW.html#task-2-modify-the-password-file-to-gain-the-root-privilege">Task 2: Modify the Password File to Gain the Root Privilege</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Dirty_COW.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#environment-setup">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html#turning-of-countermeasure">Turning of Countermeasure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html#the-vulnerable-program">The Vulnerable Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html#container-setup-and-commands">Container Setup and Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#task-1-crashing-the-program">Task 1: Crashing the Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#task-2-printing-out-the-server-programs-memory">Task 2: Printing Out the Server Program’s Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#task-3-modifying-the-server-programs-memory">Task 3: Modifying the Server Program’s Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#task-4-inject-malicious-code-into-the-server-program">Task 4: Inject Malicious Code into the Server Program</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html#understanding-the-stack-layout">Understanding the Stack Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html#shellcode">Shellcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html#your-task">Your Task</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#task-5-attacking-the-64-bit-server-program">Task 5: Attacking the 64-bit Server Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#task-6-fixing-the-problem">Task 6: Fixing the Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#guidelines-on-reverse-shell">Guidelines on Reverse Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Format_String.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Shellshock.html">Shellshock Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#environment-setup">Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html#dns-setting">DNS Setting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html#container-setup-and-commands">Container Setup and Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html#web-server-and-cgi">Web Server and CGI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#task-1-experimenting-with-bash-function">Task 1: Experimenting with Bash Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#task-2-passing-data-to-bash-via-environment-variable">Task 2: Passing Data to Bash via Environment Variable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html#task-2-a-using-brower">Task 2.A: Using brower</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html#task-2-a-using-curl">Task 2.A: Using <code class="docutils literal notranslate"><span class="pre">curl</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#task-3-launching-the-shellshock-attack">Task 3: Launching the Shellshock Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#task-4-getting-a-reverse-shell-via-shellshock-attack">Task 4: Getting a Reverse Shell via Shellshock Attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#task-5-using-the-patched-bash">Task 5: Using the Patched Bash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#guidelines-creating-reverse-shell">Guidelines: Creating Reverse Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shellshock.html#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Shellcode.html" class="btn btn-neutral float-right" title="Shellcode Development Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../web/Web_SQL_Injection.html" class="btn btn-neutral float-left" title="SQL Injection Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

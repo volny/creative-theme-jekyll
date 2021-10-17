@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DNS Security Extensions (DNSSEC) Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Firewall Exploration Lab" href="firewall.html" />
+    <link rel="prev" title="The Kaminsky Attack Lab" href="dns_remote.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DNS Security Extensions (DNSSEC) Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lab-overview">Lab Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment-setup">Lab Environment Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-set-up-the-example-edu-domain">Task 1: Set up the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> Domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-setting-up-the-edu-server">Task 3: Setting Up the <code class="docutils literal notranslate"><span class="pre">edu</span></code> Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-setting-up-the-root-server">Task 4: Setting up the root server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-setting-up-the-local-dns-server">Task 5: Setting up the Local DNS Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>DNS Security Extensions (DNSSEC) Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>DNS Security Extensions (DNSSEC) Lab</p>
+</div>
+<div class="section" id="dns-security-extensions-dnssec-lab">
+<h1>DNS Security Extensions (DNSSEC) Lab<a class="headerlink" href="#dns-security-extensions-dnssec-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lab-overview">
+<h2>Lab Overview<a class="headerlink" href="#lab-overview" title="Permalink to this headline">¶</a></h2>
+<p>To protect DNS, the Domain Name System Security Extensions (DNSSEC) were
+developed. DNSSEC is a set of extension to DNS, aiming to provide
+authentication and integrity checking on DNS data. With DNSSEC, all
+answers from DNSSEC protected zones are digitally signed. By checking
+the digital signature, a DNS resolver is able to check if the
+information is authentic or not. With such a mechanism, the DNS cache
+poisoning attack will be defeated, because any fake data, whether from a
+spoofed response packet or from an authoritative nameserver, will be
+detected because they will fail the signature checking.</p>
+<p>To help students understand how DNSSEC works, we will enhance the
+miniature DNS system developed in the DNS-in-a-Box lab with DNSSEC.
+Students will configure each of the nameservers, so they all support
+DNSSEC. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>DNS and how it works</p></li>
+<li><p>DNSSEC and how it works</p></li>
+<li><p>Key management, public key, digital signature</p></li>
+<li><p>Docker container, docker compose</p></li>
+</ul>
+<div class="section" id="readings-and-videos">
+<h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the DNS protocol and attacks can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be
+downloaded from the SEED website. Since we use containers to set up the
+lab environment, this lab does not depend much on the SEED VM. You can
+do this lab using other VMs, physical machines, or VMs on the cloud.</p>
+</div>
+</div>
+<div class="section" id="lab-environment-setup">
+<h2>Lab Environment Setup<a class="headerlink" href="#lab-environment-setup" title="Permalink to this headline">¶</a></h2>
+<p>This lab depends on the DNS-In-a-Box lab, so students should do that lab
+first. After doing the lab, we will have a miniature DNS system depicted
+in <strong>Figure 1</strong>. In this lab, we will enhance
+this infrastructure with DNSSEC. In this lab description, we assume that
+the miniature DNS system has already been set up correctly, and each
+nameserver is hosted inside a container. We will modify each of the
+container, so the nameserver inside can support DNSSEC. Please download
+the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file from the website of this lab (this file is
+slightly different from one used in the DNS-In-a-Box lab).</p>
+<div class="align-center figure align-default" id="id2">
+<img alt="Lab environment setup" src="../../_images/DNS-in-a-box.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="software-installation">
+<h3>Software installation.<a class="headerlink" href="#software-installation" title="Permalink to this headline">¶</a></h3>
+<p>We will use some tools that have not been installed in the SEED VM.
+Please use the following command to install the software:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install bind9utils
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-1-set-up-the-example-edu-domain">
+<h2>Task 1: Set up the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> Domain<a class="headerlink" href="#task-1-set-up-the-example-edu-domain" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will go to the container folder for the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code>
+nameserver. This container, built from the DNS-in-a-Box lab, hosts the
+<code class="docutils literal notranslate"><span class="pre">example.edu</span></code> domain. We will modify the files inside this folder, so
+the nameserver can support DNSSEC queries.</p>
+<div class="section" id="task-1-a-enabling-dnssec">
+<h3>Task 1.a: Enabling DNSSEC<a class="headerlink" href="#task-1-a-enabling-dnssec" title="Permalink to this headline">¶</a></h3>
+<p>To enable DNSSEC on this server, we need to add the following entry to
+the configuration file . Please check the settings in the lab setup file
+to ensure this is set.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnssec-enable yes;
+dnssec-validation auto;
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-1-b-generating-keys-for-example-edu-server">
+<h3>Task 1.b: Generating keys for <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> server<a class="headerlink" href="#task-1-b-generating-keys-for-example-edu-server" title="Permalink to this headline">¶</a></h3>
+<p>First, we need to generate two pairs of keys, one is called Zone Signing
+Key (ZSK), and the other is called Key Signing Key (KSK). Each key
+consists of a public key and a private key. ZSK is used to sign the zone
+records, while the KSK is used to sign the ZSK.</p>
+<p>This two-key scheme is quite common in key management. The one that
+actually signs the record (i.e., ZSK) can change frequently to achieve
+better security. If only one key is used, when this key changes, the
+data stored in the key management system needs to be updated. In DNSSEC,
+the parent zone stores the information about this key, so the parent
+zone file needs to be updated.</p>
+<p>To avoid this overhead, the second key is introduced. This key is called
+Key Signing Key, i.e., it only signs the ZSK record in the zone file,
+while the other records are still signed by ZSK. The KSK’s information
+is provided to the parent zone, but KSK does not change very frequently.
+When ZSK changes, all we need to do is to use the KSK to generate a new
+signature for the ZSK.</p>
+<p>Both ZSK and KSK are public key pairs, but since their roles and
+lifetime are different, typically the KSK key is set to be stronger than
+the ZSK key, i.e., the key size is longer. In the following, the first
+command generates a ZSK key using the <code class="docutils literal notranslate"><span class="pre">RSASHA256</span></code> algorithm with key
+size being 1024. The second command generates a KSK key using the same
+algorithm, but doubling the key size. If the OS cannot find the command,
+you forgot to install the required software (see the lab setup section).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnssec-keygen -a RSASHA256 -b 1024 example.edu
+dnssec-keygen -a RSASHA256 -b 2048 -f KSK example.edu
+</pre></div>
+</div>
+<p>The second command generate a KSK. The <code class="docutils literal notranslate"><span class="pre">-f</span></code> option put <code class="docutils literal notranslate"><span class="pre">257</span></code> in the
+key file, indicating this is the KSK. Without this option, a default
+value <code class="docutils literal notranslate"><span class="pre">256</span></code> is put in the key file, indicating this is the ZSK.</p>
+</div>
+<div class="section" id="task-1-c-signing-the-example-edu-domains-zone-file">
+<h3>Task 1.c: Signing the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> domain’s zone file<a class="headerlink" href="#task-1-c-signing-the-example-edu-domains-zone-file" title="Permalink to this headline">¶</a></h3>
+<p>We will sign the zone file. This zone file is the same as the one used
+in the DNS-in-a-Box lab. We use the following <code class="docutils literal notranslate"><span class="pre">dnssec-signzone</span></code>
+command to sign the zone file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnssec-signzone -S -o example.edu example.edu.db
+</pre></div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">-S</span></code> option, the command will look for the zone signing key
+and key signing key from the specified folder using the zone name (we
+did not specify the key folder using the <code class="docutils literal notranslate"><span class="pre">-K</span></code> option, so the default
+is the current folder) If you have multiple pairs of keys in the
+specified folder, the command will generate signatures using each key,
+so you would get multiple signatures for each record.</p>
+<p>Once the zone file is signed, a new zone file ended with <code class="docutils literal notranslate"><span class="pre">.signed</span></code>
+will be generated. Take a look at the file and describe what new entries
+are added to the original zone file. Please explain their purposes.</p>
+<p>This new zone file will be used by our nameserver, so we will modify the
+<code class="docutils literal notranslate"><span class="pre">named.conf.seedlabs</span></code> file to tell the nameserver to use this file as
+its zone file. See the following example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;example.edu&quot; {
+        type master;
+        file &quot;/etc/bind/example.edu.db.signed&quot;;
+};
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-1-d-testing-the-server">
+<h3>Task 1.d: Testing the server<a class="headerlink" href="#task-1-d-testing-the-server" title="Permalink to this headline">¶</a></h3>
+<p>Using the docker-compose command, we can build and start all the
+containers. We then use the following <code class="docutils literal notranslate"><span class="pre">dig</span></code> command to conduct the
+testing. The command allows us to directly ask a server (<code class="docutils literal notranslate"><span class="pre">&#64;server</span></code>) to
+get a specific <code class="docutils literal notranslate"><span class="pre">type</span></code> of DNS record for a specific domain or host
+<code class="docutils literal notranslate"><span class="pre">name</span></code>. By using the <code class="docutils literal notranslate"><span class="pre">+dnssec</span></code> flag, we set the DNSSEC OK bit (DO)
+in the OPT record in the additional section of the query, requesting the
+server to send back the related DNSSEC records, such as the signature.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>General format:
+$ dig @server name type +dnssec
+
+Example:
+$ dig @10.9.0.65 example.edu DNSKEY +dnssec
+</pre></div>
+</div>
+<p>Run the following commands to get different types of records from the
+<code class="docutils literal notranslate"><span class="pre">example.edu</span></code> nameserver. Provide an explanation for each of the
+records in the response. In our setup, <code class="docutils literal notranslate"><span class="pre">10.9.0.65</span></code> is the IP address
+assigned to the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> nameserver.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.65 example.edu DNSKEY +dnssec
+$ dig @10.9.0.65 example.edu NS +dnssec
+$ dig @10.9.0.65 www.example.edu A +dnssec
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-3-setting-up-the-edu-server">
+<h2>Task 3: Setting Up the <code class="docutils literal notranslate"><span class="pre">edu</span></code> Server<a class="headerlink" href="#task-3-setting-up-the-edu-server" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will set up the <code class="docutils literal notranslate"><span class="pre">edu</span></code> server. The instructions are
+similar to those in Task 1, so we will not repeat them.</p>
+<div class="section" id="task-3-a-finding-and-understanding-the-ds-record">
+<h3>Task 3.a: Finding and understanding the DS record<a class="headerlink" href="#task-3-a-finding-and-understanding-the-ds-record" title="Permalink to this headline">¶</a></h3>
+<p>After signing the zone file of <code class="docutils literal notranslate"><span class="pre">example.edu</span></code>, a DS record is generated
+for the Key Signing Key, and by default, it is placed inside a file
+called <code class="docutils literal notranslate"><span class="pre">dsset-&lt;xyz&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;xyz&gt;</span></code> is the zone name. In our case,
+<code class="docutils literal notranslate"><span class="pre">dsset-example.edu.</span></code> is the file name.</p>
+<p>DS (Delegation Signer) record holds the name of a delegated zone. It
+references a DNSKEY record in the sub-delegated zone. The DS record
+should be placed in the parent zone along with the delegating NS
+records. The following gives an example of the DS record:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>example.edu.   IN DS 10246   8  2   (*@\textbf{563D...(omitted)...1D59D1}@*)
+                       (*@\ding{192}@*)              (*@\ding{193}@*)
+</pre></div>
+</div>
+<p>A DS record contains a key tag (marked as ), which is a short numeric
+value identifying the referenced key. This key is the Key Signing Key
+(KSK) for the domain. The most important element in a DS record is the
+digest (marked by ), which is the one-way hash value of the KSK. By
+putting this digest value in the parent zone (i.e., the <code class="docutils literal notranslate"><span class="pre">edu</span></code> zone),
+the integrity of the sub-delegated zone’s KSK can be verified. That is
+the main purpose of this DS record.</p>
+</div>
+<div class="section" id="task-3-b-setting-up-the-edu-server">
+<h3>Task 3.b: Setting up the <code class="docutils literal notranslate"><span class="pre">edu</span></code> server<a class="headerlink" href="#task-3-b-setting-up-the-edu-server" title="Permalink to this headline">¶</a></h3>
+<p>Follow the instruction in Task 1 to set up the configuration file and
+generate the ZSK and KSK keys for this domain, and then use the keys to
+sign the zone file. The zone file is similar to that used in the
+DNS-in-a-Box lab, but we need to add one more entry to the zone file
+before signing it.</p>
+<p>The entry is the DS record of the sub-delegated zone. In our case, the
+<code class="docutils literal notranslate"><span class="pre">example.edu</span></code> zone is delegated to another nameserver, so the digest
+of its Key Signing Key must be included in the <code class="docutils literal notranslate"><span class="pre">edu</span></code> zone, so the
+integrity of the key can be verified.</p>
+<p>We can copy and paste the content of the DS record to <code class="docutils literal notranslate"><span class="pre">edu</span></code>’s zone
+file, or use the following <code class="docutils literal notranslate"><span class="pre">INCLUDE</span></code> entry to include the file. The
+latter method is more convenient for the lab, because even if we change
+the Key Signing Key of a zone, the DS record’s file name stays the same,
+so there is no need to change the parent’s zone file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$INCLUDE ../edu.example/dsset-example.edu.
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-3-c-testing">
+<h3>Task 3.c: Testing<a class="headerlink" href="#task-3-c-testing" title="Permalink to this headline">¶</a></h3>
+<p>Build and run all the containers. Then run the following commands to get
+different types of records from the <code class="docutils literal notranslate"><span class="pre">edu</span></code> nameserver. Provide an
+explanation for each of the records in the response. In our setup,
+<code class="docutils literal notranslate"><span class="pre">10.9.0.60</span></code> is the IP address assigned to the <code class="docutils literal notranslate"><span class="pre">edu</span></code> nameserver.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.60 edu DNSKEY +dnssec
+$ dig @10.9.0.60 edu NS +dnssec
+$ dig @10.9.0.60 example.edu +dnssec
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-4-setting-up-the-root-server">
+<h2>Task 4: Setting up the root server<a class="headerlink" href="#task-4-setting-up-the-root-server" title="Permalink to this headline">¶</a></h2>
+<p>The procedure to set up the root server is the same as that in the
+previous task. Remember to add the <code class="docutils literal notranslate"><span class="pre">edu</span></code> zone’s DS record to the zone
+file, before signing the zone.</p>
+<div class="section" id="testing">
+<h3>Testing.<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Run the following commands to get different types of records from the
+root nameserver. Provide an explanation for each of the records in the
+response. In our setup, <code class="docutils literal notranslate"><span class="pre">10.9.0.30</span></code> is the IP address assigned to the
+root nameserver.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.30 . DNSKEY +dnssec
+$ dig @10.9.0.30 . NS +dnssec
+$ dig @10.9.0.30 edu +dnssec
+$ dig @10.9.0.30 example.edu +dnssec
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-5-setting-up-the-local-dns-server">
+<h2>Task 5: Setting up the Local DNS Server<a class="headerlink" href="#task-5-setting-up-the-local-dns-server" title="Permalink to this headline">¶</a></h2>
+<p>When a computer needs to resolve the IP address from a hostname (or vice
+versa), it sends a request to its helper, which is called local DNS
+server (it does not need to be local). This local DNS server will
+conduct the entire DNS resolution process, and then send the result back
+to the computer. Please follow the DNS-in-a-Box lab to set up this local
+DNS server, and also follow Task 1.a to enable DNSSEC on this server.</p>
+<p>In DNSSEC, each nameserver provides its own public keys (both ZSK and
+KSK) to the client, so the client can use KSK to verify the signature on
+ZSK, and then use ZSK to verify the signature on each record. That
+leaves one thing uncertain: how to verify the authenticity of KSK? That
+is the purpose of the DS record in the parent zone. The parent will
+provide the DS record for its sub-zone, and this DS record is used to
+verify the KSK of sub-zone.</p>
+<p>Since the root server does not have a parent zone, how do we verify the
+authenticity of the root server? The root servers’ public keys are the
+root of the trust, so they are the most important keys in the DNSSEC
+infrastructure, and they are called <em>trust anchors</em>. They must be
+obtained using a secure way.</p>
+<p>BIND 9 has built-in DNSSEC trust anchors, but they can be overridden by
+the content inside . In this task, we will put our root server’s public
+key into this file. Copy the <code class="docutils literal notranslate"><span class="pre">bind.keys</span></code> to our container folder, and
+replace the public key inside with our root server’s Key Signing Key.
+Make sure use the KSK here, not the ZSK.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>trust-anchors {
+    . initial-key 257 3 8 &quot; &lt;Root&#39;s Key Signing Key&gt; &quot;;
+};
+</pre></div>
+</div>
+<div class="section" id="testing-1">
+<span id="id1"></span><h3>Testing.<a class="headerlink" href="#testing-1" title="Permalink to this headline">¶</a></h3>
+<p>After starting the local server container, run the following command
+(<code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> is the IP address assigned to the local DNS server in our
+setup).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.53 www.example.edu +dnssec
+</pre></div>
+</div>
+<p>If everything has been set up correctly, you should able to get the
+answer, the IP address of <a class="reference external" href="www.example.com">www.example.com</a>. All
+your containers should be running to get this result.</p>
+</div>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>This lab has not been finished yet. Although we have set up the DNSSEC,
+the local DNS server still couldn’t verify the query results. Something
+is still missing, and we are still trying to figure it out. Helps are
+appreciated.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="firewall.html" class="btn btn-neutral float-right" title="Firewall Exploration Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dns_remote.html" class="btn btn-neutral float-left" title="The Kaminsky Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

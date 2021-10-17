@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Public-Key Infrastructure (PKI) Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pseudo Random Number Generation Lab" href="random_number.html" />
+    <link rel="prev" title="Padding Oracle Attack Lab" href="padding_oracle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="crypto_index.html">Cryptography Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="encryption.html">Secret-Key Encryption Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html">Hash Length Extension Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html">MD5 Collision Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html">Padding Oracle Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Public-Key Infrastructure (PKI) Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-becoming-a-certificate-authority-ca">Task 1: Becoming a Certificate Authority (CA)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-generating-a-certificate-request-for-your-web-server">Task 2: Generating a Certificate Request for Your Web Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-generating-a-certificate-for-your-server">Task 3: Generating a Certificate for your server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-deploying-certificate-in-an-apache-based-https-website">Task 4: Deploying Certificate in an Apache-Based HTTPS Website</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-launching-a-man-in-the-middle-attack">Task 5: Launching a Man-In-The-Middle Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-launching-a-man-in-the-middle-attack-with-a-compromised-ca">Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html">Pseudo Random Number Generation Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html">RSA Public-Key Encryption and Signature Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html">Transport Layer Security (TLS) Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="crypto_index.html">Cryptography Labs</a> &raquo;</li>
+        
+      <li>Public-Key Infrastructure (PKI) Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Public-Key Infrastructure (PKI) Lab</p>
+</div>
+<div class="section" id="public-key-infrastructure-pki-lab">
+<h1>Public-Key Infrastructure (PKI) Lab<a class="headerlink" href="#public-key-infrastructure-pki-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Public key cryptography is the foundation of today’s secure
+communication, but it is subject to man-in-the-middle attacks when one
+side of communication sends its public key to the other side. The
+fundamental problem is that there is no easy way to verify the ownership
+of a public key, i.e., given a public key and its claimed owner
+information, how do we ensure that the public key is indeed owned by the
+claimed owner? The Public Key Infrastructure (PKI) is a practical
+solution to this problem.</p>
+<p>The learning objective of this lab is for students to gain the
+first-hand experience on PKI. SEED labs have a series of labs focusing
+on the public-key cryptography, and this one focuses on PKI. By doing
+the tasks in this lab, students should be able to gain a better
+understanding of how PKI works, how PKI is used to protect the Web, and
+how Man-in-the-middle attacks can be defeated by PKI. Moreover, students
+will be able to understand the root of the trust in the public-key
+infrastructure, and what problems will arise if the root trust is
+broken. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Public-key encryption, Public-Key Infrastructure (PKI)</p></li>
+<li><p>Certificate Authority (CA), X.509 certificate, and root CA</p></li>
+<li><p>Apache, HTTP, and HTTPS</p></li>
+<li><p>Man-in-the-middle attacks</p></li>
+</ul>
+<div class="section" id="readings">
+<h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of PKI can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 23 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="related-labs">
+<h3>Related labs.<a class="headerlink" href="#related-labs" title="Permalink to this headline">¶</a></h3>
+<p>A topic related to this lab is the Transport Layer Security (TLS), which
+is based on PKI. We have a separate lab for TLS. In addition, we have a
+lab called <em>RSA Public-Key Encryption and Signature Lab</em>, which focuses
+on the algorithm part of the public-key cryptography.</p>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a
+pre-built image from the SEED website, and run the SEED VM on your own
+computer. However, most of the SEED labs can be conducted on the cloud,
+and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Lab Environment<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we will generate public-key certificates, and then use them
+to secure web servers. The certificate generation tasks will be
+conducted on the VM, but we will use a container to host the web server.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands.<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please
+read the “Common Problems” section of the manual for potential
+solutions.</p>
+</div>
+<div class="section" id="dns-setup">
+<h3>DNS setup.<a class="headerlink" href="#dns-setup" title="Permalink to this headline">¶</a></h3>
+<p>In this document, we use <code class="docutils literal notranslate"><span class="pre">www.bank32.com</span></code> as an example to show how to
+set up an HTTPS web server with this name. Students need to use a
+different name for their lab. Unless the name is specified by the
+instructors, students should include their last name and the current
+year in the server name. For example, if <code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Smith</span></code> does this lab in
+2020, the server name should be <code class="docutils literal notranslate"><span class="pre">www.smith2020.com</span></code>. You do not need
+to own this domain; you just need to map this name to the container’s IP
+address by adding the following entries to <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> (the first
+entry is required, otherwise, the example in this lab description will
+not work):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.80   www.bank32.com
+10.9.0.80   www.smith2020.com
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-1-becoming-a-certificate-authority-ca">
+<h2>Task 1: Becoming a Certificate Authority (CA)<a class="headerlink" href="#task-1-becoming-a-certificate-authority-ca" title="Permalink to this headline">¶</a></h2>
+<p>A Certificate Authority (CA) is a trusted entity that issues digital
+certificates. The digital certificate certifies the ownership of a
+public key by the named subject of the certificate. A number of
+commercial CAs are treated as root CAs; VeriSign is the largest CA at
+the time of writing. Users who want to get digital certificates issued
+by the commercial CAs need to pay those CAs.</p>
+<p>In this lab, we need to create digital certificates, but we are not
+going to pay any commercial CA. We will become a root CA ourselves, and
+then use this CA to issue certificate for others (e.g. servers). In this
+task, we will make ourselves a root CA, and generate a certificate for
+this CA. Unlike other certificates, which are usually signed by another
+CA, the root CA’s certificates are self-signed. Root CA’s certificates
+are usually pre-loaded into most operating systems, web browsers, and
+other software that rely on PKI. Root CA’s certificates are
+unconditionally trusted.</p>
+<div class="section" id="the-configuration-file-openssl-conf">
+<h3>The Configuration File <code class="docutils literal notranslate"><span class="pre">openssl.conf</span></code>.<a class="headerlink" href="#the-configuration-file-openssl-conf" title="Permalink to this headline">¶</a></h3>
+<p>In order to use <code class="docutils literal notranslate"><span class="pre">OpenSSL</span></code> to create certificates, you have to have a
+configuration file. The configuration file usually has an extension
+<code class="docutils literal notranslate"><span class="pre">.cnf</span></code>. It is used by three <code class="docutils literal notranslate"><span class="pre">OpenSSL</span></code> commands: <code class="docutils literal notranslate"><span class="pre">ca</span></code>, <code class="docutils literal notranslate"><span class="pre">req</span></code> and
+<code class="docutils literal notranslate"><span class="pre">x509</span></code>. The manual page of <code class="docutils literal notranslate"><span class="pre">openssl.conf</span></code> can be found from online
+resources. By default, <code class="docutils literal notranslate"><span class="pre">OpenSSL</span></code> use the configuration file from .
+Since we need to make changes to this file, we will copy it into our
+current directory, and instruct <code class="docutils literal notranslate"><span class="pre">OpenSSL</span></code> to use this copy instead.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">[CA_default]</span></code> section of the configuration file shows the default
+setting that we need to prepare. We need to create several
+sub-directories. Please uncomment the <code class="docutils literal notranslate"><span class="pre">unique_subject</span></code> line to allow
+creation of certifications with the same subject, because it is very
+likely that we will do that in the lab.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[ CA_default ]
+dir             = ./demoCA         # Where everything is kept
+certs           = $dir/certs       # Where the issued certs are kept
+crl_dir         = $dir/crl         # Where the issued crl are kept
+database        = $dir/index.txt   # database index file.
+#unique_subject = no               # Set to &#39;no&#39; to allow creation of
+                                   # several certs with same subject.
+new_certs_dir   = $dir/newcerts    # default place for new certs.
+serial          = $dir/serial      # The current serial number
+</pre></div>
+</div>
+<p>For the <code class="docutils literal notranslate"><span class="pre">index.txt</span></code> file, simply create an empty file. For the
+<code class="docutils literal notranslate"><span class="pre">serial</span></code> file, put a single number in string format (e.g. 1000) in the
+file. Once you have set up the configuration file <code class="docutils literal notranslate"><span class="pre">openssl.cnf</span></code>, you
+can create and issue certificates.</p>
+</div>
+<div class="section" id="certificate-authority-ca">
+<h3>Certificate Authority (CA).<a class="headerlink" href="#certificate-authority-ca" title="Permalink to this headline">¶</a></h3>
+<p>As we described before, we need to generate a self-signed certificate
+for our CA. This means that this CA is totally trusted, and its
+certificate will serve as the root certificate. You can run the
+following command to generate the self-signed certificate for the CA:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 \
+            -keyout ca.key -out ca.crt
+</pre></div>
+</div>
+<p>You will be prompted for a password. Do not lose this password, because
+you will have to type the passphrase each time you want to use this CA
+to sign certificates for others. You will also be asked to fill in the
+subject information, such as the Country Name, Common Name, etc. The
+output of the command are stored in two files: <code class="docutils literal notranslate"><span class="pre">ca.key</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ca.crt</span></code>. The file <code class="docutils literal notranslate"><span class="pre">ca.key</span></code> contains the CA’s private key, while
+<code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> contains the public-key certificate.</p>
+<p>You can also specify the subject information and password in the command
+line, so you will not be prompted for any additional information. In the
+following command, we use <code class="docutils literal notranslate"><span class="pre">-subj</span></code> to set the subject information and
+we use <code class="docutils literal notranslate"><span class="pre">-passout</span> <span class="pre">pass:dees</span></code> to set the password to <code class="docutils literal notranslate"><span class="pre">dees</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 \
+            -keyout ca.key -out ca.crt  \
+            -subj &quot;/CN=www.modelCA.com/O=Model CA LTD./C=US&quot; \
+            -passout pass:dees
+</pre></div>
+</div>
+<p>We can use the following commands to look at the decoded content of the
+X509 certificate and the RSA key (<code class="docutils literal notranslate"><span class="pre">-text</span></code> means decoding the content
+into plain text; <code class="docutils literal notranslate"><span class="pre">-noout</span></code> means not printing out the encoded version):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl x509 -in ca.crt -text -noout
+openssl rsa  -in ca.key -text -noout
+</pre></div>
+</div>
+<p>Please run the above commands. From the output, please identify the
+followings:</p>
+<ul class="simple">
+<li><p>What part of the certificate indicates this is a CA’s certificate?</p></li>
+<li><p>What part of the certificate indicates this is a self-signed
+certificate?</p></li>
+<li><p>In the RSA algorithm, we have a public exponent <span class="math notranslate nohighlight">\(e\)</span>, a private
+exponent <span class="math notranslate nohighlight">\(d\)</span>, a modulus <span class="math notranslate nohighlight">\(n\)</span>, and two secret numbers
+<span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>, such that <span class="math notranslate nohighlight">\(n = pq\)</span>. Please identify
+the values for these elements in your certificate and key files.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-2-generating-a-certificate-request-for-your-web-server">
+<h2>Task 2: Generating a Certificate Request for Your Web Server<a class="headerlink" href="#task-2-generating-a-certificate-request-for-your-web-server" title="Permalink to this headline">¶</a></h2>
+<p>A company called <code class="docutils literal notranslate"><span class="pre">bank32.com</span></code>(replace this with the name of your own
+web server) wants to get a public-key certificate from our CA. First it
+needs to generate a Certificate Signing Request (CSR), which basically
+includes the company’s public key and identity information. The CSR will
+be sent to the CA, who will verify the identity information in the
+request, and then generate a certificate.</p>
+<p>The command to generate a CSR is quite similar to the one we used in
+creating the self-signed certificate for the CA. The only difference is
+the <code class="docutils literal notranslate"><span class="pre">-x509</span></code> option. Without it, the command generates a request; with
+it, the command generates a self-signed certificate. The following
+command generate a CSR for <code class="docutils literal notranslate"><span class="pre">www.bank32.com</span></code> (you should use your own
+server name):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl req -newkey rsa:2048 -sha256  \
+            -keyout server.key   -out server.csr  \
+            -subj &quot;/CN=www.bank32.com/O=Bank32 Inc./C=US&quot; \
+            -passout pass:dees
+</pre></div>
+</div>
+<p>The command will generate a pair of public/private key, and then create
+a certificate signing request from the public key. We can use the
+following command to look at the decoded content of the CSR and private
+key files:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl req -in server.csr -text -noout
+openssl rsa -in server.key -text -noout
+</pre></div>
+</div>
+<div class="section" id="adding-alternative-names">
+<h3>Adding Alternative names.<a class="headerlink" href="#adding-alternative-names" title="Permalink to this headline">¶</a></h3>
+<p>Many websites have different URLs. For example, <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>,
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code>, <code class="docutils literal notranslate"><span class="pre">example.net</span></code>, and <code class="docutils literal notranslate"><span class="pre">example.org</span></code> are all pointing
+to the same web server. Due to the hostname matching policy enforced by
+browsers, the common name in a certificate must match with the server’s
+hostname, or browsers will refuse to communicate with the server.</p>
+<p>To allow a certificate to have multiple names, the X.509 specification
+defines extensions to be attached to a certificate. This extension is
+called Subject Alternative Name (SAN). Using the SAN extension, it’s
+possible to specify several hostnames in the <code class="docutils literal notranslate"><span class="pre">subjectAltName</span></code> field of
+a certificate.</p>
+<p>To generate a certificate signing request with such a field, we can put
+all the necessary information in a configuration file or at the command
+line. We will use the command-line approach in this task (the
+configuration file approach is used in another SEED lab, the TLS lab).
+We can add the following option to the <code class="docutils literal notranslate"><span class="pre">&quot;openssl</span> <span class="pre">req&quot;</span></code> command. It
+should be noted that the <code class="docutils literal notranslate"><span class="pre">subjectAltName</span></code> extension field must also
+include the one from the common name field; otherwise, the common name
+will not be accepted as a valid name.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-addext &quot;subjectAltName = DNS:www.bank32.com,  \
+                          DNS:www.bank32A.com, \
+                          DNS:www.bank32B.com&quot;
+</pre></div>
+</div>
+<p>Please add two alternative names to your certificate signing request.
+They will be needed in the tasks later.</p>
+</div>
+</div>
+<div class="section" id="task-3-generating-a-certificate-for-your-server">
+<h2>Task 3: Generating a Certificate for your server<a class="headerlink" href="#task-3-generating-a-certificate-for-your-server" title="Permalink to this headline">¶</a></h2>
+<p>The CSR file needs to have the CA’s signature to form a certificate. In
+the real world, the CSR files are usually sent to a trusted CA for their
+signature. In this lab, we will use our own trusted CA to generate
+certificates. The following command turns the certificate signing
+request (<code class="docutils literal notranslate"><span class="pre">server.csr</span></code>) into an X509 certificate (<code class="docutils literal notranslate"><span class="pre">server.crt</span></code>),
+using the CA’s <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">ca.key</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl ca -config myCA_openssl.cnf -policy policy_anything \
+           -md sha256 -days 3650 \
+           -in server.csr -out server.crt -batch \
+           -cert ca.crt -keyfile ca.key
+</pre></div>
+</div>
+<p>In the above command, <code class="docutils literal notranslate"><span class="pre">myCA_openssl.cnf</span></code> is the configuration file we
+copied from (we also made changes to this file in Task 1). We use the
+<code class="docutils literal notranslate"><span class="pre">policy_anything</span></code> policy defined in the configuration file. This is
+not the default policy; the default policy has more restriction,
+requiring some of the subject information in the request to match those
+in the CA’s certificate. The policy used in the command, as indicated by
+its name, does not enforce any matching rule.</p>
+<div class="section" id="copy-the-extension-field">
+<h3>Copy the extension field.<a class="headerlink" href="#copy-the-extension-field" title="Permalink to this headline">¶</a></h3>
+<p>For security reasons, the default setting in <code class="docutils literal notranslate"><span class="pre">openssl.cnf</span></code> does not
+allow the <code class="docutils literal notranslate"><span class="pre">&quot;openssl</span> <span class="pre">ca&quot;</span></code> command to copy the extension field from the
+request to the final certificate. To enable that, we can go to our copy
+of the configuration file, uncomment the following line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Extension copying option: use with caution.
+copy_extensions = copy
+</pre></div>
+</div>
+<p>After signing the certificate, please use the following command to print
+out the decoded content of the certificate, and check whether the
+alternative names are included.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>openssl x509 -in server.crt -text -noout
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-4-deploying-certificate-in-an-apache-based-https-website">
+<h2>Task 4: Deploying Certificate in an Apache-Based HTTPS Website<a class="headerlink" href="#task-4-deploying-certificate-in-an-apache-based-https-website" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will see how public-key certificates are used by
+websites to secure web browsing. We will set up an HTTPS website based
+Apache. The Apache server, which is already installed in our container,
+supports the HTTPS protocol. To create an HTTPS website, we just need to
+configure the Apache server, so it knows where to get the private key
+and certificates. Inside our container, we have already set up an HTTPS
+site for <code class="docutils literal notranslate"><span class="pre">bank32.com</span></code>. Students can follow this example to set up
+their own HTTPS site.</p>
+<p>An Apache server can simultaneously host multiple websites. It needs to
+know the directory where a website’s files are stored. This is done via
+its <code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code> file, located in the <code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available</span></code>
+directory. In our container, we have a file called
+<code class="docutils literal notranslate"><span class="pre">bank32_apache_ssl.conf</span></code>, which contains the following entry:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:443&gt;
+    DocumentRoot /var/www/bank32
+    ServerName www.bank32.com
+    ServerAlias www.bank32A.com
+    ServerAlias www.bank32B.com
+    DirectoryIndex index.html
+    SSLEngine On
+    SSLCertificateFile    /certs/bank32.crt    (*@\ding{192}@*)
+    SSLCertificateKeyFile /certs/bank32.key    (*@\ding{193}@*)
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+<p>The above example sets up the HTTPS site <a class="reference external" href="https://www.bank32.com">https://www.bank32.com</a> (port
+<code class="docutils literal notranslate"><span class="pre">443</span></code> is the default HTTPS port). The <code class="docutils literal notranslate"><span class="pre">ServerName</span></code> entry specifies
+the name of the website, while the <code class="docutils literal notranslate"><span class="pre">DocumentRoot</span></code> entry specifies
+where the files for the website are stored. Using the <code class="docutils literal notranslate"><span class="pre">ServerAlias</span></code>
+entries, we allow the website to have different names. You should also
+provide two alias entries.</p>
+<p>We also need to tell Apache where the server certificate (Line ) and
+private key (Line ) are stored. In the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>, we have already
+included the commands to copy the certificate and key to the <code class="docutils literal notranslate"><span class="pre">/certs</span></code>
+folder of the container.</p>
+<p>In order to make the website work, we need to enable Apache’s <code class="docutils literal notranslate"><span class="pre">ssl</span></code>
+module and then enable this site. They can be done using the following
+commands, which are already executed when the container is built.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># a2enmod ssl                 // Enable the SSL module
+# a2ensite bank32_apache_ssl  // Enable the sites described in this file
+</pre></div>
+</div>
+<div class="section" id="starting-the-apache-server">
+<h3>Starting the Apache server.<a class="headerlink" href="#starting-the-apache-server" title="Permalink to this headline">¶</a></h3>
+<p>The Apache server is not automatically started in the container, because
+of the need to type the password to unlock the private key. Let’s go to
+the container and run the following command to start the server (we also
+list some related commands):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Start the server
+# service apache2 start
+
+// Stop the server
+# service apache stop
+
+// Restart a server
+# service apache restart
+</pre></div>
+</div>
+<p>When Apache starts, it needs to load the private key for each HTTPS
+site. Our private key is encrypted, so Apache will ask us to type the
+password for decryption. Inside the container, the password used for
+<code class="docutils literal notranslate"><span class="pre">bank32</span></code> is <code class="docutils literal notranslate"><span class="pre">dees</span></code>. Once everything is set up properly, we can
+browse the web site, and all the traffic between the browser and the
+server will be encrypted.</p>
+<p>Please use the above example as a guidance to set up an HTTPS server for
+your website. Please describe the steps that you have taken, the
+contents that you add to Apache’s configuration file, and the
+screenshots of the final outcome showing that you can successfully
+browse the HTTPS site.</p>
+</div>
+<div class="section" id="shared-folder-between-the-vm-and-container">
+<h3>Shared folder between the VM and container.<a class="headerlink" href="#shared-folder-between-the-vm-and-container" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we need to copy files from the VM to the container. To
+avoid repeatedly recreating containers, we have created a shared folder
+between the VM and container. When you use the Compose file inside the
+<code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder to create containers, the <code class="docutils literal notranslate"><span class="pre">volumes</span></code> sub-folder
+will be mounted to the container. Anything you put inside this folder
+will be accessible from inside of the running container.</p>
+</div>
+<div class="section" id="browsing-the-website">
+<h3>Browsing the website.<a class="headerlink" href="#browsing-the-website" title="Permalink to this headline">¶</a></h3>
+<p>Now, point the browser to your web server (note: you should put
+<code class="docutils literal notranslate"><span class="pre">https</span></code> at the beginning of your URL, instead of using <code class="docutils literal notranslate"><span class="pre">http</span></code>).
+Please describe and explain your observations. Most likely, you will not
+be able to succeed, this is because … (the reasons are omitted here;
+students should provide the explanation in their lab reports). Please
+fix the problem and demonstrate that you can successfully visit the
+HTTPS website.</p>
+<p>In the following, we provide instructions on how to load a certificate
+into Firefox. We intentionally do not explain why and what certificate
+should be loaded; students need to figure that out. To manually add a
+certificate to the Firefox browser, type the following URL in the
+address bar, and click the <code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">Certificates</span></code> button on the page
+(scroll to the bottom).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>about:preferences#privacy
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Authorities</span></code> tab, you will see a list of certificates that are
+already accepted by Firefox. From here, we can import our own
+certificates. After choosing the certificate file, please select the
+following option: “Trust this CA to identify web sites”. You will see
+that our certificate is now in Firefox’s list of accepted certificates.</p>
+</div>
+</div>
+<div class="section" id="task-5-launching-a-man-in-the-middle-attack">
+<h2>Task 5: Launching a Man-In-The-Middle Attack<a class="headerlink" href="#task-5-launching-a-man-in-the-middle-attack" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will show how PKI can defeat Man-In-The-Middle (MITM)
+attacks. <strong>Figure 1</strong> depicts how MITM attacks work.
+Assume Alice wants to visit <code class="docutils literal notranslate"><span class="pre">example.com</span></code> via the HTTPS protocol. She
+needs to get the public key from the <code class="docutils literal notranslate"><span class="pre">example.com</span></code> server; Alice will
+generate a secret, and encrypt the secret using the server’s public key,
+and send it to the server. If an attacker can intercept the
+communication between Alice and the server, the attacker can replace the
+server’s public key with its own public key. Therefore, Alice’s secret
+is actually encrypted with the attacker’s public key, so the attacker
+will be able to read the secret. The attacker can forward the secret to
+the server using the server’s public key. The secret is used to encrypt
+the communication between Alice and server, so the attacker can decrypt
+the encrypted communication.</p>
+<div class="center docutils container">
+<div class="align-center figure align-default" id="id2">
+<img alt="A Man-In-The-Middle (MITM) attack" src="../../_images/mitm.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: A Man-In-The-Middle (MITM) attack</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>The goal of this task is to help students understand how PKI can defeat
+such MITM attacks. In the task, we will emulate an MITM attack, and see
+how exactly PKI can defeat it. We will select a target website first. In
+this document, we use <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> as the target website, but in
+the task, to make it more meaningful, students should pick a popular
+website, such as a banking site and social network site.</p>
+<div class="section" id="step-1-setting-up-the-malicious-website">
+<h3>Step 1: Setting up the malicious website.<a class="headerlink" href="#step-1-setting-up-the-malicious-website" title="Permalink to this headline">¶</a></h3>
+<p>In Task 4, we have already set up an HTTPS website. We will use the same
+Apache server to impersonate <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> (or the site chosen by
+students). To achieve that, we will follow the instruction in Task 4 to
+add a <code class="docutils literal notranslate"><span class="pre">VirtualHost</span></code> entry to Apache’s SSL configuration file: the
+<code class="docutils literal notranslate"><span class="pre">ServerName</span></code> should be <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>, but the rest of the
+configuration can be the same as that used in Task 4. Obviously, in the
+real world, you won’t be able to get a valid certificate for
+<code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>, so we will use the same certificate that we used
+for our own server.</p>
+<p>Our goal is the following: when a user tries to visit
+<code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>, we are going to get the user to land in our server,
+which hosts a fake website for <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>. If this were a
+social network website, The fake site can display a login page similar
+to the one in the target website. If users cannot tell the difference,
+they may type their account credentials in the fake webpage, essentially
+disclosing the credentials to the attacker.</p>
+</div>
+<div class="section" id="step-2-becoming-the-man-in-the-middle">
+<h3>Step 2: Becoming the man in the middle<a class="headerlink" href="#step-2-becoming-the-man-in-the-middle" title="Permalink to this headline">¶</a></h3>
+<p>There are several ways to get the user’s HTTPS request to land in our
+web server. One way is to attack the routing, so the user’s HTTPS
+request is routed to our web server. Another way is to attack DNS, so
+when the victim’s machine tries to find out the IP address of the target
+web server, it gets the IP address of our web server. In this task, we
+simulate the attack-DNS approach. Instead of launching an actual DNS
+cache poisoning attack, we simply modify the victim’s machine’s
+<code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file to emulate the result of a DNS cache positing attack
+by mapping the hostname <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> to our malicious web server.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.80  www.example.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-browse-the-target-website">
+<h3>Step 3: Browse the target website.<a class="headerlink" href="#step-3-browse-the-target-website" title="Permalink to this headline">¶</a></h3>
+<p>With everything set up, now visit the target real website, and see what
+your browser would say. Please explain what you have observed.</p>
+</div>
+</div>
+<div class="section" id="task-6-launching-a-man-in-the-middle-attack-with-a-compromised-ca">
+<h2>Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA<a class="headerlink" href="#task-6-launching-a-man-in-the-middle-attack-with-a-compromised-ca" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we assume that the root CA created in Task 1 is
+compromised by an attacker, and its private key is stolen. Therefore,
+the attacker can generate any arbitrary certificate using this CA’s
+private key. In this task, we will see the consequence of such a
+compromise.</p>
+<p>Please design an experiment to show that the attacker can successfully
+launch MITM attacks on any HTTPS website. You can use the same setting
+created in Task 5, but this time, you need to demonstrate that the MITM
+attack is successful, i.e., the browser will not raise any suspicion
+when the victim tries to visit a website but land in the MITM attacker’s
+fake website.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="random_number.html" class="btn btn-neutral float-right" title="Pseudo Random Number Generation Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="padding_oracle.html" class="btn btn-neutral float-left" title="Padding Oracle Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

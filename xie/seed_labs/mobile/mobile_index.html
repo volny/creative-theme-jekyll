@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Mobile Security Labs &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clickjacking Attack Lab" href="click_jacking.html" />
+    <link rel="prev" title="Spectre Attack Lab" href="../hardware/spectre_attack.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mobile Security Labs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="click_jacking.html">Clickjacking Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html">Android Repackaging Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html">Android Device Rooting Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+      <li>Mobile Security Labs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mobile-security-labs">
+<h1>Mobile Security Labs<a class="headerlink" href="#mobile-security-labs" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="click_jacking.html">Clickjacking Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="click_jacking.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="click_jacking.html#lab-environment">Lab Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="click_jacking.html#task-1-perform-a-clickjacking-attack">Task 1: Perform a Clickjacking attack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="click_jacking.html#attack-code">Attack Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="click_jacking.html#performing-the-attack">Performing the Attack:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="click_jacking.html#task-2-dangerous-accessibility-service-in-android">Task 2: Dangerous Accessibility Service in Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="click_jacking.html#attack-code-1">Attack Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="click_jacking.html#performing-the-attack-1">Performing the Attack:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="click_jacking.html#task-3-design-your-clickjacking-attack">Task 3: Design your clickjacking attack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="click_jacking.html#submission-and-demonstration">Submission and Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="repackaging.html">Android Repackaging Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#lab-environment">Lab Environment.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#task-1-obtain-an-android-app-apk-file-and-install-it">Task 1: Obtain An Android App (APK file) and Install It</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#task-2-disassemble-android-app">Task 2: Disassemble Android App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#task-3-inject-malicious-code">Task 3: Inject Malicious Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#task-4-repack-android-app-with-malicious-code">Task 4: Repack Android App with Malicious Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-1-rebuild-apk">Step 1: Rebuild APK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-2-sign-the-apk-file">Step 2: Sign the APK file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#task-5-install-the-repackaged-app-and-trigger-the-malicious-code">Task 5: Install the Repackaged App and Trigger the Malicious Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#common-problems">Common problems.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#task-6-using-repackaging-attack-to-track-victims-location">Task 6: Using Repackaging Attack to Track Victim’s Location</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-1-setting-up-mock-locations">Step 1. Setting up mock locations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-2-configuring-dns">Step 2: Configuring DNS.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-3-repackaging-and-installing-the-victim-app">Step 3: Repackaging and installing the victim app.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-4-enabling-the-permission-on-the-android-vm">Step 4: Enabling the permission on the Android VM.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-5-triggering-the-attacking-code">Step 5: Triggering the attacking code.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="repackaging.html#step-6-tracking-the-victim">Step 6: Tracking the victim.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="repackaging.html#submission-and-demonstration">Submission and Demonstration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rooting.html">Android Device Rooting Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#background-knowledge">Background Knowledge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#background-knowledge-about-rooting">Background Knowledge about Rooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#modifying-android-from-inside">Modifying Android from inside.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#modifying-android-from-outside">Modifying Android from outside.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#reinstall-recovery-os">Reinstall recovery OS.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#background-knowledge-about-ota">Background Knowledge about OTA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#lab-environment">Lab Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#task-1-build-a-simple-ota-package">Task 1: Build a simple OTA package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#step-1-write-the-update-script">Step 1: Write the update script.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#step-2-build-the-ota-package">Step 2: Build the OTA Package.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#step-3-run-the-ota-package">Step 3: Run the OTA Package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#task-2-inject-code-via-app-process">Task 2: Inject code via <code class="docutils literal notranslate"><span class="pre">app_process</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#step-1-compile-the-code">Step 1. Compile the code.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#step-2-write-the-update-script-and-build-ota-package">Step 2. Write the update script and build OTA package.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#task-3-implement-simplesu-for-getting-root-shell">Task 3: Implement <code class="docutils literal notranslate"><span class="pre">SimpleSU</span></code> for Getting Root Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#file-descriptors">File descriptors.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#creating-new-process">Creating new process.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#passing-the-file-descriptors">Passing the File Descriptors.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rooting.html#the-task">The Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#guidelines">Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#android-booting-sequence-and-app-process">Android Booting Sequence and <code class="docutils literal notranslate"><span class="pre">app_process</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#phase-i-the-kernel">Phase I: The Kernel.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#phase-ii-the-init-process">Phase II: The <code class="docutils literal notranslate"><span class="pre">Init</span></code> Process.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rooting.html#phase-iii-the-zygote-process">Phase III: The <code class="docutils literal notranslate"><span class="pre">Zygote</span></code> Process.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rooting.html#how-to-unlock-the-boot-loader-on-a-real-device">How to unlock the boot loader on a real device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rooting.html#how-to-replace-the-existing-recovery-os-on-a-real-device">How to replace the existing recovery OS on a real device</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rooting.html#submission-and-demonstration">Submission and Demonstration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="click_jacking.html" class="btn btn-neutral float-right" title="Clickjacking Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../hardware/spectre_attack.html" class="btn btn-neutral float-left" title="Spectre Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

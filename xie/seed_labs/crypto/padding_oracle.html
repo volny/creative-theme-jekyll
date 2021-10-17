@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Padding Oracle Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Public-Key Infrastructure (PKI) Lab" href="pki.html" />
+    <link rel="prev" title="MD5 Collision Attack Lab" href="md5_collision.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="crypto_index.html">Cryptography Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="encryption.html">Secret-Key Encryption Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html">Hash Length Extension Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html">MD5 Collision Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Padding Oracle Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-getting-familiar-with-padding">Task 1: Getting Familiar with Padding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-padding-oracle-attack-level-1">Task 2: Padding Oracle Attack (Level 1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-padding-oracle-attack-level-2">Task 3: Padding Oracle Attack (Level 2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html">Public-Key Infrastructure (PKI) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html">Pseudo Random Number Generation Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html">RSA Public-Key Encryption and Signature Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html">Transport Layer Security (TLS) Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="crypto_index.html">Cryptography Labs</a> &raquo;</li>
+        
+      <li>Padding Oracle Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>Padding Oracle Attack Lab</p>
+</div>
+<div class="section" id="padding-oracle-attack-lab">
+<h1>Padding Oracle Attack Lab<a class="headerlink" href="#padding-oracle-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The learning objective of this lab is for students to get a hands-on
+experience on an interesting attack on crypto systems. Some systems,
+when decrypting a given ciphertext, verify whether the padding is valid
+or not, and throw an error if the padding is invalid. This
+seemly-harmless behavior enables a type of attack called <em>padding oracle
+attack</em>. The attack was originally published in 2002 by Serge Vaudenay,
+and many well-known systems were found vulnerable to this attack,
+including Ruby on Rails, ASP.NET, and OpenSSL.</p>
+<p>In this lab, students are given two oracle servers running inside a
+container. Each oracle has a secret message hidden inside, and it lets
+you know the ciphertext and the IV, but not the plaintext or the
+encryption key. You can send a ciphertext (and the IV) to the oracle; it
+will decrypt the ciphertext using the encryption key, and tell you
+whether the padding is valid or not. Your job is to use the response
+from the oracle to figure out the content of the secret message. This
+lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Secret-key encryption</p></li>
+<li><p>Encryption modes and paddings</p></li>
+<li><p>Padding oracle attack</p></li>
+</ul>
+<div class="section" id="readings">
+<h3>Readings.<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the secret-key encryption can be found in the
+following, but the padding oracle attack is not covered in the current
+edition (future editions will include this attack). Students can find
+tutorials on this attack from online resources, such as Wikipedia.</p>
+<ul class="simple">
+<li><p>Chapter 21 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a
+pre-built image from the SEED website, and run the SEED VM on your own
+computer. However, most of the SEED labs can be conducted on the cloud,
+and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Lab Environment<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we use a container to run the padding oracle.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands.<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems” section of the manual for potential solutions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="task-1-getting-familiar-with-padding">
+<h2>Task 1: Getting Familiar with Padding<a class="headerlink" href="#task-1-getting-familiar-with-padding" title="Permalink to this headline">¶</a></h2>
+<p>For some block ciphers, when the size of a plaintext is not a multiple
+of the block size, padding may be required. The PKCS#5 padding scheme is
+widely used by many block ciphers (see Chapter 21.4 of the SEED book for
+details). We will conduct the following experiments to understand how
+this type of padding works.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">&quot;echo</span> <span class="pre">-n&quot;</span></code> command to create a file. The following
+example creates a file <code class="docutils literal notranslate"><span class="pre">P</span></code> with length 5 (without the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option,
+the length will be 6, because a newline character will be added by
+<code class="docutils literal notranslate"><span class="pre">echo</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ echo -n &quot;12345&quot; &gt; P
+</pre></div>
+</div>
+<p>We use <code class="docutils literal notranslate"><span class="pre">&quot;openssl</span> <span class="pre">enc</span> <span class="pre">-aes-128-cbc</span> <span class="pre">-e&quot;</span></code> to encrypt this file using
+128-bit AES with CBC mode. To see what is added to the padding during
+the encryption, we will decrypt the ciphertext using
+<code class="docutils literal notranslate"><span class="pre">&quot;openssl</span> <span class="pre">enc</span> <span class="pre">-aes-128-cbc</span> <span class="pre">-d&quot;</span></code>. Unfortunately, decryption by default
+will automatically remove the padding, making it impossible for us to
+see the padding. However, the command does have an option called
+<code class="docutils literal notranslate"><span class="pre">&quot;-nopad&quot;</span></code>, which disables the padding, i.e., during the decryption,
+the command will not remove the padded data. Therefore, by looking at
+the decrypted data, we can see what data are used in the padding.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ openssl enc -aes-128-cbc -e -in P -out C
+$ openssl enc -aes-128-cbc -d -nopad -in C -out P_new
+</pre></div>
+</div>
+<p>It should be noted that padding data may not be printable, so you need
+to use a hex tool to display the content. The following example shows
+how to display a file in the hex format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ xxd P_new
+00000000: 3132 3334 350b 0b0b 0b0b 0b0b 0b0b 0b0b  12345...........
+</pre></div>
+</div>
+<p>Your job is to create three files, which contain 5 bytes, 10 bytes, and
+16 bytes, respectively. Using the method above, please figure out what
+paddings are added to the three files.</p>
+</div>
+<div class="section" id="task-2-padding-oracle-attack-level-1">
+<h2>Task 2: Padding Oracle Attack (Level 1)<a class="headerlink" href="#task-2-padding-oracle-attack-level-1" title="Permalink to this headline">¶</a></h2>
+<p>Some systems, when decrypting a given ciphertext, verify whether the
+padding is valid or not, and throw an error if the padding is invalid.
+This seemly-harmless behavior enables a type of attack called <em>padding
+oracle attack</em>. The attack was originally published in 2002 by Serge
+Vaudenay, and many well-known systems were found vulnerable to this type
+of attacks, including Ruby on Rails, ASP.NET, and OpenSSL.</p>
+<div class="section" id="the-oracle-setup">
+<h3>The Oracle Setup<a class="headerlink" href="#the-oracle-setup" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we provide a padding oracle hosted on port <code class="docutils literal notranslate"><span class="pre">5000</span></code>. The
+oracle has a secret message inside, and it prints out the ciphertext of
+this secret message. The encryption algorithm and mode used is AES-CBC,
+and the encryption key is <code class="docutils literal notranslate"><span class="pre">K</span></code>, which is unknown to others. You can
+interact with the oracle using <code class="docutils literal notranslate"><span class="pre">&quot;nc</span> <span class="pre">10.9.0.80</span> <span class="pre">5000&quot;</span></code>. You will see the
+following hexadecimal data provided by the oracle. The first 16 bytes is
+the IV, and the rest is the ciphertext. From the length, you can see
+that the ciphertext has 32 bytes, i.e., 2 blocks, but the actual length
+of the plaintext is unknown due to the padding.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nc 10.9.0.80 5000
+01020304050607080102030405060708a9b2554b094411...
+</pre></div>
+</div>
+<p>The oracle accepts input from you. The format of the input is the same
+as the message above: 16-bytes of the IV, concatenated by the
+ciphertext. The oracle will decrypt the ciphertext using its own secret
+key <code class="docutils literal notranslate"><span class="pre">K</span></code> and the IV provided by you. It will not tell you the
+plaintext, but it does tell you whether the padding is valid or not.
+Your task is to use the information provided by the oracle to figure out
+the actual content of the secret message. For the sake of simplicity,
+you only need to find out one block of the secret message. For the
+debugging purpose, we provide the secret message in the following (it is
+in the source code of the oracle).</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span> <span class="mi">29</span><span class="o">&gt;</span> <span class="n">PLAIN_TEXT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span>
+    <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span>
+    <span class="mh">0x11</span><span class="p">,</span> <span class="mh">0x22</span><span class="p">,</span> <span class="mh">0x33</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">,</span> <span class="mh">0x88</span><span class="p">,</span>
+    <span class="mh">0xaa</span><span class="p">,</span> <span class="mh">0xbb</span><span class="p">,</span> <span class="mh">0xcc</span><span class="p">,</span> <span class="mh">0xdd</span><span class="p">,</span> <span class="mh">0xee</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The secret message is provided only for debugging purposes, and you
+cannot assume that you know this message. You need to use the padding
+oracle attack to derive this message; you need to show your steps.</p>
+</div>
+<div class="section" id="deriving-the-plaintext-manually">
+<h3>Deriving the Plaintext Manually<a class="headerlink" href="#deriving-the-plaintext-manually" title="Permalink to this headline">¶</a></h3>
+<p>The objective of this task is to figure out the plaintext of the secret
+message. It has two blocks P1 and P2. We only need to get P2 (getting P1
+is similar). We have provided a skeleton code called
+<code class="docutils literal notranslate"><span class="pre">manual_attack.py</span></code>. You can use this as a basis to construct your
+attack. We will explain each piece of this code.</p>
+<p>First, let’s get the ciphertext from the oracle. The ciphertext in this
+task consists of two blocks, and we use two 16-byte bytearrays <code class="docutils literal notranslate"><span class="pre">C1</span></code>
+and <code class="docutils literal notranslate"><span class="pre">C2</span></code> to hold the content of these two blocks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">oracle</span> <span class="o">=</span> <span class="n">PaddingOracle</span><span class="p">(</span><span class="s1">&#39;10.9.0.80&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+
+<span class="c1"># Get the IV + Ciphertext from the oracle</span>
+<span class="n">iv_and_ctext</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">ctext</span><span class="p">)</span>
+<span class="n">IV</span>    <span class="o">=</span> <span class="n">iv_and_ctext</span><span class="p">[</span><span class="mi">00</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+<span class="n">C1</span>    <span class="o">=</span> <span class="n">iv_and_ctext</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">]</span>  <span class="c1"># 1st block of ciphertext</span>
+<span class="n">C2</span>    <span class="o">=</span> <span class="n">iv_and_ctext</span><span class="p">[</span><span class="mi">32</span><span class="p">:</span><span class="mi">48</span><span class="p">]</span>  <span class="c1"># 2nd block of ciphertext</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C1:  &quot;</span> <span class="o">+</span> <span class="n">C1</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C2:  &quot;</span> <span class="o">+</span> <span class="n">C2</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="center docutils container">
+<div class="align-center figure align-default" id="id2">
+<img alt="Decryption using CBC" src="../../_images/cbc-dec.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Decryption using CBC</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>As depicted in <strong>Figure 1</strong>, D1 and D2 are the output of
+the AES block cipher. If we can get their values, we can easily get the
+plaintext by xoring them with the ciphertext (or IV for the first
+block). In this task, we focus on the second block P2. Therefore, if we
+can figure out the values of D2, we can calculate P2 using P2 = C1
+<span class="math notranslate nohighlight">\(\oplus\)</span> D2.</p>
+<p>We will not explain the details of the padding oracle attack in this lab
+description. Students can find the details from online resources, such
+as Wikipedia (the current SEED book does not cover this attack). The
+general idea of the attack is to send to the oracle a ciphertext with
+modified C1 (let’s call it CC1). Although the oracle will not tell us
+the result of D2 <span class="math notranslate nohighlight">\(\oplus\)</span> CC1, it does tell us whether the result
+has a valid padding or not. That opens the door for us to figure out the
+value of D2.</p>
+<p>There are 16 bytes in D2, we can figure out its value one byte at a
+time. In the skeleton code, we have initialized two arrays D2 and CC1.
+Their initial values do not really matter. Your task is to use an
+iterative process to figure out the value for the D2 array. For each
+iteration, you need to construct the CC1 array properly.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The inital value of D2 does not matter. Our job is to</span>
+<span class="c1"># find its correct values.</span>
+<span class="n">D2</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">D2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="n">C1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">D2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="o">=</span> <span class="n">C1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">D2</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="n">C1</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># CC1 is used to replace the C1 block in the ciphertext</span>
+<span class="c1"># Its values need to be set properly in each round</span>
+<span class="n">CC1</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">CC1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">=</span> <span class="mh">0x00</span>
+<span class="n">CC1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="o">=</span> <span class="mh">0x00</span>
+<span class="o">...</span>
+<span class="n">CC1</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x00</span>
+</pre></div>
+</div>
+<p>In each iteration, we focus on one byte of CC1. We try all 256 possible
+values for that byte, and send the constructed ciphertext CC1 + C2 (plus
+the IV) to the oracle, and see which value makes the padding valid. As
+long as our construction is correct, there will be one valid value. This
+value helps us get one byte of D2. The code in the following focuses on
+K=1. It can help us find the value for D[15].</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+      <span class="n">CC1</span><span class="p">[</span><span class="mi">16</span> <span class="o">-</span> <span class="n">K</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+      <span class="n">status</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">IV</span> <span class="o">+</span> <span class="n">CC1</span> <span class="o">+</span> <span class="n">C2</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;Valid&quot;</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valid: i = 0x</span><span class="si">{:02x}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CC1: &quot;</span> <span class="o">+</span> <span class="n">CC1</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>You can use the skeleton code as your basis, manually change the value
+of K, use the execution result in each round to set the D2 accordingly,
+and then re-run the program with a updated CC1 to get the next byte of
+D2, i.e., D2[14]. Repeating the step, you can get D2[13], D2[12], …,
+D2[0]. Once you get the entire D2, you get the value of the plaintext
+P2.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Once you get all the 16 bytes of D2, you can easily get P2</span>
+<span class="n">P2</span> <span class="o">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">D2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P2:  &quot;</span> <span class="o">+</span> <span class="n">P2</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="note">
+<h3>Note.<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<p>Figuring out all the 16 bytes of D2 may be too tedious. Students can
+stop after getting 6 bytes of D2. That will unlock the last 6 bytes of
+the plaintext P2 (including the padding). It is sufficient. Although
+students can write code to automate the entire process, it is the
+intention of the lab to force students to do it manually. Therefore, the
+lab report needs to include how each byte (for at least 6 bytes) of D2
+is obtained. In the next task, students will be required to automate
+this process.</p>
+</div>
+</div>
+<div class="section" id="task-3-padding-oracle-attack-level-2">
+<h2>Task 3: Padding Oracle Attack (Level 2)<a class="headerlink" href="#task-3-padding-oracle-attack-level-2" title="Permalink to this headline">¶</a></h2>
+<p>We did manual attacks in the previous task. In this task, we will
+automate the attack process, and this time, we need to get all the
+blocks of the plaintext. When the container starts, two padding oracle
+servers will be started, one for the Level-1 task, and the other is for
+the Level-2 task, i.e., this task. The Level-2 server listens to port
+<code class="docutils literal notranslate"><span class="pre">6000</span></code>. Although the key and the secret message are in the binary code
+of the oracle program, we have tried to obfuscate them, so it will not
+be very easy to find them from the binary. Moreover, learning the secret
+message does not help the padding oracle attack at all. Students’ grade
+depends on how they derive the secret message using the padding oracle
+attack, not on whether they know the secret message or not.</p>
+<p>It should be noted that every time you make a new connection to the
+oracle, the oracle will generate a new key and IV to encrypt the secret
+message (the message is still the same). That is why you will see a
+different ciphertext. However, if you stay inside an existing
+connection, the key and IV will not change.</p>
+<p>You can write a program to derive all the blocks of the secret message
+in one run, but you are allowed to write your program to get one block
+at a time. Eventually, you need to print out all the blocks. In your
+report, you need to include your code, along with the screenshots of the
+execution results.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+<div class="section" id="acknowledgment">
+<h2>Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h2>
+<p>We would like to acknowledge the contribution made by the following
+people and organizations:</p>
+<ul class="simple">
+<li><p>Jiamin Shen developed the following: the code running inside the
+container, the initial version of the padding oracle attack task.</p></li>
+<li><p>The US National Science Foundation provided the funding for the SEED
+project from 2002 to 2020.</p></li>
+<li><p>Syracuse University provided the resources for the SEED project from
+2001 onwards.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pki.html" class="btn btn-neutral float-right" title="Public-Key Infrastructure (PKI) Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="md5_collision.html" class="btn btn-neutral float-left" title="MD5 Collision Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

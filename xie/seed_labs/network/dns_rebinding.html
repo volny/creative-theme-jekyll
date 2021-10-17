@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DNS Rebinding Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Kaminsky Attack Lab" href="dns_remote.html" />
+    <link rel="prev" title="Local DNS Attack Lab" href="dns_local.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DNS Rebinding Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#background-iot">Background: IoT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment-setup-using-container">Lab Environment Setup Using Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#launch-the-attack-on-the-iot-device">Launch the Attack on the IoT Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>DNS Rebinding Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>DNS Rebinding Attack Lab</p>
+</div>
+<div class="section" id="dns-rebinding-attack-lab">
+<h1>DNS Rebinding Attack Lab<a class="headerlink" href="#dns-rebinding-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this lab is two-fold: (1) demonstrate how the DNS
+rebinding attack works, and (2) help students gain the first-hand
+experience on how to use the DNS rebinding technique to attack IoT
+devices. In the setup, we have a simulated IoT device, which can be
+controlled through a web interface (this is typical for many IoT
+devices). Many IoT devices do not have a strong protection mechanism, if
+attackers can directly interact with them, they can easily compromise
+these devices.</p>
+<p>The IoT device simulated in this lab is a thermostat, which controls the
+room temperature. To successfully set the temperature, the client needs
+to be able to interact with the IoT server. Since the IoT device is
+behind the firewall, outside machines cannot interact with the IoT
+device, and will therefore not be able to control the thermostat. To
+defeat the firewall protection, the attacking code must get into the
+internal network first. This is not difficult. Any time when a user from
+the internal network visits the attacker’s website, the attacker’s code
+(JavaScript code) actually runs from the user’s browser, and therefore
+runs inside the protected internal network. However, due to the sandbox
+protection implemented by browsers, the attacker’s code still cannot
+interact with the IoT device, even though it is now inside the internal
+network.</p>
+<p>The objective of this lab is to use the DNS rebinding attack to
+circumvent the sandbox protection, so the JavaScript code from the
+attacker can successfully get the essential information from the IoT
+device and then use the information to set the temperature of the
+thermostat to a dangerously high value. This lab covers the following
+topics:</p>
+<ul class="simple">
+<li><p>DNS server setup</p></li>
+<li><p>DNS rebinding attack</p></li>
+<li><p>Attacks on IoT devices</p></li>
+<li><p>Same Origin Policy</p></li>
+</ul>
+<div class="section" id="downloadable-files">
+<h3>Downloadable Files.<a class="headerlink" href="#downloadable-files" title="Permalink to this headline">¶</a></h3>
+<p>Please download the following package containing all classes used in this lab <a class="reference download internal" download="" href="../../_downloads/1bf26e73473afff6d3fb40f8b3873362/Code.zip"><code class="xref download docutils literal notranslate"><span class="pre">Here</span></code></a>.</p>
+</div>
+<div class="section" id="readings-and-videos">
+<h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the DNS protocol and attacks can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a
+pre-built image from the SEED website, and run the SEED VM on your own
+computer. However, most of the SEED labs can be conducted on the cloud,
+and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+</div>
+<div class="section" id="background-iot">
+<h2>Background: IoT<a class="headerlink" href="#background-iot" title="Permalink to this headline">¶</a></h2>
+<p>Our attack target is an IoT device behind the firewall. We cannot
+directly access this IoT device from outside. Our goal is to get an
+inside user to run our JavaScript code, so we can use the DNS rebinding
+attack to interact with the IoT device.</p>
+<p>Many IoT devices have a simple built-in web server, so users can
+interact with these devices via web APIs. Typically, these IoT devices
+are protected by a firewall, they cannot be accessed directly from
+outside. Due to this type of protection, many IoT devices do not
+implement a strong authentication mechanism. If attackers can find ways
+to interact with them, they can easily compromise its security.</p>
+<p>We emulate such a vulnerable IoT device using a simple web server, which
+serves two APIs: <code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">temperature</span></code>. The IoT device can
+set the room temperature. To do that, we need to send out an HTTP
+request to the server’s <code class="docutils literal notranslate"><span class="pre">temperature</span></code> API; the request should include
+two pieces of data: the target temperature value and a password. The
+password is a secret that changes periodically, but it can be fetched
+using the <code class="docutils literal notranslate"><span class="pre">password</span></code> API. Therefore, to successfully set the
+temperature, users needs to first get the password, and then attach the
+password in the <code class="docutils literal notranslate"><span class="pre">temperature</span></code> API.</p>
+<p>The password is not meant for the authentication purpose; it is used to
+defeat the Cross-Site Request Forgery (CSRF) attack. Without this
+protection, a simple CSRF attack is sufficient; there is no need to use
+the more sophisticated DNS rebinding attack. For the sake of simplicity,
+we hardcoded the password; in real systems, the password will be
+re-generated periodically.</p>
+</div>
+<div class="section" id="lab-environment-setup-using-container">
+<h2>Lab Environment Setup Using Container<a class="headerlink" href="#lab-environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
+<div class="align-center figure align-default" id="id1">
+<img alt="Lab environment setup" src="../../_images/environment_setup_vm.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this lab, we will use six machines. The lab environment setup is
+illustrated in <strong>Figure 1</strong>. Only the user
+machine will be using VM, and the others are all containers. In the
+setup, we have two networks, a home network and an outside network. The
+home network simulates a typical network at home. The user machine and
+the IoT services are connected to this network, which is protected by
+the firewall on the router container. The firewall blocks all traffic
+going to the <code class="docutils literal notranslate"><span class="pre">192.168.60.80</span></code>. This way, outside machines cannot access
+the IoT device. We also set up a NAT server on the router, so the
+machines on the home network can access outside (and the reply packets
+can come back).</p>
+<p>The second network simulates the outside world. In addition to the
+router, there are three containers attached to this network, one serving
+as the local DNS server, and the other two serving as the attacker’s
+nameserver and web server. The attacker owns the <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>
+domain, which is hosted by the attacker’s nameserver container. The web
+server hosts a malicious website used for the attack.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please
+read the “Common Problems” section of the manual for potential
+solutions.</p>
+</div>
+<div class="section" id="configure-the-user-vm">
+<h3>Configure the User VM<a class="headerlink" href="#configure-the-user-vm" title="Permalink to this headline">¶</a></h3>
+<p>We need to provide further configuration on the user VM.</p>
+<div class="section" id="step-1-reduce-firefoxs-dns-caching-time">
+<h4>Step 1. Reduce Firefox’s DNS caching time.<a class="headerlink" href="#step-1-reduce-firefoxs-dns-caching-time" title="Permalink to this headline">¶</a></h4>
+<p>To reduce load on DNS servers and to speed up response time, Firefox
+browser caches DNS results. By default, the cache’s expiration time is
+60 seconds. That means that our DNS rebinding attack needs to wait for
+at least 60 seconds. To make our life easier, we reduce the time to 10
+seconds or less. Type <code class="docutils literal notranslate"><span class="pre">about:config</span></code> in the URL field. After clicking
+through a warning page, we will see a list of preference names and their
+values. Search for <code class="docutils literal notranslate"><span class="pre">dnsCache</span></code>, find the following entry and change its
+value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(*@\textbf{network.dnsCacheExpiration}@*):  change its value to 10 (default is 60)
+</pre></div>
+</div>
+<p>After making the change, we should exit from the Firefox browser, and
+restart it; otherwise the change will not take effect.</p>
+</div>
+<div class="section" id="step-2-change-etc-hosts">
+<h4>Step 2. Change <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>.<a class="headerlink" href="#step-2-change-etc-hosts" title="Permalink to this headline">¶</a></h4>
+<p>We need to add the following entry to the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file. We will
+use <code class="docutils literal notranslate"><span class="pre">www.seedIoT32.com</span></code> as the name for the IoT server. Its IP address
+is <code class="docutils literal notranslate"><span class="pre">192.168.60.80</span></code>. We need to use the superuser privilege to modify
+this file (using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>192.168.60.80  www.seedIoT32.com
+</pre></div>
+</div>
+<p>While we are in this file, check whether there is any entry that
+contains <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>. Remove them if there is any. These entries
+may have been added when we worked on other SEED labs, and their
+existence will cause problems for this lab.</p>
+<p>We can now test the IoT server. Point the browser to the following URL
+on the user VM. If everything is set up correctly, we should be able to
+see a thermostat. We can also change the temperature setting by dragging
+the sliding bar. Please provide a screenshot in your lab report.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seedIoT32.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-local-dns-server">
+<h4>Step 3. Local DNS Server.<a class="headerlink" href="#step-3-local-dns-server" title="Permalink to this headline">¶</a></h4>
+<p>We need to get the user VM to use a particular local DNS server. This is
+achieved by setting the local DNS server as the first <code class="docutils literal notranslate"><span class="pre">nameserver</span></code>
+entry in the resolver configuration file (<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>). One
+challenge is that the provided VM uses the Dynamic Host Configuration
+Protocol (DHCP) to obtain network configuration parameters, such as IP
+address, local DNS server, etc. DHCP clients overwrite the
+<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> file with the information provided by the DHCP
+server.</p>
+<p>One way to get our information into <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> without
+worrying about the DHCP is to add the following entry to the file
+(<code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> is the IP address of the local DNS server in our setup):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>nameserver 10.9.0.53
+</pre></div>
+</div>
+<p>The content of the head file will be prepended to the dynamically
+generated resolver configuration file. Normally, this is just a comment
+line (the comment in <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> comes from this head file).
+After making the change, we need to run the following command for the
+change to take effect:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo resolvconf -u
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-the-lab-setup">
+<h3>Testing the Lab Setup.<a class="headerlink" href="#testing-the-lab-setup" title="Permalink to this headline">¶</a></h3>
+<p>After configuring the user VM, use the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command to get the IP
+address of <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> and <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code>. You should
+get <code class="docutils literal notranslate"><span class="pre">10.9.0.180</span></code> and <code class="docutils literal notranslate"><span class="pre">10.9.0.153</span></code>, respectively. If you do not get
+this, your lab environment is not set up correctly.</p>
+<p>We can now test the attacker’s website. Point the browser to the
+following URL on the user VM, and you should be able to see the
+attacker’s website. Please provide a screenshot in your lab report.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.attacker32.com
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We may have used the same hostname <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> in other SEED labs, so it is likely that this name is already mapped to a different IP address. Therefore, if you do not see the expected attacker’s website, you should check the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file, and remove any entry that contains <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="launch-the-attack-on-the-iot-device">
+<h2>Launch the Attack on the IoT Device<a class="headerlink" href="#launch-the-attack-on-the-iot-device" title="Permalink to this headline">¶</a></h2>
+<p>We are ready to launch the attack on the IoT device. To help students
+understand how the attack works, we break down the attack into several
+incremental steps.</p>
+<div class="section" id="task-1-understanding-the-same-origin-policy-protection">
+<h3>Task 1. Understanding the Same-Origin Policy Protection<a class="headerlink" href="#task-1-understanding-the-same-origin-policy-protection" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we will do some experiment to understand the same-origin
+policy protection implemented on browsers. On the user VM, we will
+browse the following three URLs. It is better to show these three pages
+on three different Firefox windows (instead of on three different tabs),
+so they are all visible.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>URL 1:  http://www.seedIoT32.com
+URL 2:  http://www.seedIoT32.com/change
+URL 3:  http://www.attacker32.com/change
+</pre></div>
+</div>
+<p>The first page lets us see the current temperature setting of the
+thermostat (see <strong>Figure 2</strong>.a); it fetches
+the temperature value from the IoT server once every second. We should
+keep this page always visible, so we can see the temperature setting on
+the thermostat. The second and third pages are identical (see
+<strong>Figure 2</strong>.b), except that one comes from
+the IoT server, and the other comes from the attacker’s server. When we
+click the button on both pages, a request will be sent out to the IoT
+server to set its temperature. We are supposed to raise the thermostat’s
+temperature to <code class="docutils literal notranslate"><span class="pre">99</span></code> Celsius.</p>
+<div class="align-center figure align-default" id="id2">
+<img alt="The web pages from the three URLs" src="../../_images/iot_webpages.jpg" />
+<p class="caption"><span class="caption-text">Figure 2: The web pages from the three URLs</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Click the button on the second and third pages, and describe your
+observation. Which page can successfully set the thermostat’s
+temperature? Please explain why. To find the reason, click the following
+menu sequence from Firefox. A console window will appear, which displays
+error messages if any. Hint: the reason is related to the same-origin
+policy enforced by browsers. Please explain why this policy causes one
+of the pages to fail.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Web Developer -&gt; Web Console
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-2-defeat-the-same-origin-policy-protection">
+<h3>Task 2. Defeat the Same-Origin Policy Protection<a class="headerlink" href="#task-2-defeat-the-same-origin-policy-protection" title="Permalink to this headline">¶</a></h3>
+<p>From the previous task, it seems impossible to set the thermostat’s
+temperature from the attacker’s page, due to the browser’s same-origin
+policy protection. The objective of this task is to defeat such a
+protection, so we can set the temperature from this page.</p>
+<p>The main idea for defeating the same origin protection comes from the
+fact that the policy enforcement is based on the host name, not on the
+IP address, so as long as we use <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> in the URL, we
+are complying with the SOP policy, but that does not mean we are
+restricted to communicate with the <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> web server.</p>
+<p>Before the user’s browser sends out requests to <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code>,
+it first needs to know the IP address of <code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code>. A DNS
+request will be sent out from the user’s machine. If the IP address is
+not cached at the local DNS server, a DNS request will eventually be
+sent to <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>’s nameserver, which is controlled by the
+attacker. Therefore, the attacker can decide what to put in the
+response.</p>
+<div class="section" id="step-1-modify-the-javascript-code">
+<h4>Step 1: Modify the JavaScript code.<a class="headerlink" href="#step-1-modify-the-javascript-code" title="Permalink to this headline">¶</a></h4>
+<p>On the attacker’s web server, the JavaScript code running inside the
+<a class="reference external" href="www.attacker32.com/change">www.attacker32.com/change</a> page is stored
+in the following file: . Since this page comes from the
+<code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> server, according to the same-origin policy, it
+can only interact with the same server. Therefore, we need to change the
+first line of the code from <a class="reference external" href="http://www.seediot32.com">http://www.seediot32.com</a> to the following
+(we have installed a simple editor called <code class="docutils literal notranslate"><span class="pre">nano</span></code> in the container):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let url_prefix = &#39;http://www.attacker32.com&#39;
+</pre></div>
+</div>
+<p>After making the change, restart the attacker’s web server container
+(see the command below). Then go to the user VM, refresh the page, and
+click the button again. Do you still see the error message in the web
+console? Please explain your observation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker ps
+...
+78359039627a  attacker-www-10.9.0.180
+
+$ docker container restart 7835
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-conduct-the-dns-rebinding">
+<h4>Step 2: Conduct the DNS rebinding.<a class="headerlink" href="#step-2-conduct-the-dns-rebinding" title="Permalink to this headline">¶</a></h4>
+<p>Our JavaScript code sends requests to
+<a class="reference external" href="www.attacker32.com">www.attacker32.com</a>, i.e., the requests will
+come back to the Attacker’s web server. That is not what we want; we
+want the requests to go to the IoT server. This can be achieved using
+the DNS rebinding technique. We first map
+<a class="reference external" href="www.attacker32.com">www.attacker32.com</a> to the IP address of the
+attacker’s web server, so the user can get the actual page from
+<a class="reference external" href="http://www.attacker32.com/change">http://www.attacker32.com/change</a>. Before we click on the button on the
+page, we remap the <a class="reference external" href="www.attacker32.com">www.attacker32.com</a> hostname
+to the IP address of the IoT server, so the request triggered by the
+button will go to the IoT server. That is exactly what we want.</p>
+<p>To change the DNS mapping, students can modify the file inside
+attacker’s nameserver container. The zone file can be found in the
+<code class="docutils literal notranslate"><span class="pre">/etc/bind</span></code> folder. The following shows the content of the zone file.
+The first entry is the default Time-To-Live (<code class="docutils literal notranslate"><span class="pre">TTL</span></code>) value (seconds)
+for the response, specifying how long the response can stay in the DNS
+cache. This value may need to be modified. The following is the content
+of the zone file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$TTL 1000
+@       IN      SOA   ns.attacker32.com. admin.attacker32.com. (
+                2008111001
+                8H
+                2H
+                4W
+                1D)
+
+@       IN      NS    ns.attacker32.com.
+
+@       IN      A     10.9.0.22
+www     IN      A     10.9.0.22
+ns      IN      A     10.9.0.21
+*       IN      A     10.9.0.22
+</pre></div>
+</div>
+<p>After making the changes to the zone file, run the following command to
+ask the nameserver to reload the revised zone data.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># rndc reload attacker32.com
+</pre></div>
+</div>
+<p>Because of the tasks conducted previously, the DNS mapping for the
+<code class="docutils literal notranslate"><span class="pre">www.attacker32.com</span></code> has already been cached by the local DNS server,
+it will not expire until 1000 seconds later. To shorten the waiting,
+students are allowed to clean out the cache using the following command
+(on the local DNS server). However, this can only be conducted before
+the attack starts. Once the attack starts, students are not allowed to
+touch the local DNS server.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Do it on the local DNS server container
+# rndc flush
+</pre></div>
+</div>
+<p>If both steps in this task are done correctly, clicking the button on
+the <code class="docutils literal notranslate"><span class="pre">change</span></code> page from <a class="reference external" href="www.attacker32.com">www.attacker32.com</a>
+should be able to change the thermostat’s temperature successfully.
+Please provide evidence in your report to demonstrate your success.</p>
+</div>
+</div>
+<div class="section" id="task-3-launch-the-attack">
+<h3>Task 3. Launch the Attack<a class="headerlink" href="#task-3-launch-the-attack" title="Permalink to this headline">¶</a></h3>
+<p>In the previous task, the user has to click the button to set the
+temperature to the dangerously high value. Obviously, it is unlikely
+that users will do that. In this task, we need to do that automatically.
+We have already created a web page for that purpose. It can be accessed
+using the following URL:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.attacker32.com
+</pre></div>
+</div>
+<p>Once you have loaded this page into the user VM, you should be able to
+see a page with a timer, which goes down from 10 to 0. Once it reaches
+0, the JavaScript code on this page will send the set-temperature
+request to <a class="reference external" href="http://www.attacker32.com">http://www.attacker32.com</a>, and then reset the timer value to
+10. Students need to use the DNS rebinding technique, so once the timer
+reaches 0, the thermostat’s temperature is set to 88 Celsius.</p>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dns_remote.html" class="btn btn-neutral float-right" title="The Kaminsky Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dns_local.html" class="btn btn-neutral float-left" title="Local DNS Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

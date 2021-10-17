@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Shellcode Development Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Buffer Overflow Attack Lab (Set-UID Version)" href="Buffer_Overflow_Setuid.html" />
+    <link rel="prev" title="Software Security Labs" href="software_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="software_index.html">Software Security Labs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shellcode Development Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-writing-shellcode">Task 1: Writing Shellcode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-using-code-segment">Task 2: Using Code Segment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-writing-64-bit-shellcode">Task 3: Writing 64-bit Shellcode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Setuid.html">Buffer Overflow Attack Lab (Set-UID Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Buffer_Overflow_Server.html">Buffer Overflow Attack Lab (Server Version)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Return_to_Libc.html">Return-to-libc Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Environment_Variable_and_SetUID.html">Environment Variable and Program Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Race_Condition.html">Race Condition Vulnerability Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Dirty_COW.html">Dirty COW Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Format_String.html">Format String Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Shellshock.html">Shellshock Attack Lab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="software_index.html">Software Security Labs</a> &raquo;</li>
+        
+      <li>Shellcode Development Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shellcode-development-lab">
+<h1>Shellcode Development Lab<a class="headerlink" href="#shellcode-development-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Shellcode is widely used in many attacks that involve code injection.
+Writing shellcode is quite challenging. Although we can easily find
+existing shellcode from the Internet, there are situations where we have
+to write a shellcode that satisfies certain specific requirements.
+Moreover, to be able to write our own shellcode from scratch is always
+exciting. There are several interesting techniques involved in
+shellcode. The purpose of this lab is to help students understand these
+techniques so they can write their own shellcode.</p>
+<p>There are several challenges in writing shellcode, one is to ensure that
+there is no zero in the binary, and the other is to find out the address
+of the data used in the command. The first challenge is not very
+difficult to solve, and there are several ways to solve it. The
+solutions to the second challenge led to two typical approaches to write
+shellcode. In one approach, data are pushed into the stack during the
+execution, so their addresses can be obtained from the stack pointer. In
+the second approach, data are stored in the code region, right after a
+<code class="docutils literal notranslate"><span class="pre">call</span></code> instruction. When the <code class="docutils literal notranslate"><span class="pre">call</span></code> instruction is executed, the
+address of the data is treated as the return address, and is pushed into
+the stack. Both solutions are quite elegant, and we hope students can
+learn these two techniques. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>Shellcode</p></li>
+<li><p>Assembly code</p></li>
+<li><p>Disassembling</p></li>
+</ul>
+<p><strong>Readings and videos.</strong> Detailed coverage of the shellcode can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapters 4.7 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 4 of the SEED Lecture (Lecture 30), Computer Security: A Hands-on Approach, by Wenliang
+Du. See details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+<p><strong>Lab environment.</strong> This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a pre-built
+image from the SEED website, and run the SEED VM on your own computer. However, most of the SEED
+labs can be conducted on the cloud, and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+<div class="section" id="task-1-writing-shellcode">
+<h2>Task 1: Writing Shellcode<a class="headerlink" href="#task-1-writing-shellcode" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will first start with a shellcode example, to
+demonstrate how to write a shellcode. After that, we ask students to
+modify the code to accomplish various tasks.</p>
+<p>Shellcode is typically written using assembly languages, which depend on
+the computer architecture. We will be using the Intel architectures,
+which have two types of processors: x86 (for 32-bit CPU) and x64 (for
+64-bit CPU). In this task, we will focus on 32-bit shellcode. In the
+final task, we will switch to 64-bit shellcode. Although most of the
+computers these days are 64-bit computers, they can run 32-bit programs.</p>
+<div class="section" id="task-1-a-the-entire-process">
+<h3>Task 1.a: The Entire Process<a class="headerlink" href="#task-1-a-the-entire-process" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we provide a basic x86 shellcode to show students how to
+write a shellcode from scratch. Students can download this code from the
+lab’s website, go through the entire process described in this task. The
+code is provided in the following. <strong>Note:</strong> please do not copy and
+paste from this PDF file, because some of characters might be changed
+due to the copy and paste. Instead, download the file from the lab’s
+website.</p>
+<p>Brief explanation of the code is given in the comment, but if students
+want to see a full explanation, they can find much more detailed
+explanation of the code in the SEED book (Chapter 4.7) and also in the
+SEED lecture (Lecture 30 of the Computer Security course). Below is listing
+1: A basic shellcode example <code class="docutils literal notranslate"><span class="pre">mysh.s</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>section .text
+  global _start
+    _start:
+      ; Store the argument string on stack
+      xor  eax, eax
+      push eax          ; Use 0 to terminate the string
+      push &quot;//sh&quot;       ;                                  ➊
+      push &quot;/bin&quot;
+      mov  ebx, esp     ; Get the string address
+
+      ; Construct the argument array argv[]
+      push eax          ; argv[1] = 0                      ➋
+      push ebx          ; argv[0] points to the cmd string ➌
+      mov  ecx, esp     ; Get the address of argv[]
+
+      ; For environment variable
+      xor  edx, edx     ; No env variable                  ➍
+
+      ; Invoke execve()
+      xor  eax, eax     ; eax = 0x00000000
+      mov   al, 0x0b    ; eax = 0x0000000b
+      int 0x80
+</pre></div>
+</div>
+<p><strong>Compiling to object code.</strong> We compile the assembly code above (<code class="docutils literal notranslate"><span class="pre">mysh.s</span></code>) using <code class="docutils literal notranslate"><span class="pre">nasm</span></code>, which is
+an assembler and disassembler for the Intel x86 and x64 architectures.
+The <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">elf32</span></code> option indicates that we want to compile the code to
+32-bit ELF binary format. The Executable and Linkable Format (ELF) is a
+common standard file format for executable file, object code, shared
+libraries. For 64-bit assembly code, <code class="docutils literal notranslate"><span class="pre">elf64</span></code> should be used.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nasm -f elf32 mysh.s -o mysh.o
+</pre></div>
+</div>
+<p><strong>Linking to generate final binary.</strong> Once we get the object code <code class="docutils literal notranslate"><span class="pre">mysh.o</span></code>, if we want to generate the
+executable binary, we can run the linker program <code class="docutils literal notranslate"><span class="pre">ld</span></code>, which is the
+last step in compilation. The <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">elf_i386</span></code> option means generating
+the 32-bit ELF binary. After this step, we get the final executable code
+<code class="docutils literal notranslate"><span class="pre">mysh</span></code>. If we run it, we can get a shell. Before and after running
+<code class="docutils literal notranslate"><span class="pre">mysh</span></code>, we print out the current shell’s process IDs using
+<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$$</span></code>, so we can clearly see that <code class="docutils literal notranslate"><span class="pre">mysh</span></code> indeed starts a new
+shell.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ld -m elf_i386 mysh.o -o mysh
+
+$ echo $$
+25751      &lt;-- the process ID of the current shell
+$ mysh
+$ echo $$
+9760       &lt;-- the process ID of the new shell
+</pre></div>
+</div>
+<p><strong>Getting the machine code.</strong> During the attack, we only need the machine code of the shellcode, not a
+standalone executable file, which contains data other than the actual
+machine code. Technically, only the machine code is called shellcode.
+Therefore, we need to extract the machine code from the executable file
+or the object file. There are various ways to do that. One way is to use
+the <code class="docutils literal notranslate"><span class="pre">objdump</span></code> command to disassemble the executable or object file.</p>
+<p>There are two different common syntax modes for assembly code, one is
+the AT&amp;T syntax mode, and the other is Intel syntax mode. By default,
+<code class="docutils literal notranslate"><span class="pre">objdump</span></code> uses the AT&amp;T mode. In the following, we use the <code class="docutils literal notranslate"><span class="pre">-Mintel</span></code>
+option to produce the assembly code in the Intel mode.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ objdump -Mintel --disassemble mysh.o
+mysh.o:     file format elf32-i386
+
+Disassembly of section .text:
+
+00000000 &lt;_start&gt;:
+   0:   31 db    xor    ebx,ebx
+   2:   31 c0    xor    eax,eax
+            ... (code omitted) ...
+  1f:   b0 0b    mov    al,0xb
+  21:   cd 80    int    0x80
+</pre></div>
+</div>
+<p>In the above printout, the highlighted numbers are machine code. You can
+also use the <code class="docutils literal notranslate"><span class="pre">xxd</span></code> command to print out the content of the binary
+file, and you should be able to find out the shellcode’s machine code
+from the printout.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ xxd -p -c 20 mysh.o
+7f454c4601010100000000000000000001000300
+...
+00000000000000000000000031db31c0b0d5cd80
+31c050682f2f7368682f62696e89e3505389e131
+d231c0b00bcd8000000000000000000000000000
+...
+</pre></div>
+</div>
+<p><strong>Using the shellcode in attacking code.</strong> In actual attacks, we need to include the shellcode in our attacking
+code, such as a Python or C program. We usually store the machine code
+in an array, but converting the machine code printed above to the array
+assignment in Python and C programs is quite tedious if done manually,
+especially if we need to perform this process many times in the lab. We
+wrote the following Python code to help this process. Just copy whatever
+you get from the <code class="docutils literal notranslate"><span class="pre">xxd</span></code> command (only the shellcode part) and paste it
+to the following code, between the lines marked by <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>. The code can
+be downloaded from the lab’s website. Listing 2: <code class="docutils literal notranslate"><span class="pre">convert.py</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+
+# Run &quot;xxd -p -c 20 mysh.o&quot;, and
+# copy and paste the machine code part to the following:
+ori_sh =&quot;&quot;&quot;
+31db31c0b0d5cd80
+31c050682f2f7368682f62696e89e3505389e131
+d231c0b00bcd80
+&quot;&quot;&quot;
+
+sh = ori_sh.replace(&quot;\n&quot;, &quot;&quot;)
+
+length  = int(len(sh)/2)
+print(&quot;Length of the shellcode: {}&quot;.format(length))
+s = &#39;shellcode= (\n&#39; + &#39;   &quot;&#39;
+for i in range(length):
+    s += &quot;\\x&quot; + sh[2*i] + sh[2*i+1]
+    if i &gt; 0 and i % 16 == 15:
+       s += &#39;&quot;\n&#39; + &#39;   &quot;&#39;
+s += &#39;&quot;\n&#39; + &quot;).encode(&#39;latin-1&#39;)&quot;
+print(s)
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">convert.py</span></code> program will print out the following Python code that
+you can include in your attack code. It stores the shellcode in a Python
+array.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./convert.py
+Length of the shellcode: 35
+shellcode= (
+   &quot;\x31\xdb\x31\xc0\xb0\xd5\xcd\x80\x31\xc0\x50\x68\x2f\x2f\x73\x68&quot;
+   &quot;\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x31\xd2\x31\xc0\xb0&quot;
+   &quot;\x0b\xcd\x80&quot;
+).encode(&#39;latin-1&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-1-b-eliminating-zeros-from-the-code">
+<h3>Task 1.b. Eliminating Zeros from the Code<a class="headerlink" href="#task-1-b-eliminating-zeros-from-the-code" title="Permalink to this headline">¶</a></h3>
+<p>Shellcode is widely used in buffer-overflow attacks. In many cases, the
+vulnerabilities are caused by string copy, such as the <code class="docutils literal notranslate"><span class="pre">strcpy()</span></code>
+function. For these string copy functions, zero is considered as the end
+of the string. Therefore, if we have a zero in the middle of a
+shellcode, string copy will not be able to copy anything after the zero
+from this shellcode to the target buffer, so the attack will not be able
+to succeed.</p>
+<p>Although not all the vulnerabilities have issues with zeros, it becomes
+a requirement for shellcode not to have any zero in the machine code;
+otherwise, the application of a shellcode will be limited.</p>
+<p>There are many techniques that can get rid of zeros from the shellcode.
+The code <code class="docutils literal notranslate"><span class="pre">mysh.s</span></code> needs to use zeros in four different places. Please
+identify all of those places, and explain how the code uses zeros but
+without introducing zero in the code. Some hints are given in the
+following:</p>
+<ul>
+<li><p>If we want to assign zero to <code class="docutils literal notranslate"><span class="pre">eax</span></code>, we can use <code class="docutils literal notranslate"><span class="pre">&quot;mov</span> <span class="pre">eax,</span> <span class="pre">0&quot;</span></code>,
+but doing so, we will get a zero in the machine code. A typical way
+to solve this problem is to use <code class="docutils literal notranslate"><span class="pre">&quot;xor</span> <span class="pre">eax,</span> <span class="pre">eax&quot;</span></code>. Please explain
+why this would work.</p></li>
+<li><p>If we want to store <code class="docutils literal notranslate"><span class="pre">0x00000099</span></code> to <code class="docutils literal notranslate"><span class="pre">eax</span></code>. We cannot just use
+<code class="docutils literal notranslate"><span class="pre">mov</span> <span class="pre">eax,</span> <span class="pre">0x99</span></code>, because the second operand is actually
+<code class="docutils literal notranslate"><span class="pre">0x00000099</span></code>, which contains three zeros. To solve this problem, we
+can first set <code class="docutils literal notranslate"><span class="pre">eax</span></code> to zero, and then assign a one-byte number
+<code class="docutils literal notranslate"><span class="pre">0x99</span></code> to the <code class="docutils literal notranslate"><span class="pre">al</span></code> register, which is the least significant 8
+bits of the <code class="docutils literal notranslate"><span class="pre">eax</span></code> register.</p></li>
+<li><p>Another way is to use shift. In the following code, first
+<code class="docutils literal notranslate"><span class="pre">0x237A7978</span></code> is assigned to <code class="docutils literal notranslate"><span class="pre">ebx</span></code>. The ASCII values for <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+<code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, and <code class="docutils literal notranslate"><span class="pre">#</span></code> are <code class="docutils literal notranslate"><span class="pre">0x78</span></code>, <code class="docutils literal notranslate"><span class="pre">0x79</span></code>, <code class="docutils literal notranslate"><span class="pre">0x7a</span></code>, <code class="docutils literal notranslate"><span class="pre">0x23</span></code>,
+respectively. Because most Intel CPUs use the small-Endian byte
+order, the least significant byte is the one stored at the lower
+address (i.e., the character <code class="docutils literal notranslate"><span class="pre">x</span></code>), so the number presented by
+<code class="docutils literal notranslate"><span class="pre">xyz#</span></code> is actually <code class="docutils literal notranslate"><span class="pre">0x237A7978</span></code>. You can see this when you
+dissemble the code using <code class="docutils literal notranslate"><span class="pre">objdump</span></code>.</p>
+<p>After assigning the number to <code class="docutils literal notranslate"><span class="pre">ebx</span></code>, we shift this register to the
+left for 8 bits, so the most significant byte <code class="docutils literal notranslate"><span class="pre">0x23</span></code> will be pushed
+out and discarded. We then shift the register to the right for 8
+bits, so the most significant byte will be filled with <code class="docutils literal notranslate"><span class="pre">0x00</span></code>.
+After that, <code class="docutils literal notranslate"><span class="pre">ebx</span></code> will contain <code class="docutils literal notranslate"><span class="pre">0x007A7978</span></code>, which is equivalent
+to <code class="docutils literal notranslate"><span class="pre">&quot;xyz\0&quot;</span></code>, i.e., the last byte of this string becomes zero.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mov  ebx, &quot;xyz#&quot;
+shl  ebx, 8
+shr  ebx, 8
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Task.</strong> In Line ➊ of the shellcode <code class="docutils literal notranslate"><span class="pre">mysh.s</span></code>, we push <code class="docutils literal notranslate"><span class="pre">&quot;//sh&quot;</span></code> into the stack.
+Actually, we just want to push <code class="docutils literal notranslate"><span class="pre">&quot;/sh&quot;</span></code> into the stack, but the
+<code class="docutils literal notranslate"><span class="pre">push</span></code> instruction has to push a 32-bit number. Therefore, we add a
+redundant <code class="docutils literal notranslate"><span class="pre">/</span></code> at the beginning; for the OS, this is equivalent to just
+one single <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>For this task, we will use the shellcode to execute <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>, which
+has 9 bytes in the command string (10 bytes if counting the zero at the
+end). Typically, to push this string to the stack, we need to make the
+length multiple of 4, so we would convert the string to
+<code class="docutils literal notranslate"><span class="pre">/bin////bash</span></code>.</p>
+<p>However, for this task, you are not allowed to add any redundant <code class="docutils literal notranslate"><span class="pre">/</span></code>
+to the string, i.e., the length of the command must be 9 bytes
+(<code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>). Please demonstrate how you can do that. In addition to
+showing that you can get a bash shell, you also need to show that there
+is no zero in your code.</p>
+</div>
+<div class="section" id="task-1-c-providing-arguments-for-system-calls">
+<h3>Task 1.c. Providing Arguments for System Calls<a class="headerlink" href="#task-1-c-providing-arguments-for-system-calls" title="Permalink to this headline">¶</a></h3>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">mysh.s</span></code>, in Lines ➋ and ➌, we construct the <code class="docutils literal notranslate"><span class="pre">argv[]</span></code> array for
+the <code class="docutils literal notranslate"><span class="pre">execve()</span></code> system call. Since our command is <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code>, without
+any command-line arguments, our <code class="docutils literal notranslate"><span class="pre">argv</span></code> array only contains two
+elements: the first one is a pointer to the command string, and the
+second one is zero.</p>
+<p>In this task, we need to run the following command, i.e., we want to use
+<code class="docutils literal notranslate"><span class="pre">execve</span></code> to execute the following command, which uses <code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> to
+execute the <code class="docutils literal notranslate"><span class="pre">&quot;ls</span> <span class="pre">-la&quot;</span></code> command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/bin/sh -c &quot;ls -la&quot;
+</pre></div>
+</div>
+<p>In this new command, the <code class="docutils literal notranslate"><span class="pre">argv</span></code> array should have the following four
+elements, all of which need to be constructed on the stack. Please
+modify <code class="docutils literal notranslate"><span class="pre">mysh.s</span></code> and demonstrate your execution result. As usual, you
+cannot have zero in your shellcode (you are allowed to use redundant /).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>argv[3] = 0
+argv[2] = &quot;ls -la&quot;
+argv[1] = &quot;-c&quot;
+argv[0] = &quot;/bin/sh&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-1-d-providing-environment-variables-for-execve">
+<h3>Task 1.d. Providing Environment Variables for <code class="docutils literal notranslate"><span class="pre">execve()</span></code><a class="headerlink" href="#task-1-d-providing-environment-variables-for-execve" title="Permalink to this headline">¶</a></h3>
+<p>The third parameter for the <code class="docutils literal notranslate"><span class="pre">execve()</span></code> system call is a pointer to the
+environment variable array, and it allows us to pass environment
+variables to the program. In our sample program (Line ➍), we pass a null
+pointer to <code class="docutils literal notranslate"><span class="pre">execve()</span></code>, so no environment variable is passed to the
+program. In this task, we will pass some environment variables.</p>
+<p>If we change the command <code class="docutils literal notranslate"><span class="pre">&quot;/bin/sh&quot;</span></code> in our shellcode <code class="docutils literal notranslate"><span class="pre">mysh.s</span></code> to
+<code class="docutils literal notranslate"><span class="pre">&quot;/usr/bin/env&quot;</span></code>, which is a command to print out the environment
+variables. You can find out that when we run our shellcode, there will
+be no output, because our process does not have any environment
+variable.</p>
+<p>In this task, we will write a shellcode called <code class="docutils literal notranslate"><span class="pre">myenv.s</span></code>. When this
+program is executed, it executes the <code class="docutils literal notranslate"><span class="pre">&quot;/usr/bin/env&quot;</span></code> command, which
+can print out the following environment variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./myenv
+aaa=1234
+bbb=5678
+cccc=1234
+</pre></div>
+</div>
+<p>It should be noted that the value for the environment variable <code class="docutils literal notranslate"><span class="pre">cccc</span></code>
+must be exactly 4 bytes (no space is allowed to be added to the tail).
+We intentionally make the length of this environment variable string
+(name and value) not multiple of 4.</p>
+<p>To write such a shellcode, we need to construct an environment variable
+array on the stack, and store the address of this array to the <code class="docutils literal notranslate"><span class="pre">edx</span></code>
+register, before invoking <code class="docutils literal notranslate"><span class="pre">execve()</span></code>. The way to construct this array
+on the stack is exactly the same as the way how we construct the
+<code class="docutils literal notranslate"><span class="pre">argv[]</span></code> array. Basically, we first store the actual environment
+variable strings on the stack. Each string has a format of
+<code class="docutils literal notranslate"><span class="pre">name=value</span></code>, and it is terminated by a zero byte. We need to get the
+addresses of these strings. Then, we construct the environment variable
+array, also on the stack, and store the addresses of the strings in this
+array. The array should look like the following (the order of the
+elements <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, and <code class="docutils literal notranslate"><span class="pre">2</span></code> does not matter):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>env[3] = 0   // 0 marks the end of the array
+env[2] = address to the &quot;cccc=1234&quot; string
+env[1] = address to the &quot;bbb=5678&quot;  string
+env[0] = address to the &quot;aaa=1234&quot;  string
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-2-using-code-segment">
+<h2>Task 2: Using Code Segment<a class="headerlink" href="#task-2-using-code-segment" title="Permalink to this headline">¶</a></h2>
+<p>As we can see from the shellcode in Task 1, the way how it solves the
+data address problem is that it dynamically constructs all the necessary
+data structures on the stack, so their addresses can be obtained from
+the stack pointer <code class="docutils literal notranslate"><span class="pre">esp</span></code>.</p>
+<p>There is another approach to solve the same problem, i.e., getting the
+address of all the necessary data structures. In this approach, data are
+stored in the code region, and its address is obtained via the function
+call mechanism. Let’s look at the following code: mysh2.s</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>section .text
+  global _start
+    _start:
+        BITS 32
+        jmp short two
+    one:
+        pop ebx                   ➊
+        xor eax, eax
+        mov [ebx+7],  al  ; save 0x00 (1 byte) to memory at address ebx+7
+        mov [ebx+8],  ebx ; save ebx (4 bytes) to memory at address ebx+8
+        mov [ebx+12], eax ; save eax (4 bytes) to memory at address ebx+12
+        lea ecx, [ebx+8]  ; let ecx = ebx + 8
+        xor edx, edx
+        mov al,  0x0b
+        int 0x80
+     two:
+        call one
+        db &#39;/bin/sh*AAAABBBB&#39; ;  ➋
+</pre></div>
+</div>
+<p>The code above first jumps to the instruction at location <code class="docutils literal notranslate"><span class="pre">two</span></code>, which
+does another jump (to location <code class="docutils literal notranslate"><span class="pre">one</span></code>), but this time, it uses the
+<code class="docutils literal notranslate"><span class="pre">call</span></code> instruction. This instruction is for function call, i.e.,
+before it jumps to the target location, it keeps a record of the address
+of the next instruction as the return address, so when the function
+returns, it can return to the instruction right after the <code class="docutils literal notranslate"><span class="pre">call</span></code>
+instruction.</p>
+<p>In this example, the “instruction” right after the <code class="docutils literal notranslate"><span class="pre">call</span></code> instruction
+(Line ➋) is not actually an instruction; it stores a string. However,
+this does not matter, the <code class="docutils literal notranslate"><span class="pre">call</span></code> instruction will push its address
+(i.e., the string’s address) into the stack, in the return address field
+of the function frame. When we get into the function, i.e., after
+jumping to location <code class="docutils literal notranslate"><span class="pre">one</span></code>, the top of the stack is where the return
+address is stored. Therefore, the <code class="docutils literal notranslate"><span class="pre">pop</span> <span class="pre">ebx</span></code> instruction in Line ➊
+actually get the address of the string on Line ➋, and save it to the
+<code class="docutils literal notranslate"><span class="pre">ebx</span></code> register. That is how the address of the string is obtained.</p>
+<p>The string at Line ➋ is not a completed string; it is just a place holder.
+The program needs to construct the needed data structure inside this
+place holder. Since the address of the string is already obtained, the
+address of all the data structures constructed inside this place holder
+can be easily derived.</p>
+<p>If we want to get an executable, we need to use the <code class="docutils literal notranslate"><span class="pre">–omagic</span></code> option
+when running the linker program (<code class="docutils literal notranslate"><span class="pre">ld</span></code>), so the code segment is
+writable. By default, the code segment is not writable. When this
+program runs, it needs to modify the data stored in the code region; if
+the code segment is not writable, the program will crash. This is not a
+problem for actual attacks, because in attacks, the code is typically
+injected into a writable data segment (e.g. stack or heap). Usually we
+do not run shellcode as a standalone program.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nasm -f elf32 mysh2.s -o mysh2.o
+$ ld --omagic -m elf_i386 mysh2.o -o mysh2
+</pre></div>
+</div>
+<p><strong>Tasks.</strong> You need to do the followings: (1) Please provide a detailed explanation
+for each line of the code in <code class="docutils literal notranslate"><span class="pre">mysh2.s</span></code>, starting from the line labeled
+<code class="docutils literal notranslate"><span class="pre">one</span></code>. Please explain why this code would successfully execute the
+<code class="docutils literal notranslate"><span class="pre">/bin/sh</span></code> program, how the <code class="docutils literal notranslate"><span class="pre">argv[]</span></code> array is constructed, etc. (2)
+Please use the technique from <code class="docutils literal notranslate"><span class="pre">mysh2.s</span></code> to implement a new shellcode,
+so it executes <code class="docutils literal notranslate"><span class="pre">/usr/bin/env</span></code>, and it prints out the following
+environment variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a=11
+b=22
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-3-writing-64-bit-shellcode">
+<h2>Task 3: Writing 64-bit Shellcode<a class="headerlink" href="#task-3-writing-64-bit-shellcode" title="Permalink to this headline">¶</a></h2>
+<p>Once we know how to write the 32-bit shellcode, writing 64-bit shellcode
+will not be difficult, because they are quite similar; the differences
+are mainly in the registers. For the x64 architecture, invoking system
+call is done through the <code class="docutils literal notranslate"><span class="pre">syscall</span></code> instruction, and the first three
+arguments for the system call are stored in the <code class="docutils literal notranslate"><span class="pre">rdx</span></code>, <code class="docutils literal notranslate"><span class="pre">rsi</span></code>,
+<code class="docutils literal notranslate"><span class="pre">rdi</span></code> registers, respectively. The following is an example of 64-bit
+shellcode:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>section .text
+global _start
+  _start:
+    ; The following code calls execve(&quot;/bin/sh&quot;, ...)
+    xor  rdx, rdx       ; 3rd argument (stored in rdx)
+    push rdx
+    mov rax,&#39;/bin//sh&#39;
+    push rax
+    mov rdi, rsp        ; 1st argument (stored in rdi)
+    push rdx
+    push rdi
+    mov rsi, rsp        ; 2nd argument (stored in rsi)
+    xor  rax, rax
+    mov al, 0x3b        ; execve()
+    syscall
+</pre></div>
+</div>
+<p>We can use the following commands to compile the assemble code into
+64-bit binary code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ nasm -f elf64 mysh_64.s -o mysh_64.o
+$ ld mysh_64.o -o mysh_64
+</pre></div>
+</div>
+<p><strong>Task.</strong> Repeat Task 1.b for this 64-bit shellcode. Namely, instead of executing
+<code class="docutils literal notranslate"><span class="pre">&quot;/bin/sh&quot;</span></code>, we need to execute <code class="docutils literal notranslate"><span class="pre">&quot;/bin/bash&quot;</span></code>, and we are not
+allowed to use any redundant <code class="docutils literal notranslate"><span class="pre">/</span></code> in the command string, i.e., the
+length of the command must be 9 bytes (<code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>). Please
+demonstrate how you can do that. In addition to showing that you can get
+a bash shell, you also need to show that there is no zero in your code.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Buffer_Overflow_Setuid.html" class="btn btn-neutral float-right" title="Buffer Overflow Attack Lab (Set-UID Version)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="software_index.html" class="btn btn-neutral float-left" title="Software Security Labs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

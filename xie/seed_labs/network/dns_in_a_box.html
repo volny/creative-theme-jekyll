@@ -1,0 +1,743 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DNS In a Box &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Local DNS Attack Lab" href="dns_local.html" />
+    <link rel="prev" title="BGP Lab: Building an Internet Simulator" href="bgp_basic.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DNS In a Box</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lab-overview">Lab Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-setup">Lab Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-l-building-the-nameserver-for-example-edu">Task l: Building the nameserver for <code class="docutils literal notranslate"><span class="pre">example.edu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-building-the-edu-tld-server">Task 2: Building the <code class="docutils literal notranslate"><span class="pre">edu</span></code> TLD server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-building-root-server">Task 4: Building root server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-building-the-local-dns-server">Task 5: Building the Local DNS Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-6-configure-our-vm-to-use-this-local-dns-server">Task 6: Configure our VM to use this local DNS server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-7-making-it-more-realistic">Task 7: Making It More Realistic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>DNS In a Box</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>SEED Lab: DNS In a Box</p>
+</div>
+<div class="section" id="dns-in-a-box">
+<h1>DNS In a Box<a class="headerlink" href="#dns-in-a-box" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lab-overview">
+<h2>Lab Overview<a class="headerlink" href="#lab-overview" title="Permalink to this headline">¶</a></h2>
+<p>DNS (Domain Name System) is the Internet’s phone book; it translates
+hostnames to IP addresses (and vice versa). This translation is through
+DNS resolution, which happens behind the scene. The resolution process
+involves many nameservers, including root servers, TLD servers, and
+final domain servers. These nameservers form the entire DNS system,
+which is an essential infrastructure for the Internet.</p>
+<p>To help students understand how these nameservers work together to form
+the infrastructure, we will create a miniature DNS system called <em>DNS in
+a Box</em>. As suggested by its name, the entire DNS system, which consists
+of multiple nameservers, runs inside a single machine. This is made
+possible by the container technology.</p>
+<p>Even though this system is small, it has all the essential elements of a
+real DNS infrastructure. By building such a system, students will have a
+deeper understanding of how the DNS actually works. Although this lab is
+not a security lab, it is the basis for several SEED labs. This lab
+covers the following topics:</p>
+<ul class="simple">
+<li><p>DNS and how it works</p></li>
+<li><p>The DNS query process</p></li>
+<li><p>Root and TLD servers</p></li>
+<li><p>Docker container, docker compose</p></li>
+</ul>
+<div class="section" id="readings-and-videos">
+<h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the DNS protocol can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be
+downloaded from the SEED website. Since we use containers to set up the
+lab environment, this lab does not depend much on the SEED VM. You can
+do this lab using other VMs, physical machines, or VMs on the cloud.</p>
+</div>
+</div>
+<div class="section" id="lab-setup">
+<h2>Lab Setup<a class="headerlink" href="#lab-setup" title="Permalink to this headline">¶</a></h2>
+<div class="align-center figure align-default" id="id2">
+<img alt="A simplified DNS infrastructure" src="../../_images/DNS-in-a-box.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: A simplified DNS infrastructure</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this lab, we will build a simplified DNS infrastructure. We will
+start with a small one, and then gradually make it bigger. The first DNS
+system that we build consists of four nameservers, each one representing
+a specific role in the DNS infrastructure. In the real world, these
+nameservers are on different networks, but in this lab, for the sake of
+simplicity, we place them on the same network.
+<strong>Figure 1</strong> depicts the system setup. We will
+use containers to run these nameservers.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please
+read the “Common Problems” section of the manual for potential
+solutions.</p>
+</div>
+<div class="section" id="the-docker-compose-file">
+<h3>The Docker Compose File<a class="headerlink" href="#the-docker-compose-file" title="Permalink to this headline">¶</a></h3>
+<p>Our DNS system includes the four nameservers. The purpose of these four
+nameservers are summarized in the following:</p>
+<ul class="simple">
+<li><p>Local DNS server: conduct the DNS resolution process for other
+computers.</p></li>
+<li><p>Root server: a nameserver serving the root zone.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edu</span></code> server: nameserver serving the <code class="docutils literal notranslate"><span class="pre">edu</span></code> zone, a Top Level
+Domain (TLD).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">example.edu</span></code> server: nameserver serving the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> zone.</p></li>
+</ul>
+<p>We use a container for each of the nameservers above. How these
+containers are built and run is described in the <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>
+file, which is included in the lab setup file. Inside this file, we
+create a network <code class="docutils literal notranslate"><span class="pre">10.9.0.0/24</span></code> and four containers: each entry in the
+<code class="docutils literal notranslate"><span class="pre">services</span></code> section represents a container. We also assign IP addresses
+to those containers. See the following snippet:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>services:
+  seed_base_router:                       (*@\ding{80}@*)
+    build: ./base_image
+    image: seed-base-image-bind
+    container_name: seed-base-bind
+    command: &quot; echo &#39;exiting ...&#39; &quot;
+
+  example_edu_server:
+    build:
+        context: ./nameserver
+        args:
+            BIND_CONF_DIR: edu.example
+    image: example-edu-server
+    container_name: example-edu-10.9.0.65
+    tty: true
+    networks:
+      seed-net:
+        ipv4_address: 10.9.0.65
+
+  edu_server:        ... (omitted, similar to example_edu_server) ...
+        ipv4_address: 10.9.0.60
+  root_server:       ... (omitted, similar to example_edu_server) ...
+        ipv4_address: 10.9.0.30
+  local_dns_server:  ... (omitted, similar to example_edu_server) ...
+        ipv4_address: 10.9.0.53
+</pre></div>
+</div>
+<p>Line specifies a base image, which basically builds an image based on
+the image we placed on Docker Hub (see <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">base_image</span></code> folder). Although all the nameservers can directly build
+their containers using this base image from the Docker Hub, to reduce
+the number of access to the Docker Hub (the company puts a limit on how
+many accesses one can make during a six-hour time window), we first
+build a local base image using the one from Docker Hub, and then use the
+local base image to build the rest of the container images in this lab.</p>
+</div>
+<div class="section" id="container-images">
+<h3>Container Images<a class="headerlink" href="#container-images" title="Permalink to this headline">¶</a></h3>
+<p>Except for the local DNS server, all the nameservers use the same folder
+(<code class="docutils literal notranslate"><span class="pre">nameserver</span></code>) to build Docker images. The <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is shown in
+the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>FROM seed-base-image-bind                         (*@\ding{202}@*)
+
+ARG BIND_CONF_DIR
+
+# Copy the BIND confirguration files
+COPY named.conf named.conf.options  /etc/bind/    (*@\ding{203}@*)
+COPY ${BIND_CONF_DIR}     /etc/bind/              (*@\ding{204}@*)
+
+# Start the nameserver
+CMD service named start  &amp;&amp; tail -f /dev/null
+</pre></div>
+</div>
+<p>Line indicates this is local image (the base image). Line copies the
+BIND 9’s configuration files to the <code class="docutils literal notranslate"><span class="pre">/etc/bind</span></code> folder inside the
+container. These two files are the same for all the nameservers, but
+each nameserver’s does have its own zone files. That is why we use the
+<code class="docutils literal notranslate"><span class="pre">BIND_CONF_DIR</span></code> argument (Line ) to indicate which configuration
+folder should be used (there is a folder for each nameserver). The value
+of <code class="docutils literal notranslate"><span class="pre">BIND_CONF_DIR</span></code> is set in the Compose file.</p>
+<div class="section" id="local-dns-server">
+<h4>Local DNS server.<a class="headerlink" href="#local-dns-server" title="Permalink to this headline">¶</a></h4>
+<p>The container image for the local DNS server is quite similar to that in
+the nameservers. We will explain the difference later, as building the
+image is one of the tasks.</p>
+</div>
+</div>
+</div>
+<div class="section" id="task-l-building-the-nameserver-for-example-edu">
+<h2>Task l: Building the nameserver for <code class="docutils literal notranslate"><span class="pre">example.edu</span></code><a class="headerlink" href="#task-l-building-the-nameserver-for-example-edu" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will build a nameserver for a domain called
+<code class="docutils literal notranslate"><span class="pre">example.edu</span></code>. The container files are put inside the <code class="docutils literal notranslate"><span class="pre">nameserver</span></code>
+folder. The configuration files for this particular domain is placed
+inside the sub-folder.</p>
+<div class="section" id="step-1-adding-the-zone-entry">
+<h3>Step 1. Adding the zone entry<a class="headerlink" href="#step-1-adding-the-zone-entry" title="Permalink to this headline">¶</a></h3>
+<p>. To host a server for the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> domain, we need to add a zone
+entry to the BIND 9’s configuration file <code class="docutils literal notranslate"><span class="pre">named.conf</span></code>, so it knows
+what zones it is going to host. For convenience, we will add the entry
+to the file, which is included in our modified <code class="docutils literal notranslate"><span class="pre">named.conf</span></code> file.</p>
+<p>This entry indicates that the current nameserver is the master server
+for this domain, and the zone file is specified in the <code class="docutils literal notranslate"><span class="pre">file</span></code> entry.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;example.edu&quot; {
+        type master;
+        file &quot;/etc/bind/example.edu.db&quot;;
+};
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-creating-the-zone-file">
+<h3>Step 2. Creating the zone file<a class="headerlink" href="#step-2-creating-the-zone-file" title="Permalink to this headline">¶</a></h3>
+<p>. When building the docker image, the zone file will be copied into the
+folder of the container. To get students started, we have provided some
+information in this zone file, but students need to make all then
+necessary changes.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$TTL 3D
+@       IN      SOA   ns.example.edu. admin.example.edu. (
+                2008111001
+                8H
+                2H
+                4W
+                1D)
+
+; Records for this nameserver (you need to make changes)
+@               IN   NS    ns.example.edu.
+ns.example.edu  IN   A     1.2.3.4
+
+
+; IP addresses for the hostnames in the example.du domain
+@       IN      A     1.2.3.5
+www     IN      A     1.2.3.5
+xyz     IN      A     1.2.3.6
+*       IN      A     1.2.3.7
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-testing">
+<h3>Step 3. Testing.<a class="headerlink" href="#step-3-testing" title="Permalink to this headline">¶</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> commands to build and start all the containers.
+Once the containers are running, run the following command from your VM
+(i.e., outside of the container). We use the <code class="docutils literal notranslate"><span class="pre">&#64;10.9.0.65</span></code> option to
+send our DNS query directly to texttt10.9.0.65, which is the IP address
+of the <code class="docutils literal notranslate"><span class="pre">example.edu</span></code> nameserver in our setup. If everything is done
+correctly, you can get the IP address specified in your zone file.
+Please report your observations.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.65 www.example.edu
+...
+;; ANSWER SECTION:
+www.example.edu.    259200   IN  A   (*@\textbf{1.2.3.5}@*)
+...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-2-building-the-edu-tld-server">
+<h2>Task 2: Building the <code class="docutils literal notranslate"><span class="pre">edu</span></code> TLD server<a class="headerlink" href="#task-2-building-the-edu-tld-server" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will build a nameserver for a TLD domain, the <code class="docutils literal notranslate"><span class="pre">edu</span></code>
+domain. We will modify the files in the <code class="docutils literal notranslate"><span class="pre">nameserver/edu</span></code> folder.
+First, we need to add the following zone entry to the file. This entry
+indicates that the current nameserver is the master server for this
+domain, and the zone file is specified in the <code class="docutils literal notranslate"><span class="pre">file</span></code> entry.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;edu&quot; {
+        type master;
+        file &quot;/etc/bind/edu.db&quot;;
+};
+</pre></div>
+</div>
+<div class="section" id="creating-the-zone-file">
+<h3>Creating the zone file.<a class="headerlink" href="#creating-the-zone-file" title="Permalink to this headline">¶</a></h3>
+<p>Next, we need to add records to the zone file. We have already created
+the zone file <code class="docutils literal notranslate"><span class="pre">edu.db</span></code>, but it is incomplete. Students should make all
+the necessary changes.</p>
+<p>All the nameservers within the <code class="docutils literal notranslate"><span class="pre">edu</span></code> domain must register their
+nameservers with this TLD server; otherwise, nobody can find them. As an
+example, we have added two records for the <code class="docutils literal notranslate"><span class="pre">syr.edu</span></code> domain: an <code class="docutils literal notranslate"><span class="pre">NS</span></code>
+record and an <code class="docutils literal notranslate"><span class="pre">A</span></code> record. The <code class="docutils literal notranslate"><span class="pre">NS</span></code> record specifies the nameserver
+for the <code class="docutils literal notranslate"><span class="pre">syr.edu</span></code> domain, while the <code class="docutils literal notranslate"><span class="pre">A</span></code> record specifies the IP
+address of the nameserver. The data used in the records are real data,
+as it simulates the fact the <code class="docutils literal notranslate"><span class="pre">syr.edu</span></code> domain has registered itself
+with our <code class="docutils literal notranslate"><span class="pre">edu</span></code> TLD server.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>; Real records for syr.edu
+syr.edu.                IN      NS      ns1.syr.edu.
+ns1.syr.edu.            IN      A       128.230.12.8
+</pre></div>
+</div>
+</div>
+<div class="section" id="lab-task">
+<h3>Lab Task.<a class="headerlink" href="#lab-task" title="Permalink to this headline">¶</a></h3>
+<p>Students need to do the following tasks: (1) register your
+<code class="docutils literal notranslate"><span class="pre">example.edu</span></code> nameserver with this TLD server; (2) choose three real
+domain names, and register them with this TLD server. You can find the
+nameserver of a domain using <code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">&lt;name&gt;</span> <span class="pre">NS&quot;</span></code> (e.g.,
+<code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">syr.edu</span> <span class="pre">NS&quot;</span></code>).</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> commands, students can build and start all the
+containers. Once the containers are running, run the following <code class="docutils literal notranslate"><span class="pre">dig</span></code>
+commands from your VM to send DNS queries to the <code class="docutils literal notranslate"><span class="pre">edu</span></code> nameserver (its
+IP address is <code class="docutils literal notranslate"><span class="pre">10.9.0.60</span></code> in our setup). Please report your
+observations.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.60 www.example.edu
+$ dig @10.9.0.60 www.syr.edu
+$ dig @10.9.0.60 &lt;the other three domains you have chosen&gt;
+$ dig @10.9.0.60 &lt;a domain not included in your zone file&gt;
+</pre></div>
+</div>
+<p>It should be noted, the <code class="docutils literal notranslate"><span class="pre">edu</span></code> TLD server is configured not to conduct
+the recursive query, so it will only tell you the nameserver for the
+domain name in the query; it will not resolve the query for you. In the
+last command, you should try some domains (ended with <code class="docutils literal notranslate"><span class="pre">edu</span></code>) that are
+not included in your zone file.</p>
+</div>
+</div>
+<div class="section" id="task-4-building-root-server">
+<h2>Task 4: Building root server<a class="headerlink" href="#task-4-building-root-server" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will build a nameserver for the root zone. All TLD
+nameservers need to register with the root nameserver, so they can be
+found in the DNS query process. In our container, the root zone is
+defined in <code class="docutils literal notranslate"><span class="pre">bind.conf.seedlabs</span></code>, which loads the records from the zone
+file <code class="docutils literal notranslate"><span class="pre">root.db</span></code>.</p>
+<p>For every TLD zone that we would like to include in our miniature DNS
+system, we need to add at least two records in the zone file, including
+an <code class="docutils literal notranslate"><span class="pre">NS</span></code> record and an <code class="docutils literal notranslate"><span class="pre">A</span></code> record. In the following example, we have
+added the nameserver information for the <code class="docutils literal notranslate"><span class="pre">com</span></code> and <code class="docutils literal notranslate"><span class="pre">net</span></code> zones (the
+data in the records are real data). These two zones are managed by the
+same company, so they share the same set of nameservers (we have only
+included one nameserver).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>com.                 IN   NS   a.gtld-servers.net.
+net.                 IN   NS   a.gtld-servers.net.
+a.gtld-servers.net.  IN   A    192.5.6.30
+</pre></div>
+</div>
+<div class="section" id="lab-task-1">
+<span id="id1"></span><h3>Lab task.<a class="headerlink" href="#lab-task-1" title="Permalink to this headline">¶</a></h3>
+<p>Students need to add records to the zone file <code class="docutils literal notranslate"><span class="pre">root.db</span></code> to satisfy the
+following requirements:</p>
+<ul class="simple">
+<li><p>Register your <code class="docutils literal notranslate"><span class="pre">edu</span></code> nameserver with this root server.</p></li>
+<li><p>Choose two more real TLD names, and register them with this TLD
+server. One of the TLDs should be a country-code TLD (ccTLD), which
+is the root for a country. You can find the nameserver of a TLD
+domain using <code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">&lt;tld&gt;</span> <span class="pre">NS&quot;</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">com</span> <span class="pre">NS&quot;</span></code>). You can
+also find all the TLD information from
+<a class="reference external" href="https://www.internic.net/domain/root.zone">https://www.internic.net/domain/root.zone</a>.</p></li>
+</ul>
+<p>Using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> commands, students can build and start all the
+containers. Once the containers are running, run the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command
+from your VM to send DNS queries to the root nameserver (using
+<code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">&#64;10.9.0.30&quot;</span></code>). Please use the testing to demonstrate that your
+DNS setup is working as expected.</p>
+</div>
+</div>
+<div class="section" id="task-5-building-the-local-dns-server">
+<h2>Task 5: Building the Local DNS Server<a class="headerlink" href="#task-5-building-the-local-dns-server" title="Permalink to this headline">¶</a></h2>
+<p>When a computer needs to resolve the IP address from a hostname (or vice
+versa), it sends a request to its helper, which is called local DNS
+server (it does not need to be local). This local DNS server will
+conduct the entire DNS resolution process, and then send the result back
+to the computer. In this task, we will set up this local DNS server.</p>
+<div class="section" id="the-root-hint-file">
+<h3>The root hint file.<a class="headerlink" href="#the-root-hint-file" title="Permalink to this headline">¶</a></h3>
+<p>If the local DNS server cannot find the answer from its cache, it will
+go through an iterative process to get the answer from outside
+nameservers. The process starts from the root server. Therefore, the
+local DNS server needs to know the IP address of the root servers.</p>
+<p>In , which is included in <code class="docutils literal notranslate"><span class="pre">BIND9</span></code>’s configuration file , there is an
+entry for the root zone. This entry specifies a hint file for the root
+zone, and that is how the local DNS server knows the IP address of the
+root server.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;.&quot; {
+    type hint;
+    file &quot;/usr/share/dns/root.hints&quot;;
+};
+</pre></div>
+</div>
+<p>The root hint file specifies the nameservers for the root zone (there
+are 13 nameservers for the root zone). The IP address (v4 and v6) for
+these nameservers are provided in this file. The following example shows
+a snippet of the file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.                        3600000      NS    A.ROOT-SERVERS.NET.
+A.ROOT-SERVERS.NET.      3600000      A     198.41.0.4
+A.ROOT-SERVERS.NET.      3600000      AAAA  2001:503:ba3e::2:30
+...
+</pre></div>
+</div>
+<p>Inside our <code class="docutils literal notranslate"><span class="pre">local_dns_server</span></code> folder in the lab setup file, we have
+created an empty file called <code class="docutils literal notranslate"><span class="pre">root.hints</span></code>. This file will be copied
+into the folder when we build the container image for the Local DNS
+server. You need to add records to this file, so your local DNS server
+can use your root server, instead of using the ones in the real world.</p>
+</div>
+<div class="section" id="testing">
+<h3>Testing.<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> commands to build and start all the containers.
+Once the containers are running, run the following <code class="docutils literal notranslate"><span class="pre">&quot;dig</span> <span class="pre">&#64;10.9.0.53&quot;</span></code>
+commands from your VM to send DNS queries to the local DNS nameserver
+(its IP address is <code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> in our setup). Please report your
+observations.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig @10.9.0.53 www.example.edu
+$ dig @10.9.0.53 www.example.com
+$ dig @10.9.0.53 www.example.net
+$ dig @10.9.0.53 www.syr.edu
+$ dig @10.9.0.53 www.xyz.&lt;TLD registered with your root server&gt;
+$ dig @10.9.0.53 www.xyz.&lt;TLD not registered with your root server&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-6-configure-our-vm-to-use-this-local-dns-server">
+<h2>Task 6: Configure our VM to use this local DNS server<a class="headerlink" href="#task-6-configure-our-vm-to-use-this-local-dns-server" title="Permalink to this headline">¶</a></h2>
+<p>So far, we need to use <code class="docutils literal notranslate"><span class="pre">&#64;&lt;ip&gt;</span></code> in our <code class="docutils literal notranslate"><span class="pre">dig</span></code> command to indicate what
+DNS server the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command should talk to. While this is not an
+issue for <code class="docutils literal notranslate"><span class="pre">dig</span></code>, it is a problem for other software that depends on
+DNS. We need to tell the operating system that the DNS server container
+built in this task is the system’s local DNS server.</p>
+<p>This is achieved by changing the resolver configuration
+file (<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>) of the user machine, so the container’s IP
+address is added as the first <code class="docutils literal notranslate"><span class="pre">nameserver</span></code> entry in the file, i.e.,
+this server will be used as the primary DNS server. Unfortunately, our
+provided VM uses the Dynamic Host Configuration Protocol (DHCP) to
+obtain network configuration parameters, such as IP address, local DNS
+server, etc. DHCP clients will overwrite <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> with the
+information provided by the DHCP server.</p>
+<p>One way to get our information into <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> without
+worrying about the DHCP is to add the following entry to the file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Add the following entry to /etc/resolvconf/resolv.conf.d/head
+  nameserver 10.9.0.53
+
+Run the following command for the change to take effect
+$ sudo resolvconf -u
+</pre></div>
+</div>
+<p>The content of the head file will be prepended to the dynamically
+generated resolver configuration file. Normally, this is just a comment
+line (the comment in <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code> comes from this head file).</p>
+<p>After you finish configuring the user machine, repeat the testing
+commands in Task 5, but this time, do not include the <code class="docutils literal notranslate"><span class="pre">&#64;&lt;ip&gt;</span></code> in the
+command. Pay attention to the highlighted IP address to check whether
+the response does come from your container. If the setup is
+unsuccessful, the IP will be different.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig abc.example.edu
+
+...
+;; ANSWER SECTION:
+abc.example.edu.    259200  IN  A   1.2.3.7
+
+;; Query time: 3 msec
+;; SERVER: (*@\textbf{10.9.0.53}@*)#53(10.9.0.53)
+...
+</pre></div>
+</div>
+<div class="admonition-very-very-important admonition">
+<p class="admonition-title">Very Very Important!</p>
+<p>After finishing the lab, please do remember to remove the added entryfrom ; otherwise, it will cause lot of problems for your future labs. If in the future, you have trouble connecting to the Internet, but your network is fine, the chances are that you may have forgotten to remove this entry, and itmesses up the DNS query process. This happens to me many times, as I often forgot to remove the entry.</p>
+</div>
+</div>
+<div class="section" id="task-7-making-it-more-realistic">
+<h2>Task 7: Making It More Realistic<a class="headerlink" href="#task-7-making-it-more-realistic" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we will make our miniature DNS system a little bit more
+realistic by adding the following nameservers or records to our system.</p>
+<ul class="simple">
+<li><p>Adding 2 more root servers. The real-world DNS system has 13
+different IP address for the root server. We will create 3 in this
+lab.</p></li>
+<li><p>Pick two of the TLDs registered with your root server, build a
+second-level domain for each of them, use your last name as the
+domain name. For example, if your last name is <code class="docutils literal notranslate"><span class="pre">Smith</span></code>, you need to
+build the nameservers for the <code class="docutils literal notranslate"><span class="pre">smith.&lt;tld1&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">smith.&lt;tld2&gt;</span></code>
+domains, You need to host both domains on the same nameserver.</p></li>
+</ul>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+<div class="section" id="cleanup">
+<h3>Cleanup.<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h3>
+<p>This is another reminder regarding the removing of the entry added to .</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dns_local.html" class="btn btn-neutral float-right" title="Local DNS Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bgp_basic.html" class="btn btn-neutral float-left" title="BGP Lab: Building an Internet Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

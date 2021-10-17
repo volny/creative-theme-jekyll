@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Heartbleed Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ICMP Redirect Attack Lab" href="ICMP_Redirect.html" />
+    <link rel="prev" title="Firewall Evasion Lab: Bypassing Firewalls using VPN" href="firewall_vpn.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Heartbleed Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-launch-the-heartbleed-attack">Task 1: Launch the Heartbleed Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-find-the-cause-of-the-heartbleed-vulnerability">Task 2: Find the Cause of the Heartbleed Vulnerability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-countermeasure-and-bug-fix">Task 3: Countermeasure and Bug Fix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>Heartbleed Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="heartbleed-attack-lab">
+<h1>Heartbleed Attack Lab<a class="headerlink" href="#heartbleed-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Heartbleed bug (CVE-2014-0160) is a severe implementation flaw in
+the OpenSSL library, which enables attackers to steal data from the
+memory of the victim server. The contents of the stolen data depend on
+what is there in the memory of the server. It could potentially contain
+private keys, TLS session keys, user names, passwords, credit cards,
+etc. The vulnerability is in the implementation of the Heartbeat
+protocol, which is used by SSL/TLS to keep the connection alive.</p>
+<p>The objective of this lab is for students to understand how serious this
+vulnerability is, how the attack works, and how to fix the problem. The
+affected OpenSSL version range is from 1.0.1 to 1.0.1f. The version in
+the SEEDUbuntu 12.04 VM is 1.0.1.</p>
+<p><strong>Readings and videos.</strong> Detailed coverage of the Heartbleed attack can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 20 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 11 of the SEED Lecture, Internet Security: A Hands-on Approach, by Wenliang Du. See
+details at <a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a></p></li>
+</ul>
+<p><strong>Lab environment.</strong> This lab has been tested on our pre-built Ubuntu 12.04 VM, which can be
+downloaded from the SEED website. If you are using our SEEDUbuntu 16.04
+VM, this attack will not work, because the vulnerability has already
+been patched. You can download the SEEDUbuntu12.04 VM from the SEED web
+site. If you have an Amazon EC2 account, you can find our VM from the
+“Community AMIs”. The name of the VM is <code class="docutils literal notranslate"><span class="pre">SEEDUbuntu12.04-Generic</span></code>. It
+should be noted that Amazon’s site says that this is a 64-bit VM; that
+is incorrect. The VM is 32-bit. However, this incorrect information does
+not cause any problem.</p>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we need to set up two VMs: one called attacker machine and
+the other called victim server. We use the pre-built <code class="docutils literal notranslate"><span class="pre">SEEDUbuntu12.04</span></code>
+VM. The VMs need to use the <code class="docutils literal notranslate"><span class="pre">NAT-Network</span></code> adapter for the network
+setting. This can be done by going to the VM settings, picking Network,
+and clicking the Adaptor tag to switch the adapter to <code class="docutils literal notranslate"><span class="pre">NAT-Network</span></code>.
+Make sure both VMs are on the same NAT-Network.</p>
+<p>The website used in this attack can be any HTTPS website that uses
+SSL/TLS. However, since it is illegal to attack a real website, we have
+set up a website in our VM, and conduct the attack on our own VM. We use
+an open-source social network application called <code class="docutils literal notranslate"><span class="pre">ELGG</span></code>, and host it
+in the following URL: <a class="reference external" href="https://www.heartbleedlabelgg.com">https://www.heartbleedlabelgg.com</a>.</p>
+<p>We need to modify the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file on the attacker machine to map
+the server name to the IP address of the server VM. Search the following
+line in <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>, and replace the IP address <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> with
+the actual IP address of the server VM that hosts the <code class="docutils literal notranslate"><span class="pre">ELGG</span></code>
+application.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>127.0.0.1   www.heartbleedlabelgg.com
+</pre></div>
+</div>
+<p><strong>Lab Tasks</strong></p>
+<p>Before working on the lab tasks, you need to understand how the
+heartbeat protocol works. The heartbeat protocol consists of two message
+types: HeartbeatRequest packet and HeartbeatResponse packet. Client
+sends a HeartbeatRequest packet to the server. When the server receives
+it, it sends back a copy of the received message in the
+HeartbeatResponse packet. The goal is to keep the connection alive.</p>
+</div>
+<div class="section" id="task-1-launch-the-heartbleed-attack">
+<h2>Task 1: Launch the Heartbleed Attack<a class="headerlink" href="#task-1-launch-the-heartbleed-attack" title="Permalink to this headline">¶</a></h2>
+<p>In this task, students will launch the Heartbleed attack on our social
+network site and see what kind of damages can be achieved. The actual
+damage of the Heartbleed attack depends on what kind of information is
+stored in the server memory. If there has not been much activity on the
+server, you will not be able to steal useful data. Therefore, we need to
+interact with the web server as legitimate users. Let us do it as the
+administrator, and do the followings:</p>
+<ul class="simple">
+<li><p>Visit <code class="docutils literal notranslate"><span class="pre">https://www.heartbleedlabelgg.com</span></code> from your browser.</p></li>
+<li><p>Login as the site administrator. (User Name:<code class="docutils literal notranslate"><span class="pre">admin</span></code>;
+Password:<code class="docutils literal notranslate"><span class="pre">seedelgg</span></code>)</p></li>
+<li><p>Add Boby as friend. (Go to <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">-&gt;</span> <span class="pre">Members</span></code> and click
+<code class="docutils literal notranslate"><span class="pre">Boby</span> <span class="pre">-&gt;</span> <span class="pre">Add</span> <span class="pre">Friend</span></code>)</p></li>
+<li><p>Send Boby a private message.</p></li>
+</ul>
+<p>After you have done enough interaction as legitimate users, you can
+launch the attack and see what information you can get out of the victim
+server. Writing the program to launch the Heartbleed attack from scratch
+is not easy, because it requires the low-level knowledge of the
+Heartbeat protocol. Fortunately, other people have already written the
+attack code. Therefore, we will use the existing code to gain first-hand
+experience in the Heartbleed attack. The code that we use is called
+<code class="docutils literal notranslate"><span class="pre">attack.py</span></code>, which was originally written by Jared Stafford. We made
+some small changes to the code for educational purposes. You can
+download the code from the lab’s web site, change its permission so the
+file is executable. You can then run the attack code as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./attack.py  www.heartbleedlabelgg.com
+</pre></div>
+</div>
+<p>You may need to run the attack code multiple times to get useful data.
+Try and see whether you can get the following information from the
+target server.</p>
+<ul class="simple">
+<li><p>User name and password.</p></li>
+<li><p>User’s activity (what the user has done).</p></li>
+<li><p>The exact content of the private message.</p></li>
+</ul>
+<p>For each piece of secret that you steal from the Heartbleed attack, you
+need to show the screen-dump as the proof and explain how you did the
+attack, and what your observations are.</p>
+</div>
+<div class="section" id="task-2-find-the-cause-of-the-heartbleed-vulnerability">
+<h2>Task 2: Find the Cause of the Heartbleed Vulnerability<a class="headerlink" href="#task-2-find-the-cause-of-the-heartbleed-vulnerability" title="Permalink to this headline">¶</a></h2>
+<p>In this task, students will compare the outcome of the benign packet and
+the malicious packet sent by the attacker code to find out the
+fundamental cause of the Heartbleed vulnerability.</p>
+<p>The Heartbleed attack is based on the Heartbeat request. This request
+just sends some data to the server, and the server will copy the data to
+its response packet, so all the data are echoed back. In the normal
+case, suppose that the request includes 3 bytes of data “ABC”, so the
+length field has a value 3. The server will place the data in the
+memory, and copy 3 bytes from the beginning of the data to its response
+packet. In the attack scenario, the request may contain 3 bytes of data,
+but the length field may say 1003. When the server constructs its
+response packet, it copies from the starting of the data (i.e. “ABC”),
+but it copies 1003 bytes, instead of 3 bytes. These extra 1000 types
+obviously do not come from the request packet; they come from the
+server’s private memory, and they may contain other user’s information,
+secret keys, password, etc.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/heartbleed_img1.png" src="../../_images/heartbleed_img1.png" />
+<p class="caption"><span class="caption-text">Figure 1: The Benign Heartbeat Communication</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this task, we will play with the length field of the request. First,
+let’s understand how the Heartbeat response packet is built from
+Figure 1. When the Heartbeat request packet comes, the server will parse the packet to get
+the payload and the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code> value (which is highlighted in
+Figure 1). Here, the payload is only a 3-byte string <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code> and the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code>
+value is exactly 3. The server program will blindly take this length
+value from the request packet. It then builds the response packet by
+pointing to the memory storing <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code> and copy <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code>
+bytes to the response payload. In this way, the response packet would
+contain a 3-byte string <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code>.</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/heartbleed_img2.png" src="../../_images/heartbleed_img2.png" />
+<p class="caption"><span class="caption-text">Figure 2: The Heartbleed Attack Communication</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>We can launch the HeartBleed attack like what is shown in
+Figure <a class="reference external" href="#fig:mal_packet">[fig:mal_packet]</a>. We keep the same
+payload (3 bytes), but set the <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code> field to 1003. The
+server will again blindly take this <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code> value when
+building the response packet. This time, the server program will point
+to the string <code class="docutils literal notranslate"><span class="pre">&quot;ABC&quot;</span></code> and copy 1003 bytes from the memory to the
+response packet as a payload. Besides the string “ABC”, the extra 1000
+bytes are copied into the response packet, which could be anything from
+the memory, such as secret activity, logging information, password and
+so on.</p>
+<p>Our attack code allows you to play with different <code class="docutils literal notranslate"><span class="pre">Payload_length</span></code>
+values. By default, the value is set to a quite large one (<code class="docutils literal notranslate"><span class="pre">0x4000</span></code>),
+but you can reduce the size using the command option <code class="docutils literal notranslate"><span class="pre">&quot;-l&quot;</span></code> (letter
+ell) or <code class="docutils literal notranslate"><span class="pre">&quot;–length&quot;</span></code> as shown in the following examples:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$./attack.py  www.heartbleedlabelgg.com  -l  0x015B
+$./attack.py  www.heartbleedlabelgg.com  --length 83
+</pre></div>
+</div>
+<p>Your task is to play with the attack program with different payload
+length values and answer the following questions:</p>
+<ul class="simple">
+<li><p>Question 2.1: As the length variable decreases, what kind of
+difference can you observe?</p></li>
+<li><p>Question 2.2: As the length variable decreases, there is a boundary
+value for the input length variable. At or below that boundary, the
+Heartbeat query will receive a response packet without attaching any
+extra data (which means the request is benign). Please find that
+boundary length. You may need to try many different length values
+until the web server sends back the reply without extra data. To help
+you with this, when the number of returned bytes is smaller than the
+expected length, the program will print
+<code class="docutils literal notranslate"><span class="pre">&quot;Server</span> <span class="pre">processed</span> <span class="pre">malformed</span> <span class="pre">Heartbeat,</span> <span class="pre">but</span> <span class="pre">did</span> <span class="pre">not</span> <span class="pre">return</span> <span class="pre">any</span> <span class="pre">extra</span> <span class="pre">data.&quot;</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="task-3-countermeasure-and-bug-fix">
+<h2>Task 3: Countermeasure and Bug Fix<a class="headerlink" href="#task-3-countermeasure-and-bug-fix" title="Permalink to this headline">¶</a></h2>
+<p>To fix the Heartbleed vulnerability, the best way is to update the
+OpenSSL library to the newest version. This can be achieved using the
+following commands. It should be noted that once it is updated, it is
+hard to go back to the vulnerable version. Therefore, make sure you have
+finished the previous tasks before doing the update. You can also take a
+snapshot of your VM before the update.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get upgrade
+</pre></div>
+</div>
+<div class="section" id="task-3-1">
+<h3>Task 3.1<a class="headerlink" href="#task-3-1" title="Permalink to this headline">¶</a></h3>
+<p>Try your attack again after you have updated the OpenSSL library. Please
+describe your observations.</p>
+</div>
+<div class="section" id="task-3-2">
+<h3>Task 3.2<a class="headerlink" href="#task-3-2" title="Permalink to this headline">¶</a></h3>
+<p>The objective of this task is to figure out how to fix the Heartbleed
+bug in the source code. The following C-style structure (not exactly the
+same as the source code) is the format of the Heartbeat request/response
+packet.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>struct {
+   HeartbeatMessageType type; // 1 byte: request or the response
+   uint16 payload_length;     // 2 byte: the length of the payload
+   opaque payload[HeartbeatMessage.payload_length];
+   opaque padding[padding_length];
+} HeartbeatMessage;
+</pre></div>
+</div>
+<p>The first field (1 byte) of the packet is the type information, and the
+second field (2 bytes) is the payload length, followed by the actual
+payload and paddings. The size of the payload should be the same as the
+value in the <code class="docutils literal notranslate"><span class="pre">payload_length</span></code> field, but in the attack scenario,
+<code class="docutils literal notranslate"><span class="pre">payload_length</span></code> can be set to a different value. The following code
+snippet shows how the server copies the data from the request packet to
+the response packet. Listing 1: Process the Heartbleat request packet
+and generate the response packet.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* Allocate memory for the response, size is 1 byte
+ * message type, plus 2 bytes payload length, plus
+ * payload, plus padding
+ */
+
+unsigned int payload;
+unsigned int padding = 16; /* Use minimum padding */
+
+// Read from type field first
+hbtype = *p++;   /* After this instruction, the pointer
+                  * p will point to the payload_length field *.
+
+// Read from the payload_length field
+// from the request packet
+n2s(p, payload); /* Function n2s(p, payload) reads 16 bits
+                  * from pointer p and store the value
+                  * in the INT variable &quot;payload&quot;. */
+
+
+pl=p; // pl points to the beginning of the payload content
+
+if (hbtype == TLS1_HB_REQUEST)
+{
+     unsigned char *buffer, *bp;
+     int r;
+
+     /* Allocate memory for the response, size is 1 byte
+      * message type, plus 2 bytes payload length, plus
+      * payload, plus padding
+      */
+
+     buffer = OPENSSL_malloc(1 + 2 + payload + padding);
+     bp = buffer;
+
+     // Enter response type, length and copy payload
+     *bp++ = TLS1_HB_RESPONSE;
+     s2n(payload, bp);
+
+     // copy payload
+     memcpy(bp, pl, payload); /* pl is the pointer which
+                               * points to the beginning
+                           * of the payload content */
+
+     bp += payload;
+
+     // Random padding
+     RAND_pseudo_bytes(bp, padding);
+
+     // this function will copy the 3+payload+padding bytes
+     // from the buffer and put them into the heartbeat response
+     // packet to send back to the request client side.
+     OPENSSL_free(buffer);
+     r = ssl3_write_bytes(s, TLS1_RT_HEARTBEAT, buffer,
+           3 + payload + padding);
+}
+</pre></div>
+</div>
+<p>Please point out the problem from the code in
+Listing 1 abve and provide a
+solution to fix the bug (i.e., what modification is needed to fix the
+bug). You do not need to recompile the code; just describe how you can
+fix the problem in your lab report.</p>
+<p>Moreover, please comment on the following discussions by Alice, Bob, and
+Eva regarding the fundamental cause of the Heartbleed vulnerability:
+Alice thinks the fundamental cause is missing the boundary checking
+during the buffer copy; Bob thinks the cause is missing the user input
+validation; Eva thinks that we can just delete the length value from the
+packet to solve everything.</p>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ICMP_Redirect.html" class="btn btn-neutral float-right" title="ICMP Redirect Attack Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="firewall_vpn.html" class="btn btn-neutral float-left" title="Firewall Evasion Lab: Bypassing Firewalls using VPN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

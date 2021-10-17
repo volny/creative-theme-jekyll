@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cryptography Labs &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Secret-Key Encryption Lab" href="encryption.html" />
+    <link rel="prev" title="SEED Labs" href="../seed_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cryptography Labs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html">Secret-Key Encryption Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html">Hash Length Extension Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html">MD5 Collision Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html">Padding Oracle Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html">Public-Key Infrastructure (PKI) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html">Pseudo Random Number Generation Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html">RSA Public-Key Encryption and Signature Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html">Transport Layer Security (TLS) Lab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+      <li>Cryptography Labs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cryptography-labs">
+<h1>Cryptography Labs<a class="headerlink" href="#cryptography-labs" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encryption.html">Secret-Key Encryption Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html#readings">Readings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#lab-environment">Lab Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-1-frequency-analysis">Task 1: Frequency Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html#guidelines">Guidelines.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-2-encryption-using-different-ciphers-and-modes">Task 2: Encryption using Different Ciphers and Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-3-encryption-mode-ecb-vs-cbc">Task 3: Encryption Mode – ECB vs. CBC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-4-padding">Task 4: Padding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-5-error-propagation-corrupted-cipher-text">Task 5: Error Propagation – Corrupted Cipher Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-6-initial-vector-iv-and-common-mistakes">Task 6: Initial Vector (IV) and Common Mistakes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html#task-6-1-iv-experiment">Task 6.1. IV Experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html#task-6-2-common-mistake-use-the-same-iv">Task 6.2. Common Mistake: Use the Same IV</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="encryption.html#sample-code">Sample Code.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html#task-6-3-common-mistake-use-a-predictable-iv">Task 6.3. Common Mistake: Use a Predictable IV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="encryption.html#additional-readings">Additional Readings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#task-7-programming-using-the-crypto-library">Task 7: Programming using the Crypto Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#note-to-instructors">Note to instructors.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#submission">Submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hash_length_ext.html">Hash Length Extension Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#readings">Readings.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#lab-environment">Lab Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#container-setup-and-commands">Container Setup and Commands.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#about-the-web-server">About the web server.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#sending-requests">Sending requests.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#task-1-send-request-to-list-files">Task 1: Send Request to List Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#task">Task.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#task-2-create-padding">Task 2: Create Padding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#task-1">Task.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#task-3-the-length-extension-attack">Task 3: The Length Extension Attack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hash_length_ext.html#task-2">Task.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#task-4-attack-mitigation-using-hmac">Task 4: Attack Mitigation using HMAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hash_length_ext.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md5_collision.html">MD5 Collision Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html#readings">Readings.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#lab-environment">Lab Environment.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#task-1-generating-two-different-files-with-the-same-md5-hash">Task 1: Generating Two Different Files with the Same MD5 Hash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#task-2-understanding-md5s-property">Task 2: Understanding MD5’s Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#task-3-generating-two-executable-files-with-the-same-md5-hash">Task 3: Generating Two Executable Files with the Same MD5 Hash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html#guidelines">Guidelines.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html#tools">Tools.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#task-4-making-the-two-programs-behave-differently">Task 4: Making the Two Programs Behave Differently</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="md5_collision.html#guidelines-1">Guidelines.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="md5_collision.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="padding_oracle.html">Padding Oracle Attack Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html#readings">Readings.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html#lab-environment">Lab environment.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#id1">Lab Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html#container-setup-and-commands">Container Setup and Commands.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#task-1-getting-familiar-with-padding">Task 1: Getting Familiar with Padding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#task-2-padding-oracle-attack-level-1">Task 2: Padding Oracle Attack (Level 1)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html#the-oracle-setup">The Oracle Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html#deriving-the-plaintext-manually">Deriving the Plaintext Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="padding_oracle.html#note">Note.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#task-3-padding-oracle-attack-level-2">Task 3: Padding Oracle Attack (Level 2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#submission">Submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="padding_oracle.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pki.html">Public-Key Infrastructure (PKI) Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#readings">Readings.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#related-labs">Related labs.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#lab-environment">Lab environment.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#id1">Lab Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#container-setup-and-commands">Container Setup and Commands.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#dns-setup">DNS setup.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#task-1-becoming-a-certificate-authority-ca">Task 1: Becoming a Certificate Authority (CA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#the-configuration-file-openssl-conf">The Configuration File <code class="docutils literal notranslate"><span class="pre">openssl.conf</span></code>.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#certificate-authority-ca">Certificate Authority (CA).</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#task-2-generating-a-certificate-request-for-your-web-server">Task 2: Generating a Certificate Request for Your Web Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#adding-alternative-names">Adding Alternative names.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#task-3-generating-a-certificate-for-your-server">Task 3: Generating a Certificate for your server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#copy-the-extension-field">Copy the extension field.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#task-4-deploying-certificate-in-an-apache-based-https-website">Task 4: Deploying Certificate in an Apache-Based HTTPS Website</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#starting-the-apache-server">Starting the Apache server.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#shared-folder-between-the-vm-and-container">Shared folder between the VM and container.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#browsing-the-website">Browsing the website.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#task-5-launching-a-man-in-the-middle-attack">Task 5: Launching a Man-In-The-Middle Attack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#step-1-setting-up-the-malicious-website">Step 1: Setting up the malicious website.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#step-2-becoming-the-man-in-the-middle">Step 2: Becoming the man in the middle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pki.html#step-3-browse-the-target-website">Step 3: Browse the target website.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#task-6-launching-a-man-in-the-middle-attack-with-a-compromised-ca">Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pki.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="random_number.html">Pseudo Random Number Generation Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html#lab-environment">Lab environment.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#task-1-generate-encryption-key-in-a-wrong-way">Task 1: Generate Encryption Key in a Wrong Way</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#task-2-guessing-the-key">Task 2: Guessing the Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#task-3-measure-the-entropy-of-kernel">Task 3: Measure the Entropy of Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#task-4-get-pseudo-random-numbers-from-dev-random">Task 4: Get Pseudo Random Numbers from <code class="docutils literal notranslate"><span class="pre">/dev/random</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="random_number.html#question">Question:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#task-5-get-random-numbers-from-dev-urandom">Task 5: Get Random Numbers from <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="random_number.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rsa.html">RSA Public-Key Encryption and Signature Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#readings-and-videos">Readings and videos.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#lab-environment">Lab environment.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#background">Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#bignum-apis">BIGNUM APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#a-complete-example">A Complete Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#compilation">Compilation.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#task-1-deriving-the-private-key">Task 1: Deriving the Private Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#task-2-encrypting-a-message">Task 2: Encrypting a Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#task-3-decrypting-a-message">Task 3: Decrypting a Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#task-4-signing-a-message">Task 4: Signing a Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#task-5-verifying-a-signature">Task 5: Verifying a Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#task-6-manually-verifying-an-x-509-certificate">Task 6: Manually Verifying an X.509 Certificate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#step-1-download-a-certificate-from-a-real-web-server">Step 1: Download a certificate from a real web server.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#step-2-extract-the-public-key-e-n-from-the-issuers-certificate">Step 2: Extract the public key <code class="docutils literal notranslate"><span class="pre">(e,</span> <span class="pre">n)</span></code> from the issuer’s certificate.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#step-3-extract-the-signature-from-the-servers-certificate">Step 3: Extract the signature from the server’s certificate.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#step-4-extract-the-body-of-the-servers-certificate">Step 4: Extract the body of the server’s certificate.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rsa.html#step-5-verify-the-signature">Step 5: Verify the signature.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rsa.html#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tls.html">Transport Layer Security (TLS) Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tls.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#prerequisite">Prerequisite.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#readings">Readings.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#lab-environment">Lab Environment.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tls.html#id1">Lab Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#container-setup-and-commands">Container Setup and Commands.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#volumes">Volumes.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tls.html#task-1-tls-client">Task 1: TLS Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-1-a-tls-handshake">Task 1.a: TLS handshake</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tls.html#tasks">Tasks.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-1-b-cas-certificate">Task 1.b: CA’s Certificate</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tls.html#additional-requirement">Additional requirement:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-1-c-experiment-with-the-hostname-check">Task 1.c: Experiment with the hostname check</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tls.html#the-importance-of-hostname-check">The importance of hostname check:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-1-d-sending-and-getting-data">Task 1.d: Sending and getting Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tls.html#tasks-1">Tasks.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tls.html#task-2-tls-server">Task 2: TLS Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-2-a-implement-a-simple-tls-server">Task 2.a. Implement a simple TLS server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tls.html#testing">Testing.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-2-b-testing-the-server-program-using-browsers">Task 2.b. Testing the server program using browsers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#task-2-c-certificate-with-multiple-names">Task 2.c. Certificate with multiple names</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tls.html#task-3-a-simple-https-proxy">Task 3: A Simple HTTPS Proxy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#handling-multiple-http-requests">Handling multiple HTTP requests.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#the-client-setup">The client setup.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#the-proxy-setup">The proxy setup.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tls.html#task">Task.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tls.html#cleanup">Cleanup.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tls.html#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="encryption.html" class="btn btn-neutral float-right" title="Secret-Key Encryption Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../seed_index.html" class="btn btn-neutral float-left" title="SEED Labs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

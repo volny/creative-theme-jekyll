@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>The Kaminsky Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DNS Security Extensions (DNSSEC) Lab" href="dnssec.html" />
+    <link rel="prev" title="DNS Rebinding Attack Lab" href="dns_rebinding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="arp_attack.html">ARP Cache Poisoning Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The Kaminsky Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lab-overview">Lab Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment-setup-task-1">Lab Environment Setup (Task 1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-attack-tasks">The Attack Tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-construct-dns-request">Task 2: Construct DNS request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-spoof-dns-replies">Task 3: Spoof DNS Replies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-launch-the-kaminsky-attack">Task 4: Launch the Kaminsky Attack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-5-result-verification">Task 5: Result Verification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>The Kaminsky Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>The Kaminsky Attack Lab</p>
+</div>
+<div class="section" id="the-kaminsky-attack-lab">
+<h1>The Kaminsky Attack Lab<a class="headerlink" href="#the-kaminsky-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lab-overview">
+<h2>Lab Overview<a class="headerlink" href="#lab-overview" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this lab is for students to gain the first-hand
+experience on the remote DNS cache poisoning attack, also called the
+Kaminsky DNS attack. DNS (Domain Name System) is the Internet’s phone
+book; it translates hostnames to IP addresses and vice versa. This
+translation is through DNS resolution, which happens behind the scene.
+DNS attacks manipulate this resolution process in various ways, with an
+intent to misdirect users to alternative destinations, which are often
+malicious. This lab focuses on a particular DNS attack technique, called
+<em>DNS Cache Poisoning attack</em>. In another SEED Lab, we have designed
+activities to conduct the same attack in a local network environment,
+i.e., the attacker and the victim DNS server are on the same network,
+where packet sniffing is possible. In this remote attack lab, packet
+sniffing is not possible, so the attack becomes much more challenging
+than the local attack. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>DNS and how it works</p></li>
+<li><p>DNS server setup</p></li>
+<li><p>DNS cache poisoning attack</p></li>
+<li><p>Spoofing DNS responses</p></li>
+<li><p>Packet spoofing</p></li>
+</ul>
+<div class="section" id="downloadable-files">
+<h3>Downloadable Files.<a class="headerlink" href="#downloadable-files" title="Permalink to this headline">¶</a></h3>
+<p>Please download the following package containing all classes used in this lab <a class="reference download internal" download="" href="../../_downloads/4b4b1b1d8763bcf6a3aa58c1458ccaa5/Files.zip"><code class="xref download docutils literal notranslate"><span class="pre">Here</span></code></a>.</p>
+</div>
+<div class="section" id="readings-and-videos">
+<h3>Readings and videos.<a class="headerlink" href="#readings-and-videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the DNS protocol and attacks can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Chapter 18 of the SEED Book, <em>Computer &amp; Internet Security: A
+Hands-on Approach</em>, 2nd Edition, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+<li><p>Section 7 of the SEED Lecture, <em>Internet Security: A Hands-on
+Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a
+pre-built image from the SEED website, and run the SEED VM on your own
+computer. However, most of the SEED labs can be conducted on the cloud,
+and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+</div>
+<div class="section" id="lab-environment-setup-task-1">
+<h2>Lab Environment Setup (Task 1)<a class="headerlink" href="#lab-environment-setup-task-1" title="Permalink to this headline">¶</a></h2>
+<div class="align-center figure align-default" id="id1">
+<img alt="Environment setup for the experiment" src="../../_images/environment_setup_remote.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Environment setup for the experiment</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The main target for DNS cache poisoning attacks is local DNS server.
+Obviously, it is illegal to attack a real server, so we need to set up
+our own DNS server to conduct the attack experiments. The lab
+environment needs four separate machines: one for the victim, one for
+the DNS server, and two for the attacker. The lab environment setup is
+illustrated in <strong>Figure 1</strong>.</p>
+<p>We put all these machines on the same LAN only for the sake of
+simplicity. Students are not allowed to exploit this fact in their
+attacks; they should treat the attacker machine as a remote machine,
+i.e., the attacker cannot sniff packets on the LAN. This is different
+from the local DNS attack.</p>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please
+read the “Common Problems” section of the manual for potential
+solutions.</p>
+</div>
+<div class="section" id="about-the-attacker-container">
+<h3>About the Attacker Container<a class="headerlink" href="#about-the-attacker-container" title="Permalink to this headline">¶</a></h3>
+<p>In this lab, we can either use the VM or the attacker container as the
+attacker machine. If you look at the Docker Compose file, you will see
+that the attacker container is configured differently from the other
+containers.</p>
+<ul>
+<li><p><em>Shared folder.</em> When we use the attacker container to launch
+attacks, we need to put the attacking code inside the attacker
+container. Code editing is more convenient inside the VM than in
+containers, because we can use our favorite editors. In order for the
+VM and container to share files, we have created a shared folder
+between the VM and the container using the Docker <code class="docutils literal notranslate"><span class="pre">volumes</span></code>. If you
+look at the Docker Compose file, you will find out that we have added
+the following entry to some of the containers. It indicates mounting
+the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder on the host machine (i.e., the VM) to the
+<code class="docutils literal notranslate"><span class="pre">/volumes</span></code> folder inside the container. We will write our code in
+the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder (on the VM), so they can be used inside the
+containers.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>volumes:
+       - ./volumes:/volumes
+</pre></div>
+</div>
+</li>
+<li><p><em>Host mode.</em> In this lab, the attacker needs to be able to sniff
+packets, but running sniffer programs inside a container has
+problems, because a container is effectively attached to a virtual
+switch, so it can only see its own traffic, and it is never going to
+see the packets among other containers. To solve this problem, we use
+the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode for the attacker container. This allows the
+attacker container to see all the traffics. The following entry used
+on the attacker container:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>network_mode: host
+</pre></div>
+</div>
+<p>When a container is in the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode, it sees all the host’s
+network interfaces, and it even has the same IP addresses as the
+host. Basically, it is put in the same network namespace as the host
+VM. However, the container is still a separate machine, because its
+other namespaces are still different from the host.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="summary-of-the-dns-configuration">
+<h3>Summary of the DNS Configuration<a class="headerlink" href="#summary-of-the-dns-configuration" title="Permalink to this headline">¶</a></h3>
+<p>All the containers are already configured for this lab. We provide a
+summary here, so students are aware of these configurations. Detailed
+explanation of the configuration can be found from the manual.</p>
+<div class="section" id="local-dns-server">
+<h4>Local DNS Server.<a class="headerlink" href="#local-dns-server" title="Permalink to this headline">¶</a></h4>
+<p>We run the BIND 9 DNS server program on the local DNS server. BIND 9
+gets its configuration from a file called . This file is the primary
+configuration file, and it usually contains several <code class="docutils literal notranslate"><span class="pre">&quot;include&quot;</span></code>
+entries, i.e., the actual configurations are stored in those included
+files. One of the included files is called . This is where the actual
+configuration is set.</p>
+<ul>
+<li><p><em>Simplification.</em> DNS servers now randomize the source port number in
+their DNS queries; this makes the attacks much more difficult.
+Unfortunately, many DNS servers still use predictable source port
+number. For the sake of simplicity in this lab, we fix the source
+port number to <code class="docutils literal notranslate"><span class="pre">33333</span></code> in the configuration file.</p></li>
+<li><p><em>Turning off DNSSEC.</em> DNSSEC is introduced to protect against
+spoofing attacks on DNS servers. To show how attacks work without
+this protection mechanism, we have turned off the protection in the
+configuration file.</p></li>
+<li><p><em>DNS cache.</em> During the attack, we need to inspect the DNS cache on
+the local DNS server. The following two commands are related to DNS
+cache. The first command dumps the content of the cache to the file ,
+and the second command clears the cache.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># rndc dumpdb -cache    // Dump the cache to the specified file
+# rndc flush            // Flush the DNS cache
+</pre></div>
+</div>
+</li>
+<li><p><em>Forwarding the ``attacker32.com`` zone.</em> A forward zone is added to
+the local DNS server, so if anybody queries the <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>
+domain, the query will be forwarded to this domain’s nameserver,
+which is hosted in the attacker container. The zone entry is put
+inside the <code class="docutils literal notranslate"><span class="pre">named.conf</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;attacker32.com&quot; {
+    type forward;
+    forwarders {
+        10.9.0.153;
+    };
+};
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="user-machine">
+<h4>User machine.<a class="headerlink" href="#user-machine" title="Permalink to this headline">¶</a></h4>
+<p>The user container <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code> is already configured to use
+<code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> as its local DNS server. This is achieved by changing the
+resolver configuration file (<code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>) of the user machine,
+so the server <code class="docutils literal notranslate"><span class="pre">10.9.0.53</span></code> is added as the first <code class="docutils literal notranslate"><span class="pre">nameserver</span></code> entry
+in the file, i.e., this server will be used as the primary DNS server.</p>
+</div>
+<div class="section" id="attackers-nameserver">
+<h4>Attacker’s Nameserver.<a class="headerlink" href="#attackers-nameserver" title="Permalink to this headline">¶</a></h4>
+<p>On the attacker’s nameserver, we host two zones. One is the attacker’s
+legitimate zone <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code>, and the other is the fake
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code> zone. The zones are configured in :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zone &quot;attacker32.com&quot; {
+        type master;
+        file &quot;/etc/bind/attacker32.com.zone&quot;;
+};
+
+zone &quot;example.com&quot; {
+        type master;
+        file &quot;/etc/bind/example.com.zone&quot;;
+};
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-the-dns-setup">
+<h3>Testing the DNS Setup<a class="headerlink" href="#testing-the-dns-setup" title="Permalink to this headline">¶</a></h3>
+<p>From the User container, we will run a series of commands to ensure that
+our lab setup is correct. In your lab report, please document your
+testing results.</p>
+<div class="section" id="get-the-ip-address-of-ns-attacker32-com">
+<h4>Get the IP address of <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code>.<a class="headerlink" href="#get-the-ip-address-of-ns-attacker32-com" title="Permalink to this headline">¶</a></h4>
+<p>When we run the following <code class="docutils literal notranslate"><span class="pre">dig</span></code> command, the local DNS server will
+forward the request to the Attacker nameserver due to the <code class="docutils literal notranslate"><span class="pre">forward</span></code>
+zone entry added to the local DNS server’s configuration file.
+Therefore, the answer should come from the zone file
+(<code class="docutils literal notranslate"><span class="pre">attacker32.com.zone</span></code>) that we set up on the Attacker nameserver. If
+this is not what you get, your setup has issues. Please describe your
+observation in your lab report.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dig ns.attacker32.com
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-the-ip-address-of-www-example-com">
+<h4>Get the IP address of <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>.<a class="headerlink" href="#get-the-ip-address-of-www-example-com" title="Permalink to this headline">¶</a></h4>
+<p>Two nameservers are now hosting the <code class="docutils literal notranslate"><span class="pre">example.com</span></code> domain, one is the
+domain’s official nameserver, and the other is the Attacker container.
+We will query these two nameservers and see what response we will get.
+Please run the following two commands (from the User machine), and
+describe your observation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Send the query to our local DNS server, which will send the query
+// to example.com&#39;s official nameserver.
+$ dig www.example.com
+
+// Send the query directly to ns.attacker32.com
+$ dig @ns.attacker32.com www.example.com
+</pre></div>
+</div>
+<p>Obviously, nobody is going to ask <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code> for the IP
+address of <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>; they will always ask the <code class="docutils literal notranslate"><span class="pre">example.com</span></code>
+domain’s official nameserver for answers. The objective of the DNS cache
+poisoning attack is to get the victims to ask <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code> for
+the IP address of <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>. Namely, if our attack is
+successful, if we just run the first <code class="docutils literal notranslate"><span class="pre">dig</span></code> command, the one without
+the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> option, we should get the fake result from the attacker,
+instead of getting the authentic one from the domain’s legitimate
+nameserver.</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-attack-tasks">
+<h2>The Attack Tasks<a class="headerlink" href="#the-attack-tasks" title="Permalink to this headline">¶</a></h2>
+<p>The main objective of DNS attacks is to redirect the user to another
+machine <span class="math notranslate nohighlight">\(B\)</span> when the user tries to get to machine <span class="math notranslate nohighlight">\(A\)</span> using
+<span class="math notranslate nohighlight">\(A\)</span>’s host name. For example, assuming <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> is an
+online banking site. When the user tries to access this site using the
+correct URL <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>, if the adversaries can redirect the
+user to a malicious web site that looks very much like
+<code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>, the user might be fooled and give away his/her
+credentials to the attacker.</p>
+<p>In this task, we use the domain name <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> as our
+attacking target. It should be noted that the <code class="docutils literal notranslate"><span class="pre">example.com</span></code> domain
+name is reserved for use in documentation, not for any real company. The
+authentic IP address of <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> is <code class="docutils literal notranslate"><span class="pre">93.184.216.34</span></code>, and
+its nameserver is managed by the Internet Corporation for Assigned Names
+and Numbers (ICANN). When the user runs the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command on this name
+or types the name in the browser, the user’s machine sends a DNS query
+to its local DNS server, which will eventually ask for the IP address
+from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s nameserver.</p>
+<p>The goal of the attack is to launch the DNS cache poisoning attack on
+the local DNS server, such that when the user runs the <code class="docutils literal notranslate"><span class="pre">dig</span></code> command
+to find out <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>’s IP address, the local DNS server
+will end up going to the attacker’s nameserver <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code> to
+get the IP address, so the IP address returned can be any number that is
+decided by the attacker. As results, the user will be led to the
+attacker’s web site, instead of to the authentic <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code>.</p>
+<div class="align-center figure align-default" id="id2">
+<img alt="The complete DNS query process" src="../../_images/DNS_Remote_new1.jpg" />
+<p class="caption"><span class="caption-text">Figure 2: The complete DNS query process</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure align-default" id="id3">
+<img alt="The Kaminsky Attack" src="../../_images/DNS_Remote_new2.jpg" />
+<p class="caption"><span class="caption-text">Figure 3: The Kaminsky Attack</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="how-kaminsky-attack-works">
+<h3>How Kaminsky attack works<a class="headerlink" href="#how-kaminsky-attack-works" title="Permalink to this headline">¶</a></h3>
+<p>In this task, the attacker sends a DNS query request to the victim DNS
+server (<code class="docutils literal notranslate"><span class="pre">Apollo</span></code>), triggering a DNS query from <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>. The query
+may go through one of the root DNS servers, the <code class="docutils literal notranslate"><span class="pre">.COM</span></code> DNS server, and
+the final result will come back from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s DNS server.
+This is illustrated in <strong>Figure 2</strong>. In case that
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s nameserver information is already cached by
+<code class="docutils literal notranslate"><span class="pre">Apollo</span></code>, the query will not go through the root or the <code class="docutils literal notranslate"><span class="pre">.COM</span></code>
+server; this is illustrated in <strong>Figure 3</strong>. In
+this lab, the situation depicted in <strong>Figure 3</strong> is
+more common, so we will use this figure as the basis to describe the
+attack mechanism.</p>
+<p>While <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> waits for the DNS reply from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s name
+server, the attacker can send forged replies to <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>, pretending
+that the replies are from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s nameserver. If the forged
+replies arrive first, it will be accepted by <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>. The attack will
+be successful.</p>
+<p>If you have done our local DNS attack lab, you should realize that those
+attacks assume that the attacker and the DNS server are on the same LAN,
+i.e., the attacker can observe the DNS query message. When the attacker
+and the DNS server are not on the same LAN, the cache poisoning attack
+becomes more difficult. The difficulty is mainly caused by the fact that
+the transaction ID in the DNS response packet must match with that in
+the query packet. Because the transaction ID in the query is usually
+randomly generated, without seeing the query packet, it is not easy for
+the attacker to know the correct ID.</p>
+<p>Obviously, the attacker can guess the transaction ID. Since the size of
+the ID is only 16 bits, if the attacker can forge <span class="math notranslate nohighlight">\(K\)</span> responses
+within the attack window (i.e. before the legitimate response arrives),
+the probability of success is <span class="math notranslate nohighlight">\(K\)</span> over <span class="math notranslate nohighlight">\(2^{16}\)</span>. Sending out
+hundreds of forged responses is not impractical, so it will not take too
+many tries before the attacker can succeed.</p>
+<p>However, the above hypothetical attack has overlooked the cache effect.
+In reality, if the attacker is not fortunate enough to make a correct
+guess before the real response packet arrives, correct information will
+be cached by the DNS server for a while. This caching effect makes it
+impossible for the attacker to forge another response regarding the same
+name, because the DNS server will not send out another DNS query for
+this name before the cache times out. To forge another response on the
+same name, the attacker has to wait for another DNS query on this name,
+which means he/she has to wait for the cache to time out. The waiting
+period can be hours or days.</p>
+<div class="section" id="the-kaminsky-attack">
+<h4>The Kaminsky Attack.<a class="headerlink" href="#the-kaminsky-attack" title="Permalink to this headline">¶</a></h4>
+<p>Dan Kaminsky came up with an elegant technique to defeat the caching
+effect. With the Kaminsky attack,
+attackers will be able to continuously attack a DNS server on a domain
+name, without the need for waiting, so attacks can succeed within a very
+short period of time. Details of the attacks are described
+in. In this task, we will try
+this attack method. The following steps with reference to
+<strong>Figure 3</strong> outlines the attack.</p>
+<ol class="arabic simple">
+<li><p>The attacker queries the DNS Server <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> for a non-existing
+name in <code class="docutils literal notranslate"><span class="pre">example.com</span></code>, such as <code class="docutils literal notranslate"><span class="pre">twysw.example.com</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">twysw</span></code> is a random name.</p></li>
+<li><p>Since the mapping is unavailable in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache,
+<code class="docutils literal notranslate"><span class="pre">Apollo</span></code> sends a DNS query to the nameserver of the <code class="docutils literal notranslate"><span class="pre">example.com</span></code>
+domain.</p></li>
+<li><p>While <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> waits for the reply, the attacker floods <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>
+with a stream of spoofed DNS response, each trying a different
+transaction ID, hoping one is correct. In the response, not only does
+the attacker provide an IP resolution for <code class="docutils literal notranslate"><span class="pre">twysw.example.com</span></code>, the
+attacker also provides an “Authoritative Nameservers” record,
+indicating <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code> as the nameserver for the
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code> domain. If the spoofed response beats the actual
+responses and the transaction ID matches with that in the query,
+<code class="docutils literal notranslate"><span class="pre">Apollo</span></code> will accept and cache the spoofed answer, and and thus
+<code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache is poisoned.</p></li>
+<li><p>Even if the spoofed DNS response fails (e.g. the transaction ID does
+not match or it comes too late), it does not matter, because the next
+time, the attacker will query a different name, so <code class="docutils literal notranslate"><span class="pre">Apollo</span></code> has to
+send out another query, giving the attack another chance to do the
+spoofing attack. This effectively defeats the caching effect.</p></li>
+<li><p>If the attack succeeds, in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS cache, the nameserver
+for <code class="docutils literal notranslate"><span class="pre">example.com</span></code> will be replaced by the attacker’s nameserver
+<code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code>. To demonstrate the success of this attack,
+students need to show that such a record is in <code class="docutils literal notranslate"><span class="pre">Apollo</span></code>’s DNS
+cache.</p></li>
+</ol>
+</div>
+<div class="section" id="task-overview">
+<h4>Task overview.<a class="headerlink" href="#task-overview" title="Permalink to this headline">¶</a></h4>
+<p>Implementing the Kaminsky attack is quite challenging, so we break it
+down into several sub-tasks. In Task 2, we construct the DNS request for
+a random hostname in the <code class="docutils literal notranslate"><span class="pre">example.com</span></code> domain. In Task 3, we construct
+a spoofed DNS reply from <code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s nameserver. In Task 4, we
+put everything together to launch the Kaminsky attack. Finally in Task
+5, we verify the impact of the attack.</p>
+</div>
+</div>
+</div>
+<div class="section" id="task-2-construct-dns-request">
+<h2>Task 2: Construct DNS request<a class="headerlink" href="#task-2-construct-dns-request" title="Permalink to this headline">¶</a></h2>
+<p>This task focuses on sending out DNS requests. In order to complete the
+attack, attackers need to trigger the target DNS server to send out DNS
+queries, so they have a chance to spoof DNS replies. Since attackers
+need to try many times before they can succeed, it is better to automate
+the process using a program.</p>
+<p>Students need to write a program to send out DNS queries to the target
+DNS server (i.e., the local DNS server in our setup). Students’ job is
+to write this program and demonstrate (using Wireshark) that their
+queries can trigger the target DNS server to send out corresponding DNS
+queries. The performance requirement for this task is not high, so
+students can use C or Python (using Scapy) to write this code. A Python
+code snippet is provided in the following (the <code class="docutils literal notranslate"><span class="pre">+++</span></code>’s are
+placeholders; students need to replace them with actual values):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Qdsec  = DNSQR(qname=&#39;www.example.com&#39;)
+dns    = DNS(id=0xAAAA, qr=0, qdcount=1, ancount=0, nscount=0,
+             arcount=0, qd=Qdsec)
+
+ip  = IP(dst=&#39;+++&#39;, src=&#39;+++&#39;)
+udp = UDP(dport=+++, sport=+++, chksum=0)
+request = ip/udp/dns
+</pre></div>
+</div>
+</div>
+<div class="section" id="task-3-spoof-dns-replies">
+<h2>Task 3: Spoof DNS Replies<a class="headerlink" href="#task-3-spoof-dns-replies" title="Permalink to this headline">¶</a></h2>
+<p>In this task, we need to spoof DNS replies in the Kaminsky attack. Since
+our target is <code class="docutils literal notranslate"><span class="pre">example.com</span></code>, we need to spoof the replies from this
+domain’s nameserver. Students first need to find out the IP addresses of
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code>’s legitimate nameservers (it should be noted that
+there are multiple nameservers for this domain).</p>
+<p>Students can use Scapy to implement this task. The following code
+snippet constructs a DNS response packet that includes a question
+section, an answer section, and an NS section. In the sample code, we
+use <code class="docutils literal notranslate"><span class="pre">+++</span></code> as placeholders; students need to replace them with the
+correct values that are needed in the Kaminsky attack. Students need to
+explain why they pick those values.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name   = &#39;+++&#39;
+domain = &#39;+++&#39;
+ns     = &#39;+++&#39;
+
+Qdsec  = DNSQR(qname=name)
+Anssec = DNSRR(rrname=name,   type=&#39;A&#39;,  rdata=&#39;1.2.3.4&#39;, ttl=259200)
+NSsec  = DNSRR(rrname=domain, type=&#39;NS&#39;, rdata=ns, ttl=259200)
+dns    = DNS(id=0xAAAA, aa=1, rd=1, qr=1,
+             qdcount=1, ancount=1, nscount=1, arcount=0,
+             qd=Qdsec, an=Anssec, ns=NSsec)
+
+ip    = IP(dst=&#39;+++&#39;, src=&#39;+++&#39;)
+udp   = UDP(dport=+++, sport=+++, chksum=0)
+reply = ip/udp/dns
+</pre></div>
+</div>
+<p>Since this reply by itself will not be able to lead to a successful
+attack, to demonstrate this task, students need to use Wireshark to
+capture the spoofed DNS replies, and show that the spoofed packets are
+valid.</p>
+</div>
+<div class="section" id="task-4-launch-the-kaminsky-attack">
+<h2>Task 4: Launch the Kaminsky Attack<a class="headerlink" href="#task-4-launch-the-kaminsky-attack" title="Permalink to this headline">¶</a></h2>
+<p>Now we can put everything together to conduct the Kaminsky attack. In
+the attack, we need to send out many spoofed DNS replies, hoping one of
+them hits the correct transaction number and arrives sooner than the
+legitimate replies. Therefore, speed is essential: the more packets we
+can send out, the higher the success rate is. If we use Scapy to send
+the spoofed DNS replies like what we did in the previous task, the
+success rate is too low. Students can use C, but constructing DNS
+packets in C is non-trivial. We introduce a hybrid approach using both
+Scapy and C (see the SEED book for details).</p>
+<p>With the hybrid approach, we first use Scapy to generate a DNS packet
+template, which is stored in a file. We then load this template into a C
+program, and make small changes to some of the fields, and then send out
+the packet. We have included a skeleton C code in . Students can make
+changes in the marked areas. Detailed explanation of the code is given
+in the guideline section.</p>
+<div class="section" id="check-the-dns-cache">
+<h3>Check the DNS cache.<a class="headerlink" href="#check-the-dns-cache" title="Permalink to this headline">¶</a></h3>
+<p>To check whether the attack is successful or not, we need to check the
+<code class="docutils literal notranslate"><span class="pre">dump.db</span></code> file to see whether our spoofed DNS response has been
+successfully accepted by the DNS server. The following commands dump the
+DNS cache, and search whether the cache contains the word <code class="docutils literal notranslate"><span class="pre">attacker</span></code>
+(in our attack, we used <code class="docutils literal notranslate"><span class="pre">attacker32.com</span></code> as the attacker’s domain; if
+students use a different domain name, they should search for a different
+word).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># rndc dumpdb -cache &amp;&amp; grep attacker /var/cache/bind/dump.db
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="task-5-result-verification">
+<h2>Task 5: Result Verification<a class="headerlink" href="#task-5-result-verification" title="Permalink to this headline">¶</a></h2>
+<p>If the attack is successful, in the local DNS server’s DNS cache, the
+<code class="docutils literal notranslate"><span class="pre">NS</span></code> record for <code class="docutils literal notranslate"><span class="pre">example.com</span></code> will become <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code>.
+When this server receives a DNS query for any hostname inside the
+<code class="docutils literal notranslate"><span class="pre">example.com</span></code> domain, it will send a query to <code class="docutils literal notranslate"><span class="pre">ns.attacker32.com</span></code>,
+instead of sending to the domain’s legitimate nameserver.</p>
+<p>To verify whether your attack is successful or not, go to the User
+machine, run the following two <code class="docutils literal notranslate"><span class="pre">dig</span></code> commands. In the responses, the
+IP addresses for <code class="docutils literal notranslate"><span class="pre">www.example.com</span></code> should be the same for both
+commands, and it should be whatever you have included in the zone file
+on the Attacker nameserver.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Ask the local DNS server to do the query
+$ dig www.example.com
+
+// Directly query the attacker32 nameserver
+$ dig @ns.attacker32.com www.example.com
+</pre></div>
+</div>
+<p>Please include your observation (screenshots) in the lab report, and
+explain why you think your attack is successful. In particular, when you
+run the first <code class="docutils literal notranslate"><span class="pre">dig</span></code> commands, use Wireshark to capture the network
+traffic, and point out what packets are triggered by this <code class="docutils literal notranslate"><span class="pre">dig</span></code>
+command. Use the packet trace to prove that your attack is successful.
+Note that DNS results may be cached on the local DNS server after the
+first <code class="docutils literal notranslate"><span class="pre">dig</span></code> command is run. This could influence the results if you
+run the first <code class="docutils literal notranslate"><span class="pre">dig</span></code> command before using Wireshark. You can clear the
+cache using <code class="docutils literal notranslate"><span class="pre">&quot;sudo</span> <span class="pre">rndc</span> <span class="pre">flush&quot;</span></code> on the local DNS server, but that will
+require you to redo the attack.</p>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<p>To implement the Kaminsky attack, we can use Scapy to do the packet
+spoofing. Unfortunately, the speed of Python is too slow; the number of
+packets generated per second is too low to make the attack successful.
+It is better to use a C program. This could be quite challenging to many
+students, because constructing DNS packets using C is not very easy. I
+have developed a hybrid method, and have experimented with it in my own
+class. Using this approach, students’ time spent on coding can be
+significantly reduced, so they can spend more time focusing on the
+actual attack.</p>
+<p>The idea is to leverage the strength of both Scapy and C: Scapy is much
+more convenient in creating DNS packets than C, but C is much faster.
+Therefore we simply use Scapy to create the spoofed DNS packet, and save
+it to a file. We then load the packet into a C program. Even though we
+need to send a lot of different DNS packets during the Kaminsky attack,
+these packets are mostly the same, except for a few fields. Therefore,
+we can use the packet generated from Scapy as the basis, find the
+offsets where changes need to be made (e.g., the transaction ID field),
+and directly make changes. This will be much easier than creating the
+entire DNS packets in C. After the changes are made, we can use the raw
+socket to send out the packets. Details of such a hybrid method are
+provided in the Packet Sniffing and Spoofing chapter of the SEED
+book. The following Scapy program creates a
+simple DNS reply packet, and saves it into a file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+from scapy.all import *
+
+# Construct the DNS header and payload
+name   = &#39;twysw.example.com&#39;
+Qdsec  = DNSQR(qname=name)
+Anssec = DNSRR(rrname=name, type=&#39;A&#39;, rdata=&#39;1.1.2.2&#39;, ttl=259200)
+dns    = DNS(id=0xAAAA, aa=1, rd=0, qr=1,
+             qdcount=1, ancount=1, nscount=0, arcount=0,
+             qd=Qdsec, an=Anssec)
+
+# Construct the IP, UDP headers, and the entire packet
+ip  = IP(dst=&#39;10.0.2.7&#39;, src=&#39;1.2.3.4&#39;, chksum=0)
+udp = UDP(dport=33333, sport=53, chksum=0)
+pkt = ip/udp/dns
+
+# Save the packet to a file
+with open(&#39;ip.bin&#39;, &#39;wb&#39;) as f:
+  f.write(bytes(pkt))
+</pre></div>
+</div>
+<p>In a C program, we load the packet from the file <code class="docutils literal notranslate"><span class="pre">ip.bin</span></code>, and use it
+as our packet template, based on which we create many similar packets,
+and flood the target local DNS servers with these spoofed replies. For
+each reply, we change three places: the transaction ID and the name
+<code class="docutils literal notranslate"><span class="pre">twysw</span></code> occurred in two places (the question section and the answer
+section). The transaction ID is at a fixed place (offset <code class="docutils literal notranslate"><span class="pre">28</span></code> from the
+beginning of our IP packet), but the offset for the name <code class="docutils literal notranslate"><span class="pre">twysw</span></code>
+depends on the length of the domain name. We can use a binary editor
+program, such as <code class="docutils literal notranslate"><span class="pre">bless</span></code>, to view the binary file <code class="docutils literal notranslate"><span class="pre">ip.bin</span></code> and find
+the two offsets of <code class="docutils literal notranslate"><span class="pre">twysw</span></code>. In our packet, they are at offsets <code class="docutils literal notranslate"><span class="pre">41</span></code>
+and <code class="docutils literal notranslate"><span class="pre">64</span></code>.</p>
+<p>The following code snippet shows how we make change to these fields. We
+change the name in our reply to <code class="docutils literal notranslate"><span class="pre">bbbbb.example.com</span></code>, and then send out
+a spoofed DNS replies, with transaction ID being <code class="docutils literal notranslate"><span class="pre">1000</span></code>. In the code,
+the variable <code class="docutils literal notranslate"><span class="pre">ip</span></code> points to the beginning of the IP packet.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Modify the name in the question field (offset=41)
+memcpy(ip+41, &quot;bbbbb&quot; , 5);
+
+// Modify the name in the answer field (offset=64)
+memcpy(ip+64, &quot;bbbbb&quot; , 5);
+
+// Modify the transaction ID field (offset=28)
+unsigned short id = 1000;
+unsigned short id_net_order = htons(id);
+memcpy(ip+28, &amp;id_net_order, 2);
+</pre></div>
+</div>
+<div class="section" id="generate-random-names">
+<h3>Generate random names.<a class="headerlink" href="#generate-random-names" title="Permalink to this headline">¶</a></h3>
+<p>In the Kaminsky attack, we need to generate random hostnames. There are
+many ways to do so. The following code snippet shows how to generate a
+random name consisting of 5 characters.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>char a[26]=&quot;abcdefghijklmnopqrstuvwxyz&quot;;
+
+// Generate a random name of length 5
+char name[6];
+name[5] = 0;
+for (int k=0; k&lt;5; k++)
+   name[k] = a[rand() % 26];
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dnssec.html" class="btn btn-neutral float-right" title="DNS Security Extensions (DNSSEC) Lab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dns_rebinding.html" class="btn btn-neutral float-left" title="DNS Rebinding Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+.. raw:: html
+    
+	 <style> .font {font-family:'Consolas'; font-size:13pt} </style>
+
+.. role:: font
+
+.. _user manual file: https://github.com/nexus-lab/ezsetup/wiki/User-Guide
+
+============
+*Redacted*
+============
+
+Per request of the instrctor, the rest of Xie Labs have been redacted.

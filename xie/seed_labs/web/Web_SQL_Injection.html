@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SQL Injection Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Software Security Labs" href="../software/software_index.html" />
+    <link rel="prev" title="Cross-Site Request Forgery (CSRF) Attack Lab" href="Web_CSRF_Elgg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/network_index.html">Network Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="web_index.html">Web Security Labs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Web_XSS_Elgg.html">Cross-Site Scripting (XSS) Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Web_CSRF_Elgg.html">Cross-Site Request Forgery (CSRF) Attack Lab</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SQL Injection Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-environment">Lab Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-get-familiar-with-sql-statements">Task 1: Get Familiar with SQL Statements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-sql-injection-attack-on-select-statement">Task 2: SQL Injection Attack on SELECT Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-sql-injection-attack-on-update-statement">Task 3: SQL Injection Attack on UPDATE Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-4-countermeasure-prepared-statement">Task 4: Countermeasure — Prepared Statement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#guidelines">Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="web_index.html">Web Security Labs</a> &raquo;</li>
+        
+      <li>SQL Injection Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sql-injection-attack-lab">
+<h1>SQL Injection Attack Lab<a class="headerlink" href="#sql-injection-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>SQL injection is a code injection technique that exploits the
+vulnerabilities in the interface between web applications and database
+servers. The vulnerability is present when user’s inputs are not
+correctly checked within the web applications before being sent to the
+back-end database servers.</p>
+<p>Many web applications take inputs from users, and then use these inputs
+to construct SQL queries, so they can get information from the database.
+Web applications also use SQL queries to store information in the
+database. These are common practices in the development of web
+applications. When SQL queries are not carefully constructed, SQL
+injection vulnerabilities can occur. SQL injection is one of the most
+common attacks on web applications.</p>
+<p>In this lab, we have created a web application that is vulnerable to the
+SQL injection attack. Our web application includes the common mistakes
+made by many web developers. Students’ goal is to find ways to exploit
+the SQL injection vulnerabilities, demonstrate the damage that can be
+achieved by the attack, and master the techniques that can help defend
+against such type of attacks. This lab covers the following topics:</p>
+<ul class="simple">
+<li><p>SQL statements: <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statements</p></li>
+<li><p>SQL injection</p></li>
+<li><p>Prepared statement</p></li>
+</ul>
+<div class="section" id="readings">
+<h3>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the SQL injection can be found in the following:</p>
+<ul class="simple">
+<li><p>Chapter 12 of the SEED Book, Computer &amp; Internet Security: A Hands-on Approach, 2nd Edition,
+by Wenliang Du. See details at <a class="reference external" href="https://www.handsonsecurity.net">https://www.handsonsecurity.net</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment-setup">
+<h3>Lab environment setup<a class="headerlink" href="#lab-environment-setup" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on our pre-built Ubuntu 20.04 VM, which can be downloaded
+from the SEED website. Since we use containers to set up the lab environment, this lab does not depend
+much on the SEED VM. You can do this lab using other VMs, physical machines, or VMs on the cloud.</p>
+</div>
+</div>
+<div class="section" id="lab-environment">
+<h2>Lab Environment<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>We have developed a web application for this lab, and we use containers
+to set up this web application. There are two containers in the lab
+setup, one for hosting the web application, and the other for hosting
+the database for the web application. The IP address for the web
+application container is <code class="docutils literal notranslate"><span class="pre">10.9.0.5</span></code>, and The URL for the web
+application is the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.seed-server.com
+</pre></div>
+</div>
+<p>We need to map this hostname to the container’s IP address. Please add
+the following entry to the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file. You need to use the root
+privilege to change this file (using <code class="docutils literal notranslate"><span class="pre">sudo</span></code>). It should be noted that
+this name might have already been added to the file due to some other
+labs. If it is mapped to a different IP address, the old entry must be
+removed.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10.9.0.5        www.seed-server.com
+</pre></div>
+</div>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the Labsetup.zip file to your VM from the lab’s website, unzip it, enter the Labsetup
+folder, and use the docker-compose.yml file to set up the lab environment. Detailed explanation of the
+content in this file and all the involved Dockerfile can be found from the user manual, which is linked
+to the website of this lab. If this is the first time you set up a SEED lab environment using containers, it is
+very important that you read the user manual.</p>
+<p>In the following, we list some of the commonly used commands related to Docker and Compose. Since
+we are going to use these commands very frequently, we have created aliases for them in the .bashrc file
+(in our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build   # Build the container image
+$ docker-compose up      # Start the container
+$ docker-compose down    # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild   # Alias for: docker-compose build
+$ dcup      # Alias for: docker-compose up
+$ dcdown    # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on a container, we often need
+to get a shell on that container. We first need to use the “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>” command to find out the ID of
+the container, and then use “docker exec” to start a shell on that container. We have created aliases for
+them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}} {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275 hostA-10.9.0.5
+0af4ea7a3e2e hostB-10.9.0.6
+9652715c8e0a hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please read the “Common Problems”
+section of the manual for potential solutions.</p>
+<div class="section" id="mysql-database">
+<h4>MySQL database<a class="headerlink" href="#mysql-database" title="Permalink to this headline">¶</a></h4>
+<p>Containers are usually disposable, so once it is destroyed, all the data inside the containers are lost. For this lab, we do want to keep the data in the MySQL database, so we do not lose
+our work when we shutdown our container. To achieve this, we have mounted the <code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">data</span></code> folder
+on the host machine (inside Labsetup, it will be created after the MySQL container runs once) to the
+<code class="docutils literal notranslate"><span class="pre">/var/lib/mysql</span></code> folder inside the MySQL container. This folder is where MySQL stores its database.</p>
+<p>Therefore, even if the container is destroyed, data in the database are still kept. If you do want to start from
+a clean database, you can remove this folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sudo rm -rf mysql_data
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="about-the-web-application">
+<h3>About the Web Application<a class="headerlink" href="#about-the-web-application" title="Permalink to this headline">¶</a></h3>
+<p>We have created a web application, which is a simple employee management
+application. Employees can view and update their personal information in
+the database through this web application. There are mainly two roles in
+this web application: Administrator is a privilege role and can manage
+each individual employees’ profile information; Employee is a normal
+role and can view or update his/her own profile information. All
+employee information is described in Table 1.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Employee ID</p></th>
+<th class="head"><p>Password</p></th>
+<th class="head"><p>Salary</p></th>
+<th class="head"><p>Birthday</p></th>
+<th class="head"><p>SSN</p></th>
+<th class="head"><p>Nickname</p></th>
+<th class="head"><p>Email</p></th>
+<th class="head"><p>Address</p></th>
+<th class="head"><p>Phone#</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Admin</p></td>
+<td><p>99999</p></td>
+<td><p>seedadmin</p></td>
+<td><p>400000</p></td>
+<td><p>3/5</p></td>
+<td><p>43254314</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Alice</p></td>
+<td><p>10000</p></td>
+<td><p>seedalice</p></td>
+<td><p>20000</p></td>
+<td><p>9/20</p></td>
+<td><p>10211002</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Boby</p></td>
+<td><p>20000</p></td>
+<td><p>seedboby</p></td>
+<td><p>50000</p></td>
+<td><p>4/20</p></td>
+<td><p>10213352</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ryan</p></td>
+<td><p>30000</p></td>
+<td><p>seedryan</p></td>
+<td><p>90000</p></td>
+<td><p>4/10</p></td>
+<td><p>32193525</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Samy</p></td>
+<td><p>40000</p></td>
+<td><p>seedsamy</p></td>
+<td><p>40000</p></td>
+<td><p>1/11</p></td>
+<td><p>32111111</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ted</p></td>
+<td><p>50000</p></td>
+<td><p>seedted</p></td>
+<td><p>110000</p></td>
+<td><p>11/3</p></td>
+<td><p>24343244</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lab-tasks">
+<h3>Lab Tasks<a class="headerlink" href="#lab-tasks" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="task-1-get-familiar-with-sql-statements">
+<h2>Task 1: Get Familiar with SQL Statements<a class="headerlink" href="#task-1-get-familiar-with-sql-statements" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to get familiar with SQL commands by
+playing with the provided database. The data used by our web application
+is stored in a MySQL database, which is hosted on our MySQL container.
+We have created a database called <code class="docutils literal notranslate"><span class="pre">sqllab_users</span></code>, which contains a
+table called credential. The table stores the personal information (e.g.
+eid, password, salary, ssn, etc.) of every employee. In this task, you
+need to play with the database to get familiar with SQL queries.</p>
+<p>Please get a shell on the MySQL container (see the container manual for
+instruction; the manual is linked to the lab’s website). Then use the
+<code class="docutils literal notranslate"><span class="pre">mysql</span></code> client program to interact with the database. The user name is
+root and password is dees.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Inside the MySQL container
+# mysql -u root -pdees
+</pre></div>
+</div>
+<p>After login, you can create new database or load an existing one. As we
+have already created the <code class="docutils literal notranslate"><span class="pre">sqllab_users</span></code> database for you, you just
+need to load this existing database using the <code class="docutils literal notranslate"><span class="pre">use</span></code> command. To show
+what tables are there in the <code class="docutils literal notranslate"><span class="pre">sqllab_users</span></code> database, you can use the
+<code class="docutils literal notranslate"><span class="pre">show</span> <span class="pre">tables</span></code> command to print out all the tables of the selected
+database.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mysql&gt; use sqllab_users;
+Database changed
+mysql&gt; show tables;
++------------------------+
+| Tables_in_sqllab_users |
++------------------------+
+| credential             |
++------------------------+
+</pre></div>
+</div>
+<p>After running the commands above, you need to use a SQL command to print
+all the profile information of the employee Alice. Please provide the
+screenshot of your results.</p>
+</div>
+<div class="section" id="task-2-sql-injection-attack-on-select-statement">
+<h2>Task 2: SQL Injection Attack on SELECT Statement<a class="headerlink" href="#task-2-sql-injection-attack-on-select-statement" title="Permalink to this headline">¶</a></h2>
+<p>SQL injection is basically a technique through which attackers can
+execute their own malicious SQL statements generally referred as
+malicious payload. Through the malicious SQL statements, attackers can
+steal information from the victim database; even worse, they may be able
+to make changes to the database. Our employee management web application
+has SQL injection vulnerabilities, which mimic the mistakes frequently
+made by developers.</p>
+<p>We will use the login page from
+www.seed-server.com for this task. The login
+page is shown in Figure 1. It asks users to
+provide a user name and a password. The web application authenticate
+users based on these two pieces of data, so only employees who know
+their passwords are allowed to log in. Your job, as an attacker, is to
+log into the web application without knowing any employee’s credential.</p>
+<div class="align-center figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/login.jpg"><img alt="../../_images/login.jpg" src="../../_images/login.jpg" style="width: 70.0%;" /></a>
+<p class="caption"><span class="caption-text">Figure 1: The Login page</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>To help you started with this task, we explain how authentication is
+implemented in the web application. The PHP code <code class="docutils literal notranslate"><span class="pre">unsafe_home.php</span></code>,
+located in the directory, is used to conduct user authentication. The
+following code snippet show how users are authenticated.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$input_uname = $_GET[&#39;username&#39;];
+$input_pwd = $_GET[&#39;Password&#39;];
+$hashed_pwd = sha1($input_pwd);
+...
+$sql = &quot;SELECT id, name, eid, salary, birth, ssn, address, email,
+               nickname, Password
+        FROM credential
+        WHERE name= &#39;$input_uname&#39; and Password=&#39;$hashed_pwd&#39;&quot;;
+$result = $conn -&gt; query($sql);
+
+// The following is Pseudo Code
+if(id != NULL) {
+  if(name==&#39;admin&#39;) {
+     return All employees information;
+  } else if (name !=NULL){
+    return employee information;
+  }
+} else {
+  Authentication Fails;
+}
+</pre></div>
+</div>
+<p>The above SQL statement selects personal employee information such as
+id, name, salary, ssn etc from the credential table. The SQL statement
+uses two variables <code class="docutils literal notranslate"><span class="pre">input_uname</span></code> and <code class="docutils literal notranslate"><span class="pre">hashed_pwd</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">input_uname</span></code> holds the string typed by users in the username field of
+the login page, while <code class="docutils literal notranslate"><span class="pre">hashed_pwd</span></code> holds the <code class="docutils literal notranslate"><span class="pre">sha1</span></code> hash of the
+password typed by the user. The program checks whether any record
+matches with the provided username and password; if there is a match,
+the user is successfully authenticated, and is given the corresponding
+employee information. If there is no match, the authentication fails.</p>
+<div class="section" id="task-2-1-sql-injection-attack-from-webpage">
+<h3>Task 2.1: SQL Injection Attack from webpage<a class="headerlink" href="#task-2-1-sql-injection-attack-from-webpage" title="Permalink to this headline">¶</a></h3>
+<p>Your task is to log into the web application as the administrator from
+the login page, so you can see the information of all the employees. We
+assume that you do know the administrator’s account name which is admin,
+but you do not the password. You need to decide what to type in the
+<code class="docutils literal notranslate"><span class="pre">Username</span></code> and <code class="docutils literal notranslate"><span class="pre">Password</span></code> fields to succeed in the attack.</p>
+</div>
+<div class="section" id="task-2-2-sql-injection-attack-from-command-line">
+<h3>Task 2.2: SQL Injection Attack from command line<a class="headerlink" href="#task-2-2-sql-injection-attack-from-command-line" title="Permalink to this headline">¶</a></h3>
+<p>Your task is to repeat Task 2.1, but you need to do it without using the
+webpage. You can use command line tools, such as <code class="docutils literal notranslate"><span class="pre">curl</span></code>, which can
+send HTTP requests. One thing that is worth mentioning is that if you
+want to include multiple parameters in HTTP requests, you need to put
+the URL and the parameters between a pair of single quotes; otherwise,
+the special characters used to separate parameters (such as <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>) will
+be interpreted by the shell program, changing the meaning of the
+command. The following example shows how to send an HTTP GET request to
+our web application, with two parameters (<code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">Password</span></code>)
+attached:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ curl &#39;www.seed-server.com/unsafe_home.php?username=alice&amp;Password=11&#39;
+</pre></div>
+</div>
+<p>If you need to include special characters in the <code class="docutils literal notranslate"><span class="pre">username</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Password</span></code> fields, you need to encode them properly, or they can
+change the meaning of your requests. If you want to include single quote
+in those fields, you should use <code class="docutils literal notranslate"><span class="pre">%27</span></code> instead; if you want to include
+white space, you should use <code class="docutils literal notranslate"><span class="pre">%20</span></code>. In this task, you do need to handle
+HTTP encoding while sending requests using <code class="docutils literal notranslate"><span class="pre">curl</span></code>.</p>
+</div>
+<div class="section" id="task-2-3-append-a-new-sql-statement">
+<h3>Task 2.3: Append a new SQL statement<a class="headerlink" href="#task-2-3-append-a-new-sql-statement" title="Permalink to this headline">¶</a></h3>
+<p>In the above two attacks, we can only steal information from the
+database; it will be better if we can modify the database using the same
+vulnerability in the login page. An idea is to use the SQL injection
+attack to turn one SQL statement into two, with the second one being the
+update or delete statement. In SQL, semicolon (;) is used to separate
+two SQL statements. Please try to run two SQL statements via the login
+page.</p>
+<p>There is a countermeasure preventing you from running two SQL statements
+in this attack. Please use the SEED book or resources from the Internet
+to figure out what this countermeasure is, and describe your discovery
+in the lab report.</p>
+</div>
+</div>
+<div class="section" id="task-3-sql-injection-attack-on-update-statement">
+<h2>Task 3: SQL Injection Attack on UPDATE Statement<a class="headerlink" href="#task-3-sql-injection-attack-on-update-statement" title="Permalink to this headline">¶</a></h2>
+<p>If a SQL injection vulnerability happens to an UPDATE statement, the
+damage will be more severe, because attackers can use the vulnerability
+to modify databases. In our Employee Management application, there is an
+Edit Profile page (Figure 2) that allows employees
+to update their profile information, including nickname, email, address,
+phone number, and password. To go to this page, employees need to log in
+first.</p>
+<p>When employees update their information through the Edit Profile page,
+the following SQL UPDATE query will be executed. The PHP code
+implemented in unsafe_edit_backend.php file is used to update employee’s
+profile information. The PHP file is located in the
+/var/www/SQLInjection directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$hashed_pwd = sha1($input_pwd);
+$sql = &quot;UPDATE credential SET
+    nickname=&#39;$input_nickname&#39;,
+    email=&#39;$input_email&#39;,
+    address=&#39;$input_address&#39;,
+    Password=&#39;$hashed_pwd&#39;,
+    PhoneNumber=&#39;$input_phonenumber&#39;
+    WHERE ID=$id;&quot;;
+$conn-&gt;query($sql);
+</pre></div>
+</div>
+<div class="align-center figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/editprofile.jpg"><img alt="../../_images/editprofile.jpg" src="../../_images/editprofile.jpg" style="width: 60.0%;" /></a>
+<p class="caption"><span class="caption-text">Figure 2: The Edit-Profile page</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="task-3-1-modify-your-own-salary">
+<h3>Task 3.1: Modify your own salary<a class="headerlink" href="#task-3-1-modify-your-own-salary" title="Permalink to this headline">¶</a></h3>
+<p>As shown in the Edit Profile page, employees can only update their
+nicknames, emails, addresses, phone numbers, and passwords; they are not
+authorized to change their salaries. Assume that you (Alice) are a
+disgruntled employee, and your boss Boby did not increase your salary
+this year. You want to increase your own salary by exploiting the SQL
+injection vulnerability in the Edit-Profile page. Please demonstrate how
+you can achieve that. We assume that you do know that salaries are
+stored in a column called <code class="docutils literal notranslate"><span class="pre">salary</span></code>.</p>
+<div class="align-center figure" id="id3">
+<img alt="../../_images/sql_img3.png" src="../../_images/sql_img3.png" />
+<p class="caption"><span class="caption-text">Figure 3: Prepared Statement Workflow</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="task-3-2-modify-other-people-salary">
+<h3>Task 3.2: Modify other people’ salary<a class="headerlink" href="#task-3-2-modify-other-people-salary" title="Permalink to this headline">¶</a></h3>
+<p>After increasing your own salary, you decide to punish your boss Boby.
+You want to reduce his salary to 1 dollar. Please demonstrate how you
+can achieve that.</p>
+</div>
+<div class="section" id="task-3-3-modify-other-people-password">
+<h3>Task 3.3: Modify other people’ password<a class="headerlink" href="#task-3-3-modify-other-people-password" title="Permalink to this headline">¶</a></h3>
+<p>After changing Boby’s salary, you are still disgruntled, so you want to
+change Boby’s password to something that you know, and then you can log
+into his account and do further damage. Please demonstrate how you can
+achieve that. You need to demonstrate that you can successfully log into
+Boby’s account using the new password. One thing worth mentioning here
+is that the database stores the hash value of passwords instead of the
+plaintext password string. You can again look at the
+unsafe_edit_backend.php code to see how password is being stored. It
+uses SHA1 hash function to generate the hash value of password.</p>
+</div>
+</div>
+<div class="section" id="task-4-countermeasure-prepared-statement">
+<h2>Task 4: Countermeasure — Prepared Statement<a class="headerlink" href="#task-4-countermeasure-prepared-statement" title="Permalink to this headline">¶</a></h2>
+<p>The fundamental problem of the SQL injection vulnerability is the
+failure to separate code from data. When constructing a SQL statement,
+the program (e.g. PHP program) knows which part is data and which part
+is code. Unfortunately, when the SQL statement is sent to the database,
+the boundary has disappeared; the boundaries that the SQL interpreter
+sees may be different from the original boundaries that was set by the
+developers. To solve this problem, it is important to ensure that the
+view of the boundaries are consistent in the server-side code and in the
+database. The most secure way is to use <em>prepared statement</em>.</p>
+<p>To understand how prepared statement prevents SQL injection, we need to
+understand what happens when SQL server receives a query. The high-level
+workflow of how queries are executed is shown in
+Figure 3. In the compilation step,
+queries first go through the parsing and normalization phase, where a
+query is checked against the syntax and semantics. The next phase is the
+compilation phase where keywords (e.g. SELECT, FROM, UPDATE, etc.) are
+converted into a format understandable to machines. Basically, in this
+phase, query is interpreted. In the query optimization phase, the number
+of different plans are considered to execute the query, out of which the
+best optimized plan is chosen. The chosen plan is store in the cache, so
+whenever the next query comes in, it will be checked against the content
+in the cache; if it’s already present in the cache, the parsing,
+compilation and query optimization phases will be skipped. The compiled
+query is then passed to the execution phase where it is actually
+executed.</p>
+<p>Prepared statement comes into the picture after the compilation but
+before the execution step. A prepared statement will go through the
+compilation step, and be turned into a pre-compiled query with empty
+placeholders for data. To run this pre-compiled query, data need to be
+provided, but these data will not go through the compilation step;
+instead, they are plugged directly into the pre-compiled query, and are
+sent to the execution engine. Therefore, even if there is SQL code
+inside the data, without going through the compilation step, the code
+will be simply treated as part of data, without any special meaning.
+This is how prepared statement prevents SQL injection attacks.</p>
+<p>Here is an example of how to write a prepared statement in PHP. We use a
+SELECT statement in the following example. We show how to use prepared
+statement to rewrite the code that is vulnerable to SQL injection
+attacks.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$sql = &quot;SELECT name, local, gender
+        FROM USER_TABLE
+        WHERE id = $id AND password =&#39;$pwd&#39; &quot;;
+$result = $conn-&gt;query($sql)
+</pre></div>
+</div>
+<p>The above code is vulnerable to SQL injection attacks. It can be
+rewritten to the following</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$stmt = $conn-&gt;prepare(&quot;SELECT name, local, gender
+                        FROM USER_TABLE
+                        WHERE id = ? and password = ? &quot;);
+// Bind parameters to the query
+$stmt-&gt;bind_param(&quot;is&quot;, $id, $pwd);
+$stmt-&gt;execute();
+$stmt-&gt;bind_result($bind_name, $bind_local, $bind_gender);
+$stmt-&gt;fetch();
+</pre></div>
+</div>
+<p>Using the prepared statement mechanism, we divide the process of sending
+a SQL statement to the database into two steps. The first step is to
+only send the code part, i.e., a SQL statement without the actual the
+data. This is the prepare step. As we can see from the above code
+snippet, the actual data are replaced by question marks (?). After this
+step, we then send the data to the database using bind_param(). The
+database will treat everything sent in this step only as data, not as
+code anymore. It binds the data to the corresponding question marks of
+the prepared statement. In the bind_param() method, the first argument
+“is” indicates the types of the parameters: <code class="docutils literal notranslate"><span class="pre">&quot;i&quot;</span></code> means that the data
+in $id has the integer type, and <code class="docutils literal notranslate"><span class="pre">&quot;s&quot;</span></code> means that the data in $pwd has
+the string type.</p>
+<div class="section" id="task">
+<h3>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<p>In this task, we will use the prepared statement mechanism to fix the
+SQL injection vulnerabilities. For the sake of simplicity, we created a
+simplified program inside the <code class="docutils literal notranslate"><span class="pre">defense</span></code> folder. We will make changes
+to the files in this folder. If you point your browser to the following
+URL, you will see a page similar to the login page of the web
+application. This page allows you to query an employee’s information,
+but you need to provide the correct user name and password.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>URL: http://www.seed-server.com/defense/
+</pre></div>
+</div>
+<p>The data typed in this page will be sent to the server program
+<code class="docutils literal notranslate"><span class="pre">getinfo.php</span></code>, which invokes a program called <code class="docutils literal notranslate"><span class="pre">unsafe.php</span></code>. The SQL
+query inside this PHP program is vulnerable to SQL injection attacks.
+Your job is modify the SQL query in <code class="docutils literal notranslate"><span class="pre">unsafe.php</span></code> using the prepared
+statement, so the program can defeat SQL injection attacks. Inside the
+lab setup folder, the <code class="docutils literal notranslate"><span class="pre">unsafe.php</span></code> program is in the folder. You can
+directly modify the program there. After you are done, you need to
+rebuild and restart the container, or the changes will not take effect.</p>
+<p>You can also modify the file while the container is running. On the
+running container, the <code class="docutils literal notranslate"><span class="pre">unsafe.php</span></code> program is inside . The downside
+of this approach is that in order to keep the docker image small, we
+have only installed a very simple text editor called <code class="docutils literal notranslate"><span class="pre">nano</span></code> inside the
+container. It should be sufficient for simple editing. If you do not
+like this editor, you can always use <code class="docutils literal notranslate"><span class="pre">&quot;apt</span> <span class="pre">install&quot;</span></code> to install your
+favoriate command-line editor inside the container. For example, for
+people who like <code class="docutils literal notranslate"><span class="pre">vim</span></code>, you can do the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># apt install -y vim
+</pre></div>
+</div>
+<p>This installation will be discarded after the container is shutdown and
+destroyed. If you want to make it permanent, add the installation
+command to the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> inside the folder.</p>
+</div>
+</div>
+<div class="section" id="guidelines">
+<h2>Guidelines<a class="headerlink" href="#guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="test-sql-injection-string">
+<h3>Test SQL Injection String<a class="headerlink" href="#test-sql-injection-string" title="Permalink to this headline">¶</a></h3>
+<p>In real-world applications, it may be hard to check whether your SQL
+injection attack contains any syntax error, because usually servers do
+not return this kind of error messages. To conduct your investigation,
+you can copy the SQL statement from php source code to the MySQL
+console. Assume you have the following SQL statement, and the injection
+string is ’ or 1=1;#.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT * from credential
+WHERE name=&#39;$name&#39; and password=&#39;$pwd&#39;;
+</pre></div>
+</div>
+<p>You can replace the value of $name with the injection string and test it
+using the MySQL console. This approach can help you construct a
+syntax-error free injection string before launching the real attack.</p>
+</div>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe what you have done and what you
+have observed. You also need to provide explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation. Simply attaching code without any
+explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../software/software_index.html" class="btn btn-neutral float-right" title="Software Security Labs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Web_CSRF_Elgg.html" class="btn btn-neutral float-left" title="Cross-Site Request Forgery (CSRF) Attack Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

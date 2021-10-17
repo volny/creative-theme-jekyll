@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ARP Cache Poisoning Attack Lab &mdash; Network Security Lab  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BGP Lab: Building an Internet Simulator" href="bgp_basic.html" />
+    <link rel="prev" title="Network Security Labs" href="network_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Network Security Lab
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../xie/xie_labs.html">Xie Labs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../seed_index.html">SEED Labs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../crypto/crypto_index.html">Cryptography Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/hardware_index.html">Hardware Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mobile/mobile_index.html">Mobile Security Labs</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network_index.html">Network Security Labs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ARP Cache Poisoning Attack Lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#environment-setup-using-container">Environment Setup using Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-1-arp-cache-poisoning">Task 1: ARP Cache Poisoning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-2-mitm-attack-on-telnet-using-arp-cache-poisoning">Task 2: MITM Attack on Telnet using ARP Cache Poisoning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#task-3-mitm-attack-on-netcat-using-arp-cache-poisoning">Task 3: MITM Attack on Netcat using ARP Cache Poisoning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bgp_basic.html">BGP Lab: Building an Internet Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_in_a_box.html">DNS In a Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_local.html">Local DNS Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_rebinding.html">DNS Rebinding Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dns_remote.html">The Kaminsky Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dnssec.html">DNS Security Extensions (DNSSEC) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall.html">Firewall Exploration Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="firewall_vpn.html">Firewall Evasion Lab: Bypassing Firewalls using VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Heartbleed.html">Heartbleed Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ICMP_Redirect.html">ICMP Redirect Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Mitnick_Attack.html">The Mitnick Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Sniffing_Spoofing.html">Packet Sniffing and Spoofing Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TCP_Attacks.html">TCP/IP Attack Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN.html">Virtual Private Network (VPN) Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VPN_Tunnel.html">VPN Lab: The Container Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/web_index.html">Web Security Labs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../software/software_index.html">Software Security Labs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../website_link/web_index.html"><strong>Return To Website</strong></a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Network Security Lab</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../seed_index.html">SEED Labs</a> &raquo;</li>
+        
+          <li><a href="network_index.html">Network Security Labs</a> &raquo;</li>
+        
+      <li>ARP Cache Poisoning Attack Lab</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="center docutils container">
+<p>ARP Cache Poisoning Attack Lab</p>
+</div>
+<div class="section" id="arp-cache-poisoning-attack-lab">
+<h1>ARP Cache Poisoning Attack Lab<a class="headerlink" href="#arp-cache-poisoning-attack-lab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Address Resolution Protocol (ARP) is a communication protocol used
+for discovering the link layer address, such as the MAC address, given
+an IP address. The ARP protocol is a very simple protocol, and it does
+not implement any security measure. The ARP cache poisoning attack is a
+common attack against the ARP protocol. Using such an attack, attackers
+can fool the victim into accepting forged IP-to-MAC mappings. This can
+cause the victim’s packets to be redirected to the computer with the
+forged MAC address, leading to potential man-in-the-middle attacks.</p>
+<p>The objective of this lab is for students to gain the first-hand
+experience on the ARP cache poisoning attack, and learn what damages can
+be caused by such an attack. In particular, students will use the ARP
+attack to launch a man-in-the-middle attack, where the attacker can
+intercept and modify the packets between the two victims A and B.
+Another objective of this lab is for students to practice packet
+sniffing and spoofing skills, as these are essential skills in network
+security, and they are the building blocks for many network attack and
+defense tools. Students will use Scapy to conduct lab tasks. This lab
+covers the following topics:</p>
+<ul class="simple">
+<li><p>The ARP protocol</p></li>
+<li><p>The ARP cache poisoning attack</p></li>
+<li><p>Man-in-the-middle attack</p></li>
+<li><p>Scapy programming</p></li>
+</ul>
+<div class="section" id="videos">
+<h3>Videos.<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h3>
+<p>Detailed coverage of the ARP protocol and attacks can be found in the
+following:</p>
+<ul class="simple">
+<li><p>Section 3 of the SEED Lecture at Udemy, <em>Internet Security: A
+Hands-on Approach</em>, by Wenliang Du. See details at
+<a class="reference external" href="https://www.handsonsecurity.net/video.html">https://www.handsonsecurity.net/video.html</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="lab-environment">
+<h3>Lab environment.<a class="headerlink" href="#lab-environment" title="Permalink to this headline">¶</a></h3>
+<p>This lab has been tested on the SEED Ubuntu 20.04 VM. You can download a
+pre-built image from the SEED website, and run the SEED VM on your own
+computer. However, most of the SEED labs can be conducted on the cloud,
+and you can follow our instruction to create a SEED VM on the cloud.</p>
+</div>
+</div>
+<div class="section" id="environment-setup-using-container">
+<h2>Environment Setup using Container<a class="headerlink" href="#environment-setup-using-container" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we need three machines. We use containers to set up the lab
+environment, which is depicted in <strong>Figure 1</strong>. In
+this setup, we have an attacker machine (Host M), which is used to
+launch attacks against the other two machines, Host A and Host B. These
+three machines must be on the same LAN, because the ARP cache poisoning
+attack is limited to LAN. We use containers to set up the lab
+environment.</p>
+<div class="align-center figure align-default" id="id1">
+<img alt="Lab environment setup" src="../../_images/ARP_onelan.jpg" />
+<p class="caption"><span class="caption-text">Figure 1: Lab environment setup</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="container-setup-and-commands">
+<h3>Container Setup and Commands<a class="headerlink" href="#container-setup-and-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please download the <code class="docutils literal notranslate"><span class="pre">Labsetup.zip</span></code> file to your VM from the lab’s
+website, unzip it, enter the <code class="docutils literal notranslate"><span class="pre">Labsetup</span></code> folder, and use the
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> file to set up the lab environment. Detailed
+explanation of the content in this file and all the involved
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> can be found from the user manual, which is linked to the
+website of this lab. If this is the first time you set up a SEED lab
+environment using containers, it is very important that you read the
+user manual.</p>
+<p>In the following, we list some of the commonly used commands related to
+Docker and Compose. Since we are going to use these commands very
+frequently, we have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file (in
+our provided SEEDUbuntu 20.04 VM).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ docker-compose build  # Build the container image
+$ docker-compose up     # Start the container
+$ docker-compose down   # Shut down the container
+
+// Aliases for the Compose commands above
+$ dcbuild       # Alias for: docker-compose build
+$ dcup          # Alias for: docker-compose up
+$ dcdown        # Alias for: docker-compose down
+</pre></div>
+</div>
+<p>All the containers will be running in the background. To run commands on
+a container, we often need to get a shell on that container. We first
+need to use the <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">ps&quot;</span></code> command to find out the ID of the
+container, and then use <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">exec&quot;</span></code> to start a shell on that
+container. We have created aliases for them in the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ dockps        // Alias for: docker ps --format &quot;{{.ID}}  {{.Names}}&quot;
+$ docksh &lt;id&gt;   // Alias for: docker exec -it &lt;id&gt; /bin/bash
+
+// The following example shows how to get a shell inside hostC
+$ dockps
+b1004832e275  hostA-10.9.0.5
+0af4ea7a3e2e  hostB-10.9.0.6
+9652715c8e0a  hostC-10.9.0.7
+
+$ docksh 96
+root@9652715c8e0a:/#
+
+// Note: If a docker command requires a container ID, you do not need to
+//       type the entire ID string. Typing the first few characters will
+//       be sufficient, as long as they are unique among all the containers.
+</pre></div>
+</div>
+<p>If you encounter problems when setting up the lab environment, please
+read the “Common Problems” section of the manual for potential
+solutions.</p>
+</div>
+<div class="section" id="about-the-attacker-container">
+<h3>About the Attacker Container<a class="headerlink" href="#about-the-attacker-container" title="Permalink to this headline">¶</a></h3>
+<p>In this lab, we can either use the VM or the attacker container as the
+attacker machine. If you look at the Docker Compose file, you will see
+that the attacker container is configured differently from the other
+containers. Here are the differences:</p>
+<ul>
+<li><p><em>Shared folder.</em> When we use the attacker container to launch
+attacks, we need to put the attacking code inside the container. Code
+editing is more convenient inside the VM than in containers, because
+we can use our favorite editors. In order for the VM and container to
+share files, we have created a shared folder between the VM and the
+container using the Docker <code class="docutils literal notranslate"><span class="pre">volumes</span></code>. If you look at the Docker
+Compose file, you will find out that we have added the following
+entry to some of the containers. It indicates mounting the
+<code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder on the host machine (i.e., the VM) to the
+<code class="docutils literal notranslate"><span class="pre">/volumes</span></code> folder inside the container. We will write our code in
+the <code class="docutils literal notranslate"><span class="pre">./volumes</span></code> folder (on the VM), so they can be used inside the
+containers.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>volumes:
+       - ./volumes:/volumes
+</pre></div>
+</div>
+</li>
+<li><p><em>Privileged mode.</em> To be able to modify kernel parameters at runtime
+(using <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>), such as enabling IP forwarding, a container needs
+to be privileged. This is achieved by including the following entry
+in the Docker Compose file for the container.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>privileged: true
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="packet-sniffing">
+<h3>Packet Sniffing<a class="headerlink" href="#packet-sniffing" title="Permalink to this headline">¶</a></h3>
+<p>Being able to sniffing packets is very important in this lab, because if
+things do not go as expected, being able to look at where packets go can
+help us identify the problems. There are several different ways to do
+packet sniffing:</p>
+<ul>
+<li><p>Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on containers. We have already installed
+<code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on each container. To sniff the packets going through a
+particular interface, we just need to find out the interface name,
+and then do the following (assume that the interface name is
+<code class="docutils literal notranslate"><span class="pre">eth0</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># tcpdump -i eth0 -n
+</pre></div>
+</div>
+<p>It should be noted that inside containers, due to the isolation
+created by Docker, when we run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> inside a container, we can
+only sniff the packets going in and out of this container. We won’t
+be able to sniff the packets between other containers. However, if a
+container uses the <code class="docutils literal notranslate"><span class="pre">host</span></code> mode in its network setup, it can sniff
+other containers’ packets.</p>
+</li>
+<li><p>Running <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM. If we run <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> on the VM, we do
+not have the restriction on the containers, and we can sniff all the
+packets going among containers. The interface name for a network is
+different on the VM than on the container. On containers, each
+interface name usually starts with <code class="docutils literal notranslate"><span class="pre">eth</span></code>; on the VM, the interface
+name for the network created by Docker starts with <code class="docutils literal notranslate"><span class="pre">br-</span></code>, followed
+by the ID of the network. You can always use the <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span></code>
+command to get the interface name on the VM and containers.</p></li>
+<li><p>We can also run Wireshark on the VM to sniff packets. Similar to
+<code class="docutils literal notranslate"><span class="pre">tcpdump</span></code>, we need to select what interface we want Wireshark to
+sniff on.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="task-1-arp-cache-poisoning">
+<h2>Task 1: ARP Cache Poisoning<a class="headerlink" href="#task-1-arp-cache-poisoning" title="Permalink to this headline">¶</a></h2>
+<p>The objective of this task is to use packet spoofing to launch an ARP
+cache poisoning attack on a target, such that when two victim machines A
+and B try to communicate with each other, their packets will be
+intercepted by the attacker, who can make changes to the packets, and
+can thus become the man in the middle between A and B. This is called
+Man-In-The-Middle (MITM) attack. In this lab, we use ARP cache poisoning
+to conduct an MITM attack.</p>
+<p>The following code skeleton shows how to construct an ARP packet using
+Scapy. Please replace the interface name <code class="docutils literal notranslate"><span class="pre">br-05f0c56e8085</span></code> with the
+one in your own setup (see the previous section).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+from scapy.all import *
+
+E = Ether()
+A = ARP()
+
+pkt = E/A
+sendp(pkt, iface=&#39;br-05f0c56e8085&#39;)
+</pre></div>
+</div>
+<p>The above program constructs and sends an ARP packet. Please set
+necessary attribute names/values to define your own ARP packet. We can
+use <code class="docutils literal notranslate"><span class="pre">ls(ARP)</span></code> to see the attribute names of the ARP class. If a field
+is not set, a default value will be used (see the third column of the
+output):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ python3
+&gt;&gt;&gt; from scapy.all import *
+&gt;&gt;&gt; ls(ARP)
+hwtype     : XShortField                         = (1)
+ptype      : XShortEnumField                     = (2048)
+hwlen      : ByteField                           = (6)
+plen       : ByteField                           = (4)
+op         : ShortEnumField                      = (1)
+hwsrc      : ARPSourceMACField                   = (None)
+psrc       : SourceIPField                       = (None)
+hwdst      : MACField                            = (&#39;00:00:00:00:00:00&#39;)
+pdst       : IPField                             = (&#39;0.0.0.0&#39;)
+</pre></div>
+</div>
+<p>In this task, we have three machines (containers), A, B, and M. We would
+like to attack A’s ARP cache, such that B’s IP address is mapped to M’s
+MAC address. We can check a computer’s ARP cache using the following
+command. If you want to look at the ARP cache associated with a specific
+interface, you can use the <code class="docutils literal notranslate"><span class="pre">-i</span></code> option.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ arp -n
+Address     HWtype  HWaddress           Flags Mask  Iface
+10.0.2.1    ether   52:54:00:12:35:00   C           enp0s3
+10.0.2.3    ether   08:00:27:48:f4:0b   C           enp0s3
+</pre></div>
+</div>
+<p>There are many ways to conduct ARP cache poisoning attack. Students need
+to try the following three methods, and report whether each method works
+or not.</p>
+<ul>
+<li><p><strong>Task 1.A (using ARP request).</strong> On host M, construct an ARP request
+packet and send to host A. Check A’s ARP cache, and see whether M’s
+MAC address is mapped to B’s IP address.</p></li>
+<li><p><strong>Task 1.B (using ARP reply).</strong> On host M, construct an ARP reply
+packet and send to host A. Check A’s ARP cache, and see whether M’s
+MAC address is mapped to B’s IP address. Try the attack for two
+different scenarios:</p>
+<ul class="simple">
+<li><p>Scenario 1: B’s IP is already in A’s cache.</p></li>
+<li><p>Scenario 2: B’s IP is not in A’s cache.</p></li>
+</ul>
+</li>
+<li><p><strong>Task 1C (using ARP gratuitous message).</strong> On host M, construct an
+ARP gratuitous packets, and use it to map M’s MAC address to B’s IP
+address. Please launch the attack under the same two scenarios as
+those described in Task 1.B.</p>
+<p>ARP gratuitous packet is a special ARP request packet. It is used
+when a host machine needs to update outdated information on all the
+other machine’s ARP cache. The gratuitous ARP packet has the
+following characteristics:</p>
+<ul class="simple">
+<li><p>The source and destination IP addresses are the same, and they are
+the IP address of the host issuing the gratuitous ARP.</p></li>
+<li><p>The destination MAC addresses in both ARP header and Ethernet
+header are the broadcast MAC address (<code class="docutils literal notranslate"><span class="pre">ff:ff:ff:ff:ff:ff</span></code>).</p></li>
+<li><p>No reply is expected.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="task-2-mitm-attack-on-telnet-using-arp-cache-poisoning">
+<h2>Task 2: MITM Attack on Telnet using ARP Cache Poisoning<a class="headerlink" href="#task-2-mitm-attack-on-telnet-using-arp-cache-poisoning" title="Permalink to this headline">¶</a></h2>
+<p>Hosts A and B are communicating using Telnet, and Host M wants to
+intercept their communication, so it can make changes to the data sent
+between A and B. The setup is depicted in
+<strong>Figure 2</strong>. We have already created an account
+called <code class="docutils literal notranslate"><span class="pre">&quot;seed&quot;</span></code> inside the container, the password is <code class="docutils literal notranslate"><span class="pre">&quot;dees&quot;</span></code>. You
+can telnet into this account.</p>
+<div class="align-center figure align-default" id="id2">
+<img alt="Man-In-The-Middle Attack against telnet" src="../../_images/telnet_mitm.jpg" />
+<p class="caption"><span class="caption-text">Figure 2: Man-In-The-Middle Attack against telnet</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="step-1-launch-the-arp-cache-poisoning-attack">
+<h3>Step 1 (Launch the ARP cache poisoning attack).<a class="headerlink" href="#step-1-launch-the-arp-cache-poisoning-attack" title="Permalink to this headline">¶</a></h3>
+<p>First, Host M conducts an ARP cache poisoning attack on both A and B,
+such that in A’s ARP cache, B’s IP address maps to M’s MAC address, and
+in B’s ARP cache, A’s IP address also maps to M’s MAC address. After
+this step, packets sent between A and B will all be sent to M. We will
+use the ARP cache poisoning attack from Task 1 to achieve this goal. It
+is better that you send out the spoofed packets constantly (e.g. every 5
+seconds); otherwise, the fake entries may be replaced by the real ones.</p>
+</div>
+<div class="section" id="step-2-testing">
+<h3>Step 2 (Testing).<a class="headerlink" href="#step-2-testing" title="Permalink to this headline">¶</a></h3>
+<p>After the attack is successful, please try to ping each other between
+Hosts A and B, and report your observation. Please show Wireshark
+results in your report. Before doing this step, please make sure that
+the IP forwarding on Host M is turned off. You can do that with the
+following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sysctl net.ipv4.ip_forward=0
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-turn-on-ip-forwarding">
+<h3>Step 3 (Turn on IP forwarding).<a class="headerlink" href="#step-3-turn-on-ip-forwarding" title="Permalink to this headline">¶</a></h3>
+<p>Now we turn on the IP forwarding on Host M, so it will forward the
+packets between A and B. Please run the following command and repeat
+Step 2. Please describe your observation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sysctl net.ipv4.ip_forward=1
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-launch-the-mitm-attack">
+<h3>Step 4 (Launch the MITM attack).<a class="headerlink" href="#step-4-launch-the-mitm-attack" title="Permalink to this headline">¶</a></h3>
+<p>We are ready to make changes to the Telnet data between A and B. Assume
+that A is the Telnet client and B is the Telnet server. After A has
+connected to the Telnet server on B, for every key stroke typed in A’s
+Telnet window, a TCP packet is generated and sent to B. We would like to
+intercept the TCP packet, and replace each typed character with a fixed
+character (say Z). This way, it does not matter what the user types on
+A, Telnet will always display Z.</p>
+<p>From the previous steps, we are able to redirect the TCP packets to Host
+M, but instead of forwarding them, we would like to replace them with a
+spoofed packet. We will write a sniff-and-spoof program to accomplish
+this goal. In particular, we would like to do the following:</p>
+<ul>
+<li><p>We first keep the IP forwarding on, so we can successfully create a
+Telnet connection between A to B. Once the connection is established,
+we turn off the IP forwarding using the following command. Please
+type something on A’s Telnet window, and report your observation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># sysctl net.ipv4.ip_forward=0
+</pre></div>
+</div>
+</li>
+<li><p>We run our sniff-and-spoof program on Host M, such that for the
+captured packets sent from A to B, we spoof a packet but with TCP
+different data. For packets from B to A (Telnet response), we do not
+make any change, so the spoofed packet is exactly the same as the
+original one.</p></li>
+</ul>
+<p>To help students get started, we provide a skeleton sniff-and-spoof
+program in the following. The program capture all the TCP packets, and
+then for packets from A to B, it makes some changes (the modification
+part is not included, because that is part of the task). For packets
+from B to A, the program does not make any change.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env python3
+from scapy.all import *
+
+IP_A = &quot;10.9.0.5&quot;
+MAC_A = &quot;02:42:0a:09:00:05&quot;
+IP_B = &quot;10.9.0.6&quot;
+MAC_B = &quot;02:42:0a:09:00:06&quot;
+
+
+def spoof_pkt(pkt):
+    if pkt[IP].src == IP_A and pkt[IP].dst == IP_B:
+         # Create a new packet based on the captured one.
+         # 1) We need to delete the checksum in the IP &amp; TCP headers,
+         #    because our modification will make them invalid.
+         #    Scapy will recalculate them if these fields are missing.
+         # 2) We also delete the original TCP payload.
+
+         newpkt = IP(bytes(pkt[IP]))
+         del(newpkt.chksum)
+         del(newpkt[TCP].payload)
+         del(newpkt[TCP].chksum)
+
+         #################################################################
+         # Construct the new payload based on the old payload.
+         # Students need to implement this part.
+
+         if pkt[TCP].payload:
+             data = pkt[TCP].payload.load  # The original payload data
+             newdata = data   # No change is made in this sample code
+
+             send(newpkt/newdata)
+         else:
+             send(newpkt)
+         ################################################################
+
+    elif pkt[IP].src == IP_B and pkt[IP].dst == IP_A:
+         # Create new packet based on the captured one
+         # Do not make any change
+
+         newpkt = IP(bytes(pkt[IP]))
+         del(newpkt.chksum)
+         del(newpkt[TCP].chksum)
+         send(newpkt)
+
+
+f = &#39;tcp&#39;
+pkt = sniff(iface=&#39;eth0&#39;, filter=f, prn=spoof_pkt)
+</pre></div>
+</div>
+<p>It should be noted that the code above captures all the TCP packets,
+including the one generated by the program itself. That is undesirable,
+as it will affect the performance. Students needs to change the filter,
+so it does not capture its own packets.</p>
+</div>
+<div class="section" id="behavior-of-telnet">
+<h3>Behavior of Telnet.<a class="headerlink" href="#behavior-of-telnet" title="Permalink to this headline">¶</a></h3>
+<p>In Telnet, typically, every character we type in the Telnet window
+triggers an individual TCP packet, but if you type very fast, some
+characters may be sent together in the same packet. That is why in a
+typical Telnet packet from client to server, the payload only contains
+one character. The character sent to the server will be echoed back by
+the server, and the client will then display the character in its
+window. Therefore, what we see in the client window is not the direct
+result of the typing; whatever we type in the client window takes a
+round trip before it is displayed. If the network is disconnected,
+whatever we typed on the client window will not displayed, until the
+network is recovered. Similarly, if attackers change the character to Z
+during the round trip, Z will be displayed at the Telnet client window,
+even though that is not what you have typed.</p>
+</div>
+</div>
+<div class="section" id="task-3-mitm-attack-on-netcat-using-arp-cache-poisoning">
+<h2>Task 3: MITM Attack on Netcat using ARP Cache Poisoning<a class="headerlink" href="#task-3-mitm-attack-on-netcat-using-arp-cache-poisoning" title="Permalink to this headline">¶</a></h2>
+<p>This task is similar to Task 2, except that Hosts A and B are
+communicating using <code class="docutils literal notranslate"><span class="pre">netcat</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">telnet</span></code>. Host M wants to
+intercept their communication, so it can make changes to the data sent
+between A and B. You can use the following commands to establish a
+<code class="docutils literal notranslate"><span class="pre">netcat</span></code> TCP connection between A and B:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>On Host B (server, IP address is 10.9.0.6), run the following:
+# nc -lp 9090
+
+On Host A (client), run the following:
+# nc 10.9.0.6 9090
+</pre></div>
+</div>
+<p>Once the connection is made, you can type messages on A. Each line of
+messages will be put into a TCP packet sent to B, which simply displays
+the message. Your task is to replace every occurrence of your first name
+in the message with a sequence of A’s. The length of the sequence should
+be the same as that of your first name, or you will mess up the TCP
+sequence number, and hence the entire TCP connection. You need to use
+your real first name, so we know the work is done by you.</p>
+</div>
+<div class="section" id="submission">
+<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h2>
+<p>You need to submit a detailed lab report, with screenshots, to describe
+what you have done and what you have observed. You also need to provide
+explanation to the observations that are interesting or surprising.
+Please also list the important code snippets followed by explanation.
+Simply attaching code without any explanation will not receive credits.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bgp_basic.html" class="btn btn-neutral float-right" title="BGP Lab: Building an Internet Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="network_index.html" class="btn btn-neutral float-left" title="Network Security Labs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, NEXUS Lab.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
