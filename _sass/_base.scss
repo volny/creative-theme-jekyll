@@ -5,7 +5,7 @@ body {
 }
 
 body {
-    @include serif-font;
+    @include sans-serif-font;
 }
 
 hr {
@@ -77,8 +77,8 @@ aside {
     .navbar-header .navbar-brand {
         color: $theme-primary;
         @include sans-serif-font;
-        // font-weight: 700;
-        // text-transform: uppercase;
+        font-weight: 500;
+        text-transform: uppercase;
         &:hover,
         &:focus {
             color: darken($theme-primary, 10%);
@@ -88,8 +88,8 @@ aside {
         > li {
             > a,
             > a:focus {
-                // text-transform: uppercase;
-                // font-weight: 700;
+                text-transform: uppercase;
+                font-weight: 500;
                 font-size: 13px;
                 color: $theme-dark;
                 &:hover {
@@ -160,7 +160,6 @@ header {
     color: white;
     .header-content {
         position: relative;
-        top: 50%; 
         text-align: center;
         padding: 100px 15px 100px;
         width: 100%;
@@ -168,15 +167,15 @@ header {
             h1 {
                 // font-weight: 700;
                 // text-transform: uppercase;
-                margin-top: 0;
+                margin-top: 20px;
                 margin-bottom: 0;
             }
             hr {
                 margin: 15px auto;
             }
             p { 
-                font-style: italic;
-                font-weight: 300;
+                // font-style: italic;
+                font-weight: 500;
                 color: $theme-dark; 
                 font-size: 18px;
                 margin-bottom: 50px;
@@ -193,14 +192,14 @@ header {
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
-            padding: 0 50px;
+            padding: 0px 50px;
             .header-content-inner {
                 max-width: 1000px;
                 margin-left: auto;
                 margin-right: auto;
                 p { 
-                    font-style: italic;
-                    font-weight: 300; 
+                    // font-style: italic;
+                    font-weight: 500; 
                     color: $theme-dark; 
                     font-size: 24px;
                     max-width: 80%;
