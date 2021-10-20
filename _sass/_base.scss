@@ -42,6 +42,12 @@ p {
     margin-bottom: 20px;
 }
 
+img {
+  border-radius: 0px;
+  max-width: 100%;
+  height: auto;
+}
+
 .bg-primary {
     background-color: $blue-gray;
 }
@@ -53,6 +59,10 @@ p {
 
 .text-faded {
     color: rgba(white, .7);
+}
+
+.text-gray {
+    color: rgba(black, .6);
 }
 
 section {

@@ -11,7 +11,7 @@
             <a class="navbar-brand page-scroll" href="#page-top">
               {%- if site.logo -%}
               <img 
-                height="{{ site.logo.height | default: 36 }}"
+                style="max-height:100%;height:auto"
                 src="{{ site.logo.path }}" 
               />
               {%- else -%} {{ site.title }} {%- endif -%}
