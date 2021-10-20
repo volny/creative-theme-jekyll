@@ -9,7 +9,7 @@ body {
 }
 
 hr {
-    border-color: $theme-primary;
+    border-color: $blue-light;
     border-width: 3px;
     max-width: 50px;
 }
@@ -20,10 +20,10 @@ hr.light {
 
 a {
     @include transition-all;
-    color: $theme-primary;
+    color: $blue-gray;
     &:hover,
     &:focus {
-        color: darken($theme-primary, 10%);
+        color: darken($blue-gray, 10%);
     }
 }
 
@@ -43,11 +43,11 @@ p {
 }
 
 .bg-primary {
-    background-color: $theme-primary;
+    background-color: $blue-gray;
 }
 
 .bg-dark {
-    background-color: $theme-dark;
+    background-color: $blue-dark;
     color: white;
 }
 
@@ -71,19 +71,19 @@ aside {
 
 .navbar-default {
     background-color: white;
-    border-color: rgba($theme-dark, .5);
+    border-color: rgba($blue-dark, .5);
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
         padding: 0.5em 0.75em;
-        color: $theme-primary;
+        color: $blue-light;
         @include sans-serif-font;
         font-weight: 500;
         font-size: 13px;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: darken($blue-light, 10%);
         }
     }
     .nav {
@@ -93,15 +93,15 @@ aside {
                 text-transform: uppercase;
                 font-weight: 500;
                 font-size: 13px;
-                color: $theme-dark;
+                color: $blue-dark;
                 &:hover {
-                    color: $theme-primary;
+                    color: $blue-light;
                 }
             }
             &.active {
                 > a,
                 > a:focus {
-                    color: $theme-primary !important;
+                    color: $blue-light !important;
                     background-color: transparent;
                     &:hover {
                         background-color: transparent;
@@ -129,20 +129,20 @@ aside {
         }
         &.affix {
             background-color: white;
-            border-color: rgba($theme-dark, .5);
+            border-color: rgba($blue-dark, .5);
             .navbar-header .navbar-brand {
-                color: $theme-primary;
+                color: $blue-gray;
                 font-size: 14px;
                 &:hover,
                 &:focus {
-                    color: darken($theme-primary, 10%);
+                    color: darken($blue-light, 10%);
                 }
             }
             .nav > li > a,
             .nav > li > a:focus {
-                color: $theme-dark;
+                color: $blue-dark;
                 &:hover {
-                    color: $theme-primary;
+                    color: $blue-light;
                 }
             }
         }
@@ -163,7 +163,7 @@ header {
     .header-content {
         position: absolute;
         text-align: center;
-        bottom: 0;
+        bottom: calc(10% - 24px);
         padding: 100px 15px 0px;
         width: 100%;
         .header-content-inner {
@@ -179,7 +179,7 @@ header {
             p { 
                 // font-style: italic;
                 font-weight: 500;
-                color: $theme-dark; 
+                color: $blue-dark; 
                 font-size: 18px;
                 margin-bottom: 20px;
             }
@@ -203,7 +203,7 @@ header {
                 p { 
                     // font-style: italic;
                     font-weight: 500; 
-                    color: $theme-dark; 
+                    color: $blue-dark; 
                     font-size: 24px;
                     max-width: 80%;
                     margin-left: auto;
@@ -240,7 +240,7 @@ header {
         color: white;
         opacity: 0;
         display: block;
-        background: rgba( $theme-primary, .9 );
+        background: rgba( $blue-gray, .9 );
         position: absolute;
         bottom: 0;
         text-align: center;
@@ -295,7 +295,7 @@ header {
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-primary;
+    color: $blue-gray;
 }
 
 .no-gutter > [class*='col-'] {
@@ -305,11 +305,11 @@ header {
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+    @include button-variant($blue-dark, white, white);
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    @include button-variant(white, $blue-gray, $blue-gray);
 }
 
 .btn {
@@ -326,7 +326,7 @@ header {
 
 // Contact
 #contact .fa {
-    color: $theme-dark;
+    color: $blue-dark;
     font-size: 4em;
 }
 
@@ -335,13 +335,13 @@ header {
 ::-moz-selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: $blue-dark;
 }
 
 ::selection {
     color: white;
     text-shadow: none;
-    background: $theme-dark;
+    background: $blue-dark;
 }
 
 img::selection {
@@ -355,6 +355,6 @@ img::-moz-selection {
 }
 
 body {
-    -webkit-tap-highlight-color: $theme-dark;
+    -webkit-tap-highlight-color: $blue-dark;
 }
 
