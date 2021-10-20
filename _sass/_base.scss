@@ -171,21 +171,24 @@ header {
                 margin-bottom: 0;
             }
             hr {
-                margin: 30px auto;
+                margin: 15px auto;
             }
-            p {
+            p { 
+                font-style: italic;
                 font-weight: 300;
-                color: rgba(white, .7);
-                font-size: 16px;
+                color: $theme-dark; 
+                font-size: 18px;
                 margin-bottom: 50px;
             }
         }
     }
+
+    
     @media (min-width: 768px) {
         min-height: 100%;
         .header-content {
             position: absolute;
-            top: 50%;
+            top: 55%;
             -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -194,8 +197,11 @@ header {
                 max-width: 1000px;
                 margin-left: auto;
                 margin-right: auto;
-                p {
-                    font-size: 18px;
+                p { 
+                    font-style: italic;
+                    font-weight: 300; 
+                    color: $theme-dark; 
+                    font-size: 24px;
                     max-width: 80%;
                     margin-left: auto;
                     margin-right: auto;
