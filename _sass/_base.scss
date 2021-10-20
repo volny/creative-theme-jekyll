@@ -75,9 +75,11 @@ aside {
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand {
+        padding: 0.5em 0.75em;
         color: $theme-primary;
         @include sans-serif-font;
         font-weight: 500;
+        font-size: 13px;
         text-transform: uppercase;
         &:hover,
         &:focus {
@@ -152,16 +154,17 @@ aside {
 header {
     position: relative;
     width: 100%;
-    min-height: auto;
+    min-height: 100%;
     @include background-cover;
     background-position: center;
     background-image: url('../img/header.jpg');
     text-align: center;
     color: white;
     .header-content {
-        position: relative;
+        position: absolute;
         text-align: center;
-        padding: 100px 15px 100px;
+        bottom: 0;
+        padding: 100px 15px 0px;
         width: 100%;
         .header-content-inner {
             h1 {
@@ -178,7 +181,7 @@ header {
                 font-weight: 500;
                 color: $theme-dark; 
                 font-size: 18px;
-                margin-bottom: 50px;
+                margin-bottom: 20px;
             }
         }
     }
@@ -189,9 +192,9 @@ header {
         .header-content {
             position: absolute;
             top: 55%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+            -webkit-transform: translateY(30%);
+            -ms-transform: translateY(30%);
+            transform: translateY(30%);
             padding: 0px 50px;
             .header-content-inner {
                 max-width: 1000px;
