@@ -12,18 +12,16 @@
 title: "Team"
 cofounder:
 ######################################################
-- name: ""  # For alignment
-######################################################
 - name: "Dr. Anthony Fejes"
   role: "Co-Founder and CEO"
-  image: img/team/500x500.jpg
+  image: img/team/anthony_fejes.png
   text: "Dr. Anthony Fejes holds undergraduate degrees in biochemistry and Independent Studies (Bioinformatics) from the University of Waterloo, as well as a Masters degree in Microbiology & Immunology and a PhD in Bioinformatics from the University of British Columbia.  
 
 Anthony started his science career as the scientific co-founder and Chief Scientific Officer of Zymeworks Inc., which has grown to become one of Canada’s largest pharmaceutical companies. Anthony has spent much of the last decade working in genomics both in Canada and the United States, including companies such as Fabric Genomics and Tenaya Therapeutics." 
 ######################################################
 - name: "Alex Shynkarenko"
   role: "Co-Founder and CTO"
-  image: img/team/500x500.jpg
+  image: img/team/alex_shynkarenko.jpg
   text: "Alexander Shynkarenko is a computational biologist and data scientist. He graduated from Igor Sikorsky Kyiv Polytechnic Institute with a Master’s in Bioinformatics. and started his career in biotech as a co-founder of Biotopia, the first open labspace in Ukraine, before moving to computational biology. 
 
 Most recently, he worked as a bioinformatician at Ryvu Therapeutics, a Polish drug discovery company, where he provided data science, machine learning, and bioinformatics analyses for novel anticancer drug candidate programs. Alexander is also a board member at Genomics UA, Ukraine’s largest computational biology professional network."
@@ -32,7 +30,7 @@ Most recently, he worked as a bioinformatician at Ryvu Therapeutics, a Polish dr
 people:
 - name: "Dr. Yi-Hsuan Lin"
   role: "Molecular Modeling Lead"
-  image: img/team/500x500.jpg
+  image: img/team/yi-hsuan_lin.jpg
   text: "Dr. Yi-Hsuan Lin completed his bachelors in physics at the University of Illinois at Urbana-Champaign and PhD in physics at the Ohio State University. After that he became a joint postdoctoral fellow at the University of Toronto and the Hospital for Sick Children,  publishing 12 peer-reviewed papers in theoretical biophysics, computational biochemistry, and quantitative biology.  
 
 Dr. Lin joined HTuO Biosciences in January 2021, bringing with him a broad experience in software development, molecular modelling and machine learning."

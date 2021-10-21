@@ -8,24 +8,30 @@
 	</div>
   </div>
   <div class="row text-center">
-  {% for person in site.data.team.cofounder %}  
+   <div class="col-sm-3 col-md-3 col-lg-3"></div>
+    {% for person in site.data.team.cofounder %}  
     <div class="col-sm-3 col-md-3 col-lg-3">
-      <img class="img-circle" src="{{ person.image }}" alt="" style="max-width:200px;height:auto">
+      <input type="image" class="img-circle" src="{{ person.image }}" alt="" style="max-width:200px;height:auto" 
+       data-toggle="modal" data-target="#p{{ forloop.index }}" />    
       <h3>{{ person.name }}</h3>
       <p>{{ person.role }}</p>  		
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
+  <br><br>
+
   <div class="row text-center">
-  {% for person in site.data.team.people %}  
+    {% for person in site.data.team.people %}  
     <div class="col-sm-3 col-md-3 col-lg-3">
-      <img class="img-circle" src="{{ person.image }}" alt="" style="max-width:200px;height:auto">
+      <input type="image" class="img-circle" src="{{ person.image }}" alt="" style="max-width:200px;height:auto" 
+       data-toggle="modal" data-target="#q{{ forloop.index }}" />    
       <h3>{{ person.name }}</h3>
       <p>{{ person.role }}</p>  		
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 
 </div>
 </section>
+{% include team_modals.html %}
 <!-- End Team -->

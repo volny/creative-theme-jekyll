@@ -50,6 +50,17 @@ img {
   height: auto;
 }
 
+input[type="image"]
+{
+   border:solid 3px;
+   border-color:$blue-gray;
+}
+
+input[type="image"]:hover
+{
+   border-color:$blue-light;
+}
+
 .bg-primary {
     background-color: $blue-gray;
 }
