@@ -29,7 +29,9 @@ a {
 
 h1,
 h2,
-h3,
+h3 {
+   color: $blue-gray;
+}
 h4,
 h5,
 h6 {
@@ -244,8 +246,9 @@ header {
 .portfolio-box {
     position: relative;
     display: block;
-    max-width: 650px;
-    margin: 0 auto;
+    max-width: 500px;
+    background-position: center;
+    margin: 10px;
     .portfolio-box-caption {
         color: white;
         opacity: 0;
