@@ -32,7 +32,9 @@ h2,
 h3 {
    color: $blue-gray;
 }
-h4,
+h4 {
+   font-weight: 700;
+}
 h5,
 h6 {
     @include sans-serif-font;
