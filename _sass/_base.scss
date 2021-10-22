@@ -52,12 +52,22 @@ img {
   height: auto;
 }
 
+
+.with-border {
+   border: solid 3px;
+   border-color:$blue-gray;
+}
+.with-border:hover {
+   border-color:$blue-light;
+}
+
+  
+
 input[type="image"]
 {
    border:solid 3px;
    border-color:$blue-gray;
 }
-
 input[type="image"]:hover
 {
    border-color:$blue-light;
