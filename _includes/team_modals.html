@@ -1,4 +1,6 @@
 <!-- Team Modal -->
+
+<!-- The Cofounders -->
 {% for person in site.data.team.cofounder %} 
 <div class="modal fade" id="p{{ forloop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
@@ -20,6 +22,8 @@
 </div>
 {% endfor %}
 
+
+<!-- The staffs -->
 {% for person in site.data.team.people %} 
 <div class="modal fade" id="q{{ forloop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
