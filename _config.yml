@@ -4,7 +4,6 @@ email: info@htuobio.com
 description: Designing the future of molecules  # this means to ignore newlines until "baseurl:"
 logo:     #optional, defaults to site title
   path: 'img/HTuO.svg'
-  // height: 60 #height in px, defaults to 52px
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 

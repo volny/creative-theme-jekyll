@@ -172,12 +172,13 @@ aside {
     }
 }
 
+
 // Homepage Header
 
 header {
     position: relative;
+    height: 100%;
     width: 100%;
-    min-height: 100%;
     @include background-cover;
     background-position: center;
     background-image: url('../img/header.jpg');
@@ -209,9 +210,7 @@ header {
         }
     }
 
-    
     @media (min-width: 768px) {
-        min-height: 100%;
         .header-content {
             position: absolute;
             top: 55%;
@@ -235,6 +234,7 @@ header {
             }
         }
     }
+
 }
 
 // Sections
