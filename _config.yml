@@ -12,3 +12,10 @@ github_username:
 
 # Build settings
 markdown: kramdown
+
+
+collections:
+  posts:
+    output          : true
+  news:
+    output          : true

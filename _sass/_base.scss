@@ -61,6 +61,10 @@ img {
    border-color:$blue-light;
 }
 
+.with-border-no-hover {
+   border: solid 6px;
+   border-color:$blue-gray;
+}
   
 
 input[type="image"]

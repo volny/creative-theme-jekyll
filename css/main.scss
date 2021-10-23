@@ -38,8 +38,20 @@ $blue-gray: #396b90;
 $blue-light: #00bfff;
 $blue-dark: #002fa7;
 
+$gray100: #f8f9fa !default;
+$gray200: #e9ecef !default;
+$gray300: #dee2e6 !default;
+$gray400: #ced4da !default;
+$gray500: #adb5bd !default;
+$gray600: #868e96 !default;
+$gray700: #495057 !default;
+$gray800: #343a40 !default;
+$gray900: #212529 !default;
+
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "mixins",
-        "base"
+        "base",
+        "timeline"
 ;
