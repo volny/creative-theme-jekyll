@@ -1,0 +1,31 @@
+<section id="news" class="bg-gray50">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1">
+
+        <h2 class="text-center">Latest News</h2>
+        <hr>
+
+        {% for event in site.data.news.events%}
+          {%- assign total = forloop.index -%}       
+        {% endfor %}
+        {%- assign x = total | minus: 3 -%} 
+
+        {% for event in site.data.news.events reversed offset: x %}           
+          <h2>{{ event.date | markdownify }}</h2>
+          <p>{{ event.text | markdownify }}</p>
+        {% endfor %} 
+
+        <div class="text-center">
+          <a href="{{ site.baseurl }}/timeline.html" class="btn btn-primary btn-xl wow tada">
+            Check Full HTuO Timeline
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+]

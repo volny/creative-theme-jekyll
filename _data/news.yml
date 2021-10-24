@@ -26,7 +26,7 @@ events:
 
 #############
 - date: "Dec 23rd, 2020"
-  text: "HTuO Biosciences has completed a Friends and Family Round of financing. For more information please contact news@htuobio.com."
+  text: "HTuO Biosciences has completed a Friends and Family Round of financing." # For more information please contact news@htuobio.com."
 #############
 - date: "Mar 24th, 2021"
   text: "HTuO Biosciences has been selected to present at [Tie Vancouver's Demo Day](https://www.tievancouver.org/), on April 8th, 2021."  
@@ -50,11 +50,9 @@ events:
   text: "HTuO Biosciences has been chosen to participate in the [Life Sciences British Columbia Investor Readiness Program's](https://lifesciencesbc.ca/resource/investor-readiness-program-irp/) fall 2021 cohort."
 #############
 - date: "Sep 24th, 2021"
-  text: "We are thrilled to announce that we have successfully closed the first tranche of our pre-seed round. With help from our co-lead investors [VANTEC Entrepreneurs (VCC) Fund Inc.](https://www.vantec.ca/cpages/homepage), in Canada and [SWAN Venture Fund](https://swanventurefund.com/), in the USA, we have received over $700,000 USD (out of $1M USD allotted for the round) from investors in Canada, the USA, and Europe. The funds will allow us to expand our team, in order to move our proof of concept to commercialization and ensure the continued operations of our business.
+  text: "We are thrilled to announce that we have successfully **closed the first tranche of our pre-seed round**. With help from our co-lead investors [VANTEC Entrepreneurs (VCC) Fund Inc.](https://www.vantec.ca/cpages/homepage), in Canada and [SWAN Venture Fund](https://swanventurefund.com/), in the USA, we have received over **$700,000 USD** (out of $1M USD allotted for the round) from investors in Canada, the USA, and Europe. The funds will allow us to expand our team, in order to move our proof of concept to commercialization and ensure the continued operations of our business."
 
-<br><br>
-
-To all of our investors: Thank you for your contribution and support, with special thanks to those of you who have supported us since the beginning of our journey. Together, we will bring the most accurate molecular modelling to industry to address the most burning questions posed by pharmaceutical science."
+# To all of our investors: Thank you for your contribution and support, with special thanks to those of you who have supported us since the beginning of our journey. Together, we will bring the most accurate molecular modelling to industry to address the most burning questions posed by pharmaceutical science."
 #############
 - date: "Oct 1st, 2021"
   text: "HTuO Biosciences has been chosen as one of the top 20 companies to join the [Valhalla Investment Summit BC](https://valhallaangels.com/investment-summit-bc/) 2021 cohort.   "

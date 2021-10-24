@@ -7,6 +7,8 @@ logo:     #optional, defaults to site title
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
+linkedin: htuobio
+
 twitter_username:
 github_username:
 

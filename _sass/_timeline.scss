@@ -111,6 +111,16 @@ body-timeline {
   left: calc(50% - 20px);
 }
 
+/* Left container around content */
+.container-center {
+  padding: 10px 30px;
+  position: relative;
+  // background-color: black;
+  width: 50%;
+  left: 25%;
+}
+
+
 /* The actual content */
 .content {
   padding: 1px 5px;
@@ -129,4 +139,5 @@ body-timeline {
     border-color:$blue-gray;
     width: 200px; 
     height: auto;   
+
 }

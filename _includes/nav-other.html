@@ -12,9 +12,9 @@
               {%- if site.logo -%}
               <img 
                 style="max-height:100%;height:auto"
-                src="{{site.baseurl}}/{{ site.logo.path }}" 
+                src="{{ site.baseurl }}/{{ site.logo.path }}" 
               />
-              {%- else -%} {{site.baseurl}}/{{ site.title }} {%- endif -%}
+              {%- else -%} {{ site.baseurl }}/{{ site.title }} {%- endif -%}
             </a>
         </div>
 
@@ -29,13 +29,10 @@
                        Trail Blazing</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{% link news.html %}">News</a>
+                   <a class="page-scroll" href="{% link index.html %}#news">News</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="{% link index.html %}#team">Team</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="{% link career.html %}">Career</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="{% link index.html %}#contact">Contact</a>
