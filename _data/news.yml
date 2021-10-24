@@ -1,0 +1,64 @@
+#
+# Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
+#
+# Configuration: Add to _config.yml
+# locale: "en-US"  [YOUR PREFERRED LOCALE]
+#
+# How to use:
+# {{ site.data.ui-text[site.locale].<var_name> | default: 'text' }}
+
+# English (default)
+# -----------------
+title: "Timeline"
+text: "Lorem ipsum timeline"
+section: timeline
+# left is the default
+start_align: "right"
+
+##########################
+beginning: 
+  date: "Sep 30th, 2020"
+  text: "HTuO Biosciences has officially incorporated in the province of British Columbia and begun operations." # For more information please contact [news@htuobio.com](mailto:newsy@htuobio.com)."
+
+
+##########################
+events:
+
+#############
+- date: "Dec 23rd, 2020"
+  text: "HTuO Biosciences has completed a Friends and Family Round of financing." # For more information please contact news@htuobio.com."
+#############
+- date: "Mar 24th, 2021"
+  text: "HTuO Biosciences has been selected to present at [Tie Vancouver's Demo Day](https://www.tievancouver.org/), on April 8th, 2021."  
+#############
+- date: "Apr 8th, 2021"
+  text: "HTuO Biosciences shares first place at [Tie Vancouver's Demo Day](https://www.tievancouver.org/) along with [Rehabtronics](https://rehabtronics.com/)."
+#############
+- date: "May 5th, 2021"
+  text: "HTuO Biosciences has been selected to present at the next Vantec Life Science [Vantec Meeting](https://www.vantec.ca/events/vantec-meeting-93)."
+#############
+- date: "May 27th, 2021"
+  text: "HTuO Biosciences has been selected to present at the [VANTEC Meeting: Investing in Life Sciences and HealthTech](https://www.vantec.ca/events/vantec-meeting-94)." 
+#############
+- date: "Aug 17th, 2021"
+  text: "HTuO Biosciences mentioned as one of the [six companies to watch for in the Vancouver Tech Journal](https://www.vantechjournal.com/p/radar-six-to-watch-rbcx)." 
+#############
+- date: "Aug 20th, 2021"
+  text: "HTuO Biosciences is pleased to announce that [Dr. Judith Herzfeld](https://www.brandeis.edu/chemistry/faculty/herzfeld.html), Professor Emerita and Research Professor of Chemistry at Brandeis University,  will become the first member of HTuO's Scientific Advisory Board on October 1st, 2021. Dr. Herzfeld brings a wealth of experience in molecular simulations and in the creative design of new force fields." 
+#############
+- date: "Sep 9th, 2021"
+  text: "HTuO Biosciences has been chosen to participate in the [Life Sciences British Columbia Investor Readiness Program's](https://lifesciencesbc.ca/resource/investor-readiness-program-irp/) fall 2021 cohort."
+#############
+- date: "Sep 24th, 2021"
+  text: "We are thrilled to announce that we have successfully **closed the first tranche of our pre-seed round**. With help from our co-lead investors [VANTEC Entrepreneurs (VCC) Fund Inc.](https://www.vantec.ca/cpages/homepage), in Canada and [SWAN Venture Fund](https://swanventurefund.com/), in the USA, we have received over **$700,000 USD** (out of $1M USD allotted for the round) from investors in Canada, the USA, and Europe. The funds will allow us to expand our team, in order to move our proof of concept to commercialization and ensure the continued operations of our business."
+
+# To all of our investors: Thank you for your contribution and support, with special thanks to those of you who have supported us since the beginning of our journey. Together, we will bring the most accurate molecular modelling to industry to address the most burning questions posed by pharmaceutical science."
+#############
+- date: "Oct 1st, 2021"
+  text: "HTuO Biosciences has been chosen as one of the top 20 companies to join the [Valhalla Investment Summit BC](https://valhallaangels.com/investment-summit-bc/) 2021 cohort.   "
+#############
+- date: "Oct 15th, 2021"
+  text: "After a tough round of pitches and questions at the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/), HTuO Biosciences is thrilled to advance on as one of the Top 11 Startups.  The next round will see the top 5 companies advance, to be announced on October 21st, 2021."
+#############
+#- date:
+#  text: 
