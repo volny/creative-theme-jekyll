@@ -19,7 +19,6 @@ hr.light {
 }
 
 a {
-    @include transition-all;
     color: $blue-gray;
     &:hover,
     &:focus {
@@ -375,7 +374,7 @@ body {
   }
 }
 
-.bg-two-row {
+.bg-two-row-blue {
   padding:0;
   background: linear-gradient(180deg, $blue-light 50%, $blue-dark 50%);  
   
@@ -385,4 +384,23 @@ body {
   }
 }
 
+.bg-two-row-gray {
+  padding:50px;
+  background: linear-gradient(180deg, $blue-gray 25%, rgba(black,0.8));  
+  
+  @media (min-width: 1200px) {  
+    background: linear-gradient(90deg, $blue-gray 25%, rgba(black,0.8));
+    padding:20px 0 50px 50px;
+  }
+}
  
+#link-dark {
+  color: white !important;
+  a {
+    color: $blue-light !important; 
+    background-color: transparent; 
+    text-decoration: none;
+  }
+}
+
+

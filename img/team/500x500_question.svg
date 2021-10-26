@@ -7,7 +7,7 @@
    width="500"
    height="500"
    viewBox="0 0 500 500"
-   sodipodi:docname="500x500+.svg"
+   sodipodi:docname="500x500_question.svg"
    inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
    inkscape:export-filename="/Users/yihsuanlin/HTuO.github.io/img/team/500x500+.png"
    inkscape:export-xdpi="299.91501"
@@ -28,8 +28,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.9901358"
-     inkscape:cx="137.85988"
-     inkscape:cy="323.18799"
+     inkscape:cx="61.10273"
+     inkscape:cy="309.04852"
      inkscape:current-layer="g15" />
   <g
      inkscape:groupmode="layer"
@@ -46,13 +46,16 @@
          x="0"
          y="0" />
     </g>
-    <path
-       id="rect139"
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.42384"
-       d="m 150,226 h 200 v 24 H 150 Z" />
-    <path
-       id="path3766"
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.42384"
-       d="M 238,338 V 138 h 24 v 200 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:337.064px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:8.4266"
+       x="154.13087"
+       y="375.00009"
+       id="text2456"><tspan
+         sodipodi:role="line"
+         id="tspan2454"
+         x="154.13087"
+         y="375.00009"
+         style="stroke-width:8.4266;fill:#ffffff;fill-opacity:1">?</tspan></text>
   </g>
 </svg>

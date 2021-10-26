@@ -1,0 +1,25 @@
+#
+# Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
+#
+# Configuration: Add to _config.yml
+# locale: "en-US"  [YOUR PREFERRED LOCALE]
+#
+# How to use:
+# {{ site.data.ui-text[site.locale].<var_name> | default: 'text' }}
+
+# English (default)
+# -----------------
+events:
+
+#############
+- date: Jan 1, 2022
+  text: Event 1
+#############
+- date: Jan 2, 2022
+  text: Event 2
+#############
+- date: Jan 3, 2022
+  text: Event 3
+#############
+#- date:
+#  text:
