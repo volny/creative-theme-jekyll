@@ -9,7 +9,9 @@
     <meta name="author" content="HTuO">
 
     <!--Thumbnail-->
-    <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+    <meta property="og:title" 
+          content="{% if page.title %}{{ page.title | escape }} 
+                   | {% endif %}{{ site.title | escape }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://{{ site.url }}{{ page.url }}" />
     <meta property="og:image" content="https://{{ site.url }}/img/HTuO.png" />
