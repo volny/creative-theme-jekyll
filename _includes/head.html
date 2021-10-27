@@ -11,7 +11,7 @@
     <!--Thumbnail-->
     <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://{{ site.url }}" />
+    <meta property="og:url" content="https://{{ site.url }}{{ page.url }}" />
     <meta property="og:image" content="https://{{ site.url }}/img/HTuO.png" />
     <meta property="og:image:secure_url" content="https://{{ site.url }}/img/HTuO.png" />
 
