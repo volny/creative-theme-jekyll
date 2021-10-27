@@ -12,14 +12,14 @@
 events:
 
 #############
-- date: Jan 1, 2022
-  text: Event 1
+- date: Oct 28, 2021 @ 10am PST
+  text: Presentation at [Angel Forum Virtual Meetup](https://www.angelforum.org/)
 #############
-- date: Jan 2, 2022
-  text: Event 2
+- date: November 3rd, 2021 - Pitching Session 2, at 11am PST
+  text: Presenting at the [2021 LSBC Invest in BC](https://lifesciencesbc.ca/event/invest-in-bc/) event, sponsored by Lumira Ventures.
 #############
-- date: Jan 3, 2022
-  text: Event 3
+- date: November 4th, 2021
+  text: Participating in the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/) Final
 #############
 #- date:
 #  text:
