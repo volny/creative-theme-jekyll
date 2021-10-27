@@ -5,7 +5,7 @@ description: Designing the future of molecules  # this means to ignore newlines 
 logo:     #optional, defaults to site title
   path: 'img/HTuO.svg'
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+url: "htuo.github.io" # the base hostname & protocol for your site
 
 linkedin: htuobio
 
