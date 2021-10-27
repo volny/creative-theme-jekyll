@@ -3,14 +3,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A literally basement startup">
+    <meta name="author" content="HTuO">
 
     <!--Thumbnail-->
-    <meta property="og:title" content="HTuO Biosciences" />
+    <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://{{ site.url }}" />
     <meta property="og:image" content="https://{{ site.url }}/img/HTuO.png" />
+    <meta property="og:image:secure_url" content="https://{{ site.url }}/img/HTuO.png" />
 
     <!--Browser tab icon-->
     <link rel="icon" href="../img/favicon.png">
