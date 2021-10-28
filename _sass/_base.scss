@@ -394,6 +394,15 @@ body {
   }
 }
  
+.embed-video {
+  @media (min-width: 768px) {
+    padding:0 calc(20% - 128px);
+
+  }
+}
+
+
+
 #link-dark {
   color: white !important;
   a {
