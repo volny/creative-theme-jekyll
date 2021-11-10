@@ -51,7 +51,6 @@ events:
 #############
 - date: "Sep 24th, 2021"
   text: "We are thrilled to announce that we have successfully **closed the first tranche of our pre-seed round**. With help from our co-lead investors [VANTEC Entrepreneurs (VCC) Fund Inc.](https://www.vantec.ca/cpages/homepage), in Canada and [SWAN Venture Fund](https://swanventurefund.com/), in the USA, we have received over **$700,000 USD** (out of $1M USD allotted for the round) from investors in Canada, the USA, and Europe. The funds will allow us to expand our team, in order to move our proof of concept to commercialization and ensure the continued operations of our business."
-
 # To all of our investors: Thank you for your contribution and support, with special thanks to those of you who have supported us since the beginning of our journey. Together, we will bring the most accurate molecular modelling to industry to address the most burning questions posed by pharmaceutical science."
 #############
 - date: "Oct 1st, 2021"
@@ -63,7 +62,7 @@ events:
 - date: "Oct 25th, 2021"
   text: "Continuing our progress in the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/), HTuO has been named as one of the top 5 companies, and has progressed to the final, due diligence round."
 #############
-- date: "Oct 28, 2021, 10am PST"
+- date: "Oct 28th, 2021, 10am PST"
   text: "Presentation at [Angel Forum Virtual Meetup](https://www.angelforum.org/)"
 #############
 #- date:
