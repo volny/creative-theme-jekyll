@@ -40,10 +40,10 @@ Dr. Lin joined HTuO Biosciences in January 2021, bringing with him a broad exper
   image: img/team/emiliy_wilson.jpg
   text: "Emily Wilson is a physicist who is specialized in computational statistical physics. She completed her bachelor’s degree at the University of British Columbia and MSc. at McGill University. At HTuO Emily uses her background in software development and physics to fulfill her role as a Molecular Modelling Scientist. Emily enjoys finding the best solutions to difficult problems and collaborating with her teammates. In her spare time Emily can often be found on skis in the winter and biking in the summer."
 ######################################################
-- name: "TBA"
-  role: "Scientist - Molecular Modeling"
-  image: img/team/500x500_question.svg
-  text: TBA
+# - name: "TBA"
+#   role: "Scientist - Molecular Modeling"
+#   image: img/team/500x500_question.svg
+#   text: TBA
 ######################################################
 # - name: "Your Name"
 #   role: "Future Scientist"
