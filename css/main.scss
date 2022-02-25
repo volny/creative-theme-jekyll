@@ -55,3 +55,12 @@ $gray900: #212529 !default;
         "base",
         "timeline"
 ;
+
+// Make all columns equally high with Bootstrap 3
+@media (min-width: 768px) {
+  .aligned-row {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+  }
+}

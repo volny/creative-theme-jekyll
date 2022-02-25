@@ -12,14 +12,11 @@
 events:
 
 #############
-- date: January 10th to 15th, 2022
-  text: HTuO Biosciences will be participating in the Bio@JPB partnering event.  Please reach out to us at [info@htuobio.com](mailto:info@htuobio.com) or through the partnering interface to connect with us there.
+#- date: January 10th to 15th, 2022
+#  text: HTuO Biosciences will be participating in the Bio@JPB partnering event.  Please reach out to us at [info@htuobio.com](mailto:info@htuobio.com) or through the partnering interface to connect with us there.
 #############
-#- date: No public events currently planned.
-#  text: If you'd like to schedule HTuO to present at an event, please contact [info@htuobio.com](mailto:info@htuobio.com).
-#############
-#- date: November 4th, 2021
-#  text: Participating in the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/) Final
+- date: No public events currently planned.
+  text: If you'd like to schedule HTuO to present at an event, please contact [info@htuobio.com](mailto:info@htuobio.com).
 #############
 #- date:
 #  text:

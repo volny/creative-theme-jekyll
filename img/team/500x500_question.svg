@@ -9,7 +9,7 @@
    viewBox="0 0 500 500"
    sodipodi:docname="500x500_question.svg"
    inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
-   inkscape:export-filename="/Users/yihsuanlin/HTuO.github.io/img/team/500x500+.png"
+   inkscape:export-filename="/Users/yihsuanlin/HTuO.github.io/img/team/500x500_question.png"
    inkscape:export-xdpi="299.91501"
    inkscape:export-ydpi="299.91501"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,34 +28,30 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.9901358"
-     inkscape:cx="61.10273"
-     inkscape:cy="309.04852"
+     inkscape:cx="182.80321"
+     inkscape:cy="220.17182"
      inkscape:current-layer="g15" />
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
      id="g15">
-    <g
-       id="g1731"
-       style="fill:#396b90;fill-opacity:1">
-      <rect
-         style="fill:#396b90;fill-opacity:1;stroke-width:2.18985"
-         id="rect1181"
-         width="500"
-         height="500"
-         x="0"
-         y="0" />
-    </g>
+    <rect
+       style="fill:#396b90;fill-opacity:1;stroke-width:2.18985"
+       id="rect1181"
+       width="500"
+       height="500"
+       x="0"
+       y="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:337.064px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:8.4266"
-       x="154.13087"
-       y="375.00009"
-       id="text2456"><tspan
+       style="font-size:389.683px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;stroke-width:9.74206"
+       x="142.87529"
+       y="391.84982"
+       id="text1530"><tspan
          sodipodi:role="line"
-         id="tspan2454"
-         x="154.13087"
-         y="375.00009"
-         style="stroke-width:8.4266;fill:#ffffff;fill-opacity:1">?</tspan></text>
+         id="tspan1528"
+         x="142.87529"
+         y="391.84982"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;fill:#ffffff;fill-opacity:1;stroke-width:9.74206">?</tspan></text>
   </g>
 </svg>

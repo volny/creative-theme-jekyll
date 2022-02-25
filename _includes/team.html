@@ -20,7 +20,7 @@
   </div>
   <br><br>
 
-  <div class="row text-center">
+  <div class="row aligned-row text-center">
     {% for person in site.data.team.people %}  
     <div class="col-sm-3 col-md-3 col-lg-3">
       <input type="image" class="img-circle" src="{{ person.image }}" alt="" style="max-width:180px;height:auto" 
@@ -31,13 +31,13 @@
     </div>
     {% endfor %}
 
-    {% for post in site.posts %}  
+    {% for post in site.posts reversed %}  
     <div class="col-sm-3 col-md-3 col-lg-3">
       <a href="{{ post.url }}">
         <img src="img/team/500x500+.svg" 
              class="img-circle with-border" 
              alt="" 
-             style="max-width:180px;height:auto;" />   
+             style="max-width:186px;height:auto;" />   
       </a>  
       <h3>Join us!</h3>
       <p>{{ post.title }}</p>  	
