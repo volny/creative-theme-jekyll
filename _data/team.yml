@@ -43,10 +43,10 @@ Dr. Lin joined HTuO Biosciences in January 2021, bringing with him a broad exper
   image: img/team/ahmed_ayoub.jpg
   text: "After ranking first in high school all over Egypt, Dr. Ahmed Ayoub completed his bachelors degree with a full scholarship in pharmacy and pharmaceutical biotechnology at the German University in Cairo. He obtained his PhD in computational chemistry with focus on DFT, Hybrid QMMM biomolecular simulations and drug design at the University of Alberta, where he was a recipient of the prestigious President's International Doctoral Award. He has published about 20 international peer-reviewed papers in biomolecular simulations and drug design with focus on design and understanding of anticancer therapeutics."
 ######################################################
- - name: "TBA"
-   role: "Scientist - Force Field Parameterization"
-   image: img/team/500x500_question.svg
-   text: "TBA"
+- name: "TBA"
+  role: "Scientist - Force Field Parameterization"
+  image: img/team/500x500_question.svg
+  text: "TBA"
 ######################################################
 # - name: "TBA"
 #   role: "Scientist - Molecular Modeling"
