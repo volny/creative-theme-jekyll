@@ -48,10 +48,15 @@ Dr. Lin joined HTuO Biosciences in January 2021, bringing with him a broad exper
   image: img/team/ahmad_navid.png
   text: "Ahmad Navid holds undergraduate degree in Bioinformatics from Quaid-i-Azam University Pakistan as well as a Masters degree in Bioinformatics from National University of Science and Technology Pakistan. In addition to two publications in molecular dynamics simulations, Navid also has experience in artificial intelligence and medical informatics."
 ######################################################
-# - name: "TBA"
-#   role: "Scientist - Molecular Modeling"
-#   image: img/team/500x500_question.svg
-#   text: "TBA"
+ - name: "TBA"
+   role: "Director of Business Development"
+   image: img/team/500x500_question.svg
+   text: "TBA"
+######################################################
+ - name: "TBA"
+   role: "Software Engineer"
+   image: img/team/500x500_question.svg
+   text: "TBA"
 ######################################################
 # - name: "Your Name"
 #   role: "Future Scientist"
