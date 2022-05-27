@@ -11,9 +11,9 @@
 # -----------------
 events:
 
-#############
-- date: "No public events currently planned."
-  text: "If you'd like to schedule HTuO to present at an event, please contact [info@htuobio.com](mailto:info@htuobio.com)."
-#############
-#- date:
-#  text:
+###############
+# - date: "No public events currently planned."
+#   text: "If you'd like to schedule HTuO to present at an event, please contact [info@htuobio.com](mailto:info@htuobio.com)."
+###############
+- date: June 1st, 2022
+  text: "HTuO's CEO, Dr. Anthony Fejes, will be participating in a panel discussion on [Investing in Life Sciences and Healthtech](https://www.vantec.ca/events/vantec-meeting-104), hosted by Vantec Angel Network."
