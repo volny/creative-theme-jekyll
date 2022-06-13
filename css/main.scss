@@ -4,26 +4,26 @@
 @charset "utf-8";
 
 // Example Defaults
-// $base-font-family: Helvetica, Arial, sans-serif;
-// $base-font-size:   16px;
-// $small-font-size:  $base-font-size * 0.875;
-// $base-line-height: 1.5;
+$base-font-family: Helvetica, Arial, sans-serif;
+ $base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
 
 // $spacing-unit:     30px;
 
-// $text-color:       #373d44;
-// $background-color: #f4fffd;
-// $brand-color:      #6cbcb8;
+$text-color:       #373d44;
+$background-color: #f4fffd;
+$brand-color:      #6cbcb8;
 
-// $grey-color:       #969ea1;
-// $grey-color-light: lighten($grey-color, 40%);
-// $grey-color-dark:  darken($grey-color, 25%);
+$grey-color:       #969ea1;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
 
-// // Width of the content area
-// $content-width:    800px;
+// Width of the content area
+$content-width:    800px;
 
-// $on-palm:          600px;
-// $on-laptop:        800px;
+$on-palm:          600px;
+$on-laptop:        800px;
 
 // Using media queries with like this:
 // @include media-query($on-palm) {
@@ -34,8 +34,8 @@
 // }
 
 // variables.less
-$theme-primary: #F05F40;
-$theme-dark: #222;
+$theme-primary: $brand-color;
+$theme-dark: $darken($brand-color,40%);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
