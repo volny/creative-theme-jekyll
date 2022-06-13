@@ -35,7 +35,7 @@ $on-laptop:        800px;
 
 // variables.less
 $theme-primary: $brand-color;
-$theme-dark: $darken($brand-color,40%);
+$theme-dark: darken($brand-color,40%);
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
