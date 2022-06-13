@@ -7,6 +7,9 @@ url: "" # the base hostname & protocol for your site
 
 twitter_username: behindresearch
 github_username: behindtheresearch
+twitch_username: behindtheresearch
+instagram_username: behindtheresearch
+tiktok_username: behindtheresearch
 
 # Build settings
 markdown: kramdown
