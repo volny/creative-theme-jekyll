@@ -53,10 +53,10 @@ Dr. Lin joined HTuO Biosciences in January 2021, bringing with him a broad exper
   image: img/team/jacek.png
   text: "Jacek Mis is a biotech business development professional with over 20 years of experience in the life sciences sector. His passion for cell biology led him to work behind the bench in several different fields including epigenetics, wound healing, inflammation, and GMO's. As a business professional, he focused on optimizing product-market fit for bioprinting technology, encapsulated antibiotics, radiopharmaceuticals, and cell therapies. He has previously worked at Aspect Biosystems and adMare Bioinnovations. Jacek holds an MBA from Sauder School of Business, MSc in Medical Biotechnology from Jagiellonian University, and an undergrad degree in cell biology and genetics from the University of British Columbia. Based in Vancouver, Canada, Jacek is also a dad, partner, soccer player, runner, and board game enthusiast."
 ######################################################
-- name: "TBA"
+- name: "Vladimir Nikolic"
   role: "Software Engineer"
-  image: img/team/500x500_question.svg
-  text: "Joining the HTuO Biosciences team soon"
+  image: img/team/vladimir-nikolic.jpg
+  text: "Vladimir holds an undergraduate degree in Software Engineering from the University of Belgrade and a master's degree in Bioinformatics from the University of British Columbia. With the goal of combining his software engineering skills with science, he has worked at the Institute of Physics Belgrade working on a nature-inspired authentication system, at Michael Smith Genome Sciences Centre in Vancouver developing bioinformatics algorithms, and now at HTuO Biosciences as a software engineer. In his free time, Vladimir spends time in nature, reads, and likes to go snowboarding."
 ######################################################
 # - name: "Your Name"
 #   role: "Future Scientist"
