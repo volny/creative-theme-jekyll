@@ -116,8 +116,8 @@ img {
 /* --- Navbar --- */
 
 .navbar-custom {
-  background-color: #EAEAEA;
-  border-bottom: 1px solid #DDDDDD;
+  background-color: #0f3e69;
+  border-bottom: 1px solid #ffffff;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   
   -webkit-transition: padding .5s ease-in-out;
@@ -136,7 +136,8 @@ img {
   line-height: 1.5;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-  font-size: 1.125rem;
+  font-size: 2rem; 
+  /* 폰트 크기 변경(제목) */
 }
 
 .navbar-custom .navbar-brand-logo {
@@ -166,14 +167,15 @@ img {
 
 .navbar-custom .navbar-nav .nav-item {
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: 1rem;
+  /* 폰트사이즈 아이템 */
   letter-spacing: 0.0625rem;
 }
 
 .navbar-custom .navbar-nav .nav-link {
   padding-top: 0;
   padding-bottom: 0;
-  line-height: 1.25rem;
+  line-height: 3rem;
   padding-top: 0.9375rem;
   padding-bottom: 0.9375rem;
 }
@@ -181,7 +183,8 @@ img {
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav .nav-link {
   font-weight: 800;
-  color: #404040;
+  /* 폰트 굵기 */
+  color: #ffffff;
 }
 
 .navbar-toggler {
@@ -213,7 +216,8 @@ img {
   }
 
   .navbar-custom .navbar-brand-logo img {
-    height: 3.125rem;
+    height: 5rem;
+    /* 로고사이즈 */
   }
 
   .navbar-expand-xl .navbar-nav .nav-link {
@@ -250,10 +254,10 @@ img {
 
 .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
   padding: 0.625rem;
-  background-color: #EAEAEA;
+  background-color: #0f3e69;
   text-decoration: none !important;
   font-weight: normal;
-  color: #404040;
+  color: #ffffff;
   
   white-space: normal;
   
@@ -266,7 +270,7 @@ img {
 
   .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
     padding-left: 0.625rem;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #ffffff;
     border-width: 0 1px 1px;
   }
 
@@ -277,7 +281,7 @@ img {
 
 @media (max-width: 1199px) {
   .navbar-custom .navbar-collapse {
-    border-top: 1px solid #DDDDDD;
+    border-top: 1px solid #ffffff;
     margin: 0 -1rem;
   }
 
@@ -372,12 +376,12 @@ footer {
   border-top: 1px #EAEAEA solid;
   margin-top: 3.125rem;
   font-size: 0.875rem;
-  background-color: #EAEAEA;
+  background-color: #0f3e69;
   
 }
 
 footer p.text-muted {
-  color: #777777 !important;
+  color: #ffffff !important;
 }
 
 footer a {

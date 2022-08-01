@@ -49,14 +49,15 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+#avatar: "/assets/img/avatar-icon.png"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
+#round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
-#title-img: /path/to/image
+title-img: "/assets/img/logo.png"
+# 타이틀이미지 넣기
 
 
 #####################################
@@ -142,15 +143,15 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
+navbar-col: "#0f3e69"
+navbar-text-col: "#ffffff"
+navbar-border-col: "#ffffff"
 page-col: "#FFFFFF"
 text-col: "#404040"
 link-col: "#008AFF"
 hover-col: "#0085A1"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
+footer-col: "#0f3e69"
+footer-text-col: "#ffffff"
 footer-link-col: "#404040"
 footer-hover-col: "#0085A1"
 
