@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: My Website
+title: 2022년 추계 학술대회
 
 # Your name to show in the footer
 author: Some Person
@@ -20,11 +20,28 @@ author: Some Person
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  홈: "../"
+  개요: "jinwoo"
+  프로그램:
+    - Time Table: "jinwoo"
+    - 발표장: "jinwoo"
+    - Ballroom 1: "jinwoo"
+    - Ballroom 2: "jinwoo"
+    - Meeting Room: "jinwoo"
+  지면광고:
+    - 서울시립대학교 LARS랩: "jinwoo"
+    - 지오빅데이터 오픈플랫폼: "jinwoo"
+  사전등록: "jinwoo"
+  신청:
+    - 특별세션: "jinwoo"
+    - 지면광고: "jinwoo"
+  위원회: "jinwoo"
+  행사장:
+    - 행사장: "jinwoo"
+    - 행사장 오시는길: "jinwoo"
+    - 숙박안내: "jinwoo"
+    
+  
 
 ################
 # --- Logo --- #
@@ -106,7 +123,7 @@ feed_show_excerpt: true
 feed_show_tags: true
 
 # Add a search button to the navbar
-post_search: true
+# post_search: true
 
 # Add a button in the footer to edit the current page. Only works if your website is hosted on GitHub
 edit_page_button: true
@@ -140,9 +157,9 @@ footer-hover-col: "#0085A1"
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
 
-#navbar-img: "/assets/img/bgimage.png"
-#footer-img: "/assets/img/bgimage.png"
-#page-img: "/assets/img/bgimage.png"
+# navbar-img: "/assets/img/bgimage.png"
+# footer-img: "/assets/img/bgimage.png"
+# page-img: "/assets/img/bgimage.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
 #mobile-theme-col: "#0085A1"

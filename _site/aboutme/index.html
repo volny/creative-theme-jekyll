@@ -22,7 +22,7 @@
   
 
   
-  <link rel="alternate" type="application/rss+xml" title="My Website" href="http://localhost:4000/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="2022년 추계 학술대회" href="http://localhost:4000/feed.xml">
   
 
   
@@ -75,7 +75,7 @@
   
 
   
-  <meta property="og:site_name" content="My Website">
+  <meta property="og:site_name" content="2022년 추계 학술대회">
   <meta property="og:title" content="About me">
   <meta property="og:description" content="Why you'd want to go on a date with me">
 
@@ -117,32 +117,60 @@
   
 
 
-  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">My Website</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">2022년 추계 학술대회</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="main-navbar">
     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/aboutme">About Me</a>
+            <a class="nav-link" href="/">홈</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/jinwoo">개요</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">프로그램</a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
-                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+                  <a class="dropdown-item" href="/jinwoo">Time Table</a>
+                  <a class="dropdown-item" href="/jinwoo">발표장</a>
+                  <a class="dropdown-item" href="/jinwoo">Ballroom 1</a>
+                  <a class="dropdown-item" href="/jinwoo">Ballroom 2</a>
+                  <a class="dropdown-item" href="/jinwoo">Meeting Room</a>
+            </div>
+          </li>
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">지면광고</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/jinwoo">서울시립대학교 LARS랩</a>
+                  <a class="dropdown-item" href="/jinwoo">지오빅데이터 오픈플랫폼</a>
             </div>
           </li>
         
           <li class="nav-item">
-            <a class="nav-link" href="https://deanattali.com">Author's home</a>
+            <a class="nav-link" href="/jinwoo">사전등록</a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" id="nav-search-link" href="#" title="Search">
-            <span id="nav-search-icon" class="fa fa-search"></span>
-            <span id="nav-search-text">Search</span>
-          </a>
-        </li></ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">신청</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/jinwoo">특별세션</a>
+                  <a class="dropdown-item" href="/jinwoo">지면광고</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/jinwoo">위원회</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">행사장</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/jinwoo">행사장</a>
+                  <a class="dropdown-item" href="/jinwoo">행사장 오시는길</a>
+                  <a class="dropdown-item" href="/jinwoo">숙박안내</a>
+            </div>
+          </li>
+        </ul>
   </div>
 
   
@@ -158,65 +186,6 @@
   
 
 </nav>
-
-
-
-<div id="beautifuljekyll-search-overlay">
-
-  <div id="nav-search-exit" title="Exit search">✕</div>
-  <input type="text" id="nav-search-input" placeholder="Search">
-  <ul id="search-results-container"></ul>
-  
-  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-  <script>
-    var searchjson = '[ \
-       \
-        { \
-          "title"    : "Sample blog post", \
-          "category" : "test", \
-          "url"      : "/2020-02-28-test-markdown/", \
-          "date"     : "February 28, 2020" \
-        }, \
-       \
-        { \
-          "title"    : "Flake it till you make it", \
-          "category" : "bookstest", \
-          "url"      : "/2020-02-26-flake-it-till-you-make-it/", \
-          "date"     : "February 26, 2020" \
-        }, \
-       \
-       \
-        { \
-          "title"    : "About me", \
-          "category" : "page", \
-          "url"      : "/aboutme/", \
-          "date"     : "January 1, 1970" \
-        }, \
-       \
-        { \
-          "title"    : "My website", \
-          "category" : "page", \
-          "url"      : "/", \
-          "date"     : "January 1, 1970" \
-        }, \
-       \
-        { \
-          "title"    : "Tag Index", \
-          "category" : "page", \
-          "url"      : "/tags/", \
-          "date"     : "January 1, 1970" \
-        } \
-       \
-    ]';
-    searchjson = JSON.parse(searchjson);
-
-    var sjs = SimpleJekyllSearch({
-      searchInput: document.getElementById('nav-search-input'),
-      resultsContainer: document.getElementById('search-results-container'),
-      json: searchjson
-    });
-  </script>
-</div>
 
 
 
