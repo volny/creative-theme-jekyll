@@ -252,20 +252,21 @@ img {
 
 .navbar-custom .nav-item.dropdown .dropdown-menu {
   margin-top: 0;
-  font-size: 1em;
+  font-size: 0.75em;
   border: 0;
   padding: 0;
   {% if site.navbar-var-length %}
-  min-width: 100%;
+  min-width: 130%;
   {% else %}
   min-width: 0;
-  width: 100%;
+  width: 130%;
   word-break: break-word;
   {% endif %}
+  /* 하단 메뉴 수정 */
 }
 
 .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
-  padding: 0.625rem;
+  padding: 0.625rem;  
   background-color: {{ site.navbar-col | default: "#EAEAEA" }};
   text-decoration: none !important;
   font-weight: normal;

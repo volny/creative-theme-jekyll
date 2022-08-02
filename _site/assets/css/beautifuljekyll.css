@@ -242,18 +242,19 @@ img {
 
 .navbar-custom .nav-item.dropdown .dropdown-menu {
   margin-top: 0;
-  font-size: 1em;
+  font-size: 0.75em;
   border: 0;
   padding: 0;
   
   min-width: 0;
-  width: 100%;
+  width: 130%;
   word-break: break-word;
   
+  /* 하단 메뉴 수정 */
 }
 
 .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
-  padding: 0.625rem;
+  padding: 0.625rem;  
   background-color: #0f3e69;
   text-decoration: none !important;
   font-weight: normal;
