@@ -1,8 +1,40 @@
 ---
 layout: post
-title: 새로운 시작
+title: 새로운
 subtitle: Each post also has a subtitle
 ---
+
+<div class="section_sub_menu_wrap">
+          <div id="">
+              <ul class="list_sub_menu _subMenu">
+                  <li class="_sub theme_color">
+                      <a href="/?link=3hxoxfmq">
+                          <span class="menu_name">
+                              <span class="text">행사장</span>
+                          </span>
+                          <span class="selected_line "></span>
+                      </a>
+                  </li>
+                  <li class="_sub theme_color">
+                      <a href="/?link=ee1dfvkc">
+                          <span class="menu_name">
+                              <span class="text">행사장 오시는길</span>
+                          </span>
+                          <span class="selected_line "></span>
+                      </a>
+                  </li>
+                  <li class="_sub theme_color selected">
+                      <a href="/?link=54ici8he">
+                          <span class="menu_name">
+                              <span class="text">숙박안내</span>
+                          </span>
+                          <span class="selected_line theme_background"></span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
 
 This is a demo post to show you how to write blog posts with markdown.  I strongly encourage you to [take 5 minutes to learn how to write in markdown](https://markdowntutorial.com/) - it'll teach you how to transform regular text into bold/italics/headings/tables/etc.
 

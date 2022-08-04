@@ -12,21 +12,10 @@
     
     
       <item>
-        <title>새로운 시작</title>
+        <title>새로운</title>
         <description>
           Each post also has a subtitle - 
-          This is a demo post to show you how to write blog posts with markdown. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc. Here is some bold text Here is a secondary...
-        </description>
-        <pubDate>Fri, 28 Feb 2020 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2020-02-28-test-markdown/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-02-28-test-markdown/</guid>
-      </item>
-    
-      <item>
-        <title>새로운 시작</title>
-        <description>
-          Each post also has a subtitle - 
-          This is a demo post to show you how to write blog posts with markdown. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc. Here is some bold text Here is a secondary...
+          행사장 행사장 오시는길 숙박안내 This is a demo post to show you how to write blog posts with markdown. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc. Here is some bold text...
         </description>
         <pubDate>Fri, 28 Feb 2020 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/2020-02-28-test-markdown-copy/</link>

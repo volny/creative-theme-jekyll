@@ -1,14 +1,49 @@
 ---
 ---
-<body>
+
+<div class="gaybar__container">
+<div>
+	<a href="/?link=3hxoxfmq">
+        행사장
+    </a>
+	<a href="/jinwoo">
+        행사장 오시는길
+    </a>
+	<a href="/?link=54ici8he">
+        숙박안내
+    </a>
+	<a href="/?link=3hxoxfmq">
+        행사장
+    </a>
+	<a href="/jinwoo">
+        행사장 오시는길
+    </a>
+	<a href="/?link=54ici8he">
+        숙박안내
+    </a>
+	<a href="/?link=54ici8he">
+        숙박안내
+    </a>
+	<a href="/?link=3hxoxfmq">
+        행사장
+    </a>
+	<a href="/jinwoo">
+        행사장 오시는길
+    </a>
+	<a href="/?link=54ici8he">
+        숙박안내
+    </a></div>
+</div>
+
+
 
 <p class="HStyle0">1. <span style="position: relative; font-family: HY견고딕; border-width: 0px;">2022년 GEOAI데이터학회 춘계워크샵</span><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
 
 <p class="HStyle0"><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
 
-<p class="HStyle0"><span style="position: relative; font-family: HY견고딕; border-width: 0px;">-장소: 부산그랜드조선호텔</span><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
+<p class="HStyle0"><span style="position: relative; font-family: HY견고딕; border-width: 0px;"></span><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
 
-<p class="HStyle0"><span style="position: relative; font-family: HY견고딕; border-width: 0px;">-일시: 6월 15일(수) - 16일(목)</span><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
+<p class="HStyle0"><span style="position: relative; font-family: HY견고딕; border-width: 0px;">-장소: 부산그랜드조선호텔<br/>-일시: 6월 15일(수) - 16일(목)</span><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
 
 <p class="HStyle0"><span style="position: relative; font-family: HY견고딕; border-width: 0px;">-주최: 지오에이아이데이터학회</span><span class="hnc_page_break" style="word-spacing: -0.5em; border-width: 0px;">&nbsp;</span></p>
 
@@ -113,7 +148,7 @@
 
 
 
-</body>
+
 <hr/>
 
 

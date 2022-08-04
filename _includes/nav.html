@@ -1,5 +1,7 @@
-<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}">
 
+{% assign flag = false %}
+<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}">
+<!-- <div style="display: flex;"> -->
   {%- if site.title-img -%}
     <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
   {%- elsif site.title -%}
@@ -46,17 +48,55 @@
       {% include {{ file }} %}
     {% endfor %}
   {% endif %}
-
-  {% if site.avatar and page.show-avatar != false %}
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        <a href="{{ '' | absolute_url }}">
-          <img alt="Navigation bar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" />
+<!-- </div> -->
+  
+  {%- for link in site.navbar-links -%}
+  {%- if link[1].first -%}
+    {%- for childlink in link[1] -%}
+      {%- for linkparts in childlink -%}
+        {%- if {{page.url | replace: '/', ''}} == linkparts[1] -%}
+          {% assign flag = true %}
+          {% else %}
+          {% assign flag = false %}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor %}
+  {%- endif -%}
+{%- endfor -%}
+{% if flag %}
+<!-- <div class="collapse navbar-collapse" id="main-navbar">
+  <ul class="navbar-nav ml-auto">
+    {%- for link in site.navbar-links -%}
+      {%- if link[1].first %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link[0] }}</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            {%- for childlink in link[1] -%}
+              {%- for linkparts in childlink %}
+                <a class="dropdown-item" href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
+              {%- endfor -%}
+            {%- endfor %}
+          </div>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+    {% if site.post_search %}
+      <li class="nav-item">
+        <a class="nav-link" id="nav-search-link" href="#" title="Search">
+          <span id="nav-search-icon" class="fa fa-search"></span>
+          <span id="nav-search-text">Search</span>
         </a>
-      </div>
-    </div>
-  {% endif %}
+      </li>
+    {%- endif -%}
+  </ul>
+</div> -->{% endif %}
 
 </nav>
+
+
 
 {% include search.html %}
