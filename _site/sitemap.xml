@@ -24,6 +24,9 @@
 <loc>http://localhost:4000/timetable/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/%EA%B0%9C%EC%9A%94/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/commentbox.html</loc>
 <lastmod>2022-07-20T06:53:16-04:00</lastmod>
 </url>
