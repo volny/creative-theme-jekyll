@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'Helvetica', 'Times New Roman', serif;
+  font-family: 'Noto Sans','맑은 고딕','Malgun Gothic',Arial,Helvetica,sans-serif,Lucida,'Grande','Microsoft YaHei','Hiragino Sans GB', 'SimSun', 'Meiryo';
   font-size: 1.125rem;
   color: {{ site.text-col | default: "#404040" }};
   position: relative;
