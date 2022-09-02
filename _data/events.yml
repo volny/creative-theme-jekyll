@@ -12,8 +12,8 @@
 events:
 
 ###############
- - date: "There are no public events currently planned."
-   text: "If you'd like to discuss having HTuO participate in an event, please contact [info@htuobio.com](mailto:info@htuobio.com)."
+# - date: "There are no public events currently planned."
+#   text: "If you'd like to discuss having HTuO participate in an event, please contact [info@htuobio.com](mailto:info@htuobio.com)."
 ###############
  - date: October 4th and 5th, 2022
    text: "HTuO Biosciences will be attending [BioPharm America](https://informaconnect.com/biopharm-america/) virtually."
