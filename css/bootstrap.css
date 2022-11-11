@@ -1329,11 +1329,11 @@ mark,
 .text-primary {
   color: #337ab7;
 }
-.text-heart {
-  color: #d9554e;
-}
 a.text-primary:hover {
   color: #286090;
+}
+.text-heart {
+  color: #d9554e;
 }
 .text-success {
   color: #3c763d;
