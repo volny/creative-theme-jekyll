@@ -2,19 +2,20 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand page-scroll" href="{% link index.html %}#page-top">
-              {%- if site.logo -%}
-              <img 
-                style="max-height:100%;height:auto"
-                src="{{ site.baseurl }}/{{ site.logo.path }}" 
-              />
-              {%- else -%} {{ site.baseurl }}/{{ site.title }} {%- endif -%}
+                {%- if site.logo -%}
+                <img
+                        style="max-height:100%;height:auto"
+                        src="{{ site.baseurl }}/{{ site.logo.path }}"
+                />
+                {%- else -%} {{ site.baseurl }}/{{ site.title }} {%- endif -%}
             </a>
         </div>
 
@@ -25,15 +26,13 @@
                     <a class="page-scroll" href="{% link index.html %}#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{% link index.html %}#technology">
-                       Technology</a>
-                </li>
-                                <li>
-                    <a class="page-scroll" href="{% link index.html %}#validation">
-                       Validation</a>
+                    <a href="{{ site.baseurl }}technology">Technology</a>
                 </li>
                 <li>
-                   <a class="page-scroll" href="{% link index.html %}#news">News</a>
+                    <a href="{{ site.baseurl }}/validation">Validation</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="{% link index.html %}#news">News</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="{% link index.html %}#team">Team</a>
