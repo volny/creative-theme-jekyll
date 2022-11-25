@@ -33,6 +33,7 @@ h3 {
 }
 h4 {
    font-weight: 700;
+   font-size: clamp(18px, 2vmax, 28px);
 }
 h5,
 h6 {
