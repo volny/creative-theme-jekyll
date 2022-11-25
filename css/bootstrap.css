@@ -1258,7 +1258,7 @@ h1,
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: clamp(2px, 2vmax, 34px);
 }
 h3,
 .h3 {
