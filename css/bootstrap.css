@@ -1278,6 +1278,7 @@ h6,
 }
 p {
   margin: 0 0 10px;
+  font-size:clamp(16px, 1.5vmax, 24px);
 }
 .lead {
   margin-bottom: 20px;
