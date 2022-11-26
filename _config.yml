@@ -1,12 +1,12 @@
 # Site settings
-title:
-email:
+title: "Bo Meyering's Page"
+email: "bomeyering@mailbox.org"
 description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/root" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
 twitter_username:
-github_username:
+github_username: "bomeyering@mailbox.org"
 
 # Build settings
 markdown: kramdown
