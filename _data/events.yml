@@ -12,14 +12,8 @@
 events:
 
 ###############
-# - date: "There are no public events currently planned."
-#   text: "If you'd like to discuss having HTuO participate in an event, please contact [info@htuobio.com](mailto:info@htuobio.com)."
-###############
- - date: November 2nd to 4th, 2022
-   text: "HTuO Biosciences will be attending the digital partnering component of [BIO Europe 2022](https://informaconnect.com/bioeurope/). If you are in the business of optimizing drugs, we would like to connect with you. Please find us through the partnering platform or email us directly at [info@htuobio.com](mailto:info@htuobio.com) to schedule a meeting."
-###############
- - date: November 4th, 2022
-   text: "HTuO Biosciences will be presenting at Life Science BC's [Invest in the West](https://lifesciencesbc.ca/event/invest-in-bc-presented-by-lumira-ventures/), sponsored by Lumira Ventures. Find us in session 8, where our CEO, Dr. Anthony Fejes, will be presenting and participating in a live Q&A session hosted by LDV Partners."
+- date: "There are no public events currently planned."
+  text: "If you'd like to discuss having HTuO participate in an event, please contact [info@htuobio.com](mailto:info@htuobio.com)."
 ###############
 #- date: June 1st, 2022
 #  text: "HTuO's CEO, Dr. Anthony Fejes, will be participating in a panel discussion on [Investing in Life Sciences and Healthtech](https://www.vantec.ca/events/vantec-meeting-104), hosted by Vantec Angel Network."
