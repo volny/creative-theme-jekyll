@@ -1,0 +1,30 @@
+<section class="section-pad-md news">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h3>Recent News & Events</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 section-news-list">
+        {% assign news = site.data.news.events | reverse %}
+        {%- for event in news limit:3 -%}
+          <div class="news-article">
+            <div class="image">
+              <span>{{ event.date | markdownify }}</span>
+            </div>
+            <h6></h6>
+            <p>{{ event.text | markdownify }}</p>
+            <!-- <p><a class="link-arrow" href="news.html">Read More <span class="arrow"></span></a></p> -->
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <hr/>
+    <div class="row section-footer section-pad-sm">
+      <div class="col-sm-12 text-center">
+        <p><a href="news.html" class="link-arrow">View All News & Events <span class="arrow"></span></a></p>
+      </div>
+    </div>
+  </div>
+</section>

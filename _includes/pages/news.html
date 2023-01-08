@@ -1,0 +1,46 @@
+<!-- Main Banner -->
+<section class="page-banner-sm text-light" ref="bannerBlock">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>News & Events</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="filter">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form">
+          <!-- <p>Filter Events by</p> -->
+          <!-- <select class="form-control form-control-lg"> -->
+            <!-- <option>Large select</option> -->
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section -->
+<section class="section-pad-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 news-list">
+        {%- for event in site.data.news.events reversed -%}
+          <div class="news-article">
+            <div class="image">
+              <span>{{ event.date | markdownify }}</span>
+            </div>
+            <h6></h6>
+            <p>{{ event.text | markdownify }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- {% include blocks/collaborate.html %} -->

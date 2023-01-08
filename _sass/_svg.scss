@@ -1,0 +1,308 @@
+
+.icon {
+  width: 64px;
+}
+
+
+.icon-atom {
+  position: relative;
+
+  .balls {
+    z-index: 1;
+
+    .b1 {
+      background-color: rgba(var(--secondary));
+      width: 10%;
+      padding-bottom: 10%;
+      border-radius: 50%;
+      position: absolute;
+      top: 37%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .b2 {
+      background-color: rgba(var(--primary));
+      width: 5%;
+      padding-bottom: 5%;
+      border-radius: 50%;
+      position: absolute;
+      top: 32%;
+      left: 36%;
+      transform: translate(-50%, -50%);
+    }
+
+    .b3 {
+      background-color: rgba(var(--primary));
+      width: 5%;
+      padding-bottom: 5%;
+      border-radius: 50%;
+      position: absolute;
+      top: 15%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+    }
+
+    .b4 {
+      background-color: rgba(var(--primary));
+      width: 5%;
+      padding-bottom: 5%;
+      border-radius: 50%;
+      position: absolute;
+      top: 57%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+    }
+
+    @for $i from 1 through 4 {
+      .b#{$i} {
+        animation: bounce 5s infinite;
+        animation-delay: $i * 0.3s;
+
+        &:after {
+          animation: bounceReverse 5s infinite;
+          animation-delay: $i * 0.3s;
+        }
+      }
+    }
+  }
+
+  .orbit {
+    position: relative;
+    transform: scaleY(0.5);
+    width: 100%;
+    padding-bottom: 70%;
+    z-index: -1;
+  }
+
+  @for $i from 1 through 3 {
+    .c#{$i} {
+      animation: bounceCircle 5s infinite;
+      animation-delay: $i * 0.3s;
+    }
+  }
+
+  .c1 {
+    border: 3px solid rgba(var(--secondary));
+    width: 30%;
+    padding-bottom: 30%;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .c2 {
+    border: 3px solid rgba(var(--secondary));
+    width: 60%;
+    padding-bottom: 60%;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .c3 {
+    border: 3px solid rgba(var(--secondary));
+    width: 90%;
+    padding-bottom: 90%;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes bounce {
+  0% { 
+    margin-top: 0px;
+  }
+  50% { 
+    margin-top: 10px;
+  }
+  100% { 
+    margin-top: 0px;
+  }
+}
+
+@keyframes bounceCircle {
+  0% { 
+    margin-top: 0px;
+  }
+  50% { 
+    margin-top: 70px;
+  }
+  100% { 
+    margin-top: 0px;
+  }
+}
+
+@keyframes bounceReverse {
+  0% { 
+    top: 60px;
+  }
+  50% { 
+    top: 50px;
+  }
+  100% { 
+    top: 60px;
+  }
+}
+
+.technology {
+  .b2, .b3, .b4 {
+    background-color: rgba(var(--light)) !important;
+  }
+}
+
+
+.page-banner {
+  .icon-partner {
+    // transform: skewY(30deg) skewX(-40deg);
+    transform: scaleY(0.5);
+  }
+}
+
+.icon-partner {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+
+  &.blue {
+    .b1, .b2, .b3, .b4 {
+      
+      span {
+        transform: scale(0.6);
+        &:after {
+          background-color: rgba(var(--primary)) !important;
+        }
+
+        &:before {
+          background-color: rgba(var(--primary),0) !important;
+        }
+      }
+    }
+  }
+
+  .orbit {
+    width: 50%;
+    padding-bottom: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid rgba(var(--secondary));;
+
+
+    @for $i from 1 through 4 {
+      $ran: random(360) + deg;
+
+      .b#{$i} {
+        transform: rotate($ran) scale(1);
+        animation: rotateBall#{$i} calc(random(20) + 10) + s infinite;
+        animation-delay: $i * 0.2s;
+      }
+
+      @keyframes rotateBall#{$i} {
+        0% { 
+          transform: rotate($ran) scale(1);
+        }
+        50% {
+          transform: rotate(calc($ran + 360deg)) scale(1);
+        }
+        100% { 
+          transform: rotate(calc(720deg + $ran)) scale(1);
+        }
+      }
+    }
+
+    .c1 {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      display: block;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 100;
+      top: 50%;
+      left: 50%;
+      background-color: rgba(var(--secondary));
+    }
+
+    .b1, .b2, .b3, .b4 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;  
+          background-color: rgba(var(--light));
+          width: 30px;
+          height: 30px;border-radius: 50%;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          transform: rotate(-45deg);
+          top: 0;
+          left: 27%;  
+          background-color: rgba(var(--light));
+          width: 2px;
+          height: 55%;
+        }
+      }
+    }
+  }
+}
+
+.icon-about {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+
+  
+
+  @for $i from 1 through 100 {
+    $ran: random(10) + px;
+
+    
+
+    circle:nth-child(#{$i}) {
+      animation: bounceAbout#{$i} #{$i} + s infinite;
+      animation-delay: $i * 0.3s;
+      transform: translate(0px, calc(-1 * $ran * $i));
+    }
+    
+    .c1 {
+      transform: translate(0,0) !important;
+    }
+
+    @keyframes bounceAbout#{$i} {
+      0% { 
+        transform: translate(0px, calc(-1 * $ran * $i));
+      }
+      50% { 
+        transform: translate(0px, 0px);
+      }
+      100% { 
+        transform: translate(0px, calc(-1 * $ran * $i));
+      }
+    }
+  }
+
+  
+}

@@ -1,0 +1,33 @@
+<!-- Main Banner -->
+<section class="page-banner-sm text-light" ref="bannerBlock">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Facts & Questions</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="section-pad-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h6>Facts & Questions</h6>
+        <p>Is there a missing question on this list? Let us know <a class="link-arrow" href="">Get in touch</a></p>
+      </div>
+      <div class="col-md-9">
+        {%- for question in site.data.faq.questions reversed -%}
+          <div class="question">
+            <h4>{{ question.question | text }}</h4>
+            <p>{{ question.answer | text }}</p>
+          </div>
+        {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- {% include blocks/collaborate.html %} -->

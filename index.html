@@ -4,18 +4,13 @@ layout:
 
 {% include head.html %}
 
-<body id="page-top">
-  {% include nav.html %}
-  {% include header.html %}
-  {% include about.html %}
-  {% include problem.html %}
-  {% include solution.html %}
-  {% include differentiation.html %}
-  {% include collaborate.html %}
-  {% include newsevent.html %} 
-  {% include team.html %} 
-  {% include contact.html %}
-  {% include scripts.html %}
+<body class="home">
+  <div class="container-fluid" id="app">
+    {% include nav.html %}
+    {% include pages/home.html %}
+    {% include footer.html %}
+  </div>  
+    {% include scripts.html %}  
 </body>
 
 

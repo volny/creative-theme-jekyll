@@ -1,0 +1,126 @@
+<!-- Main Banner -->
+<section class="page-banner text-light research-banner" ref="bannerBlock">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 banner-block">
+        <h2><small>Our Research</small></h2>
+        <h2>We are <span>designing</span> the future of <span>molecule discovery</span></h2>
+        <p class="lead">HTUO Biosciences develops advanced molecular simulation to accurately predict drug behavior through chemistry and computer programming.</p>
+      </div>
+      <div class="col-md-6 col-md-pull-6">
+        <img />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="row">
+          <div class="col-sm-6">
+            <img src="img/img-charge-calc-1.jpg" alt="Charge Calculations"/>
+          </div>
+          <div class="col-sm-6">
+            <img src="img/img-charge-calc-2.jpg" alt="Charge Calculations"/>
+          </div>
+        </div>
+        <h3>Charge calculations</h3>
+        <p>The partial charges of water are a function of the environment. Using HTuO’s Force Field, we can correctly calculate the changes in charge on interacting water molecules. This is despite HTuO’s Parameterization for Oxygen leaving water dimers out of the training set.</p>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <img style="max-width: 400px;" src="img/img-charge-calc-3.jpg" alt="Charge Calculations"/>
+          </div>
+        </div>
+
+        <p><small>HTuO’s Force Field is capable of simulating dissociation - <br>a common chemical occurrence in natural systems.</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="section-pad-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="image-block-left">
+          <img src="img/img-molecule-1.jpg" alt=""/>
+        </div>
+      </div>
+      <div class="col-sm-5 col-sm-push-1">
+        <h3>HTuO simulations include proton transfers</h3>
+        <p>In our training set, we see proton transfers between different functional groups, mimicking the interactions that would naturally occur.</p>
+        <p>In the example presented above, we identified transfer events which predict protons being passed between an Imidazole (pka ~7.0) and a carboxylate group (pka ~5)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="section-pad-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h3>HTuO’s Atomic Model goes further</h3>
+        <p>Our platform correctly maintains the structure of ice, without explicit parameterization for water molecules.</p>
+        <p>The training set for our force field parameterization includes alcohols and cyclic structures that contain oxygen, but not water itself. Our platform was able to correctly maintain the structure of Ice in both Molecular Dynamics simulations and using energy minimization algorithms.</p>
+      </div>
+      <div class="col-sm-6 col-sm-push-1">
+        <div class="image-block">
+          <img src="img/img-molecule-2.jpg" alt=""/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="fill-light section-pad">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 image-block left">
+        <div class="image">
+          <img class="img" src="img/img-graph-prediction-error.svg" alt=""/>
+        </div>
+      </div>
+      <div class="col-sm-5 col-sm-push-1 col-xs-12 text-block">
+        <h3>Comparing <span>Our Accuracy</span></h3>
+        <p>Using AMBER’s own test for testing force fields, our tools are able to better predict the configurations of molecules in a head-to-head test. It improves the accuracy for the location of atoms, bond lengths and angles between atoms. AMBER cannot predict charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="fill-blue-grad section-pad text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h3>Root Mean Squared Deviation (RMSD) Error Quantification for Validation Data</h3>
+        <p><small>General Amber Force Field vs HTuO Force Field</small></p>
+        <div class="mobile-graph">
+          <img src="img/img-graph-validation-data.svg" alt=""/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section -->
+<section class="fill-light section-pad">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h3>Demonstrating <span>consistent</span> <span>improvement</span></h3>
+        <p>Using AMBER’s own test for testing force fields, our tools are able to better predict the configurations of molecules in a head-to-head test. It improves the accuracy for the location of atoms, bond lengths and angles between atoms. AMBER cannot predict charge.</p>
+        <a href="contact.html" class="btn btn-primary btn-outline btn-arrow">Get in Touch<span class="arrow"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- {% include blocks/collaborate.html %} -->

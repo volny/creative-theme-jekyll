@@ -1,0 +1,178 @@
+:root {
+  // Primary Colours
+  --primary: 41, 108, 255; //296CFF
+  --primary-acc: 0, 148, 255; //0094FF
+  --secondary: 0, 202, 230; //00CAE6
+  --secondary-acc: 0, 255, 234; //00FFEA
+  --tertiary: 255, 0, 92; //FF005C
+  --tertiary-acc: 255, 39, 91; //FF275B
+  --dark: 3, 13, 79; //030D4F
+  --light: 255,255,255; //ffffff
+
+  
+
+  --acc-pink: 228, 62, 255; //E43EFF
+
+  --nav-pink: 44, 64, 194; //2C40C2
+
+  // Typography
+  --text-light: 211, 216, 248; //D3D8F8
+  --text: 80, 83, 110; //323544
+  --text-dark: 3, 13, 79; //030D4F
+  --link: 0, 148, 255; //0094FF
+
+
+    // Borders
+  --border-light: var(--text-light);
+  --border-dark: 42, 55, 143; //2A378F
+  
+  // default typography size
+  --size: 16px;
+
+  // default property size
+  --unit: 16px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;600;700&family=Source+Sans+Pro:wght@300;400&display=swap');
+$size: var(--size);
+$unit: var(--unit);
+$primary-family: "Figtree", sans-serif;
+
+// Defaults
+html, body {
+  font-size: $size;
+  font-family: $primary-family;
+  line-height: 1.75em;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+h1 {
+  font-size: calc(48px + 0.5vw);
+  font-family: $primary-family;
+  font-weight: 600;
+  color: rgba(var(--dark),1);
+  margin: 0 0 0.5em 0;
+}
+
+h2 {
+  font-size: calc(40px + 0.5vw);
+  font-family: $primary-family;
+  font-weight: 600;
+  color:rgba(var(--dark),1);
+  margin: 0 0 0.5em 0;
+}
+
+h3 {
+  font-size: calc(24px + 0.5vw);
+  font-family: $primary-family;
+  font-weight: 600;
+  margin: 0 0 0.75em 0;
+  color: rgba(var(--dark),1);
+}
+
+h4 {
+  font-size: calc(20px + 0.5vw);
+  font-family: $primary-family;
+  font-weight: 600;
+  color: rgba(var(--dark),1);
+}
+
+h5 {
+  font-size: calc(18px + 0.5vw);
+  font-weight: 600;
+  font-family: $primary-family;
+  color: rgba(var(--dark),1);
+}
+
+h6 {
+  font-size: calc(16px + 0.5vw);
+  font-weight: 600;
+  font-family: $primary-family;
+  color: rgba(var(--dark),1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  & small {
+    font-size: var(--size);
+    margin: 0.25em 0;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 0;
+    font-family: $primary-family;
+    color: rgba(var(--text),1);
+  }
+
+  span {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: rgba(var(--secondary));
+      z-index: -1;
+    }
+  }
+}
+
+nav {
+  a {
+    font-size: calc(12px + 0.4vw);
+    font-family: $primary-family;
+    font-weight: 600;
+    margin-bottom: 1.5em;
+  }
+}
+
+p, label, li, ol {
+  font-size: calc(18px + 0.1vw);
+  font-family: $primary-family;
+  font-weight: 300;
+  margin-bottom: 1.5em;
+  color: rgba(var(--text),1);
+
+  & small {
+    font-size: calc(14px + 0.5vw);
+    font-weight: 300;
+  }
+
+  &.lead {
+    font-size: calc(16px + 0.5vw);
+  }
+}
+
+ul, ol, li {
+  list-style-type: none;
+  color: rgba(var(--white),1);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(var(--link),1);
+  border-bottom: 1px solid var(--link);
+
+  &.no-link {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+hr {
+  border-top: 1px solid rgba(var(--light),1);
+}

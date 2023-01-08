@@ -1,42 +1,16 @@
 ---
-title: "<FAQs></FAQs>"
-layout: faq
+layout:
 ---
 
-    <h4>Q. Is this Artificial Intelligence or Machine Learning?</h4>
-    <br>
-    <p>A. No, our approach is physics based.  We went back to the basics and built everything from the ground up, to come up with a model that’s new and presents some improvements over what’s currently available on other platforms.  We do use machine learning algorithms to fine-tine the parameters of our system, but our core technology is based solely on recreating the relevant physics.</p>
-    <br>
-    <h4>Q. Is it ready to be used?</h4>
-    <br>
-    <p>A. Our core technology is currently being validated and scaled, with the expected launch date at the end of 2022.  If you’d like to receive updates on our progress or would like to propose a collaboration, we’d be happy to hear from you.  Email us at <a href="mailto:info@htuobio.com">info@htuobio.com</a> and we will get back to you as quickly as possible.</p>
-    <br>
-    <h4>Q. Can I buy it?</h4>
-    <br>
-    <p>A. HTuO is not selling or licensing the software we have developed.  However, if you’re interested in working with us to generate insight into a problem you’re working on, please reach out to us at <a href="mailto:info@htuobio.com">info@htuobio.com</a>  We’ll be happy to assist you.</p>
-    <br>
-    <h4>Q. Is this a Quantum Mechanics approach?</h4>
-    <br>
-    <p>A. No, it’s based on traditional Newtonian physics.  We understand that the goal of the simulations is to get as close to Quantum Mechanics (QM) as possible, without incurring the performance penalties associated with it.  However, what we’ve shown is that Newtonian physics still has room for more accuracy.</p>
-    <br>
-    <h4>Q. Do you need a training set to work on a molecule or specific target?</h4>
-    <br>
-    <p>A. No! Unlike AI, our platform is based entirely on physics. Once it’s parameterized for a specific atom, it’s parameterized for any molecule that uses that atom.  There aren’t 22 different types of carbon atoms in real life, so we shouldn’t need 22 to represent how a carbon atom behaves.  This is a big departure from both traditional molecular models that need many atom types, as well as from AI, where you need a big data set to correctly fix the atomic properties of every atom in the system for each new data set.   The simplicity of our model sets it apart - and we don’t need to retrain our system for each experiment.</p>
-    <br>
-    <h4>Q. Why is this not the same as Alphafold2? </h4>
-    <br>
-    <p>A. Alphafold2 is a project that takes a genetic sequence and predicts the three-dimensional structure of proteins - usually with very good outcomes.  That is one of the key breakthroughs of the genomics age, opening up the possibility of new targets and mechanisms for therapies for a variety of new diseases.  However, our ability to make use of this trove of information is limited by our ability to truly understand and develop new drugs for these targets - exactly what HTuO is trying to do.</p>
-    <div id="forcefield"></div>
-    <br>
-    <h4>Q. What is a force field?</h4>
-    <br>
-    <p>A. A force field is a collection of mathematical rules that govern the interaction between atoms.  It's our best representation of what happens at the molecular level. </p>
-    <br>
-    <h4>Q. What is a force field used for?</h4>
-    <br>
-    <p>A. Force fields are actually incredibly versatile.  Their main purpose is for calculating the energy of a given configuration, as would be the case for docking or ranking molecules, or for calculating the motions and trajectories of atoms and molecuels, as would be the case in a molecular dynamics simulation.</p>
-    <br>
-    <h4>Q. What role does a force field play in drug optimization</h4>
-    <br>
-    <p>A. At the risk of oversimplifying, Drug optimization requires both design and insight in order to find molecules that bind efficiently to their targets.  A chemist can suggest novel molecules or functional groups to convert a good hit into a better hit, but testing the outcome requires a computational program to verify whether the modifications were successful.  The better the force field used to verify the design, the more insight will be available to the chemist.  HTuO's force field promises to be the most accurate way to generate insight available.  </p>
+{% include head.html %}
+
+<body id="page-top" class="faq">
+  <div class="container-fluid" id="app">
+    {% include nav.html %}
+    {% include pages/faq.html %}
+    {% include footer.html %}
+  </div>  
+    {% include scripts.html %}  
+</body>
+
 

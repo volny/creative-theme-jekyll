@@ -50,17 +50,17 @@ $gray900: #212529 !default;
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "mixins",
-        "base",
-        "timeline"
-;
+@import "variables";
+@import "buttons";
+@import "nav";
+@import "layouts";
+@import "svg";
 
 // Make all columns equally high with Bootstrap 3
-@media (min-width: 768px) {
-  .aligned-row {
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
-  }
-}
+// @media (min-width: 768px) {
+//   .aligned-row {
+//     display: flex;
+//     display: -webkit-flex;
+//     flex-wrap: wrap;
+//   }
+// }

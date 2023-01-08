@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
-<head>
-
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,12 +8,11 @@
 
     <!--Thumbnail-->
     <meta property="og:title" 
-          content="{% if page.title %}{{ page.title | escape }} 
-                   | {% endif %}{{ site.title | escape }}" />
+      content="{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://{{ site.url }}{{ page.url }}" />
-    <meta property="og:image" content="https://{{ site.url }}/img/HTuO_og.png" />
-    <meta property="og:image:secure_url" content="https://{{ site.url }}/img/HTuO_og.png" />
+    <meta property="og:image" content="https://{{ site.url }}/img/htuobio.png" />
+    <meta property="og:image:secure_url" content="https://{{ site.url }}/img/htuobio.png" />
 
     <!--Browser tab icon-->
     <link rel="icon" href="../img/favicon.png">
@@ -37,13 +34,14 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{site.baseurl}}/css/main.css" type="text/css">
 
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-</head>
-
+  </head>
 </html>
