@@ -1,123 +1,13 @@
-.btn {
-  border-radius: 2em;
-  padding: 0.5em 1.5em;
-  background-color: rgba(var(--primary),1);
-  color: rgba(var(--light),1);
-  font-size: 1rem;
-  font-weight: 600;
+.btn-primary {
+  @include button(--primary, --light, 1em);
+}
 
-  .arrow {
-    display: block;
-    width: 2em;
-    height: 1.5em;
-    float: right;
-    background-color: rgba(var(--light));
-    -webkit-mask: url('../img/icon-arrow.svg') no-repeat center right;
-    -webkit-mask-size: 20px;
-  } 
+.btn-secondary {
+  @include button(--secondary, --light, 1em);
+}
 
-  &.btn-primary {
-    background-color:rgba(var(--primary));
-    color: rgba(var(--light));
-
-    .arrow {
-      background-color: rgba(var(--light));
-    }
-
-    &.btn-outline {
-      border-color: rgba(var(--primary));
-      color: rgba(var(--primary));
-      background-color:rgba(var(--primary),0);
-
-      .arrow {
-        background-color: rgba(var(--primary));
-      }
-
-      &:hover {
-        transition: all 0.3s;
-        background-color:rgba(var(--primary),1);
-        color: rgba(var(--light));
-  
-        .arrow {
-          transition: all 0.3s;
-          background-color: rgba(var(--light));
-        }
-      }
-    }
-
-    &:hover {
-      transition: all 0.3s;
-      background-color:rgba(var(--light));
-      color: rgba(var(--primary));
-
-      .arrow {
-        transition: all 0.3s;
-        background-color: rgba(var(--primary));
-      }
-    }
-  }
-
-  &.btn-secondary {
-    background-color:rgba(var(--secondary));
-    color: rgba(var(--dark));
-    transition: all 0.3s;
-
-    .arrow {
-      transition: all 0.3s;
-      background-color: rgba(var(--dark));
-    }
-
-    &.btn-outline {
-      border-color: rgba(var(--secondary));
-      color: rgba(var(--secondary));
-      background-color:rgba(var(--secondary),0);
-
-      .arrow {
-        background-color: rgba(var(--secondary));
-      }
-    }
-
-    &:hover {
-      transition: all 0.3s;
-      background-color:rgba(var(--secondary));
-      color: rgba(var(--dark));
-
-      .arrow {
-        transition: all 0.3s;
-        background-color: rgba(var(--dark));
-      }
-    }
-  }
-
-  &.btn-light {
-    background-color:rgba(var(--light));
-    color: rgba(var(--dark));
-
-    .arrow {
-      background-color: rgba(var(--dark));
-    }
-
-    &.btn-outline {
-      border-color: rgba(var(--light));
-      color: rgba(var(--light));
-      background-color:rgba(var(--light),0);
-
-      .arrow {
-        background-color: rgba(var(--light));
-      }
-    }
-
-    &:hover {
-      transition: all 0.3s;
-      background-color:rgba(var(--light));
-      color: rgba(var(--dark));
-
-      .arrow {
-        transition: all 0.3s;
-        background-color: rgba(var(--dark));
-      }
-    }
-  }
+.btn-light {
+  @include button(--primary, --light, 1em);
 }
 
 .link-arrow {
@@ -141,9 +31,9 @@
 
   &:hover {
     cursor: pointer;
-    color: rgba(var(--acc-pink));
+    color: rgba(var(--secondary));
     .arrow {
-      background-color: rgba(var(--acc-pink));
+      background-color: rgba(var(--secondary));
       left: 0.3em;
       transition: all 0.1s;
     }

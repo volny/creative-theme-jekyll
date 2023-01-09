@@ -391,7 +391,7 @@ footer {
   .social {
     img {
       height: 32px;
-      margin-right: 10px;
+      margin: 0 10px;
     }
 
     p, a {
@@ -401,7 +401,6 @@ footer {
   }
   
   .copyright {
-    text-align: left;
     p, a {
       font-size: 0.9em;
       margin: 0;
@@ -419,7 +418,6 @@ footer {
   }
 
   .terms {
-    text-align: right;
     p, a {
       font-size: 0.9em;
       color: rgba(var(--text-light),0.5);
@@ -443,5 +441,11 @@ footer {
 @media (max-width: 991px) {
   footer {
     text-align: center;
+
+    .logo {
+      justify-content: center;
+    }
   }
+
+  
 }

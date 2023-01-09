@@ -1,6 +1,7 @@
 
 .icon {
   width: 64px;
+  margin-bottom: 0;
 }
 
 
@@ -170,7 +171,7 @@
 .icon-partner {
   position: relative;
   width: 100%;
-  min-height: 350px;
+  min-height: 250px;
 
   &.blue {
     .b1, .b2, .b3, .b4 {
@@ -272,7 +273,7 @@
 .icon-about {
   position: relative;
   width: 100%;
-  min-height: 350px;
+  min-height: 250px;
 
   
 
@@ -303,6 +304,4 @@
       }
     }
   }
-
-  
 }

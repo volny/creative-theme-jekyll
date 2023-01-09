@@ -1,0 +1,78 @@
+// Button mixin
+@mixin button($bg, $tx, $sz) {
+  border-radius: 2em;
+  padding: 0.5em 1.5em;
+  background-color: rgba(var($bg),1);
+  color: rgba(var($tx),1);
+  font-size: 1rem;
+  font-weight: 600;
+
+  .arrow {
+    display: block;
+    width: 2em;
+    height: 1.5em;
+    float: right;
+    background-color: rgba(var($tx));
+    -webkit-mask: url('../img/icon-arrow.svg') no-repeat center right;
+    -webkit-mask-size: 20px;
+  } 
+
+  &:hover {
+    transition: all 0.3s;
+    background-color:rgba(var($bg));
+    color: rgba(var($tx));
+
+    .arrow {
+      transition: all 0.3s;
+      background-color: rgba(var($tx));
+    }
+  }
+  
+  &.btn-outline {
+    border-color: rgba(var($tx));
+    color: rgba(var($tx));
+    background-color:rgba(var($bg),0);
+
+    .arrow {
+      background-color: rgba(var($tx));
+    }
+
+    &:hover {
+      transition: all 0.3s;
+      background-color:rgba(var($tx),1);
+      color: rgba(var($bg));
+
+      .arrow {
+        transition: all 0.3s;
+        background-color: rgba(var($bg));
+      }
+    }
+  }
+}
+
+//Responsive text helpers
+ .text-xs-left { text-align: left; }
+ .text-xs-right { text-align: right; }
+ .text-xs-center { text-align: center; }
+ .text-xs-justify { text-align: justify; }
+ 
+ @media (min-width: 768px) {
+   .text-sm-left { text-align: left; }
+   .text-sm-right { text-align: right; }
+   .text-sm-center { text-align: center; }
+   .text-sm-justify { text-align: justify; }
+ }
+ 
+ @media (min-width: 992px) {
+   .text-md-left { text-align: left; }
+   .text-md-right { text-align: right; }
+   .text-md-center { text-align: center; }
+   .text-md-justify { text-align: justify; }
+ }
+ 
+ @media (min-width: 1200px) {
+   .text-lg-left { text-align: left; }
+   .text-lg-right { text-align: right; }
+   .text-lg-center { text-align: center; }
+   .text-lg-justify { text-align: justify; }
+ }

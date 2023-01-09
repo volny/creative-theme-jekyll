@@ -2,26 +2,26 @@
   <div class="container">
     <ul>
       <li class="home">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.html" @click="closeNav()">
           {%- if site.logo -%}
           <span class="brand"></span>
           {%- else -%} {{ site.title }} {%- endif -%}
         </a>
       </li>
-      <li class="research nav-item">
-          <a href="{{ site.baseurl }}/research.html">Research</a>
-      </li>
       <li class="technology nav-item">
-        <a href="{{ site.baseurl }}/technology.html">Technology</a>
+        <a href="{{ site.baseurl }}/technology.html" @click="closeNav()">Technology</a>
+      </li>
+      <li class="research nav-item">
+        <a href="{{ site.baseurl }}/research.html" @click="closeNav()">Research</a>
       </li>
       <li class="partnership nav-item">
-        <a href="{{ site.baseurl }}/partnership.html">Partnership</a>
+        <a href="{{ site.baseurl }}/partnership.html" @click="closeNav()">Partnership</a>
       </li>
       <li class="about nav-item">
-        <a href="{{ site.baseurl }}/about.html">About</a>
+        <a href="{{ site.baseurl }}/about.html" @click="closeNav()">About</a>
       </li>
       <li class="contact nav-item">
-        <a href="{{ site.baseurl }}/contact.html">Contact</a>
+        <a href="{{ site.baseurl }}/contact.html" @click="closeNav()">Contact</a>
       </li>
       <li class="nav-toggle" @click="clickNav()">
         <button type="button" :class="{active: navActive}">
@@ -36,11 +36,11 @@
 
 <nav class="mobile-menu" :class="{mobile: navActive}">
   <ul>
-    <li class="research nav-item">
-        <a href="{{ site.baseurl }}/research.html">Research</a>
-    </li>
     <li class="technology nav-item">
       <a href="{{ site.baseurl }}/technology.html">Technology</a>
+    </li>
+    <li class="research nav-item">
+      <a href="{{ site.baseurl }}/research.html">Research</a>
     </li>
     <li class="partnership nav-item">
       <a href="{{ site.baseurl }}/partnership.html">Partnership</a>

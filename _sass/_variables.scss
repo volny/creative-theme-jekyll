@@ -58,6 +58,7 @@ h1 {
   font-family: $primary-family;
   font-weight: 600;
   color: rgba(var(--dark),1);
+  line-height: 1.1em;
   margin: 0 0 0.5em 0;
 }
 
@@ -66,6 +67,7 @@ h2 {
   font-family: $primary-family;
   font-weight: 600;
   color:rgba(var(--dark),1);
+  line-height: 1.1em;
   margin: 0 0 0.5em 0;
 }
 
@@ -74,6 +76,7 @@ h3 {
   font-family: $primary-family;
   font-weight: 600;
   margin: 0 0 0.75em 0;
+  line-height: 1.2em;
   color: rgba(var(--dark),1);
 }
 
@@ -81,12 +84,14 @@ h4 {
   font-size: calc(20px + 0.5vw);
   font-family: $primary-family;
   font-weight: 600;
+  line-height: 1.2em;
   color: rgba(var(--dark),1);
 }
 
 h5 {
   font-size: calc(18px + 0.5vw);
   font-weight: 600;
+  line-height: 1.2em;
   font-family: $primary-family;
   color: rgba(var(--dark),1);
 }
@@ -94,6 +99,7 @@ h5 {
 h6 {
   font-size: calc(16px + 0.5vw);
   font-weight: 600;
+  line-height: 1.2em;
   font-family: $primary-family;
   color: rgba(var(--dark),1);
 }
@@ -150,6 +156,10 @@ p, label, li, ol {
   &.lead {
     font-size: calc(16px + 0.5vw);
   }
+
+  a {
+    margin-top: 0.5em;
+  }
 }
 
 ul, ol, li {
@@ -170,6 +180,7 @@ a {
 
   &:hover {
     text-decoration: none;
+    color: rgba(var(--secondary));
   }
 }
 

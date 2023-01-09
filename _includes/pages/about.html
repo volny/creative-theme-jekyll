@@ -92,53 +92,91 @@
         <h3>A <span>world class</span> team of Specialists</h3>
       </div>
     </div>
-    <div class="row text-center profile-pics first">
-      <div class="col-md-offset-2 col-md-4 col-sm-6 col-xs-6">
-        <img class="person" src="img/anthony-fejes.jpg" alt="Dr. Anthony Fejes"/>
-        <h6>Dr. Anthony Fejes</h6>
-        <p>Co-Founder and CEO</p>
+    <div class="row">
+      <div class="team-list" :class="{active: teamActive}">
+        <div id="tt" class="person af" ref="anthony-fejes">
+          <img @click="showProfile('anthony-fejes')" src="img/anthony-fejes.jpg" alt="Dr. Anthony Fejes"/>
+          <h6 @click="showProfile('anthony-fejes')">Dr. Anthony Fejes</h6>
+          <p>Co-Founder and CEO</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Dr. Anthony Fejes holds undergraduate degrees in biochemistry and Independent Studies (Bioinformatics) from the University of Waterloo, as well as a Masters degree in Microbiology & Immunology and a PhD in Bioinformatics from the University of British Columbia. Anthony started his science career as the scientific co-founder and Chief Scientific Officer at Zymeworks Inc, before working for companies such as Fabric Genomics and Tenaya Therapeutics in the Bay Area and New York based SolveBio.  His experience pairs over 20 years of professional experience as a programmer with a deep background in genomics, biochemistry and data analysis, as well as a decade of management and startup experience.</p>
+          </div>
+        </div>
+        <div class="person as" ref="alex-shynkarenko">
+          <img @click="showProfile('alex-shynkarenko')" src="img/alex-shynkarenko.jpg" alt="Alex Shynkarenko"/>
+          <h6 @click="showProfile('alex-shynkarenko')">Alex Shynkarenko</h6>
+          <p>Co-Founder and CEO</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Alexander Shynkarenko is a computational biologist and data scientist. He graduated from Igor Sikorsky Kyiv Polytechnic Institute with a Master’s in Bioinformatics. and started his career in biotech as a co-founder of Biotopia, the first open labspace in Ukraine, before moving to computational biology. Most recently, he worked as a bioinformatician at Ryvu Therapeutics, a Polish drug discovery company, where he provided data science, machine learning, and bioinformatics analyses for novel anticancer drug candidate programs. Alexander is also a board member at Genomics UA, Ukraine’s largest computational biology professional network.</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <img class="person" src="img/alex-shynkarenko.jpg" alt="Alex Shynkarenko"/>
-        <h6>Alex Shynkarenko</h6>
-        <p>Co-Founder and CEO</p>
-      </div>
-    </div>
-    <div class="row text-center profile-pics">
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <img class="person" src="img/yi-hsuan-lin.jpg" alt="Yi-Hsuan Lin"/>
-        <h6>Yi-Hsuan Lin</h6>
-        <p>Research <br>& Development Lead</p>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <img class="person" src="img/emily-wilson.jpg" alt="Emily Wilson"/>
-        <h6>Emily Wilson</h6>
-        <p>Scientist - Molecular Modeling, Development</p>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <img class="person" src="img/ahmed-ayoub.jpg" alt="Ahmed Ayoub"/>
-        <h6>Ahmed Ayoub</h6>
-        <p>Scientist<br> - Computational Chemistry</p>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <img class="person" src="img/ahmad-navid.jpg" alt="Ahmad Navid"/>
-        <h6>Ahmad Navid</h6>
-        <p>Software <br>Engineer</p>
-      </div>
-      <div class="col-md-4 col-xs-6">
-        <img class="person" src="img/jacek-mis.jpg" alt="Jackek Mis"/>
-        <h6>Jacek Mis</h6>
-        <p>Director of Business <br>Development</p>
-      </div>
-      <div class="col-md-4 col-xs-6">
-        <img class="person" src="img/vladimir-nikolic.jpg" alt="Vladimir Nikolic"/>
-        <h6>Vladimir Nikolic</h6>
-        <p>Software <br>Engineer</p>
-      </div>
-      <div class="col-md-12 col-xs-12">
-        <img class="person" src="img/samantha-schoffer.jpg" alt="Samantha Schoffer"/>
-        <h6>Samantha Schoffer</h6>
-        <p>Office Manager</p>
+      <div class="team-list-2" :class="{active: teamActive}">
+        <div class="person" ref="yi-hsuan-lin">
+          <img @click="showProfile('yi-hsuan-lin')" src="img/yi-hsuan-lin.jpg" alt="Yi-Hsuan Lin"/>
+          <h6 @click="showProfile('yi-hsuan-lin')">Yi-Hsuan Lin</h6>
+          <p>Research & Development Lead</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Dr. Yi-Hsuan Lin completed his bachelors in physics at the University of Illinois at Urbana-Champaign and PhD in physics at the Ohio State University. After that he became a joint postdoctoral fellow at the University of Toronto and the Hospital for Sick Children,  publishing 12 peer-reviewed papers in theoretical biophysics, computational biochemistry, and quantitative biology. Dr. Lin joined HTuO Biosciences in January 2021, bringing with him a broad experience in software development, molecular modelling and machine learning.</p>
+          </div>
+        </div>
+        <div class="person" ref="emily-wilson">
+          <img @click="showProfile('emily-wilson')" src="img/emily-wilson.jpg" alt="Emily Wilson"/>
+          <h6 @click="showProfile('emily-wilson')">Emily Wilson</h6>
+          <p>Scientist - Molecular Modeling, Development</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Emily Wilson is a physicist who is specialized in computational statistical physics. She completed her bachelor’s degree at the University of British Columbia and MSc. at McGill University. At HTuO Emily uses her background in software development and physics to fulfill her role as a Molecular Modelling Scientist. Emily enjoys finding the best solutions to difficult problems and collaborating with her teammates. In her spare time Emily can often be found on skis in the winter and biking in the summer.</p>
+          </div>
+        </div>
+        <div class="person" ref="ahmed-ayoub">
+          <img @click="showProfile('ahmed-ayoub')" src="img/ahmed-ayoub.jpg" alt="Ahmed Ayoub"/>
+          <h6 @click="showProfile('ahmed-ayoub')">Ahmed Ayoub</h6>
+          <p>Scientist - Computational Chemistry</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>After ranking first in high school all over Egypt, Dr. Ahmed Ayoub completed his bachelors degree with a full scholarship in pharmacy and pharmaceutical biotechnology at the German University in Cairo. He obtained his PhD in computational chemistry with focus on DFT, Hybrid QMMM biomolecular simulations and drug design at the University of Alberta, where he was a recipient of the prestigious President's International Doctoral Award. He has published about 20 international peer-reviewed papers in biomolecular simulations and drug design with focus on design and understanding of anticancer therapeutics.</p>
+          </div>
+        </div>
+        <div class="person" ref="ahmad-navid">
+          <img @click="showProfile('ahmad-navid')" src="img/ahmad-navid.jpg" alt="Ahmad Navid"/>
+          <h6 @click="showProfile('ahmad-navid')">Ahmad Navid</h6>
+          <p>Software Engineer</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Ahmad Navid holds undergraduate degree in Bioinformatics from Quaid-i-Azam University Pakistan as well as a Masters degree in Bioinformatics from National University of Science and Technology Pakistan. In addition to two publications in molecular dynamics simulations, Navid also has experience in artificial intelligence and medical informatics.</p>
+          </div>
+        </div>
+        <div class="person" ref="jacek-mis">
+          <img @click="showProfile('jacek-mis')" src="img/jacek-mis.jpg" alt="Jackek Mis"/>
+          <h6 @click="showProfile('jacek-mis')">Jacek Mis</h6>
+          <p>Director of Business <br>Development</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Jacek Mis is a biotech business development professional with over 20 years of experience in the life sciences sector. His passion for cell biology led him to work behind the bench in several different fields including epigenetics, wound healing, inflammation, and GMO's. As a business professional, he focused on optimizing product-market fit for bioprinting technology, encapsulated antibiotics, radiopharmaceuticals, and cell therapies. He has previously worked at Aspect Biosystems and adMare Bioinnovations. Jacek holds an MBA from Sauder School of Business, MSc in Medical Biotechnology from Jagiellonian University, and an undergrad degree in cell biology and genetics from the University of British Columbia. Based in Vancouver, Canada, Jacek is also a dad, partner, soccer player, runner, and board game enthusiast.</p>
+          </div>
+        </div>
+        <div class="person" ref="vladimir-nikolic">
+          <img @click="showProfile('vladimir-nikolic')" src="img/vladimir-nikolic.jpg" alt="Vladimir Nikolic"/>
+          <h6 @click="showProfile('vladimir-nikolic')">Vladimir Nikolic</h6>
+          <p>Software Engineer</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Vladimir holds an undergraduate degree in Software Engineering from the University of Belgrade and a master's degree in Bioinformatics from the University of British Columbia. With the goal of combining his software engineering skills with science, he has worked at the Institute of Physics Belgrade working on a nature-inspired authentication system, at Michael Smith Genome Sciences Centre in Vancouver developing bioinformatics algorithms, and now at HTuO Biosciences as a software engineer. In his free time, Vladimir spends time in nature, reads, and likes to go snowboarding.</p>
+          </div>
+        </div>
+        <div class="person sc" ref="samantha-schoffer">
+          <img @click="showProfile('samantha-schoffer')" src="img/samantha-schoffer.jpg" alt="Samantha Schoffer"/>
+          <h6 @click="showProfile('samantha-schoffer')">Samantha Schoffer</h6>
+          <p>Office Manager</p>
+          <div class="col-md-4 col-md-offset-4 bio">
+            <div class="close" @click="closeProfile()">X</div>
+            <p>Samantha, or Sam for short, is originally from Toronto, having graduated from George Brown College specializing in Business Management.   Sam came out to Vancouver 10 years ago for a vacation and never went back.  She's a fan of the arts, enjoys music, dog walking, cat snuggling and, of course, delicious food.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

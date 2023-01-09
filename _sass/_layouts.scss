@@ -382,12 +382,32 @@ section {
   }
 }
 
-.team {
-  .profile-pics {
+.team-list {
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 2em;
+  padding: 2em 0 0 0;
+  transition: all 0.3s;
 
-    div {
-      margin-top: 3em;
-    }
+  .af {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+}
+
+.team-list-2 {
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2em 0 0 0;
+  transition: all 0.3s;
+
+  .sc {
+    grid-column-start: 2;
+    grid-column-end: 2;   
   }
 }
 
@@ -395,13 +415,144 @@ section {
   background-color: rgba(var(--secondary));
 } 
 
-.person {
-  max-width: 200px;
-  border-radius: 200px;
-  overflow: hidden;
-  margin-bottom: 0.5em;
-  border: calc(var(--size)/2) solid rgba(var(--light));
+.team-list, .team-list-2 {
+  .active {
+    position: relative;
+    // grid-template-columns: 1fr; 
+    transition: all 0.3s;
+  
+    .person {
+      // position: absolute;
+      width: 100% !important;
+      // grid-column-start: 1;
+      // grid-column-end: 1;
+      transition: all 0.3s;
+    }
+  }
 }
+
+
+.person {
+  position: relative;
+  text-align: center;
+  transition: all 0.5s;
+
+  img {
+    max-width: 250px;
+    border-radius: 200px;
+    overflow: hidden;
+    margin-bottom: 0.5em;
+    border: calc(var(--size)/2) solid rgba(var(--light));
+  }
+
+  h6 {
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 0.9em;
+    line-height: 1.3em;
+  }
+
+  .bio {
+    display: none;
+    height: 0vh;
+    width: 100%;
+    font-size: 1.4em;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0px;
+    height: 0px;
+    // background-color: #0cf;
+    display: block;
+    z-index: -2;
+    transition: all 0.3s;
+  }
+
+  &.profile-active {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100% !important;
+    height: 100vh;
+    padding-top: 100px;
+    background-color: rgba(var(--light));
+    transition: background 0.5s;
+    overflow: scroll;
+    // grid-column-start: 1;
+    // grid-column-end: 4;
+
+    .close {
+      position: fixed;
+      top: 3.5em;
+      right: 1em;
+      width: 32px;
+      height: 32px;
+      background-color: rgba(var(--dark));
+      -webkit-mask: url('../img/icon-close.svg') no-repeat center right;
+      -webkit-mask-size: 32px;
+      opacity: 1;
+    }
+
+    .bio {
+      display: block;      
+      height: inherit;      
+      transition: all 0.3s;
+    }
+
+    img {
+      height: initial;
+    }
+
+    &:after {
+      left: -25vw;
+      top: -25vh;
+      width: 50vw;
+      height: 50vw;
+      // transform: translate(50%,50%);
+      transition: all 0.3s;
+    }
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .team-list, .team-list-2 {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    padding: 2em 0 0 0;
+
+    .sc {
+      grid-column-start: 1;
+      grid-column-end: 2;   
+      grid-column: span 2;
+    }
+
+    .af {
+      grid-column-start: 1;
+      grid-column-end: 1;   
+    }
+  }
+
+  .person {
+    img {
+      max-width: 150px;
+    }
+  }
+}
+
 
 //// News
 
@@ -426,16 +577,22 @@ section {
   }
 }
 
+//// News
 .news {
   .news-list {
     display: grid;
-    grid-template-columns: auto auto;
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    grid-template-columns: 1fr;
     column-gap: 50px;
+    gap: 15px 10px;
   }
 
   .section-news-list {
+    width: calc(100% - 30px);
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr;
     column-gap: 50px;
     padding: 2em 0 0 0;
 
@@ -470,12 +627,25 @@ section {
       margin-bottom: 2em;
     }
   }
+
+  @media (min-width: 768px) {
+    .news-list {
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto;
+      float: none;
+    }
+
+    .section-news-list {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin: 0 auto;
+      float: none;
+    }
+  }
 }
 
 //// Careers
 .position {
   padding: 0 0 2em 0;
-  // border-top: 1px solid rgba(var(--border-light),0.5);
   border-bottom: 1px solid rgba(var(--border-light),0.5);
 
   ul {
@@ -512,6 +682,7 @@ section {
   }
 }
 
+//// Contact
 .contact {
   .person {
     max-width: 100px;
@@ -536,19 +707,5 @@ section {
 
   .icon-list {
     display: flex;
-  }
-}
-
-
-
-@media (max-width: 991px) {
-  .mobile-graph {
-    width: 100vw;
-    overflow: scroll;
-  
-    img {
-      min-width: 1200px;
-      margin-right: 5em;
-    }
   }
 }

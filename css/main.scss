@@ -50,6 +50,7 @@ $gray900: #212529 !default;
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
+@import "mixins";
 @import "variables";
 @import "buttons";
 @import "nav";
