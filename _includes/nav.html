@@ -4,7 +4,9 @@
       <li class="home">
         <a class="navbar-brand" href="index.html" @click="closeNav()">
           {%- if site.logo -%}
-          <span class="brand"></span>
+          <span class="brand" aria-label="HTuO Bioscience" alt="HTuO Bioscience">
+            HTuO Bioscience
+          </span>
           {%- else -%} {{ site.title }} {%- endif -%}
         </a>
       </li>

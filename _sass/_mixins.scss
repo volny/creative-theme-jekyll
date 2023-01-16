@@ -29,6 +29,27 @@
   }
   
   &.btn-outline {
+    border-color: rgba(var($bg));
+    color: rgba(var($bg));
+    background-color:rgba(var($tx),0);
+
+    .arrow {
+      background-color: rgba(var($bg));
+    }
+
+    &:hover {
+      transition: all 0.3s;
+      background-color:rgba(var($bg),1);
+      color: rgba(var($tx));
+
+      .arrow {
+        transition: all 0.3s;
+        background-color: rgba(var($tx));
+      }
+    }
+  }
+
+  &.btn-light {
     border-color: rgba(var($tx));
     color: rgba(var($tx));
     background-color:rgba(var($bg),0);
@@ -39,6 +60,7 @@
 
     &:hover {
       transition: all 0.3s;
+      border-color: rgba(var($tx));
       background-color:rgba(var($tx),1);
       color: rgba(var($bg));
 

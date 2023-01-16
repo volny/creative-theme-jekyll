@@ -3,29 +3,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-push-6">
-        <!-- <img src="img/img-discovery.png" alt="Molecule discovery" /> -->
-        <div class="icon-about">
-          <svg width="714" height="453" viewBox="0 0 714 453" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_108_2340" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-112" y="64" width="550" height="399">
-            <path d="M-110.335 459.658L35.0503 403.252L117.324 354.787L148.663 309.94L289.427 244.935L341.613 189.68L418.493 88.3228" stroke="#00E6D3" stroke-width="6.70092"/>
-            <circle class="c1" cx="413.61" cy="88.4508" r="23.9174" transform="rotate(-9.24953 413.61 88.4508)" fill="#00E6D3"/>
-            </mask>
-            <g mask="url(#mask0_108_2340)">
-            <path d="M20.5968 -50.5745H758.249V418.564H20.5968V-50.5745Z" fill="#00A3FF"/>
-            </g>
-            <circle cx="572" cy="212.841" r="15" transform="rotate(-180 572 212.841)" fill="white"/>
-            <circle cx="470.352" cy="303.876" r="15" transform="rotate(-180 470.352 303.876)" fill="white"/>
-            <circle cx="699" cy="202.841" r="15" transform="rotate(-180 699 202.841)" fill="white"/>
-            <circle cx="416.332" cy="180.401" r="15" transform="rotate(-180 416.332 180.401)" fill="white"/>
-            <circle cx="364" cy="222.841" r="15" transform="rotate(-180 364 222.841)" fill="white"/>
-            <circle cx="102" cy="168.841" r="15" transform="rotate(-180 102 168.841)" fill="white"/>
-            <circle cx="175.627" cy="237.729" r="15" transform="rotate(-180 175.627 237.729)" fill="white"/>
-            <circle cx="166" cy="190.841" r="15" transform="rotate(-180 166 190.841)" fill="white"/>
-            <circle cx="15" cy="202.841" r="15" transform="rotate(-180 15 202.841)" fill="white"/>
-            <circle cx="269.704" cy="168.641" r="15" transform="rotate(-180 269.704 168.641)" fill="white"/>
-            <circle cx="600" cy="168.841" r="15" transform="rotate(-180 600 168.841)" fill="white"/>
-            <circle cx="499" cy="237.841" r="15" transform="rotate(-180 499 237.841)" fill="white"/>
-          </svg>                         
+        <div class="anim-about">
+          <div class="graph"></div>
+          <span v-for="(i,k) in 10" :key="k">
+          </span>
         </div>
       </div>
       <div class="col-md-6 col-md-pull-6 banner-block">
@@ -52,7 +33,7 @@
           <img style="max-width: 120px;" src="img/icon-chemistry.svg" alt="Icon Chemistry" />
         </div>
         <div class="col-sm-10">
-          <h4>Identifying Drug Candidates</h4>
+          <h5>Identifying Drug Candidates</h5>
           <p>Drug development is costly and risky, with a 90% failure rate. HTuO's physics-based molecular modeling solution will reduce time and resources needed to develop drugs.</p>
         </div>
       </div>
@@ -62,7 +43,7 @@
           <img style="max-width: 120px;"  src="img/icon-discovery.svg" alt="Icon Chemistry" />
         </div>
         <div class="col-sm-10">
-          <h4>It all starts with Physics</h4>
+          <h5>It all starts with Physics</h5>
           <p>By starting with the physics of individual atoms, we have developed a brand new energy equation for molecular systems, which allows us to derive a new and accurate force field.</p>
         </div>
       </div>
@@ -72,7 +53,7 @@
           <img style="max-width: 120px;"  src="img/icon-flow.svg" alt="Icon Chemistry" />
         </div>
         <div class="col-sm-10">
-          <h4>Differentiation</h4>
+          <h5>Differentiation</h5>
           <p>HTuO is an innovative tool that can accurately simulate and calculate properties, making it an invaluable resource for drug designers.</p>
         </div>
       </div>

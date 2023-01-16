@@ -2,22 +2,11 @@
 <section class="page-banner fill-blue-grad text-light" ref="bannerBlock">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-md-push-6">
-        <div class="icon-partner">
-          <div class="orbit">
-            <div class="c1"></div>
-            <div class="b1">
-              <span></span>
-            </div>
-            <div class="b2">
-              <span></span>
-            </div>
-            <div class="b3">
-              <span></span>
-            </div>
-            <div class="b4">
-              <span></span>
-            </div>
+      <div class="col-sm-6 col-md-push-6 graphic">
+        <div class="anim-partner">
+          <div class="c">
+            <div class="d"></div>
+            <span v-for="(b, k) in 5" key="b" :class="'b' + b"></span>
           </div>
         </div>
       </div>

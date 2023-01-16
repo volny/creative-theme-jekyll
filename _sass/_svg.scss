@@ -5,13 +5,13 @@
 }
 
 
-.icon-atom {
+.anim-atom {
   position: relative;
 
-  .balls {
+  .b {
     z-index: 1;
 
-    .b1 {
+    .b0 {
       background-color: rgba(var(--secondary));
       width: 10%;
       padding-bottom: 10%;
@@ -23,41 +23,14 @@
       z-index: 1;
     }
 
-    .b2 {
-      background-color: rgba(var(--primary));
-      width: 5%;
-      padding-bottom: 5%;
-      border-radius: 50%;
-      position: absolute;
-      top: 32%;
-      left: 36%;
-      transform: translate(-50%, -50%);
-    }
-
-    .b3 {
-      background-color: rgba(var(--primary));
-      width: 5%;
-      padding-bottom: 5%;
-      border-radius: 50%;
-      position: absolute;
-      top: 15%;
-      left: 60%;
-      transform: translate(-50%, -50%);
-    }
-
-    .b4 {
-      background-color: rgba(var(--primary));
-      width: 5%;
-      padding-bottom: 5%;
-      border-radius: 50%;
-      position: absolute;
-      top: 57%;
-      left: 60%;
-      transform: translate(-50%, -50%);
-    }
-
     @for $i from 1 through 4 {
       .b#{$i} {
+        width: 5%;
+        padding-bottom: 5%;
+        border-radius: 50%;
+        position: absolute;
+        background-color: rgba(var(--primary));
+        transform: translate(-50%, -50%);
         animation: bounce 5s infinite;
         animation-delay: $i * 0.3s;
 
@@ -67,9 +40,24 @@
         }
       }
     }
+
+    .b1 {
+      top: 32%;
+      left: 36%;
+    }
+
+    .b2 {
+      top: 15%;
+      left: 60%;
+    }
+
+    .b3 {
+      top: 57%;
+      left: 60%;
+    }
   }
 
-  .orbit {
+  .o {
     position: relative;
     transform: scaleY(0.5);
     width: 100%;
@@ -77,231 +65,263 @@
     z-index: -1;
   }
 
-  @for $i from 1 through 3 {
+  @for $i from 0 through 3 {
     .c#{$i} {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 3px solid rgba(var(--secondary));
       animation: bounceCircle 5s infinite;
       animation-delay: $i * 0.3s;
     }
   }
 
-  .c1 {
-    border: 3px solid rgba(var(--secondary));
+  .c0 {
     width: 30%;
     padding-bottom: 30%;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  }
+
+  .c1 {
+    width: 60%;
+    padding-bottom: 60%; 
   }
 
   .c2 {
-    border: 3px solid rgba(var(--secondary));
-    width: 60%;
-    padding-bottom: 60%;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .c3 {
-    border: 3px solid rgba(var(--secondary));
     width: 90%;
     padding-bottom: 90%;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
-}
 
-@keyframes bounce {
-  0% { 
-    margin-top: 0px;
+  @keyframes bounce {
+    0% { 
+      margin-top: 0px;
+    }
+    50% { 
+      margin-top: 10px;
+    }
+    100% { 
+      margin-top: 0px;
+    }
   }
-  50% { 
-    margin-top: 10px;
+  
+  @keyframes bounceCircle {
+    0% { 
+      margin-top: 0px;
+    }
+    50% { 
+      margin-top: 70px;
+    }
+    100% { 
+      margin-top: 0px;
+    }
   }
-  100% { 
-    margin-top: 0px;
-  }
-}
-
-@keyframes bounceCircle {
-  0% { 
-    margin-top: 0px;
-  }
-  50% { 
-    margin-top: 70px;
-  }
-  100% { 
-    margin-top: 0px;
-  }
-}
-
-@keyframes bounceReverse {
-  0% { 
-    top: 60px;
-  }
-  50% { 
-    top: 50px;
-  }
-  100% { 
-    top: 60px;
+  
+  @keyframes bounceReverse {
+    0% { 
+      top: 60px;
+    }
+    50% { 
+      top: 50px;
+    }
+    100% { 
+      top: 60px;
+    }
   }
 }
 
 .technology {
-  .b2, .b3, .b4 {
+  .b1, .b2, .b3 {
     background-color: rgba(var(--light)) !important;
   }
 }
 
-
-.page-banner {
-  .icon-partner {
-    // transform: skewY(30deg) skewX(-40deg);
-    transform: scaleY(0.5);
-  }
-}
-
-.icon-partner {
+.anim-partner {
   position: relative;
+  z-index: 100;
   width: 100%;
-  min-height: 250px;
+  height: 150px;
+  over-flow: hidden;
 
-  &.blue {
-    .b1, .b2, .b3, .b4 {
-      
-      span {
-        transform: scale(0.6);
-        &:after {
-          background-color: rgba(var(--primary)) !important;
-        }
-
-        &:before {
-          background-color: rgba(var(--primary),0) !important;
-        }
-      }
-    }
-  }
-
-  .orbit {
-    width: 50%;
-    padding-bottom: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    border: 3px solid rgba(var(--secondary));;
-
-
-    @for $i from 1 through 4 {
-      $ran: random(360) + deg;
-
-      .b#{$i} {
-        transform: rotate($ran) scale(1);
-        animation: rotateBall#{$i} calc(random(20) + 10) + s infinite;
-        animation-delay: $i * 0.2s;
-      }
-
-      @keyframes rotateBall#{$i} {
-        0% { 
-          transform: rotate($ran) scale(1);
-        }
-        50% {
-          transform: rotate(calc($ran + 360deg)) scale(1);
-        }
-        100% { 
-          transform: rotate(calc(720deg + $ran)) scale(1);
-        }
-      }
-    }
-
-    .c1 {
+  @for $i from 1 through 5 {
+    .d {
       position: absolute;
-      width: 60px;
-      height: 60px;
       display: block;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: 100;
-      top: 50%;
+      width: 50px;
+      height: 100px;
+      top: 0%;
       left: 50%;
-      background-color: rgba(var(--secondary));
+      border-radius: 50%;
+      background: rgba(var(--secondary));
+      transform: translate(-50%, -120%);
+      z-index: 100;
     }
 
-    .b1, .b2, .b3, .b4 {
+    .c {
       position: absolute;
+      top: 0px;
       width: 100%;
-      height: 100%;
+      padding-bottom: 100%;
+      border-radius: 50%;
+      transform: scaleY(0.5);
 
-      span {
+      &:after {
+        content: "";
         position: absolute;
-        width: 100%;
-        height: 100%;
-
+        display: block;
+        width: 60%;
+        height: 60%;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+        border: 3px solid rgba(var(--light));
+        border-radius: 50%;
+        z-index: 99;
+      }
+  
+      .b#{$i} {
+        position: absolute;
+        display: block;
+        width: 70%;
+        height: 70%;
+        top: -50%;
+        left: 15%;
+        border-radius: 50%;
+        animation: moveCircle#{$i} 25s infinite;
+        animation-delay: $i * 2s;
+        transform: rotate($i * -50deg);
+        z-index: 100;
+  
         &:after {
           content: "";
           position: absolute;
-          top: 0;
-          left: 0;  
-          background-color: rgba(var(--light));
-          width: 30px;
-          height: 30px;border-radius: 50%;
+          top: 0px;
+          left: 0px;
+          background: rgba(var(--secondary));
+          width: 20px;
+          height: 40px;
+          border-radius: 50%;
+          animation: moveBall#{$i} 25s infinite;
+          animation-delay: $i * 2s;
+          transform: rotate($i * 50deg);
         }
 
         &:before {
           content: "";
           position: absolute;
-          transform: rotate(-45deg);
-          top: 0;
-          left: 27%;  
-          background-color: rgba(var(--light));
-          width: 2px;
-          height: 55%;
+          top: 29%;
+          left: -5%;
+          width: calc(64%);
+          height: 3px;
+          background: rgba(var(--secondary));
+          z-index: 100;
+          transform: rotate(45deg);
+          animation: moveLine#{$i} 25s infinite;
+          animation-delay: $i * 2s;
+          z-index: 0;
         }
+      }
+    }
+
+    @keyframes moveCircle#{$i} {
+      0% { 
+        transform: rotate($i * -50deg);
+      }
+      100% { 
+        transform: rotate(360deg + $i * -20deg);
+      }
+    }
+    
+    @keyframes moveBall#{$i} {
+      0% { 
+        transform: rotate($i * 50deg);
+      }
+      100% { 
+        transform: rotate(-360deg + ($i * 20deg));
+      }
+    }
+
+    @keyframes moveShadow#{$i} {
+      0% { 
+        transform: rotate($i * 50deg) translate(0,300%);
+      }
+      100% { 
+        transform: rotate(-360deg + ($i * 20deg)) translate(0,300%);
       }
     }
   }
 }
 
-.icon-about {
+///////
+.anim-about {
   position: relative;
   width: 100%;
   min-height: 250px;
+  z-index: 100;
 
-  
+  .graph {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    display: block;
+    height: 250px;
+    background: url(../img/img-discovery.svg);
+    background-position: center top;
+    background-repeat:  no-repeat;
+    background-size: 400px;
+    z-index: 6;
+  }
 
-  @for $i from 1 through 100 {
-    $ran: random(10) + px;
+  @for $i from 1 through 10 {
+    $ranx: random(50);
+    $rany: random(100);
+    $ran: random(2);
 
-    
-
-    circle:nth-child(#{$i}) {
-      animation: bounceAbout#{$i} #{$i} + s infinite;
-      animation-delay: $i * 0.3s;
-      transform: translate(0px, calc(-1 * $ran * $i));
-    }
-    
-    .c1 {
-      transform: translate(0,0) !important;
+    span:nth-child(#{$i}) {
+      position: absolute;
+      top: calc(10 + $rany + ($i * 10) - 60) + px;
+      left: calc(($i * 10%) - 10%);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #fff;
+      z-index: $i;
+      animation: bounceAbout#{$i} calc($ran + 3) + s infinite;
     }
 
     @keyframes bounceAbout#{$i} {
       0% { 
-        transform: translate(0px, calc(-1 * $ran * $i));
-      }
-      50% { 
         transform: translate(0px, 0px);
       }
+      50% { 
+        transform: translate(0px, calc($i * 5) + px);
+      }
       100% { 
-        transform: translate(0px, calc(-1 * $ran * $i));
+        transform: translate(0px, 0px);
       }
     }
+
+    @keyframes bounceAboutUp#{$i} {
+      0% { 
+        transform: translate(0px, 0px) scale(1);
+        filter: blur(5px);
+      }
+      50% { 
+        transform: translate(0px, calc($i * -5) + px) scale(1.5);
+        filter: blur(3px);
+      }
+      100% { 
+        transform: translate(0px, 0px) scale(1);
+        filter: blur(5px);
+      }
+    }
+    
   }
+}
+
+.graphic {
+  min-height: 20vh;
+  align-items: center;
+  display: flex;
 }

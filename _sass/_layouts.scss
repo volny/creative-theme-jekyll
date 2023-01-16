@@ -7,13 +7,10 @@
 .main-banner {
   min-height: 750px;
   height: 90vh;
-  // max-height: 70vh;
-  background-color: rgba(var(--dark),1);
   position: relative;
   top: -1em;
   z-index: 0;
   padding-top: 80px;
-  background-image: url(../img/img-header.jpg);
 
   &:after {
     content: "";
@@ -48,26 +45,9 @@
   }
 }
 
-.research-banner {
-  background-image: url(../img/img-header.jpg);
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    background: rgba(var(--link), 1);
-    background: linear-gradient(141deg, rgba(var(--primary ),1) 0%, rgba(var(--acc-pink),1) 150%);
-    mix-blend-mode: overlay;
-    z-index: 1;
-  }
-}
-
 .page-banner {
   min-height: 650px;
-  height: 90vh;
+  height: 100vh;
   background-color: rgba(var(--dark),1);
   position: relative;
   top: 0;
@@ -126,6 +106,11 @@
   small {
     color: rgba(var(--light),0.5);
   }
+}
+
+.loader {
+  position: absolute;
+  z-index: -1;
 }
 
 .banner-image {
@@ -199,9 +184,8 @@ section {
     .image {
       height: 100%;
       width: calc(100% + 50vw);
-      // background-image: url(../img/placeholder.jpg);
       background-color: rgba(var(--primary), 0.1);
-      background-size: cover;
+      background-size: cover !important;
       background-position: right center;
       background-repeat: no-repeat;
 
@@ -313,38 +297,6 @@ section {
   }
 }
 
-.fill-light {
-  background-color: rgba(var(--primary), 0.05);
-  background: linear-gradient(141deg, rgba(var(--primary),0.05) 0%, rgba(var(--primary),0.1) 100%);
-}
-
-.fill-dark {
-  background-color: rgba(var(--dark), 1);
-  background: linear-gradient(141deg, rgba(var(--dark),1) 0%, rgba(var(--dark),1) 100%);
-}
-
-.fill-blue {
-  background: rgba(var(--primary), 1);
-  background: linear-gradient(141deg, rgba(var(--primary-acc),1) 0%, rgba(var(--primary),1) 100%);
-}
-
-.fill-blue-grad {
-  background: linear-gradient(141deg, rgba(var(--primary ),1) 0%, rgba(var(--acc-pink),1) 150%);
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 90;
-    background: url(../img/img-grid.svg) center;
-    background-size: 400vh;
-    opacity: 0.5;
-  }
-}
-
 .text-light {
   h1,h2,h3,h4,h5,h6 {
     color: rgba(var(--light),1);
@@ -418,14 +370,10 @@ section {
 .team-list, .team-list-2 {
   .active {
     position: relative;
-    // grid-template-columns: 1fr; 
     transition: all 0.3s;
   
     .person {
-      // position: absolute;
       width: 100% !important;
-      // grid-column-start: 1;
-      // grid-column-end: 1;
       transition: all 0.3s;
     }
   }
@@ -458,9 +406,17 @@ section {
     display: none;
     height: 0vh;
     width: 100%;
+    margin: 0;
+    padding: 0;
     font-size: 1.4em;
     overflow: hidden;
     transition: all 0.3s;
+
+    p {
+      margin: 0 auto;
+      padding: 0 1.5em;
+      max-width: 600px;
+    }
   }
 
   &:after {
@@ -518,7 +474,6 @@ section {
       top: -25vh;
       width: 50vw;
       height: 50vw;
-      // transform: translate(50%,50%);
       transition: all 0.3s;
     }
     
@@ -555,7 +510,6 @@ section {
 
 
 //// News
-
 .filter {
   background-color: rgba(var(--primary), 0.05);
   padding: 2em;
@@ -694,8 +648,10 @@ section {
     flex-direction: row;
     align-items: center;
     margin-bottom: 1em;
+    
 
     img {
+      border-radius: 100px;
       margin-right: 1em;
       margin-bottom: 0;
     }
@@ -707,5 +663,38 @@ section {
 
   .icon-list {
     display: flex;
+  }
+}
+
+//// Backgrounds & Fills
+.fill-light {
+  background-color: rgba(var(--primary), 0.05);
+  background: linear-gradient(141deg, rgba(var(--primary),0.05) 0%, rgba(var(--primary),0.1) 100%);
+}
+
+.fill-dark {
+  background-color: rgba(var(--dark), 1);
+  background: linear-gradient(141deg, rgba(var(--dark),1) 0%, rgba(var(--dark),1) 100%);
+}
+
+.fill-blue {
+  background: rgba(var(--primary), 1);
+  background: linear-gradient(141deg, rgba(var(--primary-acc),1) 0%, rgba(var(--primary),1) 100%);
+}
+
+.fill-blue-grad {
+  background: linear-gradient(141deg, rgba(var(--primary ),1) 0%, rgba(var(--acc-pink),1) 150%);
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    background: url(../img/img-grid.svg) center;
+    background-size: 400vh;
+    opacity: 0.5;
   }
 }

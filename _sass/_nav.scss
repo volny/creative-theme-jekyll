@@ -18,12 +18,18 @@
 .brand {
   display: block;
   width: 120px;
-  height: 36px;
+  height: 40px;
   margin-top: 6px;
   background-color: rgba(var(--light));
+  color: rgba(var(--light));
   -webkit-mask: url('../img/logo-htuo.svg') center;
-  -webkit-mask-size: contain;
+  -webkit-mask-size: 80%;
   -webkit-mask-repeat: no-repeat;
+
+  &:hover {
+    -webkit-mask-size: 85%;
+    transition: all 0.3s;
+  }
 }
 
 
@@ -368,7 +374,7 @@ footer {
   }
 
   h6 {
-    font-size: 1.1em;
+    font-size: 1.3em;
     line-height: 40px;
     color: rgba(var(--text-light));
     transition: all 0.3s;
@@ -386,6 +392,10 @@ footer {
   p, a {
     color: rgba(var(--text-light));
     border-bottom: 2px solid rgba(var(--secondary),0);
+
+    &:active, &:focus {
+      border: none;
+    }
   }
 
   .social {
@@ -397,6 +407,45 @@ footer {
     p, a {
       font-size: 0.8em;
       color: rgba(var(--text-light));
+
+      &:hover {
+        border: none;
+      }
+    }
+
+    li {
+      display: flex;
+      margin: 0;
+      margin-bottom: 1em;
+    }
+
+    a {
+      display: block;
+      width: 40px;
+      height: 40px;
+      color: rgba(var(--light));
+
+      &.tw {
+        -webkit-mask: url('../img/icon-twitter.svg') center;
+        -webkit-mask-size: 80%;
+        -webkit-mask-repeat: no-repeat;
+        background-color: rgba(var(--light));
+      }
+
+      &.li {
+        -webkit-mask: url('../img/icon-linkedin.svg') center;
+        -webkit-mask-size: 80%;
+        -webkit-mask-repeat: no-repeat;
+        background-color: rgba(var(--light));
+      }
+
+      &:hover {
+        background-color: rgba(var(--secondary));
+      }
+      
+    }
+    a:hover {
+
     }
   }
   
@@ -447,5 +496,42 @@ footer {
     }
   }
 
-  
+  .social li {
+    display: flex;
+    justify-content: center;
+  }
+
+  .break {
+    position: relative;
+    margin-top: 1em;
+    padding-top: 0.5em;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 50%;
+      height: 1px;
+      border-top: 1px solid rgba(var(--border-light), 0.2);
+    }
+  }
+
+  .end {
+    position: relative;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 50%;
+      height: 1px;
+      border-top: 1px solid rgba(var(--border-light), 0.2);
+    }
+  }
 }

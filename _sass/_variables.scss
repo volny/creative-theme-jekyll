@@ -3,24 +3,21 @@
   --primary: 41, 108, 255; //296CFF
   --primary-acc: 0, 148, 255; //0094FF
   --secondary: 0, 202, 230; //00CAE6
-  --secondary-acc: 0, 255, 234; //00FFEA
+  --secondary-acc: 0, 255, 234; //00E0FF
   --tertiary: 255, 0, 92; //FF005C
   --tertiary-acc: 255, 39, 91; //FF275B
   --dark: 3, 13, 79; //030D4F
   --light: 255,255,255; //ffffff
 
-  
-
+// Additional Colours
   --acc-pink: 228, 62, 255; //E43EFF
-
-  --nav-pink: 44, 64, 194; //2C40C2
+  // --nav-pink: 44, 64, 194; //2C40C2
 
   // Typography
   --text-light: 211, 216, 248; //D3D8F8
   --text: 80, 83, 110; //323544
   --text-dark: 3, 13, 79; //030D4F
   --link: 0, 148, 255; //0094FF
-
 
     // Borders
   --border-light: var(--text-light);
