@@ -3,10 +3,12 @@
   padding: 0;
 }
 
-// Main Banner home
+/////////////////
+/// Main Banner Home
+/////////////////
 .main-banner {
   min-height: 750px;
-  height: 90vh;
+  height: 80vh;
   position: relative;
   top: -1em;
   z-index: 0;
@@ -43,11 +45,19 @@
       color: rgba(var(--light),0.5);
     }
   }
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
 }
 
+
+/////////////////
+/// Page Banner
+/////////////////
 .page-banner {
   min-height: 650px;
-  height: 100vh;
+  height: 80vh;
   background-color: rgba(var(--dark),1);
   position: relative;
   top: 0;
@@ -72,8 +82,16 @@
   small {
     color: rgba(var(--light),0.5);
   }
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
 }
 
+
+/////////////////
+/// Page half banner
+/////////////////
 .page-banner-sm {
   min-height: 300px;
   height: 100vh;
@@ -121,7 +139,9 @@
   width: 70%;
 }
 
-// Section
+/////////////////
+/// Sections
+/////////////////
 section {
   display: flex;
   flex-direction: row;
@@ -138,6 +158,10 @@ section {
   }
 }
 
+
+/////////////////
+/// Split image section
+/////////////////
 .split-image {
   overflow: hidden;
 
@@ -220,7 +244,9 @@ section {
   }
 }
 
-
+/////////////////
+/// Cats
+/////////////////
 .category-group {
   display: flex;  
 
@@ -260,6 +286,9 @@ section {
   }
 }
 
+/////////////////
+/// Section Helpers
+/////////////////
 .section-footer {
   border-top: 1px solid rgba(var(--border-light),0.5);
 }
@@ -334,6 +363,10 @@ section {
   }
 }
 
+
+/////////////////
+/// Team
+/////////////////
 .team-list {
   width: calc(100% - 30px);
   margin: 0 auto;
@@ -391,6 +424,7 @@ section {
     overflow: hidden;
     margin-bottom: 0.5em;
     border: calc(var(--size)/2) solid rgba(var(--light));
+    transition: all 0.3s;
   }
 
   h6 {
@@ -426,7 +460,6 @@ section {
     top: 50%;
     width: 0px;
     height: 0px;
-    // background-color: #0cf;
     display: block;
     z-index: -2;
     transition: all 0.3s;
@@ -444,8 +477,6 @@ section {
     background-color: rgba(var(--light));
     transition: background 0.5s;
     overflow: scroll;
-    // grid-column-start: 1;
-    // grid-column-end: 4;
 
     .close {
       position: fixed;
@@ -478,6 +509,16 @@ section {
     }
     
   }
+
+  &:hover {
+    img {
+      cursor: pointer;
+      transform: scale(1.05);
+      border: calc(var(--size)/2) solid rgba(var(--light));
+      box-shadow: 0em 0.3em 1em rgba(var(--dark),0.2);
+      transition: all 0.3s;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -509,7 +550,9 @@ section {
 }
 
 
-//// News
+/////////////////
+/// News
+/////////////////
 .filter {
   background-color: rgba(var(--primary), 0.05);
   padding: 2em;
@@ -531,7 +574,6 @@ section {
   }
 }
 
-//// News
 .news {
   .news-list {
     display: grid;
@@ -597,7 +639,9 @@ section {
   }
 }
 
-//// Careers
+/////////////////
+/// Careers
+/////////////////
 .position {
   padding: 0 0 2em 0;
   border-bottom: 1px solid rgba(var(--border-light),0.5);
@@ -612,7 +656,9 @@ section {
   }
 }
 
-//// FAQ
+/////////////////
+/// FAQ
+/////////////////
 .question {
   padding-bottom: 1em;
 
@@ -636,7 +682,9 @@ section {
   }
 }
 
-//// Contact
+/////////////////
+/// Contact
+/////////////////
 .contact {
   .person {
     max-width: 100px;
@@ -666,7 +714,9 @@ section {
   }
 }
 
-//// Backgrounds & Fills
+/////////////////
+/// BGs & Fills
+/////////////////
 .fill-light {
   background-color: rgba(var(--primary), 0.05);
   background: linear-gradient(141deg, rgba(var(--primary),0.05) 0%, rgba(var(--primary),0.1) 100%);
