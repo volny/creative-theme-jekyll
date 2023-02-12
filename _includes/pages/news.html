@@ -14,9 +14,9 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form">
-          <!-- <p>Filter Events by</p> -->
-          <!-- <select class="form-control form-control-lg"> -->
-            <!-- <option>Large select</option> -->
+          <p>Filter Events by</p>
+          <select class="form-control form-control-lg" v-model="selected" @change="filterNews($event)">
+            <option :value="tag" v-for="(tag,k) in tags" :key="k">[[tag]]</option>
           </select>
         </div>
       </div>
@@ -25,16 +25,26 @@
 </div>
 
 <!-- Section -->
-<section class="section-pad-md">
+<section class="section-pad-md" ref="newsparent">
   <div class="container">
     <div class="row">
       <div class="col-md-12 news-list">
         {%- for event in site.data.news.events reversed -%}
-          <div class="news-article">
-            <div class="image">
+          <div 
+          ref="article-{{forloop.index}}"
+          class="article active 
+            {%- for tag in event.tags -%}
+              {{tag | prepend: ' '}} 
+            {%- endfor -%}">
+            <div class="image" style="background-image: url({{event.img}});">
               <span>{{ event.date | markdownify }}</span>
             </div>
-            <h6></h6>
+            <p class="tags">
+              {%- for tag in event.tags -%}
+                <span ref="n-{{tag}}">{{tag}}</span>
+              {%- endfor -%}
+            </p>
+            <h6>{{event.title}}</h6>
             <p>{{ event.text | markdownify }}</p>
           </div>
         {%- endfor -%}

@@ -3,7 +3,7 @@
   margin-bottom: 0;
 }
 
-
+// Home Page
 .anim-atom {
   position: relative;
 
@@ -129,12 +129,14 @@
   }
 }
 
+// Technology Page
 .technology {
   .b1, .b2, .b3 {
     background-color: rgba(var(--light)) !important;
   }
 }
 
+// Partnership Page
 .anim-partner {
   position: relative;
   z-index: 100;
@@ -251,7 +253,7 @@
   }
 }
 
-///////
+// About Page
 .anim-about {
   position: relative;
   width: 100%;
@@ -260,7 +262,6 @@
 
   .graph {
     position: absolute;
-    top: -40px;
     left: 0;
     width: 100%;
     display: block;

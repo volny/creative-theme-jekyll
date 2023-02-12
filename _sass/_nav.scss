@@ -1,7 +1,4 @@
-
-/////////////////
-/// Logo
-/////////////////
+// Logo
 .navbar-brand {
   margin: 0;
   padding: 0;
@@ -32,10 +29,7 @@
   }
 }
 
-
-/////////////////
-/// Nav
-/////////////////
+// Nav
 .desktop-nav {
   position: fixed;
   top: 0;
@@ -167,7 +161,7 @@
   }
 }
 
-//Active Nav styles
+// Active Nav styles
 .research .research,
 .technology .technology,
 .partnership .partnership,
@@ -192,9 +186,7 @@
   } 
 }
 
-/////////////////
-/// Mobile Nav
-
+// Mobile Nav
 .nav-toggle {
   
   &:after {
@@ -350,16 +342,13 @@
   }
 }
 
-
-/////////////////
-/// Footer
-/////////////////
+// Footer
 footer {
   background-color: rgba(var(--dark),1);
   padding-top: 3em;
 
   .footer-nav {
-    min-height: 50vh;
+    min-height: 40vh;
   }
 
   .logo {

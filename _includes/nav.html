@@ -1,11 +1,11 @@
-<nav ref="navBlock" class="desktop-nav" :class="{active: navFill}">
+<nav ref="navBlock" class="desktop-nav" :class="{active: navFill}" role="navigation">
   <div class="container">
     <ul>
       <li class="home">
         <a class="navbar-brand" href="index.html" @click="closeNav()">
           {%- if site.logo -%}
-          <span class="brand" aria-label="HTuO Bioscience" alt="HTuO Bioscience">
-            HTuO Bioscience
+          <span class="brand" aria-label="HTuO Biosciences" alt="HTuO Biosciences">
+            HTuO Biosciences
           </span>
           {%- else -%} {{ site.title }} {%- endif -%}
         </a>
@@ -22,6 +22,9 @@
       <li class="about nav-item">
         <a href="{{ site.baseurl }}/about.html" @click="closeNav()">About</a>
       </li>
+      <li class="news nav-item">
+        <a href="{{ site.baseurl }}/news.html" @click="closeNav()">News</a>
+      </li>
       <li class="contact nav-item">
         <a href="{{ site.baseurl }}/contact.html" @click="closeNav()">Contact</a>
       </li>
@@ -36,7 +39,7 @@
   </div> 
 </nav>
 
-<nav class="mobile-menu" :class="{mobile: navActive}">
+<nav class="mobile-menu" aria-expanded="false" aria-label="Mobile Accessibility Navigation Dropdown" :class="{mobile: navActive}" role="navigation">
   <ul>
     <li class="technology nav-item">
       <a href="{{ site.baseurl }}/technology.html">Technology</a>

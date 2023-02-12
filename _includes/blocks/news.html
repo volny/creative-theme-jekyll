@@ -9,8 +9,8 @@
       <div class="col-md-12 section-news-list">
         {% assign news = site.data.news.events | reverse %}
         {%- for event in news limit:3 -%}
-          <div class="news-article">
-            <div class="image">
+          <div class="article active">
+            <div class="image" style="background-image: url({{event.img}});">
               <span>{{ event.date | markdownify }}</span>
             </div>
             <h6></h6>

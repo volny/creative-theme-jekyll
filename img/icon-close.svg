@@ -1,4 +1,1 @@
-<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M60 20L20 60" stroke="#636363" stroke-width="3.33333" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M20 20L60 60" stroke="#636363" stroke-width="3.33333" stroke-linecap="square" stroke-linejoin="round"/>
-</svg>
+<svg fill="none" height="80" viewBox="0 0 80 80" width="80" xmlns="http://www.w3.org/2000/svg"><g stroke="#636363" stroke-linecap="square" stroke-linejoin="round" stroke-width="3.33333"><path d="m60 20-40 40"/><path d="m20 20 40 40"/></g></svg>

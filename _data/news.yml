@@ -9,17 +9,14 @@
 
 # English (default)
 # -----------------
-title: "Timeline"
-text: "Lorem ipsum timeline"
-section: timeline
-# left is the default
-start_align: "right"
+title: "News"
 
 ##########################
 beginning: 
   date: "Sep 30, 2020"
   text: "HTuO Biosciences has officially incorporated in the province of British Columbia and begun operations." # For more information please contact [news@htuobio.com](mailto:newsy@htuobio.com)."
-
+  img: "../img/img-waves.jpg"
+  tags: ["news"]
 
 ##########################
 events:
@@ -27,69 +24,112 @@ events:
 #############
 - date: "Dec 23, 2020"
   text: "HTuO Biosciences has completed a Friends and Family Round of financing." # For more information please contact news@htuobio.com."
+  img: "../img/img-waves.jpg"
+  tags: ["news"]
 #############
 - date: "Mar 24, 2021"
   text: "HTuO Biosciences has been selected to present at [Tie Vancouver's Demo Day](https://www.tievancouver.org/), on April 8th, 2021."  
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Apr 8, 2021"
   text: "HTuO Biosciences shares first place at [Tie Vancouver's Demo Day](https://www.tievancouver.org/) along with [Rehabtronics](https://rehabtronics.com/)."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "awards"]
 #############
 - date: "May 5, 2021"
   text: "HTuO Biosciences has been selected to present at the next Vantec Life Science [Vantec Meeting](https://www.vantec.ca/events/vantec-meeting-93)."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "May 27, 2021"
   text: "HTuO Biosciences has been selected to present at the [VANTEC Meeting: Investing in Life Sciences and HealthTech](https://www.vantec.ca/events/vantec-meeting-94)." 
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Aug 17, 2021"
   text: "HTuO Biosciences mentioned as one of the [six companies to watch for in the Vancouver Tech Journal](https://www.vantechjournal.com/p/radar-six-to-watch-rbcx)." 
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Aug 20, 2021"
   text: "HTuO Biosciences is pleased to announce that [Dr. Judith Herzfeld](https://www.brandeis.edu/chemistry/faculty/herzfeld.html), Professor Emerita and Research Professor of Chemistry at Brandeis University,  will become the first member of HTuO's Scientific Advisory Board on October 1st, 2021. Dr. Herzfeld brings a wealth of experience in molecular simulations and in the creative design of new force fields." 
+  img: "../img/img-waves.jpg"
+  tags: ["news"]
 #############
 - date: "Sep 9, 2021"
   text: "HTuO Biosciences has been chosen to participate in the [Life Sciences British Columbia Investor Readiness Program's](https://lifesciencesbc.ca/resource/investor-readiness-program-irp/) fall 2021 cohort."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Sep 24, 2021"
   text: "We are thrilled to announce that we have successfully **closed the first tranche of our pre-seed round**. With help from our co-lead investors [VANTEC Entrepreneurs (VCC) Fund Inc.](https://www.vantec.ca/cpages/homepage), in Canada and [SWAN Venture Fund](https://swanventurefund.com/), in the USA, we have received over **$700,000 USD** (out of $1M USD allotted for the round) from investors in Canada, the USA, and Europe. The funds will allow us to expand our team, in order to move our proof of concept to commercialization and ensure the continued operations of our business."
-# To all of our investors: Thank you for your contribution and support, with special thanks to those of you who have supported us since the beginning of our journey. Together, we will bring the most accurate molecular modelling to industry to address the most burning questions posed by pharmaceutical science."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Oct 1, 2021"
   text: "HTuO Biosciences has been chosen as one of the top 20 companies to join the [Valhalla Investment Summit BC](https://valhallaangels.com/investment-summit-bc/) 2021 cohort.   "
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Oct 15, 2021"
   text: "After a tough round of pitches and questions at the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/), HTuO Biosciences is thrilled to advance on as one of the Top 11 Startups."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Oct 25, 2021"
   text: "Continuing our progress in the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/), HTuO has been named as one of the top 5 companies, and has progressed to the final, due diligence round."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Oct 28, 2021"
   text: "HTuO Biosciences presented at [Angel Forum Virtual Meetup](https://www.angelforum.org/)"
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Nov 3, 2021"
   text: "HTuO Biosciences presented at the [2021 LSBC Invest in BC](https://lifesciencesbc.ca/event/invest-in-bc/) event, sponsored by Lumira Ventures."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Nov 4, 2021"
   text: "HTuO Biosciences participated in the [Valhalla Investors Summit BC](https://valhallaangels.com/investment-summit-bc/) Final, presenting as one of the top five companies"
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Jan 10-15, 2022"
   text: "HTuO Biosciences participated in the Bio@JPB partnering event."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Mar 10, 2022" 
   text: "HTuO Biosciences participated in the Diagnostics, Digital Health and Therapeutics session at the [Invest in the West](https://lifesciencesbc.ca/event/invest-in-the-west-presented-by-amplitude-ventures/) conference, presented by Amplitude Ventures."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Mar 28-31, 2022"
   text: "HTuO Biosciences will be attending [BIO-Europe Spring](https://informaconnect.com/bioeurope-spring/).  Please contact us at [info@htuobio.com](mailto:info@htuobio.com) to set up a partnering meeting."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 #############
 - date: "Apr 20, 2022"
   text: "HTuO Biosciencs closed an oversubscribed $1.5M USD angel funding round, focused on hiring key staff members, completing R&D milestones and taking their molecular modeling tool to market."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "investment"]
 #############
 - date: "Jun 1, 2022"
   text: "HTuO's CEO, Dr. Anthony Fejes, participated in a panel discussion on [Investing in Life Sciences and Healthtech](https://www.vantec.ca/events/vantec-meeting-104), hosted by Vantec Angel Network."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 ############
 - date: "Nov 2-4, 2022"
   text: "HTuO Biosciences will be attending the digital partnering component of [BIO Europe 2022](https://informaconnect.com/bioeurope/). If you are in the business of optimizing drugs, we would like to connect with you. Please find us through the partnering platform or email us directly at [info@htuobio.com](mailto:info@htuobio.com) to schedule a meeting."
+  img: "../img/img-waves.jpg"
+  tags: ["news", "event"]
 ###############
 - date: "Nov 4, 2022"
   text: "HTuO Biosciences will be presenting at Life Science BC's [Invest in the West](https://lifesciencesbc.ca/event/invest-in-bc-presented-by-lumira-ventures/), sponsored by Lumira Ventures. Find us in session 8, where our CEO, Dr. Anthony Fejes, will be presenting and participating in a live Q&A session hosted by LDV Partners."
+  img: "../img/img-news-lumira.jpg"
+  tags: ["news", "event"]
 
 

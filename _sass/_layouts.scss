@@ -3,14 +3,12 @@
   padding: 0;
 }
 
-/////////////////
-/// Main Banner Home
-/////////////////
+// Main Banner Home
 .main-banner {
-  min-height: 750px;
-  height: 80vh;
+  min-height: 1020px;
+  height: 100%;
   position: relative;
-  top: -1em;
+  top: 0;
   z-index: 0;
   padding-top: 80px;
 
@@ -36,6 +34,8 @@
     align-content: stretch;
     align-items: flex-start;
     z-index: 2;
+    position: relative;
+    top: -80px;
     
     p {
       color: rgba(var(--light));
@@ -52,12 +52,10 @@
 }
 
 
-/////////////////
-/// Page Banner
-/////////////////
+// Page Banner
 .page-banner {
-  min-height: 650px;
-  height: 80vh;
+  min-height: 850px;
+  height: 100%;
   background-color: rgba(var(--dark),1);
   position: relative;
   top: 0;
@@ -88,10 +86,7 @@
   }
 }
 
-
-/////////////////
-/// Page half banner
-/////////////////
+// Page half banner
 .page-banner-sm {
   min-height: 300px;
   height: 100vh;
@@ -139,9 +134,7 @@
   width: 70%;
 }
 
-/////////////////
-/// Sections
-/////////////////
+// Sections
 section {
   display: flex;
   flex-direction: row;
@@ -158,10 +151,7 @@ section {
   }
 }
 
-
-/////////////////
-/// Split image section
-/////////////////
+// Split image section
 .split-image {
   overflow: hidden;
 
@@ -230,12 +220,17 @@ section {
     }
 
     &.left .image {
-      margin: 0 0 0 -20vw;
+      margin: 0 0 0 0vw;
       background-position: left;
 
       @media (max-width: 767px) {
         margin: 0;
       }
+    }
+
+    @media (max-width: 767px) {
+      height: 30vh;
+      overflow: hidden;
     }
   }
 
@@ -244,9 +239,7 @@ section {
   }
 }
 
-/////////////////
-/// Cats
-/////////////////
+// Categories
 .category-group {
   display: flex;  
 
@@ -274,7 +267,7 @@ section {
 
   p, h6 {
     margin-bottom: 0;
-    font-size: 1em;
+    // font-size: 1em;
   }
 
   h6 {
@@ -286,9 +279,7 @@ section {
   }
 }
 
-/////////////////
-/// Section Helpers
-/////////////////
+// Section Helpers
 .section-footer {
   border-top: 1px solid rgba(var(--border-light),0.5);
 }
@@ -363,23 +354,15 @@ section {
   }
 }
 
-
-/////////////////
-/// Team
-/////////////////
+// Team
 .team-list {
-  width: calc(100% - 30px);
+  width: calc(60% - 30px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   column-gap: 2em;
   padding: 2em 0 0 0;
   transition: all 0.3s;
-
-  .af {
-    grid-column-start: 2;
-    grid-column-end: 2;
-  }
 }
 
 .team-list-2 {
@@ -387,7 +370,7 @@ section {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 2em 0 0 0;
+  padding: 0;
   transition: all 0.3s;
 
   .sc {
@@ -396,26 +379,27 @@ section {
   }
 }
 
-.job-notice {
-  background-color: rgba(var(--secondary));
-} 
-
 .team-list, .team-list-2 {
   .active {
     position: relative;
     transition: all 0.3s;
   
     .person {
-      width: 100% !important;
       transition: all 0.3s;
     }
   }
 }
 
+// Jobs
+.job-notice {
+  background-color: rgba(var(--secondary));
+} 
 
+// People
 .person {
   position: relative;
   text-align: center;
+  margin-bottom: 2em;
   transition: all 0.5s;
 
   img {
@@ -429,11 +413,13 @@ section {
 
   h6 {
     margin-bottom: 0.5em;
+    transition: all 0.3s;
   }
 
   p {
     font-size: 0.9em;
     line-height: 1.3em;
+    transition: all 0.3s;
   }
 
   .bio {
@@ -494,6 +480,7 @@ section {
       display: block;      
       height: inherit;      
       transition: all 0.3s;
+      
     }
 
     img {
@@ -511,11 +498,31 @@ section {
   }
 
   &:hover {
+    cursor: pointer;
+    
+    .title {
+        h6, p {
+        color: rgba(var(--dark),1);
+        transition: all 0.3s;
+      }
+    }
+
+    &.profile-active {
+      .title {
+        h6, p {
+          color: rgba(var(--dark),1);
+        }
+      }
+
+      img {
+        transform: scale(1.05);
+        border: calc(var(--size)/2) solid rgba(var(--dark),0.1);
+      }
+    }
+
     img {
-      cursor: pointer;
       transform: scale(1.05);
-      border: calc(var(--size)/2) solid rgba(var(--light));
-      box-shadow: 0em 0.3em 1em rgba(var(--dark),0.2);
+      border: calc(var(--size)/2) solid rgba(var(--primary),1);
       transition: all 0.3s;
     }
   }
@@ -549,10 +556,7 @@ section {
   }
 }
 
-
-/////////////////
-/// News
-/////////////////
+// News
 .filter {
   background-color: rgba(var(--primary), 0.05);
   padding: 2em;
@@ -566,18 +570,27 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
+    
+    p {
+      flex: 1 1 auto;
+    }
   }
 
   select {
-    width: inherit;
-    margin: 0 1em;
+    width: 150px;
+    margin: 0 2em 0 1em;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1em;
   }
 }
 
 .news {
   .news-list {
     display: grid;
-    width: calc(100% - 30px);
+    width: calc(100% - 0px);
     margin: 0 auto;
     grid-template-columns: 1fr;
     column-gap: 50px;
@@ -597,11 +610,19 @@ section {
     }
   }
 
-  .news-article {
+  .article {
+    margin-bottom: 1em;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
     .image {  
       position: relative;
       background-color: rgba(var(--primary),0.05);
       background-image: url(../img/img-waves.jpg);
+      background-size: cover;
       padding-bottom: 50%;
       margin-bottom: 1em;
 
@@ -620,7 +641,17 @@ section {
     }
 
     p {
-      margin-bottom: 2em;
+      margin-bottom: 1em;
+    }
+
+    .tags {
+      span {
+        padding: 0.2em 0.5em;
+        margin-right: 0.2em;
+        font-size: 0.8em;
+        color: rgba(var(--dark));
+        background: rgba(var(--text-light));
+      }
     }
   }
 
@@ -639,9 +670,7 @@ section {
   }
 }
 
-/////////////////
-/// Careers
-/////////////////
+// Careers
 .position {
   padding: 0 0 2em 0;
   border-bottom: 1px solid rgba(var(--border-light),0.5);
@@ -656,9 +685,7 @@ section {
   }
 }
 
-/////////////////
-/// FAQ
-/////////////////
+// FAQ
 .question {
   padding-bottom: 1em;
 
@@ -682,13 +709,11 @@ section {
   }
 }
 
-/////////////////
-/// Contact
-/////////////////
+// Contact
 .contact {
   .person {
     max-width: 100px;
-    border: calc(var(--size)/3) solid rgba(var(--text-light));
+    border: calc(var(--size)/3) solid rgba(var(--dark), 0.1);
   }
 
   .contact-person {
@@ -714,9 +739,7 @@ section {
   }
 }
 
-/////////////////
-/// BGs & Fills
-/////////////////
+// BGs & Fills
 .fill-light {
   background-color: rgba(var(--primary), 0.05);
   background: linear-gradient(141deg, rgba(var(--primary),0.05) 0%, rgba(var(--primary),0.1) 100%);
