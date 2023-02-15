@@ -26,10 +26,6 @@ new Vue({
     }
 
     this.selected = this.tags[0];
-
-    
-    
-    // console.log(this.articles);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll)
@@ -46,17 +42,9 @@ new Vue({
       }).map((val) => {
         
         this.$refs[val].classList.remove('active');
-        // let list = this.$refs[val].classList; 
         if ( this.$refs[val].classList.contains(this.selected)) {
           this.$refs[val].classList.value = this.$refs[val].classList.value + ' active'; 
         }
-        // console.log(list);
-        // console.log(list.indexOf('news'));
-        // // if ( this.$refs[val].classList.includes(this.selected)) {
-        //   // console.log(list);
-        //   console.log(list.indexOf('news'));
-        // // }
-        // return this.$refs[val];
       })
 
     },
@@ -93,7 +81,6 @@ new Vue({
         this.teamActive = true;
         this.$refs[person].classList.value = this.$refs[person].classList.value + ' profile-active';
       }, 350);
-      
     },
     onScroll(e) {
       this.windowTop = window.top.scrollY
