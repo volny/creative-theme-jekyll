@@ -31,11 +31,11 @@
         background-color: rgba(var(--primary));
         transform: translate(-50%, -50%);
         animation: bounce 5s infinite;
-        animation-delay: $i * 0.3s;
+        animation-delay: calc(#{$i}s * 0.3s);
 
         &:after {
           animation: bounceReverse 5s infinite;
-          animation-delay: $i * 0.3s;
+          animation-delay: calc(#{$i}s * 0.3s);
         }
       }
     }
@@ -73,7 +73,7 @@
       border-radius: 50%;
       border: 3px solid rgba(var(--secondary));
       animation: bounceCircle 5s infinite;
-      animation-delay: $i * 0.3s;
+      animation-delay: calc(#{$i}s * 0.3s);
     }
   }
 
@@ -226,28 +226,28 @@
 
     @keyframes moveCircle#{$i} {
       0% { 
-        transform: rotate($i * -50deg);
+        transform: rotate(calc(#{$i} * -50deg));
       }
       100% { 
-        transform: rotate(360deg + $i * -20deg);
+        transform: rotate(calc(360deg + #{$i} * -20deg));
       }
     }
     
     @keyframes moveBall#{$i} {
       0% { 
-        transform: rotate($i * 50deg);
+        transform: rotate(calc(#{$i} * 50deg));
       }
       100% { 
-        transform: rotate(-360deg + ($i * 20deg));
+        transform: rotate(calc(-360deg + (#{$i} * 20deg)));
       }
     }
 
     @keyframes moveShadow#{$i} {
       0% { 
-        transform: rotate($i * 50deg) translate(0,300%);
+        transform: rotate(calc(#{$i} * 50deg)) translate(0,300%);
       }
       100% { 
-        transform: rotate(-360deg + ($i * 20deg)) translate(0,300%);
+        transform: rotate(calc(-360deg + (#{$i} * 20deg))) translate(0,300%);
       }
     }
   }
@@ -280,14 +280,14 @@
 
     span:nth-child(#{$i}) {
       position: absolute;
-      top: calc(10 + $rany + ($i * 10) - 60) + px;
-      left: calc(($i * 10%) - 10%);
+      top: #{$rany}px;
+      left: calc((#{$i} * 10%) - 10%);
       width: 15px;
       height: 15px;
       border-radius: 50%;
       background: #fff;
-      z-index: $i;
-      animation: bounceAbout#{$i} calc($ran + 3) + s infinite;
+      z-index: #{$i};
+      animation: bounceAbout#{$i} ($ran + 3s) infinite;
     }
 
     @keyframes bounceAbout#{$i} {
@@ -295,7 +295,7 @@
         transform: translate(0px, 0px);
       }
       50% { 
-        transform: translate(0px, calc($i * 5) + px);
+        transform: translate(0px, calc($i * 15px));
       }
       100% { 
         transform: translate(0px, 0px);
@@ -308,7 +308,7 @@
         filter: blur(5px);
       }
       50% { 
-        transform: translate(0px, calc($i * -5) + px) scale(1.5);
+        transform: translate(0px, $i * -15px) scale(1.5);
         filter: blur(3px);
       }
       100% { 
