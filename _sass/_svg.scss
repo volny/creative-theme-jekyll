@@ -31,11 +31,11 @@
         background-color: rgba(var(--primary));
         transform: translate(-50%, -50%);
         animation: bounce 5s infinite;
-        animation-delay: calc(#{$i}s * 0.3s);
+        animation-delay: #{$i*0.3s};
 
         &:after {
           animation: bounceReverse 5s infinite;
-          animation-delay: calc(#{$i}s * 0.3s);
+          animation-delay: #{$i*0.3s};
         }
       }
     }
@@ -73,7 +73,7 @@
       border-radius: 50%;
       border: 3px solid rgba(var(--secondary));
       animation: bounceCircle 5s infinite;
-      animation-delay: calc(#{$i}s * 0.3s);
+      animation-delay: #{$i*0.3}s;
     }
   }
 
@@ -280,14 +280,14 @@
 
     span:nth-child(#{$i}) {
       position: absolute;
-      top: #{$rany}px;
-      left: calc((#{$i} * 10%) - 10%);
+      top: #{$rany*1px};
+      left: #{$i*10%};
       width: 15px;
       height: 15px;
       border-radius: 50%;
       background: #fff;
-      z-index: #{$i};
-      animation: bounceAbout#{$i} ($ran + 3s) infinite;
+      z-index: #{$i+1};
+      animation: bounceAbout#{$i} #{$i*3}s infinite;
     }
 
     @keyframes bounceAbout#{$i} {
@@ -295,28 +295,12 @@
         transform: translate(0px, 0px);
       }
       50% { 
-        transform: translate(0px, calc($i * 15px));
+        transform: translate(0px, #{$i*15}px);
       }
       100% { 
         transform: translate(0px, 0px);
       }
     }
-
-    @keyframes bounceAboutUp#{$i} {
-      0% { 
-        transform: translate(0px, 0px) scale(1);
-        filter: blur(5px);
-      }
-      50% { 
-        transform: translate(0px, $i * -1 5px) scale(1.5);
-        filter: blur(3px);
-      }
-      100% { 
-        transform: translate(0px, 0px) scale(1);
-        filter: blur(5px);
-      }
-    }
-    
   }
 }
 
