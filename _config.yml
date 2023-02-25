@@ -1,12 +1,12 @@
 # Site settings
-title:
-email:
-description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+title: E-Trivium
+email: u0864868@utah.edu
+description: > Computer Engineering Capstone Project at the University of Utah - E-Trivium - Smart, modular clothing # this means to ignore newlines until "baseurl:"
+baseurl: "/E-Trivium/" # the subpath of your site, e.g. /blog/
+url: "https://jessikajimenez.github.io/E-Trivium/" # the base hostname & protocol for your site
 
-twitter_username:
-github_username:
+twitter_username: 
+github_username: JessikaJimenez
 
 # Build settings
 markdown: kramdown
