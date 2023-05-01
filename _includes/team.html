@@ -1,52 +1,38 @@
-<section id="services">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Meet the Team</h2>
-                <hr class="primary">
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="service-box">
-                    <img src="img/beth.jpg" alt="Image of Beth" width="250" style="border-radius:25px">
-                    <h3>Beth</h3>
-                    <p class="text-muted">First year PhD student, studying collective motion of Trinidadian Guppies. Her research aim is to develop a mathematical model that describes their behaviour across multiple, spatioal, social, and temporal scales.<br>
-                        <a href="https://people.bath.ac.uk/bms58">website</a></p>
+<!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Meet the team</h2>
+                    <h3 class="section-subheading text-muted">The people behind Behind the Research.</h3>
                 </div>
             </div>
-            
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="service-box">
-                    <img src="img/Kat.png" alt="Image of Kat" width="250" style="border-radius:25px">
-                    <h3>Kat</h3>
-                    <p class="text-muted">Final year PhD student researching theroetical and numerical methods to develop a deeper understanding of how droplets bounce. She's also a livestreaming maths communicator and the face, brain, and everything else of KatDoesMaths <br>
-                        <a href="https://katdoesmaths.me">website</a></p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="service-box">
-                    <img src="img/seb.png" alt="Image of Seb" width="250" style="border-radius:25px">
-                    <h3>Seb</h3>
-                    <p class="text-muted">Second year PhD student researching how machine learning can be used in colving inverse problems, such as those arising in medical imaging aplications.<br>
-                     <a href="https://people.bath.ac.uk/ss2767"> website</a></p>
-                </div>
-            </div>
-        </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <br>
-                <h3 class="section-heading">Previous Members</h3>
-                <hr class="primary">
-                <ul>
-                    <li> Jenny Power: PhD student focusing on modelling radiation treatments. <em>May '22 - Dec '22</em></li>
-                </ul>
-               
-            </div>
-        </div>
-    </div>    
+            <div class="row">
+                {% for member in site.people %}
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/{{ member.pic }}.jpg" class="img-responsive img-circle" alt="">
+                        <h4>{{ member.name }}</h4>
+                        <p class="text-muted">{{ member.bio }}</p>
+                        <ul class="list-inline social-buttons">
+                            {% for network in member.social %}
+                            <li>
+                                <a href="{{ network.url }}">
+                                    <i class="fa fa-{{ network.title }}"></i>
+                                </a>
+                            </li>
+                            {% endfor %}
 
-</section>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Previous members include: <br>
+                    Jenny Power: PhD Student focusing on modelling radiation treatments. May '22-Dec '22.</p>
+                </div>
+            </div>
+        </div>
+    </section>

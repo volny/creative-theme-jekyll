@@ -1,15 +1,30 @@
-# Behind the Research
+Agency Jekyll theme
+====================
 
-A github pages site dedicated to sharing and highlighting the work done by the BehindTheResearch team. 
+Agency theme based on [Agency bootstrap theme ](https://startbootstrap.com/template-overviews/agency/)
+
+# How to use
+
+###Portfolio 
+
+Portfolio projects are in '/_posts'
+
+Images are in '/img/portfolio'
+
+###About
+
+Images are in '/img/about/'
+
+###Team
+
+Team members and info are in '_config.yml'
+
+Images are in '/img/team/'
 
 
+# Demo
 
-# Template used:  Creative Theme for Jekyll
+View this jekyll theme in action [here](https://y7kim.github.io/agency-jekyll-theme)
 
-A Jekyll implementation of the [Creative Theme](http://startbootstrap.com/template-overviews/creative/) template by [Start Bootstrap](http://startbootstrap.com).
-
-Creative is a one page Bootstrap theme for creatives, small businesses, and other multipurpose uses.
-The theme includes a number of rich features and plugins that you can use as a great boilerplate for your next Jekyll project! 
-
-See it live in action at <https://volny.github.io/creative-theme-jekyll/>
-
+=========
+For more details, read [documentation](http://jekyllrb.com/)

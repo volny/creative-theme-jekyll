@@ -1,17 +1,61 @@
+url: https://y7kim.github.io
+baseurl: /agency-jekyll-theme/
+
 # Site settings
 title: Behind the Research
-email:
-description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+email: your-email@domain.com
+description: "Behind the research is an initiative dsigned to showcase the real lives of people that are working behind the research."
 
-twitter_username: behindresearch
-github_username: behindtheresearch
-twitch_username: behindtheresearch
-instagram_username: behindtheresearch
-tiktok_username: behindtheresearch
+
+# Team names, titles and social links
+people:
+- name: Beth Stokes
+  pic: beth
+  position: First year PhD student, studying collective motion of Trinidadian Guppies. Her research aim is to develop a mathematical model that describes their behaviour across multiple, spatioal, social, and temporal scales.
+  social:
+    - title: website
+      url: https://people.bath.ac.uk/bms58/
+
+
+- name: Kat Phillips
+  pic: Kat
+  position: Final year PhD student researching theroetical and numerical methods to develop a deeper understanding of how droplets bounce. She's also a livestreaming maths communicator and the face, brain, and everything else of KatDoesMaths 
+  social:
+    - title: twitter
+      url: https://twitter.com/katdoesmaths
+    - title: twitch
+      url: https://twitch.tv/KatDoesMaths
+    - title: website
+      url: https://katdoesmaths.me
+
+- name: Seb Scott
+  pic: seb
+  position: Second year PhD student researching how machine learning can be used in colving inverse problems, such as those arising in medical imaging aplications.
+  social:
+    - title: website
+      url: https://people.bath.ac.uk/ss2767/
+
+- name: Henry Writer
+  pic: Henry
+  position: MRes student in the SAMBa CDT interested in theoretical fluid dynamics of solitary waves. 
+  social:
+    - title: website
+      url: https://www.henrywritermaths.com/
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: http://twitter.com/behindresearch
+  - title: instagram
+    url: https://instagram.com/behindtheresearch
+  - title: twitch
+    url: http://twitch.tv/behindtheresearch
+
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: #
 
 # Build settings
 markdown: kramdown
-
-theme: jekyll-theme-cayman
+permalink: pretty
