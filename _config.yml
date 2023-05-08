@@ -1,17 +1,64 @@
+baseurl: "" 
+url: "" 
+
 # Site settings
 title: Behind the Research
-email:
-description: > # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
+email: behind.research@gmail.com
+description: "An intiative at the University of Bath Maths Department, howcasing the real people that live and work behind the research."
 
-twitter_username: behindresearch
-github_username: behindtheresearch
-twitch_username: behindtheresearch
-instagram_username: behindtheresearch
-tiktok_username: behindtheresearch
+
+# Team names, titles and social links
+people:
+- name: Kat Phillips
+  pic: Kat
+  position: Lead of Behind the Research. Final year PhD Student studying Impacting Droplets. Maths Communicator under the brand "KatDoesMaths".
+  social:
+    - title: twitter
+      url: https://twitter.com/katdoesmaths
+    - title: website
+      url: https://katdoesmaths.me
+    - title: twitch
+      url: https://twitch.tv
+
+- name: Seb Scott
+  pic: Seb
+  position: Second year PhD student researching how machine learning can be used in colving inverse problems, such as those arising in medical imaging aplications.
+  social:
+    - title: website
+      url: https://people.bath.ac.uk/ss2767
+
+
+- name: Beth Stokes
+  pic: Beth
+  position: First year PhD student, studying collective motion of Trinidadian Guppies. Her research aim is to develop a mathematical model that describes their behaviour across multiple, spatioal, social, and temporal scales.
+  social:
+    - title: twitter
+      url: knottheoryknits
+    - title: website
+      url: https://people.bath.ac.uk/bms58
+
+- name: Henry Writer
+  pic: Henry
+  position: MRes Student at SAMBa CDT. Interested in studying analytic solution of NLS for Soliton Waves.
+  social:
+    - title: website
+      url: https://www.henrywritermaths.com/
+
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: http://twitter.com/behindreserach
+  - title: instagram
+    url: https://instagram.com/behingtheresearch
+  - title: stack-overflow
+    url: http://stackoverflow.com/questions/tagged/jekyll
+  - title: bitbucket 
+    url: http://bitbucket.org/jekyll
+
+
+# Postal address (add as many lines as necessary)
 
 # Build settings
 markdown: kramdown
-
-theme: jekyll-theme-cayman
+permalink: pretty
