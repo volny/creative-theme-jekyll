@@ -4,7 +4,7 @@ url: ""
 # Site settings
 title: Behind the Research
 email: behind.research@gmail.com
-description: "An intiative at the University of Bath Maths Department, howcasing the real people that live and work behind the research."
+description: "An intiative at the University of Bath Maths Department, showcasing the real people that live and work behind the research."
 
 
 # Team names, titles and social links
@@ -15,7 +15,7 @@ people:
   social:
     - title: twitter
       url: https://twitter.com/katdoesmaths
-    - title: website
+    - title: globe
       url: https://katdoesmaths.me
     - title: twitch
       url: https://twitch.tv
@@ -24,7 +24,7 @@ people:
   pic: Seb
   position: Second year PhD student researching how machine learning can be used in colving inverse problems, such as those arising in medical imaging aplications.
   social:
-    - title: website
+    - title: globe
       url: https://people.bath.ac.uk/ss2767
 
 
@@ -34,14 +34,14 @@ people:
   social:
     - title: twitter
       url: knottheoryknits
-    - title: website
+    - title: globe
       url: https://people.bath.ac.uk/bms58
 
 - name: Henry Writer
   pic: Henry
   position: MRes Student at SAMBa CDT. Interested in studying analytic solution of NLS for Soliton Waves.
   social:
-    - title: website
+    - title: globe
       url: https://www.henrywritermaths.com/
 
 
