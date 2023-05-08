@@ -22,7 +22,7 @@ people:
 
 - name: Seb Scott
   pic: seb
-  position: Second year PhD student researching how machine learning can be used in colving inverse problems, such as those arising in medical imaging aplications.
+  position: Second year PhD student researching how machine learning can be used in solving inverse problems, such as those arising in medical imaging aplications.
   social:
     - title: globe
       url: https://people.bath.ac.uk/ss2767
@@ -33,13 +33,13 @@ people:
   position: First year PhD student, studying collective motion of Trinidadian Guppies. Her research aim is to develop a mathematical model that describes their behaviour across multiple, spatioal, social, and temporal scales.
   social:
     - title: twitter
-      url: knottheoryknits
+      url: https://twitter.com/knottheoryknits
     - title: globe
       url: https://people.bath.ac.uk/bms58
 
 - name: Henry Writer
   pic: Henry
-  position: MRes Student at SAMBa CDT. Interested in studying analytic solution of NLS for Soliton Waves.
+  position: MRes Student at SAMBa CDT. Interested in studying numerical methods for fluid dynamical problems.
   social:
     - title: globe
       url: https://www.henrywritermaths.com/
@@ -48,7 +48,7 @@ people:
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/behindreserach
+    url: https://twitter.com/behindresearch
   - title: instagram
     url: https://instagram.com/behindtheresearch
   - title: twitch
