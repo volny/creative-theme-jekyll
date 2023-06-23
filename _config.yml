@@ -1,11 +1,11 @@
 # Site settings
-title:
+title: Sabrina Ariss' Portfolio
 email: ariss.n.sabrina@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "portolio" # the subpath of your site, e.g. /blog/
 url: "sabrina" # the base hostname & protocol for your site
 
-twitter_username:
+linkedin_username: sabrina-ariss-172132257
 github_username: sabrinaariss
 
 # Build settings
