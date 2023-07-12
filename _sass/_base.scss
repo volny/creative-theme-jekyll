@@ -287,7 +287,7 @@ header {
 
 // Page Header
 
-page-header {
+.page-header {
     position: relative;
     width: 100%;
     min-height: auto;
@@ -298,7 +298,6 @@ page-header {
         text-align: center;
         padding: 100px 15px 100px;
         width: 100%;
-            }
             hr {
                 margin: 30px auto;
             }
@@ -309,7 +308,6 @@ page-header {
                 margin-bottom: 50px;
             }
         }
-    }
         .page-header-content {
             position: absolute;
             top: 50%;
@@ -330,7 +328,6 @@ page-header {
             }
         }
     }
-}
 
 // Sections
 
