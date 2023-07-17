@@ -298,6 +298,13 @@ header {
         text-align: center;
         padding: 100px 15px 100px;
         width: 100%;
+       .page-header-content-inner {
+            h1 {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
             hr {
                 margin: 30px auto;
             }
@@ -308,6 +315,7 @@ header {
                 margin-bottom: 50px;
             }
         }
+    }
         @media (min-width: 768px) {
         min-height: 100%;
         .page-header-content {
