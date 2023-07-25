@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Standard Operating Procedure: Accepting DCP Content
 ## Purpose
 The purpose of this standard operating procedure is to ensure the correct files for DCP creation are sent to the editing team.
