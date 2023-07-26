@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top">
+  {% include page-nav.html %}
+  {% include SOP-page-header.html %}
+  {% include contact.html %}
+  {% include scripts.html %}
+</body>
+
+</html>
+
 # Standard Operating Procedure: Accepting DCP Content
 ## Purpose
 The purpose of this standard operating procedure is to ensure the correct files for DCP creation are sent to the editing team.
