@@ -22,7 +22,7 @@ people:
 
 - name: Seb Scott
   pic: seb
-  position: Second year PhD student researching how machine learning can be used in solving inverse problems, such as those arising in medical imaging aplications.
+  position: Second year PhD student researching how machine learning can be used in solving inverse problems, such as those arising in medical imaging applications.
   social:
     - title: globe
       url: https://people.bath.ac.uk/ss2767
@@ -53,6 +53,8 @@ social:
     url: https://instagram.com/behindtheresearch
   - title: twitch
     url: http://twitch.tv/behindtheresearch
+  - title: youtube
+    url: https://www.youtube.com/@behindtheresearch
   - title: tiktok
     url: http://tiktok.com/@behindtheresearch
 
