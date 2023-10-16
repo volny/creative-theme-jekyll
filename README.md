@@ -2,7 +2,7 @@
 
 Project Group Members:   
 Hyrum Bailey   
-Jessika Jimenez   
+Jessika Salinas      
 Rolando Quintana   
 Saoud Aldowaish   
    
