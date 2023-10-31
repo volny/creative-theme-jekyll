@@ -1,12 +1,12 @@
 # Site settings
-title:
+title: Sanyog's Peronsal Website
 email: vyawaharest@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 
-twitter_username:
-github_username:
+linkedin_username: https://www.linkedin.com/in/sanyogv/
+github_username: https://github.com/JackRio
 
 # Build settings
 markdown: kramdown
