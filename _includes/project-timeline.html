@@ -1,10 +1,21 @@
 <style>
-#timeline {
-  width: 900px; 
-  height: auto; 
-}
-</style>
+  <style>
+    .timeline {
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Make the container take up the full viewport height */
+    }
 
+    #timeline {
+      width: 500px; /* set your desired width */
+      height: auto; /* maintain aspect ratio */
+    }
+  </style>
+
+<div class="timeline">
 <project-timeline class="bg-dark" id="project-timeline">
     <div class="container-fluid">
         <div class="row">
@@ -16,18 +27,10 @@
             
                 <a href="#" class="portfolio-box">
                     <img id=timeline src="img/Project-Timeline2.png" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                               
-                            </div>
                             <div class="project-name">
                                 Final Project Timeline 2
                             </div>
-                        </div>
-                    </div>
                 </a>
-            
-        
     </div>
+ </div>
 </project-timeline>
