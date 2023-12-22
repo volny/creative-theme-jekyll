@@ -1,8 +1,12 @@
-# Creative Theme for Jekyll
+# Website for E-Trivium Capstone Project
 
-A Jekyll implementation of the [Creative Theme](http://startbootstrap.com/template-overviews/creative/) template by [Start Bootstrap](http://startbootstrap.com).
-
-Creative is a one page Bootstrap theme for creatives, small businesses, and other multipurpose uses.
-The theme includes a number of rich features and plugins that you can use as a great boilerplate for your next Jekyll project! 
-
-See it live in action at <https://volny.github.io/creative-theme-jekyll/>
+https://JessikaSalinas.github.io/E-Trivium/   
+This is the website for the E-Trivium Capstone Project for CS 4710 - Fall 2023    
+(Actual project repo: https://github.com/RolandoQuintana/E-Trivium-Capstone)      
+   
+Project Group Members:   
+Hyrum Bailey   
+Jessika Salinas      
+Rolando Quintana   
+Saoud Aldowaish   
+   
