@@ -75,11 +75,12 @@ aside {
     border-color: rgba($theme-dark, .5);
     @include sans-serif-font;
     @include transition-all;
-    .navbar-header .navbar-brand .img {
-        color: $theme-primary;
-        @include sans-serif-font;
-        font-weight: 700;
-        text-transform: uppercase;
+    .navbar-header .navbar-brand img {
+        // color: $theme-primary;
+        // @include sans-serif-font;
+        // font-weight: 700;
+        // text-transform: uppercase;
+        height: 100%;
         &:hover,
         &:focus {
             color: darken($theme-primary, 10%);
@@ -127,6 +128,9 @@ aside {
             }
         }
         &.affix {
+            .navbar-header .navbar-brand img {
+                filter: invert(100%);
+            }
             background-color: white;
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
