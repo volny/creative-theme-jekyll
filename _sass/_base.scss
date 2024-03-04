@@ -76,10 +76,6 @@ aside {
     @include sans-serif-font;
     @include transition-all;
     .navbar-header .navbar-brand img {
-        // color: $theme-primary;
-        // @include sans-serif-font;
-        // font-weight: 700;
-        // text-transform: uppercase;
         height: 100%;
         &:hover,
         &:focus {
@@ -129,7 +125,7 @@ aside {
         }
         &.affix {
             .navbar-header .navbar-brand img {
-                filter: invert(100%);
+                filter: invert(90%);
             }
             background-color: white;
             border-color: rgba($theme-dark, .5);
@@ -247,7 +243,7 @@ header {
             width: 100%;
             text-align: center;
             position: absolute;
-            top: 50px;
+            top: 100px;
             transform: translateY(-50%);
             .project-category,
             .project-name {
