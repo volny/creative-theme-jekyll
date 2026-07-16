@@ -1,2 +1,39 @@
-_site/
-.sass-cache/
+# Local AI tooling state and configuration
+.claude/
+.cursor/
+.continue/
+.cody/
+.aider*
+.copilot/
+
+# Agent guidance / instruction files (kept local, not published)
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+.cursorrules
+.github/copilot-instructions.md
+
+# AI-generated planning artifacts (specs, plans, designs)
+docs/superpowers/
+
+# Private documents (resumes in any format)
+Elder.Resume.pdf
+*.Resume.pdf
+*.resume.pdf
+*.Resume.docx
+*.resume.docx
+*.Resume.Vanguard.docx
+Elder.Resume.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local preview server logs
+portfolio-http-*.log
