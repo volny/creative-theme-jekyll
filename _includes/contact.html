@@ -1,12 +1,23 @@
 <section id="contact">
+    <!-- Contenu de aside.html -->
+    <aside class="container"> 
+      <div class="container text-center">
+          <div class="call-to-action">
+              <h2></h2>  <!-- join us -->
+              <a class="btn btn-default btn-xl wow tada">Nous contactez:</a>
+          </div>
+      </div>
+  </aside>
+    <!-- Contenu de contact.html -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Let's Get In Touch!</h2>
+                <h2 class="section-heading"></h2>
                 <hr class="primary">
-                <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                <p>Prêt à démarrer votre prochain projet avec nous ? Contactez nous, et nous vous répondrons dans les plus brefs délais.!</p>
             </div>
-        <div class="col-lg-2 col-lg-offset-2 text-center">
+       <!--
+            <div class="col-lg-2 col-lg-offset-2 text-center">
             <a href="https://twitter.com/{{ site.twitter_username }}">
                 <i class="fa fa-twitter fa-3x wow bounceIn" data-wow-delay=".1s"></i>
                 <p>{{ site.twitter_username }}</p>
@@ -15,7 +26,7 @@
         <div class="col-lg-2 col-lg-offset-1 text-center">
             <a href="mailto:{{ site.email }}">
             <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                <p>{{ site.email }}</p>
+                <p>{{ contact@elec-engineering.net }}</p>
             </a>
         </div>
         <div class="col-lg-2 col-lg-offset-1 text-center">
@@ -24,6 +35,33 @@
                 <p>{{ site.github_username }}</p>
             </a>
         </div>
+-->
+        <div class="col-lg-3 col-lg-offset-1 text-center">
+    <!-- Rubrique E-mail -->
+    <a href="mailto:{{ site.email }}">
+        <!--<i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>-->
+        <i class="fa-solid fa-envelope fa-3x wow bounceIn"></i>
+        <p>contact@elec-engineering.net</p>
+    </a>
+</div>
 
+<div class="col-lg-3 col-lg-offset-1 text-center">
+    <!-- Rubrique LinkedIn -->
+    <a href="https://linkedin.com/company/elc-engineering">
+       <!-- <i class="fa fa-linkedin fa-3x wow bounceIn" data-wow-delay=".2s"></i>-->
+        <i class="fa-brands fa-linkedin fa-3x wow bounceIn"></i>
+        <p>Elec-engineering</p>
+    </a>
+</div>
+
+<div class="col-lg-3 col-lg-offset-1 text-center">
+    <!-- Rubrique Numéro de téléphone -->
+    <a href="">
+        <!--<i class="fa fa-phone fa-3x wow bounceIn"></i>-->
+        <i class="fa-solid fa-phone fa-3x wow bounceIn"></i>
+        <p>+213 657 982 699</p> <!-- Remplacez par le numéro de téléphone réel -->
+    </a>
+</div>
+    
     </div>
 </section>

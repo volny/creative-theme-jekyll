@@ -1,3 +1,373 @@
----
-layout: front
----
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elec Engineering — Ingénierie et conseil en génie électrique</title>
+<meta name="description" content="Elec Engineering, bureau d'études spécialisé dans la conception de solutions électriques, climatiques et énergétiques pour bâtiments et infrastructures." />
+
+<!--
+  ============================================================
+  COMMENT MODIFIER CE SITE (lis-moi d'abord)
+  ============================================================
+  - Tout le texte visible est ci-dessous, en clair, entre les balises.
+    Cherche le mot que tu veux changer et remplace-le directement.
+  - Les couleurs / polices / espacements se règlent dans styles.css,
+    tout en haut du fichier (section ":root").
+  - Les images sont dans le dossier /img (à créer si besoin) et
+    référencées avec <img src="img/....jpg">. Remplace les fichiers
+    ou change les chemins src="".
+  - Chaque grande partie du site est encadrée par un commentaire
+    "SECTION: ..." ci-dessous pour la retrouver facilement.
+  ============================================================
+-->
+
+<!-- Polices Google Fonts : Space Grotesk (titres), Inter (texte), IBM Plex Mono (labels techniques) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- =================== SECTION : HEADER / NAVIGATION =================== -->
+<header class="site-header">
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="img/logo.png" alt="Elec Engineering" class="brand-logo">
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Réalisations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">NOUS CONTACTER</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- =================== SECTION : HERO =================== -->
+<section class="hero" id="top">
+  <div class="container">
+    <div>
+      <div class="hero-status">
+        <span class="dot"></span>
+        <span>Bureau d'études — Disponible pour nouveaux projets</span>
+      </div>
+      <h1>Ingénierie et conseil<br>en <span>génie électrique</span></h1>
+      <p class="lede">
+        Elec Engineering conçoit des solutions électriques, climatiques et
+        énergétiques sur mesure, des plans d'exécution aux notes de calcul,
+        pour des projets exigeants : data centers, infrastructures
+        aéroportuaires et bâtiments tertiaires.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Voir nos réalisations</a>
+        <a href="#contact" class="btn btn-ghost">Demander un devis</a>
+      </div>
+
+      <!-- Petit tableau de repères techniques, façon cartouche de plan -->
+      <div class="hero-specs">
+        <div>
+          <span class="k">Normes</span>
+          <span class="v">NF C14-100 / C15-100</span>
+        </div>
+        <div>
+          <span class="k">Livrables</span>
+          <span class="v">DWG · PDF · BIM</span>
+        </div>
+        <div>
+          <span class="k">Délai devis</span>
+          <span class="v">&lt; 48h</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo en grand format, posé sur un panneau clair pour ressortir sur le fond sombre -->
+    <div class="hero-schema" aria-hidden="true">
+      <div class="hero-logo-plate">
+        <img src="img/logo.png" alt="Elec Engineering">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bandeau de repères rapides -->
+<div class="trust-strip">
+  <div class="container">
+    <span>Génie électrique CFO / CFA</span>
+    <span>Génie climatique &amp; énergétique</span>
+    <span>Data centers</span>
+    <span>Infrastructures aéroportuaires</span>
+    <span>Normes NF C14-100 · NF C15-100</span>
+  </div>
+</div>
+
+<!-- =================== SECTION : À PROPOS =================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-figures">
+      <div class="figure-card">
+        <div class="num">2</div>
+        <div class="label">Domaines d'expertise<br>Électrique &amp; CVC</div>
+      </div>
+      <div class="figure-card">
+        <div class="num">3</div>
+        <div class="label">Logiciels métier<br>Revit · AutoCAD · Caneco BT</div>
+      </div>
+      <div class="figure-card">
+        <div class="num">100%</div>
+        <div class="label">Conformité aux normes<br>de sécurité électrique</div>
+      </div>
+    </div>
+
+    <div>
+      <p class="eyebrow">Notre expertise</p>
+      <h2>Une approche technique, au service de vos projets</h2>
+      <p class="lede" style="margin-bottom: 1.2rem;">
+        Nos ingénieurs analysent les besoins spécifiques de chaque projet de
+        construction ou de rénovation pour concevoir des solutions sur mesure
+        en électricité, CVC et performance énergétique.
+      </p>
+      <p style="margin-bottom: 1rem;">
+        Nous mettons un point d'honneur à améliorer la performance
+        énergétique des bâtiments : réduction de la consommation d'énergie,
+        réduction des émissions de gaz à effet de serre, et respect strict
+        des normes de sécurité électrique pour garantir fiabilité et sûreté.
+      </p>
+      <p>
+        Chaque choix matériel est justifié par des notes de calcul claires
+        et précises, garantissant un dimensionnement optimal et une
+        compréhension facile de nos recommandations par tout installateur.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SECTION : SERVICES =================== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head">
+      <div>
+        <p class="eyebrow">Ce que nous faisons</p>
+        <h2>Nos services</h2>
+      </div>
+      <p class="lede">Du chiffrage à la note de calcul, un accompagnement complet sur chaque lot technique.</p>
+    </div>
+
+    <!-- Groupe 1 : Génie électrique -->
+    <div class="service-group">
+      <div class="service-group-title">
+        <span>Génie électrique</span>
+        <span>01 — 04</span>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon" aria-hidden="true">
+              <!-- icône : règle / plan -->
+              <svg viewBox="0 0 24 24"><path d="M3 16 L16 3 L21 8 L8 21 Z"/><path d="M13 6 L15 8 M10 9 L12 11 M7 12 L9 14"/></svg>
+            </div>
+            <span class="idx">01</span>
+          </div>
+          <h4>Conception et dimensionnement</h4>
+          <p>Rédaction des CCTP, estimations budgétaires (DPGF), plans détaillés courants forts / courants faibles et sécurité incendie, schémas d'armoires et synoptiques.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon" aria-hidden="true">
+              <!-- icône : schéma électrique -->
+              <svg viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M5 7 V13 H19 V17"/></svg>
+            </div>
+            <span class="idx">02</span>
+          </div>
+          <h4>Études d'exécution</h4>
+          <p>Plans d'installation, schémas d'armoires, plans de réservation, calculs de chutes de tension, sections de câbles et protections, conformes NF C14-100 / NF C15-100.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon" aria-hidden="true">
+              <!-- icône : éclairage -->
+              <svg viewBox="0 0 24 24"><path d="M9 18 H15 M10 21 H14 M12 3 C8 3 6 6 6 9 C6 12 8 13 9 15 H15 C16 13 18 12 18 9 C18 6 16 3 12 3 Z"/></svg>
+            </div>
+            <span class="idx">03</span>
+          </div>
+          <h4>Implantation et éclairage</h4>
+          <p>Plans d'implantation des luminaires, chemins de câbles et équipements, schémas électriques détaillés et études photométriques.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon" aria-hidden="true">
+              <!-- icône : note de calcul -->
+              <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 8 H16 M8 12 H16 M8 16 H12"/></svg>
+            </div>
+            <span class="idx">04</span>
+          </div>
+          <h4>Notes de calcul et conformité</h4>
+          <p>Dimensionnement des câbles et protections, équilibrage des phases et sélectivité, bilans de puissance et schémas unifilaires.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Groupe 2 : Génie climatique et énergétique -->
+    <div class="service-group">
+      <div class="service-group-title">
+        <span>Génie climatique &amp; énergétique</span>
+        <span>05 — 06</span>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon" aria-hidden="true">
+              <!-- icône : document / analyse -->
+              <svg viewBox="0 0 24 24"><path d="M7 3 H14 L18 7 V21 H7 Z"/><path d="M14 3 V7 H18"/><path d="M9.5 12 L11 14 L14.5 10"/></svg>
+            </div>
+            <span class="idx">05</span>
+          </div>
+          <h4>Analyse des documents techniques</h4>
+          <p>Étude des pièces graphiques et écrites pour établir un chiffrage précis, conforme aux attentes du maître d'ouvrage.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card-top">
+            <div class="service-icon" aria-hidden="true">
+              <!-- icône : thermique / CVC -->
+              <svg viewBox="0 0 24 24"><path d="M12 3 V13" /><circle cx="12" cy="17" r="3"/><path d="M9 6 H12 M9 9 H12"/></svg>
+            </div>
+            <span class="idx">06</span>
+          </div>
+          <h4>Étude de prix CVC</h4>
+          <p>Chiffrage des travaux d'installation en chauffage, climatisation, désenfumage et plomberie sanitaire, avec estimation réaliste adaptée à chaque projet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SECTION : RÉALISATIONS =================== -->
+<section class="projects" id="projects">
+  <div class="container">
+    <p class="eyebrow">Références</p>
+    <h2>Nos réalisations</h2>
+
+    <!-- Projet 1 -->
+    <div class="project">
+      <div class="project-media">
+        <!-- Remplace cette image par la tienne : img/datacenter.jpg -->
+        <img src="img/datacenter.jpg" alt="Salle serveurs d'un data center réhabilité" />
+      </div>
+      <div>
+        <span class="project-tag">Data centers — Courbevoie &amp; Lognes</span>
+        <h3>Réhabilitation de data centers</h3>
+        <p>
+          Études d'exécution des installations électriques pour deux projets
+          de réhabilitation de data centers, intégrant des exigences élevées
+          en continuité de service, redondance des alimentations et
+          sécurisation des infrastructures critiques.
+        </p>
+        <div class="project-lists">
+          <div>
+            <h5>Prestations</h5>
+            <ul>
+              <li>Études d'exécution CFO/CFA</li>
+              <li>Plans d'implantation des équipements</li>
+              <li>Plans de cheminements et réservations</li>
+              <li>Schémas unifilaires et synoptiques</li>
+              <li>Modélisation BIM des réseaux électriques</li>
+              <li>Notes de calcul et dimensionnement</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Logiciels</h5>
+            <ul>
+              <li>Revit (BIM)</li>
+              <li>AutoCAD</li>
+              <li>Caneco BT</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 2 -->
+    <div class="project">
+      <div class="project-media">
+        <!-- Remplace cette image par la tienne : img/aeroport.jpg -->
+        <img src="img/aeroport.jpg" alt="Vue aérienne d'infrastructures aéroportuaires" />
+      </div>
+      <div>
+        <span class="project-tag">Infrastructures aéroportuaires — Paris-CDG &amp; Paris-Orly</span>
+        <h3>Réhabilitation et extension d'infrastructures aéroportuaires</h3>
+        <p>
+          Études d'exécution dans le cadre de projets de réhabilitation et
+          d'extension, incluant la production des plans techniques et des
+          notes de calcul nécessaires à la réalisation des installations
+          électriques.
+        </p>
+        <div class="project-lists">
+          <div>
+            <h5>Prestations</h5>
+            <ul>
+              <li>Production de plans d'exécution</li>
+              <li>Schémas électriques</li>
+              <li>Notes de calcul électriques</li>
+              <li>Mise à jour des documents techniques</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Logiciels</h5>
+            <ul>
+              <li>AutoCAD</li>
+              <li>Caneco BT</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SECTION : CONTACT =================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow">Discutons de votre projet</p>
+        <h2>Une idée, un projet, un défi technique ?</h2>
+        <p class="lede">
+          Nous sommes à vos côtés pour le réaliser avec fiabilité et
+          expertise. Contactez-nous pour en savoir plus.
+        </p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:contact@elec-engineering.net" class="contact-link">
+          <span>Email</span><span>contact@elec-engineering.net</span>
+        </a>
+        <a href="tel:+213657982699" class="contact-link">
+          <span>Téléphone</span><span>+213 657 982 699</span>
+        </a>
+        <a href="https://linkedin.com/company/elc-engineering" target="_blank" rel="noopener" class="contact-link">
+          <span>LinkedIn</span><span>Elec-Engineering</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SECTION : FOOTER =================== -->
+<footer class="site-footer">
+  <div class="container">
+    <span>© <span id="year"></span> Elec Engineering — Tous droits réservés</span>
+    <span>elec-engineering.net</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -112,7 +112,7 @@ aside {
         background-color: transparent;
         border-color: rgba(white, .3);
         .navbar-header .navbar-brand {
-            color: rgba(white, .7);
+            color: white; //rgba(white, .7)
             &:hover,
             &:focus {
                 color: white;
@@ -120,7 +120,7 @@ aside {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: rgba(white, .7);
+            color: #004d00; //.7
             &:hover {
                 color: white;
             }
@@ -157,25 +157,30 @@ header {
     background-position: center;
     background-image: url('../img/header.jpg');
     text-align: center;
-    color: white;
+    color: #000000;
     .header-content {
         position: relative;
         text-align: center;
         padding: 100px 15px 100px;
         width: 100%;
         .header-content-inner {
+            background-color: #32cd32; // Arrière-plan vert foncé #004d00
+            padding: 10px; // Espacement autour du texte
+            border-radius: 5px; // Coins arrondis
+            display: inline-block; // Limite le fond au texte
             h1 {
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-top: 0;
                 margin-bottom: 0;
+                color: white; // Titre en blanc
             }
             hr {
                 margin: 30px auto;
             }
             p {
                 font-weight: 300;
-                color: rgba(white, .7);
+                color: rgba(white, .9);
                 font-size: 16px;
                 margin-bottom: 50px;
             }

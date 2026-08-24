@@ -1,0 +1,730 @@
+/* ============================================================
+   ELEC ENGINEERING — Feuille de style
+   ------------------------------------------------------------
+   COMMENT MODIFIER FACILEMENT :
+   1) Les couleurs et polices sont définies une seule fois en haut
+      dans ":root" (variables CSS). Change une valeur ici et elle
+      se répercute partout dans le site.
+   2) Le fichier est découpé en sections clairement commentées
+      (RESET, HEADER, HERO, SERVICES, etc.) — cherche le titre
+      de la section que tu veux modifier.
+   ============================================================ */
+
+/* ---------- 1. VARIABLES DE DESIGN (à éditer en priorité) ---------- */
+:root {
+  /* Couleurs — reprises de ton logo actuel (vert profond + crème) */
+  --ink: #12211d;              /* texte principal, quasi noir-vert */
+  --ink-soft: #3d5148;         /* texte secondaire */
+  --teal: #1f4d3e;             /* vert profond — couleur de marque */
+  --teal-light: #2f6b57;       /* vert plus clair pour hover/accents */
+  --copper: #c17a3f;           /* cuivre — clin d'œil au fil électrique */
+  --paper: #f6f3ec;            /* fond crème principal */
+  --paper-alt: #ede7d8;        /* fond crème plus soutenu (bandeaux) */
+  --white: #fffdf9;
+  --line: rgba(18, 33, 29, 0.14);
+
+  /* Typographies (chargées depuis Google Fonts dans index.html) */
+  --font-display: "Space Grotesk", "Arial Narrow", sans-serif; /* titres */
+  --font-body: "Inter", -apple-system, sans-serif;             /* texte courant */
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;      /* labels / repères techniques */
+
+  /* Échelle d'espacement */
+  --gap-xs: 0.5rem;
+  --gap-s: 1rem;
+  --gap-m: 2rem;
+  --gap-l: 4rem;
+  --gap-xl: 8rem;
+
+  --max-width: 1180px;
+  --radius: 2px; /* le site reste anguleux, façon plan technique */
+}
+
+/* ---------- 2. RESET / BASE ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gap-m);
+}
+
+section { position: relative; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--gap-s);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--copper);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--teal);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  margin-bottom: var(--gap-m);
+}
+
+p { color: var(--ink-soft); }
+
+.lede {
+  font-size: 1.15rem;
+  max-width: 62ch;
+}
+
+/* ---------- 3. HEADER / NAVIGATION ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(246, 243, 236, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--gap-l);
+  font-size: 0.92rem;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 0.25rem 0;
+  color: var(--ink);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--copper);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  border: 1px solid var(--teal);
+  padding: 0.5rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-cta:hover { background: var(--teal); color: var(--white); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--teal);
+}
+
+/* ---------- 4. HERO ---------- */
+.hero {
+  padding: calc(74px + var(--gap-xl)) 0 var(--gap-l);
+  overflow: hidden;
+  position: relative;
+  /* Fond dégradé sombre — plus premium qu'une grille de plan, garde l'identité verte */
+  background: radial-gradient(ellipse at 80% 20%, rgba(193, 122, 63, 0.18), transparent 55%),
+              linear-gradient(155deg, #0e1c18 0%, var(--teal) 62%, var(--teal-light) 100%);
+}
+
+.hero,
+.hero h1,
+.hero .lede { color: var(--paper); }
+
+.hero h1 span { color: var(--copper); }
+
+/* Ligne de "scan" qui traverse la hero une fois au chargement — clin d'œil diagnostic/IT */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(246, 243, 236, 0.6), transparent);
+  animation: scan 2.6s ease-in-out 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after { display: none; }
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--gap-l);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Panneau "statut système" — renforce le côté technique / monitoring */
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(246, 243, 236, 0.85);
+  border: 1px solid rgba(246, 243, 236, 0.22);
+  background: rgba(246, 243, 236, 0.06);
+  padding: 0.45rem 0.9rem;
+  margin-bottom: var(--gap-m);
+}
+
+.hero-status .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--copper);
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero .btn-ghost {
+  color: var(--paper);
+  border-color: rgba(246, 243, 236, 0.4);
+}
+
+.hero .btn-ghost:hover {
+  background: rgba(246, 243, 236, 0.1);
+  color: var(--paper);
+}
+
+.hero-specs {
+  margin-top: var(--gap-m);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(246, 243, 236, 0.18);
+  background: rgba(246, 243, 236, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.hero-specs div {
+  padding: 0.7rem 0.9rem;
+  border-right: 1px solid rgba(246, 243, 236, 0.18);
+}
+
+.hero-specs div:last-child { border-right: none; }
+
+.hero-specs .k {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 0.2rem;
+}
+
+.hero-specs .v {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--paper);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin-bottom: var(--gap-s);
+}
+
+.hero h1 span { color: var(--copper); }
+
+.hero .lede { margin-bottom: var(--gap-m); }
+
+.hero-actions {
+  display: flex;
+  gap: var(--gap-s);
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--teal);
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.btn-primary { background: var(--teal); color: var(--white); }
+.btn-primary:hover { background: var(--teal-light); border-color: var(--teal-light); }
+
+.btn-ghost { color: var(--teal); }
+.btn-ghost:hover { background: var(--teal); color: var(--white); }
+
+/* Cadre qui accueille le logo — signature visuelle du site */
+.hero-schema {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border: 1px solid rgba(246, 243, 236, 0.18);
+  background: rgba(246, 243, 236, 0.04);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12%;
+}
+
+/* Plaque claire derrière le logo : nécessaire car le logo est en vert
+   foncé et se lirait mal directement sur le fond sombre de la hero */
+.hero-logo-plate {
+  width: 100%;
+  background: var(--paper);
+  border: 1px solid rgba(246, 243, 236, 0.4);
+  padding: 12% 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.hero-logo-plate img {
+  width: 100%;
+  height: auto;
+}
+
+/* Coins façon viseur / plan technique, sur chaque angle du cadre */
+.hero-schema::before,
+.hero-schema::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--copper);
+}
+
+.hero-schema::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.hero-schema::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* ---------- 5. STRIP DE CONFIANCE (références rapides) ---------- */
+.trust-strip {
+  background: var(--teal);
+  color: var(--paper);
+  padding: var(--gap-s) 0;
+}
+
+.trust-strip .container {
+  display: flex;
+  gap: var(--gap-l);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ---------- 6. ABOUT ---------- */
+.about {
+  padding: var(--gap-xl) 0;
+}
+
+.about .container {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--gap-l);
+}
+
+.about-figures {
+  display: grid;
+  gap: var(--gap-s);
+  align-content: start;
+}
+
+.figure-card {
+  border: 1px solid var(--line);
+  padding: var(--gap-s) var(--gap-m);
+  background: var(--white);
+}
+
+.figure-card .num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--copper);
+  line-height: 1;
+}
+
+.figure-card .label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+}
+
+/* ---------- 7. SERVICES ---------- */
+.services {
+  padding: var(--gap-xl) 0;
+  background: var(--paper-alt);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.services-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--gap-m);
+  margin-bottom: var(--gap-l);
+  flex-wrap: wrap;
+}
+
+.service-group { margin-bottom: var(--gap-l); }
+.service-group:last-child { margin-bottom: 0; }
+
+.service-group-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--gap-s);
+  margin-bottom: var(--gap-m);
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.service-card {
+  background: var(--white);
+  padding: var(--gap-m);
+  position: relative;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  background: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(18, 33, 29, 0.1);
+  z-index: 2;
+}
+
+/* Liseré supérieur qui s'active au survol — accent cuivre discret */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--gap-s);
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.service-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--teal);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.service-card:hover .service-icon {
+  border-color: var(--copper);
+  background: var(--paper);
+}
+
+.service-card .idx {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--copper);
+  display: block;
+  padding-top: 0.4rem;
+}
+
+.service-card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p { font-size: 0.92rem; }
+
+/* ---------- 8. RÉALISATIONS ---------- */
+.projects { padding: var(--gap-xl) 0; }
+
+.project {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--gap-l);
+  align-items: center;
+  padding: var(--gap-l) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project:last-child { border-bottom: none; }
+.project:nth-child(even) .project-media { order: 2; }
+
+.project-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(35%);
+  transition: filter 0.3s ease;
+}
+
+.project-media:hover img { filter: grayscale(0%); }
+
+.project-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--copper);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.project h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+
+.project-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-s);
+  margin-top: var(--gap-s);
+}
+
+.project-lists h5 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.project-lists ul { list-style: none; font-size: 0.88rem; }
+
+.project-lists li {
+  padding-left: 1rem;
+  position: relative;
+  margin-bottom: 0.3rem;
+  color: var(--ink-soft);
+}
+
+.project-lists li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--copper);
+}
+
+/* ---------- 9. CONTACT ---------- */
+.contact {
+  background: var(--teal);
+  color: var(--paper);
+  padding: var(--gap-xl) 0;
+}
+
+.contact .eyebrow { color: var(--copper); }
+.contact .eyebrow::before { background: var(--copper); }
+
+.contact h2 { color: var(--white); }
+
+.contact .lede { color: rgba(246, 243, 236, 0.78); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--gap-l);
+  align-items: end;
+}
+
+.contact-links {
+  display: grid;
+  gap: var(--gap-s);
+}
+
+.contact-link {
+  border-top: 1px solid rgba(246, 243, 236, 0.2);
+  padding: var(--gap-s) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.contact-link:last-child { border-bottom: 1px solid rgba(246, 243, 236, 0.2); }
+
+.contact-link span:first-child {
+  color: rgba(246, 243, 236, 0.55);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-link:hover span:last-child { color: var(--copper); }
+
+/* ---------- 10. FOOTER ---------- */
+.site-footer {
+  background: var(--ink);
+  color: rgba(246, 243, 236, 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: var(--gap-m) 0;
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--gap-s);
+}
+
+/* ---------- 11. RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero .container,
+  .about .container,
+  .project,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project:nth-child(even) .project-media { order: 0; }
+
+  .service-grid { grid-template-columns: 1fr; }
+
+  .nav-links, .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    padding: var(--gap-m);
+    border-bottom: 1px solid var(--line);
+    gap: var(--gap-s);
+  }
+
+  .project-lists { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .about-figures { grid-template-columns: 1fr 1fr; }
+}

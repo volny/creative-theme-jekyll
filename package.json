@@ -1,0 +1,7 @@
+{
+  "name": "amineenim15.github.io",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "bundle install && jekyll build"
+  }
+}
